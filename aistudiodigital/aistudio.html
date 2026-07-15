@@ -34,19 +34,11 @@
                 </div>
                 
                 <div class="menu-category">
-                    <div class="category-title"><i class="fas fa-database"></i> Data Management</div>
-                    <div class="menu-item" data-module="datasetmanager">
-                        <i class="fas fa-database"></i>
-                        <span>Dataset Manager</span>
-                    </div>
-                    <div class="menu-item" data-module="filemanager">
-                        <i class="fas fa-folder-open"></i>
-                        <span>File Manager</span>
-                    </div>
-                </div>
-                
-                <div class="menu-category">
                     <div class="category-title"><i class="fas fa-code"></i> Development</div>
+                    <div class="menu-item" data-module="code">
+                        <i class="fas fa-folder-tree"></i>
+                        <span>Code</span>
+                    </div>
                     <div class="menu-item" data-module="landingpage">
                         <i class="fas fa-globe"></i>
                         <span>Landing Page</span>
@@ -58,7 +50,11 @@
                 </div>
                 
                 <div class="menu-category">
-                    <div class="category-title"><i class="fas fa-chart-line"></i> Analytics</div>
+                    <div class="category-title"><i class="fas fa-database"></i> Data Management</div>
+                    <div class="menu-item" data-module="chatdownloadmanager">
+                        <i class="fas fa-comments"></i>
+                        <span>Chat Download</span>
+                    </div>
                     <div class="menu-item" data-module="analytics">
                         <i class="fas fa-chart-bar"></i>
                         <span>Analytics</span>
@@ -66,6 +62,30 @@
                     <div class="menu-item" data-module="reports">
                         <i class="fas fa-file-alt"></i>
                         <span>Reports</span>
+                    </div>
+                </div>
+                
+                <div class="menu-category">
+                    <div class="category-title"><i class="fas fa-rocket"></i> Advanced</div>
+                    <div class="menu-item" data-module="deployment">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Deployment</span>
+                    </div>
+                    <div class="menu-item" data-module="versioncontrol">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Version Control</span>
+                    </div>
+                    <div class="menu-item" data-module="security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </div>
+                    <div class="menu-item" data-module="backup">
+                        <i class="fas fa-save"></i>
+                        <span>Backup</span>
+                    </div>
+                    <div class="menu-item" data-module="collaboration">
+                        <i class="fas fa-users"></i>
+                        <span>Collaboration</span>
                     </div>
                 </div>
             </nav>
@@ -177,11 +197,40 @@
             
             <!-- Content Workspace -->
             <div class="workspace">
-                <!-- Editor/Content Panel -->
+                <!-- Live Preview Panel - Top Center -->
+                <div class="live-preview-panel" id="livePreviewPanel">
+                    <div class="preview-header">
+                        <div class="preview-title">
+                            <i class="fas fa-eye"></i>
+                            <span>Live Preview</span>
+                        </div>
+                        <div class="preview-actions">
+                            <button class="btn-preview" onclick="refreshPreview()" title="Refresh">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="btn-preview" onclick="toggleFullscreen()" title="Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-container" id="previewContainer">
+                        <iframe 
+                            class="preview-frame" 
+                            id="previewFrame" 
+                            src="about:blank"
+                            sandbox="allow-scripts allow-same-origin"
+                        ></iframe>
+                    </div>
+                </div>
+                
+                <!-- Editor/Content Panel - Bottom -->
                 <div class="content-panel" id="contentPanel">
                     <div class="panel-tabs">
                         <button class="panel-tab active" onclick="switchEditorTab('editor')">
                             <i class="fas fa-edit"></i> Editor
+                        </button>
+                        <button class="panel-tab" onclick="switchEditorTab('code-tree')">
+                            <i class="fas fa-folder-tree"></i> Code Tree
                         </button>
                         <button class="panel-tab" onclick="switchEditorTab('properties')">
                             <i class="fas fa-sliders-h"></i> Properties
@@ -221,6 +270,10 @@
                             ></textarea>
                         </div>
                         
+                        <div class="code-tree-view hidden" id="codeTreeView">
+                            <!-- Code tree will be loaded from Code module -->
+                        </div>
+                        
                         <div class="properties-panel hidden" id="propertiesPanel">
                             <!-- Properties will be loaded dynamically -->
                         </div>
@@ -228,32 +281,6 @@
                         <div class="history-panel hidden" id="historyPanel">
                             <!-- History will be loaded dynamically -->
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Preview Panel -->
-                <div class="preview-panel" id="previewPanel">
-                    <div class="preview-header">
-                        <div class="preview-title">
-                            <i class="fas fa-desktop"></i>
-                            <span id="previewTitle">Live Preview</span>
-                        </div>
-                        <div class="preview-actions">
-                            <button class="btn-preview" onclick="refreshPreview()" title="Refresh">
-                                <i class="fas fa-sync-alt"></i>
-                            </button>
-                            <button class="btn-preview" onclick="toggleFullscreen()" title="Fullscreen">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="preview-container" id="previewContainer">
-                        <iframe 
-                            class="preview-frame" 
-                            id="previewFrame" 
-                            src="about:blank"
-                            sandbox="allow-scripts allow-same-origin"
-                        ></iframe>
                     </div>
                 </div>
             </div>
