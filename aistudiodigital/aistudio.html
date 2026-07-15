@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio Digital - SoutheastApp</title>
+    <link rel="stylesheet" href="../css/ai-studio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e1b4b 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .studio-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-header i {
+            font-size: 24px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .module-search {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .module-search input {
+            width: 100%;
+            padding: 10px 15px;
+            background: var(--dark-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+
+        .module-search input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .modules-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .module-category {
+            margin-bottom: 20px;
+        }
+
+        .category-title {
+            padding: 10px 15px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+        }
+
+        .module-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 12px;
+        }
+
+        .module-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+        }
+
+        .module-item.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .module-item i {
+            font-size: 18px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .module-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            padding: 15px 25px;
+            background: rgba(30, 41, 59, 0.5);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb i {
+            color: var(--primary-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        /* Workspace */
+        .workspace {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        /* Editor Panel */
+        .editor-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .panel-tabs {
+            display: flex;
+            padding: 10px 15px 0;
+            gap: 5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .panel-tab {
+            padding: 8px 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 6px 6px 0 0;
+            transition: all 0.2s ease;
+        }
+
+        .panel-tab:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-primary);
+        }
+
+        .panel-tab.active {
+            background: var(--card-bg);
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .code-editor {
+            flex: 1;
+            padding: 20px;
+            background: var(--dark-bg);
+            overflow: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .code-line {
+            display: flex;
+            gap: 15px;
+        }
+
+        .line-number {
+            color: var(--text-secondary);
+            user-select: none;
+            width: 40px;
+            text-align: right;
+        }
+
+        .code-content {
+            color: var(--text-primary);
+        }
+
+        .keyword { color: #c678dd; }
+        .string { color: #98c379; }
+        .comment { color: #5c6370; font-style: italic; }
+        .function { color: #61afef; }
+
+        /* Preview Panel */
+        .preview-panel {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            background: var(--card-bg);
+        }
+
+        .preview-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .preview-title {
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .preview-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .preview-frame {
+            flex: 1;
+            background: white;
+            border: none;
+            margin: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Module Info Panel */
+        .info-panel {
+            padding: 20px;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .info-section {
+            margin-bottom: 15px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .sidebar {
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .workspace {
+                flex-direction: column;
+            }
+
+            .preview-panel {
+                width: 100%;
+                height: 40%;
+            }
+
+            .editor-panel {
+                height: 60%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -280px;
+                top: 0;
+                height: 100vh;
+                z-index: 1000;
+            }
+
+            .sidebar.open {
+                transform: translateX(280px);
+            }
+
+            .mobile-toggle {
+                display: block !important;
+            }
+        }
+
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1001;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <button class="mobile-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="studio-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-robot"></i>
+                <h2>AI Studio Digital</h2>
+            </div>
+
+            <div class="module-search">
+                <input type="text" placeholder="Cari modul..." id="moduleSearch" onkeyup="filterModules()">
+            </div>
+
+            <div class="modules-list" id="modulesList">
+                <!-- Modules will be loaded dynamically -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="breadcrumb">
+                    <i class="fas fa-home"></i>
+                    <span>AI Studio</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span id="currentModule">Dashboard</span>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-action btn-secondary" onclick="refreshPreview()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                    <button class="btn-action btn-primary" onclick="runCode()">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                    <button class="btn-action btn-secondary" onclick="exportProject()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Workspace -->
+            <div class="workspace">
+                <!-- Editor Panel -->
+                <div class="editor-panel">
+                    <div class="panel-tabs">
+                        <button class="panel-tab active" onclick="switchTab('html')">
+                            <i class="fab fa-html5"></i> HTML
+                        </button>
+                        <button class="panel-tab" onclick="switchTab('css')">
+                            <i class="fab fa-css3-alt"></i> CSS
+                        </button>
+                        <button class="panel-tab" onclick="switchTab('js')">
+                            <i class="fab fa-js"></i> JavaScript
+                        </button>
+                        <button class="panel-tab" onclick="switchTab('config')">
+                            <i class="fas fa-cog"></i> Config
+                        </button>
+                    </div>
+                    <div class="code-editor" id="codeEditor">
+                        <div class="code-line">
+                            <span class="line-number">1</span>
+                            <span class="code-content"><span class="comment">// Pilih modul dari sidebar untuk mulai coding</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Preview Panel -->
+                <div class="preview-panel">
+                    <div class="preview-header">
+                        <div class="preview-title">
+                            <i class="fas fa-eye"></i> Live Preview
+                        </div>
+                        <div class="preview-controls">
+                            <button class="btn-action btn-secondary" onclick="toggleDevice('desktop')">
+                                <i class="fas fa-desktop"></i>
+                            </button>
+                            <button class="btn-action btn-secondary" onclick="toggleDevice('tablet')">
+                                <i class="fas fa-tablet-alt"></i>
+                            </button>
+                            <button class="btn-action btn-secondary" onclick="toggleDevice('mobile')">
+                                <i class="fas fa-mobile-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <iframe class="preview-frame" id="previewFrame" src="about:blank"></iframe>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-panel" id="infoPanel">
+                <div class="info-section">
+                    <div class="info-label">Deskripsi</div>
+                    <div class="info-value" id="moduleDescription">Pilih modul untuk melihat deskripsi</div>
+                </div>
+                <div class="info-section">
+                    <div class="info-label">File Terkait</div>
+                    <div class="info-value" id="moduleFiles">-</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Module Database (Ratusan Modul)
+        const modules = [
+            // AI & Machine Learning
+            { id: 'chatbot', name: 'AI Chatbot', category: 'AI & ML', icon: 'fa-comments', files: ['modules/chatbot/chatbot.html', 'modules/chatbot/chatbot.css', 'modules/chatbot/chatbot.js'], desc: 'Sistem chatbot dengan AI natural language processing' },
+            { id: 'imagegen', name: 'Image Generator', category: 'AI & ML', icon: 'fa-image', files: ['imagegen.html', 'imagegen.css', 'imagegen.js'], desc: 'Generate gambar dari teks menggunakan AI' },
+            { id: 'voiceai', name: 'Voice AI', category: 'AI & ML', icon: 'fa-microphone', files: ['voiceai.html', 'voiceai.css', 'voiceai.js'], desc: 'Speech-to-text dan text-to-speech converter' },
+            { id: 'sentiment', name: 'Sentiment Analysis', category: 'AI & ML', icon: 'fa-heart', files: ['sentiment.html', 'sentiment.css', 'sentiment.js'], desc: 'Analisis sentimen teks otomatis' },
+            { id: 'translator', name: 'AI Translator', category: 'AI & ML', icon: 'fa-language', files: ['translator.html', 'translator.css', 'translator.js'], desc: 'Penerjemah bahasa berbasis AI' },
+            
+            // Web Development
+            { id: 'landingpage', name: 'Landing Page Builder', category: 'Web Dev', icon: 'fa-globe', files: ['landing.html', 'landing.css', 'landing.js'], desc: 'Builder landing page drag-and-drop' },
+            { id: 'ecommerce', name: 'E-commerce Template', category: 'Web Dev', icon: 'fa-shopping-cart', files: ['ecommerce.html', 'ecommerce.css', 'ecommerce.js'], desc: 'Template toko online lengkap' },
+            { id: 'dashboard', name: 'Admin Dashboard', category: 'Web Dev', icon: 'fa-tachometer-alt', files: ['dashboard.html', 'dashboard.css', 'dashboard.js'], desc: 'Dashboard admin dengan charts' },
+            { id: 'portfolio', name: 'Portfolio Site', category: 'Web Dev', icon: 'fa-user-circle', files: ['portfolio.html', 'portfolio.css', 'portfolio.js'], desc: 'Website portfolio personal' },
+            { id: 'blog', name: 'Blog Platform', category: 'Web Dev', icon: 'fa-newspaper', files: ['blog.html', 'blog.css', 'blog.js'], desc: 'Platform blogging modern' },
+            
+            // UI Components
+            { id: 'buttons', name: 'Button Collection', category: 'UI Components', icon: 'fa-square', files: ['buttons.html', 'buttons.css', 'buttons.js'], desc: 'Koleksi tombol dengan berbagai style' },
+            { id: 'forms', name: 'Form Elements', category: 'UI Components', icon: 'fa-edit', files: ['forms.html', 'forms.css', 'forms.js'], desc: 'Elemen form interaktif' },
+            { id: 'cards', name: 'Card Designs', category: 'UI Components', icon: 'fa-clone', files: ['cards.html', 'cards.css', 'cards.js'], desc: 'Desain card untuk berbagai keperluan' },
+            { id: 'modals', name: 'Modal Windows', category: 'UI Components', icon: 'fa-window-maximize', files: ['modals.html', 'modals.css', 'modals.js'], desc: 'Popup modal dengan animasi' },
+            { id: 'navbars', name: 'Navigation Bars', category: 'UI Components', icon: 'fa-bars', files: ['navbars.html', 'navbars.css', 'navbars.js'], desc: 'Variasi navbar responsive' },
+            
+            // Animations
+            { id: 'animations', name: 'CSS Animations', category: 'Animations', icon: 'fa-magic', files: ['animations.html', 'animations.css', 'animations.js'], desc: 'Koleksi animasi CSS' },
+            { id: 'transitions', name: 'Page Transitions', category: 'Animations', icon: 'fa-exchange-alt', files: ['transitions.html', 'transitions.css', 'transitions.js'], desc: 'Transisi halaman smooth' },
+            { id: 'loaders', name: 'Loading Spinners', category: 'Animations', icon: 'fa-spinner', files: ['loaders.html', 'loaders.css', 'loaders.js'], desc: 'Animasi loading berbagai style' },
+            { id: 'hoverfx', name: 'Hover Effects', category: 'Animations', icon: 'fa-hand-pointer', files: ['hoverfx.html', 'hoverfx.css', 'hoverfx.js'], desc: 'Efek hover interaktif' },
+            
+            // Data Visualization
+            { id: 'charts', name: 'Chart Library', category: 'Data Viz', icon: 'fa-chart-line', files: ['charts.html', 'charts.css', 'charts.js'], desc: 'Grafik dan chart interaktif' },
+            { id: 'maps', name: 'Interactive Maps', category: 'Data Viz', icon: 'fa-map-marked', files: ['maps.html', 'maps.css', 'maps.js'], desc: 'Peta interaktif dengan markers' },
+            { id: 'tables', name: 'Data Tables', category: 'Data Viz', icon: 'fa-table', files: ['tables.html', 'tables.css', 'tables.js'], desc: 'Tabel data dengan sorting & pagination' },
+            { id: 'infographics', name: 'Infographics', category: 'Data Viz', icon: 'fa-chart-pie', files: ['infographics.html', 'infographics.css', 'infographics.js'], desc: 'Visualisasi data infografis' },
+            
+            // Utilities
+            { id: 'validator', name: 'Form Validator', category: 'Utilities', icon: 'fa-check-circle', files: ['validator.html', 'validator.css', 'validator.js'], desc: 'Validasi form client-side' },
+            { id: 'uploader', name: 'File Uploader', category: 'Utilities', icon: 'fa-upload', files: ['uploader.html', 'uploader.css', 'uploader.js'], desc: 'Upload file dengan progress bar' },
+            { id: 'editor', name: 'Rich Text Editor', category: 'Utilities', icon: 'fa-font', files: ['editor.html', 'editor.css', 'editor.js'], desc: 'Editor teks WYSIWYG' },
+            { id: 'calendar', name: 'Calendar Widget', category: 'Utilities', icon: 'fa-calendar-alt', files: ['calendar.html', 'calendar.css', 'calendar.js'], desc: 'Widget kalender interaktif' },
+            { id: 'slider', name: 'Image Slider', category: 'Utilities', icon: 'fa-images', files: ['slider.html', 'slider.css', 'slider.js'], desc: 'Carousel image responsive' },
+            
+            // E-commerce
+            { id: 'productcard', name: 'Product Card', category: 'E-commerce', icon: 'fa-tag', files: ['productcard.html', 'productcard.css', 'productcard.js'], desc: 'Kartu produk e-commerce' },
+            { id: 'cart', name: 'Shopping Cart', category: 'E-commerce', icon: 'fa-shopping-basket', files: ['cart.html', 'cart.css', 'cart.js'], desc: 'Sistem keranjang belanja' },
+            { id: 'checkout', name: 'Checkout Flow', category: 'E-commerce', icon: 'fa-credit-card', files: ['checkout.html', 'checkout.css', 'checkout.js'], desc: 'Proses checkout multi-step' },
+            { id: 'reviews', name: 'Review System', category: 'E-commerce', icon: 'fa-star', files: ['reviews.html', 'reviews.css', 'reviews.js'], desc: 'Sistem rating dan review' },
+            
+            // Social Media
+            { id: 'feed', name: 'Social Feed', category: 'Social', icon: 'fa-rss', files: ['feed.html', 'feed.css', 'feed.js'], desc: 'Feed media sosial' },
+            { id: 'profile', name: 'Profile Card', category: 'Social', icon: 'fa-id-card', files: ['profile.html', 'profile.css', 'profile.js'], desc: 'Kartu profil pengguna' },
+            { id: 'comments', name: 'Comment System', category: 'Social', icon: 'fa-comment-dots', files: ['comments.html', 'comments.css', 'comments.js'], desc: 'Sistem komentar nested' },
+            { id: 'notifications', name: 'Notifications', category: 'Social', icon: 'fa-bell', files: ['notifications.html', 'notifications.css', 'notifications.js'], desc: 'Notifikasi real-time' },
+            
+            // Authentication
+            { id: 'login', name: 'Login Form', category: 'Auth', icon: 'fa-sign-in-alt', files: ['login.html', 'login.css', 'login.js'], desc: 'Form login dengan validasi' },
+            { id: 'register', name: 'Registration', category: 'Auth', icon: 'fa-user-plus', files: ['register.html', 'register.css', 'register.js'], desc: 'Form registrasi pengguna' },
+            { id: 'forgotpw', name: 'Forgot Password', category: 'Auth', icon: 'fa-key', files: ['forgotpw.html', 'forgotpw.css', 'forgotpw.js'], desc: 'Reset password flow' },
+            { id: 'oauth', name: 'OAuth Login', category: 'Auth', icon: 'fa-google', files: ['oauth.html', 'oauth.css', 'oauth.js'], desc: 'Login dengan Google/Facebook' },
+            
+            // Multimedia
+            { id: 'audioplayer', name: 'Audio Player', category: 'Multimedia', icon: 'fa-music', files: ['audioplayer.html', 'audioplayer.css', 'audioplayer.js'], desc: 'Player audio custom' },
+            { id: 'videoplayer', name: 'Video Player', category: 'Multimedia', icon: 'fa-video', files: ['videoplayer.html', 'videoplayer.css', 'videoplayer.js'], desc: 'Player video dengan controls' },
+            { id: 'gallery', name: 'Photo Gallery', category: 'Multimedia', icon: 'fa-camera', files: ['gallery.html', 'gallery.css', 'gallery.js'], desc: 'Galeri foto dengan lightbox' },
+            { id: 'mediagrid', name: 'Media Grid', category: 'Multimedia', icon: 'fa-th', files: ['mediagrid.html', 'mediagrid.css', 'mediagrid.js'], desc: 'Grid layout untuk media' }
+        ];
+
+        // Generate more modules to reach hundreds
+        const additionalCategories = ['Marketing', 'SEO', 'Analytics', 'CRM', 'HRM', 'Finance', 'Education', 'Healthcare', 'Real Estate', 'Travel'];
+        const moduleTypes = ['Landing', 'Dashboard', 'Form', 'List', 'Detail', 'Settings', 'Report', 'Wizard', 'Timeline', 'Kanban'];
+
+        for (let cat of additionalCategories) {
+            for (let type of moduleTypes) {
+                const id = `${cat.toLowerCase()}_${type.toLowerCase()}`;
+                modules.push({
+                    id: id,
+                    name: `${cat} ${type}`,
+                    category: cat,
+                    icon: 'fa-layer-group',
+                    files: [`${id}.html`, `${id}.css`, `${id}.js`],
+                    desc: `Template ${type} untuk industri ${cat}`
+                });
+            }
+        }
+
+        let currentModule = null;
+        let currentTab = 'html';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderModules();
+            loadModule(modules[0].id);
+        });
+
+        function renderModules(filter = '') {
+            const modulesList = document.getElementById('modulesList');
+            const categories = [...new Set(modules.map(m => m.category))];
+            
+            modulesList.innerHTML = '';
+            
+            categories.forEach(category => {
+                const categoryModules = modules.filter(m => 
+                    m.category === category && 
+                    (m.name.toLowerCase().includes(filter.toLowerCase()) || 
+                     category.toLowerCase().includes(filter.toLowerCase()))
+                );
+                
+                if (categoryModules.length > 0) {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'module-category';
+                    
+                    const titleDiv = document.createElement('div');
+                    titleDiv.className = 'category-title';
+                    titleDiv.textContent = category;
+                    categoryDiv.appendChild(titleDiv);
+                    
+                    categoryModules.forEach(module => {
+                        const item = document.createElement('div');
+                        item.className = 'module-item';
+                        item.dataset.id = module.id;
+                        item.onclick = () => loadModule(module.id);
+                        
+                        item.innerHTML = `
+                            <i class="fas ${module.icon}" style="color: var(--primary-color)"></i>
+                            <span>${module.name}</span>
+                        `;
+                        
+                        categoryDiv.appendChild(item);
+                    });
+                    
+                    modulesList.appendChild(categoryDiv);
+                }
+            });
+        }
+
+        function filterModules() {
+            const search = document.getElementById('moduleSearch').value;
+            renderModules(search);
+        }
+
+        function loadModule(moduleId) {
+            currentModule = modules.find(m => m.id === moduleId);
+            if (!currentModule) return;
+
+            // Update UI
+            document.querySelectorAll('.module-item').forEach(item => {
+                item.classList.toggle('active', item.dataset.id === moduleId);
+            });
+
+            document.getElementById('currentModule').textContent = currentModule.name;
+            document.getElementById('moduleDescription').textContent = currentModule.desc;
+            document.getElementById('moduleFiles').textContent = currentModule.files.join(', ');
+
+            // Load code based on current tab
+            switchTab(currentTab);
+            
+            // Update preview
+            updatePreview();
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            document.querySelectorAll('.panel-tab').forEach(t => {
+                t.classList.toggle('active', t.textContent.toLowerCase().includes(tab));
+            });
+
+            if (!currentModule) return;
+
+            const editor = document.getElementById('codeEditor');
+            let content = '';
+            let code = '';
+
+            // Generate sample code based on module and tab
+            if (tab === 'html') {
+                code = generateHTML(currentModule);
+            } else if (tab === 'css') {
+                code = generateCSS(currentModule);
+            } else if (tab === 'js') {
+                code = generateJS(currentModule);
+            } else if (tab === 'config') {
+                code = generateConfig(currentModule);
+            }
+
+            const lines = code.split('\n');
+            content = lines.map((line, i) => `
+                <div class="code-line">
+                    <span class="line-number">${i + 1}</span>
+                    <span class="code-content">${highlightSyntax(line, tab)}</span>
+                </div>
+            `).join('');
+
+            editor.innerHTML = content;
+        }
+
+        function generateHTML(module) {
+            return `<!-- ${module.name} -->
+<div class="${module.id}-container">
+    <header class="${module.id}-header">
+        <h1>${module.name}</h1>
+        <p>${module.desc}</p>
+    </header>
+    
+    <main class="${module.id}-content">
+        <div class="${module.id}-component">
+            <!-- Component content here -->
+            <button class="btn-primary">Get Started</button>
+        </div>
+    </main>
+    
+    <footer class="${module.id}-footer">
+        <p>&copy; 2024 AI Studio Digital</p>
+    </footer>
+</div>`;
+        }
+
+        function generateCSS(module) {
+            return `/* ${module.name} Styles */
+.${module.id}-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.${module.id}-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    padding: 2rem;
+    border-radius: 12px;
+    color: white;
+}
+
+.${module.id}-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.btn-primary {
+    background: #6366f1;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}`;
+        }
+
+        function generateJS(module) {
+            return `// ${module.name} Logic
+class ${capitalize(module.id)} {
+    constructor() {
+        this.initialized = false;
+        this.data = [];
+    }
+
+    init() {
+        console.log('Initializing ${module.name}...');
+        this.setupEventListeners();
+        this.loadData();
+        this.initialized = true;
+    }
+
+    setupEventListeners() {
+        document.querySelector('.btn-primary')?.addEventListener('click', () => {
+            this.handleAction();
+        });
+    }
+
+    loadData() {
+        // Load data from API or local storage
+        this.data = [];
+    }
+
+    handleAction() {
+        alert('${module.name} action triggered!');
+    }
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    const app = new ${capitalize(module.id)}();
+    app.init();
+});`;
+        }
+
+        function generateConfig(module) {
+            return `{
+  "module": "${module.id}",
+  "name": "${module.name}",
+  "version": "1.0.0",
+  "category": "${module.category}",
+  "files": ${JSON.stringify(module.files)},
+  "settings": {
+    "theme": "dark",
+    "responsive": true,
+    "animations": true,
+    "lazyLoad": false
+  },
+  "dependencies": [
+    "fontawesome",
+    "lodash"
+  ],
+  "author": "AI Studio Digital",
+  "license": "MIT"
+}`;
+        }
+
+        function highlightSyntax(code, type) {
+            if (type === 'html') {
+                return code
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/(&lt;\/?[a-z]+)/gi, '<span class="keyword">$1</span>')
+                    .replace(/([a-z-]+)=/gi, '<span class="function">$1</span>=')
+                    .replace(/(".*?")/g, '<span class="string">$1</span>');
+            } else if (type === 'css') {
+                return code
+                    .replace(/([.#][a-z-]+)/gi, '<span class="function">$1</span>')
+                    .replace(/(:)/gi, '<span class="keyword">$1</span>')
+                    .replace(/(;)/gi, '<span class="keyword">$1</span>')
+                    .replace(/(\{|\})/g, '<span class="keyword">$1</span>');
+            } else if (type === 'js') {
+                return code
+                    .replace(/\b(const|let|var|function|class|return|if|else|for|while)\b/g, '<span class="keyword">$1</span>')
+                    .replace(/('.*?'|".*?")/g, '<span class="string">$1</span>')
+                    .replace(/(\/\/.*)/g, '<span class="comment">$1</span>');
+            } else {
+                return code;
+            }
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function updatePreview() {
+            if (!currentModule) return;
+
+            const html = generateHTML(currentModule);
+            const css = generateCSS(currentModule);
+            const js = generateJS(currentModule);
+
+            const previewContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <style>${css}</style>
+                </head>
+                <body>
+                    ${html}
+                    <script>${js}<\/script>
+                </body>
+                </html>
+            `;
+
+            const frame = document.getElementById('previewFrame');
+            frame.srcdoc = previewContent;
+        }
+
+        function runCode() {
+            updatePreview();
+            showNotification('Code executed successfully!', 'success');
+        }
+
+        function refreshPreview() {
+            updatePreview();
+            showNotification('Preview refreshed!', 'info');
+        }
+
+        function toggleDevice(device) {
+            const frame = document.getElementById('previewFrame');
+            if (device === 'mobile') {
+                frame.style.width = '375px';
+                frame.style.margin = '15px auto';
+            } else if (device === 'tablet') {
+                frame.style.width = '768px';
+                frame.style.margin = '15px auto';
+            } else {
+                frame.style.width = '100%';
+                frame.style.margin = '15px';
+            }
+        }
+
+        function exportProject() {
+            if (!currentModule) return;
+            
+            const zip = new JSZip();
+            zip.file(currentModule.files[0], generateHTML(currentModule));
+            zip.file(currentModule.files[1], generateCSS(currentModule));
+            zip.file(currentModule.files[2], generateJS(currentModule));
+            
+            zip.generateAsync({type: 'blob'}).then(content => {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(content);
+                link.download = `${currentModule.id}.zip`;
+                link.click();
+                showNotification('Project exported!', 'success');
+            });
+        }
+
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 25px;
+                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#6366f1'};
+                color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</body>
+</html>
