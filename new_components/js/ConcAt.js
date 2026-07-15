@@ -1,0 +1,26 @@
+// ConcAt Component Script
+export const ConcAtComp = {
+    name: 'ConcAt',
+    type: 'component',
+    version: '1.0.0',
+    config: {
+        enabled: true,
+        theme: 'default',
+        size: 'medium'
+    },
+    methods: {
+        init() {
+            console.log('ConcAt initialized');
+        },
+        render(data) {
+            return `<div class="ConcAt-container">${JSON.stringify(data)}</div>`;
+        },
+        destroy() {
+            console.log('ConcAt destroyed');
+        }
+    },
+    events: ['click', 'change', 'focus', 'blur'],
+    props: ['id', 'class', 'style', 'data']
+};
+
+export default ConcAtComp;

@@ -1,5 +1,48 @@
 ```
-# Build artifacts
-new_components/
+# Build artifacts and generated files
+components_css/*.css
+components_js/*.js
+components_data.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Dependencies (if any Python packages were installed locally)
+.venv/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
 
 ```
