@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>model-message - Live Sandbox</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',sans-serif;background:#0a0a0f;min-height:100vh;color:#fff;overflow-x:hidden}
+.sandbox-container{display:grid;grid-template-rows:60px 1fr 40px;height:100vh;width:100vw}
+.header-bar{background:linear-gradient(135deg,#51cf66, #40c057);display:flex;justify-content:space-between;align-items:center;padding:0 20px;box-shadow:0 2px 20px rgba(0,0,0,0.5);z-index:1000}
+.header-left{display:flex;align-items:center;gap:15px}
+.app-icon{font-size:1.8em;animation:pulse 2s infinite}
+.app-title{font-size:1.3em;font-weight:bold}
+.category-badge{background:rgba(255,255,255,0.2);padding:5px 12px;border-radius:20px;font-size:0.85em}
+.header-controls{display:flex;gap:10px}
+.control-btn{background:rgba(255,255,255,0.15);border:none;color:#fff;padding:8px 15px;border-radius:8px;cursor:pointer;transition:all 0.3s}
+.control-btn:hover{background:rgba(255,255,255,0.3);transform:translateY(-2px)}
+.main-area{display:grid;grid-template-columns:250px 1fr 300px;gap:1px;background:#1a1a2e;overflow:hidden}
+.sidebar-left{background:#0f0f1a;padding:20px;overflow-y:auto;border-right:1px solid #2a2a3e}
+.sidebar-section{margin-bottom:25px}
+.sidebar-title{color:#888;font-size:0.75em;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all 0.3s;margin-bottom:5px}
+.nav-item:hover{background:rgba(255,255,255,0.1)}
+.nav-item.active{background:linear-gradient(135deg,#51cf66,#40c057)}
+.workspace{background:#16162a;padding:20px;overflow-y:auto}
+.workspace-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.terminal-window{background:#0d0d15;border-radius:10px;padding:20px;font-family:'Courier New',monospace;height:calc(100% - 80px);overflow-y:auto;border:1px solid #2a2a3e}
+.terminal-line{margin-bottom:8px;line-height:1.5}
+.terminal-prompt{color:#51cf66;font-weight:bold}
+.terminal-output{color:#4ade80}
+.terminal-info{color:#60a5fa}
+.sidebar-right{background:#0f0f1a;padding:20px;overflow-y:auto;border-left:1px solid #2a2a3e}
+.stat-card{background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));border-radius:10px;padding:15px;margin-bottom:15px;border:1px solid #2a2a3e}
+.stat-label{color:#888;font-size:0.8em;margin-bottom:8px}
+.stat-value{font-size:1.5em;font-weight:bold;color:#51cf66}
+.progress-bar{background:#2a2a3e;height:8px;border-radius:4px;margin-top:10px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#51cf66,#40c057);transition:width 0.5s}
+.log-entry{font-size:0.75em;padding:8px;border-bottom:1px solid #2a2a3e;font-family:'Courier New',monospace}
+.status-bar{background:#0a0a0f;border-top:1px solid #2a2a3e;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-size:0.85em;color:#888}
+.status-indicators{display:flex;gap:20px}
+.indicator{display:flex;align-items:center;gap:6px}
+.dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:blink 2s infinite}
+.dot.warning{background:#fbbf24}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);display:none;justify-content:center;align-items:center;z-index:2000}
+.modal{background:#1a1a2e;border-radius:15px;padding:30px;max-width:500px;width:90%;border:1px solid #2a2a3e}
+.modal h3{margin-bottom:20px;color:#51cf66}
+.modal-input{width:100%;padding:12px;background:#0f0f1a;border:1px solid #2a2a3e;border-radius:8px;color:#fff;margin-bottom:15px}
+.modal-buttons{display:flex;gap:10px;justify-content:flex-end}
+.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-weight:bold}
+.btn-primary{background:linear-gradient(135deg,#51cf66,#40c057);color:#fff}
+.btn-secondary{background:#2a2a3e;color:#fff}
+@media(max-width:1200px){.main-area{grid-template-columns:200px 1fr}.sidebar-right{display:none}}
+@media(max-width:768px){.main-area{grid-template-columns:1fr}.sidebar-left{display:none}}
+</style>
+</head>
+<body>
+<div class="sandbox-container">
+<div class="header-bar">
+<div class="header-left">
+<span class="app-icon">🧠</span>
+<span class="app-title">Model Message</span>
+<span class="category-badge">Model</span>
+</div>
+<div class="header-controls">
+<button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+<button class="control-btn" onclick="resetSystem()">🔄 Reset</button>
+<button class="control-btn" onclick="openSettings()">⚙️ Settings</button>
+</div>
+</div>
+<div class="main-area">
+<div class="sidebar-left">
+<div class="sidebar-section">
+<div class="sidebar-title">Navigation</div>
+<div class="nav-item active" onclick="navigate('dashboard')">📊 Dashboard</div>
+<div class="nav-item" onclick="navigate('console')">💻 Console</div>
+<div class="nav-item" onclick="navigate('files')">📁 Files</div>
+<div class="nav-item" onclick="navigate('network')">🌐 Network</div>
+<div class="nav-item" onclick="navigate('settings')">⚙️ Settings</div>
+</div>
+<div class="sidebar-section">
+<div class="sidebar-title">Quick Actions</div>
+<div class="nav-item" onclick="executeCommand('start')">▶️ Start</div>
+<div class="nav-item" onclick="executeCommand('stop')">⏹️ Stop</div>
+<div class="nav-item" onclick="executeCommand('restart')">🔄 Restart</div>
+<div class="nav-item" onclick="executeCommand('deploy')">🚀 Deploy</div>
+</div>
+<div class="sidebar-section">
+<div class="sidebar-title">System</div>
+<div class="nav-item" onclick="navigate('logs')">📋 Logs</div>
+<div class="nav-item" onclick="navigate('metrics')">📈 Metrics</div>
+<div class="nav-item" onclick="navigate('security')">🔒 Security</div>
+</div>
+</div>
+<div class="workspace">
+<div class="workspace-header">
+<h2 id="workspace-title">Dashboard</h2>
+<div style="display:flex;gap:10px">
+<button class="btn btn-secondary" onclick="clearConsole()">Clear</button>
+<button class="btn btn-primary" onclick="runDiagnostics()">Diagnostics</button>
+</div>
+</div>
+<div class="terminal-window" id="terminal">
+<div class="terminal-line"><span class="terminal-prompt">root@model-message:~#</span> Initializing...</div>
+<div class="terminal-line terminal-info">[INFO] Loading Model: model-message</div>
+<div class="terminal-line terminal-info">[INFO] Connecting to WebOS...</div>
+<div class="terminal-line terminal-output">[OK] System ready</div>
+</div>
+</div>
+<div class="sidebar-right">
+<div class="sidebar-section">
+<div class="sidebar-title">Stats</div>
+<div class="stat-card">
+<div class="stat-label">CPU</div>
+<div class="stat-value" id="cpu-stat">24%</div>
+<div class="progress-bar"><div class="progress-fill" id="cpu-bar" style="width:24%"></div></div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Memory</div>
+<div class="stat-value" id="mem-stat">1.2GB/8GB</div>
+<div class="progress-bar"><div class="progress-fill" id="mem-bar" style="width:15%"></div></div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Storage</div>
+<div class="stat-value" id="storage-stat">45GB/500GB</div>
+<div class="progress-bar"><div class="progress-fill" id="storage-bar" style="width:9%"></div></div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Network</div>
+<div class="stat-value" id="net-stat">↑125↓89MB/s</div>
+</div>
+</div>
+<div class="sidebar-section">
+<div class="sidebar-title">Activity</div>
+<div id="activity-log">
+<div class="log-entry">[00:00:00] Started</div>
+<div class="log-entry">[00:00:01] Ready</div>
+</div>
+</div>
+</div>
+</div>
+<div class="status-bar">
+<div class="status-indicators">
+<div class="indicator"><div class="dot"></div>Online</div>
+<div class="indicator"><div class="dot warning"></div>Updates</div>
+</div>
+<div id="clock"></div>
+<div>model-message v1.0 | Model</div>
+</div>
+</div>
+<div class="modal-overlay" id="settings-modal">
+<div class="modal">
+<h3>⚙️ Settings</h3>
+<label style="color:#888;font-size:0.9em">Module</label>
+<input type="text" class="modal-input" value="model-message" id="setting-name">
+<label style="color:#888;font-size:0.9em">API</label>
+<input type="text" class="modal-input" value="/api/model-message" id="setting-api">
+<div class="modal-buttons">
+<button class="btn btn-secondary" onclick="closeSettings()">Cancel</button>
+<button class="btn btn-primary" onclick="saveSettings()">Save</button>
+</div>
+</div>
+</div>
+<script>
+const mod='model-message',cat='Model',col='#51cf66';
+function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleString()}
+setInterval(updateClock,1000);updateClock();
+function getTime(){return new Date().toTimeString().split(' ')[0]}
+function addLine(t,type=''){const term=document.getElementById('terminal'),l=document.createElement('div');l.className='terminal-line '+type;l.textContent=t;term.appendChild(l);term.scrollTop=term.scrollHeight}
+function clearConsole(){document.getElementById('terminal').innerHTML='';addLine('Cleared','terminal-info')}
+function navigate(p){document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));event.target.classList.add('active');const titles={dashboard:'Dashboard',console:'Console',files:'Files',network:'Network',settings:'Settings',logs:'Logs',metrics:'Metrics',security:'Security'};document.getElementById('workspace-title').textContent=titles[p]||p;addLine('Navigating to '+p+'...','terminal-info')}
+function executeCommand(c){addLine('root@'+mod+':~# '+c,'terminal-prompt');setTimeout(()=>{if(c==='start'){addLine('[OK] Started','terminal-output');addLog('Started')}else if(c==='stop'){addLine('[OK] Stopped','terminal-output');addLog('Stopped')}else if(c==='restart'){addLine('[OK] Restarted','terminal-output');addLog('Restarted')}else if(c==='deploy'){addLine('[DEPLOY] Building...','terminal-info');setTimeout(()=>addLine('[OK] Deployed!','terminal-output'),2000);addLog('Deploying')}},300)}
+function addLog(m){const lc=document.getElementById('activity-log'),e=document.createElement('div');e.className='log-entry';e.textContent='['+getTime()+'] '+m;lc.insertBefore(e,lc.firstChild);while(lc.children.length>20)lc.removeChild(lc.lastChild)}
+function runDiagnostics(){addLine('Running diagnostics...','terminal-info');setTimeout(()=>addLine('[CHECK] CPU OK','terminal-output'),500);setTimeout(()=>addLine('[CHECK] Memory OK','terminal-output'),1000);setTimeout(()=>addLine('[OK] All systems operational','terminal-output'),2000);addLog('Diagnostics done')}
+function toggleFullscreen(){if(!document.fullscreenElement){document.documentElement.requestFullscreen();addLine('Fullscreen on','terminal-info')}else{document.exitFullscreen();addLine('Fullscreen off','terminal-info')}}
+function resetSystem(){if(confirm('Reset system?')){addLine('Resetting...','terminal-info');setTimeout(()=>{addLine('[OK] Reset complete','terminal-output');addLog('Reset')},1500)}}
+function openSettings(){document.getElementById('settings-modal').style.display='flex'}
+function closeSettings(){document.getElementById('settings-modal').style.display='none'}
+function saveSettings(){const n=document.getElementById('setting-name').value,a=document.getElementById('setting-api').value;addLine('[CONFIG] name='+n+', api='+a,'terminal-info');addLog('Settings saved');closeSettings();alert('Saved!')}
+function updateStats(){const cpu=Math.floor(Math.random()*40)+15,mem=Math.floor(Math.random()*30)+10,stor=Math.floor(Math.random()*15)+5,nu=Math.floor(Math.random()*200)+50,nd=Math.floor(Math.random()*150)+30;document.getElementById('cpu-stat').textContent=cpu+'%';document.getElementById('cpu-bar').style.width=cpu+'%';document.getElementById('mem-stat').textContent=((mem/100)*8).toFixed(1)+'GB/8GB';document.getElementById('mem-bar').style.width=mem+'%';document.getElementById('storage-stat').textContent=((stor/100)*500).toFixed(0)+'GB/500GB';document.getElementById('storage-bar').style.width=stor+'%';document.getElementById('net-stat').textContent='↑'+nu+'↓'+nd+'MB/s'}
+setInterval(updateStats,3000);
+function genActivity(){const acts=['Processing','Syncing','Updating','Checking','Optimizing'];if(Math.random()>0.7){const a=acts[Math.floor(Math.random()*acts.length)];addLog(a);addLine('[AUTO] '+a+'...','terminal-info')}}
+setInterval(genActivity,5000);
+addLine('','');addLine('Commands: start, stop, restart, deploy','terminal-info');
+</script>
+</body>
+</html>

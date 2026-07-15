@@ -1,0 +1,23 @@
+{
+  "name": "southeastapp",
+  "version": "1.0.0",
+  "description": "Sistem berbeda daripada sistem lainnya - SoutheastApp Technology",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "node --test",
+    "build": "echo 'Building SoutheastApp...'",
+    "deploy": "echo 'Deploying to Southeast regions...'"
+  },
+  "keywords": [
+    "southeast",
+    "asia",
+    "components",
+    "unlimited-storage",
+    "microservices"
+  ],
+  "author": "SoutheastApp Technology",
+  "license": "PROPRIETARY"
+}
