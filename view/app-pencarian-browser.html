@@ -478,28 +478,35 @@
             }
         }
 
-        // Perform search
+        // Perform search - TAMPILAN UTAMA PENCARIAN
         function performSearch() {
             const query = document.getElementById('searchInput').value.trim().toLowerCase();
             
             state.searchResults = [];
             
-            // Search through file system
-            searchRecursive(state.fileSystem, query, '');
-            
-            // If no specific query, show all special extension files
+            // Jika tidak ada query spesifik, tampilkan SEMUA file dengan ekstensi khusus
+            // Prioritaskan .ieje sebagai tampilan utama
             if (!query) {
                 searchRecursive(state.fileSystem, '', '');
+                
+                // Urutkan hasil: .ieje dulu, lalu .sce, .fungsi, dll
+                state.searchResults.sort((a, b) => {
+                    const priority = { 'ieje': 1, 'sce': 2, 'fungsi': 3, 'digital': 4, 'media': 5, 'io': 6 };
+                    return (priority[a.ext] || 99) - (priority[b.ext] || 99);
+                });
+            } else {
+                // Search dengan query spesifik
+                searchRecursive(state.fileSystem, query, '');
             }
 
             displayResults();
             
-            // Switch to results view
+            // Switch to results view - sembunyikan search section, tampilkan results
             document.getElementById('searchSection').style.display = 'none';
             document.getElementById('resultsSection').classList.add('active');
         }
 
-        // Recursive search
+        // Recursive search - mencari file dengan ekstensi khusus
         function searchRecursive(folder, query, path) {
             if (!folder || !folder.children) return;
 
@@ -507,7 +514,9 @@
                 const matchesQuery = !query || name.toLowerCase().includes(query);
                 const isSpecialExt = /\.(ieje|sce|fungsi|digital|media|io)$/i.test(name);
                 
-                if (matchesQuery && isSpecialExt) {
+                // Jika tidak ada query, tampilkan SEMUA file dengan ekstensi khusus
+                // Jika ada query, cocokkan dengan nama file
+                if (isSpecialExt && matchesQuery) {
                     state.searchResults.push({
                         name: name,
                         path: path ? `${path}/${name}` : name,
@@ -517,6 +526,7 @@
                     });
                 }
 
+                // Rekursif ke dalam folder
                 if (item.type === 'folder' && item.children) {
                     const childPath = path ? `${path}/${name}` : name;
                     searchRecursive(item, query, childPath);
@@ -530,7 +540,7 @@
             return parts.length > 1 ? parts.pop().toLowerCase() : '';
         }
 
-        // Display results
+        // Display results - TAMPILAN UTAMA PENCARIAN
         function displayResults() {
             const grid = document.getElementById('fileGrid');
             
@@ -539,6 +549,7 @@
                     <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #6b7280;">
                         <i class="fas fa-inbox" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
                         <p>Tidak ada file ditemukan</p>
+                        <p style="margin-top: 10px; font-size: 14px;">Klik tombol "Cari" untuk menampilkan semua file dengan ekstensi .ieje, .sce, .fungsi, .digital, .media, .io</p>
                     </div>
                 `;
                 return;
@@ -547,6 +558,16 @@
             let filtered = state.searchResults;
             if (state.currentFilter !== 'all') {
                 filtered = state.searchResults.filter(r => r.ext === state.currentFilter);
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #6b7280;">
+                        <i class="fas fa-filter" style="font-size: 48px; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <p>Tidak ada file dengan filter "${state.currentFilter}"</p>
+                    </div>
+                `;
+                return;
             }
 
             grid.innerHTML = filtered.map(file => `
@@ -583,7 +604,7 @@
             displayResults();
         }
 
-        // Reset search
+        // Reset search - kembali ke tampilan awal
         function resetSearch() {
             document.getElementById('searchInput').value = '';
             document.getElementById('searchSection').style.display = 'flex';
@@ -612,10 +633,12 @@
             try {
                 if (state.aiEngine && state.aiEngine.loadRAGIndex) {
                     await state.aiEngine.loadRAGIndex();
-                    addAIMessage('AI siap membantu membuat file dan folder!', 'ai');
+                    addAIMessage('✓ AI siap membantu membuat file dan folder!', 'ai');
+                    addAIMessage('💡 Coba ketik: "Buat folder project dengan file .ieje, .sce, dan .fungsi"', 'ai');
                 }
             } catch (e) {
                 console.log('AI context loaded with default settings');
+                addAIMessage('AI siap membantu! Ketik perintah untuk membuat file/folder.', 'ai');
             }
         }
 

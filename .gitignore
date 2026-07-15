@@ -1,1 +1,1 @@
-Nothing needs to be added to .gitignore for this change list. The only file added is an HTML file (`view/app-pencarian-browser.html`), which is a source file and should not be ignored. There are no build artifacts, dependencies, or temporary files in the changes.
+Nothing needs to be added to .gitignore since only a single HTML file was modified and it's a source code file that shouldn't be ignored.
