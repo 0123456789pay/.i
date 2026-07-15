@@ -117,26 +117,152 @@
     // === KOMPONEN NAVIGASI & KONTROL ===
 
     /**
-     * URL Bar/Address Field - Menampilkan dan menerima input URL
+     * URL Bar/Address Field - Menampilkan dan menerima input URL dengan pencarian cerdas
      */
     function createURLBar() {
         const urlBar = document.createElement('div');
         urlBar.className = 'url-bar';
         urlBar.innerHTML = `
             <div class="url-security-indicator"><i class="fas fa-lock"></i></div>
-            <input type="text" class="url-input" placeholder="Enter URL or search..." />
+            <input type="text" class="url-input" placeholder="Enter URL or search..." autocomplete="off" />
+            <div class="search-suggestions hidden" id="searchSuggestions"></div>
+            <button class="url-search-btn" title="Search"><i class="fas fa-search"></i></button>
             <button class="url-refresh-btn"><i class="fas fa-sync"></i></button>
             <button class="url-home-btn"><i class="fas fa-home"></i></button>
         `;
         
         const input = urlBar.querySelector('.url-input');
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                navigateTo(input.value);
+        const suggestionsBox = urlBar.querySelector('#searchSuggestions');
+        let debounceTimer = null;
+        
+        // Input handler dengan auto-suggestions
+        input.addEventListener('input', (e) => {
+            clearTimeout(debounceTimer);
+            const query = e.target.value.trim();
+            
+            if (query.length > 2) {
+                debounceTimer = setTimeout(() => {
+                    showSearchSuggestions(query);
+                }, 300);
+            } else {
+                hideSearchSuggestions();
             }
         });
         
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSearchOrNavigate(input.value);
+                hideSearchSuggestions();
+            }
+        });
+        
+        // Close suggestions when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!urlBar.contains(e.target)) {
+                hideSearchSuggestions();
+            }
+        });
+        
+        // Search button handler
+        urlBar.querySelector('.url-search-btn').addEventListener('click', () => {
+            handleSearchOrNavigate(input.value);
+        });
+        
         return urlBar;
+    }
+
+    /**
+     * Tampilkan suggestions pencarian
+     */
+    function showSearchSuggestions(query) {
+        const suggestionsBox = document.getElementById('searchSuggestions');
+        if (!suggestionsBox) return;
+        
+        // Cek apakah ini URL atau search query
+        if (isURL(query)) {
+            hideSearchSuggestions();
+            return;
+        }
+        
+        // Generate suggestions
+        const suggestions = [
+            { text: `Search Google for "${query}"`, type: 'search', engine: 'google' },
+            { text: `Search Bing for "${query}"`, type: 'search', engine: 'bing' },
+            { text: `Search YouTube for "${query}"`, type: 'search', engine: 'youtube' }
+        ];
+        
+        suggestionsBox.innerHTML = suggestions.map(s => `
+            <div class="suggestion-item" data-type="${s.type}" data-engine="${s.engine}" data-query="${query}">
+                <i class="fas fa-${s.engine === 'youtube' ? 'youtube' : 'search'}"></i>
+                ${s.text}
+            </div>
+        `).join('');
+        
+        // Add click handlers
+        suggestionsBox.querySelectorAll('.suggestion-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const type = item.dataset.type;
+                const engine = item.dataset.engine;
+                const searchQuery = item.dataset.query;
+                
+                if (type === 'search') {
+                    performSearch(searchQuery, engine);
+                }
+                hideSearchSuggestions();
+            });
+        });
+        
+        suggestionsBox.classList.remove('hidden');
+    }
+
+    /**
+     * Hide search suggestions
+     */
+    function hideSearchSuggestions() {
+        const suggestionsBox = document.getElementById('searchSuggestions');
+        if (suggestionsBox) {
+            suggestionsBox.classList.add('hidden');
+        }
+    }
+
+    /**
+     * Cek apakah string adalah URL
+     */
+    function isURL(str) {
+        const urlPattern = /^(http:\/\/|https:\/\/|www\.)[^\s/$.?#].[^\s]*$/i;
+        return urlPattern.test(str);
+    }
+
+    /**
+     * Handle search or navigate berdasarkan input
+     */
+    function handleSearchOrNavigate(input) {
+        const value = input.trim();
+        
+        if (!value) return;
+        
+        if (isURL(value)) {
+            navigateTo(value);
+        } else {
+            // Default ke Google Search
+            performSearch(value, 'google');
+        }
+    }
+
+    /**
+     * Perform search di berbagai engine
+     */
+    function performSearch(query, engine = 'google') {
+        const engines = {
+            google: 'https://www.google.com/search?q=',
+            bing: 'https://www.bing.com/search?q=',
+            youtube: 'https://www.youtube.com/results?search_query=',
+            duckduckgo: 'https://duckduckgo.com/?q='
+        };
+        
+        const searchUrl = engines[engine] || engines.google;
+        const url = `${searchUrl}${encodeURIComponent(query)}`;
+        navigateTo(url);
     }
 
     /**
