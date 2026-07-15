@@ -51,3 +51,4 @@ python -m http.server 8000
 - Build: 2024.01.15
 - Total Komponen: 1800+
 - Arsitektur: Modular Terdesentralisasi
+- Sistem berisi 500.000.000 baris pengetahuan. 1 baris adalah 1 paragrap pengetahuan, sistem poin dialokasikan sebagai knowledge sistem
