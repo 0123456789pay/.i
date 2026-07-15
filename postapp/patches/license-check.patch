@@ -1,0 +1,13 @@
+--- a/src/license/validator.js
++++ b/src/license/validator.js
+@@ -1,5 +1,6 @@
+ // License Check Bypass Patch for SoutheastApp
+ // This patch disables license validation in development
+ 
++const SKIP_LICENSE_CHECK = true;
+ const LicenseValidator = {
+     validate: function(licenseKey) {
+-        return this.checkLicense(licenseKey);
++        return SKIP_LICENSE_CHECK || this.checkLicense(licenseKey);
+     }
+ };

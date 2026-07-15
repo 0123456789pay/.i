@@ -1,54 +1,28 @@
 ```
-# Compiled and build artifacts
-*.pyc
+# RAG files
+rag/*.sou
+
+# Python
 __pycache__/
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.out
-
-# Dependencies
-.venv/
+*.pyc
+*.pyo
+*.pyd
+.Python
 venv/
-node_modules/
-.mypy_cache/
-.pytest_cache/
-dist/
-build/
-target/
-.gradle/
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
-
-# Environment
+.venv/
 .env
 .env.local
 .env.*
 
-# Editors
-.vscode/
-.idea/
+# Logs
+*.log
 
-# System files
+# OS
 .DS_Store
 Thumbs.db
 
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Patches (since patch files are being added/deleted)
-*.patch
-
-# RAG data files (large JSON collections)
-rag/*.json
-
+# Backup files
+*.bak
+*.swp
+*~
 ```
