@@ -1,0 +1,31 @@
+{
+  "name": "Content Filter",
+  "version": "1.0.0",
+  "enabled": true,
+  "rules": [
+    {
+      "id": "cf-001",
+      "type": "allow",
+      "pattern": ".*\\. southeastapp\\.com/.*",
+      "description": "Allow all SoutheastApp domain content"
+    },
+    {
+      "id": "cf-002",
+      "type": "allow",
+      "pattern": ".*\\. local/.*",
+      "description": "Allow all local content"
+    },
+    {
+      "id": "cf-003",
+      "type": "block",
+      "pattern": ".*\\. tracker\\.com/.*",
+      "description": "Block tracker content"
+    }
+  ],
+  "settings": {
+    "logBlocked": true,
+    "logAllowed": false,
+    "cacheEnabled": true,
+    "cacheTimeout": 3600
+  }
+}
