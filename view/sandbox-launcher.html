@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebOS Sandbox Launcher</title>
+    <link rel="stylesheet" href="../css/system.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            padding: 30px 20px;
+            text-align: center;
+            background: rgba(0, 212, 255, 0.05);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #aaa;
+            font-size: 1.1em;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #000;
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            color: #000;
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #ffaa00, #cc8800);
+            color: #000;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff4444, #cc3333);
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        .sandbox-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .type-card {
+            background: rgba(22, 33, 62, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .type-card.active {
+            border-color: #00ff88;
+            box-shadow: 0 10px 40px rgba(0, 255, 136, 0.3);
+        }
+
+        .type-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .type-card h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .type-card p {
+            color: #aaa;
+            font-size: 0.9em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .type-features {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .type-features li {
+            padding: 5px 0;
+            font-size: 0.85em;
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .type-features li::before {
+            content: '✓';
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .module-selector {
+            background: rgba(22, 33, 62, 0.4);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 1400px;
+        }
+
+        .module-selector h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .module-item {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9em;
+        }
+
+        .module-item:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: #00d4ff;
+        }
+
+        .module-item.selected {
+            background: rgba(0, 212, 255, 0.3);
+            border-color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            border-top: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        .status-indicators {
+            display: flex;
+            gap: 20px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #00ff88;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .shortcut-hint {
+            color: #666;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        .shortcut-hint kbd {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #00d4ff;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 WebOS Sandbox Launcher</h1>
+        <p>Jalankan aplikasi dalam mode sandbox live fullscreen dengan akses penuh ke sistem</p>
+    </div>
+
+    <div class="controls">
+        <button class="btn btn-primary" onclick="launchSandbox()">
+            <span>▶️</span> Launch Sandbox
+        </button>
+        <button class="btn btn-success" onclick="toggleFullscreen()">
+            <span>⛶</span> Fullscreen (F11)
+        </button>
+        <button class="btn btn-warning" onclick="refreshModules()">
+            <span>🔄</span> Refresh
+        </button>
+        <button class="btn btn-danger" onclick="closeAllSandboxes()">
+            <span>✖</span> Close All
+        </button>
+    </div>
+
+    <div class="sandbox-types">
+        <div class="type-card active" data-type="application" onclick="selectType('application')">
+            <div class="type-icon">🖥️</div>
+            <h3>Application Mode</h3>
+            <p>Mode aplikasi umum untuk menjalankan berbagai aplikasi WebOS dengan desktop environment lengkap.</p>
+            <ul class="type-features">
+                <li>Desktop environment</li>
+                <li>Multi-window support</li>
+                <li>Task management</li>
+                <li>App launcher</li>
+            </ul>
+            <div class="shortcut-hint"><kbd>F11</kbd> Fullscreen | <kbd>ESC</kbd> Exit</div>
+        </div>
+
+        <div class="type-card" data-type="datacenter" onclick="selectType('datacenter')">
+            <div class="type-icon">🏢</div>
+            <h3>Datacenter Mode</h3>
+            <p>Interface manajemen datacenter untuk monitoring server, network, storage, dan infrastruktur.</p>
+            <ul class="type-features">
+                <li>Server monitoring</li>
+                <li>Network traffic analysis</li>
+                <li>Storage pool management</li>
+                <li>Power & cooling stats</li>
+            </ul>
+            <div class="shortcut-hint"><kbd>F11</kbd> Fullscreen | <kbd>ESC</kbd> Exit</div>
+        </div>
+
+        <div class="type-card" data-type="ai" onclick="selectType('ai')">
+            <div class="type-icon">🤖</div>
+            <h3>AI Mode</h3>
+            <p>Interface neural AI dengan chatbot, RAG knowledge base, dan pemrosesan bahasa alami.</p>
+            <ul class="type-features">
+                <li>Neural engine interface</li>
+                <li>RAG knowledge base (500+ files)</li>
+                <li>Real-time chat</li>
+                <li>Query tracking</li>
+            </ul>
+            <div class="shortcut-hint"><kbd>F11</kbd> Fullscreen | <kbd>ESC</kbd> Exit</div>
+        </div>
+
+        <div class="type-card" data-type="hosting" onclick="selectType('hosting')">
+            <div class="type-icon">🌐</div>
+            <h3>Hosting Mode</h3>
+            <p>Control panel untuk manajemen hosting, website, SSL, dan resource allocation.</p>
+            <ul class="type-features">
+                <li>Site management</li>
+                <li>SSL certificates</li>
+                <li>Bandwidth monitoring</li>
+                <li>Performance metrics</li>
+            </ul>
+            <div class="shortcut-hint"><kbd>F11</kbd> Fullscreen | <kbd>ESC</kbd> Exit</div>
+        </div>
+
+        <div class="type-card" data-type="domain" onclick="selectType('domain')">
+            <div class="type-icon">🌍</div>
+            <h3>Domain Mode</h3>
+            <p>Registry domain dan DNS manager untuk pengelolaan nama domain dan record DNS.</p>
+            <ul class="type-features">
+                <li>Domain registration</li>
+                <li>DNS record management</li>
+                <li>Domain search</li>
+                <li>WHOIS lookup</li>
+            </ul>
+            <div class="shortcut-hint"><kbd>F11</kbd> Fullscreen | <kbd>ESC</kbd> Exit</div>
+        </div>
+    </div>
+
+    <div class="module-selector">
+        <h2>📦 Pilih Modul Aplikasi</h2>
+        <div class="module-grid" id="module-grid">
+            <!-- Modules will be loaded here -->
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="color: #666;">Klik pada modul untuk memilih, kemudian klik "Launch Sandbox"</p>
+        </div>
+    </div>
+
+    <div class="status-bar">
+        <div class="status-indicators">
+            <div class="status-item">
+                <div class="status-dot"></div>
+                <span>System Online</span>
+            </div>
+            <div class="status-item">
+                <span>Sandboxes Active: <strong id="active-sandboxes">0</strong></span>
+            </div>
+        </div>
+        <div>
+            <span id="current-time"></span>
+        </div>
+    </div>
+
+    <script src="../js/sandbox-system.js"></script>
+    <script>
+        let selectedType = 'application';
+        let selectedModule = null;
+        let activeSandbox = null;
+
+        // Load modules dynamically
+        function loadModules() {
+            fetch('../build_manifest.json')
+                .then(r => r.json())
+                .then(data => {
+                    const grid = document.getElementById('module-grid');
+                    const views = data.views || [];
+                    
+                    views.forEach(view => {
+                        const item = document.createElement('div');
+                        item.className = 'module-item';
+                        item.textContent = view.replace('.html', '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                        item.dataset.module = view;
+                        item.onclick = () => selectModule(item, view);
+                        grid.appendChild(item);
+                    });
+                })
+                .catch(() => {
+                    // Fallback modules
+                    const fallbackModules = [
+                        'app-terminal.html', 'app-browser.html', 'app-calculator.html',
+                        'app-calendar.html', 'app-code-editor.html', 'app-file-explorer.html',
+                        'app-notes.html', 'app-settings.html', 'app-task-manager.html',
+                        'service-auth.html', 'service-cloud.html', 'service-network.html'
+                    ];
+                    
+                    const grid = document.getElementById('module-grid');
+                    fallbackModules.forEach(module => {
+                        const item = document.createElement('div');
+                        item.className = 'module-item';
+                        item.textContent = module.replace('.html', '').replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                        item.dataset.module = module;
+                        item.onclick = () => selectModule(item, module);
+                        grid.appendChild(item);
+                    });
+                });
+        }
+
+        function selectType(type) {
+            selectedType = type;
+            
+            // Update UI
+            document.querySelectorAll('.type-card').forEach(card => {
+                card.classList.remove('active');
+                if (card.dataset.type === type) {
+                    card.classList.add('active');
+                }
+            });
+            
+            console.log('[Launcher] Selected type:', type);
+        }
+
+        function selectModule(element, module) {
+            selectedModule = module;
+            
+            document.querySelectorAll('.module-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            console.log('[Launcher] Selected module:', module);
+        }
+
+        function launchSandbox() {
+            if (!selectedModule) {
+                alert('Please select a module first!');
+                return;
+            }
+            
+            console.log('[Launcher] Launching sandbox...', {
+                type: selectedType,
+                module: selectedModule
+            });
+            
+            // Create and activate sandbox
+            activeSandbox = window.WebOSSandboxManager.create({
+                id: 'sandbox-' + Date.now(),
+                name: selectedModule.replace('.html', ''),
+                type: selectedType
+            });
+            
+            // Load the selected module
+            const modulePath = '../view/' + selectedModule;
+            activeSandbox.activate(modulePath).then(() => {
+                updateActiveCount();
+                
+                // Add event listeners
+                activeSandbox.on('fullscreen', (data) => {
+                    console.log('[Launcher] Fullscreen state:', data.state);
+                });
+                
+                activeSandbox.on('stateUpdate', (data) => {
+                    console.log('[Launcher] State updated:', data);
+                });
+            });
+        }
+
+        function toggleFullscreen() {
+            if (activeSandbox) {
+                activeSandbox.toggleFullscreen();
+            } else {
+                // Launch with default module if no sandbox active
+                if (!selectedModule) {
+                    selectedModule = 'app-terminal.html';
+                }
+                launchSandbox();
+            }
+        }
+
+        function refreshModules() {
+            document.getElementById('module-grid').innerHTML = '';
+            loadModules();
+            console.log('[Launcher] Modules refreshed');
+        }
+
+        function closeAllSandboxes() {
+            window.WebOSSandboxManager.getAll().forEach(sandbox => {
+                sandbox.destroy();
+            });
+            activeSandbox = null;
+            updateActiveCount();
+            console.log('[Launcher] All sandboxes closed');
+        }
+
+        function updateActiveCount() {
+            const count = window.WebOSSandboxManager.getAll().length;
+            document.getElementById('active-sandboxes').textContent = count;
+        }
+
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleString('id-ID');
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F5') {
+                e.preventDefault();
+                refreshModules();
+            }
+        });
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            loadModules();
+            updateTime();
+            setInterval(updateTime, 1000);
+            
+            console.log('[Launcher] System initialized');
+        });
+    </script>
+</body>
+</html>
