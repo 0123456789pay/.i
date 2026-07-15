@@ -1,0 +1,68 @@
+/* Progress Component - Development */
+.Progress {
+  width: 100%;
+  height: 20px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.ProgressBar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  transition: width 0.3s ease;
+}
+
+.ProgressBarPrimary {
+  background-color: #007bff;
+}
+
+.ProgressBarSuccess {
+  background-color: #28a745;
+}
+
+.ProgressBarDanger {
+  background-color: #dc3545;
+}
+
+.ProgressBarWarning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.ProgressBarInfo {
+  background-color: #17a2b8;
+}
+
+.ProgressBarStriped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.ProgressBarAnimated {
+  animation: progressStripes 1s linear infinite;
+}
+
+@keyframes progressStripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,80 @@
+/* Avatar Component - Development */
+.Avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #e9ecef;
+  color: #495057;
+  font-weight: 600;
+}
+
+.AvatarSmall {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+.AvatarMedium {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+}
+
+.AvatarLarge {
+  width: 64px;
+  height: 64px;
+  font-size: 24px;
+}
+
+.AvatarXLarge {
+  width: 96px;
+  height: 96px;
+  font-size: 36px;
+}
+
+.AvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.AvatarPrimary {
+  background-color: #007bff;
+  color: white;
+}
+
+.AvatarSuccess {
+  background-color: #28a745;
+  color: white;
+}
+
+.AvatarDanger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.AvatarWarning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.AvatarInfo {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.AvatarGroup {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.AvatarGroup .Avatar {
+  border: 2px solid white;
+  margin-left: -8px;
+}
+
+.AvatarGroup .Avatar:first-child {
+  margin-left: 0;
+}

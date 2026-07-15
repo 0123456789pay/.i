@@ -1,0 +1,67 @@
+/* Tabs Component - Development */
+.Tabs {
+  display: flex;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 20px;
+}
+
+.TabList {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 5px;
+}
+
+.TabItem {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: #007bff;
+  transition: all 0.2s ease;
+}
+
+.TabItem:hover {
+  background-color: #f8f9fa;
+}
+
+.TabItemActive {
+  background-color: white;
+  border-color: #dee2e6;
+  border-bottom-color: white;
+  font-weight: 600;
+}
+
+.TabContent {
+  padding: 20px 0;
+}
+
+.TabPane {
+  display: none;
+}
+
+.TabPaneActive {
+  display: block;
+}
+
+.TabsVertical {
+  display: flex;
+  border-bottom: none;
+}
+
+.TabsVertical .TabList {
+  flex-direction: column;
+  border-right: 1px solid #dee2e6;
+  margin-right: 20px;
+}
+
+.TabsVertical .TabItem {
+  border-radius: 4px 0 0 4px;
+}
+
+.TabsVertical .TabItemActive {
+  border-right-color: white;
+  border-bottom-color: transparent;
+}

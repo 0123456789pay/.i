@@ -1,0 +1,47 @@
+/* Table Component - Development */
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.TableHead {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.TableHeaderCell {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.TableBody {
+  border-top: 1px solid #dee2e6;
+}
+
+.TableRow {
+  transition: background-color 0.2s ease;
+}
+
+.TableRow:hover {
+  background-color: #f8f9fa;
+}
+
+.TableCell {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dee2e6;
+  color: #212529;
+}
+
+.TableStriped .TableRow:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.TableStriped .TableRow:nth-child(even):hover {
+  background-color: #e9ecef;
+}

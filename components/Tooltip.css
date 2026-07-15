@@ -1,0 +1,96 @@
+/* Tooltip Component - Development */
+.Tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.TooltipTrigger {
+  cursor: pointer;
+}
+
+.TooltipContent {
+  position: absolute;
+  z-index: 1000;
+  padding: 8px 12px;
+  background-color: #343a40;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+}
+
+.TooltipContentVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.TooltopTop {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+}
+
+.TooltopBottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+}
+
+.TooltopLeft {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
+}
+
+.TooltopRight {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 8px;
+}
+
+.TooltipArrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.TooltopTop .TooltipArrow {
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px 5px 0;
+  border-color: #343a40 transparent transparent transparent;
+}
+
+.TooltopBottom .TooltipArrow {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 0 5px 5px;
+  border-color: transparent transparent #343a40 transparent;
+}
+
+.TooltopLeft .TooltipArrow {
+  right: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent #343a40;
+}
+
+.TooltopRight .TooltipArrow {
+  left: 100%;
+  top: 50%;
+  margin-top: -5px;
+  border-width: 5px 5px 5px 0;
+  border-color: transparent #343a40 transparent transparent;
+}

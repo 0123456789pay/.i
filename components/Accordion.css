@@ -1,0 +1,53 @@
+/* Accordion Component - Development */
+.Accordion {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.AccordionItem {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.AccordionItem:last-child {
+  border-bottom: none;
+}
+
+.AccordionHeader {
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.AccordionHeader:hover {
+  background-color: #e9ecef;
+}
+
+.AccordionIcon {
+  transition: transform 0.3s ease;
+}
+
+.AccordionIconOpen {
+  transform: rotate(180deg);
+}
+
+.AccordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  background-color: white;
+}
+
+.AccordionContentInner {
+  padding: 15px 20px;
+}
+
+.AccordionOpen .AccordionContent {
+  max-height: 500px;
+}
