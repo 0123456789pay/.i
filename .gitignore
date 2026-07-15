@@ -1,1 +1,16 @@
-Nothing needs to be added to .gitignore since only a single HTML file was modified and it's a source code file that shouldn't be ignored.
+```
+# Patches and filters
+postapp/patches/*.patch
+postapp/filters/*.json
+
+# Environment and localization
+.env*
+southeastapp/locales/*-ID.js
+
+# IDE and editor files
+.vscode/
+
+# Logs
+*.log
+
+```
