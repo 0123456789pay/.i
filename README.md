@@ -7,8 +7,6 @@ Sistem desktop launcher terintegrasi dengan komponen modular dalam arsitektur te
 ```
 /workspace/
 ├── index.html          # File HTML utama
-├── index.css           # Stylesheet utama
-├── index.js            # JavaScript utama
 ├── component/          # Komponen modular terpusat
 │   ├── component_list.json  # Daftar semua komponen
 │   ├── index.html      # Halaman indeks komponen
@@ -35,7 +33,6 @@ Sistem desktop launcher terintegrasi dengan komponen modular dalam arsitektur te
 - **Component Hub**: Folder `component/` sebagai pusat manajemen komponen
 - **Multi-Language Support**: Termasuk komponen dengan nama Mandarin (云化，信息化，etc.)
 - **Arsitektur Modular**: Setiap komponen berdiri sendiri dengan file .js dan .css
-- **Generator Otomatis**: Script Python dan Shell untuk generate komponen
 - **Integrasi Penuh**: Mendukung AI, RAG, database, dan backend PHP
 
 ## Cara Menjalankan
