@@ -1,6 +1,6 @@
 # SoutheastApp Desktop Launcher
 
-Sistem desktop launcher terintegrasi dengan 150+ komponen modular.
+Sistem desktop launcher terintegrasi dengan komponen modular dalam arsitektur terpusat.
 
 ## Struktur Folder
 
@@ -9,50 +9,48 @@ Sistem desktop launcher terintegrasi dengan 150+ komponen modular.
 ├── index.html          # File HTML utama
 ├── index.css           # Stylesheet utama
 ├── index.js            # JavaScript utama
-├── components/         # 150 komponen modular
-│   ├── ui-component-*.js (30 files)
-│   ├── app-component-*.js (30 files)
-│   ├── service-component-*.js (30 files)
-│   ├── util-component-*.js (30 files)
-│   └── model-component-*.js (30 files)
-├── dist/               # Distribution folder
-│   ├── bin/            # Binary launcher scripts
-│   ├── pages/          # HTML pages
-│   ├── config/         # Configuration files
-│   ├── assets/         # CSS, images, fonts
-│   ├── lib/            # Library modules
-│   └── modules/        # Additional modules
-├── system/             # System core
-│   ├── core/           # Kernel, drivers, memory manager
-│   └── drivers/        # Device drivers
-└── bypass/             # Bypass system
-    ├── patches/        # Security patches
-    ├── hooks/          API/FS/Net hooks
-    └── filters/        # Content/request filters
+├── component/          # Komponen modular terpusat
+│   ├── component_list.json  # Daftar semua komponen
+│   ├── index.html      # Halaman indeks komponen
+│   ├── css/            # Stylesheet komponen
+│   └── js/             # JavaScript komponen
+├── components/         # Komponen dasar (Button, Card, Input, Modal)
+├── ai/                 # AI modules
+├── css/                # CSS global
+├── db/                 # Database files
+├── js/                 # JavaScript global
+├── php/                # PHP backend
+├── postapp/            # Post application modules
+├── rag/                # RAG (Retrieval-Augmented Generation)
+├── southeastapp/       # Main application
+├── srv/                # Service modules
+├── trafict/            # Traffic management
+├── view/               # View templates
+└── *.js, *.css         # Komponen individual (1800+ files)
 ```
 
 ## Fitur
 
-- **150 Komponen Modular**: UI, App, Service, Utility, Model
-- **Multi-Page Support**: 9 halaman terintegrasi
-- **Bypass System**: Patches, hooks, dan filters
-- **System Core**: Kernel, driver manager, memory manager
-- **Konfigurasi Terpusat**: system.json
-- **Dukungan Folder Non-Sejejar**: Integrasi penuh dengan folder dist/, system/, bypass/
+- **1800+ Komponen Individual**: File JS dan CSS terpisah untuk setiap komponen
+- **Component Hub**: Folder `component/` sebagai pusat manajemen komponen
+- **Multi-Language Support**: Termasuk komponen dengan nama Mandarin (云化，信息化，etc.)
+- **Arsitektur Modular**: Setiap komponen berdiri sendiri dengan file .js dan .css
+- **Generator Otomatis**: Script Python dan Shell untuk generate komponen
+- **Integrasi Penuh**: Mendukung AI, RAG, database, dan backend PHP
 
 ## Cara Menjalankan
 
 ```bash
-# Linux/Mac
-./dist/bin/launcher.sh
-
-# Atau buka langsung
+# Buka melalui browser
 open index.html
+
+# Atau jalankan server lokal
+python -m http.server 8000
 ```
 
 ## Spesifikasi
 
 - Versi: 1.0.0
 - Build: 2024.01.15
-- Memori Maksimum: 512MB
-- Kuota Disk: 500MB
+- Total Komponen: 1800+
+- Arsitektur: Modular Terdesentralisasi
