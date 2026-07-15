@@ -1,1 +1,1 @@
-(css/ai-studio.css, js/ai-studio.js)
+Nothing needs to be added to .gitignore since the changes only include HTML files (source/config files) and no build artifacts, dependencies, or temporary files.

@@ -59,6 +59,14 @@ input,textarea,select{font-family:inherit;outline:none}
 .search-input{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:8px 15px 8px 35px;color:#fff;width:200px;transition:all 0.3s}
 .search-input:focus{background:rgba(255,255,255,0.15);border-color:#ff6b6b;width:250px}
 .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#888}
+.search-suggestions{position:absolute;top:100%;left:0;right:0;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:10px;margin-top:5px;max-height:300px;overflow-y:auto;z-index:1001;box-shadow:0 10px 30px rgba(0,0,0,0.5);display:none}
+.search-suggestions.active{display:block}
+.suggestion-item{padding:12px 15px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(42,42,62,0.5)}
+.suggestion-item:hover{background:rgba(255,107,107,0.2)}
+.suggestion-item:last-child{border-bottom:none}
+.suggestion-icon{font-size:1.1em;width:20px;text-align:center}
+.suggestion-text{flex:1}
+.suggestion-engine{font-size:0.75em;color:#666;padding:2px 8px;background:rgba(255,255,255,0.1);border-radius:12px}
 
 /* ============================================
    MAIN AREA - Three Column Layout
@@ -347,6 +355,11 @@ input,textarea,select{font-family:inherit;outline:none}
 <span class="category-badge">Application</span>
 </div>
 <div class="header-controls">
+<div class="search-container">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" class="search-input" id="browserSearchInput" placeholder="Search..." onkeyup="handleBrowserSearch(event)">
+    <div class="search-suggestions" id="searchSuggestions"></div>
+</div>
 <button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
 <button class="control-btn" onclick="resetSystem()">🔄 Reset</button>
 <button class="control-btn" onclick="openSettings()">⚙️ Settings</button>
@@ -1395,7 +1408,134 @@ if(document.readyState === 'loading'){
 
 // Log keyboard shortcuts info
 addLine('[TIP] Press F1 for help, Ctrl+S to save', 'terminal-info');
+
+// ============================================
+// BROWSER SEARCH FUNCTIONALITY
+// ============================================
+
+let searchDebounceTimer = null;
+
+/**
+ * Handle browser search input
+ */
+function handleBrowserSearch(event) {
+    const query = event.target.value.trim();
+    const suggestionsBox = document.getElementById('searchSuggestions');
+    
+    // Clear previous timer
+    clearTimeout(searchDebounceTimer);
+    
+    if (query.length === 0) {
+        suggestionsBox.classList.remove('active');
+        suggestionsBox.innerHTML = '';
+        return;
+    }
+    
+    // Debounce search suggestions
+    searchDebounceTimer = setTimeout(() => {
+        showSearchSuggestions(query);
+    }, 300);
+    
+    // Handle Enter key
+    if (event.key === 'Enter') {
+        performSearch(query);
+        suggestionsBox.classList.remove('active');
+    }
+}
+
+/**
+ * Show search suggestions from multiple engines
+ */
+function showSearchSuggestions(query) {
+    const suggestionsBox = document.getElementById('searchSuggestions');
+    const engines = [
+        { name: 'Google', icon: '🔍', url: 'https://www.google.com/search?q=' },
+        { name: 'Bing', icon: '🌐', url: 'https://www.bing.com/search?q=' },
+        { name: 'YouTube', icon: '▶️', url: 'https://www.youtube.com/results?search_query=' },
+        { name: 'GitHub', icon: '💻', url: 'https://github.com/search?q=' },
+        { name: 'Stack Overflow', icon: '📚', url: 'https://stackoverflow.com/search?q=' }
+    ];
+    
+    let html = '';
+    
+    // Add direct URL suggestion if query looks like URL
+    if (query.includes('.') && !query.includes(' ')) {
+        html += `
+            <div class="suggestion-item" onclick="performSearch('${query}')">
+                <span class="suggestion-icon">🔗</span>
+                <span class="suggestion-text">Visit ${query}</span>
+                <span class="suggestion-engine">Direct</span>
+            </div>
+        `;
+    }
+    
+    // Add engine suggestions
+    engines.forEach(engine => {
+        html += `
+            <div class="suggestion-item" onclick="performSearchWithEngine('${query}', '${engine.url}')">
+                <span class="suggestion-icon">${engine.icon}</span>
+                <span class="suggestion-text">Search "${query}" on ${engine.name}</span>
+                <span class="suggestion-engine">${engine.name}</span>
+            </div>
+        `;
+    });
+    
+    suggestionsBox.innerHTML = html;
+    suggestionsBox.classList.add('active');
+    
+    // Close suggestions when clicking outside
+    document.addEventListener('click', function closeSuggestions(e) {
+        if (!e.target.closest('.search-container')) {
+            suggestionsBox.classList.remove('active');
+            document.removeEventListener('click', closeSuggestions);
+        }
+    });
+}
+
+/**
+ * Perform search with default engine
+ */
+function performSearch(query) {
+    if (!query) return;
+    
+    addLine(`[SEARCH] Searching for: ${query}`, 'terminal-info');
+    addLog('Search performed: ' + query);
+    
+    // Open in new tab with Google as default
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+    
+    showNotification('Search', 'Opening search results for "' + query + '"', 'info');
+}
+
+/**
+ * Perform search with specific engine
+ */
+function performSearchWithEngine(query, engineUrl) {
+    if (!query) return;
+    
+    const engineName = engineUrl.match(/\/\/(?:www\.)?([^\.]+)/)[1];
+    addLine(`[SEARCH] Searching ${engineName} for: ${query}`, 'terminal-info');
+    addLog(`Search on ${engineName}: ${query}`);
+    
+    window.open(engineUrl + encodeURIComponent(query), '_blank');
+    
+    showNotification('Search', `Opening ${engineName} results for "${query}"`, 'info');
+    
+    document.getElementById('searchSuggestions').classList.remove('active');
+}
+
+/**
+ * Detect if input is URL or search query
+ */
+function detectInputType(input) {
+    const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+    const ipPattern = /^(https?:\/\/)?(\d{1,3}\.){3}\d{1,3}(:\d+)?(\/.*)?$/;
+    
+    if (urlPattern.test(input) || ipPattern.test(input)) {
+        return 'url';
+    }
+    return 'search';
+}
 </script>
 </body>
-</html>
 </html>
