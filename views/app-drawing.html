@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App-drawing - WebOS</title>
+    <link rel="stylesheet" href="../css/app-drawing.css">
+</head>
+<body>
+    <div id="app-app-drawing" class="webos-component">
+        <header class="component-header">
+            <h1>App-drawing</h1>
+            <button class="btn-close" onclick="window.close()">×</button>
+        </header>
+        <main class="component-content">
+            <div class="loading-state">Loading...</div>
+            <div class="error-state" style="display:none"></div>
+            <div class="data-container"></div>
+        </main>
+        <footer class="component-footer">
+            <span class="status-indicator">Ready</span>
+        </footer>
+    </div>
+    <script type="module">
+        import app-drawing from '../js/app-drawing.js';
+        console.log('[VIEW] app-drawing loaded');
+        // Initialize component logic here
+    </script>
+</body>
+</html>

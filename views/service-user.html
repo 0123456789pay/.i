@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service-user - WebOS</title>
+    <link rel="stylesheet" href="../css/service-user.css">
+</head>
+<body>
+    <div id="app-service-user" class="webos-component">
+        <header class="component-header">
+            <h1>Service-user</h1>
+            <button class="btn-close" onclick="window.close()">×</button>
+        </header>
+        <main class="component-content">
+            <div class="loading-state">Loading...</div>
+            <div class="error-state" style="display:none"></div>
+            <div class="data-container"></div>
+        </main>
+        <footer class="component-footer">
+            <span class="status-indicator">Ready</span>
+        </footer>
+    </div>
+    <script type="module">
+        import service-user from '../js/service-user.js';
+        console.log('[VIEW] service-user loaded');
+        // Initialize component logic here
+    </script>
+</body>
+</html>
