@@ -1,0 +1,35 @@
+{
+  "name": "Request Filter",
+  "version": "1.0.0",
+  "enabled": true,
+  "rules": [
+    {
+      "id": "rf-001",
+      "type": "allow",
+      "method": ["GET", "POST", "PUT", "DELETE"],
+      "path": "/api/*",
+      "description": "Allow all API requests"
+    },
+    {
+      "id": "rf-002",
+      "type": "allow",
+      "method": ["GET"],
+      "path": "/assets/*",
+      "description": "Allow asset requests"
+    },
+    {
+      "id": "rf-003",
+      "type": "rate-limit",
+      "method": ["POST"],
+      "path": "/api/auth/*",
+      "limit": 10,
+      "window": 60,
+      "description": "Rate limit auth requests"
+    }
+  ],
+  "settings": {
+    "logAllRequests": false,
+    "logBlockedRequests": true,
+    "defaultAction": "allow"
+  }
+}
