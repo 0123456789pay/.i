@@ -1,48 +1,33 @@
 ```
-# Build artifacts and generated files
-components_css/*.css
-components_js/*.js
-components_data.json
+# Dependencies
+node_modules/
 
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Logs
-*.log
-
-# Environment files
+# Environment
 .env
 .env.local
 .env.*
 
-# IDE specific files
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
+
+# Logs and temp files
+*.log
 *.tmp
+*.swp
 
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Distribution / packaging
+# Build artifacts
 dist/
 build/
-*.egg-info/
+target/
 
-# Dependencies (if any Python packages were installed locally)
-.venv/
+# Python specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
 venv/
-pip-log.txt
-pip-delete-this-directory.txt
-
+.venv/
 ```
