@@ -1,0 +1,9 @@
+/* Security Module Styles */
+#security-module { padding: 20px; }
+#security-module .module-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+#security-module h2 { color: var(--primary-color); font-size: 18px; display: flex; align-items: center; gap: 10px; }
+#security-module .module-actions { display: flex; gap: 8px; }
+#security-module .module-body { background: var(--card-bg); border-radius: 8px; padding: 20px; min-height: 400px; }
+.security-section label { display: block; padding: 12px; margin: 8px 0; background: var(--bg-secondary); border-radius: 6px; cursor: pointer; }
+.security-section input { margin-right: 10px; }
+#scanResults { margin-top: 20px; padding: 15px; background: var(--bg-primary); border-radius: 6px; }

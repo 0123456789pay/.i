@@ -1,0 +1,20 @@
+<!-- Security Module -->
+<div class="module-wrapper" id="security-module">
+    <div class="module-header">
+        <h2><i class="fas fa-shield-alt"></i> Security</h2>
+        <div class="module-actions">
+            <button class="btn-module" onclick="ModuleActions.refresh('security')"><i class="fas fa-sync"></i></button>
+            <button class="btn-module" onclick="ModuleActions.settings('security')"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+    <div class="module-body">
+        <div class="security-section">
+            <h3>Security Settings</h3>
+            <label><input type="checkbox" id="enable2FA"> Enable 2FA</label>
+            <label><input type="checkbox" id="secureMode"> Secure Mode</label>
+            <label><input type="checkbox" id="auditLog"> Audit Logging</label>
+            <button id="scanBtn" class="btn-primary">Run Security Scan</button>
+            <div id="scanResults"></div>
+        </div>
+    </div>
+</div>

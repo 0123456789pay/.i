@@ -1,0 +1,18 @@
+<!-- Backup Module -->
+<div class="module-wrapper" id="backup-module">
+    <div class="module-header">
+        <h2><i class="fas fa-database"></i> Backup</h2>
+        <div class="module-actions">
+            <button class="btn-module" onclick="ModuleActions.refresh('backup')"><i class="fas fa-sync"></i></button>
+            <button class="btn-module" onclick="ModuleActions.settings('backup')"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+    <div class="module-body">
+        <div class="backup-section">
+            <button id="backupBtn" class="btn-primary">Create Backup</button>
+            <button id="restoreBtn" class="btn-secondary">Restore</button>
+            <button id="scheduleBtn" class="btn-secondary">Schedule</button>
+            <div class="backup-list" id="backupList"></div>
+        </div>
+    </div>
+</div>
