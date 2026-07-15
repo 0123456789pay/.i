@@ -445,11 +445,71 @@ body {
 .workspace {
     flex: 1;
     display: flex;
+    flex-direction: column;
     overflow: hidden;
     gap: 1px;
     background: var(--border-color);
 }
 
+/* Live Preview Panel - Top */
+.live-preview-panel {
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.live-preview-panel .preview-header {
+    padding: 12px 20px;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live-preview-panel .preview-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.live-preview-panel .preview-title i {
+    color: var(--success);
+}
+
+.live-preview-panel .preview-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.live-preview-panel .btn-preview {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.live-preview-panel .btn-preview:hover {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
+}
+
+.live-preview-panel .preview-container {
+    flex: 1;
+    overflow: hidden;
+    background: white;
+}
+
+/* Content Panel - Bottom */
 .content-panel {
     flex: 1;
     display: flex;
@@ -571,12 +631,17 @@ body {
     display: none !important;
 }
 
-/* ==================== PREVIEW PANEL ==================== */
+/* Code Tree View */
+.code-tree-view {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: var(--dark-bg);
+}
+
+/* ==================== PREVIEW PANEL (Legacy - kept for compatibility) ==================== */
 .preview-panel {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    background: white;
+    display: none;
 }
 
 .preview-header {
