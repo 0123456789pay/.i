@@ -1,0 +1,22 @@
+<!-- Version Control Module -->
+<div class="module-wrapper" id="versioncontrol-module">
+    <div class="module-header">
+        <h2><i class="fas fa-code-branch"></i> Version Control</h2>
+        <div class="module-actions">
+            <button class="btn-module" onclick="ModuleActions.refresh('versioncontrol')"><i class="fas fa-sync"></i></button>
+            <button class="btn-module" onclick="ModuleActions.settings('versioncontrol')"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+    <div class="module-body">
+        <div class="vc-toolbar">
+            <button id="commitBtn" class="btn-primary">Commit</button>
+            <button id="pushBtn" class="btn-secondary">Push</button>
+            <button id="pullBtn" class="btn-secondary">Pull</button>
+            <button id="branchBtn" class="btn-secondary">New Branch</button>
+        </div>
+        <div class="vc-content">
+            <div class="commit-history" id="commitHistory"></div>
+            <div class="branch-list" id="branchList"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<!-- Chat Download Manager Module -->
+<div class="module-wrapper" id="chatdownloadmanager-module">
+    <div class="module-header">
+        <h2><i class="fas fa-comments"></i> Chat Download Manager</h2>
+        <div class="module-actions">
+            <button class="btn-module" onclick="ModuleActions.refresh('chatdownloadmanager')"><i class="fas fa-sync"></i></button>
+            <button class="btn-module" onclick="ModuleActions.settings('chatdownloadmanager')"><i class="fas fa-cog"></i></button>
+        </div>
+    </div>
+    <div class="module-body">
+        <div class="chat-manager-section">
+            <div class="toolbar">
+                <button id="newChatBtn" class="btn-primary">New Chat</button>
+                <button id="exportChatBtn" class="btn-secondary">Export Selected</button>
+                <button id="deleteChatBtn" class="btn-danger">Delete</button>
+            </div>
+            
+            <div class="chat-list" id="chatList">
+                <!-- Chat list will be populated dynamically -->
+            </div>
+            
+            <div class="chat-preview-section">
+                <div class="chat-header">
+                    <h3 id="chatTitle">Select a chat to view</h3>
+                    <button id="downloadChatBtn" class="btn-secondary">Download</button>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will be displayed here -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="download-options-panel">
+            <h3>Download Options</h3>
+            <div class="options-grid">
+                <label><input type="checkbox" id="includeTimestamp" checked> Include Timestamp</label>
+                <label><input type="checkbox" id="includeMetadata" checked> Include Metadata</label>
+                <label><input type="checkbox" id="formatJSON"> JSON Format</label>
+                <label><input type="checkbox" id="formatTXT" checked> TXT Format</label>
+            </div>
+        </div>
+    </div>
+</div>

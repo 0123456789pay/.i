@@ -1,0 +1,17 @@
+/* Version Control Module Styles */
+#versioncontrol-module { padding: 20px; }
+#versioncontrol-module .module-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+#versioncontrol-module h2 { color: var(--primary-color); font-size: 18px; display: flex; align-items: center; gap: 10px; }
+#versioncontrol-module .module-actions { display: flex; gap: 8px; }
+#versioncontrol-module .module-body { background: var(--card-bg); border-radius: 8px; padding: 20px; min-height: 400px; }
+.vc-toolbar { display: flex; gap: 10px; margin-bottom: 20px; }
+.vc-content { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+.commit-history, .branch-list { border: 1px solid var(--border-color); border-radius: 6px; padding: 15px; background: var(--bg-primary); }
+.commit-item { padding: 10px; border-bottom: 1px solid var(--border-color); }
+.commit-item:last-child { border-bottom: none; }
+.commit-hash { font-family: monospace; color: var(--primary-color); font-size: 12px; }
+.commit-message { margin: 5px 0; }
+.commit-date { font-size: 11px; color: var(--text-secondary); }
+.branch-item { padding: 8px 12px; cursor: pointer; border-radius: 4px; margin-bottom: 5px; }
+.branch-item:hover { background: var(--bg-secondary); }
+.branch-item.active { background: var(--primary-color); color: white; }

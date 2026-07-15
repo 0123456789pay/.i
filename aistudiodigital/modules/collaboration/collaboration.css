@@ -1,0 +1,11 @@
+/* Collaboration Module Styles */
+#collaboration-module { padding: 20px; }
+#collaboration-module .module-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); }
+#collaboration-module h2 { color: var(--primary-color); font-size: 18px; display: flex; align-items: center; gap: 10px; }
+#collaboration-module .module-actions { display: flex; gap: 8px; }
+#collaboration-module .module-body { background: var(--card-bg); border-radius: 8px; padding: 20px; min-height: 400px; }
+.collab-section { text-align: center; }
+.collab-section button { margin: 5px; padding: 12px 24px; }
+.team-list { margin-top: 20px; text-align: left; }
+.team-member { padding: 12px; margin: 8px 0; background: var(--bg-secondary); border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-color); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }

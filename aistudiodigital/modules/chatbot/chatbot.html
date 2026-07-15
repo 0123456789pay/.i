@@ -1,28 +1,15 @@
-<!-- AI Chatbot Module -->
-<div class="chatbot-container">
-    <header class="chatbot-header">
-        <h1>AI Chatbot</h1>
-        <p>Sistem chatbot dengan AI natural language processing</p>
-    </header>
-    
-    <main class="chatbot-content">
-        <div class="chatbot-interface">
-            <div class="chat-messages" id="chatMessages">
-                <div class="message bot">
-                    <div class="avatar"><i class="fas fa-robot"></i></div>
-                    <div class="bubble">Halo! Saya AI Assistant. Ada yang bisa saya bantu?</div>
-                </div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" id="userInput" placeholder="Ketik pesan Anda..." />
-                <button class="btn-send" onclick="sendMessage()">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
+<!-- chatbot Module -->
+<div class="module-wrapper" id="chatbot-module">
+    <div class="module-header">
+        <h2><i class="fas fa-folder"></i> chatbot</h2>
+        <div class="module-actions">
+            <button class="btn-module" onclick="ModuleActions.refresh('chatbot')"><i class="fas fa-sync"></i></button>
+            <button class="btn-module" onclick="ModuleActions.settings('chatbot')"><i class="fas fa-cog"></i></button>
         </div>
-    </main>
-    
-    <footer class="chatbot-footer">
-        <p>Powered by AI Studio Digital</p>
-    </footer>
+    </div>
+    <div class="module-body">
+        <div class="module-content-placeholder">
+            <p>Loading chatbot content...</p>
+        </div>
+    </div>
 </div>
