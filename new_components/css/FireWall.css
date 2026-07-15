@@ -1,0 +1,24 @@
+/* FireWall Component Styles */
+.FireWall-container {
+    display: block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.FireWall-container:hover {
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.FireWall-active {
+    border-color: #764ba2;
+    background: #f0f4ff;
+}
+
+.FireWall-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

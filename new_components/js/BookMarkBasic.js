@@ -1,0 +1,26 @@
+// BookMarkBasic Component Script
+export const BookMarkBasicComp = {
+    name: 'BookMarkBasic',
+    type: 'component',
+    version: '1.0.0',
+    config: {
+        enabled: true,
+        theme: 'default',
+        size: 'medium'
+    },
+    methods: {
+        init() {
+            console.log('BookMarkBasic initialized');
+        },
+        render(data) {
+            return `<div class="BookMarkBasic-container">${JSON.stringify(data)}</div>`;
+        },
+        destroy() {
+            console.log('BookMarkBasic destroyed');
+        }
+    },
+    events: ['click', 'change', 'focus', 'blur'],
+    props: ['id', 'class', 'style', 'data']
+};
+
+export default BookMarkBasicComp;

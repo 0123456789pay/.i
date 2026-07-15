@@ -1,0 +1,26 @@
+// BaseLine Component Script
+export const BaseLineComp = {
+    name: 'BaseLine',
+    type: 'component',
+    version: '1.0.0',
+    config: {
+        enabled: true,
+        theme: 'default',
+        size: 'medium'
+    },
+    methods: {
+        init() {
+            console.log('BaseLine initialized');
+        },
+        render(data) {
+            return `<div class="BaseLine-container">${JSON.stringify(data)}</div>`;
+        },
+        destroy() {
+            console.log('BaseLine destroyed');
+        }
+    },
+    events: ['click', 'change', 'focus', 'blur'],
+    props: ['id', 'class', 'style', 'data']
+};
+
+export default BaseLineComp;

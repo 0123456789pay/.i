@@ -1,0 +1,24 @@
+/* PortFolio Component Styles */
+.PortFolio-container {
+    display: block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.PortFolio-container:hover {
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.PortFolio-active {
+    border-color: #764ba2;
+    background: #f0f4ff;
+}
+
+.PortFolio-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
