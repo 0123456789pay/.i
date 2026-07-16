@@ -52,7 +52,7 @@
         body {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
             min-height: 100vh;
-            padding: 24px;
+            padding: 0;
             position: relative;
             overflow-x: hidden;
         }
@@ -72,26 +72,30 @@
         }
 
         .container {
-            max-width: 1600px;
-            margin: 0 auto;
+            max-width: 100%;
+            margin: 0;
             background: var(--white);
-            border-radius: 24px;
-            box-shadow: var(--shadow-2xl), var(--shadow-glow);
+            border-radius: 0;
+            box-shadow: none;
             overflow: hidden;
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: none;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .header {
             background: var(--primary-blue-gradient);
             color: var(--white);
-            padding: 28px 40px;
+            padding: 16px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: relative;
             overflow: hidden;
+            flex-shrink: 0;
         }
 
         .header::before {
@@ -106,19 +110,19 @@
         }
 
         .header h1 {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: 700;
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
             position: relative;
             z-index: 1;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 i {
-            font-size: 32px;
+            font-size: 24px;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
         }
 
@@ -130,15 +134,15 @@
         }
 
         .btn {
-            padding: 12px 24px;
+            padding: 8px 16px;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
@@ -226,17 +230,19 @@
 
         .main-content {
             display: flex;
-            height: calc(100vh - 180px);
+            flex: 1;
             background: var(--white-off);
+            overflow: hidden;
         }
 
         .sidebar {
-            width: 300px;
+            width: 260px;
             background: var(--white);
             border-right: 1px solid var(--border-light);
-            padding: 24px;
+            padding: 16px;
             overflow-y: auto;
             position: relative;
+            flex-shrink: 0;
         }
 
         .sidebar::-webkit-scrollbar {
@@ -257,16 +263,16 @@
         }
 
         .sidebar-section {
-            margin-bottom: 32px;
+            margin-bottom: 20px;
         }
 
         .sidebar-title {
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -281,22 +287,22 @@
         }
 
         .repo-item {
-            padding: 14px 16px;
-            border-radius: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-bottom: 8px;
-            font-size: 14px;
+            margin-bottom: 6px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-secondary);
             border: 1px solid transparent;
         }
 
         .repo-item i {
-            font-size: 18px;
+            font-size: 16px;
             width: 20px;
             text-align: center;
             transition: all 0.3s ease;
@@ -328,20 +334,20 @@
         }
 
         .tree-item {
-            padding: 10px 14px;
+            padding: 8px 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
-            border-radius: 10px;
+            gap: 8px;
+            border-radius: 8px;
             transition: all 0.25s ease;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-secondary);
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
         .tree-item i {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--warning);
             transition: all 0.2s ease;
         }
@@ -384,13 +390,14 @@
         }
 
         .toolbar {
-            padding: 18px 28px;
+            padding: 12px 20px;
             border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: var(--white);
             backdrop-filter: blur(10px);
+            flex-shrink: 0;
         }
 
         .breadcrumb {
@@ -435,7 +442,7 @@
 
         .file-browser {
             flex: 1;
-            padding: 28px;
+            padding: 20px;
             overflow-y: auto;
             background: linear-gradient(180deg, var(--white-off) 0%, var(--white) 100%);
         }
@@ -460,21 +467,21 @@
 
         .view-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
         }
 
         .view-list {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .file-item {
             background: var(--white);
             border: 1px solid var(--border-light);
-            border-radius: 16px;
-            padding: 20px 16px;
+            border-radius: 12px;
+            padding: 14px 12px;
             cursor: pointer;
             transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             text-align: center;
@@ -501,7 +508,7 @@
 
         .file-item:hover {
             box-shadow: var(--shadow-xl), 0 0 0 1px var(--accent-blue);
-            transform: translateY(-6px) scale(1.02);
+            transform: translateY(-4px) scale(1.02);
             border-color: var(--primary-blue-light);
         }
 
@@ -516,15 +523,15 @@
         }
 
         .file-icon {
-            font-size: 48px;
-            margin-bottom: 14px;
+            font-size: 36px;
+            margin-bottom: 10px;
             color: var(--primary-blue);
             transition: all 0.3s ease;
             filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.2));
         }
 
         .file-item:hover .file-icon {
-            transform: scale(1.15) rotate(5deg);
+            transform: scale(1.12) rotate(5deg);
             filter: drop-shadow(0 4px 8px rgba(37, 99, 235, 0.3));
         }
 
@@ -545,11 +552,11 @@
         .file-icon.archive { color: #6b7280; }
 
         .file-name {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-primary);
             word-break: break-word;
-            line-height: 1.5;
+            line-height: 1.4;
             transition: color 0.2s ease;
         }
 
