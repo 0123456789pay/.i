@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Media Sosial</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; }
+        .header { background: #1877f2; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 24px; }
+        .nav { background: white; padding: 10px 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .nav a { margin-right: 15px; text-decoration: none; color: #1877f2; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 20px; }
+        .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .btn { background: #1877f2; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+        .btn:hover { background: #166fe5; }
+        input, textarea, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .data-display { background: #f8f9fa; padding: 15px; border-radius: 6px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📱 Events</h1>
+        <div id="user-info"></div>
+    </div>
+    
+    <div class="nav">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="feed.html">Feed</a>
+        <a href="messages.html">Messages</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="settings.html">Settings</a>
+    </div>
+    
+    <div class="container">
+        <div class="card">
+            <h2>Events</h2>
+            <div id="content"><p>Halaman Events siap digunakan.</p><p>Fitur: CRUD operations, penyimpanan data ke File Manager, integrasi simulasi PHP & Database.</p></div>
+        </div>
+        
+        <div class="card">
+            <h3>📊 Database Storage (File Manager)</h3>
+            <div class="data-display">
+                <p><strong>Status:</strong> <span id="db-status">Connected</span></p>
+                <p><strong>Data Stored:</strong> <span id="data-count">0</span> records</p>
+                <button class="btn" onclick="showData()">View Stored Data</button>
+                <div id="stored-data"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simulasi Database menggunakan localStorage (File Manager)
+        const DB = {
+            init: function() {
+                if (!localStorage.getItem("medsos_db")) {
+                    localStorage.setItem("medsos_db", JSON.stringify({}));
+                }
+            },
+            save: function(table, data) {
+                this.init();
+                const db = JSON.parse(localStorage.getItem("medsos_db"));
+                if (!db[table]) db[table] = [];
+                data.id = Date.now();
+                data.timestamp = new Date().toISOString();
+                db[table].push(data);
+                localStorage.setItem("medsos_db", JSON.stringify(db));
+                localStorage.setItem("file_manager_log", JSON.stringify({
+                    action: "SAVE",
+                    table: table,
+                    data: data,
+                    time: new Date().toISOString()
+                }));
+                return data;
+            },
+            get: function(table) {
+                this.init();
+                const db = JSON.parse(localStorage.getItem("medsos_db"));
+                return db[table] || [];
+            },
+            delete: function(table, id) {
+                const db = JSON.parse(localStorage.getItem("medsos_db"));
+                if (db[table]) {
+                    db[table] = db[table].filter(item => item.id !== id);
+                    localStorage.setItem("medsos_db", JSON.stringify(db));
+                }
+            }
+        };
+
+        // Simulasi PHP Backend
+        const PHP = {
+            connect: function() { console.log("PHP: Connected to database"); return true; },
+            query: function(sql, params) { console.log("PHP Query:", sql, params); return DB.get(params.table || "default"); },
+            insert: function(table, data) { console.log("PHP Insert into", table, data); return DB.save(table, data); }
+        };
+
+        DB.init();
+        PHP.connect();
+        document.getElementById("user-info").innerHTML = "User: " + (localStorage.getItem("current_user") || "Guest");
+        
+        function updateDataCount() {
+            const db = JSON.parse(localStorage.getItem("medsos_db") || "{}");
+            let count = 0;
+            for (let table in db) { count += db[table].length; }
+            document.getElementById("data-count").textContent = count;
+        }
+        
+        function showData() {
+            const db = JSON.parse(localStorage.getItem("medsos_db") || "{}");
+            document.getElementById("stored-data").innerHTML = "<pre>" + JSON.stringify(db, null, 2) + "</pre>";
+        }
+        
+        DB.save("page_visits", { page: "events", user: localStorage.getItem("current_user") || "guest" });
+        updateDataCount();
+    </script>
+</body>
+</html>
