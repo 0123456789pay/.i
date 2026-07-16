@@ -6,41 +6,47 @@ __pycache__/
 *.obj
 dist/
 build/
-target/
 
 # Dependencies
 .venv/
 venv/
 node_modules/
-.mypy_cache/
-.pytest_cache/
-.gradle/
 
 # Logs and temp files
 *.log
 *.tmp
 *.swp
-*.swo
 
 # Environment
 .env
 .env.local
-*.env.*
+.env.*
 
 # Editors
 .vscode/
 .idea/
 
-# System files
-.DS_Store
-Thumbs.db
-
-# Coverage
+# Coverage reports
 coverage/
 htmlcov/
 .coverage
 
-# Compressed files
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python specific
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Backup and cache directories
+*.bak
+*.cache
+*.orig
+
+# Compression and archives
 *.zip
 *.gz
 *.tar
