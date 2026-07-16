@@ -2,7 +2,7 @@
 // Configuration and State Management
 
 const AppState = {
-    currentModule: 'promptmanager',
+    currentModule: 'codefile',
     currentTab: 'editor',
     previewMode: 'preview',
     deviceMode: 'desktop',
@@ -614,4 +614,24 @@ function generateDefaultConfig(moduleId) {
             author: "AI Studio Digital"
         }
     }, null, 2);
+}
+
+// Sidebar Toggle Function
+function toggleSidebar(sidebarId) {
+    const sidebar = document.getElementById(sidebarId);
+    if (sidebar) {
+        sidebar.classList.toggle('collapsed');
+        
+        // Update toggle button icon
+        const toggleBtn = sidebar.querySelector('.btn-toggle-sidebar i');
+        if (toggleBtn) {
+            if (sidebar.classList.contains('collapsed')) {
+                toggleBtn.classList.remove('fa-chevron-left');
+                toggleBtn.classList.add('fa-chevron-right');
+            } else {
+                toggleBtn.classList.remove('fa-chevron-right');
+                toggleBtn.classList.add('fa-chevron-left');
+            }
+        }
+    }
 }
