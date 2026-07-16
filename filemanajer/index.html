@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Manager - Modern Blue-White Theme</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ==================== HEADER/NAVBAR ==================== -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-folder-open"></i>
+            <span>File Manager</span>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="#" class="nav-item">
+                <i class="fas fa-folder"></i>
+                <span>Folders</span>
+            </a>
+            
+            <div class="dropdown">
+                <button class="btn nav-item">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>New</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+                </button>
+                <div class="dropdown-menu" id="newDropdown">
+                    <div class="dropdown-item" data-action="new-folder">
+                        <i class="fas fa-folder-plus"></i>
+                        <span>Folder</span>
+                    </div>
+                    <div class="dropdown-item" data-action="new-file">
+                        <i class="fas fa-file"></i>
+                        <span>File</span>
+                    </div>
+                    <div class="dropdown-item" data-action="new-text">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Text File</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="nav-item">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Upload</span>
+            </a>
+            
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search by name or content">
+            </div>
+            
+            <div class="dropdown">
+                <button class="btn nav-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Administration</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+                </button>
+                <div class="dropdown-menu" id="adminDropdown">
+                    <div class="dropdown-item" data-action="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                    <div class="dropdown-item" data-action="permissions">
+                        <i class="fas fa-user-shield"></i>
+                        <span>Permissions</span>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-item" data-action="logs">
+                        <i class="fas fa-list-alt"></i>
+                        <span>Activity Logs</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="user-profile">
+            <div class="avatar">A</div>
+            <span class="username">admin</span>
+            <i class="fas fa-chevron-down" style="font-size: 0.7rem; color: var(--text-secondary);"></i>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTAINER ==================== -->
+    <div class="main-container">
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li class="sidebar-item" data-action="share">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Share</span>
+                </li>
+                <li class="sidebar-item" data-action="cloud">
+                    <i class="fas fa-cloud"></i>
+                    <span>Cloud storages</span>
+                </li>
+                <li class="sidebar-item" data-action="download">
+                    <i class="fas fa-download"></i>
+                    <span>Download</span>
+                </li>
+                
+                <li class="sidebar-divider"></li>
+                
+                <li class="sidebar-item" data-action="new">
+                    <i class="fas fa-plus"></i>
+                    <span>New</span>
+                </li>
+                <li class="sidebar-item" data-action="favorites">
+                    <i class="fas fa-star"></i>
+                    <span>Add to favorites</span>
+                </li>
+                <li class="sidebar-item" data-action="rename">
+                    <i class="fas fa-edit"></i>
+                    <span>Rename</span>
+                </li>
+                <li class="sidebar-item" data-action="delete">
+                    <i class="fas fa-trash"></i>
+                    <span>Delete</span>
+                </li>
+                
+                <li class="sidebar-divider"></li>
+                
+                <li class="sidebar-item" data-action="copy">
+                    <i class="fas fa-copy"></i>
+                    <span>Copy</span>
+                </li>
+                <li class="sidebar-item" data-action="cut">
+                    <i class="fas fa-cut"></i>
+                    <span>Cut</span>
+                </li>
+                <li class="sidebar-item" data-action="compress">
+                    <i class="fas fa-file-archive"></i>
+                    <span>Compress to a Zip archive</span>
+                </li>
+                
+                <li class="sidebar-divider"></li>
+                
+                <li class="sidebar-item" data-action="label">
+                    <i class="fas fa-tag"></i>
+                    <span>Label</span>
+                </li>
+                <li class="sidebar-item" data-action="details">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Details</span>
+                </li>
+                <li class="sidebar-item" data-action="watch">
+                    <i class="fas fa-bell"></i>
+                    <span>Watch for modifications</span>
+                </li>
+                <li class="sidebar-item" data-action="more">
+                    <i class="fas fa-ellipsis-h"></i>
+                    <span>More</span>
+                </li>
+                
+                <li class="sidebar-divider"></li>
+                
+                <li class="sidebar-checkbox">
+                    <label>
+                        <input type="checkbox" id="selectAllCheckbox">
+                        <span>Select all</span>
+                    </label>
+                </li>
+                <li class="sidebar-item" data-action="invert">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Invert selection</span>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- ==================== CONTENT AREA ==================== -->
+        <main class="content-area">
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb">
+                    <a href="#" class="breadcrumb-item" data-path="/workspace/filemanajer">
+                        <i class="fas fa-home"></i>
+                    </a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="#" class="breadcrumb-item" data-path="/workspace/filemanajer/Demo folder">Demo folder</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="#" class="breadcrumb-item" data-path="/workspace/filemanajer/Demo folder/Office">Office</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <a href="#" class="breadcrumb-item current" data-path="/workspace/filemanajer/Demo folder/Office/Word files">Word files</a>
+                </div>
+                
+                <!-- Toolbar Buttons -->
+                <div class="toolbar-buttons">
+                    <button class="btn">
+                        <i class="fas fa-file"></i>
+                        <span>File</span>
+                    </button>
+                    
+                    <div class="dropdown">
+                        <button class="btn">
+                            <i class="fas fa-eye"></i>
+                            <span>View/Edit</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+                        </button>
+                        <div class="dropdown-menu" id="viewEditDropdown">
+                            <div class="dropdown-header">View Options</div>
+                            <div class="dropdown-item" data-action="view-browser">
+                                <i class="fas fa-globe"></i>
+                                <span>View in Browser</span>
+                            </div>
+                            <div class="dropdown-item" data-action="download">
+                                <i class="fas fa-download"></i>
+                                <span>Download</span>
+                            </div>
+                            
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">Edit with Office</div>
+                            <div class="dropdown-item" data-action="edit-ms-office">
+                                <i class="fab fa-microsoft"></i>
+                                <span>Edit in MS Office</span>
+                            </div>
+                            <div class="dropdown-item" data-action="edit-ms-office-online">
+                                <i class="fas fa-cloud"></i>
+                                <span>Edit in MS Office Online</span>
+                            </div>
+                            <div class="dropdown-item" data-action="edit-office-365">
+                                <i class="fab fa-office"></i>
+                                <span>Edit in Office 365</span>
+                            </div>
+                            <div class="dropdown-item" data-action="edit-openoffice">
+                                <i class="fas fa-file-word"></i>
+                                <span>Edit in OpenOffice/LibreOffice</span>
+                            </div>
+                            <div class="dropdown-item" data-action="view-office-web">
+                                <i class="fas fa-globe"></i>
+                                <span>View in Office Web Apps</span>
+                            </div>
+                            
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">Cloud Services</div>
+                            <div class="dropdown-item" data-action="edit-google-drive">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Edit in Google Drive</span>
+                            </div>
+                            <div class="dropdown-item" data-action="view-google-docs">
+                                <i class="fas fa-file-alt"></i>
+                                <span>View in Google Docs</span>
+                            </div>
+                            <div class="dropdown-item" data-action="view-box">
+                                <i class="fas fa-box"></i>
+                                <span>View in Box</span>
+                            </div>
+                            <div class="dropdown-item" data-action="edit-zoho">
+                                <i class="fas fa-file"></i>
+                                <span>Edit in Zoho</span>
+                            </div>
+                            
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header">Other Tools</div>
+                            <div class="dropdown-item" data-action="convert-cloudconvert">
+                                <i class="fas fa-sync-alt"></i>
+                                <span>Convert with CloudConvert</span>
+                            </div>
+                            <div class="dropdown-item" data-action="edit-text">
+                                <i class="fas fa-file-code"></i>
+                                <span>Edit as text file</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud Storages</span>
+                    </button>
+                    
+                    <!-- View Toggle -->
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Grid View -->
+            <div class="file-grid">
+                <!-- Files will be rendered here by JavaScript -->
+            </div>
+
+            <!-- File List View -->
+            <div class="file-list">
+                <div class="file-list-header">
+                    <div></div>
+                    <div>Name</div>
+                    <div>Size</div>
+                    <div>Date Modified</div>
+                </div>
+                <div class="file-list-content">
+                    <!-- Files will be rendered here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Upload Zone -->
+            <div class="upload-zone">
+                <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                <div class="upload-text">Drag and drop files here to upload</div>
+                <div class="upload-hint">or click to browse files from your computer</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- ==================== CONTEXT MENU (Right-click) ==================== -->
+    <div class="context-menu">
+        <div class="context-item" data-action="open">
+            <i class="fas fa-folder-open"></i>
+            <span>Open</span>
+        </div>
+        <div class="context-item" data-action="preview">
+            <i class="fas fa-eye"></i>
+            <span>Preview</span>
+        </div>
+        <div class="context-divider"></div>
+        <div class="context-item" data-action="cut">
+            <i class="fas fa-cut"></i>
+            <span>Cut</span>
+        </div>
+        <div class="context-item" data-action="copy">
+            <i class="fas fa-copy"></i>
+            <span>Copy</span>
+        </div>
+        <div class="context-item" data-action="paste">
+            <i class="fas fa-paste"></i>
+            <span>Paste</span>
+        </div>
+        <div class="context-divider"></div>
+        <div class="context-item" data-action="rename">
+            <i class="fas fa-edit"></i>
+            <span>Rename</span>
+        </div>
+        <div class="context-item" data-action="delete">
+            <i class="fas fa-trash"></i>
+            <span>Delete</span>
+        </div>
+        <div class="context-divider"></div>
+        <div class="context-item" data-action="properties">
+            <i class="fas fa-info-circle"></i>
+            <span>Properties</span>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL DIALOG ==================== -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirm Action</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to proceed?
+            </div>
+            <div class="modal-footer">
+                <button class="btn modal-cancel">Cancel</button>
+                <button class="btn btn-primary modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
