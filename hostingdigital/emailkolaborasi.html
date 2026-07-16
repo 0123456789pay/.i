@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitur Hosting - HostingDigital</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 15px 0; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .nav-menu { display: flex; list-style: none; gap: 5px; flex-wrap: wrap; }
+        .nav-item { position: relative; }
+        .nav-link { display: block; padding: 12px 20px; color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s; font-size: 14px; }
+        .nav-link:hover { background: rgba(255,255,255,0.2); }
+        .dropdown { position: absolute; top: 100%; left: 0; background: white; min-width: 250px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; display: none; z-index: 999; }
+        .nav-item:hover .dropdown { display: block; }
+        .submenu { position: absolute; left: 100%; top: 0; background: white; min-width: 240px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; display: none; }
+        .dropdown li:hover .submenu { display: block; }
+        .page-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center; }
+        .page-header h1 { font-size: 42px; margin-bottom: 15px; }
+        .content { padding: 60px 0; }
+        .info-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .info-card h2 { color: #1e3c72; margin-bottom: 20px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .feature-item { background: #f8f9fa; padding: 25px; border-radius: 10px; }
+        .feature-item h3 { color: #667eea; margin-bottom: 10px; }
+        .btn { display: inline-block; padding: 15px 40px; background: #667eea; color: white; text-decoration: none; border-radius: 25px; margin-top: 20px; }
+        .footer { background: #1a1a2e; color: white; padding: 40px 0 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer ul { list-style: none; }
+        .footer li { margin-bottom: 10px; }
+        .footer a { color: #aaa; text-decoration: none; }
+        .footer a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #333; color: #aaa; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div style="font-size: 24px; font-weight: bold;">HostingDigital</div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Fitur</a>
+                            <ul class="dropdown">
+                                <li><a href="performakecepatan.html">Performa Kecepatan</a>
+                                    <ul class="submenu">
+                                        <li><a href="teknologilitespeed.html">LiteSpeed Server</a></li>
+                                        <li><a href="optimasicache.html">Optimasi Cache</a></li>
+                                        <li><a href="globalcdn.html">Global CDN</a></li>
+                                        <li><a href="garansiuptime.html">Garansi Uptime</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="keamananwebsite.html">Keamanan Website</a>
+                                    <ul class="submenu">
+                                        <li><a href="proteksiserangan.html">Proteksi Serangan</a></li>
+                                        <li><a href="sslgratis.html">SSL Gratis</a></li>
+                                        <li><a href="sslpremium.html">SSL Premium</a></li>
+                                        <li><a href="backupotomatis.html">Backup Otomatis</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="kemudahanpengelolaan.html">Kemudahan Pengelolaan</a></li>
+                                <li><a href="fiturdeveloper.html">Fitur Developer</a></li>
+                                <li><a href="emailkolaborasi.html">Email Kolaborasi</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Hosting</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Domain</a></li>
+                        <li class="nav-item"><a href="clientdashboard.html" class="nav-link">Client Area</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Fitur Unggulan Hosting</h1>
+            <p>Teknologi terkini untuk performa dan keamanan maksimal</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="info-card">
+                <h2>Fitur Lengkap untuk Kebutuhan Anda</h2>
+                <div class="features-grid">
+                    <div class="feature-item"><h3>LiteSpeed Web Server</h3><p>Server tercepat dengan teknologi HTTP/3 dan NVMe SSD untuk loading website super cepat.</p></div>
+                    <div class="feature-item"><h3>LSCache Optimized</h3><p>Plugin cache khusus WordPress yang meningkatkan performa hingga 10x lipat.</p></div>
+                    <div class="feature-item"><h3>Global CDN</h3><p>Content Delivery Network gratis untuk akses cepat dari seluruh dunia.</p></div>
+                    <div class="feature-item"><h3>Imunify360 Security</h3><p>Proteksi lengkap dari malware, DDoS, dan serangan cyber lainnya.</p></div>
+                    <div class="feature-item"><h3>SSL Certificate</h3><p>SSL gratis dari Let's Encrypt dengan auto renewal untuk keamanan data.</p></div>
+                    <div class="feature-item"><h3>Daily Backup</h3><p>Backup otomatis setiap hari dengan fitur 1-klik restore untuk pemulihan instan.</p></div>
+                    <div class="feature-item"><h3>cPanel Control Panel</h3><p>Panel kontrol standar industri untuk pengelolaan hosting yang mudah.</p></div>
+                    <div class="feature-item"><h3>Softaculous Installer</h3><p>Auto installer 400+ aplikasi termasuk WordPress, Joomla, dan Laravel.</p></div>
+                    <div class="feature-item"><h3>Akses SSH & SFTP</h3><p>Akses aman untuk developer dengan dukungan Git deployment.</p></div>
+                    <div class="feature-item"><h3>Multi Versi PHP</h3><p>Pilihan versi PHP 7.4 hingga 8.3 sesuai kebutuhan aplikasi Anda.</p></div>
+                    <div class="feature-item"><h3>Unlimited Email</h3><p>Email hosting unlimited dengan webmail Roundcube dan SpamAssassin.</p></div>
+                    <div class="feature-item"><h3>24/7 Support</h3><p>Tim teknis siap membantu kapan saja melalui live chat dan sistem tiket.</p></div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="sharedhosting.html" class="btn">Mulai Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div><h3>Layanan</h3><ul><li><a href="sharedhosting.html">Shared Hosting</a></li><li><a href="cloudhosting.html">Cloud Hosting</a></li><li><a href="vpshosting.html">VPS Hosting</a></li></ul></div>
+                <div><h3>Bantuan</h3><ul><li><a href="livechat247.html">Live Chat</a></li><li><a href="knowledgebase.html">Knowledge Base</a></li></ul></div>
+                <div><h3>Legal</h3><ul><li><a href="syaratketentuan.html">Syarat Ketentuan</a></li><li><a href="kebijakanprivasi.html">Kebijakan Privasi</a></li></ul></div>
+            </div>
+            <div class="copyright"><p>&copy; 2025 HostingDigital. All rights reserved.</p></div>
+        </div>
+    </footer>
+</body>
+</html>
