@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HostingDigital - Layanan Lengkap</title>
+    <title>Layanan Domain - HostingDigital</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
@@ -22,10 +22,13 @@
         .content { padding: 60px 0; }
         .info-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 30px; }
         .info-card h2 { color: #1e3c72; margin-bottom: 20px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: #333; font-weight: 500; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px; }
-        .btn { display: inline-block; padding: 15px 40px; background: #667eea; color: white; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; font-size: 16px; }
+        .domain-search { background: white; padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
+        .domain-search input { width: 60%; padding: 15px; border: 2px solid #ddd; border-radius: 25px; font-size: 16px; }
+        .domain-search button { padding: 15px 30px; background: #667eea; color: white; border: none; border-radius: 25px; font-size: 16px; cursor: pointer; }
+        .price-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .price-table th, .price-table td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
+        .price-table th { background: #f8f9fa; color: #1e3c72; }
+        .btn { display: inline-block; padding: 12px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 25px; }
         .footer { background: #1a1a2e; color: white; padding: 40px 0 20px; margin-top: 60px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
         .footer ul { list-style: none; }
@@ -43,10 +46,23 @@
                 <nav>
                     <ul class="nav-menu">
                         <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Domain</a>
+                            <ul class="dropdown">
+                                <li><a href="pencariandomain.html">Pencarian Domain</a></li>
+                                <li><a href="domainmurah.html">Domain Murah</a></li>
+                                <li><a href="domainpremium.html">Domain Premium</a></li>
+                                <li><a href="ekstensidomain.html">Ekstensi Domain</a>
+                                    <ul class="submenu">
+                                        <li><a href="domainindonesia.html">Domain Indonesia</a></li>
+                                        <li><a href="domainglobal.html">Domain Global</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="transferdomain.html">Transfer Domain</a></li>
+                                <li><a href="perpanjangandomain.html">Perpanjangan Domain</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a href="#" class="nav-link">Hosting</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Domain</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Fitur</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Bantuan</a></li>
                         <li class="nav-item"><a href="clientdashboard.html" class="nav-link">Client Area</a></li>
                     </ul>
                 </nav>
@@ -56,32 +72,31 @@
 
     <section class="page-header">
         <div class="container">
-            <h1>Layanan HostingDigital</h1>
-            <p>Solusi lengkap untuk kebutuhan online bisnis Anda</p>
+            <h1>Layanan Domain</h1>
+            <p>Cari dan daftarkan domain impian Anda sekarang</p>
         </div>
     </section>
 
     <section class="content">
         <div class="container">
+            <div class="domain-search">
+                <input type="text" placeholder="Cari nama domain Anda...">
+                <button onclick="alert('Fitur pencarian domain akan segera tersedia!')">Cari Domain</button>
+            </div>
             <div class="info-card">
-                <h2>Selamat Datang di HostingDigital</h2>
-                <p>Kami menyediakan berbagai layanan hosting, domain, dan solusi digital untuk membantu kesuksesan bisnis online Anda.</p>
-                <div style="margin-top: 30px;">
-                    <h3>Layanan Kami:</h3>
-                    <ul style="margin: 20px 0; padding-left: 20px; line-height: 2;">
-                        <li>Shared Hosting dengan berbagai pilihan paket</li>
-                        <li>Cloud Hosting untuk skalabilitas tinggi</li>
-                        <li>VPS Hosting dengan kontrol penuh</li>
-                        <li>Reseller Hosting untuk bisnis hosting Anda</li>
-                        <li>Registrasi dan manajemen Domain</li>
-                        <li>SSL Certificate untuk keamanan website</li>
-                        <li>Email Hosting profesional</li>
-                        <li>Support 24/7 melalui berbagai kanal</li>
-                    </ul>
-                </div>
+                <h2>Daftar Harga Domain</h2>
+                <table class="price-table">
+                    <tr><th>Ekstensi</th><th>Harga Registrasi</th><th>Perpanjangan</th><th>Transfer</th></tr>
+                    <tr><td>.com</td><td>Rp 150.000/tahun</td><td>Rp 150.000/tahun</td><td>Rp 150.000/tahun</td></tr>
+                    <tr><td>.net</td><td>Rp 160.000/tahun</td><td>Rp 160.000/tahun</td><td>Rp 160.000/tahun</td></tr>
+                    <tr><td>.org</td><td>Rp 155.000/tahun</td><td>Rp 155.000/tahun</td><td>Rp 155.000/tahun</td></tr>
+                    <tr><td>.id</td><td>Rp 200.000/tahun</td><td>Rp 200.000/tahun</td><td>Rp 200.000/tahun</td></tr>
+                    <tr><td>.co.id</td><td>Rp 180.000/tahun</td><td>Rp 180.000/tahun</td><td>Rp 180.000/tahun</td></tr>
+                    <tr><td>.my.id</td><td>Rp 50.000/tahun</td><td>Rp 50.000/tahun</td><td>Rp 50.000/tahun</td></tr>
+                    <tr><td>.xyz</td><td>Rp 25.000/tahun</td><td>Rp 150.000/tahun</td><td>Rp 150.000/tahun</td></tr>
+                </table>
                 <div style="text-align: center; margin-top: 30px;">
                     <a href="register.html" class="btn">Daftar Sekarang</a>
-                    <a href="login.html" class="btn" style="background: #2a5298; margin-left: 10px;">Login Client</a>
                 </div>
             </div>
         </div>
