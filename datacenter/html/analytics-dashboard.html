@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics Dashboard - DataCenter</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f6fa; }
+        .content { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; margin-bottom: 20px; }
+        .info { color: #666; line-height: 1.6; }
+        .status { display: inline-block; padding: 5px 15px; background: #27ae60; color: white; border-radius: 20px; margin: 10px 0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background: #3498db; color: white; }
+        tr:hover { background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>📊 Analytics Dashboard</h1>
+        <span class="status">Active</span>
+        <p class="info">Halaman manajemen dan konfigurasi untuk Analytics Dashboard. Akses semua fitur dan pengaturan terkait layanan ini.</p>
+        <table>
+            <thead><tr><th>ID</th><th>Nama</th><th>Status</th><th>Terakhir Update</th><th>Aksi</th></tr></thead>
+            <tbody>
+                <tr><td>1</td><td>Instance Utama</td><td><span style="color:green">● Online</span></td><td>2026-07-16 03:40</td><td><button>Edit</button></td></tr>
+                <tr><td>2</td><td>Instance Backup</td><td><span style="color:orange">● Standby</span></td><td>2026-07-16 03:40</td><td><button>Edit</button></td></tr>
+                <tr><td>3</td><td>Instance Test</td><td><span style="color:red">● Offline</span></td><td>2026-07-16 03:40</td><td><button>Edit</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
