@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Editor Kode</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        h1 { color: white; text-align: center; margin-bottom: 30px; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .search-box { width: 100%; max-width: 600px; margin: 0 auto 30px; display: block; }
+        .search-box input { width: 100%; padding: 15px 25px; border: none; border-radius: 50px; font-size: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); outline: none; }
+        .stats { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; flex-wrap: wrap; }
+        .stat-card { background: white; padding: 20px 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); text-align: center; }
+        .stat-number { font-size: 2em; font-weight: bold; color: #667eea; }
+        .stat-label { color: #666; margin-top: 5px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .menu-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .menu-icon { font-size: 2.5em; margin-bottom: 15px; }
+        .menu-title { font-size: 1.2em; font-weight: bold; color: #333; margin-bottom: 10px; }
+        .menu-desc { color: #666; font-size: 0.9em; line-height: 1.5; }
+        .category-filter { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .filter-btn { padding: 10px 25px; border: none; border-radius: 25px; background: rgba(255,255,255,0.2); color: white; cursor: pointer; transition: all 0.3s; font-size: 14px; }
+        .filter-btn:hover, .filter-btn.active { background: white; color: #667eea; }
+        .filemanajer-link { position: fixed; bottom: 30px; right: 30px; background: #4CAF50; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-weight: bold; transition: all 0.3s; }
+        .filemanajer-link:hover { background: #45a049; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📝 Dashboard Editor Kode</h1>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari menu..." onkeyup="filterMenus()">
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalFiles">0</div>
+                <div class="stat-label">Total Menu</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="htmlFiles">0</div>
+                <div class="stat-label">HTML Files</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="cssFiles">0</div>
+                <div class="stat-label">CSS Files</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="jsFiles">0</div>
+                <div class="stat-label">JS Files</div>
+            </div>
+        </div>
+        
+        <div class="category-filter">
+            <button class="filter-btn active" onclick="filterCategory('all')">Semua</button>
+            <button class="filter-btn" onclick="filterCategory('file')">File</button>
+            <button class="filter-btn" onclick="filterCategory('edit')">Edit</button>
+            <button class="filter-btn" onclick="filterCategory('view')">View</button>
+            <button class="filter-btn" onclick="filterCategory('tools')">Tools</button>
+            <button class="filter-btn" onclick="filterCategory('help')">Help</button>
+        </div>
+        
+        <div class="menu-grid" id="menuGrid"></div>
+    </div>
+    
+    <a href="filemanajer/index.html" class="filemanajer-link">📁 File Manager</a>
+    
+    <script>
+        const menus = [
+            { id: 1, title: "New File", desc: "Buat file baru (HTML, CSS, JS, PHP)", icon: "📄", category: "file" },
+            { id: 2, title: "Open File", desc: "Buka file dari disk", icon: "📂", category: "file" },
+            { id: 3, title: "Save", desc: "Simpan file saat ini", icon: "💾", category: "file" },
+            { id: 4, title: "Save As", desc: "Simpan dengan nama baru", icon: "💾+", category: "file" },
+            { id: 5, title: "Save All", desc: "Simpan semua file", icon: "💾💾", category: "file" },
+            { id: 6, title: "Close File", desc: "Tutup file aktif", icon: "❌", category: "file" },
+            { id: 7, title: "Close All", desc: "Tutup semua file", icon: "❌❌", category: "file" },
+            { id: 8, title: "Recent Files", desc: "File yang baru dibuka", icon: "🕐", category: "file" },
+            { id: 9, title: "File Properties", desc: "Lihat properti file", icon: "ℹ️", category: "file" },
+            { id: 10, title: "Rename File", desc: "Ganti nama file", icon: "✏️", category: "file" },
+            { id: 11, title: "Delete File", desc: "Hapus file", icon: "🗑️", category: "file" },
+            { id: 12, title: "Duplicate File", desc: "Duplikat file", icon: "📋", category: "file" },
+            { id: 13, title: "Export File", desc: "Ekspor file", icon: "📤", category: "file" },
+            { id: 14, title: "Import File", desc: "Impor file", icon: "📥", category: "file" },
+            { id: 15, title: "Print", desc: "Cetak file", icon: "🖨️", category: "file" },
+            { id: 16, title: "Undo", desc: "Batalkan perubahan", icon: "↩️", category: "edit" },
+            { id: 17, title: "Redo", desc: "Ulangi perubahan", icon: "↪️", category: "edit" },
+            { id: 18, title: "Cut", desc: "Potong teks", icon: "✂️", category: "edit" },
+            { id: 19, title: "Copy", desc: "Salin teks", icon: "📋", category: "edit" },
+            { id: 20, title: "Paste", desc: "Tempel teks", icon: "📋", category: "edit" },
+            { id: 21, title: "Select All", desc: "Pilih semua", icon: "✅", category: "edit" },
+            { id: 22, title: "Find", desc: "Cari teks", icon: "🔍", category: "edit" },
+            { id: 23, title: "Replace", desc: "Cari dan ganti", icon: "🔄", category: "edit" },
+            { id: 24, title: "Go to Line", desc: "Loncat ke baris", icon: "📍", category: "edit" },
+            { id: 25, title: "Indent", desc: "Tambah indentasi", icon: "➡️", category: "edit" },
+            { id: 26, title: "Outdent", desc: "Kurangi indentasi", icon: "⬅️", category: "edit" },
+            { id: 27, title: "Comment", desc: "Komentari kode", icon: "💬", category: "edit" },
+            { id: 28, title: "Uncomment", desc: "Hapus komentar", icon: "💬❌", category: "edit" },
+            { id: 29, title: "Format Code", desc: "Format kode otomatis", icon: "✨", category: "edit" },
+            { id: 30, title: "Duplicate Line", desc: "Duplikat baris", icon: "📋📋", category: "edit" },
+            { id: 31, title: "Delete Line", desc: "Hapus baris", icon: "🗑️📋", category: "edit" },
+            { id: 32, title: "Move Line Up", desc: "Naikkan baris", icon: "⬆️", category: "edit" },
+            { id: 33, title: "Move Line Down", desc: "Turunkan baris", icon: "⬇️", category: "edit" },
+            { id: 34, title: "Zoom In", desc: "Perbesar tampilan", icon: "🔍+", category: "view" },
+            { id: 35, title: "Zoom Out", desc: "Perkecil tampilan", icon: "🔍-", category: "view" },
+            { id: 36, title: "Reset Zoom", desc: "Reset zoom", icon: "🔍0", category: "view" },
+            { id: 37, title: "Toggle Sidebar", desc: "Tampilkan/sembunyikan sidebar", icon: "📊", category: "view" },
+            { id: 38, title: "Toggle Terminal", desc: "Tampilkan/sembunyikan terminal", icon: "💻", category: "view" },
+            { id: 39, title: "Toggle Preview", desc: "Tampilkan preview", icon: "👁️", category: "view" },
+            { id: 40, title: "Full Screen", desc: "Layar penuh", icon: "🖥️", category: "view" },
+            { id: 41, title: "Split Editor", desc: "Bagi editor", icon: "📐", category: "view" },
+            { id: 42, title: "Minimap", desc: "Tampilkan minimap", icon: "🗺️", category: "view" },
+            { id: 43, title: "Line Numbers", desc: "Nomor baris", icon: "🔢", category: "view" },
+            { id: 44, title: "Word Wrap", desc: "Wrap teks panjang", icon: "📝", category: "view" },
+            { id: 45, title: "White Space", desc: "Tampilkan spasi", icon: "␣", category: "view" },
+            { id: 46, title: "Breadcrumbs", desc: "Navigasi breadcrumbs", icon: "🍞", category: "view" },
+            { id: 47, title: "Status Bar", desc: "Bar status", icon: "📊", category: "view" },
+            { id: 48, title: "Activity Bar", desc: "Bar aktivitas", icon: "🎯", category: "view" },
+            { id: 49, title: "Panel View", desc: "Tampilan panel", icon: "📋", category: "view" },
+            { id: 50, title: "Explorer", desc: "Jelajah file", icon: "🗂️", category: "view" },
+            { id: 51, title: "Search in Files", desc: "Cari di semua file", icon: "🔍📁", category: "tools" },
+            { id: 52, title: "Source Control", desc: "Kontrol versi", icon: "🌿", category: "tools" },
+            { id: 53, title: "Run & Debug", desc: "Jalankan dan debug", icon: "🐛", category: "tools" },
+            { id: 54, title: "Extensions", desc: "Kelola ekstensi", icon: "🧩", category: "tools" },
+            { id: 55, title: "Settings", desc: "Pengaturan editor", icon: "⚙️", category: "tools" },
+            { id: 56, title: "Keyboard Shortcuts", desc: "Pintasan keyboard", icon: "⌨️", category: "tools" },
+            { id: 57, title: "Command Palette", desc: "Palet perintah", icon: "🎨", category: "tools" },
+            { id: 58, title: "Snippets", desc: "Kelola snippet", icon: "📝", category: "tools" },
+            { id: 59, title: "Emmet", desc: "Emmet abbreviations", icon: "⚡", category: "tools" },
+            { id: 60, title: "IntelliSense", desc: "Auto-complete", icon: "🧠", category: "tools" },
+            { id: 61, title: "Code Lens", desc: "Informasi kode", icon: "🔎", category: "tools" },
+            { id: 62, title: "Problems Panel", desc: "Daftar masalah", icon: "⚠️", category: "tools" },
+            { id: 63, title: "Output Panel", desc: "Panel output", icon: "📤", category: "tools" },
+            { id: 64, title: "Debug Console", desc: "Konsol debug", icon: "🐛💻", category: "tools" },
+            { id: 65, title: "Terminal", desc: "Terminal terintegrasi", icon: "💻", category: "tools" },
+            { id: 66, title: "Git Clone", desc: "Clone repository", icon: "🌿📥", category: "tools" },
+            { id: 67, title: "Git Commit", desc: "Commit perubahan", icon: "🌿✅", category: "tools" },
+            { id: 68, title: "Git Push", desc: "Push ke remote", icon: "🌿📤", category: "tools" },
+            { id: 69, title: "Git Pull", desc: "Pull dari remote", icon: "🌿📥", category: "tools" },
+            { id: 70, title: "Branch Manager", desc: "Kelola branch", icon: "🌿🔀", category: "tools" },
+            { id: 71, title: "HTML Preview", desc: "Preview HTML", icon: "🌐", category: "tools" },
+            { id: 72, title: "Live Server", desc: "Server lokal live", icon: "🖥️⚡", category: "tools" },
+            { id: 73, title: "CSS Validator", desc: "Validasi CSS", icon: "🎨✅", category: "tools" },
+            { id: 74, title: "JS Linter", desc: "Lint JavaScript", icon: "⚡✅", category: "tools" },
+            { id: 75, title: "PHP Server", desc: "Server PHP", icon: "🐘", category: "tools" },
+            { id: 76, title: "Database Connect", desc: "Koneksi database", icon: "🗄️", category: "tools" },
+            { id: 77, title: "SQL Query", desc: "Jalankan query SQL", icon: "📊", category: "tools" },
+            { id: 78, title: "API Tester", desc: "Test API endpoint", icon: "🔌", category: "tools" },
+            { id: 79, title: "JSON Formatter", desc: "Format JSON", icon: "📋✨", category: "tools" },
+            { id: 80, title: "XML Tools", desc: "Tools XML", icon: "📄", category: "tools" },
+            { id: 81, title: "Documentation", desc: "Dokumentasi editor", icon: "📚", category: "help" },
+            { id: 82, title: "Getting Started", desc: "Panduan pemula", icon: "🚀", category: "help" },
+            { id: 83, title: "Tutorials", desc: "Tutorial video", icon: "🎬", category: "help" },
+            { id: 84, title: "Release Notes", desc: "Catatan rilis", icon: "📝", category: "help" },
+            { id: 85, title: "Report Issue", desc: "Laporkan masalah", icon: "🐛", category: "help" },
+            { id: 86, title: "Feedback", desc: "Beri feedback", icon: "💬", category: "help" },
+            { id: 87, title: "About", desc: "Tentang editor", icon: "ℹ️", category: "help" },
+            { id: 88, title: "Check Updates", desc: "Cek pembaruan", icon: "🔄", category: "help" },
+            { id: 89, title: "Community", desc: "Komunitas pengguna", icon: "👥", category: "help" },
+            { id: 90, title: "Support", desc: "Dukungan teknis", icon: "🆘", category: "help" },
+            { id: 91, title: "Color Theme", desc: "Ganti tema warna", icon: "🎨", category: "view" },
+            { id: 92, title: "Font Settings", desc: "Pengaturan font", icon: "🔤", category: "view" },
+            { id: 93, title: "Layout Mode", desc: "Mode tata letak", icon: "📐", category: "view" },
+            { id: 94, title: "Workspace Save", desc: "Simpan workspace", icon: "💼", category: "file" },
+            { id: 95, title: "Workspace Open", desc: "Buka workspace", icon: "💼📂", category: "file" },
+            { id: 96, title: "Multi Cursor", desc: "Kursor ganda", icon: "👆👆", category: "edit" },
+            { id: 97, title: "Column Select", desc: "Seleksi kolom", icon: "📊", category: "edit" },
+            { id: 98, title: "Fold All", desc: "Tutup semua fold", icon: "📁❌", category: "view" },
+            { id: 99, title: "Unfold All", desc: "Buka semua fold", icon: "📁✅", category: "view" },
+            { id: 100, title: "Quick Open", desc: "Buka cepat", icon: "⚡📂", category: "file" }
+        ];
+        
+        let currentFilter = 'all';
+        
+        function renderMenus(filter = 'all', searchTerm = '') {
+            const grid = document.getElementById('menuGrid');
+            grid.innerHTML = '';
+            
+            const filtered = menus.filter(menu => {
+                const matchesCategory = filter === 'all' || menu.category === filter;
+                const matchesSearch = menu.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+                                     menu.desc.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+            
+            filtered.forEach(menu => {
+                const card = document.createElement('a');
+                card.className = 'menu-card';
+                card.href = `menu_${menu.id}.html`;
+                card.innerHTML = `
+                    <div class="menu-icon">${menu.icon}</div>
+                    <div class="menu-title">${menu.title}</div>
+                    <div class="menu-desc">${menu.desc}</div>
+                `;
+                grid.appendChild(card);
+            });
+            
+            updateStats(filtered.length);
+        }
+        
+        function updateStats(visibleCount) {
+            document.getElementById('totalFiles').textContent = menus.length;
+            document.getElementById('htmlFiles').textContent = menus.filter(m => m.category === 'file').length;
+            document.getElementById('cssFiles').textContent = menus.filter(m => m.category === 'view').length;
+            document.getElementById('jsFiles').textContent = menus.filter(m => m.category === 'tools').length;
+        }
+        
+        function filterMenus() {
+            const searchTerm = document.getElementById('searchInput').value;
+            renderMenus(currentFilter, searchTerm);
+        }
+        
+        function filterCategory(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderMenus(category, document.getElementById('searchInput').value);
+        }
+        
+        renderMenus();
+    </script>
+</body>
+</html>
