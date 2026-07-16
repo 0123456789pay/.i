@@ -3,44 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DataCenter Digital Dashboard</title>
+    <title>DataCenter Digital - Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .welcome-panel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .welcome-panel h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .welcome-panel p { opacity: 0.9; font-size: 1.1em; }
+        .quick-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .quick-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .quick-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-    <div class="dashboard">
-        <nav class="sidebar">
-            <h2>🖥️ DataCenter Digital</h2>
-            <ul class="menu" id="menu-list">
-                <!-- Menu items loaded dynamically -->
-            </ul>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>🖥️ DataCenter</h2>
+            <p>Digital Management System</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="🔍 Cari menu...">
+        </div>
+        
+        <nav class="menu-categories" id="menu-container">
+            <div class="loading"><span>Loading menus...</span></div>
         </nav>
-        <main class="main-content">
-            <header class="header">
-                <h1>Dashboard DataCenter Digital</h1>
-            </header>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>Total Files</h3>
-                    <p id="total-files">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Active Servers</h3>
-                    <p id="active-servers">0</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Storage Used</h3>
-                    <p id="storage-used">-</p>
-                </div>
-                <div class="stat-card">
-                    <h3>Uptime</h3>
-                    <p id="uptime">-</p>
-                </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="welcome-panel">
+            <h1>🎯 DataCenter Digital Dashboard</h1>
+            <p>Sistem Manajemen Datacenter Terpadu - <span id="total-menus">0</span> Menu Tersedia</p>
+            <div class="quick-actions">
+                <a href="#" class="quick-btn" onclick="app.loadMenu('server-monitoring.html')">📊 Server Monitoring</a>
+                <a href="#" class="quick-btn" onclick="app.loadMenu('network-status.html')">🌐 Network Status</a>
+                <a href="#" class="quick-btn" onclick="app.loadMenu('security-settings.html')">🔒 Security Settings</a>
+                <a href="#" class="quick-btn" onclick="app.loadMenu('database-admin.html')">💾 Database Admin</a>
+                <a href="#" class="quick-btn" onclick="refreshAll()">🔄 Refresh</a>
             </div>
-            <div class="content-area">
-                <iframe id="content-frame" src="html/welcome.html"></iframe>
+        </div>
+
+        <div class="dashboard-header">
+            <h1 id="current-title">Dashboard Overview</h1>
+            <p>Real-time statistics and system monitoring</p>
+        </div>
+
+        <!-- Statistics Grid -->
+        <div class="stats-grid" id="stats-container">
+            <div class="stat-card success">
+                <h3>-</h3>
+                <p>Loading...</p>
             </div>
-        </main>
-    </div>
+        </div>
+
+        <!-- Content Frame -->
+        <div class="content-frame">
+            <iframe id="content-frame" src="html/welcome.html" title="Content"></iframe>
+        </div>
+    </main>
+
     <script src="js/app.js"></script>
+    <script>
+        // Update total menus count
+        setTimeout(() => {
+            const count = document.querySelectorAll('.category-menu a').length;
+            document.getElementById('total-menus').textContent = count;
+        }, 2000);
+    </script>
 </body>
 </html>

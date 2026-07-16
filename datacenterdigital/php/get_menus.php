@@ -1,18 +1,23 @@
 <?php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 
-// DataCenter Digital - Menu Loader
+$dir = __DIR__ . '/../html/';
+$files = glob($dir . '*.html');
+
 $menus = [];
-$htmlFiles = glob('../html/*.html');
-
-foreach ($htmlFiles as $file) {
+foreach ($files as $file) {
     $filename = basename($file);
-    $name = pathinfo($filename, PATHINFO_FILENAME);
     $menus[] = [
-        'name' => ucwords(str_replace('-', ' ', $name)),
-        'file' => 'html/' . $filename
+        'file' => $filename,
+        'title' => ucfirst(str_replace('-', ' ', str_replace('.html', '', $filename))),
+        'path' => 'html/' . $filename
     ];
 }
 
-echo json_encode(['menus' => $menus]);
+echo json_encode([
+    'success' => true,
+    'count' => count($menus),
+    'menus' => $menus
+]);
 ?>
