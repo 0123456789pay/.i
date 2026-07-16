@@ -1,47 +1,50 @@
 ```
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.class
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
 # Dependencies
 node_modules/
-
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# Environment variables
+venv/
+.venv/
 .env
 .env.local
 .env.*
 
-# Logs
+# Logs and temp files
 *.log
-
-# Temporary files
 *.tmp
-*.temp
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Backup files
-*.bak
-*.backup
-
-# Cache directories
-.cache/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# IDE files
-.vscode/
-.idea/
 *.swp
 *.swo
 
-# Build outputs
+# Editors
+.vscode/
+.idea/
+
+# Build and distribution
 dist/
 build/
 target/
+.gradle/
+
+# Database and cache
+*.db
+*.sqlite
+*.sqlite3
+.cache/
+coverage/
+htmlcov/
+.coverage
+
+# System files
+.DS_Store
+Thumbs.db
 ```
