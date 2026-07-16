@@ -4,466 +4,504 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoutheastApp - Dashboard Utama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_fiturdigital.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#60A5FA',
+                            DEFAULT: '#3B82F6',
+                            dark: '#2563EB',
+                            darker: '#1D4ED8',
+                            darkest: '#1E40AF',
+                        },
+                        background: {
+                            primary: '#FFFFFF',
+                            secondary: '#F8FAFC',
+                            tertiary: '#F1F5F9',
+                            border: '#E2E8F0',
+                        },
+                        text: {
+                            primary: '#1E293B',
+                            secondary: '#64748B',
+                            muted: '#94A3B8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'blue-light': '0 4px 14px rgba(59, 130, 246, 0.4)',
+                        'blue-card': '0 2px 8px rgba(0, 0, 0, 0.05)',
+                        'blue-hover': '0 8px 24px rgba(59, 130, 246, 0.15)',
+                        'blue-glow': '0 4px 16px rgba(59, 130, 246, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        html {
+            scroll-behavior: smooth;
         }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --dark-bg: #1f2937;
-            --light-bg: #f3f4f6;
-            --border-color: #e5e7eb;
-            --text-primary: #111827;
-            --text-secondary: #6b7280;
-        }
-
+        
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navbar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .navbar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .navbar-logo i {
-            font-size: 28px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .navbar-menu {
-            display: flex;
-            gap: 5px;
-            list-style: none;
-        }
-
-        .navbar-item {
-            position: relative;
-        }
-
-        .navbar-link {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-link:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-        }
-
-        .navbar-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            min-width: 220px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            list-style: none;
-            padding: 10px 0;
-            z-index: 1001;
-        }
-
-        .navbar-item:hover .navbar-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(10px);
-        }
-
-        .navbar-dropdown-item a {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 20px;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-dropdown-item a:hover {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-        }
-
-        .navbar-dropdown-item i {
-            width: 20px;
-            text-align: center;
-        }
-
-        .navbar-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .navbar-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 30px;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: 20px;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto 40px;
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 18px 60px 18px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            outline: none;
-        }
-
-        .search-box button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 40px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .search-box button:hover {
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        /* Apps Grid */
-        .apps-section {
-            padding: 60px 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            color: white;
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 40px;
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+        .bg-grid-pattern {
+            background-image:
+                linear-gradient(to right, #3B82F6 1px, transparent 1px),
+                linear-gradient(to bottom, #3B82F6 1px, transparent 1px);
+            background-size: 50px 50px;
         }
 
         .app-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-decoration: none;
-            display: block;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .app-card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .app-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+            transform: translateY(-5px);
         }
 
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
         }
 
-        .app-card h3 {
-            color: var(--text-primary);
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
         }
 
-        .app-card p {
-            color: var(--text-secondary);
-            font-size: 14px;
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
         }
 
-        /* Stats Section */
-        .stats-section {
-            padding: 60px 30px;
-            max-width: 1400px;
-            margin: 0 auto;
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-dropdown {
+            transition: all 0.3s ease;
         }
 
         .stat-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            color: var(--text-secondary);
-            font-size: 16px;
-        }
-
-        /* Footer */
-        .footer {
-            background: rgba(0, 0, 0, 0.2);
-            color: white;
-            padding: 40px 30px;
-            text-align: center;
-        }
-
-        .footer p {
-            opacity: 0.9;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar-menu {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            .navbar-menu.active {
-                display: flex;
-            }
-
-            .navbar-toggle {
-                display: flex;
-            }
-
-            .navbar-dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                padding-left: 20px;
-                display: none;
-            }
-
-            .navbar-item:hover .navbar-dropdown {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .apps-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
         }
     </style>
 </head>
-<body>
+<body class="font-sans bg-background-primary text-text-primary overflow-x-hidden">
+    
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-[0.03]"></div>
+    <div class="fixed top-20 right-20 w-96 h-96 bg-primary-light rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-20 left-20 w-80 h-80 bg-primary DEFAULT rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+
     <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="index.html" class="navbar-logo">
-                <i class="fas fa-globe"></i>
-                SoutheastApp
-            </a>
-            
-            <ul class="navbar-menu" id="navbarMenu">
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link">
-                        <i class="fas fa-robot"></i>
-                        AI & Dev
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="navbar-dropdown">
-                        <li class="navbar-dropdown-item"><a href="aistudio.html"><i class="fas fa-brain"></i> AI Studio</a></li>
-                        <li class="navbar-dropdown-item"><a href="apptexteditor.html"><i class="fas fa-code"></i> Code Editor</a></li>
-                        <li class="navbar-dropdown-item"><a href="terminal.html"><i class="fas fa-terminal"></i> Terminal</a></li>
-                        <li class="navbar-dropdown-item"><a href="filemanager.html"><i class="fas fa-folder"></i> File Manager</a></li>
-                    </ul>
-                </li>
+    <nav class="fixed top-0 left-0 right-0 bg-background-primary border-b border-background-border z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-globe text-primary text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-text-primary">SoutheastApp</span>
+                </a>
                 
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link">
-                        <i class="fas fa-briefcase"></i>
-                        Productivity
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="navbar-dropdown">
-                        <li class="navbar-dropdown-item"><a href="apptaskmanager.html"><i class="fas fa-tasks"></i> Task Manager</a></li>
-                        <li class="navbar-dropdown-item"><a href="appnotes.html"><i class="fas fa-sticky-note"></i> Notes</a></li>
-                        <li class="navbar-dropdown-item"><a href="appcalendar.html"><i class="fas fa-calendar"></i> Calendar</a></li>
-                        <li class="navbar-dropdown-item"><a href="apptodo.html"><i class="fas fa-check-circle"></i> Todo List</a></li>
-                        <li class="navbar-dropdown-item"><a href="appcontacts.html"><i class="fas fa-address-book"></i> Contacts</a></li>
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-robot"></i>
+                            AI & Dev
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="aistudio.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-brain w-5"></i> AI Studio</a></li>
+                            <li><a href="apptexteditor.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-code w-5"></i> Code Editor</a></li>
+                            <li><a href="terminal.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-terminal w-5"></i> Terminal</a></li>
+                            <li><a href="filemanager.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-folder w-5"></i> File Manager</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-briefcase"></i>
+                            Productivity
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="apptaskmanager.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-tasks w-5"></i> Task Manager</a></li>
+                            <li><a href="appnotes.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-sticky-note w-5"></i> Notes</a></li>
+                            <li><a href="appcalendar.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-calendar w-5"></i> Calendar</a></li>
+                            <li><a href="apptodo.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-check-circle w-5"></i> Todo List</a></li>
+                            <li><a href="appcontacts.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-address-book w-5"></i> Contacts</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-globe"></i>
+                            Web & Media
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appbrowser.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-search w-5"></i> Browser</a></li>
+                            <li><a href="appmusic.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-music w-5"></i> Music Player</a></li>
+                            <li><a href="appgallery.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-images w-5"></i> Gallery</a></li>
+                            <li><a href="appnews.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-newspaper w-5"></i> News Reader</a></li>
+                            <li><a href="appweather.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-cloud-sun w-5"></i> Weather</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-tools"></i>
+                            Utilities
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appcalculator.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-calculator w-5"></i> Calculator</a></li>
+                            <li><a href="appclock.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-clock w-5"></i> Clock</a></li>
+                            <li><a href="appcurrency.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-exchange-alt w-5"></i> Currency Converter</a></li>
+                            <li><a href="appunitconverter.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-ruler-combined w-5"></i> Unit Converter</a></li>
+                            <li><a href="apptranslator.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-language w-5"></i> Translator</a></li>
+                            <li><a href="appdictionary.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-book w-5"></i> Dictionary</a></li>
+                            <li><a href="appdrawing.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-paint-brush w-5"></i> Drawing</a></li>
+                            <li><a href="appscreencapture.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-camera w-5"></i> Screen Capture</a></li>
+                            <li><a href="appvoicerecorder.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-microphone w-5"></i> Voice Recorder</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-comments"></i>
+                            Communicate
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appemail.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-envelope w-5"></i> Email</a></li>
+                            <li><a href="appphone.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-phone w-5"></i> Phone</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appsettings.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-sliders-h w-5"></i> Settings</a></li>
+                            <li><a href="appmaps.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-map-marked-alt w-5"></i> Maps</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <button class="md:hidden text-text-primary hover:text-primary transition-colors" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-background-primary border-t border-background-border" id="mobile-menu">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">AI & Dev</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Productivity</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Web & Media</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Utilities</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Communicate</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-background-primary to-background-secondary relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Icon with Glow Effect -->
+                <div class="relative inline-block mb-8">
+                    <div class="w-32 h-32 bg-primary-light/20 rounded-full flex items-center justify-center relative z-10 animate-pulse-slow">
+                        <i class="fas fa-globe text-primary text-6xl"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-glow"></div>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-primary mb-6 leading-tight">
+                    Southeast<span class="text-primary">App</span> Dashboard
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Your complete suite of productivity tools, utilities, and applications in one centralized platform. Access everything you need to work smarter and more efficiently.
+                </p>
+
+                <!-- Search Box -->
+                <div class="max-w-2xl mx-auto mb-12">
+                    <div class="relative">
+                        <input type="text" placeholder="Search for apps..." class="w-full px-6 py-4 pr-14 rounded-xl border border-background-border bg-background-primary text-text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-blue-card transition-all duration-300">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary-dark text-white p-3 rounded-lg transition-all duration-300">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Grid Section -->
+    <section class="py-20 bg-background-tertiary" id="apps">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    All Applications
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Browse and access all available applications organized by category.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="appsGrid">
+                <!-- App cards will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-background-primary" id="stats">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    Platform Statistics
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Track the usage and performance of our application ecosystem.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="stat-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">24+</div>
+                    <div class="text-text-secondary">Active Applications</div>
+                </div>
+                <div class="stat-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">10K+</div>
+                    <div class="text-text-secondary">Daily Users</div>
+                </div>
+                <div class="stat-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">99.9%</div>
+                    <div class="text-text-secondary">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-background-tertiary border-t border-background-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-globe text-primary text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-text-primary">SoutheastApp</span>
+                    </div>
+                    <p class="text-text-secondary text-sm">
+                        Your complete productivity and utility platform.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Categories</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">AI & Dev</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Productivity</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Web & Media</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Utilities</a></li>
                     </ul>
-                </li>
-                
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link">
-                        <i class="fas fa-globe"></i>
-                        Web & Media
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="navbar-dropdown">
-                        <li class="navbar-dropdown-item"><a href="appbrowser.html"><i class="fas fa-search"></i> Browser</a></li>
-                        <li class="navbar-dropdown-item"><a href="appmusic.html"><i class="fas fa-music"></i> Music Player</a></li>
-                        <li class="navbar-dropdown-item"><a href="appgallery.html"><i class="fas fa-images"></i> Gallery</a></li>
-                        <li class="navbar-dropdown-item"><a href="appnews.html"><i class="fas fa-newspaper"></i> News Reader</a></li>
-                        <li class="navbar-dropdown-item"><a href="appweather.html"><i class="fas fa-cloud-sun"></i> Weather</a></li>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Resources</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Status</a></li>
                     </ul>
-                </li>
-                
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link">
-                        <i class="fas fa-tools"></i>
-                        Utilities
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="navbar-dropdown">
-                        <li class="navbar-dropdown-item"><a href="appcalculator.html"><i class="fas fa-calculator"></i> Calculator</a></li>
-                        <li class="navbar-dropdown-item"><a href="appclock.html"><i class="fas fa-clock"></i> Clock</a></li>
-                        <li class="navbar-dropdown-item"><a href="appcurrency.html"><i class="fas fa-exchange-alt"></i> Currency Converter</a></li>
-                        <li class="navbar-dropdown-item"><a href="appunitconverter.html"><i class="fas fa-ruler-combined"></i> Unit Converter</a></li>
-                        <li class="navbar-dropdown-item"><a href="apptranslator.html"><i class="fas fa-language"></i> Translator</a></li>
-                        <li class="navbar-dropdown-item"><a href="appdictionary.html"><i class="fas fa-book"></i> Dictionary</a></li>
-                        <li class="navbar-dropdown-item"><a href="appdrawing.html"><i class="fas fa-paint-brush"></i> Drawing</a></li>
-                        <li class="navbar-dropdown-item"><a href="appscreencapture.html"><i class="fas fa-camera"></i> Screen Capture</a></li>
-                        <li class="navbar-dropdown-item"><a href="appvoicerecorder.html"><i class="fas fa-microphone"></i> Voice Recorder</a></li>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Company</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
                     </ul>
-                </li>
-                
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link">
-                        <i class="fas fa-comments"></i>
-                        Communicate
-                        <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="border-t border-background-border pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-text-secondary text-sm mb-4 md:mb-0">
+                    © 2024 SoutheastApp. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
                     </a>
-                    <ul class="navbar-dropdown">
-                        <li class="navbar-dropdown-item"><a href="appemail.html"><i class="fas fa-envelope"></i> Email</a></li>
-                        <li class="navbar-dropdown-item"><a href="appphone.html"><i class="fas fa-phone"></i> Phone</a></li>
-                    </ul>
-                </li>
-                
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link">
-                        <i class="fas fa-cog"></i>
-                        Settings
-                        <i class="fas fa-chevron-down"></i>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-github text-xl"></i>
                     </a>
-                    <ul class="navbar-dropdown">
-                        <li class="navbar-dropdown-item"><a href="appsettings.html"><i class="fas fa-sliders-h"></i> Settings</a></li>
-                        <li class="navbar-dropdown-item"><a href="appmaps.html"><i class="fas fa-map-marked-alt"></i> Maps</a></li>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // App data
+        const apps = [
+            { name: 'AI Studio', icon: 'fa-brain', url: 'aistudio.html', category: 'AI & Dev' },
+            { name: 'Code Editor', icon: 'fa-code', url: 'apptexteditor.html', category: 'AI & Dev' },
+            { name: 'Terminal', icon: 'fa-terminal', url: 'terminal.html', category: 'AI & Dev' },
+            { name: 'File Manager', icon: 'fa-folder', url: 'filemanager.html', category: 'AI & Dev' },
+            { name: 'Task Manager', icon: 'fa-tasks', url: 'apptaskmanager.html', category: 'Productivity' },
+            { name: 'Notes', icon: 'fa-sticky-note', url: 'appnotes.html', category: 'Productivity' },
+            { name: 'Calendar', icon: 'fa-calendar', url: 'appcalendar.html', category: 'Productivity' },
+            { name: 'Todo List', icon: 'fa-check-circle', url: 'apptodo.html', category: 'Productivity' },
+            { name: 'Contacts', icon: 'fa-address-book', url: 'appcontacts.html', category: 'Productivity' },
+            { name: 'Browser', icon: 'fa-search', url: 'appbrowser.html', category: 'Web & Media' },
+            { name: 'Music Player', icon: 'fa-music', url: 'appmusic.html', category: 'Web & Media' },
+            { name: 'Gallery', icon: 'fa-images', url: 'appgallery.html', category: 'Web & Media' },
+            { name: 'News Reader', icon: 'fa-newspaper', url: 'appnews.html', category: 'Web & Media' },
+            { name: 'Weather', icon: 'fa-cloud-sun', url: 'appweather.html', category: 'Web & Media' },
+            { name: 'Calculator', icon: 'fa-calculator', url: 'appcalculator.html', category: 'Utilities' },
+            { name: 'Clock', icon: 'fa-clock', url: 'appclock.html', category: 'Utilities' },
+            { name: 'Currency Converter', icon: 'fa-exchange-alt', url: 'appcurrency.html', category: 'Utilities' },
+            { name: 'Unit Converter', icon: 'fa-ruler-combined', url: 'appunitconverter.html', category: 'Utilities' },
+            { name: 'Translator', icon: 'fa-language', url: 'apptranslator.html', category: 'Utilities' },
+            { name: 'Dictionary', icon: 'fa-book', url: 'appdictionary.html', category: 'Utilities' },
+            { name: 'Drawing', icon: 'fa-paint-brush', url: 'appdrawing.html', category: 'Utilities' },
+            { name: 'Screen Capture', icon: 'fa-camera', url: 'appscreencapture.html', category: 'Utilities' },
+            { name: 'Voice Recorder', icon: 'fa-microphone', url: 'appvoicerecorder.html', category: 'Utilities' },
+            { name: 'Email', icon: 'fa-envelope', url: 'appemail.html', category: 'Communicate' },
+            { name: 'Phone', icon: 'fa-phone', url: 'appphone.html', category: 'Communicate' },
+            { name: 'Settings', icon: 'fa-sliders-h', url: 'appsettings.html', category: 'Settings' },
+            { name: 'Maps', icon: 'fa-map-marked-alt', url: 'appmaps.html', category: 'Settings' }
+        ];
+
+        // Render app cards
+        function renderApps() {
+            const appsGrid = document.getElementById('appsGrid');
+            appsGrid.innerHTML = apps.map(app => `
+                <a href="${app.url}" class="app-card bg-background-primary rounded-xl p-6 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 block">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas ${app.icon} text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary text-center mb-2">${app.name}</h3>
+                    <p class="text-text-secondary text-sm text-center">${app.category}</p>
+                </a>
+            `).join('');
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.app-card');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+
+        // Initialize
+        renderApps();
+        reveal();
+    </script>
+</body>
+</html>
                     </ul>
                 </li>
             </ul>
