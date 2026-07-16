@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Client Area</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">HostingDigital</a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="client-dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li class="nav-item"><a href="daftar-layanan.html" class="nav-link">Layanan</a></li>
+                    <li class="nav-item"><a href="invoice.html" class="nav-link">Tagihan</a></li>
+                    <li class="nav-item"><a href="profil.html" class="nav-link">Profil</a></li>
+                    <li class="nav-item"><a href="logout.php" class="btn btn-secondary">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="container">
+            <h1>Selamat Datang di Client Area</h1>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Layanan Aktif</h3>
+                    <p style="font-size:2rem; color:#2563eb;">3</p>
+                    <ul>
+                        <li>1x Hosting WordPress</li>
+                        <li>1x Domain .com</li>
+                        <li>1x SSL Certificate</li>
+                    </ul>
+                    <a href="daftar-layanan.html" class="btn btn-primary">Kelola Layanan</a>
+                </div>
+
+                <div class="card">
+                    <h3>Invoice Belum Dibayar</h3>
+                    <p style="font-size:2rem; color:#ef4444;">1</p>
+                    <p>Total: Rp 150.000</p>
+                    <a href="invoice.html" class="btn btn-primary">Bayar Sekarang</a>
+                </div>
+
+                <div class="card">
+                    <h3>Saldo Akun</h3>
+                    <p style="font-size:2rem; color:#10b981;">Rp 500.000</p>
+                    <a href="tambah-saldo.html" class="btn btn-primary">Tambah Saldo</a>
+                </div>
+
+                <div class="card">
+                    <h3>Tiket Support</h3>
+                    <p style="font-size:2rem; color:#f59e0b;">2</p>
+                    <p>1 Open, 1 Answered</p>
+                    <a href="sistem-tiket.html" class="btn btn-primary">Buka Tiket Baru</a>
+                </div>
+            </div>
+
+            <div class="mt-2">
+                <h2>Akses Cepat</h2>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
+                    <a href="upgrade-downgrade.html" class="btn btn-secondary">Upgrade Layanan</a>
+                    <a href="perpanjangan.html" class="btn btn-secondary">Perpanjang Domain</a>
+                    <a href="keamanan-akun.html" class="btn btn-secondary">Keamanan Akun</a>
+                    <a href="riwayat-transaksi.html" class="btn btn-secondary">Riwayat Transaksi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>2024 HostingDigital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
