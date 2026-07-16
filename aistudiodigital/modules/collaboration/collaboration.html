@@ -1,17 +1,923 @@
-<!-- Collaboration Module -->
-<div class="module-wrapper" id="collaboration-module">
-    <div class="module-header">
-        <h2><i class="fas fa-users"></i> Collaboration</h2>
-        <div class="module-actions">
-            <button class="btn-module" onclick="ModuleActions.refresh('collaboration')"><i class="fas fa-sync"></i></button>
-            <button class="btn-module" onclick="ModuleActions.settings('collaboration')"><i class="fas fa-cog"></i></button>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaboration Center - AI Studio Digital</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            min-height: 100vh;
+            color: #1e3a5f;
+            overflow-x: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+            color: white;
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header h1 { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2); 
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .header-nav { display: flex; gap: 1.5rem; }
+        .header-nav a {
+            color: white; text-decoration: none; padding: 0.75rem 1.5rem;
+            border-radius: 8px; transition: all 0.3s ease; font-weight: 500;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .header-nav a:hover { 
+            background: rgba(255,255,255,0.2); 
+            transform: translateY(-2px); 
+        }
+        .main-content { 
+            padding: 2rem 3rem; 
+            width: 100%;
+            max-width: 100%;
+        }
+        .stats-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem; 
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            background: white; 
+            border-radius: 16px; 
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+            transition: all 0.3s ease; 
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #2563eb);
+        }
+        .stat-card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.25); 
+        }
+        .stat-icon {
+            width: 60px; 
+            height: 60px; 
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            margin-bottom: 1rem; 
+            font-size: 1.8rem; 
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .stat-value { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            color: #1e40af; 
+            margin-bottom: 0.5rem; 
+        }
+        .stat-label { 
+            font-size: 1rem; 
+            color: #64748b; 
+            font-weight: 500; 
+        }
+        .collab-section {
+            background: white; 
+            border-radius: 16px; 
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15); 
+            margin-bottom: 2rem;
+        }
+        .section-title { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: #1e40af; 
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .collab-actions { 
+            display: flex; 
+            gap: 1rem; 
+            flex-wrap: wrap; 
+            margin-bottom: 2rem; 
+        }
+        .btn {
+            padding: 1rem 2rem; 
+            border: none; 
+            border-radius: 12px;
+            cursor: pointer; 
+            font-weight: 600; 
+            transition: all 0.3s ease;
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb); 
+            color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        .btn-primary:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4); 
+        }
+        .btn-secondary {
+            background: white; 
+            border: 2px solid #3b82f6; 
+            color: #3b82f6;
+        }
+        .btn-secondary:hover { 
+            background: #3b82f6; 
+            color: white; 
+            transform: translateY(-3px);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .team-member {
+            background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .team-member:hover {
+            border-color: #3b82f6;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+        }
+        .member-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .member-info {
+            flex: 1;
+        }
+        .member-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 0.25rem;
+        }
+        .member-role {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+        .member-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #16a34a;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #16a34a;
+        }
+        .status-dot.offline {
+            background: #64748b;
+        }
+        .member-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .member-actions button {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: #3b82f6;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .member-actions button:hover {
+            background: #3b82f6;
+            color: white;
+        }
+        .projects-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+            margin-bottom: 2rem;
+        }
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .project-item {
+            background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+            border-left: 4px solid #3b82f6;
+        }
+        .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+        }
+        .project-info {
+            flex: 1;
+        }
+        .project-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 0.5rem;
+        }
+        .project-description {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease;
+        }
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e0f2fe;
+        }
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e40af;
+        }
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover {
+            color: #3b82f6;
+            transform: rotate(90deg);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            color: #1e40af;
+            font-size: 1rem;
+        }
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+            font-family: inherit;
+        }
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+            background: white;
+        }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: white;
+            padding: 1.25rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transform: translateX(150%);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 3000;
+            border-left: 5px solid #3b82f6;
+            min-width: 300px;
+        }
+        .toast.show { transform: translateX(0); }
+        .toast.success { border-left-color: #16a34a; }
+        .toast.warning { border-left-color: #d97706; }
+        .toast.error { border-left-color: #dc2626; }
+        .toast-icon {
+            font-size: 1.5rem;
+            color: #3b82f6;
+        }
+        .toast.success .toast-icon { color: #16a34a; }
+        .toast.warning .toast-icon { color: #d97706; }
+        .toast.error .toast-icon { color: #dc2626; }
+        
+        .activity-feed {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+            margin-bottom: 2rem;
+        }
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        .activity-content {
+            flex: 1;
+        }
+        .activity-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.25rem;
+        }
+        .activity-time {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+            .header h1 {
+                font-size: 1.8rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .main-content {
+                padding: 1.5rem;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .collab-actions {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .project-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+            .toast {
+                left: 1rem;
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1><i class="fas fa-users"></i> Collaboration Center</h1>
+        <nav class="header-nav">
+            <a href="../../aistudio.html"><i class="fas fa-home"></i> Home</a>
+            <a href="../dashboard/dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="../settings/settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="../chatbot/chatbot.html"><i class="fas fa-robot"></i> AI Chat</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-user-friends"></i></div>
+                <div class="stat-value" id="totalMembers">24</div>
+                <div class="stat-label">Team Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-folder-open"></i></div>
+                <div class="stat-value" id="activeProjects">12</div>
+                <div class="stat-label">Active Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                <div class="stat-value" id="todayMessages">156</div>
+                <div class="stat-label">Messages Today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-value" id="completionRate">94%</div>
+                <div class="stat-label">Task Completion</div>
+            </div>
         </div>
-    </div>
-    <div class="module-body">
+
         <div class="collab-section">
-            <button id="inviteBtn" class="btn-primary">Invite Team</button>
-            <button id="shareBtn" class="btn-secondary">Share Project</button>
-            <div class="team-list" id="teamList"></div>
+            <h2 class="section-title"><i class="fas fa-bolt"></i> Quick Actions</h2>
+            <div class="collab-actions">
+                <button class="btn btn-primary" onclick="inviteMember()">
+                    <i class="fas fa-user-plus"></i> Invite Member
+                </button>
+                <button class="btn btn-secondary" onclick="shareProject()">
+                    <i class="fas fa-share-alt"></i> Share Project
+                </button>
+                <button class="btn btn-secondary" onclick="createTeam()">
+                    <i class="fas fa-users"></i> Create Team
+                </button>
+                <button class="btn btn-secondary" onclick="scheduleMeeting()">
+                    <i class="fas fa-video"></i> Schedule Meeting
+                </button>
+                <button class="btn btn-secondary" onclick="exportReport()">
+                    <i class="fas fa-file-export"></i> Export Report
+                </button>
+            </div>
+        </div>
+
+        <div class="collab-section">
+            <h2 class="section-title"><i class="fas fa-users"></i> Team Members</h2>
+            <div class="team-grid" id="teamGrid">
+                <div class="team-member">
+                    <div class="member-avatar">AD</div>
+                    <div class="member-info">
+                        <div class="member-name">Admin User</div>
+                        <div class="member-role">Project Administrator</div>
+                        <div class="member-status">
+                            <span class="status-dot"></span> Online
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button onclick="messageMember('Admin User')"><i class="fas fa-comment"></i></button>
+                        <button onclick="viewProfile('Admin User')"><i class="fas fa-eye"></i></button>
+                        <button onclick="editMember('Admin User')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar" style="background: linear-gradient(135deg, #16a34a, #059669);">JD</div>
+                    <div class="member-info">
+                        <div class="member-name">John Developer</div>
+                        <div class="member-role">Senior Developer</div>
+                        <div class="member-status">
+                            <span class="status-dot"></span> Online
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button onclick="messageMember('John Developer')"><i class="fas fa-comment"></i></button>
+                        <button onclick="viewProfile('John Developer')"><i class="fas fa-eye"></i></button>
+                        <button onclick="editMember('John Developer')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar" style="background: linear-gradient(135deg, #d97706, #b45309);">SD</div>
+                    <div class="member-info">
+                        <div class="member-name">Sarah Designer</div>
+                        <div class="member-role">UI/UX Designer</div>
+                        <div class="member-status">
+                            <span class="status-dot offline"></span> Offline
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button onclick="messageMember('Sarah Designer')"><i class="fas fa-comment"></i></button>
+                        <button onclick="viewProfile('Sarah Designer')"><i class="fas fa-eye"></i></button>
+                        <button onclick="editMember('Sarah Designer')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">MT</div>
+                    <div class="member-info">
+                        <div class="member-name">Mike Tester</div>
+                        <div class="member-role">QA Engineer</div>
+                        <div class="member-status">
+                            <span class="status-dot"></span> Online
+                        </div>
+                    </div>
+                    <div class="member-actions">
+                        <button onclick="messageMember('Mike Tester')"><i class="fas fa-comment"></i></button>
+                        <button onclick="viewProfile('Mike Tester')"><i class="fas fa-eye"></i></button>
+                        <button onclick="editMember('Mike Tester')"><i class="fas fa-edit"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-section">
+            <h2 class="section-title"><i class="fas fa-folder"></i> Active Projects</h2>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-info">
+                        <div class="project-name">AI Chatbot Enhancement</div>
+                        <div class="project-description">Improving chatbot responses and adding new features</div>
+                        <div class="project-meta">
+                            <span><i class="fas fa-user"></i> 5 members</span>
+                            <span><i class="fas fa-clock"></i> Due in 3 days</span>
+                            <span><i class="fas fa-tasks"></i> 12 tasks</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="viewProject('AI Chatbot Enhancement')">
+                        <i class="fas fa-arrow-right"></i> View
+                    </button>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <div class="project-name">Dashboard Redesign</div>
+                        <div class="project-description">Modernizing the dashboard UI with new components</div>
+                        <div class="project-meta">
+                            <span><i class="fas fa-user"></i> 3 members</span>
+                            <span><i class="fas fa-clock"></i> Due in 1 week</span>
+                            <span><i class="fas fa-tasks"></i> 8 tasks</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="viewProject('Dashboard Redesign')">
+                        <i class="fas fa-arrow-right"></i> View
+                    </button>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <div class="project-name">API Integration</div>
+                        <div class="project-description">Integrating third-party APIs for enhanced functionality</div>
+                        <div class="project-meta">
+                            <span><i class="fas fa-user"></i> 4 members</span>
+                            <span><i class="fas fa-clock"></i> Due in 2 weeks</span>
+                            <span><i class="fas fa-tasks"></i> 15 tasks</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="viewProject('API Integration')">
+                        <i class="fas fa-arrow-right"></i> View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="activity-feed">
+            <h2 class="section-title"><i class="fas fa-history"></i> Recent Activity</h2>
+            <div id="activityList">
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-plus"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">John Developer created a new task "Update API documentation"</div>
+                        <div class="activity-time">5 minutes ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-check"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Sarah Designer completed "Design new landing page"</div>
+                        <div class="activity-time">15 minutes ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-comment"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Mike Tester commented on "Bug fixes for v2.0"</div>
+                        <div class="activity-time">1 hour ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">Admin User invited Emily Analyst to the team</div>
+                        <div class="activity-time">2 hours ago</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-file-upload"></i></div>
+                    <div class="activity-content">
+                        <div class="activity-title">John Developer uploaded "system_architecture.pdf"</div>
+                        <div class="activity-time">3 hours ago</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="inviteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-user-plus"></i> Invite Team Member</h3>
+                <button class="modal-close" onclick="closeInviteModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-envelope"></i> Email Address</label>
+                <input type="email" class="form-input" placeholder="Enter email address" id="inviteEmail">
+            </div>
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-user-tag"></i> Role</label>
+                <select class="form-select" id="inviteRole">
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="tester">QA Tester</option>
+                    <option value="analyst">Business Analyst</option>
+                    <option value="admin">Administrator</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-comment"></i> Personal Message (Optional)</label>
+                <textarea class="form-textarea" placeholder="Add a personal message to the invitation" id="inviteMessage"></textarea>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="sendInvite()">
+                <i class="fas fa-paper-plane"></i> Send Invitation
+            </button>
         </div>
     </div>
-</div>
+
+    <div class="modal" id="shareModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-share-alt"></i> Share Project</h3>
+                <button class="modal-close" onclick="closeShareModal()">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-folder"></i> Select Project</label>
+                <select class="form-select" id="shareProject">
+                    <option value="chatbot">AI Chatbot Enhancement</option>
+                    <option value="dashboard">Dashboard Redesign</option>
+                    <option value="api">API Integration</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-link"></i> Share Link</label>
+                <div style="display: flex; gap: 0.5rem;">
+                    <input type="text" class="form-input" value="https://aistudio.digital/share/abc123" readonly id="shareLink">
+                    <button class="btn btn-secondary" onclick="copyLink()"><i class="fas fa-copy"></i></button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-lock"></i> Permissions</label>
+                <select class="form-select" id="sharePermissions">
+                    <option value="view">View Only</option>
+                    <option value="comment">Can Comment</option>
+                    <option value="edit">Can Edit</option>
+                    <option value="admin">Full Access</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="confirmShare()">
+                <i class="fas fa-share"></i> Share Project
+            </button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        <i class="toast-icon fas fa-check-circle"></i>
+        <span class="toast-message">Operation successful!</span>
+    </div>
+
+    <script>
+        function inviteMember() {
+            document.getElementById('inviteModal').classList.add('active');
+        }
+
+        function closeInviteModal() {
+            document.getElementById('inviteModal').classList.remove('active');
+            document.getElementById('inviteEmail').value = '';
+            document.getElementById('inviteMessage').value = '';
+        }
+
+        function sendInvite() {
+            const email = document.getElementById('inviteEmail').value;
+            const role = document.getElementById('inviteRole').value;
+            const message = document.getElementById('inviteMessage').value;
+
+            if (!email) {
+                showToast('Please enter an email address', 'error');
+                return;
+            }
+
+            closeInviteModal();
+            showToast(`Sending invitation to ${email} as ${role}...`, 'success');
+
+            setTimeout(() => {
+                showToast('Invitation sent successfully!', 'success');
+                addActivity('Admin User', `sent invitation to ${email}`);
+            }, 2000);
+        }
+
+        function shareProject() {
+            document.getElementById('shareModal').classList.add('active');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.remove('active');
+        }
+
+        function copyLink() {
+            const link = document.getElementById('shareLink').value;
+            navigator.clipboard.writeText(link).then(() => {
+                showToast('Link copied to clipboard!', 'success');
+            });
+        }
+
+        function confirmShare() {
+            const project = document.getElementById('shareProject').value;
+            const permissions = document.getElementById('sharePermissions').value;
+
+            closeShareModal();
+            showToast(`Project shared with ${permissions} access`, 'success');
+        }
+
+        function createTeam() {
+            showToast('Opening team creation wizard...', 'success');
+            setTimeout(() => {
+                showToast('Team creation feature coming soon!', 'warning');
+            }, 1500);
+        }
+
+        function scheduleMeeting() {
+            showToast('Opening meeting scheduler...', 'success');
+            setTimeout(() => {
+                showToast('Meeting scheduler ready!', 'success');
+            }, 1500);
+        }
+
+        function exportReport() {
+            showToast('Generating collaboration report...', 'success');
+            setTimeout(() => {
+                showToast('Report downloaded successfully!', 'success');
+            }, 2000);
+        }
+
+        function messageMember(name) {
+            showToast(`Opening chat with ${name}...`, 'success');
+        }
+
+        function viewProfile(name) {
+            showToast(`Loading profile for ${name}...`, 'success');
+            setTimeout(() => {
+                showToast(`${name}: Senior team member, joined Jan 2024`, 'success');
+            }, 1000);
+        }
+
+        function editMember(name) {
+            showToast(`Editing member: ${name}`, 'warning');
+        }
+
+        function viewProject(name) {
+            showToast(`Opening project: ${name}`, 'success');
+        }
+
+        function addActivity(user, action) {
+            const activityList = document.getElementById('activityList');
+            const now = new Date();
+            const timeAgo = `${Math.floor(now.getTime() / 60000)} minutes ago`;
+
+            const activityItem = document.createElement('div');
+            activityItem.className = 'activity-item';
+            activityItem.innerHTML = `
+                <div class="activity-icon"><i class="fas fa-bell"></i></div>
+                <div class="activity-content">
+                    <div class="activity-title">${user} ${action}</div>
+                    <div class="activity-time">${timeAgo}</div>
+                </div>
+            `;
+
+            activityList.insertBefore(activityItem, activityList.firstChild);
+
+            // Keep only last 10 activities
+            while (activityList.children.length > 10) {
+                activityList.removeChild(activityList.lastChild);
+            }
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const icon = toast.querySelector('.toast-icon');
+            const messageEl = toast.querySelector('.toast-message');
+
+            messageEl.textContent = message;
+            toast.className = `toast ${type} show`;
+
+            switch(type) {
+                case 'success':
+                    icon.className = 'toast-icon fas fa-check-circle';
+                    break;
+                case 'warning':
+                    icon.className = 'toast-icon fas fa-exclamation-triangle';
+                    break;
+                case 'error':
+                    icon.className = 'toast-icon fas fa-times-circle';
+                    break;
+            }
+
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showToast('Collaboration Center loaded!', 'success');
+
+            // Simulate real-time updates
+            setInterval(() => {
+                const messages = document.getElementById('todayMessages');
+                let count = parseInt(messages.textContent);
+                messages.textContent = count + Math.floor(Math.random() * 3);
+            }, 30000);
+        });
+    </script>
+</body>
+</html>
