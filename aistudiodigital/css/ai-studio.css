@@ -11,8 +11,10 @@
     --warning: #f59e0b;
     --danger: #ef4444;
     
-    --sidebar-main-width: 220px;
+    --sidebar-icon-menu-width: 80px;
+    --sidebar-icon-menu-collapsed-width: 60px;
     --sidebar-chat-width: 280px;
+    --sidebar-chat-collapsed-width: 0px;
     --sidebar-publish-width: 300px;
 }
 
@@ -36,118 +38,92 @@ body {
     width: 100vw;
 }
 
-/* ==================== SIDEBAR KIRI 1 - MENU UTAMA ==================== */
-.sidebar-main {
-    width: var(--sidebar-main-width);
+/* ==================== SIDEBAR KIRI 1 - ICON MENU (Home, Setting, Kepemilikan) ==================== */
+.sidebar-icon-menu {
+    width: var(--sidebar-icon-menu-width);
     background: rgba(30, 41, 59, 0.95);
     backdrop-filter: blur(10px);
     border-right: 1px solid var(--border-color);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: width 0.3s ease;
 }
 
-.sidebar-header {
-    padding: 20px;
+.sidebar-icon-menu.collapsed {
+    width: var(--sidebar-icon-menu-collapsed-width);
+}
+
+.sidebar-toggle-header {
+    padding: 15px 10px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
 }
 
-.sidebar-header i {
-    font-size: 24px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.sidebar-header h2 {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.main-menu {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px;
-}
-
-.menu-category {
-    margin-bottom: 20px;
-}
-
-.category-title {
-    padding: 10px 15px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
+.btn-toggle-sidebar {
+    background: transparent;
+    border: none;
     color: var(--text-secondary);
-    letter-spacing: 0.8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
 }
 
-.category-title i {
-    font-size: 12px;
+.btn-toggle-sidebar:hover {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-color);
 }
 
-.menu-item {
+.icon-menu {
+    flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 12px 15px;
+    padding: 10px 5px;
+    gap: 5px;
+}
+
+.icon-menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
     margin: 4px 0;
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.2s ease;
-    gap: 12px;
+    gap: 6px;
+    width: 100%;
+    min-height: 70px;
 }
 
-.menu-item:hover {
+.icon-menu-item:hover {
     background: rgba(99, 102, 241, 0.15);
-    transform: translateX(3px);
 }
 
-.menu-item.active {
+.icon-menu-item.active {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
     border-left: 3px solid var(--primary-color);
 }
 
-.menu-item i {
-    font-size: 16px;
-    width: 20px;
-    text-align: center;
-    color: var(--primary-color);
-}
-
-.menu-item span {
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.sidebar-footer {
-    padding: 15px;
-    border-top: 1px solid var(--border-color);
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    background: rgba(99, 102, 241, 0.1);
-    border-radius: 8px;
-}
-
-.user-info i {
+.icon-menu-item i {
     font-size: 20px;
     color: var(--primary-color);
+    margin-bottom: 5px;
 }
 
-.user-info span {
-    font-size: 13px;
+.icon-menu-item span {
+    font-size: 10px;
     font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
 }
 
 /* ==================== SIDEBAR KIRI 2 - CHAT PROMPT ==================== */
@@ -159,9 +135,14 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: width 0.3s ease;
 }
 
-.chat-header {
+.sidebar-chat.collapsed {
+    width: var(--sidebar-chat-collapsed-width);
+}
+
+.sidebar-chat .chat-header {
     padding: 15px 20px;
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -170,12 +151,12 @@ body {
     gap: 10px;
 }
 
-.chat-header i {
+.sidebar-chat .chat-header i {
     font-size: 18px;
     color: var(--accent-color);
 }
 
-.chat-header h3 {
+.sidebar-chat .chat-header h3 {
     font-size: 15px;
     font-weight: 600;
     flex: 1;
@@ -340,9 +321,8 @@ body {
     background: rgba(30, 41, 59, 0.8);
     border-bottom: 1px solid var(--border-color);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .breadcrumb {
@@ -357,10 +337,53 @@ body {
     color: var(--primary-color);
 }
 
+/* Live Preview Navigation Menu */
+.live-preview-nav {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.lp-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    gap: 4px;
+    min-width: 70px;
+    white-space: nowrap;
+}
+
+.lp-nav-item:hover {
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.lp-nav-item.active {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.25));
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.lp-nav-item i {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.lp-nav-item span {
+    font-size: 11px;
+    font-weight: 500;
+}
+
 .nav-controls {
     display: flex;
     align-items: center;
     gap: 20px;
+    justify-content: space-between;
 }
 
 .preview-mode-group,

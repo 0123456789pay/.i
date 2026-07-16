@@ -9,97 +9,36 @@
 </head>
 <body>
     <div class="studio-container">
-        <!-- Sidebar Kiri 1 - Menu Utama -->
-        <aside class="sidebar-main" id="sidebarMain">
-            <div class="sidebar-header">
-                <i class="fas fa-robot"></i>
-                <h2>AI Studio</h2>
+        <!-- Sidebar Kiri 1 - Icon Menu (Home, Setting, Kepemilikan) -->
+        <aside class="sidebar-icon-menu" id="sidebarIconMenu">
+            <div class="sidebar-toggle-header">
+                <button class="btn-toggle-sidebar" onclick="toggleSidebar('sidebarIconMenu')" title="Toggle Sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
             </div>
-            
-            <nav class="main-menu">
-                <div class="menu-category">
-                    <div class="category-title"><i class="fas fa-brain"></i> AI Core</div>
-                    <div class="menu-item active" data-module="promptmanager">
-                        <i class="fas fa-comment-dots"></i>
-                        <span>Prompt Manager</span>
-                    </div>
-                    <div class="menu-item" data-module="modelconfig">
-                        <i class="fas fa-cogs"></i>
-                        <span>Model Config</span>
-                    </div>
-                    <div class="menu-item" data-module="apiconfig">
-                        <i class="fas fa-plug"></i>
-                        <span>API Config</span>
-                    </div>
+            <nav class="icon-menu">
+                <div class="icon-menu-item active" data-module="home" title="Home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
                 </div>
-                
-                <div class="menu-category">
-                    <div class="category-title"><i class="fas fa-code"></i> Development</div>
-                    <div class="menu-item" data-module="code">
-                        <i class="fas fa-folder-tree"></i>
-                        <span>Code</span>
-                    </div>
-                    <div class="menu-item" data-module="landingpage">
-                        <i class="fas fa-globe"></i>
-                        <span>Landing Page</span>
-                    </div>
-                    <div class="menu-item" data-module="chatbot">
-                        <i class="fas fa-comments"></i>
-                        <span>Chatbot</span>
-                    </div>
+                <div class="icon-menu-item" data-module="settings" title="Setting">
+                    <i class="fas fa-cog"></i>
+                    <span>Setting</span>
                 </div>
-                
-                <div class="menu-category">
-                    <div class="category-title"><i class="fas fa-database"></i> Data Management</div>
-                    <div class="menu-item" data-module="chatdownloadmanager">
-                        <i class="fas fa-comments"></i>
-                        <span>Chat Download</span>
-                    </div>
-                    <div class="menu-item" data-module="analytics">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Analytics</span>
-                    </div>
-                    <div class="menu-item" data-module="reports">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Reports</span>
-                    </div>
-                </div>
-                
-                <div class="menu-category">
-                    <div class="category-title"><i class="fas fa-rocket"></i> Advanced</div>
-                    <div class="menu-item" data-module="deployment">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <span>Deployment</span>
-                    </div>
-                    <div class="menu-item" data-module="versioncontrol">
-                        <i class="fas fa-code-branch"></i>
-                        <span>Version Control</span>
-                    </div>
-                    <div class="menu-item" data-module="security">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Security</span>
-                    </div>
-                    <div class="menu-item" data-module="backup">
-                        <i class="fas fa-save"></i>
-                        <span>Backup</span>
-                    </div>
-                    <div class="menu-item" data-module="collaboration">
-                        <i class="fas fa-users"></i>
-                        <span>Collaboration</span>
-                    </div>
+                <div class="icon-menu-item" data-module="ownership" title="Kepemilikan">
+                    <i class="fas fa-id-card"></i>
+                    <span>Kepemilikan</span>
                 </div>
             </nav>
-            
-            <div class="sidebar-footer">
-                <div class="user-info">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Admin User</span>
-                </div>
-            </div>
         </aside>
 
         <!-- Sidebar Kiri 2 - Chat Prompt -->
         <aside class="sidebar-chat" id="sidebarChat">
+            <div class="sidebar-toggle-header">
+                <button class="btn-toggle-sidebar" onclick="toggleSidebar('sidebarChat')" title="Toggle Sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
             <div class="chat-header">
                 <i class="fas fa-magic"></i>
                 <h3>AI Assistant</h3>
@@ -142,7 +81,7 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Top Navigation Bar -->
+            <!-- Top Navigation Bar with Live Preview Menu -->
             <div class="top-nav">
                 <div class="breadcrumb">
                     <i class="fas fa-home"></i>
@@ -150,6 +89,42 @@
                     <i class="fas fa-chevron-right"></i>
                     <span id="currentModule">Dashboard</span>
                 </div>
+                
+                <!-- Live Preview Navigation Menu -->
+                <nav class="live-preview-nav">
+                    <div class="lp-nav-item active" data-module="codefile" title="Code File">
+                        <i class="fas fa-file-code"></i>
+                        <span>Code File</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="modelconfig" title="Model Config">
+                        <i class="fas fa-cogs"></i>
+                        <span>Model Config</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="apiconfig" title="API Config">
+                        <i class="fas fa-plug"></i>
+                        <span>API Config</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="code" title="Code">
+                        <i class="fas fa-folder-tree"></i>
+                        <span>Code</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="landingpage" title="Landing Page">
+                        <i class="fas fa-globe"></i>
+                        <span>Landing Page</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="chatbot" title="Chatbot">
+                        <i class="fas fa-comments"></i>
+                        <span>Chatbot</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="deployment" title="Deployment">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Deployment</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="analytics" title="Analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </div>
+                </nav>
                 
                 <div class="nav-controls">
                     <!-- Preview Controls -->
