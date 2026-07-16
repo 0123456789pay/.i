@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisensi Media Digital - Menu Indeks Fitur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,63 +12,131 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --light-blue: #dbeafe;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --gray-light: #e2e8f0;
+            --gray-medium: #94a3b8;
+            --text-dark: #1e293b;
+            --text-light: #475569;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(30, 64, 175, 0.1);
+            --shadow-lg: 0 10px 40px rgba(30, 64, 175, 0.15);
+            --shadow-xl: 0 20px 60px rgba(30, 64, 175, 0.2);
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #dbeafe 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
+            line-height: 1.6;
+            color: var(--text-dark);
         }
         
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
         
         header {
             text-align: center;
-            color: white;
-            padding: 30px 0;
-            margin-bottom: 30px;
+            padding: 60px 0;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
         
         header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
         }
         
         header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.3em;
+            color: var(--light-blue);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
         
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
             padding: 20px 0;
         }
         
         .menu-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
+            border: 1px solid var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue), var(--accent-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .menu-card:hover::before {
+            transform: scaleX(1);
         }
         
         .menu-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-blue);
         }
         
         .menu-card h3 {
-            color: #667eea;
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-blue);
+            font-size: 1.6em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-blue);
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
         
         .menu-card ul {
@@ -75,43 +144,100 @@
         }
         
         .menu-card li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .menu-card a {
-            color: #333;
+            color: var(--text-light);
             text-decoration: none;
-            padding: 8px 12px;
+            padding: 12px 16px;
             display: block;
-            border-radius: 6px;
-            transition: background 0.3s ease, color 0.3s ease;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+            background: var(--off-white);
+            border: 1px solid transparent;
         }
         
         .menu-card a:hover {
-            background: #667eea;
-            color: white;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
+            border-color: var(--accent-blue);
         }
         
         .folder-icon {
             display: inline-block;
-            margin-right: 8px;
-            font-size: 1.2em;
+            font-size: 1.4em;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
         }
         
         .section-title {
-            color: white;
-            font-size: 1.8em;
-            margin: 40px 0 20px 0;
-            padding-bottom: 10px;
-            border-bottom: 3px solid white;
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-blue);
+            font-size: 2.2em;
+            font-weight: 600;
+            margin: 60px 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
         footer {
             text-align: center;
-            color: white;
-            padding: 30px 0;
-            margin-top: 40px;
+            padding: 50px 0;
+            margin-top: 60px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: 24px;
+            box-shadow: var(--shadow-xl);
+            color: var(--white);
+        }
+        
+        footer p:first-child {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        footer p:last-child {
+            font-size: 0.95em;
             opacity: 0.8;
+            font-weight: 300;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 15px;
+            }
+            
+            header {
+                padding: 40px 20px;
+            }
+            
+            header h1 {
+                font-size: 2.2em;
+            }
+            
+            header p {
+                font-size: 1.1em;
+            }
+            
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-card {
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
         }
     </style>
 </head>

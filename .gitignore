@@ -1,1 +1,1 @@
-Nothing should be ignored based on the provided file changes, as they only include HTML files which are source code/config files.
+Nothing should be ignored based on the provided file changes. The only modified file is `lisensimediadigital.html`, which is a source/config file and should not be ignored.
