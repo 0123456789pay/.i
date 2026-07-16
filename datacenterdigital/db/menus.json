@@ -1,28 +1,31 @@
 {
-  "menus": [
-    {"id": 1, "name": "Server Monitoring", "file": "server-monitoring.html", "category": "infrastructure"},
-    {"id": 2, "name": "Network Status", "file": "network-status.html", "category": "infrastructure"},
-    {"id": 3, "name": "Storage Management", "file": "storage-management.html", "category": "storage"},
-    {"id": 4, "name": "Backup Recovery", "file": "backup-recovery.html", "category": "backup"},
-    {"id": 5, "name": "Security Settings", "file": "security-settings.html", "category": "security"},
-    {"id": 6, "name": "User Management", "file": "user-management.html", "category": "admin"},
-    {"id": 7, "name": "Database Admin", "file": "database-admin.html", "category": "database"},
-    {"id": 8, "name": "API Gateway", "file": "api-gateway.html", "category": "api"},
-    {"id": 9, "name": "Load Balancer", "file": "load-balancer.html", "category": "infrastructure"},
-    {"id": 10, "name": "Firewall Config", "file": "firewall-config.html", "category": "security"},
-    {"id": 11, "name": "Advanced Analytics", "file": "advanced-analytics.html", "category": "analytics"},
-    {"id": 12, "name": "AI Inference", "file": "ai-inference.html", "category": "ai"},
-    {"id": 13, "name": "Alert Routing", "file": "alert-routing.html", "category": "monitoring"},
-    {"id": 14, "name": "Application Monitoring", "file": "application-monitoring.html", "category": "monitoring"},
-    {"id": 15, "name": "Asset Inventory", "file": "asset-inventory.html", "category": "inventory"},
-    {"id": 16, "name": "Authentication Service", "file": "authentication-service.html", "category": "security"},
-    {"id": 17, "name": "Auto Remediation", "file": "auto-remediation.html", "category": "automation"},
-    {"id": 18, "name": "Availability Zones", "file": "availability-zones.html", "category": "infrastructure"},
-    {"id": 19, "name": "Backup Automation", "file": "backup-automation.html", "category": "backup"},
-    {"id": 20, "name": "Bandwidth Monitoring", "file": "bandwidth-monitoring.html", "category": "monitoring"}
+  "version": "2.0",
+  "last_updated": "2025-01-15",
+  "total_menus": 838,
+  "categories": {
+    "monitoring": ["server-monitoring", "network-status", "performance-metrics", "real-time-monitoring", "uptime-monitoring"],
+    "security": ["security-settings", "firewall-config", "ssl-certificates", "authentication-service", "zero-trust"],
+    "network": ["network-automation", "dns-management", "load-balancer", "api-gateway", "gateway-routing"],
+    "storage": ["storage-management", "backup-recovery", "cloud-storage", "object-storage", "cache-management"],
+    "database": ["database-admin", "database-monitoring", "sql-optimizer", "graph-database", "time-series-db"],
+    "cloud": ["kubernetes-cluster", "docker-registry", "virtual-machines", "cloud-migration", "hybrid-cloud"],
+    "api": ["api-management", "api-rate-limiting", "api-versioning", "rest-api", "graphql-endpoint"],
+    "system": ["system-config", "patch-management", "firmware-update", "kernel-monitoring", "node-management"],
+    "analytics": ["advanced-analytics", "log-aggregation", "metric-collection", "telemetry-data", "cost-analysis"]
+  },
+  "featured_menus": [
+    "server-monitoring",
+    "network-status", 
+    "security-settings",
+    "database-admin",
+    "kubernetes-cluster",
+    "api-gateway",
+    "backup-recovery",
+    "advanced-analytics"
   ],
-  "total": 738,
-  "last_updated": "2024-01-01",
-  "site_name": "DataCenter Digital",
-  "version": "2.0"
+  "metadata": {
+    "author": "DataCenter Digital Team",
+    "license": "MIT",
+    "repository": "datacenter-digital"
+  }
 }
