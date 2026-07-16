@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload - AI Chat Reber</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .back-btn {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <a href="dashboard/index.html" class="back-btn">← Kembali ke Dashboard</a>
+    
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>💬 Upload</h1>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message ai">
+                Halo! Selamat datang di fitur Upload. Ada yang bisa saya bantu?
+            </div>
+        </div>
+        
+        <div class="chat-input-area">
+            <input type="text" id="messageInput" placeholder="Ketik pesan Anda..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Kirim</button>
+        </div>
+    </div>
+    
+    <script src="js/chat.js"></script>
+    <script>
+        const currentPage = "Upload";
+    </script>
+</body>
+</html>
