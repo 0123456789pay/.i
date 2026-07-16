@@ -1,5 +1,50 @@
 ```
-# Compressed files
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py.class
+.Python
+env/
+venv/
+.venv/
+.ENV
+.env
+.env.*
+.env.local
+.coverage
+coverage/
+htmlcov/
+.mypy_cache/
+.pytest_cache/
+.tox/
+.nox/
+.cover/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Compressed
 *.zip
 *.gz
 *.tar
@@ -22,12 +67,4 @@
 *.tar.bz2
 *.tar.xz
 *.tar.zst
-
-# Image files
-*.png
-*.jpg
-*.jpeg
-*.bmp
-*.gif
-*.webm
 ```
