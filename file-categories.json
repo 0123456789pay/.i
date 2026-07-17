@@ -1,6 +1,6 @@
 {
   "categories": {
-    "AI & Machine Learning": {
+    "AI": {
       "icon": "🤖",
       "folders": {
         "aichatreber": [
@@ -580,7 +580,7 @@
       },
       "total": 132
     },
-    "Data & Database": {
+    "Data": {
       "icon": "💾",
       "folders": {
         "datacenterdigital/html": [
@@ -4324,7 +4324,7 @@
       },
       "total": 934
     },
-    "Design & Creative": {
+    "Design": {
       "icon": "🎨",
       "folders": {
         "designdigital": [
@@ -4760,7 +4760,7 @@
       },
       "total": 107
     },
-    "File Management": {
+    "Files": {
       "icon": "📂",
       "folders": {
         "filemanajer/southeastapp": [
@@ -4772,7 +4772,7 @@
       },
       "total": 1
     },
-    "Hosting & Server": {
+    "Hosting": {
       "icon": "🌐",
       "folders": {
         "hostingdigital": [
@@ -5164,7 +5164,7 @@
       },
       "total": 96
     },
-    "Media & Content": {
+    "Media": {
       "icon": "📺",
       "folders": {
         "mediadigitalpusatiklan/manajemen_iklan": [
@@ -5778,7 +5778,7 @@
       },
       "total": 151
     },
-    "News & Publishing": {
+    "News": {
       "icon": "📰",
       "folders": {
         "situsnewsmediadigital": [
@@ -6186,7 +6186,7 @@
       },
       "total": 100
     },
-    "Payment & Finance": {
+    "Payment": {
       "icon": "💳",
       "folders": {
         "pembayaranmediadigital": [
@@ -6854,7 +6854,7 @@
       },
       "total": 165
     },
-    "Root Files": {
+    "Root": {
       "icon": "📁",
       "folders": {
         "": [
@@ -6978,7 +6978,7 @@
       },
       "total": 29
     },
-    "Social Media": {
+    "Social": {
       "icon": "📱",
       "folders": {
         "medsos": [
@@ -7314,7 +7314,7 @@
       },
       "total": 82
     },
-    "Traffic & Analytics": {
+    "Traffic": {
       "icon": "📈",
       "folders": {
         "trafict": [
@@ -7326,7 +7326,7 @@
       },
       "total": 1
     },
-    "View & Display": {
+    "View": {
       "icon": "🖥️",
       "folders": {
         "view": [
