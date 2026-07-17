@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1800 Component Viewer</title>
+    <title>SoutheastApp Digital Browser</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -12,7 +12,7 @@
             min-height: 100vh; 
             padding: 20px;
         }
-        .container { max-width: 1600px; margin: 0 auto; }
+        .container { max-width: 1800px; margin: 0 auto; }
         header { 
             text-align: center; 
             color: white; 
@@ -22,26 +22,151 @@
         header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         header p { font-size: 1.1em; opacity: 0.9; }
         
-        .search-section {
-            background: rgba(255,255,255,0.95);
-            border-radius: 15px;
-            padding: 25px;
+        /* Browser Search Box */
+        .browser-section {
+            background: rgba(255,255,255,0.98);
+            border-radius: 20px;
+            padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
         }
-        .search-box {
-            width: 100%;
+        .browser-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eee;
+        }
+        .browser-controls {
+            display: flex;
+            gap: 8px;
+        }
+        .browser-btn {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-close { background: #ff5f56; }
+        .btn-minimize { background: #ffbd2e; }
+        .btn-maximize { background: #27c93f; }
+        
+        .search-engine-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .engine-btn {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .engine-btn:hover { transform: translateY(-2px); }
+        .engine-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        .engine-google.active { background: #4285f4; border-color: #4285f4; }
+        .engine-edge.active { background: #0078d7; border-color: #0078d7; }
+        .engine-safari.active { background: #1da1f2; border-color: #1da1f2; }
+        
+        .url-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .url-input {
+            flex: 1;
             padding: 15px 20px;
-            font-size: 1.1em;
+            font-size: 1em;
             border: 2px solid #ddd;
             border-radius: 8px;
             outline: none;
             transition: border-color 0.3s;
+            background: #f8f9fa;
         }
-        .search-box:focus {
+        .url-input:focus {
             border-color: #667eea;
+            background: white;
+        }
+        .search-btn {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .search-btn:hover { background: #5a6fd6; }
+        
+        .base-url-display {
+            background: #e8f4fd;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            color: #0066cc;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
         }
         
+        /* View Box Container */
+        .view-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        .view-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .view-tabs {
+            display: flex;
+            gap: 5px;
+        }
+        .view-tab {
+            padding: 8px 16px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .view-tab:hover { background: #667eea; color: white; }
+        .view-tab.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        .view-content {
+            padding: 20px;
+            min-height: 450px;
+        }
+        .view-frame {
+            width: 100%;
+            height: 400px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        /* Stats Grid */
         .stats-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -60,106 +185,65 @@
         .stat-number { font-size: 2em; font-weight: bold; color: #667eea; }
         .stat-label { color: #666; margin-top: 5px; }
         
-        .components-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 15px; 
-        }
-        .component-card { 
-            background: rgba(255,255,255,0.95); 
-            border-radius: 10px; 
-            padding: 20px; 
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1); 
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .component-card:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-        .component-name { 
-            font-size: 1.2em; 
-            font-weight: bold; 
-            color: #667eea;
-            margin-bottom: 10px;
-            word-break: break-word;
-        }
-        .component-info {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 5px;
-        }
-        .component-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .btn {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: background 0.3s;
-        }
-        .btn-view {
-            background: #667eea;
-            color: white;
-        }
-        .btn-view:hover { background: #5a6fd6; }
-        .btn-load {
-            background: #764ba2;
-            color: white;
-        }
-        .btn-load:hover { background: #6a4190; }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal.active { display: flex; }
-        .modal-content {
-            background: white;
+        /* Crawler Results */
+        .crawler-section {
+            background: rgba(255,255,255,0.95);
             border-radius: 15px;
-            padding: 30px;
-            max-width: 800px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
         }
-        .modal-header {
+        .crawler-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
-        .modal-title { font-size: 1.5em; color: #667eea; }
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5em;
-            cursor: pointer;
-            color: #666;
+        .crawler-results {
+            display: grid;
+            gap: 15px;
         }
-        .code-block {
-            background: #f5f5f5;
+        .result-item {
+            background: #f8f9fa;
             padding: 15px;
             border-radius: 8px;
-            margin: 15px 0;
-            overflow-x: auto;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
         }
-        .code-block pre {
-            margin: 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+        .result-item:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .result-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        .result-url {
+            font-size: 0.85em;
+            color: #666;
+            word-break: break-all;
+        }
+        
+        /* Loading Animation */
+        .loader {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        .loader.active { display: block; }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
         .loading { text-align: center; padding: 40px; color: white; }
@@ -168,195 +252,404 @@
 <body>
     <div class="container">
         <header>
-            <h1>🧩 1800 Component Library</h1>
-            <p>Interactive component viewer with input and functionality</p>
+            <h1>🌐 SoutheastApp Digital Browser</h1>
+            <p>Advanced Search & Crawler System Powered by SoutheastApp</p>
         </header>
         
-        <div class="search-section">
-            <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search components by name...">
+        <!-- Browser Search Section -->
+        <div class="browser-section">
+            <div class="browser-header">
+                <div class="browser-controls">
+                    <button class="browser-btn btn-close"></button>
+                    <button class="browser-btn btn-minimize"></button>
+                    <button class="browser-btn btn-maximize"></button>
+                </div>
+                <div style="flex: 1; text-align: center; font-weight: 600; color: #666;">
+                    SoutheastApp Browser Engine
+                </div>
+            </div>
+            
+            <div class="base-url-display">
+                📍 Base URL: <strong>https://southeastapp.github.io/view/</strong>
+            </div>
+            
+            <div class="search-engine-selector">
+                <button class="engine-btn engine-google active" onclick="selectEngine('google')">
+                    🔍 Google
+                </button>
+                <button class="engine-btn engine-edge" onclick="selectEngine('edge')">
+                    🌐 Edge
+                </button>
+                <button class="engine-btn engine-safari" onclick="selectEngine('safari')">
+                    🧭 Safari
+                </button>
+            </div>
+            
+            <div class="url-bar">
+                <input type="text" id="searchInput" class="url-input" 
+                       placeholder="Enter search query..." 
+                       value="https://southeastapp.github.io/view/">
+                <button class="search-btn" onclick="performSearch()">
+                    🔎 Search
+                </button>
+            </div>
+            
+            <!-- View Box Container -->
+            <div class="view-container">
+                <div class="view-header">
+                    <div class="view-tabs">
+                        <div class="view-tab active" onclick="switchTab('layout')">Layout</div>
+                        <div class="view-tab" onclick="switchTab('fungsi')">Fungsi</div>
+                        <div class="view-tab" onclick="switchTab('konfigurasi')">Konfigurasi</div>
+                        <div class="view-tab" onclick="switchTab('proxy')">Proxy</div>
+                        <div class="view-tab" onclick="switchTab('api')">API Config</div>
+                        <div class="view-tab" onclick="switchTab('loader')">Loader</div>
+                        <div class="view-tab" onclick="switchTab('kernel')">Kernel</div>
+                    </div>
+                    <div id="currentEngine" style="font-size: 0.9em; color: #666;">
+                        Engine: Google
+                    </div>
+                </div>
+                <div class="view-content">
+                    <div id="viewFrame" class="view-frame">
+                        <div class="loader" id="loader">
+                            <div class="spinner"></div>
+                            <p>Crawling and rendering data...</p>
+                        </div>
+                        <div id="renderContent">
+                            <h3 style="color: #667eea; margin-bottom: 15px;">Welcome to SoutheastApp Browser</h3>
+                            <p style="color: #666; line-height: 1.6;">
+                                This is a complete browser search system centered on SoutheastApp. 
+                                Enter your search query above to begin crawling and rendering data.
+                            </p>
+                            <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px;">
+                                <strong>📁 View Structure:</strong>
+                                <ul style="margin-top: 10px; margin-left: 20px; color: #666;">
+                                    <li>Layout - UI Components & Structure</li>
+                                    <li>Fungsi - Core Functions</li>
+                                    <li>Konfigurasi - System Configuration</li>
+                                    <li>Proxy - Proxy Settings</li>
+                                    <li>API - API Configuration</li>
+                                    <li>Loader - Data Loading Module</li>
+                                    <li>Kernel - Browser Engine Core</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
+        <!-- Stats Grid -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number" id="totalComponents">0</div>
-                <div class="stat-label">Total Components</div>
+                <div class="stat-number" id="totalResults">0</div>
+                <div class="stat-label">Total Results</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="jsFiles">0</div>
-                <div class="stat-label">JavaScript Files</div>
+                <div class="stat-number" id="crawlTime">0ms</div>
+                <div class="stat-label">Crawl Time</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="cssFiles">0</div>
-                <div class="stat-label">CSS Files</div>
+                <div class="stat-number" id="dataRendered">0</div>
+                <div class="stat-label">Data Rendered</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="filteredCount">0</div>
-                <div class="stat-label">Filtered Results</div>
+                <div class="stat-number" id="activeEngine">Google</div>
+                <div class="stat-label">Active Engine</div>
             </div>
         </div>
         
-        <div id="componentsGrid" class="components-grid">
-            <div class="loading">Loading components...</div>
-        </div>
-    </div>
-    
-    <div id="componentModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="modalTitle">Component Details</h2>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
+        <!-- Crawler Results Section -->
+        <div class="crawler-section">
+            <div class="crawler-header">
+                <h2 style="color: #667eea;">🕷️ Crawler Results</h2>
+                <button class="search-btn" onclick="clearResults()" style="padding: 10px 20px; font-size: 0.9em;">
+                    Clear Results
+                </button>
             </div>
-            <div id="modalBody"></div>
+            <div class="crawler-results" id="crawlerResults">
+                <p style="color: #666; text-align: center; padding: 20px;">
+                    No search results yet. Enter a query to start crawling.
+                </p>
+            </div>
         </div>
     </div>
 
     <script>
-        // Daftar komponen (akan diisi secara dinamis)
-        const components = [];
-        
-        // Load komponen dari file JSON atau hardcoded list
-        async function loadComponents() {
-            try {
-                const response = await fetch('component_list.json');
-                const data = await response.json();
-                components.push(...data);
-            } catch (e) {
-                console.log('Using fallback component list');
-                // Fallback jika file JSON tidak ada
-                const fallbackComponents = [
-                ];
-                components.push(...fallbackComponents);
+        // Configuration
+        const CONFIG = {
+            baseUrl: 'https://southeastapp.github.io/view/',
+            engines: {
+                google: 'https://www.google.com/search?q=',
+                edge: 'https://www.bing.com/search?q=',
+                safari: 'https://duckduckgo.com/?q='
+            },
+            currentEngine: 'google',
+            view: {
+                layout: [],
+                fungsi: [],
+                konfigurasi: [],
+                proxy: [],
+                api: [],
+                loader: [],
+                kernel: []
             }
+        };
+
+        let currentTab = 'layout';
+        let searchHistory = [];
+
+        // Select Search Engine
+        function selectEngine(engine) {
+            CONFIG.currentEngine = engine;
             
-            updateStats();
-            renderComponents(components);
-        }
-        
-        function updateStats() {
-            document.getElementById('totalComponents').textContent = components.length;
-            document.getElementById('jsFiles').textContent = components.length;
-            document.getElementById('cssFiles').textContent = components.length;
-            document.getElementById('filteredCount').textContent = components.length;
-        }
-        
-        function renderComponents(compList) {
-            const grid = document.getElementById('componentsGrid');
-            grid.innerHTML = '';
-            
-            compList.forEach((comp, index) => {
-                if (index >= 100) return; // Limit display for performance
-                
-                const card = document.createElement('div');
-                card.className = 'component-card';
-                card.innerHTML = `
-                    <div class="component-name">${escapeHtml(comp.name)}</div>
-                    <div class="component-info">Type: Component</div>
-                    <div class="component-info">Version: 1.0.0</div>
-                    <div class="component-actions">
-                        <button class="btn btn-view" onclick="viewComponent('${escapeJs(comp.name)}')">View</button>
-                        <button class="btn btn-load" onclick="loadComponent('${escapeJs(comp.name)}')">Load</button>
-                    </div>
-                `;
-                grid.appendChild(card);
+            // Update UI
+            document.querySelectorAll('.engine-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
+            document.querySelector(`.engine-${engine}`).classList.add('active');
             
-            document.getElementById('filteredCount').textContent = compList.length;
+            // Update display
+            const engineNames = { google: 'Google', edge: 'Edge', safari: 'Safari' };
+            document.getElementById('currentEngine').textContent = `Engine: ${engineNames[engine]}`;
+            document.getElementById('activeEngine').textContent = engineNames[engine];
+            
+            // Update input with base URL
+            document.getElementById('searchInput').value = CONFIG.baseUrl;
         }
-        
-        function viewComponent(name) {
-            const modal = document.getElementById('componentModal');
-            const title = document.getElementById('modalTitle');
-            const body = document.getElementById('modalBody');
+
+        // Perform Search
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            const startTime = Date.now();
             
-            title.textContent = name;
-            body.innerHTML = `
-                <h3>Component Information</h3>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Type:</strong> UI Component</p>
-                <p><strong>Version:</strong> 1.0.0</p>
+            // Show loader
+            document.getElementById('loader').classList.add('active');
+            document.getElementById('renderContent').style.display = 'none';
+            
+            // Simulate crawling and rendering
+            setTimeout(() => {
+                const crawlTime = Date.now() - startTime;
+                document.getElementById('crawlTime').textContent = `${crawlTime}ms`;
                 
-                <h3>JavaScript File</h3>
-                <div class="code-block">
-                    <pre id="jsCode">Loading...</pre>
+                // Generate mock results (in real implementation, this would fetch from API)
+                const results = generateMockResults(query);
+                
+                // Update stats
+                document.getElementById('totalResults').textContent = results.length;
+                document.getElementById('dataRendered').textContent = results.length * 100;
+                
+                // Render results
+                renderResults(results);
+                renderContent(query, results);
+                
+                // Hide loader
+                document.getElementById('loader').classList.remove('active');
+                document.getElementById('renderContent').style.display = 'block';
+                
+                // Add to history
+                searchHistory.push({ query, timestamp: new Date(), results: results.length });
+            }, 1500);
+        }
+
+        // Generate Mock Results (Simulates crawler)
+        function generateMockResults(query) {
+            const baseResults = [
+                { title: 'SoutheastApp Main Dashboard', url: CONFIG.baseUrl + 'dashboard' },
+                { title: 'SoutheastApp File Manager', url: CONFIG.baseUrl + 'files' },
+                { title: 'SoutheastApp API Documentation', url: CONFIG.baseUrl + 'api/docs' },
+                { title: 'SoutheastApp User Settings', url: CONFIG.baseUrl + 'settings' },
+                { title: 'SoutheastApp Analytics', url: CONFIG.baseUrl + 'analytics' },
+                { title: 'SoutheastApp Cloud Storage', url: CONFIG.baseUrl + 'cloud' },
+                { title: 'SoutheastApp Security Center', url: CONFIG.baseUrl + 'security' },
+                { title: 'SoutheastApp Integration Hub', url: CONFIG.baseUrl + 'integrations' }
+            ];
+            
+            return baseResults.map((item, index) => ({
+                ...item,
+                title: `${item.title} - ${query}`,
+                snippet: `Relevant content from SoutheastApp related to your search: ${query}`,
+                rank: index + 1
+            }));
+        }
+
+        // Render Results
+        function renderResults(results) {
+            const container = document.getElementById('crawlerResults');
+            container.innerHTML = '';
+            
+            results.forEach(result => {
+                const item = document.createElement('div');
+                item.className = 'result-item';
+                item.innerHTML = `
+                    <div class="result-title">#${result.rank} - ${result.title}</div>
+                    <div class="result-url">${result.url}</div>
+                    <div style="margin-top: 8px; color: #666; font-size: 0.9em;">${result.snippet}</div>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        // Render Content in View Frame
+        function renderContent(query, results) {
+            const content = document.getElementById('renderContent');
+            content.innerHTML = `
+                <h3 style="color: #667eea; margin-bottom: 15px;">Search Results for: "${query}"</h3>
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong>Engine:</strong> ${CONFIG.currentEngine.toUpperCase()} | 
+                    <strong>Results:</strong> ${results.length} | 
+                    <strong>Base URL:</strong> ${CONFIG.baseUrl}
                 </div>
-                
-                <h3>CSS File</h3>
-                <div class="code-block">
-                    <pre id="cssCode">Loading...</pre>
+                <div style="display: grid; gap: 10px;">
+                    ${results.slice(0, 5).map(r => `
+                        <div style="padding: 12px; background: white; border: 1px solid #ddd; border-radius: 6px;">
+                            <div style="font-weight: 600; color: #667eea;">${r.title}</div>
+                            <div style="font-size: 0.85em; color: #666;">${r.url}</div>
+                        </div>
+                    `).join('')}
                 </div>
-                
-                <h3>Live Preview</h3>
-                <div id="preview" style="margin-top: 15px;"></div>
             `;
+        }
+
+        // Switch Tabs
+        function switchTab(tabName) {
+            currentTab = tabName;
             
-            modal.classList.add('active');
+            // Update UI
+            document.querySelectorAll('.view-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
             
-            // Load files
-            fetch(`js/${name}.js`)
-                .then(r => r.text())
-                .then(code => {
-                    document.getElementById('jsCode').textContent = code;
-                })
-                .catch(e => {
-                    document.getElementById('jsCode').textContent = 'Error loading file';
-                });
+            // Load tab content
+            loadTabContent(tabName);
+        }
+
+        // Load Tab Content
+        function loadTabContent(tabName) {
+            const content = document.getElementById('renderContent');
+            const tabContents = {
+                layout: `
+                    <h3 style="color: #667eea;">📐 Layout Module</h3>
+                    <p style="color: #666; margin: 15px 0;">UI Components and structure configuration for the browser interface.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.layout = {<br>
+                        &nbsp;&nbsp;header: true,<br>
+                        &nbsp;&nbsp;sidebar: true,<br>
+                        &nbsp;&nbsp;contentArea: 'flex',<br>
+                        &nbsp;&nbsp;footer: false<br>
+                        }
+                    </div>
+                `,
+                fungsi: `
+                    <h3 style="color: #667eea;">⚙️ Fungsi Module</h3>
+                    <p style="color: #666; margin: 15px 0;">Core functions for search, crawling, and data rendering.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.fungsi = [<br>
+                        &nbsp;&nbsp;'search()',<br>
+                        &nbsp;&nbsp;'crawl()',<br>
+                        &nbsp;&nbsp;'render()',<br>
+                        &nbsp;&nbsp;'fetch()',<br>
+                        &nbsp;&nbsp;'parse()'<br>
+                        ]
+                    </div>
+                `,
+                konfigurasi: `
+                    <h3 style="color: #667eea;">🔧 Konfigurasi Module</h3>
+                    <p style="color: #666; margin: 15px 0;">System configuration settings for the browser engine.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.konfigurasi = {<br>
+                        &nbsp;&nbsp;timeout: 30000,<br>
+                        &nbsp;&nbsp;maxResults: 100,<br>
+                        &nbsp;&nbsp;cacheEnabled: true,<br>
+                        &nbsp;&nbsp;debugMode: false<br>
+                        }
+                    </div>
+                `,
+                proxy: `
+                    <h3 style="color: #667eea;">🔒 Proxy Module</h3>
+                    <p style="color: #666; margin: 15px 0;">Proxy settings for secure and anonymous browsing.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.proxy = {<br>
+                        &nbsp;&nbsp;enabled: true,<br>
+                        &nbsp;&nbsp;server: 'proxy.southeastapp.io',<br>
+                        &nbsp;&nbsp;port: 8080,<br>
+                        &nbsp;&nbsp;protocol: 'https'<br>
+                        }
+                    </div>
+                `,
+                api: `
+                    <h3 style="color: #667eea;">🔌 API Configuration</h3>
+                    <p style="color: #666; margin: 15px 0;">API endpoints and authentication configuration.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.api = {<br>
+                        &nbsp;&nbsp;baseUrl: 'https://api.southeastapp.io',<br>
+                        &nbsp;&nbsp;version: 'v2',<br>
+                        &nbsp;&nbsp;auth: 'Bearer token',<br>
+                        &nbsp;&nbsp;endpoints: ['search', 'crawl', 'render']<br>
+                        }
+                    </div>
+                `,
+                loader: `
+                    <h3 style="color: #667eea;">📥 Loader Module</h3>
+                    <p style="color: #666; margin: 15px 0;">Data loading and caching mechanisms.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.loader = {<br>
+                        &nbsp;&nbsp;strategy: 'lazy',<br>
+                        &nbsp;&nbsp;cacheSize: '500MB',<br>
+                        &nbsp;&nbsp;preload: true,<br>
+                        &nbsp;&nbsp;compression: 'gzip'<br>
+                        }
+                    </div>
+                `,
+                kernel: `
+                    <h3 style="color: #667eea;">🔬 Kernel Module</h3>
+                    <p style="color: #666; margin: 15px 0;">Browser engine core and rendering kernel.</p>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
+                        view.kernel = {<br>
+                        &nbsp;&nbsp;engine: 'SoutheastApp v3.0',<br>
+                        &nbsp;&nbsp;renderer: 'Chromium-based',<br>
+                        &nbsp;&nbsp;javascript: 'V8',<br>
+                        &nbsp;&nbsp;security: 'Sandboxed'<br>
+                        }
+                    </div>
+                `
+            };
             
-            fetch(`css/${name}.css`)
-                .then(r => r.text())
-                .then(code => {
-                    document.getElementById('cssCode').textContent = code;
-                    
-                    // Create preview
-                    const preview = document.getElementById('preview');
-                    preview.innerHTML = `<div class="${name}-container">Preview of ${name} component</div>`;
-                    
-                    // Inject styles
-                    const style = document.createElement('style');
-                    style.textContent = code;
-                    preview.appendChild(style);
-                })
-                .catch(e => {
-                    document.getElementById('cssCode').textContent = 'Error loading file';
-                });
+            content.innerHTML = tabContents[tabName] || '<p>Content not found</p>';
         }
-        
-        function loadComponent(name) {
-            alert(`Loading component: ${name}\n\nIn a real application, this would dynamically import the module.`);
-            console.log(`Loading ${name}...`);
+
+        // Clear Results
+        function clearResults() {
+            document.getElementById('crawlerResults').innerHTML = `
+                <p style="color: #666; text-align: center; padding: 20px;">
+                    No search results yet. Enter a query to start crawling.
+                </p>
+            `;
+            document.getElementById('totalResults').textContent = '0';
+            document.getElementById('dataRendered').textContent = '0';
+            document.getElementById('renderContent').innerHTML = `
+                <h3 style="color: #667eea; margin-bottom: 15px;">Welcome to SoutheastApp Browser</h3>
+                <p style="color: #666; line-height: 1.6;">
+                    This is a complete browser search system centered on SoutheastApp. 
+                    Enter your search query above to begin crawling and rendering data.
+                </p>
+            `;
         }
-        
-        function closeModal() {
-            document.getElementById('componentModal').classList.remove('active');
-        }
-        
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-        
-        function escapeJs(text) {
-            return text.replace(/'/g, "\\'").replace(/"/g, '\\"');
-        }
-        
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const query = e.target.value.toLowerCase();
-            const filtered = components.filter(comp => 
-                comp.name.toLowerCase().includes(query)
-            );
-            renderComponents(filtered);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            selectEngine('google');
+            loadTabContent('layout');
         });
-        
-        // Close modal on outside click
-        document.getElementById('componentModal').addEventListener('click', (e) => {
-            if (e.target.id === 'componentModal') {
-                closeModal();
+
+        // Allow Enter key to search
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
             }
         });
-        
-        // Initialize
-        loadComponents();
     </script>
 </body>
 </html>
