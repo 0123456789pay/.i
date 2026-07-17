@@ -1,0 +1,26 @@
+// SmooThSc Component Script
+export const SmooThScComp = {
+    name: 'SmooThSc',
+    type: 'component',
+    version: '1.0.0',
+    config: {
+        enabled: true,
+        theme: 'default',
+        size: 'medium'
+    },
+    methods: {
+        init() {
+            console.log('SmooThSc initialized');
+        },
+        render(data) {
+            return `<div class="SmooThSc-container">${JSON.stringify(data)}</div>`;
+        },
+        destroy() {
+            console.log('SmooThSc destroyed');
+        }
+    },
+    events: ['click', 'change', 'focus', 'blur'],
+    props: ['id', 'class', 'style', 'data']
+};
+
+export default SmooThScComp;

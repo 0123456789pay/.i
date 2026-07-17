@@ -1,0 +1,66 @@
+```
+# Environment and configuration files
+.env
+.env.local
+.env.*
+
+# Build artifacts and compiled files
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.out
+dist/
+build/
+target/
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+.julia/
+zig-cache/
+zig-out/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temporary files
+*.log
+*.tmp
+coverage/
+htmlcov/
+.coverage
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Compressed archives
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+
+```

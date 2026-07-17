@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Manager - AI Chat Reber</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="file-manager">
+        <header>
+            <h1>📁 File Manager</h1>
+            <p>Kelola semua file dan data chat Anda</p>
+        </header>
+        
+        <div style="margin: 20px 0;">
+            <a href="../dashboard/index.html" class="back-btn" style="display: inline-block; padding: 10px 20px; background: #667eea; color: white; text-decoration: none; border-radius: 8px;">← Kembali ke Dashboard</a>
+        </div>
+        
+        <div class="file-actions">
+            <button onclick="refreshFiles()" style="padding: 10px 20px; background: #667eea; color: white; border: none; border-radius: 8px; cursor: pointer; margin-right: 10px;">🔄 Refresh</button>
+            <button onclick="uploadFile()" style="padding: 10px 20px; background: #764ba2; color: white; border: none; border-radius: 8px; cursor: pointer;">📤 Upload</button>
+        </div>
+        
+        <div class="file-grid" id="fileGrid">
+            <!-- Files will be loaded dynamically -->
+        </div>
+    </div>
+    
+    <script>
+        function refreshFiles() {
+            const fileGrid = document.getElementById('fileGrid');
+            const files = [
+                { name: 'chat_data.json', type: 'database', icon: '🗄️' },
+                { name: 'backup_2024.json', type: 'backup', icon: '💾' },
+                { name: 'export_conversations.txt', type: 'export', icon: '📄' },
+                { name: 'settings.json', type: 'config', icon: '⚙️' },
+                { name: 'user_preferences.json', type: 'config', icon: '👤' },
+                { name: 'conversation_log.txt', type: 'log', icon: '📝' }
+            ];
+            
+            fileGrid.innerHTML = '';
+            files.forEach(file => {
+                const fileItem = document.createElement('div');
+                fileItem.className = 'file-item';
+                fileItem.innerHTML = `
+                    <div class="file-icon">${file.icon}</div>
+                    <div class="file-name">${file.name}</div>
+                    <div class="file-type">${file.type}</div>
+                `;
+                fileGrid.appendChild(fileItem);
+            });
+        }
+        
+        function uploadFile() {
+            alert('Fitur upload file akan segera tersedia!');
+        }
+        
+        // Load files on page load
+        document.addEventListener('DOMContentLoaded', refreshFiles);
+    </script>
+</body>
+</html>

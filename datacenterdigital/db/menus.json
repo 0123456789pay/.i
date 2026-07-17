@@ -1,0 +1,31 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-01-15",
+  "total_menus": 838,
+  "categories": {
+    "monitoring": ["server-monitoring", "network-status", "performance-metrics", "real-time-monitoring", "uptime-monitoring"],
+    "security": ["security-settings", "firewall-config", "ssl-certificates", "authentication-service", "zero-trust"],
+    "network": ["network-automation", "dns-management", "load-balancer", "api-gateway", "gateway-routing"],
+    "storage": ["storage-management", "backup-recovery", "cloud-storage", "object-storage", "cache-management"],
+    "database": ["database-admin", "database-monitoring", "sql-optimizer", "graph-database", "time-series-db"],
+    "cloud": ["kubernetes-cluster", "docker-registry", "virtual-machines", "cloud-migration", "hybrid-cloud"],
+    "api": ["api-management", "api-rate-limiting", "api-versioning", "rest-api", "graphql-endpoint"],
+    "system": ["system-config", "patch-management", "firmware-update", "kernel-monitoring", "node-management"],
+    "analytics": ["advanced-analytics", "log-aggregation", "metric-collection", "telemetry-data", "cost-analysis"]
+  },
+  "featured_menus": [
+    "server-monitoring",
+    "network-status", 
+    "security-settings",
+    "database-admin",
+    "kubernetes-cluster",
+    "api-gateway",
+    "backup-recovery",
+    "advanced-analytics"
+  ],
+  "metadata": {
+    "author": "DataCenter Digital Team",
+    "license": "MIT",
+    "repository": "datacenter-digital"
+  }
+}

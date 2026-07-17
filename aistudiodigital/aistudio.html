@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio Digital - SoutheastApp</title>
+    <link rel="stylesheet" href="css/ai-studio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="studio-container">
+        <!-- Sidebar Kiri 1 - Icon Menu (Home, Setting, Kepemilikan) -->
+        <aside class="sidebar-icon-menu" id="sidebarIconMenu">
+            <div class="sidebar-toggle-header">
+                <button class="btn-toggle-sidebar" onclick="toggleSidebar('sidebarIconMenu')" title="Toggle Sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            <nav class="icon-menu">
+                <div class="icon-menu-item active" data-module="home" title="Home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="icon-menu-item" data-module="settings" title="Setting">
+                    <i class="fas fa-cog"></i>
+                    <span>Setting</span>
+                </div>
+                <div class="icon-menu-item" data-module="ownership" title="Kepemilikan">
+                    <i class="fas fa-id-card"></i>
+                    <span>Kepemilikan</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Sidebar Kiri 2 - Chat Prompt -->
+        <aside class="sidebar-chat" id="sidebarChat">
+            <div class="sidebar-toggle-header">
+                <button class="btn-toggle-sidebar" onclick="toggleSidebar('sidebarChat')" title="Toggle Sidebar">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
+            <div class="chat-header">
+                <i class="fas fa-magic"></i>
+                <h3>AI Assistant</h3>
+                <button class="btn-icon" onclick="clearChat()">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        Halo! Saya AI Assistant Anda. Ada yang bisa saya bantu hari ini?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <textarea 
+                    id="chatInput" 
+                    placeholder="Ketik prompt Anda di sini..."
+                    rows="3"
+                    onkeydown="handleChatKeydown(event)"
+                ></textarea>
+                <button class="btn-send" onclick="sendChat()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <div class="quick-prompts">
+                <div class="qp-title">Quick Prompts:</div>
+                <button class="btn-qp" onclick="insertPrompt('Buat kode untuk')">Buat kode</button>
+                <button class="btn-qp" onclick="insertPrompt('Jelaskan cara kerja')">Jelaskan</button>
+                <button class="btn-qp" onclick="insertPrompt('Optimasi kode ini')">Optimasi</button>
+                <button class="btn-qp" onclick="insertPrompt('Debug error berikut')">Debug</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation Bar with Live Preview Menu -->
+            <div class="top-nav">
+                <div class="breadcrumb">
+                    <i class="fas fa-home"></i>
+                    <span>AI Studio</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span id="currentModule">Dashboard</span>
+                </div>
+                
+                <!-- Live Preview Navigation Menu -->
+                <nav class="live-preview-nav">
+                    <div class="lp-nav-item active" data-module="codefile" title="Code File">
+                        <i class="fas fa-file-code"></i>
+                        <span>Code File</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="modelconfig" title="Model Config">
+                        <i class="fas fa-cogs"></i>
+                        <span>Model Config</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="apiconfig" title="API Config">
+                        <i class="fas fa-plug"></i>
+                        <span>API Config</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="code" title="Code">
+                        <i class="fas fa-folder-tree"></i>
+                        <span>Code</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="landingpage" title="Landing Page">
+                        <i class="fas fa-globe"></i>
+                        <span>Landing Page</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="chatbot" title="Chatbot">
+                        <i class="fas fa-comments"></i>
+                        <span>Chatbot</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="deployment" title="Deployment">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Deployment</span>
+                    </div>
+                    <div class="lp-nav-item" data-module="analytics" title="Analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </div>
+                </nav>
+                
+                <div class="nav-controls">
+                    <!-- Preview Controls -->
+                    <div class="preview-mode-group">
+                        <button class="btn-mode active" onclick="setPreviewMode('preview')" title="Preview">
+                            <i class="fas fa-eye"></i>
+                            <span>Preview</span>
+                        </button>
+                        <button class="btn-mode" onclick="setPreviewMode('data')" title="Data">
+                            <i class="fas fa-table"></i>
+                            <span>Data</span>
+                        </button>
+                        <button class="btn-mode" onclick="setPreviewMode('code')" title="Kode">
+                            <i class="fas fa-code"></i>
+                            <span>Kode</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Device Mode -->
+                    <div class="device-mode-group">
+                        <button class="btn-device active" onclick="setDeviceMode('desktop')" title="Desktop">
+                            <i class="fas fa-desktop"></i>
+                        </button>
+                        <button class="btn-device" onclick="setDeviceMode('tablet')" title="Tablet">
+                            <i class="fas fa-tablet-alt"></i>
+                        </button>
+                        <button class="btn-device" onclick="setDeviceMode('mobile')" title="Mobile">
+                            <i class="fas fa-mobile-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="btn-action btn-secondary" onclick="saveCurrent()">
+                            <i class="fas fa-save"></i>
+                            <span>Save</span>
+                        </button>
+                        <button class="btn-action btn-primary" onclick="runCode()">
+                            <i class="fas fa-play"></i>
+                            <span>Run</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Workspace -->
+            <div class="workspace">
+                <!-- Live Preview Panel - Top Center -->
+                <div class="live-preview-panel" id="livePreviewPanel">
+                    <div class="preview-header">
+                        <div class="preview-title">
+                            <i class="fas fa-eye"></i>
+                            <span>Live Preview</span>
+                        </div>
+                        <div class="preview-actions">
+                            <button class="btn-preview" onclick="refreshPreview()" title="Refresh">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                            <button class="btn-preview" onclick="toggleFullscreen()" title="Fullscreen">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="preview-container" id="previewContainer">
+                        <iframe 
+                            class="preview-frame" 
+                            id="previewFrame" 
+                            src="about:blank"
+                            sandbox="allow-scripts allow-same-origin"
+                        ></iframe>
+                    </div>
+                </div>
+                
+                <!-- Editor/Content Panel - Bottom -->
+                <div class="content-panel" id="contentPanel">
+                    <div class="panel-tabs">
+                        <button class="panel-tab active" onclick="switchEditorTab('editor')">
+                            <i class="fas fa-edit"></i> Editor
+                        </button>
+                        <button class="panel-tab" onclick="switchEditorTab('code-tree')">
+                            <i class="fas fa-folder-tree"></i> Code Tree
+                        </button>
+                        <button class="panel-tab" onclick="switchEditorTab('properties')">
+                            <i class="fas fa-sliders-h"></i> Properties
+                        </button>
+                        <button class="panel-tab" onclick="switchEditorTab('history')">
+                            <i class="fas fa-history"></i> History
+                        </button>
+                    </div>
+                    
+                    <div class="editor-container" id="editorContainer">
+                        <div class="code-editor" id="codeEditor">
+                            <div class="editor-toolbar">
+                                <select id="fileSelector" onchange="loadFile(this.value)">
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="js">JavaScript</option>
+                                    <option value="json">Config JSON</option>
+                                </select>
+                                <div class="toolbar-actions">
+                                    <button class="btn-tool" onclick="formatCode()" title="Format">
+                                        <i class="fas fa-align-left"></i>
+                                    </button>
+                                    <button class="btn-tool" onclick="undoCode()" title="Undo">
+                                        <i class="fas fa-undo"></i>
+                                    </button>
+                                    <button class="btn-tool" onclick="redoCode()" title="Redo">
+                                        <i class="fas fa-redo"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea 
+                                id="editorTextarea" 
+                                class="editor-textarea"
+                                spellcheck="false"
+                                onchange="updatePreview()"
+                                oninput="highlightEditor()"
+                            ></textarea>
+                        </div>
+                        
+                        <div class="code-tree-view hidden" id="codeTreeView">
+                            <!-- Code tree will be loaded from Code module -->
+                        </div>
+                        
+                        <div class="properties-panel hidden" id="propertiesPanel">
+                            <!-- Properties will be loaded dynamically -->
+                        </div>
+                        
+                        <div class="history-panel hidden" id="historyPanel">
+                            <!-- History will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Publish -->
+        <aside class="sidebar-publish" id="sidebarPublish">
+            <div class="publish-header">
+                <i class="fas fa-rocket"></i>
+                <h3>Publish</h3>
+            </div>
+            
+            <div class="publish-content">
+                <div class="publish-section">
+                    <div class="section-title">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Deployment</span>
+                    </div>
+                    
+                    <div class="publish-form">
+                        <div class="form-group">
+                            <label>Project Name</label>
+                            <input type="text" id="projectName" placeholder="My AI Project">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Environment</label>
+                            <select id="environment">
+                                <option value="development">Development</option>
+                                <option value="staging">Staging</option>
+                                <option value="production">Production</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Version</label>
+                            <input type="text" id="version" placeholder="1.0.0" value="1.0.0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea id="publishDesc" rows="3" placeholder="Brief description..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-publish" onclick="publishProject()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Publish Now
+                    </button>
+                </div>
+                
+                <div class="publish-section">
+                    <div class="section-title">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share Options</span>
+                    </div>
+                    
+                    <div class="share-buttons">
+                        <button class="btn-share" onclick="exportAsZip()">
+                            <i class="fas fa-file-archive"></i>
+                            Export ZIP
+                        </button>
+                        <button class="btn-share" onclick="copyLink()">
+                            <i class="fas fa-link"></i>
+                            Copy Link
+                        </button>
+                        <button class="btn-share" onclick="generateQR()">
+                            <i class="fas fa-qrcode"></i>
+                            QR Code
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="publish-section">
+                    <div class="section-title">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Statistics</span>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="statFiles">0</div>
+                            <div class="stat-label">Files</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="statSize">0 KB</div>
+                            <div class="stat-label">Size</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="statLines">0</div>
+                            <div class="stat-label">Lines</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="statErrors">0</div>
+                            <div class="stat-label">Errors</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="publish-section">
+                    <div class="section-title">
+                        <i class="fas fa-clock"></i>
+                        <span>Recent Activity</span>
+                    </div>
+                    
+                    <div class="activity-list" id="activityList">
+                        <!-- Activity items will be added dynamically -->
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- Modal Dialog -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+        <div class="modal-dialog" id="modalDialog">
+            <!-- Modal content will be injected here -->
+        </div>
+    </div>
+    
+    <script src="js/ai-studio.js"></script>
+</body>
+</html>

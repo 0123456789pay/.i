@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan Hosting - HostingDigital</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 15px 0; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .nav-menu { display: flex; list-style: none; gap: 5px; flex-wrap: wrap; }
+        .nav-item { position: relative; }
+        .nav-link { display: block; padding: 12px 20px; color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s; font-size: 14px; }
+        .nav-link:hover { background: rgba(255,255,255,0.2); }
+        .dropdown { position: absolute; top: 100%; left: 0; background: white; min-width: 250px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; display: none; z-index: 999; }
+        .nav-item:hover .dropdown { display: block; }
+        .submenu { position: absolute; left: 100%; top: 0; background: white; min-width: 240px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; display: none; }
+        .dropdown li:hover .submenu { display: block; }
+        .page-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center; }
+        .page-header h1 { font-size: 42px; margin-bottom: 15px; }
+        .content { padding: 60px 0; }
+        .info-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .info-card h2 { color: #1e3c72; margin-bottom: 20px; }
+        .features-list { list-style: none; }
+        .features-list li { padding: 12px 0; border-bottom: 1px solid #eee; }
+        .price-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; text-align: center; margin-top: 30px; }
+        .price { font-size: 48px; font-weight: bold; }
+        .btn { display: inline-block; padding: 15px 40px; background: white; color: #667eea; text-decoration: none; border-radius: 25px; margin-top: 20px; font-weight: bold; }
+        .footer { background: #1a1a2e; color: white; padding: 40px 0 20px; margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer ul { list-style: none; }
+        .footer li { margin-bottom: 10px; }
+        .footer a { color: #aaa; text-decoration: none; }
+        .footer a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #333; color: #aaa; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <div style="font-size: 24px; font-weight: bold;">HostingDigital</div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Beranda</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Hosting</a>
+                            <ul class="dropdown">
+                                <li><a href="sharedhosting.html">Shared Hosting</a>
+                                    <ul class="submenu">
+                                        <li><a href="hostingunlimited.html">Hosting Unlimited</a></li>
+                                        <li><a href="hostingwordpress.html">Hosting WordPress</a></li>
+                                        <li><a href="hostingpelajar.html">Hosting Pelajar</a></li>
+                                        <li><a href="hostingbisnis.html">Hosting Bisnis</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="cloudhosting.html">Cloud Hosting</a></li>
+                                <li><a href="vpshosting.html">VPS Hosting</a></li>
+                                <li><a href="resellerhosting.html">Reseller Hosting</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Domain</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Fitur</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Bantuan</a></li>
+                        <li class="nav-item"><a href="clientdashboard.html" class="nav-link">Client Area</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Layanan Hosting Premium</h1>
+            <p>Solusi hosting terbaik untuk kebutuhan website Anda</p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="info-card">
+                <h2>Fitur Unggulan</h2>
+                <ul class="features-list">
+                    <li>✓ Server LiteSpeed dengan teknologi NVMe SSD</li>
+                    <li>✓ Gratis SSL Certificate dari Let's Encrypt</li>
+                    <li>✓ cPanel Control Panel untuk kemudahan pengelolaan</li>
+                    <li>✓ Softaculous Auto Installer dengan 400+ aplikasi</li>
+                    <li>✓ Daily Backup otomatis untuk keamanan data</li>
+                    <li>✓ Unlimited Email Account dengan SpamAssassin</li>
+                    <li>✓ Support 24/7 melalui Live Chat dan Tiket</li>
+                    <li>✓ Garansi uptime 99.9%</li>
+                </ul>
+                <div class="price-box">
+                    <div class="price">Rp 15.000/bulan</div>
+                    <p>Harga mulai dari</p>
+                    <a href="register.html" class="btn">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="sharedhosting.html">Shared Hosting</a></li>
+                        <li><a href="cloudhosting.html">Cloud Hosting</a></li>
+                        <li><a href="vpshosting.html">VPS Hosting</a></li>
+                        <li><a href="pencariandomain.html">Domain</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="livechat247.html">Live Chat</a></li>
+                        <li><a href="knowledgebase.html">Knowledge Base</a></li>
+                        <li><a href="sistemtiket.html">Tiket Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="syaratketentuan.html">Syarat Ketentuan</a></li>
+                        <li><a href="kebijakanprivasi.html">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HostingDigital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HostingDigital - Penyedia Layanan Hosting Terpercaya</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        .logo { font-size: 28px; font-weight: bold; display: inline-block; }
+        .nav-menu { display: flex; list-style: none; gap: 5px; }
+        .nav-item { position: relative; }
+        .nav-link { display: block; padding: 12px 20px; color: white; text-decoration: none; border-radius: 5px; transition: all 0.3s; font-size: 14px; }
+        .nav-link:hover { background: rgba(255,255,255,0.2); }
+        .dropdown { position: absolute; top: 100%; left: 0; background: white; min-width: 280px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s; z-index: 999; }
+        .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown li { list-style: none; }
+        .dropdown a { display: block; padding: 12px 20px; color: #333; text-decoration: none; border-bottom: 1px solid #eee; transition: all 0.3s; font-size: 14px; }
+        .dropdown a:hover { background: #f8f9fa; color: #1e3c72; padding-left: 25px; }
+        .submenu { position: absolute; left: 100%; top: 0; background: white; min-width: 260px; box-shadow: 0 5px 20px rgba(0,0,0,0.15); border-radius: 8px; opacity: 0; visibility: hidden; transform: translateX(-10px); transition: all 0.3s; }
+        .dropdown li:hover .submenu { opacity: 1; visibility: visible; transform: translateX(0); }
+        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 30px; }
+        .btn { display: inline-block; padding: 15px 40px; background: white; color: #667eea; text-decoration: none; border-radius: 30px; font-weight: bold; transition: all 0.3s; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .features { padding: 80px 0; background: white; }
+        .features h2 { text-align: center; font-size: 36px; margin-bottom: 50px; color: #1e3c72; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card { background: #f8f9fa; padding: 30px; border-radius: 10px; text-align: center; transition: all 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .feature-icon { font-size: 50px; margin-bottom: 20px; }
+        .footer { background: #1a1a2e; color: white; padding: 60px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer h3 { margin-bottom: 20px; font-size: 18px; }
+        .footer ul { list-style: none; }
+        .footer li { margin-bottom: 10px; }
+        .footer a { color: #aaa; text-decoration: none; transition: all 0.3s; }
+        .footer a:hover { color: white; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #333; color: #aaa; }
+        .chat-widget { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="logo">HostingDigital</div>
+                <nav>
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Hosting ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="sharedhosting.html">Shared Hosting</a>
+                                    <ul class="submenu">
+                                        <li><a href="hostingunlimited.html">Hosting Unlimited</a></li>
+                                        <li><a href="hostingwordpress.html">Hosting WordPress</a></li>
+                                        <li><a href="hostingpelajar.html">Hosting Pelajar</a></li>
+                                        <li><a href="hostingbisnis.html">Hosting Bisnis</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="cloudhosting.html">Cloud Hosting</a>
+                                    <ul class="submenu">
+                                        <li><a href="cloudstarter.html">Cloud Starter</a></li>
+                                        <li><a href="cloudprofessional.html">Cloud Professional</a></li>
+                                        <li><a href="cloudenterprise.html">Cloud Enterprise</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="vpshosting.html">VPS Hosting</a>
+                                    <ul class="submenu">
+                                        <li><a href="vpslinux.html">VPS Linux</a></li>
+                                        <li><a href="vpswindows.html">VPS Windows</a></li>
+                                        <li><a href="managedvps.html">Managed VPS</a></li>
+                                        <li><a href="unmanagedvps.html">Unmanaged VPS</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="resellerhosting.html">Reseller Hosting</a>
+                                    <ul class="submenu">
+                                        <li><a href="resellercpanel.html">Reseller cPanel</a></li>
+                                        <li><a href="resellerwhm.html">Reseller WHM</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Domain ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="pencariandomain.html">Pencarian Domain</a></li>
+                                <li><a href="domainmurah.html">Domain Murah</a></li>
+                                <li><a href="domainpremium.html">Domain Premium</a></li>
+                                <li><a href="ekstensidomain.html">Ekstensi Domain</a>
+                                    <ul class="submenu">
+                                        <li><a href="domainindonesia.html">Domain Indonesia</a></li>
+                                        <li><a href="domainglobal.html">Domain Global</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="transferdomain.html">Transfer Domain</a></li>
+                                <li><a href="perpanjangandomain.html">Perpanjangan Domain</a></li>
+                                <li><a href="perlindunganwhois.html">Perlindungan WHOIS</a></li>
+                                <li><a href="pengelolaandns.html">Pengelolaan DNS</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Fitur ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="performakecepatan.html">Performa Kecepatan</a>
+                                    <ul class="submenu">
+                                        <li><a href="teknologilitespeed.html">LiteSpeed Server</a></li>
+                                        <li><a href="optimasicache.html">Optimasi Cache</a></li>
+                                        <li><a href="globalcdn.html">Global CDN</a></li>
+                                        <li><a href="garansiuptime.html">Garansi Uptime</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="keamananwebsite.html">Keamanan Website</a>
+                                    <ul class="submenu">
+                                        <li><a href="proteksiserangan.html">Proteksi Serangan</a></li>
+                                        <li><a href="sslgratis.html">SSL Gratis</a></li>
+                                        <li><a href="sslpremium.html">SSL Premium</a></li>
+                                        <li><a href="backupotomatis.html">Backup Otomatis</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="kemudahanpengelolaan.html">Kemudahan Pengelolaan</a>
+                                    <ul class="submenu">
+                                        <li><a href="controlpanel.html">Control Panel</a></li>
+                                        <li><a href="autoinstaller.html">Auto Installer</a></li>
+                                        <li><a href="migrasigratis.html">Migrasi Gratis</a></li>
+                                        <li><a href="websitebuilder.html">Website Builder</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="fiturdeveloper.html">Fitur Developer</a>
+                                    <ul class="submenu">
+                                        <li><a href="aksessh.html">Akses SSH</a></li>
+                                        <li><a href="databasephpmyadmin.html">Database phpMyAdmin</a></li>
+                                        <li><a href="multiversiphp.html">Multi Versi PHP</a></li>
+                                        <li><a href="nodejspython.html">NodeJS Python</a></li>
+                                        <li><a href="cronjobs.html">Cron Jobs</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="emailkolaborasi.html">Email Kolaborasi</a>
+                                    <ul class="submenu">
+                                        <li><a href="emailhosting.html">Email Hosting</a></li>
+                                        <li><a href="googleworkspace.html">Google Workspace</a></li>
+                                        <li><a href="microsoft365.html">Microsoft 365</a></li>
+                                        <li><a href="zohomail.html">Zoho Mail</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Ecommerce ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="tokoonline.html">Toko Online</a>
+                                    <ul class="submenu">
+                                        <li><a href="hostingwoocommerce.html">Hosting WooCommerce</a></li>
+                                        <li><a href="hostingprestashop.html">Hosting PrestaShop</a></li>
+                                        <li><a href="hostingmagento.html">Hosting Magento</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="integrasi pembayaran.html">Integrasi Pembayaran</a>
+                                    <ul class="submenu">
+                                        <li><a href="paymentgateway.html">Payment Gateway</a></li>
+                                        <li><a href="sertifikatssl.html">Sertifikat SSL</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Bantuan ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="kanalbantuan.html">Kanal Bantuan</a>
+                                    <ul class="submenu">
+                                        <li><a href="livechat247.html">Live Chat 247</a></li>
+                                        <li><a href="sistemtiket.html">Sistem Tiket</a></li>
+                                        <li><a href="teleponwhatsapp.html">Telepon WhatsApp</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="sumberdayabelajar.html">Sumber Daya Belajar</a>
+                                    <ul class="submenu">
+                                        <li><a href="knowledgebase.html">Knowledge Base</a></li>
+                                        <li><a href="tutorialvideo.html">Tutorial Video</a></li>
+                                        <li><a href="webinarblog.html">Webinar Blog</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="jaminanlayanan.html">Jaminan Layanan</a>
+                                    <ul class="submenu">
+                                        <li><a href="moneyback.html">Money Back Guarantee</a></li>
+                                        <li><a href="servicelevelagreement.html">Service Level Agreement</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Client Area ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="clientdashboard.html">Dashboard Client</a></li>
+                                <li><a href="manajemenlayanan.html">Manajemen Layanan</a>
+                                    <ul class="submenu">
+                                        <li><a href="daftarlayanan.html">Daftar Layanan</a></li>
+                                        <li><a href="upgradedowngrade.html">Upgrade Downgrade</a></li>
+                                        <li><a href="perpanjanganmasa.html">Perpanjangan Masa</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="tagihankeuangan.html">Tagihan Keuangan</a>
+                                    <ul class="submenu">
+                                        <li><a href="invoicebelum.html">Invoice Belum Bayar</a></li>
+                                        <li><a href="riwayattransaksi.html">Riwayat Transaksi</a></li>
+                                        <li><a href="tambahsaldo.html">Tambah Saldo</a></li>
+                                        <li><a href="metodepembayaran.html">Metode Pembayaran</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="pengaturanakun.html">Pengaturan Akun</a>
+                                    <ul class="submenu">
+                                        <li><a href="profilpribadi.html">Profil Pribadi</a></li>
+                                        <li><a href="keamananakun.html">Keamanan Akun</a></li>
+                                        <li><a href="preferensinotifikasi.html">Preferensi Notifikasi</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Tentang ▾</a>
+                            <ul class="dropdown">
+                                <li><a href="profilperusahaan.html">Profil Perusahaan</a></li>
+                                <li><a href="visimisi.html">Visi Misi</a></li>
+                                <li><a href="karir.html">Karir</a></li>
+                                <li><a href="kontak.html">Kontak</a></li>
+                                <li><a href="syaratketentuan.html">Syarat Ketentuan</a></li>
+                                <li><a href="kebijakanprivasi.html">Kebijakan Privasi</a></li>
+                                <li><a href="kebijakancookie.html">Kebijakan Cookie</a></li>
+                                <li><a href="programafiliasi.html">Program Afiliasi</a></li>
+                                <li><a href="programreseller.html">Program Reseller</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Solusi Hosting Terbaik untuk Bisnis Anda</h1>
+            <p>Performa tinggi, keamanan maksimal, dan dukungan 24/7 untuk kesuksesan website Anda</p>
+            <a href="sharedhosting.html" class="btn">Mulai Sekarang</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Mengapa Memilih HostingDigital</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Performa Tinggi</h3>
+                    <p>Server LiteSpeed dengan NVMe SSD untuk kecepatan maksimal</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Keamanan Terjamin</h3>
+                    <p>Proteksi DDoS, SSL Gratis, dan backup otomatis setiap hari</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Support 24/7</h3>
+                    <p>Tim teknis siap membantu kapan saja melalui live chat dan tiket</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global CDN</h3>
+                    <p>Content Delivery Network gratis untuk akses dari seluruh dunia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Tentang Kami</h3>
+                    <ul>
+                        <li><a href="profilperusahaan.html">Profil Perusahaan</a></li>
+                        <li><a href="visimisi.html">Visi Misi</a></li>
+                        <li><a href="karir.html">Karir</a></li>
+                        <li><a href="kontak.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="sharedhosting.html">Shared Hosting</a></li>
+                        <li><a href="cloudhosting.html">Cloud Hosting</a></li>
+                        <li><a href="vpshosting.html">VPS Hosting</a></li>
+                        <li><a href="pencariandomain.html">Domain</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="livechat247.html">Live Chat 24/7</a></li>
+                        <li><a href="knowledgebase.html">Knowledge Base</a></li>
+                        <li><a href="sistemtiket.html">Sistem Tiket</a></li>
+                        <li><a href="tutorialvideo.html">Tutorial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="syaratketentuan.html">Syarat Ketentuan</a></li>
+                        <li><a href="kebijakanprivasi.html">Kebijakan Privasi</a></li>
+                        <li><a href="kebijakancookie.html">Kebijakan Cookie</a></li>
+                        <li><a href="servicelevelagreement.html">SLA</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 HostingDigital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="chat-widget" onclick="alert('Live Chat akan segera tersedia!')">
+        💬 Live Chat
+    </div>
+
+    <script>
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown').style.display = 'block';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown').style.display = '';
+            });
+        });
+    </script>
+</body>
+</html>

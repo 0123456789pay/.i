@@ -1,0 +1,190 @@
+/* Code Manager Module Styles */
+#codemanager-module {
+    padding: 20px;
+}
+
+#codemanager-module .module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#codemanager-module h2 {
+    color: var(--primary-color);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#codemanager-module .module-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-module {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-module:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+#codemanager-module .module-body {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.code-manager-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.file-explorer {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    height: 200px;
+    overflow: auto;
+    background: var(--bg-primary);
+}
+
+.file-tree {
+    padding: 10px;
+}
+
+.file-tree-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+}
+
+.file-tree-item:hover {
+    background: var(--bg-secondary);
+}
+
+.file-tree-item.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.code-editor-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.editor-tabs {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+.editor-tab {
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.editor-tab.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.code-editor {
+    width: 100%;
+    height: 300px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    resize: vertical;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+
+.file-info-panel {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.file-info-panel h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.file-info-panel p {
+    font-size: 13px;
+    margin: 5px 0;
+    color: var(--text-secondary);
+}
+
+.file-info-panel span {
+    color: var(--text-primary);
+    font-weight: 500;
+}

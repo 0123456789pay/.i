@@ -1,0 +1,24 @@
+/* SupeRAccountLite Component Styles */
+.SupeRAccountLite-container {
+    display: block;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.SupeRAccountLite-container:hover {
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.SupeRAccountLite-active {
+    border-color: #764ba2;
+    background: #f0f4ff;
+}
+
+.SupeRAccountLite-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoutheastApp - Dashboard Utama</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles_fiturdigital.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#60A5FA',
+                            DEFAULT: '#3B82F6',
+                            dark: '#2563EB',
+                            darker: '#1D4ED8',
+                            darkest: '#1E40AF',
+                        },
+                        background: {
+                            primary: '#FFFFFF',
+                            secondary: '#F8FAFC',
+                            tertiary: '#F1F5F9',
+                            border: '#E2E8F0',
+                        },
+                        text: {
+                            primary: '#1E293B',
+                            secondary: '#64748B',
+                            muted: '#94A3B8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'blue-light': '0 4px 14px rgba(59, 130, 246, 0.4)',
+                        'blue-card': '0 2px 8px rgba(0, 0, 0, 0.05)',
+                        'blue-hover': '0 8px 24px rgba(59, 130, 246, 0.15)',
+                        'blue-glow': '0 4px 16px rgba(59, 130, 246, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .bg-grid-pattern {
+            background-image:
+                linear-gradient(to right, #3B82F6 1px, transparent 1px),
+                linear-gradient(to bottom, #3B82F6 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .app-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .app-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .app-card:hover {
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+            transform: translateY(-5px);
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-dropdown {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans bg-background-primary text-text-primary overflow-x-hidden">
+    
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-[0.03]"></div>
+    <div class="fixed top-20 right-20 w-96 h-96 bg-primary-light rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-20 left-20 w-80 h-80 bg-primary DEFAULT rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 bg-background-primary border-b border-background-border z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-globe text-primary text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-text-primary">SoutheastApp</span>
+                </a>
+                
+                <ul class="hidden md:flex items-center space-x-8">
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-robot"></i>
+                            AI & Dev
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="aistudio.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-brain w-5"></i> AI Studio</a></li>
+                            <li><a href="apptexteditor.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-code w-5"></i> Code Editor</a></li>
+                            <li><a href="terminal.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-terminal w-5"></i> Terminal</a></li>
+                            <li><a href="filemanager.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-folder w-5"></i> File Manager</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-briefcase"></i>
+                            Productivity
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="apptaskmanager.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-tasks w-5"></i> Task Manager</a></li>
+                            <li><a href="appnotes.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-sticky-note w-5"></i> Notes</a></li>
+                            <li><a href="appcalendar.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-calendar w-5"></i> Calendar</a></li>
+                            <li><a href="apptodo.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-check-circle w-5"></i> Todo List</a></li>
+                            <li><a href="appcontacts.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-address-book w-5"></i> Contacts</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-globe"></i>
+                            Web & Media
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appbrowser.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-search w-5"></i> Browser</a></li>
+                            <li><a href="appmusic.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-music w-5"></i> Music Player</a></li>
+                            <li><a href="appgallery.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-images w-5"></i> Gallery</a></li>
+                            <li><a href="appnews.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-newspaper w-5"></i> News Reader</a></li>
+                            <li><a href="appweather.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-cloud-sun w-5"></i> Weather</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-tools"></i>
+                            Utilities
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appcalculator.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-calculator w-5"></i> Calculator</a></li>
+                            <li><a href="appclock.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-clock w-5"></i> Clock</a></li>
+                            <li><a href="appcurrency.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-exchange-alt w-5"></i> Currency Converter</a></li>
+                            <li><a href="appunitconverter.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-ruler-combined w-5"></i> Unit Converter</a></li>
+                            <li><a href="apptranslator.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-language w-5"></i> Translator</a></li>
+                            <li><a href="appdictionary.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-book w-5"></i> Dictionary</a></li>
+                            <li><a href="appdrawing.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-paint-brush w-5"></i> Drawing</a></li>
+                            <li><a href="appscreencapture.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-camera w-5"></i> Screen Capture</a></li>
+                            <li><a href="appvoicerecorder.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-microphone w-5"></i> Voice Recorder</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-comments"></i>
+                            Communicate
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appemail.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-envelope w-5"></i> Email</a></li>
+                            <li><a href="appphone.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-phone w-5"></i> Phone</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="relative group">
+                        <a href="#" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 flex items-center gap-2">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                            <i class="fas fa-chevron-down text-xs"></i>
+                        </a>
+                        <ul class="absolute top-full left-0 mt-2 bg-background-primary rounded-xl shadow-blue-card min-w-[220px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 py-2 border border-background-border">
+                            <li><a href="appsettings.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-sliders-h w-5"></i> Settings</a></li>
+                            <li><a href="appmaps.html" class="block px-4 py-2 text-text-secondary hover:text-primary hover:bg-background-tertiary transition-colors"><i class="fas fa-map-marked-alt w-5"></i> Maps</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <button class="md:hidden text-text-primary hover:text-primary transition-colors" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-background-primary border-t border-background-border" id="mobile-menu">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">AI & Dev</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Productivity</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Web & Media</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Utilities</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Communicate</a>
+                <a href="#" class="block text-text-primary hover:text-primary transition-colors">Settings</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-background-primary to-background-secondary relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Icon with Glow Effect -->
+                <div class="relative inline-block mb-8">
+                    <div class="w-32 h-32 bg-primary-light/20 rounded-full flex items-center justify-center relative z-10 animate-pulse-slow">
+                        <i class="fas fa-globe text-primary text-6xl"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-glow"></div>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-primary mb-6 leading-tight">
+                    Southeast<span class="text-primary">App</span> Dashboard
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Your complete suite of productivity tools, utilities, and applications in one centralized platform. Access everything you need to work smarter and more efficiently.
+                </p>
+
+                <!-- Search Box -->
+                <div class="max-w-2xl mx-auto mb-12">
+                    <div class="relative">
+                        <input type="text" placeholder="Search for apps..." class="w-full px-6 py-4 pr-14 rounded-xl border border-background-border bg-background-primary text-text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent shadow-blue-card transition-all duration-300">
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-primary hover:bg-primary-dark text-white p-3 rounded-lg transition-all duration-300">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Grid Section -->
+    <section class="py-20 bg-background-tertiary" id="apps">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    All Applications
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Browse and access all available applications organized by category.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="appsGrid">
+                <!-- App cards will be dynamically populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-background-primary" id="stats">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    Platform Statistics
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Track the usage and performance of our application ecosystem.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="stat-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">24+</div>
+                    <div class="text-text-secondary">Active Applications</div>
+                </div>
+                <div class="stat-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">10K+</div>
+                    <div class="text-text-secondary">Daily Users</div>
+                </div>
+                <div class="stat-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-primary mb-2">99.9%</div>
+                    <div class="text-text-secondary">Uptime</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-background-tertiary border-t border-background-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-globe text-primary text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-text-primary">SoutheastApp</span>
+                    </div>
+                    <p class="text-text-secondary text-sm">
+                        Your complete productivity and utility platform.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Categories</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">AI & Dev</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Productivity</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Web & Media</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Utilities</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Resources</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">API</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Status</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Company</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-background-border pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-text-secondary text-sm mb-4 md:mb-0">
+                    © 2024 SoutheastApp. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // App data
+        const apps = [
+            { name: 'AI Studio', icon: 'fa-brain', url: 'aistudio.html', category: 'AI & Dev' },
+            { name: 'Code Editor', icon: 'fa-code', url: 'apptexteditor.html', category: 'AI & Dev' },
+            { name: 'Terminal', icon: 'fa-terminal', url: 'terminal.html', category: 'AI & Dev' },
+            { name: 'File Manager', icon: 'fa-folder', url: 'filemanager.html', category: 'AI & Dev' },
+            { name: 'Task Manager', icon: 'fa-tasks', url: 'apptaskmanager.html', category: 'Productivity' },
+            { name: 'Notes', icon: 'fa-sticky-note', url: 'appnotes.html', category: 'Productivity' },
+            { name: 'Calendar', icon: 'fa-calendar', url: 'appcalendar.html', category: 'Productivity' },
+            { name: 'Todo List', icon: 'fa-check-circle', url: 'apptodo.html', category: 'Productivity' },
+            { name: 'Contacts', icon: 'fa-address-book', url: 'appcontacts.html', category: 'Productivity' },
+            { name: 'Browser', icon: 'fa-search', url: 'appbrowser.html', category: 'Web & Media' },
+            { name: 'Music Player', icon: 'fa-music', url: 'appmusic.html', category: 'Web & Media' },
+            { name: 'Gallery', icon: 'fa-images', url: 'appgallery.html', category: 'Web & Media' },
+            { name: 'News Reader', icon: 'fa-newspaper', url: 'appnews.html', category: 'Web & Media' },
+            { name: 'Weather', icon: 'fa-cloud-sun', url: 'appweather.html', category: 'Web & Media' },
+            { name: 'Calculator', icon: 'fa-calculator', url: 'appcalculator.html', category: 'Utilities' },
+            { name: 'Clock', icon: 'fa-clock', url: 'appclock.html', category: 'Utilities' },
+            { name: 'Currency Converter', icon: 'fa-exchange-alt', url: 'appcurrency.html', category: 'Utilities' },
+            { name: 'Unit Converter', icon: 'fa-ruler-combined', url: 'appunitconverter.html', category: 'Utilities' },
+            { name: 'Translator', icon: 'fa-language', url: 'apptranslator.html', category: 'Utilities' },
+            { name: 'Dictionary', icon: 'fa-book', url: 'appdictionary.html', category: 'Utilities' },
+            { name: 'Drawing', icon: 'fa-paint-brush', url: 'appdrawing.html', category: 'Utilities' },
+            { name: 'Screen Capture', icon: 'fa-camera', url: 'appscreencapture.html', category: 'Utilities' },
+            { name: 'Voice Recorder', icon: 'fa-microphone', url: 'appvoicerecorder.html', category: 'Utilities' },
+            { name: 'Email', icon: 'fa-envelope', url: 'appemail.html', category: 'Communicate' },
+            { name: 'Phone', icon: 'fa-phone', url: 'appphone.html', category: 'Communicate' },
+            { name: 'Settings', icon: 'fa-sliders-h', url: 'appsettings.html', category: 'Settings' },
+            { name: 'Maps', icon: 'fa-map-marked-alt', url: 'appmaps.html', category: 'Settings' }
+        ];
+
+        // Render app cards
+        function renderApps() {
+            const appsGrid = document.getElementById('appsGrid');
+            appsGrid.innerHTML = apps.map(app => `
+                <a href="${app.url}" class="app-card bg-background-primary rounded-xl p-6 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 block">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                        <i class="fas ${app.icon} text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-text-primary text-center mb-2">${app.name}</h3>
+                    <p class="text-text-secondary text-sm text-center">${app.category}</p>
+                </a>
+            `).join('');
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.app-card');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+
+        // Initialize
+        renderApps();
+        reveal();
+    </script>
+</body>
+</html>
+                    </ul>
+                </li>
+            </ul>
+            
+            <div class="navbar-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Selamat Datang di SoutheastApp</h1>
+        <p>Platform aplikasi web lengkap dengan berbagai fitur produktivitas, AI, dan utilities untuk kebutuhan Anda</p>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari aplikasi...">
+            <button onclick="searchApps()"><i class="fas fa-search"></i></button>
+        </div>
+    </section>
+
+    <!-- Apps Grid -->
+    <section class="apps-section">
+        <h2 class="section-title">Aplikasi Tersedia</h2>
+        <div class="apps-grid" id="appsGrid">
+            <a href="aistudio.html" class="app-card" data-name="ai studio artificial intelligence">
+                <div class="app-icon"><i class="fas fa-brain"></i></div>
+                <h3>AI Studio</h3>
+                <p>Asisten AI pintar untuk berbagai kebutuhan</p>
+            </a>
+            
+            <a href="appbrowser.html" class="app-card" data-name="browser web internet search">
+                <div class="app-icon"><i class="fas fa-search"></i></div>
+                <h3>Browser</h3>
+                <p>Jelajahi internet dengan cepat</p>
+            </a>
+            
+            <a href="filemanager.html" class="app-card" data-name="file manager hosting storage">
+                <div class="app-icon"><i class="fas fa-folder"></i></div>
+                <h3>File Manager</h3>
+                <p>Kelola file hosting Anda</p>
+            </a>
+            
+            <a href="apptaskmanager.html" class="app-card" data-name="task manager productivity">
+                <div class="app-icon"><i class="fas fa-tasks"></i></div>
+                <h3>Task Manager</h3>
+                <p>Kelola tugas dan proyek</p>
+            </a>
+            
+            <a href="appnotes.html" class="app-card" data-name="notes catatan memo">
+                <div class="app-icon"><i class="fas fa-sticky-note"></i></div>
+                <h3>Notes</h3>
+                <p>Catat ide dan pemikiran</p>
+            </a>
+            
+            <a href="appcalendar.html" class="app-card" data-name="calendar jadwal event">
+                <div class="app-icon"><i class="fas fa-calendar"></i></div>
+                <h3>Calendar</h3>
+                <p>Kelola jadwal dan event</p>
+            </a>
+            
+            <a href="apptodo.html" class="app-card" data-name="todo list checklist">
+                <div class="app-icon"><i class="fas fa-check-circle"></i></div>
+                <h3>Todo List</h3>
+                <p>Daftar tugas harian</p>
+            </a>
+            
+            <a href="appcontacts.html" class="app-card" data-name="contacts kontak address book">
+                <div class="app-icon"><i class="fas fa-address-book"></i></div>
+                <h3>Contacts</h3>
+                <p>Kelola daftar kontak</p>
+            </a>
+            
+            <a href="appmusic.html" class="app-card" data-name="music player audio lagu">
+                <div class="app-icon"><i class="fas fa-music"></i></div>
+                <h3>Music Player</h3>
+                <p>Putar musik favorit</p>
+            </a>
+            
+            <a href="appgallery.html" class="app-card" data-name="gallery foto images">
+                <div class="app-icon"><i class="fas fa-images"></i></div>
+                <h3>Gallery</h3>
+                <p>Lihat koleksi foto</p>
+            </a>
+            
+            <a href="appnews.html" class="app-card" data-name="news berita artikel">
+                <div class="app-icon"><i class="fas fa-newspaper"></i></div>
+                <h3>News Reader</h3>
+                <p>Baca berita terkini</p>
+            </a>
+            
+            <a href="appweather.html" class="app-card" data-name="weather cuaca iklim">
+                <div class="app-icon"><i class="fas fa-cloud-sun"></i></div>
+                <h3>Weather</h3>
+                <p>Info cuaca real-time</p>
+            </a>
+            
+            <a href="appcalculator.html" class="app-card" data-name="calculator kalkulator math">
+                <div class="app-icon"><i class="fas fa-calculator"></i></div>
+                <h3>Calculator</h3>
+                <p>Kalkulator lengkap</p>
+            </a>
+            
+            <a href="appclock.html" class="app-card" data-name="clock jam waktu alarm">
+                <div class="app-icon"><i class="fas fa-clock"></i></div>
+                <h3>Clock</h3>
+                <p>Jam dan alarm</p>
+            </a>
+            
+            <a href="appcurrency.html" class="app-card" data-name="currency converter mata uang">
+                <div class="app-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h3>Currency Converter</h3>
+                <p>Konversi mata uang</p>
+            </a>
+            
+            <a href="appunitconverter.html" class="app-card" data-name="unit converter satuan">
+                <div class="app-icon"><i class="fas fa-ruler-combined"></i></div>
+                <h3>Unit Converter</h3>
+                <p>Konversi satuan</p>
+            </a>
+            
+            <a href="apptranslator.html" class="app-card" data-name="translator bahasa terjemahan">
+                <div class="app-icon"><i class="fas fa-language"></i></div>
+                <h3>Translator</h3>
+                <p>Terjemahan bahasa</p>
+            </a>
+            
+            <a href="appdictionary.html" class="app-card" data-name="dictionary kamus definisi">
+                <div class="app-icon"><i class="fas fa-book"></i></div>
+                <h3>Dictionary</h3>
+                <p>Kamus lengkap</p>
+            </a>
+            
+            <a href="appdrawing.html" class="app-card" data-name="drawing gambar lukis">
+                <div class="app-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Drawing</h3>
+                <p>Menggambar digital</p>
+            </a>
+            
+            <a href="appscreencapture.html" class="app-card" data-name="screen capture screenshot">
+                <div class="app-icon"><i class="fas fa-camera"></i></div>
+                <h3>Screen Capture</h3>
+                <p>Tangkap layar</p>
+            </a>
+            
+            <a href="appvoicerecorder.html" class="app-card" data-name="voice recorder audio rekam">
+                <div class="app-icon"><i class="fas fa-microphone"></i></div>
+                <h3>Voice Recorder</h3>
+                <p>Rekam suara</p>
+            </a>
+            
+            <a href="appemail.html" class="app-card" data-name="email surat elektronik">
+                <div class="app-icon"><i class="fas fa-envelope"></i></div>
+                <h3>Email</h3>
+                <p>Kirim dan terima email</p>
+            </a>
+            
+            <a href="appphone.html" class="app-card" data-name="phone telepon call">
+                <div class="app-icon"><i class="fas fa-phone"></i></div>
+                <h3>Phone</h3>
+                <p>Aplikasi telepon</p>
+            </a>
+            
+            <a href="appsettings.html" class="app-card" data-name="settings pengaturan konfigurasi">
+                <div class="app-icon"><i class="fas fa-sliders-h"></i></div>
+                <h3>Settings</h3>
+                <p>Pengaturan sistem</p>
+            </a>
+            
+            <a href="appmaps.html" class="app-card" data-name="maps peta lokasi">
+                <div class="app-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>Maps</h3>
+                <p>Peta dan navigasi</p>
+            </a>
+            
+            <a href="apptexteditor.html" class="app-card" data-name="text editor code programming">
+                <div class="app-icon"><i class="fas fa-code"></i></div>
+                <h3>Text Editor</h3>
+                <p>Editor kode dan teks</p>
+            </a>
+            
+            <a href="terminal.html" class="app-card" data-name="terminal command line shell">
+                <div class="app-icon"><i class="fas fa-terminal"></i></div>
+                <h3>Terminal</h3>
+                <p>Command line interface</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalApps">27</div>
+                <div class="stat-label">Total Aplikasi</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="activeUsers">1.2K</div>
+                <div class="stat-label">Pengguna Aktif</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalFeatures">150+</div>
+                <div class="stat-label">Fitur Tersedia</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="uptime">99.9%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 SoutheastApp. All rights reserved.</p>
+        <p>Dibuat dengan ❤️ untuk produktivitas Anda</p>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('navbarMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Search functionality
+        function searchApps() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.app-card');
+            
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search on enter key
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchApps();
+            }
+        });
+
+        // Live search
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.app-card');
+            
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = document.querySelectorAll('.stat-number');
+            stats.forEach(stat => {
+                const target = stat.textContent;
+                if (target.includes('%') || target.includes('+')) {
+                    return;
+                }
+                
+                const num = parseFloat(target);
+                if (!isNaN(num)) {
+                    let current = 0;
+                    const increment = num / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num) {
+                            stat.textContent = target;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(current).toLocaleString();
+                        }
+                    }, 20);
+                }
+            });
+        }
+
+        // Trigger animation when stats section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.querySelector('.stats-section'));
+
+        // Add hover effect to navbar items
+        document.querySelectorAll('.navbar-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

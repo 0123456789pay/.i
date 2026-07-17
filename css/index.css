@@ -1,0 +1,329 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Desktop Area */
+        .desktop {
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            grid-gap: 15px;
+            align-content: start;
+            overflow-y: auto;
+        }
+
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .app-icon:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .app-icon .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .app-icon .label {
+            font-size: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            word-wrap: break-word;
+            max-width: 100%;
+        }
+
+        /* Taskbar */
+        .taskbar {
+            height: 60px;
+            background: rgba(15, 52, 96, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            border-top: 2px solid #e94560;
+            z-index: 1000;
+        }
+
+        .start-btn {
+            background: #e94560;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-right: 20px;
+            transition: all 0.3s;
+        }
+
+        .start-btn:hover {
+            background: #ff6b81;
+            transform: scale(1.05);
+        }
+
+        .taskbar-apps {
+            display: flex;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .taskbar-item {
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .taskbar-item:hover {
+            background: rgba(233, 69, 96, 0.3);
+        }
+
+        .taskbar-item.active {
+            background: #e94560;
+        }
+
+        .clock {
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        /* Modal Windows */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-window {
+            background: #1a1a2e;
+            border: 2px solid #e94560;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            animation: modalOpen 0.3s ease;
+        }
+
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            background: #0f3460;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e94560;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .modal-title {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close {
+            background: #e94560;
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: #ff6b81;
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #16213e;
+        }
+
+        /* Menu Grid in Modals */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-item {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .menu-item:hover {
+            background: rgba(233, 69, 96, 0.2);
+            border-color: #e94560;
+            transform: translateY(-3px);
+        }
+
+        .menu-item h4 {
+            margin-bottom: 8px;
+            color: #e94560;
+        }
+
+        .menu-item p {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* Terminal Specific */
+        .terminal-output {
+            background: #0a0a1a;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            height: calc(100% - 60px);
+            overflow-y: auto;
+            color: #0f0;
+        }
+
+        .terminal-input-line {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .terminal-prompt {
+            color: #e94560;
+            margin-right: 10px;
+        }
+
+        .terminal-input {
+            background: transparent;
+            border: none;
+            color: #0f0;
+            flex: 1;
+            outline: none;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* File Manager Specific */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 15px;
+        }
+
+        .file-item {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-item:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        .file-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            font-size: 12px;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f3460;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 2px solid #e94560;
+            font-size: 12px;
+        }
+
+        .footer a {
+            color: #e94560;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e94560;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff6b81;
+        }
+    </style>
