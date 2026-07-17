@@ -1,0 +1,1025 @@
+<!-- dashboard Module -->
+<div class="module-wrapper full-screen-module" id="dashboard-module">
+    <div class="module-header-fullscreen">
+        <div class="header-title-section">
+            <h2><i class="fas fa-chart-line"></i> Dashboard - AI Studio Digital</h2>
+            <p class="subtitle">Overview sistem AI dan performa aplikasi</p>
+        </div>
+        <div class="header-actions-section">
+            <button class="btn-action-header" onclick="DashboardModule.refreshData()" title="Refresh Data">
+                <i class="fas fa-sync-alt"></i>
+                <span>Refresh</span>
+            </button>
+            <button class="btn-action-header" onclick="DashboardModule.exportReport()" title="Export Report">
+                <i class="fas fa-download"></i>
+                <span>Export</span>
+            </button>
+            <button class="btn-action-header" onclick="DashboardModule.settings()" title="Settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </button>
+        </div>
+    </div>
+    
+    <div class="module-body-fullscreen">
+        <!-- Stats Cards Row -->
+        <div class="stats-grid">
+            <div class="stat-card stat-primary">
+                <div class="stat-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Total AI Models</h3>
+                    <div class="stat-value" id="totalModels">12</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 2 new this week
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-success">
+                <div class="stat-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Code Files</h3>
+                    <div class="stat-value" id="totalFiles">847</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 23 today
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-warning">
+                <div class="stat-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Pending Issues</h3>
+                    <div class="stat-value" id="pendingIssues">5</div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> Need attention
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stat-card stat-info">
+                <div class="stat-icon">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>Deployments</h3>
+                    <div class="stat-value" id="totalDeployments">34</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 98% success rate
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Grid -->
+        <div class="dashboard-main-grid">
+            <!-- Activity Chart Section -->
+            <div class="dashboard-panel panel-large">
+                <div class="panel-header">
+                    <h3><i class="fas fa-chart-area"></i> Activity Overview</h3>
+                    <div class="panel-controls">
+                        <button class="btn-time-filter active" onclick="DashboardModule.setTimeframe('day')">Day</button>
+                        <button class="btn-time-filter" onclick="DashboardModule.setTimeframe('week')">Week</button>
+                        <button class="btn-time-filter" onclick="DashboardModule.setTimeframe('month')">Month</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <canvas id="activityChart"></canvas>
+                </div>
+            </div>
+            
+            <!-- Recent Projects -->
+            <div class="dashboard-panel panel-medium">
+                <div class="panel-header">
+                    <h3><i class="fas fa-folder-open"></i> Recent Projects</h3>
+                    <button class="btn-view-all" onclick="DashboardModule.viewAllProjects()">View All</button>
+                </div>
+                <div class="panel-body">
+                    <div class="project-list" id="recentProjects">
+                        <div class="project-item">
+                            <div class="project-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>E-Commerce Landing Page</h4>
+                                <p>Last edited: 2 hours ago</p>
+                            </div>
+                            <div class="project-status status-active">Active</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>Customer Support Chatbot</h4>
+                                <p>Last edited: 5 hours ago</p>
+                            </div>
+                            <div class="project-status status-processing">Processing</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>Analytics Dashboard</h4>
+                                <p>Last edited: 1 day ago</p>
+                            </div>
+                            <div class="project-status status-active">Active</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>Mobile App Integration</h4>
+                                <p>Last edited: 2 days ago</p>
+                            </div>
+                            <div class="project-status status-pending">Pending</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- System Health -->
+            <div class="dashboard-panel panel-small">
+                <div class="panel-header">
+                    <h3><i class="fas fa-heartbeat"></i> System Health</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="health-indicator">
+                        <div class="health-item">
+                            <span class="health-label">API Status</span>
+                            <div class="health-bar">
+                                <div class="health-progress" style="width: 98%;"></div>
+                            </div>
+                            <span class="health-value">98%</span>
+                        </div>
+                        <div class="health-item">
+                            <span class="health-label">Storage</span>
+                            <div class="health-bar">
+                                <div class="health-progress" style="width: 67%;"></div>
+                            </div>
+                            <span class="health-value">67%</span>
+                        </div>
+                        <div class="health-item">
+                            <span class="health-label">Memory Usage</span>
+                            <div class="health-bar">
+                                <div class="health-progress" style="width: 45%;"></div>
+                            </div>
+                            <span class="health-value">45%</span>
+                        </div>
+                        <div class="health-item">
+                            <span class="health-label">CPU Load</span>
+                            <div class="health-bar">
+                                <div class="health-progress" style="width: 32%;"></div>
+                            </div>
+                            <span class="health-value">32%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="dashboard-panel panel-medium">
+                <div class="panel-header">
+                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="quick-actions-grid">
+                        <button class="quick-action-btn" onclick="DashboardModule.createNewProject()">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>New Project</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="DashboardModule.importProject()">
+                            <i class="fas fa-file-import"></i>
+                            <span>Import</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="DashboardModule.runDiagnostics()">
+                            <i class="fas fa-stethoscope"></i>
+                            <span>Diagnostics</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="DashboardModule.openDocumentation()">
+                            <i class="fas fa-book"></i>
+                            <span>Docs</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="DashboardModule.deployNow()">
+                            <i class="fas fa-rocket"></i>
+                            <span>Deploy</span>
+                        </button>
+                        <button class="quick-action-btn" onclick="DashboardModule.backupSystem()">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Backup</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Notifications Feed -->
+            <div class="dashboard-panel panel-large">
+                <div class="panel-header">
+                    <h3><i class="fas fa-bell"></i> Recent Notifications</h3>
+                    <button class="btn-clear-all" onclick="DashboardModule.clearNotifications()">Clear All</button>
+                </div>
+                <div class="panel-body">
+                    <div class="notifications-feed" id="notificationsFeed">
+                        <div class="notification-item notification-info">
+                            <div class="notification-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>System Update Available</h4>
+                                <p>Version 2.5.0 is ready to install with new features and improvements.</p>
+                                <span class="notification-time">5 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item notification-success">
+                            <div class="notification-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Deployment Successful</h4>
+                                <p>Your project "E-Commerce Landing" has been deployed successfully.</p>
+                                <span class="notification-time">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item notification-warning">
+                            <div class="notification-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="notification-content">
+                                <h4>API Rate Limit Warning</h4>
+                                <p>You're approaching your API rate limit. Consider upgrading your plan.</p>
+                                <span class="notification-time">3 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Dashboard Full Screen Styles */
+.full-screen-module {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8eff5 100%);
+    overflow: hidden;
+}
+
+.module-header-fullscreen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f5ff 100%);
+    border-bottom: 2px solid #dbe4f0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-title-section h2 {
+    color: #1a3a6e;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-title-section h2 i {
+    color: #3b82f6;
+}
+
+.header-title-section .subtitle {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0;
+}
+
+.header-actions-section {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-action-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn-action-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-action-header i {
+    font-size: 16px;
+}
+
+.module-body-fullscreen {
+    flex: 1;
+    padding: 25px 30px;
+    overflow-y: auto;
+    background: #f8fafc;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card.stat-primary {
+    border-left-color: #3b82f6;
+}
+
+.stat-card.stat-success {
+    border-left-color: #10b981;
+}
+
+.stat-card.stat-warning {
+    border-left-color: #f59e0b;
+}
+
+.stat-card.stat-info {
+    border-left-color: #06b6d4;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.stat-primary .stat-icon {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+}
+
+.stat-success .stat-icon {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.stat-warning .stat-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+}
+
+.stat-info .stat-icon {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    color: white;
+}
+
+.stat-content h3 {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    color: #1e293b;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-change {
+    font-size: 13px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-change.positive {
+    color: #10b981;
+}
+
+.stat-change.negative {
+    color: #ef4444;
+}
+
+/* Dashboard Main Grid */
+.dashboard-main-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 20px;
+}
+
+.dashboard-panel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.panel-large {
+    grid-column: span 2;
+}
+
+.panel-medium {
+    grid-column: span 1;
+}
+
+.panel-small {
+    grid-column: span 1;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.panel-header h3 {
+    color: #1a3a6e;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.panel-header h3 i {
+    color: #3b82f6;
+}
+
+.panel-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.btn-time-filter {
+    padding: 6px 12px;
+    background: white;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-time-filter.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+}
+
+.btn-view-all {
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid #3b82f6;
+    color: #3b82f6;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-view-all:hover {
+    background: #3b82f6;
+    color: white;
+}
+
+.btn-clear-all {
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-clear-all:hover {
+    background: #ef4444;
+    color: white;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+/* Project List */
+.project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.project-item:hover {
+    background: #f1f5f9;
+}
+
+.project-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.project-info h4 {
+    color: #1e293b;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.project-info p {
+    color: #64748b;
+    font-size: 13px;
+    margin: 0;
+}
+
+.project-status {
+    margin-left: auto;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-active {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-processing {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+/* Health Indicator */
+.health-indicator {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.health-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.health-label {
+    width: 120px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.health-bar {
+    flex: 1;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.health-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.health-value {
+    width: 50px;
+    text-align: right;
+    color: #1e293b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Quick Actions */
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.quick-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 15px;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quick-action-btn:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border-color: #3b82f6;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.quick-action-btn i {
+    font-size: 28px;
+    color: #3b82f6;
+}
+
+.quick-action-btn:hover i {
+    color: white;
+}
+
+.quick-action-btn span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Notifications Feed */
+.notifications-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.notification-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.notification-info {
+    border-left-color: #3b82f6;
+}
+
+.notification-success {
+    border-left-color: #10b981;
+}
+
+.notification-warning {
+    border-left-color: #f59e0b;
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.notification-info .notification-icon {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.notification-success .notification-icon {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.notification-warning .notification-icon {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.notification-content h4 {
+    color: #1e293b;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+}
+
+.notification-content p {
+    color: #64748b;
+    font-size: 13px;
+    margin: 0 0 8px 0;
+}
+
+.notification-time {
+    color: #94a3b8;
+    font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .dashboard-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .panel-large {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard-main-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .panel-large,
+    .panel-medium,
+    .panel-small {
+        grid-column: span 1;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .module-header-fullscreen {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .header-actions-section {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .module-body-fullscreen {
+        padding: 15px;
+    }
+}
+</style>
+
+<script>
+// Dashboard Module JavaScript
+const DashboardModule = {
+    init: function() {
+        console.log('Dashboard module initialized');
+        this.loadChartData();
+        this.updateStats();
+        this.startRealTimeUpdates();
+    },
+    
+    refreshData: function() {
+        const btn = document.querySelector('.btn-action-header[onclick="DashboardModule.refreshData()"]');
+        if (btn) {
+            const icon = btn.querySelector('i');
+            icon.classList.add('fa-spin');
+            setTimeout(() => {
+                icon.classList.remove('fa-spin');
+                this.updateStats();
+                this.loadChartData();
+            }, 1000);
+        }
+    },
+    
+    updateStats: function() {
+        // Simulate updating stats
+        document.getElementById('totalModels').textContent = Math.floor(Math.random() * 20) + 10;
+        document.getElementById('totalFiles').textContent = Math.floor(Math.random() * 100) + 800;
+        document.getElementById('pendingIssues').textContent = Math.floor(Math.random() * 10);
+        document.getElementById('totalDeployments').textContent = Math.floor(Math.random() * 50) + 30;
+    },
+    
+    loadChartData: function() {
+        const canvas = document.getElementById('activityChart');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        canvas.width = canvas.parentElement.offsetWidth;
+        canvas.height = 300;
+        
+        // Clear previous chart
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw simple line chart
+        const data = [65, 59, 80, 81, 56, 55, 40, 70, 85, 90, 75, 95];
+        const max = Math.max(...data);
+        const stepX = canvas.width / (data.length - 1);
+        const stepY = canvas.height / max;
+        
+        // Draw grid lines
+        ctx.strokeStyle = '#e2e8f0';
+        ctx.lineWidth = 1;
+        for (let i = 0; i <= 5; i++) {
+            const y = (canvas.height / 5) * i;
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvas.width, y);
+            ctx.stroke();
+        }
+        
+        // Draw line
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        data.forEach((value, index) => {
+            const x = index * stepX;
+            const y = canvas.height - (value * stepY);
+            if (index === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        });
+        ctx.stroke();
+        
+        // Draw points
+        ctx.fillStyle = '#2563eb';
+        data.forEach((value, index) => {
+            const x = index * stepX;
+            const y = canvas.height - (value * stepY);
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        // Fill area under line
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
+        ctx.beginPath();
+        ctx.moveTo(0, canvas.height);
+        data.forEach((value, index) => {
+            const x = index * stepX;
+            const y = canvas.height - (value * stepY);
+            ctx.lineTo(x, y);
+        });
+        ctx.lineTo(canvas.width, canvas.height);
+        ctx.closePath();
+        ctx.fill();
+    },
+    
+    setTimeframe: function(timeframe) {
+        const buttons = document.querySelectorAll('.btn-time-filter');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        this.loadChartData();
+    },
+    
+    viewAllProjects: function() {
+        alert('Navigating to all projects view...');
+    },
+    
+    createNewProject: function() {
+        const projectName = prompt('Enter project name:');
+        if (projectName) {
+            alert(`Creating new project: ${projectName}`);
+        }
+    },
+    
+    importProject: function() {
+        alert('Opening file import dialog...');
+    },
+    
+    runDiagnostics: function() {
+        alert('Running system diagnostics...');
+    },
+    
+    openDocumentation: function() {
+        window.open('https://docs.aistudio.com', '_blank');
+    },
+    
+    deployNow: function() {
+        alert('Starting deployment process...');
+    },
+    
+    backupSystem: function() {
+        alert('Creating system backup...');
+    },
+    
+    exportReport: function() {
+        alert('Generating and exporting report...');
+    },
+    
+    settings: function() {
+        alert('Opening dashboard settings...');
+    },
+    
+    clearNotifications: function() {
+        const feed = document.getElementById('notificationsFeed');
+        if (feed) {
+            feed.innerHTML = '<div class="notification-item"><p>All notifications cleared</p></div>';
+        }
+    },
+    
+    startRealTimeUpdates: function() {
+        setInterval(() => {
+            this.updateHealthBars();
+        }, 5000);
+    },
+    
+    updateHealthBars: function() {
+        const healthBars = document.querySelectorAll('.health-progress');
+        healthBars.forEach(bar => {
+            const currentWidth = parseFloat(bar.style.width);
+            const variation = (Math.random() - 0.5) * 10;
+            const newWidth = Math.max(10, Math.min(100, currentWidth + variation));
+            bar.style.width = newWidth + '%';
+            
+            // Update corresponding value
+            const healthItem = bar.closest('.health-item');
+            if (healthItem) {
+                const valueSpan = healthItem.querySelector('.health-value');
+                if (valueSpan) {
+                    valueSpan.textContent = Math.round(newWidth) + '%';
+                }
+            }
+        });
+    }
+};
+
+// Initialize dashboard when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    DashboardModule.init();
+});
+
+// Handle window resize for responsive chart
+window.addEventListener('resize', function() {
+    DashboardModule.loadChartData();
+});
+</script>

@@ -69,7 +69,7 @@ function loadFileBrowser() {
     
     // Sample file structure for demonstration
     const sampleFiles = [
-        { name: 'index.html', type: 'html', size: '45 KB', icon: '🌐' },
+        { name: 'digital.html', type: 'html', size: '45 KB', icon: '🌐' },
         { name: 'app.js', type: 'js', size: '128 KB', icon: '📄' },
         { name: 'style.css', type: 'css', size: '67 KB', icon: '🎨' },
         { name: 'config.json', type: 'json', size: '12 KB', icon: '⚙️' },
@@ -108,7 +108,7 @@ function loadTreeView() {
                 name: 'pusat',
                 type: 'folder',
                 children: [
-                    { name: 'index.html', type: 'file' },
+                    { name: 'digital.html', type: 'file' },
                     { name: 'css', type: 'folder', children: [
                         { name: 'pusat.css', type: 'file' }
                     ]},
@@ -137,7 +137,7 @@ function loadTreeView() {
                 name: 'component',
                 type: 'folder',
                 children: [
-                    { name: 'index.html', type: 'file' },
+                    { name: 'digital.html', type: 'file' },
                     { name: 'component_list.json', type: 'file' },
                     { name: 'css', type: 'folder' },
                     { name: 'js', type: 'folder' }

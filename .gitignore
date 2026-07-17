@@ -1,47 +1,60 @@
 ```
-# HTML files that appear to be generated/build artifacts
-aichatreber/dashboard/digital.html
-aichatreber/filemanajer/digital.html
-aistudiodigital/modules/dashboard/digital.html
-component/digital.html
-controlproxy/views/digital.html
-datacenterdigital/digital.html
-designdigital/digital.html
-designdigital/filemanajer/digital.html
-digital.html
-editorkode/dashboard/digital.html
-editorkode/filemanajer/digital.html
-filemanajer/digital.html
-fiturdigital/digital.html
-hostingdigital/digital.html
-mediadigitalpusatiklan/manajemen_iklan/digital.html
-mediadigitalpusatiklan/manajemen_iklan/filemanajer/digital.html
-medsos/digital.html
-pusat/digital.html
-trafict/digital.html
-videolife/digital.html
-view/digital.html
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Corresponding index files that were deleted (likely part of same pattern)
-aichatreber/dashboard/index.html
-aichatreber/filemanajer/index.html
-aistudiodigital/modules/dashboard/dashboard.html
-component/index.html
-controlproxy/views/dashboard.html
-datacenterdigital/index.html
-designdigital/dashboard.html
-designdigital/filemanajer/index.html
-editorkode/dashboard/index.html
-editorkode/filemanajer/index.html
-filemanajer/index.html
-fiturdigital/index.html
-hostingdigital/index.html
-index.html
-mediadigitalpusatiklan/manajemen_iklan/dashboard.html
-mediadigitalpusatiklan/manajemen_iklan/filemanajer/index.html
-medsos/dashboard.html
-pusat/index.html
-trafict/dashboard.html
-videolife/index.html
-view/index.html
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Coverage reports
+.coverage
+htmlcov/
+coverage/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS generated files
+.DS_Store
+Thumbs.db
 ```

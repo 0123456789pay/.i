@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Blockchain - ZK-Proven Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#60A5FA',
+                            DEFAULT: '#3B82F6',
+                            dark: '#2563EB',
+                            darker: '#1D4ED8',
+                            darkest: '#1E40AF',
+                        },
+                        background: {
+                            primary: '#FFFFFF',
+                            secondary: '#F8FAFC',
+                            tertiary: '#F1F5F9',
+                            border: '#E2E8F0',
+                        },
+                        text: {
+                            primary: '#1E293B',
+                            secondary: '#64748B',
+                            muted: '#94A3B8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'blue-light': '0 4px 14px rgba(59, 130, 246, 0.4)',
+                        'blue-card': '0 2px 8px rgba(0, 0, 0, 0.05)',
+                        'blue-hover': '0 8px 24px rgba(59, 130, 246, 0.15)',
+                        'blue-glow': '0 4px 16px rgba(59, 130, 246, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-background-primary text-text-primary overflow-x-hidden">
+    
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-[0.03]"></div>
+    <div class="fixed top-20 right-20 w-96 h-96 bg-primary-light rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-20 left-20 w-80 h-80 bg-primary DEFAULT rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+
+    <!-- Header/Navbar -->
+    <header class="fixed top-0 left-0 right-0 bg-background-primary border-b border-background-border z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-key text-primary text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-text-primary">ZKChain</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
+                        Features
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#technology" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
+                        Technology
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#documentation" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
+                        Documentation
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:block">
+                    <button class="btn-primary px-6 py-2.5 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                        Launch App
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-text-primary hover:text-primary transition-colors" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-background-primary border-t border-background-border" id="mobile-menu">
+            <div class="px-4 py-4 space-y-4">
+                <a href="#features" class="block text-text-primary hover:text-primary transition-colors">Features</a>
+                <a href="#technology" class="block text-text-primary hover:text-primary transition-colors">Technology</a>
+                <a href="#documentation" class="block text-text-primary hover:text-primary transition-colors">Documentation</a>
+                <a href="#about" class="block text-text-primary hover:text-primary transition-colors">About</a>
+                <button class="btn-primary w-full px-6 py-2.5 rounded-lg font-semibold">
+                    Launch App
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-b from-background-primary to-background-secondary relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Icon with Glow Effect -->
+                <div class="relative inline-block mb-8">
+                    <div class="w-32 h-32 bg-primary-light/20 rounded-full flex items-center justify-center relative z-10 animate-pulse-slow">
+                        <i class="fas fa-key text-primary text-6xl"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-glow"></div>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-primary mb-6 leading-tight">
+                    Blockchain For <span class="text-primary">ZK-Proven</span> Data
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Secure, scalable, and privacy-preserving blockchain infrastructure for zero-knowledge proven data verification and decentralized applications.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="btn-primary px-8 py-4 rounded-lg font-semibold text-lg shadow-blue-light transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Launch App
+                    </button>
+                    <button class="btn-secondary px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fab fa-github mr-2"></i>
+                        View on GitHub
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">10K+</div>
+                        <div class="text-text-secondary">Active Users</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">$50M+</div>
+                        <div class="text-text-secondary">TVL Secured</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold text-primary mb-2">99.9%</div>
+                        <div class="text-text-secondary">Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-background-tertiary" id="features">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    Powerful Features
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Built for developers, designed for scale. Everything you need to build decentralized applications.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Zero-Knowledge Proofs</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Advanced cryptographic proofs that verify transactions without revealing sensitive data, ensuring complete privacy.
+                    </p>
+                </div>
+
+                <!-- Feature Card 2 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Lightning Fast</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Optimized consensus mechanism delivering sub-second finality and thousands of transactions per second.
+                    </p>
+                </div>
+
+                <!-- Feature Card 3 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-code text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Developer Friendly</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Comprehensive SDKs, APIs, and documentation to help you build and deploy dApps in minutes, not months.
+                    </p>
+                </div>
+
+                <!-- Feature Card 4 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Enterprise Security</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Battle-tested security protocols with multi-signature support and advanced access control mechanisms.
+                    </p>
+                </div>
+
+                <!-- Feature Card 5 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-sync text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Cross-Chain Bridge</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Seamless interoperability with major blockchain networks for asset transfers and data exchange.
+                    </p>
+                </div>
+
+                <!-- Feature Card 6 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Scalable Infrastructure</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Layer-2 scaling solutions that grow with your application, maintaining low fees and high performance.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Feature Card Section -->
+    <section class="py-20 bg-background-primary" id="technology">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    Orchid Cloud Technology
+                </h2>
+                <p class="text-xl text-text-secondary max-w-2xl mx-auto">
+                    Next-generation cloud infrastructure powered by blockchain and zero-knowledge cryptography.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="main-feature-card bg-background-primary rounded-2xl p-10 border-2 border-primary-light/50 shadow-blue-glow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-primary text-background-primary px-4 py-2 rounded-bl-lg font-semibold text-sm">
+                        Orchid Cloud
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="w-24 h-24 bg-primary-light/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-cloud text-primary text-5xl"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-grow text-center md:text-left">
+                            <h3 class="text-3xl font-bold text-text-primary mb-4">
+                                Decentralized Cloud Storage
+                            </h3>
+                            <p class="text-text-secondary text-lg leading-relaxed mb-6">
+                                Store your data securely across a distributed network with end-to-end encryption. 
+                                Zero-knowledge proofs ensure only you can access your files while maintaining 
+                                verifiable integrity and availability guarantees.
+                            </p>
+                            
+                            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                                <div class="flex items-center space-x-2 text-text-secondary">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span>End-to-End Encryption</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-text-secondary">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span>99.99% Availability</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-text-secondary">
+                                    <i class="fas fa-check-circle text-primary"></i>
+                                    <span>ZK-Verified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side Panels Section -->
+    <section class="py-20 bg-background-tertiary" id="documentation">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content Area -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-background-primary rounded-xl p-8 border border-background-border">
+                        <h3 class="text-2xl font-bold text-text-primary mb-4">
+                            Get Started in Minutes
+                        </h3>
+                        <p class="text-text-secondary mb-6 leading-relaxed">
+                            Our comprehensive documentation and developer tools make it easy to integrate 
+                            ZKChain into your existing applications. Follow our step-by-step guides and 
+                            start building today.
+                        </p>
+                        
+                        <div class="bg-background-secondary rounded-lg p-6 font-mono text-sm">
+                            <div class="flex items-center space-x-2 mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            </div>
+                            <code class="text-text-primary">
+                                <span class="text-primary">// Install the SDK</span><br>
+                                npm install @zkchain/sdk<br><br>
+                                <span class="text-primary">// Initialize connection</span><br>
+                                const zk = new ZKChain({<br>
+                                &nbsp;&nbsp;network: 'mainnet',<br>
+                                &nbsp;&nbsp;apiKey: 'your-api-key'<br>
+                                });<br><br>
+                                <span class="text-primary">// Create a proof</span><br>
+                                const proof = await zk.createProof(data);
+                            </code>
+                        </div>
+                    </div>
+
+                    <div class="bg-background-primary rounded-xl p-8 border border-background-border">
+                        <h3 class="text-2xl font-bold text-text-primary mb-4">
+                            Why Choose ZKChain?
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-rocket text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">High Performance</h4>
+                                    <p class="text-text-secondary text-sm">Process thousands of transactions per second with minimal latency.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-coins text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Low Fees</h4>
+                                    <p class="text-text-secondary text-sm">Pay fractions of a cent for transactions with our optimized gas model.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-users text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Community Driven</h4>
+                                    <p class="text-text-secondary text-sm">Open-source protocol governed by a vibrant global community.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-certificate text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-text-primary mb-1">Audited & Secure</h4>
+                                    <p class="text-text-secondary text-sm">Multiple security audits by top firms ensuring protocol safety.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Panel -->
+                <div class="space-y-6">
+                    <!-- Side Card 1 -->
+                    <div class="side-panel bg-background-primary rounded-xl p-6 border border-background-border border-l-4 border-l-primary hover:bg-background-secondary transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-book text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-text-primary text-lg">Documentation</h4>
+                        </div>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Comprehensive guides, API references, and tutorials to help you build with ZKChain.
+                        </p>
+                    </div>
+
+                    <!-- Side Card 2 -->
+                    <div class="side-panel bg-background-primary rounded-xl p-6 border border-background-border border-l-4 border-l-primary hover:bg-background-secondary transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-comments text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-text-primary text-lg">Community</h4>
+                        </div>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Join our Discord and Telegram communities to connect with developers and get support.
+                        </p>
+                    </div>
+
+                    <!-- Side Card 3 -->
+                    <div class="side-panel bg-background-primary rounded-xl p-6 border border-background-border border-l-4 border-l-primary hover:bg-background-secondary transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-newspaper text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-text-primary text-lg">Blog & Updates</h4>
+                        </div>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Stay informed about the latest developments, partnerships, and ecosystem growth.
+                        </p>
+                    </div>
+
+                    <!-- Side Card 4 -->
+                    <div class="side-panel bg-background-primary rounded-xl p-6 border border-background-border border-l-4 border-l-primary hover:bg-background-secondary transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-headset text-primary text-xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-text-primary text-lg">Support</h4>
+                        </div>
+                        <p class="text-text-secondary text-sm leading-relaxed">
+                            Get help from our dedicated support team for technical issues and questions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 bg-background-primary" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
+                    About ZKChain
+                </h2>
+                <p class="text-xl text-text-secondary max-w-3xl mx-auto">
+                    We're building the future of privacy-preserving blockchain technology, 
+                    empowering developers and enterprises with zero-knowledge infrastructure.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">Global Network</h3>
+                    <p class="text-text-secondary">Nodes distributed across 50+ countries ensuring decentralization and resilience.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-flask text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">Research-Driven</h3>
+                    <p class="text-text-secondary">Built on cutting-edge cryptographic research from leading academic institutions.</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">Community First</h3>
+                    <p class="text-text-secondary">Governed by token holders with transparent decision-making processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-background-tertiary border-t border-background-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-key text-primary text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-text-primary">ZKChain</span>
+                    </div>
+                    <p class="text-text-secondary text-sm">
+                        Building the future of privacy-preserving blockchain technology.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Product</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Technology</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Roadmap</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Resources</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Documentation</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">API Reference</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-text-primary mb-4">Company</h4>
+                    <ul class="space-y-2 text-text-secondary text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Press</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-background-border pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-text-secondary text-sm mb-4 md:mb-0">
+                    © 2024 ZKChain. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-discord text-xl"></i>
+                    </a>
+                    <a href="#" class="text-text-secondary hover:text-primary transition-colors">
+                        <i class="fab fa-telegram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
