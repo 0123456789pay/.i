@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoutheastApp Terminal - IO Executor</title>
+    <style>
+        :root { --bg-color: #1a1a2e; --terminal-bg: #0f0f1a; --text-color: #e0e0e0; --accent-color: #00d9ff; --success-color: #00ff88; --error-color: #ff4757; --warning-color: #ffa502; --border-color: #2d2d44; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Courier New', monospace; background: var(--bg-color); color: var(--text-color); min-height: 100vh; display: flex; flex-direction: column; }
+        .header { background: var(--terminal-bg); padding: 1rem; border-bottom: 2px solid var(--accent-color); display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 1.2rem; color: var(--accent-color); }
+        .status { font-size: 0.8rem; padding: 0.3rem 0.6rem; background: rgba(0, 217, 255, 0.1); border-radius: 4px; border: 1px solid var(--accent-color); }
+        .container { flex: 1; display: flex; overflow: hidden; }
+        .file-panel { width: 300px; background: var(--terminal-bg); border-right: 1px solid var(--border-color); overflow-y: auto; padding: 1rem; }
+        .file-tree { list-style: none; }
+        .file-item { padding: 0.5rem; cursor: pointer; border-radius: 4px; margin-bottom: 0.2rem; transition: all 0.2s; font-size: 0.85rem; }
+        .file-item:hover { background: rgba(0, 217, 255, 0.1); color: var(--accent-color); }
+        .file-item.folder { color: var(--warning-color); font-weight: bold; }
+        .file-item.file { color: var(--text-color); }
+        .file-item.selected { background: rgba(0, 217, 255, 0.2); border-left: 3px solid var(--accent-color); }
+        .terminal-panel { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .terminal-output { flex: 1; padding: 1rem; overflow-y: auto; background: var(--terminal-bg); font-size: 0.9rem; line-height: 1.5; }
+        .output-line { margin-bottom: 0.3rem; white-space: pre-wrap; word-break: break-all; }
+        .output-line.success { color: var(--success-color); }
+        .output-line.error { color: var(--error-color); }
+        .output-line.warning { color: var(--warning-color); }
+        .output-line.info { color: var(--accent-color); }
+        .output-line.system { color: #888; font-style: italic; }
+        .terminal-input { border-top: 1px solid var(--border-color); padding: 1rem; background: var(--terminal-bg); display: flex; gap: 0.5rem; }
+        .prompt { color: var(--accent-color); font-weight: bold; padding: 0.5rem; white-space: nowrap; }
+        #commandInput { flex: 1; background: transparent; border: none; color: var(--text-color); font-family: inherit; font-size: 0.9rem; outline: none; padding: 0.5rem; }
+        .controls { display: flex; gap: 0.5rem; padding: 0.5rem; flex-wrap: wrap; }
+        button { background: rgba(0, 217, 255, 0.1); border: 1px solid var(--accent-color); color: var(--accent-color); padding: 0.5rem 1rem; cursor: pointer; font-family: inherit; font-size: 0.8rem; border-radius: 4px; transition: all 0.2s; }
+        button:hover { background: rgba(0, 217, 255, 0.2); }
+        .io-section { padding: 1rem; border-top: 1px solid var(--border-color); background: rgba(0, 0, 0, 0.2); }
+        .io-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem; }
+        .io-panel { background: rgba(0, 0, 0, 0.3); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.5rem; }
+        .io-panel h3 { font-size: 0.8rem; color: var(--accent-color); margin-bottom: 0.5rem; }
+        .io-content { font-size: 0.8rem; max-height: 150px; overflow-y: auto; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="header"><h1>SoutheastApp Terminal - IO Executor</h1><div class="status" id="connectionStatus">Connected</div></div>
+    <div class="container">
+        <div class="file-panel"><h3 style="color: var(--accent-color); margin-bottom: 1rem; font-size: 0.9rem;">File Explorer</h3><ul class="file-tree" id="fileTree"></ul></div>
+        <div class="terminal-panel">
+            <div class="terminal-output" id="terminalOutput"><div class="output-line system">Welcome to SoutheastApp Terminal v1.0</div><div class="output-line system">Type help for available commands</div><div class="output-line system">Base path: /southeastapp/</div><br></div>
+            <div class="io-section"><div class="io-grid"><div class="io-panel"><h3>Input Stream</h3><div class="io-content" id="inputStream"></div></div><div class="io-panel"><h3>Output Stream</h3><div class="io-content" id="outputStream"></div></div></div></div>
+            <div class="terminal-input"><span class="prompt">southeastapp@io:~$</span><input type="text" id="commandInput" placeholder="Enter command..." autocomplete="off" autofocus></div>
+            <div class="controls"><button onclick="executeCommand()">Execute</button><button onclick="clearTerminal()">Clear</button><button onclick="listFiles()">List Files</button><button onclick="showHelp()">Help</button><button onclick="exportIO()">Export I/O</button><button onclick="scanAllFiles()">Scan All</button></div>
+        </div>
+    </div>
+    <script>
+        const basePath = '/southeastapp/';
+        let ioHistory = { input: [], output: [] };
+        const fileStructure = { 'README.md': 'file', 'index.js': 'file', 'package.json': 'file', 'api': 'folder', 'assets': 'folder', 'components': 'folder', 'config': 'folder', 'hooks': 'folder', 'locales': 'folder', 'middleware': 'folder', 'services': 'folder', 'storage': 'folder', 'utils': 'folder' };
+        const subFiles = { 'api': ['index.js', 'routes.js'], 'assets': ['logo.png', 'styles.css'], 'components': ['Button.js', 'Header.js', 'Footer.js'], 'config': ['app.config.js', 'db.config.js'], 'hooks': ['useAuth.js', 'useData.js'], 'locales': ['en.json', 'id.json'], 'middleware': ['auth.js', 'logger.js'], 'services': ['api.service.js', 'data.service.js'], 'storage': ['local.js', 'session.js'], 'utils': ['helpers.js', 'validators.js'] };
+        document.addEventListener('DOMContentLoaded', () => { renderFileTree(); document.getElementById('commandInput').addEventListener('keypress', (e) => { if (e.key === 'Enter') executeCommand(); }); showHelp(); });
+        function renderFileTree() { const tree = document.getElementById('fileTree'); tree.innerHTML = ''; Object.entries(fileStructure).forEach(([name, type]) => { const li = document.createElement('li'); li.className = 'file-item ' + type; li.innerHTML = (type === 'folder' ? '📁 ' : '📄 ') + name; li.onclick = () => handleFileClick(name, type); tree.appendChild(li); if (type === 'folder' && subFiles[name]) { const subUl = document.createElement('ul'); subUl.style.marginLeft = '20px'; subUl.style.listStyle = 'none'; subFiles[name].forEach(subFile => { const subLi = document.createElement('li'); subLi.className = 'file-item file'; subLi.innerHTML = '📄 ' + subFile; subLi.onclick = (e) => { e.stopPropagation(); selectFile(name + '/' + subFile, 'file'); }; subUl.appendChild(subLi); }); li.appendChild(subUl); } }); }
+        function handleFileClick(name, type) { if (type === 'folder') { addOutput('Opened folder: ' + basePath + name, 'info'); } else { selectFile(name, type); } }
+        function selectFile(name, type) { document.querySelectorAll('.file-item').forEach(item => item.classList.remove('selected')); event.target.classList.add('selected'); if (type === 'file') { addOutput('Selected file: ' + basePath + name, 'info'); ioHistory.input.push('SELECT_FILE: ' + basePath + name); updateIO(); } }
+        function executeCommand() { const input = document.getElementById('commandInput'); const command = input.value.trim(); if (!command) return; addOutput('southeastapp@io:~$ ' + command, 'system'); ioHistory.input.push(command); const args = command.split(' '); const cmd = args[0].toLowerCase(); switch(cmd) { case 'help': showHelp(); break; case 'ls': case 'list': listFiles(); break; case 'cat': case 'read': readFile(args[1]); break; case 'echo': echoCommand(args.slice(1).join(' ')); break; case 'run': case 'exec': runScript(args[1]); break; case 'cd': changeDir(args[1]); break; case 'pwd': addOutput(basePath, 'info'); break; case 'clear': case 'cls': clearTerminal(); break; case 'io': ioOperation(args); break; case 'write': writeFile(args[1], args.slice(2).join(' ')); break; case 'scan': scanAllFiles(); break; case 'tree': showTree(); break; default: addOutput('Unknown command: ' + cmd + '. Type help for available commands.', 'error'); } input.value = ''; updateIO(); scrollToBottom(); }
+        function showHelp() { const helpText = '\nAvailable Commands:\n  help              - Show this help message\n  ls, list          - List files in current directory\n  cat, read [file]  - Read file content\n  echo [text]       - Print text to output\n  run, exec [file]  - Execute script file\n  cd [dir]          - Change directory\n  pwd               - Print working directory\n  clear, cls        - Clear terminal\n  io [operation]    - Perform I/O operations\n  write [file] [content] - Write content to file\n  scan              - Scan all files recursively\n  tree              - Show directory tree\n\nI/O Operations:\n  io read [file]    - Read file to input stream\n  io write [file]   - Write output stream to file\n  io export         - Export I/O history\n  io clear          - Clear I/O streams\n'; addOutput(helpText, 'info'); }
+        function listFiles() { addOutput('\nDirectory: ' + basePath, 'system'); Object.entries(fileStructure).forEach(([name, type]) => { const icon = type === 'folder' ? '📁' : '📄'; addOutput('  ' + icon + ' ' + name, type === 'folder' ? 'warning' : 'success'); }); ioHistory.output.push('LIST_FILES: ' + Object.keys(fileStructure).length + ' items'); }
+        function readFile(filename) { if (!filename) { addOutput('Error: Please specify a filename', 'error'); return; } const content = '// Content of ' + filename + '\n// This is a simulated file reader\nconsole.log("Reading ' + basePath + filename + '");\nmodule.exports = {};'; addOutput(content, 'success'); ioHistory.output.push('READ_FILE: ' + filename); document.getElementById('outputStream').textContent = content; }
+        function echoCommand(text) { addOutput(text, 'success'); ioHistory.output.push('ECHO: ' + text); updateIO(); }
+        function runScript(filename) { if (!filename) { addOutput('Error: Please specify a script file', 'error'); return; } addOutput('Executing ' + filename + '...', 'info'); setTimeout(() => { addOutput('✓ Script ' + filename + ' executed successfully', 'success'); ioHistory.output.push('EXECUTE: ' + filename + ' - SUCCESS'); updateIO(); }, 500); }
+        function changeDir(dir) { if (!dir || dir === '..') { addOutput('Navigation simulated in this demo', 'warning'); return; } if (fileStructure[dir] === 'folder') { addOutput('Changed directory to: ' + basePath + dir, 'info'); ioHistory.input.push('CD: ' + basePath + dir); } else { addOutput('Error: Directory ' + dir + ' not found', 'error'); } }
+        function ioOperation(args) { const op = args[1]; switch(op) { case 'read': if (args[2]) { readFile(args[2]); addOutput('Content loaded to input stream', 'info'); } break; case 'write': if (args[2]) { addOutput('Writing output stream to ' + args[2] + '...', 'info'); ioHistory.output.push('IO_WRITE: ' + args[2]); addOutput('Write operation completed', 'success'); } break; case 'export': exportIO(); break; case 'clear': ioHistory = { input: [], output: [] }; document.getElementById('inputStream').textContent = ''; document.getElementById('outputStream').textContent = ''; addOutput('I/O streams cleared', 'warning'); break; default: addOutput('Usage: io [read|write|export|clear] [file]', 'error'); } updateIO(); }
+        function writeFile(filename, content) { if (!filename || !content) { addOutput('Usage: write [filename] [content]', 'error'); return; } addOutput('Writing to ' + filename + '...', 'info'); ioHistory.output.push('WRITE_FILE: ' + filename + ' (' + content.length + ' chars)'); addOutput('✓ Successfully wrote to ' + filename, 'success'); updateIO(); }
+        function scanAllFiles() { addOutput('\n🔍 Scanning all files in /southeastapp/...', 'info'); let count = 0; Object.entries(fileStructure).forEach(([name, type]) => { if (type === 'file') { addOutput('  📄 ' + basePath + name, 'success'); count++; } else if (type === 'folder' && subFiles[name]) { addOutput('  📁 ' + basePath + name + '/', 'warning'); subFiles[name].forEach(subFile => { addOutput('     📄 ' + subFile, 'success'); count++; }); } }); addOutput('\n✓ Scan complete: ' + count + ' files found', 'success'); ioHistory.output.push('SCAN_ALL: ' + count + ' files'); updateIO(); }
+        function showTree() { addOutput('\n/southeastapp/', 'system'); Object.entries(fileStructure).forEach(([name, type], index) => { const isLast = index === Object.keys(fileStructure).length - 1; const prefix = isLast ? '└── ' : '├── '; addOutput(prefix + name, type === 'folder' ? 'warning' : 'success'); }); }
+        function exportIO() { const data = { timestamp: new Date().toISOString(), basePath: basePath, input: ioHistory.input, output: ioHistory.output }; const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'southeastapp-io-' + Date.now() + '.json'; a.click(); URL.revokeObjectURL(url); addOutput('I/O history exported successfully', 'success'); }
+        function addOutput(text, type) { const output = document.getElementById('terminalOutput'); const line = document.createElement('div'); line.className = 'output-line ' + type; line.textContent = text; output.appendChild(line); scrollToBottom(); }
+        function updateIO() { document.getElementById('inputStream').textContent = ioHistory.input.join('\n'); document.getElementById('outputStream').textContent = ioHistory.output.join('\n'); }
+        function clearTerminal() { document.getElementById('terminalOutput').innerHTML = '<div class="output-line system">Terminal cleared</div><br>'; }
+        function scrollToBottom() { const output = document.getElementById('terminalOutput'); output.scrollTop = output.scrollHeight; }
+    </script>
+</body>
+</html>
