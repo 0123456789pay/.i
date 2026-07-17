@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Digital - Portal Berita Modern</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .search-box button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .search-box button:hover {
+            transform: scale(1.05);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+        }
+
+        .category-menu {
+            list-style: none;
+        }
+
+        .category-menu li {
+            margin-bottom: 8px;
+        }
+
+        .category-menu a {
+            display: block;
+            padding: 12px 15px;
+            color: #333;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .category-menu a:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .category-menu h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 5px 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .news-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            font-size: 0.85em;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover {
+            transform: scale(1.05);
+        }
+
+        .trending-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            height: fit-content;
+        }
+
+        .trending-section h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            min-width: 30px;
+        }
+
+        .trending-title {
+            color: #333;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .auto-update-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .update-dot {
+            width: 10px;
+            height: 10px;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .pagination a {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .pagination a:hover,
+        .pagination a.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="auto-update-indicator">
+        <div class="update-dot"></div>
+        <span id="update-timer">Update berikutnya: 5:00</span>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <a href="digital.html" class="logo">📰 News Digital</a>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Cari berita...">
+                    <button onclick="searchNews()">Cari</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <h3>📂 Kategori Berita</h3>
+                <ul class="category-menu" id="categoryMenu">
+                    <!-- Categories will be loaded dynamically -->
+                </ul>
+            </aside>
+
+            <main>
+                <div class="news-grid" id="newsGrid">
+                    <!-- News cards will be loaded dynamically -->
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be loaded dynamically -->
+                </div>
+            </main>
+
+            <aside class="trending-section">
+                <h3>🔥 Trending Sekarang</h3>
+                <div id="trendingList">
+                    <!-- Trending news will be loaded dynamically -->
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="#">Tentang Kami</a>
+                <a href="#">Redaksi</a>
+                <a href="#">Pedoman Media Siber</a>
+                <a href="#">Kontak</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <p>&copy; 2025 News Digital. All rights reserved.</p>
+            <p>Portal berita modern dengan update otomatis setiap 5 menit.</p>
+        </footer>
+    </div>
+
+    <script>
+        // System configuration
+        const SYSTEM_CONFIG = {
+            storagePath: '../system/storage/',
+            dataPath: '../system/data/',
+            updateInterval: 5 * 60 * 1000, // 5 minutes
+            categories: [
+                'Nasional', 'Internasional', 'Politik', 'Ekonomi', 'Teknologi',
+                'Olahraga', 'Hiburan', 'Gaya Hidup', 'Kesehatan', 'Pendidikan',
+                'Bisnis', 'Otomotif', 'Properti', 'Wisata', 'Kuliner',
+                'Hukum', 'Sosial', 'Budaya', 'Agama', 'Sains',
+                'Lingkungan', 'Feature', 'Opini', 'Investigasi', 'Review'
+            ]
+        };
+
+        let currentPage = 1;
+        const itemsPerPage = 12;
+        let allNews = [];
+        let countdownTimer;
+
+        // Initialize the system
+        function initSystem() {
+            loadCategories();
+            loadNews();
+            startUpdateTimer();
+            setInterval(generateAutoNews, SYSTEM_CONFIG.updateInterval);
+        }
+
+        // Load categories
+        function loadCategories() {
+            const menu = document.getElementById('categoryMenu');
+            menu.innerHTML = '<li><a href="#" onclick="filterNews(\'all\')">📰 Semua Berita</a></li>';
+            
+            SYSTEM_CONFIG.categories.forEach(cat => {
+                menu.innerHTML += `<li><a href="#" onclick="filterNews('${cat}')">📁 ${cat}</a></li>`;
+            });
+        }
+
+        // Generate automatic news every 5 minutes
+        function generateAutoNews() {
+            const now = new Date();
+            const timestamp = now.toISOString();
+            const randomCategory = SYSTEM_CONFIG.categories[Math.floor(Math.random() * SYSTEM_CONFIG.categories.length)];
+            
+            const newsItem = {
+                id: Date.now(),
+                title: `Berita Otomatis ${randomCategory} - ${now.toLocaleString('id-ID')}`,
+                category: randomCategory,
+                excerpt: `Ini adalah berita otomatis yang dihasilkan sistem pada ${now.toLocaleString('id-ID')}. Berita ini mencakup berbagai aspek penting dalam kategori ${randomCategory}.`,
+                content: `Konten lengkap berita otomatis untuk kategori ${randomCategory}. Sistem secara otomatis menghasilkan berita ini setiap 5 menit untuk memastikan konten selalu terbaru dan relevan.`,
+                image: null,
+                video: null,
+                timestamp: timestamp,
+                views: Math.floor(Math.random() * 1000),
+                author: 'Sistem Otomatis'
+            };
+
+            // Save to storage
+            saveNews(newsItem);
+            
+            // Reload news
+            loadNews();
+            
+            console.log('New auto-generated news:', newsItem.title);
+        }
+
+        // Save news to localStorage (simulating permanent storage)
+        function saveNews(newsItem) {
+            let storedNews = JSON.parse(localStorage.getItem('newsDigitalStorage') || '[]');
+            storedNews.unshift(newsItem);
+            localStorage.setItem('newsDigitalStorage', JSON.stringify(storedNews));
+        }
+
+        // Load news from storage
+        function loadNews(category = 'all') {
+            let storedNews = JSON.parse(localStorage.getItem('newsDigitalStorage') || '[]');
+            
+            // Generate initial news if empty
+            if (storedNews.length === 0) {
+                generateInitialNews();
+                storedNews = JSON.parse(localStorage.getItem('newsDigitalStorage') || '[]');
+            }
+
+            allNews = storedNews;
+
+            // Filter by category
+            let filteredNews = category === 'all' 
+                ? allNews 
+                : allNews.filter(news => news.category === category);
+
+            // Sort by newest first
+            filteredNews.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+
+            // Paginate
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedNews = filteredNews.slice(startIndex, endIndex);
+
+            // Display news
+            displayNews(paginatedNews);
+            displayPagination(filteredNews.length);
+            displayTrending();
+        }
+
+        // Generate initial news for demo
+        function generateInitialNews() {
+            const initialNews = [];
+            const now = new Date();
+
+            for (let i = 0; i < 50; i++) {
+                const randomCategory = SYSTEM_CONFIG.categories[Math.floor(Math.random() * SYSTEM_CONFIG.categories.length)];
+                const newsTime = new Date(now.getTime() - i * 5 * 60000);
+                
+                initialNews.push({
+                    id: Date.now() - i * 1000,
+                    title: `Berita ${randomCategory} #${i + 1} - Update Terbaru`,
+                    category: randomCategory,
+                    excerpt: `Ini adalah contoh berita ${randomCategory} yang menarik dan informatif. Baca selengkapnya untuk mengetahui detailnya.`,
+                    content: `Konten lengkap berita ${randomCategory}. Artikel ini memberikan informasi mendalam tentang topik terkini dalam kategori ini.`,
+                    image: null,
+                    video: null,
+                    timestamp: newsTime.toISOString(),
+                    views: Math.floor(Math.random() * 5000),
+                    author: 'Redaksi News Digital'
+                });
+            }
+
+            localStorage.setItem('newsDigitalStorage', JSON.stringify(initialNews));
+        }
+
+        // Display news cards
+        function displayNews(news) {
+            const grid = document.getElementById('newsGrid');
+            grid.innerHTML = '';
+
+            news.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'news-card';
+                card.innerHTML = `
+                    <div class="news-image">📰</div>
+                    <div class="news-content">
+                        <span class="news-category">${item.category}</span>
+                        <h2 class="news-title">${item.title}</h2>
+                        <p class="news-excerpt">${item.excerpt}</p>
+                        <div class="news-meta">
+                            <span>👁️ ${item.views} views</span>
+                            <span>🕒 ${formatTime(item.timestamp)}</span>
+                        </div>
+                        <a href="#" class="read-more" onclick="viewNews(${item.id})">Baca Selengkapnya</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Display pagination
+        function displayPagination(totalItems) {
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.innerHTML += `
+                    <a href="#" class="${i === currentPage ? 'active' : ''}" 
+                       onclick="changePage(${i})">${i}</a>
+                `;
+            }
+        }
+
+        // Display trending news
+        function displayTrending() {
+            const trendingList = document.getElementById('trendingList');
+            const sortedByViews = [...allNews].sort((a, b) => b.views - a.views).slice(0, 5);
+
+            trendingList.innerHTML = '';
+            sortedByViews.forEach((item, index) => {
+                trendingList.innerHTML += `
+                    <div class="trending-item">
+                        <div class="trending-number">${index + 1}</div>
+                        <div class="trending-title">${item.title}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // Change page
+        function changePage(page) {
+            currentPage = page;
+            loadNews();
+        }
+
+        // Filter news by category
+        function filterNews(category) {
+            currentPage = 1;
+            loadNews(category);
+        }
+
+        // View single news
+        function viewNews(id) {
+            const news = allNews.find(n => n.id === id);
+            if (news) {
+                alert(`Membuka berita: ${news.title}\n\nKategori: ${news.category}\n\n${news.content}`);
+            }
+        }
+
+        // Search news
+        function searchNews() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query.trim() === '') {
+                loadNews();
+                return;
+            }
+
+            const filtered = allNews.filter(news => 
+                news.title.toLowerCase().includes(query) ||
+                news.excerpt.toLowerCase().includes(query) ||
+                news.category.toLowerCase().includes(query)
+            );
+
+            displayNews(filtered);
+            displayPagination(filtered.length);
+        }
+
+        // Format time
+        function formatTime(timestamp) {
+            const date = new Date(timestamp);
+            const now = new Date();
+            const diffMs = now - date;
+            const diffMins = Math.floor(diffMs / 60000);
+            const diffHours = Math.floor(diffMs / 3600000);
+            const diffDays = Math.floor(diffMs / 86400000);
+
+            if (diffMins < 1) return 'Baru saja';
+            if (diffMins < 60) return `${diffMins} menit yang lalu`;
+            if (diffHours < 24) return `${diffHours} jam yang lalu`;
+            return `${diffDays} hari yang lalu`;
+        }
+
+        // Start update timer
+        function startUpdateTimer() {
+            updateTimerDisplay();
+            countdownTimer = setInterval(updateTimerDisplay, 1000);
+        }
+
+        // Update timer display
+        function updateTimerDisplay() {
+            const now = new Date();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const nextUpdate = 5 - (minutes % 5);
+            const nextSeconds = 60 - seconds;
+
+            const timerElement = document.getElementById('update-timer');
+            timerElement.textContent = `Update berikutnya: ${nextUpdate}:${nextSeconds.toString().padStart(2, '0')}`;
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initSystem);
+    </script>
+</body>
+</html>
