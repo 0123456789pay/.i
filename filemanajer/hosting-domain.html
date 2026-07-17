@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hosting & Domain Management - Digital Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 20px 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .header p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 40px;
+        }
+        
+        .nav-tab {
+            padding: 15px 25px;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-tab:hover {
+            color: var(--text-primary);
+            background: rgba(37, 99, 235, 0.1);
+        }
+        
+        .nav-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .container {
+            padding: 30px 40px;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card h3 {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-card .change {
+            font-size: 13px;
+            margin-top: 8px;
+        }
+        
+        .change.positive {
+            color: var(--success-color);
+        }
+        
+        .change.negative {
+            color: var(--danger-color);
+        }
+        
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 25px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--secondary-color);
+        }
+        
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .data-table th {
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+        
+        .data-table tr:hover {
+            background: rgba(37, 99, 235, 0.05);
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success-color);
+        }
+        
+        .status-pending {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning-color);
+        }
+        
+        .status-expired {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .form-input,
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--dark-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 14px;
+        }
+        
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--dark-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .usage-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-info {
+            background: rgba(37, 99, 235, 0.1);
+            border-left: 4px solid var(--primary-color);
+            color: var(--text-primary);
+        }
+        
+        .alert-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid var(--warning-color);
+        }
+        
+        .alert-success {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .close-modal {
+            float: right;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .icon {
+            margin-right: 8px;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            background: var(--dark-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 30px;
+            border-left: 2px solid var(--border-color);
+            padding-left: 20px;
+        }
+        
+        .timeline-item:last-child {
+            border-left-color: transparent;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+        
+        .timeline-date {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content {
+            background: var(--dark-bg);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .header, .container, .nav-tabs {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-table {
+                font-size: 13px;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>🌐 Hosting & Domain Management</h1>
+        <p>Kelola layanan hosting, domain, dan infrastruktur digital Anda</p>
+    </div>
+    
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <button class="nav-tab active" onclick="switchTab('dashboard')">Dashboard</button>
+        <button class="nav-tab" onclick="switchTab('domains')">Domain</button>
+        <button class="nav-tab" onclick="switchTab('hosting')">Hosting</button>
+        <button class="nav-tab" onclick="switchTab('ssl')">SSL Certificates</button>
+        <button class="nav-tab" onclick="switchTab('dns')">DNS Management</button>
+        <button class="nav-tab" onclick="switchTab('email')">Email Hosting</button>
+        <button class="nav-tab" onclick="switchTab('billing')">Billing</button>
+        <button class="nav-tab" onclick="switchTab('support')">Support</button>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content active">
+            <div class="alert alert-info">
+                <strong>👋 Selamat Datang!</strong> Ini adalah dashboard utama untuk mengelola semua layanan hosting dan domain Anda.
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <h3>Total Domain</h3>
+                    <div class="value" id="totalDomains">0</div>
+                    <div class="change positive">↑ 12% bulan ini</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Hosting</h3>
+                    <div class="value" id="activeHosting">0</div>
+                    <div class="change positive">↑ 5% bulan ini</div>
+                </div>
+                <div class="stat-card">
+                    <h3>SSL Certificates</h3>
+                    <div class="value" id="totalSSL">0</div>
+                    <div class="change negative">↓ 2 expiring soon</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Storage Used</h3>
+                    <div class="value" id="storageUsed">0 GB</div>
+                    <div class="change">of 100 GB total</div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">⚡ Quick Actions</h2>
+                </div>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="openModal('domainModal')">
+                        <span class="icon">➕</span> Register Domain
+                    </button>
+                    <button class="btn btn-primary" onclick="openModal('hostingModal')">
+                        <span class="icon">🚀</span> New Hosting Plan
+                    </button>
+                    <button class="btn btn-outline" onclick="openModal('sslModal')">
+                        <span class="icon">🔒</span> Install SSL
+                    </button>
+                    <button class="btn btn-outline" onclick="openModal('transferModal')">
+                        <span class="icon">🔄</span> Transfer Domain
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">📊 Recent Activity</h2>
+                    <button class="btn btn-outline" onclick="viewAllActivity()">View All</button>
+                </div>
+                <div class="timeline" id="activityTimeline">
+                    <!-- Activity items will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Resource Usage -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">💾 Resource Usage</h2>
+                </div>
+                <div class="dashboard-grid">
+                    <div>
+                        <div class="form-label">Disk Space</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%;" id="diskProgress"></div>
+                        </div>
+                        <div class="usage-info">
+                            <span>45 GB used</span>
+                            <span>100 GB total</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-label">Bandwidth</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 62%;" id="bandwidthProgress"></div>
+                        </div>
+                        <div class="usage-info">
+                            <span>620 GB used</span>
+                            <span>1000 GB monthly</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-label">Database Storage</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 28%;" id="dbProgress"></div>
+                        </div>
+                        <div class="usage-info">
+                            <span>2.8 GB used</span>
+                            <span>10 GB total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Domains Tab -->
+        <div id="domains" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">🌍 My Domains</h2>
+                    <button class="btn btn-primary" onclick="openModal('domainModal')">
+                        <span class="icon">➕</span> Add Domain
+                    </button>
+                </div>
+                
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search domains..." onkeyup="filterDomains(this.value)">
+                </div>
+                
+                <div class="filter-group">
+                    <select class="form-select" style="width: auto;" onchange="filterByStatus(this.value)">
+                        <option value="all">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                        <option value="expired">Expired</option>
+                    </select>
+                    <select class="form-select" style="width: auto;" onchange="filterByTLD(this.value)">
+                        <option value="all">All TLDs</option>
+                        <option value=".com">.com</option>
+                        <option value=".net">.net</option>
+                        <option value=".org">.org</option>
+                        <option value=".id">.id</option>
+                        <option value=".io">.io</option>
+                    </select>
+                </div>
+                
+                <table class="data-table" id="domainsTable">
+                    <thead>
+                        <tr>
+                            <th>Domain Name</th>
+                            <th>Status</th>
+                            <th>Registration Date</th>
+                            <th>Expiry Date</th>
+                            <th>Auto Renew</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="domainsTableBody">
+                        <!-- Domain rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Hosting Tab -->
+        <div id="hosting" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">🖥️ Hosting Plans</h2>
+                    <button class="btn btn-primary" onclick="openModal('hostingModal')">
+                        <span class="icon">➕</span> New Hosting
+                    </button>
+                </div>
+                
+                <div class="dashboard-grid" id="hostingCards">
+                    <!-- Hosting cards will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">📈 Server Statistics</h2>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Uptime</h3>
+                        <div class="value">99.9%</div>
+                        <div class="change positive">Last 30 days</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Avg Response Time</h3>
+                        <div class="value">145ms</div>
+                        <div class="change positive">↓ 12ms from last month</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Visits</h3>
+                        <div class="value">24.5K</div>
+                        <div class="change positive">↑ 18% this month</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SSL Certificates Tab -->
+        <div id="ssl" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">🔒 SSL Certificates</h2>
+                    <button class="btn btn-primary" onclick="openModal('sslModal')">
+                        <span class="icon">➕</span> Install SSL
+                    </button>
+                </div>
+                
+                <div class="alert alert-warning" id="sslExpiringAlert" style="display: none;">
+                    <strong>⚠️ Warning:</strong> You have certificates expiring soon. Please renew them to avoid service interruption.
+                </div>
+                
+                <table class="data-table" id="sslTable">
+                    <thead>
+                        <tr>
+                            <th>Domain</th>
+                            <th>Certificate Type</th>
+                            <th>Issuer</th>
+                            <th>Valid From</th>
+                            <th>Valid Until</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sslTableBody">
+                        <!-- SSL rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- DNS Management Tab -->
+        <div id="dns" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">🔧 DNS Management</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Select Domain</label>
+                    <select class="form-select" id="dnsDomainSelect" onchange="loadDNSRecords(this.value)">
+                        <option value="">-- Select Domain --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                
+                <div id="dnsRecordsSection" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>DNS Records for <span id="selectedDomain" style="color: var(--primary-color);"></span></h3>
+                        <button class="btn btn-primary" onclick="openModal('dnsRecordModal')">
+                            <span class="icon">➕</span> Add Record
+                        </button>
+                    </div>
+                    
+                    <table class="data-table" id="dnsTable">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Name</th>
+                                <th>Value</th>
+                                <th>TTL</th>
+                                <th>Priority</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dnsTableBody">
+                            <!-- DNS records will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Hosting Tab -->
+        <div id="email" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">📧 Email Hosting</h2>
+                    <button class="btn btn-primary" onclick="openModal('emailModal')">
+                        <span class="icon">➕</span> Create Email Account
+                    </button>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Total Email Accounts</h3>
+                        <div class="value" id="totalEmailAccounts">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Storage Used</h3>
+                        <div class="value" id="emailStorageUsed">0 GB</div>
+                        <div class="change">of 50 GB total</div>
+                    </div>
+                </div>
+                
+                <table class="data-table" id="emailTable" style="margin-top: 25px;">
+                    <thead>
+                        <tr>
+                            <th>Email Address</th>
+                            <th>Domain</th>
+                            <th>Storage Used</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="emailTableBody">
+                        <!-- Email accounts will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Billing Tab -->
+        <div id="billing" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">💳 Billing & Invoices</h2>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Current Balance</h3>
+                        <div class="value">$0.00</div>
+                        <div class="change positive">No outstanding invoices</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Next Billing Date</h3>
+                        <div class="value" id="nextBillingDate">-</div>
+                        <div class="change">Auto-renewal enabled</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Spent (YTD)</h3>
+                        <div class="value">$0.00</div>
+                        <div class="change">Year to date</div>
+                    </div>
+                </div>
+                
+                <h3 style="margin: 25px 0 15px 0;">Recent Invoices</h3>
+                <table class="data-table" id="invoicesTable">
+                    <thead>
+                        <tr>
+                            <th>Invoice #</th>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoicesTableBody">
+                        <!-- Invoices will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Support Tab -->
+        <div id="support" class="tab-content">
+            <div class="section-card">
+                <div class="section-header">
+                    <h2 class="section-title">🎫 Support Tickets</h2>
+                    <button class="btn btn-primary" onclick="openModal('ticketModal')">
+                        <span class="icon">➕</span> New Ticket
+                    </button>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <h3>Open Tickets</h3>
+                        <div class="value" id="openTickets">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Avg Response Time</h3>
+                        <div class="value">2.5h</div>
+                        <div class="change positive">Last 30 days</div>
+                    </div>
+                </div>
+                
+                <h3 style="margin: 25px 0 15px 0;">My Tickets</h3>
+                <table class="data-table" id="ticketsTable">
+                    <thead>
+                        <tr>
+                            <th>Ticket #</th>
+                            <th>Subject</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Last Reply</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticketsTableBody">
+                        <!-- Tickets will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="section-card" style="margin-top: 25px;">
+                <div class="section-header">
+                    <h2 class="section-title">📚 Knowledge Base</h2>
+                </div>
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search knowledge base...">
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <div class="stat-card" style="cursor: pointer;" onclick="alert('Opening documentation...')">
+                        <h3>📖 Getting Started</h3>
+                        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 14px;">Learn the basics of managing your hosting and domains</p>
+                    </div>
+                    <div class="stat-card" style="cursor: pointer;" onclick="alert('Opening documentation...')">
+                        <h3>🔧 DNS Configuration</h3>
+                        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 14px;">Complete guide to DNS records and management</p>
+                    </div>
+                    <div class="stat-card" style="cursor: pointer;" onclick="alert('Opening documentation...')">
+                        <h3>🔒 SSL Setup</h3>
+                        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 14px;">How to install and configure SSL certificates</p>
+                    </div>
+                    <div class="stat-card" style="cursor: pointer;" onclick="alert('Opening documentation...')">
+                        <h3>📧 Email Configuration</h3>
+                        <p style="color: var(--text-secondary); margin-top: 10px; font-size: 14px;">Set up professional email accounts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!-- Modals -->
+    
+    <!-- Domain Registration Modal -->
+    <div id="domainModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('domainModal')">&times;</button>
+                <h2 class="modal-title">Register New Domain</h2>
+            </div>
+            <form id="domainForm" onsubmit="registerDomain(event)">
+                <div class="form-group">
+                    <label class="form-label">Domain Name</label>
+                    <input type="text" class="form-input" placeholder="example.com" required id="domainName">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Extension</label>
+                    <select class="form-select" id="domainTLD">
+                        <option value=".com">.com - $12.99/year</option>
+                        <option value=".net">.net - $14.99/year</option>
+                        <option value=".org">.org - $13.99/year</option>
+                        <option value=".id">.id - $25.00/year</option>
+                        <option value=".io">.io - $39.00/year</option>
+                        <option value=".co">.co - $24.99/year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Registration Period</label>
+                    <select class="form-select" id="domainPeriod">
+                        <option value="1">1 Year</option>
+                        <option value="2">2 Years</option>
+                        <option value="3">3 Years</option>
+                        <option value="5">5 Years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox" id="autoRenew" checked> Enable Auto-Renewal
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">WHOIS Privacy Protection</label>
+                    <select class="form-select" id="whoisPrivacy">
+                        <option value="yes">Yes - $5.99/year</option>
+                        <option value="no" selected>No - Free</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Register Domain</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Hosting Plan Modal -->
+    <div id="hostingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('hostingModal')">&times;</button>
+                <h2 class="modal-title">New Hosting Plan</h2>
+            </div>
+            <form id="hostingForm" onsubmit="createHosting(event)">
+                <div class="form-group">
+                    <label class="form-label">Hosting Plan</label>
+                    <select class="form-select" id="hostingPlan" required>
+                        <option value="starter">Starter - $5.99/month</option>
+                        <option value="business">Business - $12.99/month</option>
+                        <option value="professional">Professional - $24.99/month</option>
+                        <option value="enterprise">Enterprise - $49.99/month</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Domain</label>
+                    <select class="form-select" id="hostingDomain" required>
+                        <option value="">-- Select Domain --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Server Location</label>
+                    <select class="form-select" id="serverLocation">
+                        <option value="us-east">United States (East)</option>
+                        <option value="us-west">United States (West)</option>
+                        <option value="eu-west">Europe (Netherlands)</option>
+                        <option value="asia-sg">Asia (Singapore)</option>
+                        <option value="asia-jp">Asia (Japan)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Operating System</label>
+                    <select class="form-select" id="hostingOS">
+                        <option value="linux">Linux (Ubuntu 22.04)</option>
+                        <option value="centos">Linux (CentOS 8)</option>
+                        <option value="windows">Windows Server 2022</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Hosting</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- SSL Installation Modal -->
+    <div id="sslModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('sslModal')">&times;</button>
+                <h2 class="modal-title">Install SSL Certificate</h2>
+            </div>
+            <form id="sslForm" onsubmit="installSSL(event)">
+                <div class="form-group">
+                    <label class="form-label">Domain</label>
+                    <select class="form-select" id="sslDomain" required>
+                        <option value="">-- Select Domain --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Certificate Type</label>
+                    <select class="form-select" id="sslType">
+                        <option value="letsencrypt">Let's Encrypt (Free)</option>
+                        <option value="single">Single Domain - $79/year</option>
+                        <option value="wildcard">Wildcard - $249/year</option>
+                        <option value="ev">Extended Validation - $199/year</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Validation Method</label>
+                    <select class="form-select" id="sslValidation">
+                        <option value="email">Email Validation</option>
+                        <option value="dns">DNS Validation</option>
+                        <option value="http">HTTP Validation</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Install SSL</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Transfer Domain Modal -->
+    <div id="transferModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('transferModal')">&times;</button>
+                <h2 class="modal-title">Transfer Domain</h2>
+            </div>
+            <form id="transferForm" onsubmit="transferDomain(event)">
+                <div class="form-group">
+                    <label class="form-label">Domain Name</label>
+                    <input type="text" class="form-input" placeholder="example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">EPP Code / Auth Code</label>
+                    <input type="text" class="form-input" placeholder="Enter your EPP code" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">
+                        <input type="checkbox" checked> I confirm that the domain is unlocked at the current registrar
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Initiate Transfer</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- DNS Record Modal -->
+    <div id="dnsRecordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('dnsRecordModal')">&times;</button>
+                <h2 class="modal-title">Add DNS Record</h2>
+            </div>
+            <form id="dnsRecordForm" onsubmit="addDNSRecord(event)">
+                <div class="form-group">
+                    <label class="form-label">Record Type</label>
+                    <select class="form-select" id="dnsRecordType" required onchange="updateDNSFields()">
+                        <option value="A">A Record</option>
+                        <option value="AAAA">AAAA Record</option>
+                        <option value="CNAME">CNAME Record</option>
+                        <option value="MX">MX Record</option>
+                        <option value="TXT">TXT Record</option>
+                        <option value="NS">NS Record</option>
+                        <option value="SRV">SRV Record</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Name/Host</label>
+                    <input type="text" class="form-input" placeholder="@ or subdomain" required id="dnsRecordName">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Value</label>
+                    <input type="text" class="form-input" placeholder="IP address or hostname" required id="dnsRecordValue">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">TTL (seconds)</label>
+                    <input type="number" class="form-input" placeholder="3600" value="3600" id="dnsRecordTTL">
+                </div>
+                <div class="form-group" id="dnsPriorityField" style="display: none;">
+                    <label class="form-label">Priority</label>
+                    <input type="number" class="form-input" placeholder="10" id="dnsRecordPriority">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Add Record</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Email Account Modal -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('emailModal')">&times;</button>
+                <h2 class="modal-title">Create Email Account</h2>
+            </div>
+            <form id="emailForm" onsubmit="createEmail(event)">
+                <div class="form-group">
+                    <label class="form-label">Email Username</label>
+                    <input type="text" class="form-input" placeholder="info" required id="emailUsername">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Domain</label>
+                    <select class="form-select" id="emailDomain" required>
+                        <option value="">-- Select Domain --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" placeholder="Enter password" required id="emailPassword">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" placeholder="Confirm password" required id="emailPasswordConfirm">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mailbox Quota (MB)</label>
+                    <input type="number" class="form-input" placeholder="1024" value="1024" id="emailQuota">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Email Account</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Support Ticket Modal -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal('ticketModal')">&times;</button>
+                <h2 class="modal-title">Create Support Ticket</h2>
+            </div>
+            <form id="ticketForm" onsubmit="createTicket(event)">
+                <div class="form-group">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-input" placeholder="Brief description of your issue" required id="ticketSubject">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Department</label>
+                    <select class="form-select" id="ticketDepartment" required>
+                        <option value="technical">Technical Support</option>
+                        <option value="billing">Billing</option>
+                        <option value="sales">Sales</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Priority</label>
+                    <select class="form-select" id="ticketPriority">
+                        <option value="low">Low</option>
+                        <option value="normal" selected>Normal</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Related Service</label>
+                    <select class="form-select" id="ticketService">
+                        <option value="">-- Select Service (Optional) --</option>
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Message</label>
+                    <textarea class="form-input" rows="6" placeholder="Describe your issue in detail..." required id="ticketMessage"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Ticket</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Data Store
+        let data = {
+            domains: [],
+            hosting: [],
+            ssl: [],
+            dns: {},
+            email: [],
+            invoices: [],
+            tickets: [],
+            activity: []
+        };
+        
+        // Initialize sample data
+        function initializeData() {
+            // Sample domains
+            data.domains = [
+                { id: 1, name: 'southeastapp.com', status: 'active', regDate: '2023-01-15', expiry: '2025-01-15', autoRenew: true, tld: '.com' },
+                { id: 2, name: 'myproject.net', status: 'active', regDate: '2023-06-20', expiry: '2024-06-20', autoRenew: true, tld: '.net' },
+                { id: 3, name: 'testsite.org', status: 'pending', regDate: '2024-01-10', expiry: '2025-01-10', autoRenew: false, tld: '.org' },
+                { id: 4, name: 'business.id', status: 'active', regDate: '2022-11-05', expiry: '2024-11-05', autoRenew: true, tld: '.id' },
+                { id: 5, name: 'startup.io', status: 'expired', regDate: '2022-03-12', expiry: '2024-03-12', autoRenew: false, tld: '.io' }
+            ];
+            
+            // Sample hosting plans
+            data.hosting = [
+                { id: 1, plan: 'business', domain: 'southeastapp.com', location: 'asia-sg', os: 'linux', status: 'active', disk: '45GB', bandwidth: '620GB', created: '2023-01-15' },
+                { id: 2, plan: 'starter', domain: 'myproject.net', location: 'us-east', os: 'linux', status: 'active', disk: '8GB', bandwidth: '95GB', created: '2023-06-20' }
+            ];
+            
+            // Sample SSL certificates
+            data.ssl = [
+                { id: 1, domain: 'southeastapp.com', type: 'letsencrypt', issuer: "Let's Encrypt", validFrom: '2024-01-15', validUntil: '2024-04-15', status: 'active' },
+                { id: 2, domain: 'myproject.net', type: 'single', issuer: 'Comodo', validFrom: '2023-06-20', validUntil: '2024-06-20', status: 'active' },
+                { id: 3, domain: 'business.id', type: 'letsencrypt', issuer: "Let's Encrypt", validFrom: '2023-11-05', validUntil: '2024-02-05', status: 'expiring' }
+            ];
+            
+            // Sample DNS records
+            data.dns = {
+                'southeastapp.com': [
+                    { type: 'A', name: '@', value: '192.168.1.1', ttl: 3600, priority: null },
+                    { type: 'CNAME', name: 'www', value: 'southeastapp.com', ttl: 3600, priority: null },
+                    { type: 'MX', name: '@', value: 'mail.southeastapp.com', ttl: 3600, priority: 10 },
+                    { type: 'TXT', name: '@', value: 'v=spf1 include:_spf.google.com ~all', ttl: 3600, priority: null }
+                ],
+                'myproject.net': [
+                    { type: 'A', name: '@', value: '192.168.1.2', ttl: 3600, priority: null },
+                    { type: 'CNAME', name: 'www', value: 'myproject.net', ttl: 3600, priority: null }
+                ]
+            };
+            
+            // Sample email accounts
+            data.email = [
+                { id: 1, address: 'info@southeastapp.com', domain: 'southeastapp.com', storage: 2.5, status: 'active', lastLogin: '2024-01-15 10:30' },
+                { id: 2, address: 'admin@southeastapp.com', domain: 'southeastapp.com', storage: 1.2, status: 'active', lastLogin: '2024-01-14 15:45' },
+                { id: 3, address: 'contact@myproject.net', domain: 'myproject.net', storage: 0.8, status: 'active', lastLogin: '2024-01-13 09:20' }
+            ];
+            
+            // Sample invoices
+            data.invoices = [
+                { id: 'INV-2024-001', date: '2024-01-15', description: 'Hosting Plan - Business', amount: 12.99, status: 'paid' },
+                { id: 'INV-2024-002', date: '2024-01-10', description: 'Domain Renewal - southeastapp.com', amount: 12.99, status: 'paid' },
+                { id: 'INV-2023-045', date: '2023-12-20', description: 'SSL Certificate - Single Domain', amount: 79.00, status: 'paid' }
+            ];
+            
+            // Sample tickets
+            data.tickets = [
+                { id: 'TKT-001', subject: 'Cannot access cPanel', department: 'technical', status: 'open', created: '2024-01-14', lastReply: '2024-01-14 16:30' },
+                { id: 'TKT-002', subject: 'Billing inquiry', department: 'billing', status: 'closed', created: '2024-01-10', lastReply: '2024-01-11 10:00' }
+            ];
+            
+            // Sample activity
+            data.activity = [
+                { date: '2024-01-15 10:30', action: 'SSL certificate renewed', domain: 'southeastapp.com' },
+                { date: '2024-01-14 15:45', action: 'Email account created', domain: 'admin@southeastapp.com' },
+                { date: '2024-01-13 09:20', action: 'DNS record updated', domain: 'myproject.net' },
+                { date: '2024-01-12 14:00', action: 'Hosting plan upgraded', domain: 'southeastapp.com' },
+                { date: '2024-01-10 11:30', action: 'Domain registered', domain: 'testsite.org' }
+            ];
+        }
+        
+        // Tab switching
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Refresh data when switching tabs
+            refreshData();
+        }
+        
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            populateDomainSelects();
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+        
+        // Populate domain selects in modals
+        function populateDomainSelects() {
+            const selects = ['hostingDomain', 'sslDomain', 'emailDomain'];
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    select.innerHTML = '<option value="">-- Select Domain --</option>';
+                    data.domains.forEach(domain => {
+                        if (domain.status === 'active') {
+                            select.innerHTML += `<option value="${domain.name}">${domain.name}</option>`;
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Refresh all data displays
+        function refreshData() {
+            updateDashboard();
+            renderDomainsTable();
+            renderHostingCards();
+            renderSSLTable();
+            renderEmailTable();
+            renderInvoicesTable();
+            renderTicketsTable();
+            renderActivityTimeline();
+            populateDNSSelect();
+        }
+        
+        // Update dashboard statistics
+        function updateDashboard() {
+            document.getElementById('totalDomains').textContent = data.domains.length;
+            document.getElementById('activeHosting').textContent = data.hosting.filter(h => h.status === 'active').length;
+            document.getElementById('totalSSL').textContent = data.ssl.length;
+            
+            const totalStorage = data.hosting.reduce((sum, h) => sum + parseInt(h.disk), 0);
+            document.getElementById('storageUsed').textContent = totalStorage + ' GB';
+        }
+        
+        // Render domains table
+        function renderDomainsTable() {
+            const tbody = document.getElementById('domainsTableBody');
+            tbody.innerHTML = '';
+            
+            data.domains.forEach(domain => {
+                const statusClass = `status-${domain.status}`;
+                const row = `
+                    <tr>
+                        <td><strong>${domain.name}</strong></td>
+                        <td><span class="status-badge ${statusClass}">${domain.status.toUpperCase()}</span></td>
+                        <td>${domain.regDate}</td>
+                        <td>${domain.expiry}</td>
+                        <td>${domain.autoRenew ? '✅' : '❌'}</td>
+                        <td>
+                            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;" onclick="manageDomain(${domain.id})">Manage</button>
+                            <button class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;" onclick="deleteDomain(${domain.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+        
+        // Render hosting cards
+        function renderHostingCards() {
+            const container = document.getElementById('hostingCards');
+            container.innerHTML = '';
+            
+            data.hosting.forEach(hosting => {
+                const card = `
+                    <div class="stat-card">
+                        <h3>${hosting.plan.toUpperCase()} Plan</h3>
+                        <div style="font-size: 20px; font-weight: 600; margin: 10px 0;">${hosting.domain}</div>
+                        <div style="color: var(--text-secondary); font-size: 14px; margin-bottom: 15px;">
+                            📍 ${hosting.location} | 💻 ${hosting.os}
+                        </div>
+                        <div style="margin-bottom: 10px;">
+                            <div style="font-size: 13px;">Disk: ${hosting.disk}</div>
+                            <div class="progress-bar" style="height: 6px;">
+                                <div class="progress-fill" style="width: ${Math.min(100, parseInt(hosting.disk) / 100 * 100)}%;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <div style="font-size: 13px;">Bandwidth: ${hosting.bandwidth}</div>
+                            <div class="progress-bar" style="height: 6px;">
+                                <div class="progress-fill" style="width: ${Math.min(100, parseInt(hosting.bandwidth) / 1000 * 100)}%;"></div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-primary" style="flex: 1;" onclick="manageHosting(${hosting.id})">Manage</button>
+                            <button class="btn btn-outline" style="flex: 1;" onclick="viewStats(${hosting.id})">Stats</button>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+        
+        // Render SSL table
+        function renderSSLTable() {
+            const tbody = document.getElementById('sslTableBody');
+            tbody.innerHTML = '';
+            
+            const expiringSoon = data.ssl.filter(s => s.status === 'expiring').length > 0;
+            document.getElementById('sslExpiringAlert').style.display = expiringSoon ? 'block' : 'none';
+            
+            data.ssl.forEach(ssl => {
+                const statusClass = ssl.status === 'expiring' ? 'status-expired' : 'status-active';
+                const row = `
+                    <tr>
+                        <td><strong>${ssl.domain}</strong></td>
+                        <td>${ssl.type}</td>
+                        <td>${ssl.issuer}</td>
+                        <td>${ssl.validFrom}</td>
+                        <td>${ssl.validUntil}</td>
+                        <td><span class="status-badge ${statusClass}">${ssl.status.toUpperCase()}</span></td>
+                        <td>
+                            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;" onclick="renewSSL(${ssl.id})">Renew</button>
+                            <button class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;" onclick="revokeSSL(${ssl.id})">Revoke</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+        
+        // Render email table
+        function renderEmailTable() {
+            const tbody = document.getElementById('emailTableBody');
+            tbody.innerHTML = '';
+            
+            let totalStorage = 0;
+            data.email.forEach(email => {
+                totalStorage += email.storage;
+                const row = `
+                    <tr>
+                        <td><strong>${email.address}</strong></td>
+                        <td>${email.domain}</td>
+                        <td>${email.storage} GB</td>
+                        <td><span class="status-badge status-active">ACTIVE</span></td>
+                        <td>${email.lastLogin}</td>
+                        <td>
+                            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;" onclick="resetPassword(${email.id})">Reset PW</button>
+                            <button class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;" onclick="deleteEmail(${email.id})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+            
+            document.getElementById('totalEmailAccounts').textContent = data.email.length;
+            document.getElementById('emailStorageUsed').textContent = totalStorage.toFixed(1) + ' GB';
+        }
+        
+        // Render invoices table
+        function renderInvoicesTable() {
+            const tbody = document.getElementById('invoicesTableBody');
+            tbody.innerHTML = '';
+            
+            data.invoices.forEach(invoice => {
+                const row = `
+                    <tr>
+                        <td>${invoice.id}</td>
+                        <td>${invoice.date}</td>
+                        <td>${invoice.description}</td>
+                        <td>$${invoice.amount.toFixed(2)}</td>
+                        <td><span class="status-badge status-active">${invoice.status.toUpperCase()}</span></td>
+                        <td>
+                            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;" onclick="downloadInvoice('${invoice.id}')">Download</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+        
+        // Render tickets table
+        function renderTicketsTable() {
+            const tbody = document.getElementById('ticketsTableBody');
+            tbody.innerHTML = '';
+            
+            data.tickets.forEach(ticket => {
+                const statusClass = ticket.status === 'open' ? 'status-pending' : 'status-active';
+                const row = `
+                    <tr>
+                        <td>${ticket.id}</td>
+                        <td><strong>${ticket.subject}</strong></td>
+                        <td>${ticket.department}</td>
+                        <td><span class="status-badge ${statusClass}">${ticket.status.toUpperCase()}</span></td>
+                        <td>${ticket.created}</td>
+                        <td>${ticket.lastReply}</td>
+                        <td>
+                            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;" onclick="viewTicket('${ticket.id}')">View</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+            
+            document.getElementById('openTickets').textContent = data.tickets.filter(t => t.status === 'open').length;
+        }
+        
+        // Render activity timeline
+        function renderActivityTimeline() {
+            const container = document.getElementById('activityTimeline');
+            container.innerHTML = '';
+            
+            data.activity.slice(0, 5).forEach(activity => {
+                const item = `
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">${activity.date}</div>
+                        <div class="timeline-content">
+                            <strong>${activity.action}</strong><br>
+                            <span style="color: var(--text-secondary); font-size: 13px;">${activity.domain}</span>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += item;
+            });
+        }
+        
+        // Populate DNS domain select
+        function populateDNSSelect() {
+            const select = document.getElementById('dnsDomainSelect');
+            select.innerHTML = '<option value="">-- Select Domain --</option>';
+            data.domains.forEach(domain => {
+                if (domain.status === 'active') {
+                    select.innerHTML += `<option value="${domain.name}">${domain.name}</option>`;
+                }
+            });
+        }
+        
+        // Load DNS records
+        function loadDNSRecords(domain) {
+            const section = document.getElementById('dnsRecordsSection');
+            const tbody = document.getElementById('dnsTableBody');
+            
+            if (!domain) {
+                section.style.display = 'none';
+                return;
+            }
+            
+            section.style.display = 'block';
+            document.getElementById('selectedDomain').textContent = domain;
+            tbody.innerHTML = '';
+            
+            const records = data.dns[domain] || [];
+            records.forEach((record, index) => {
+                const row = `
+                    <tr>
+                        <td><span class="status-badge status-active">${record.type}</span></td>
+                        <td>${record.name}</td>
+                        <td>${record.value}</td>
+                        <td>${record.ttl}</td>
+                        <td>${record.priority || '-'}</td>
+                        <td>
+                            <button class="btn btn-outline" style="padding: 5px 10px; font-size: 12px;" onclick="editDNSRecord(${index})">Edit</button>
+                            <button class="btn btn-danger" style="padding: 5px 10px; font-size: 12px;" onclick="deleteDNSRecord(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+        
+        // Form submission handlers
+        function registerDomain(e) {
+            e.preventDefault();
+            const name = document.getElementById('domainName').value + document.getElementById('domainTLD').value;
+            const period = document.getElementById('domainPeriod').value;
+            const today = new Date();
+            const expiry = new Date(today.setFullYear(today.getFullYear() + parseInt(period)));
+            
+            const newDomain = {
+                id: data.domains.length + 1,
+                name: name,
+                status: 'pending',
+                regDate: new Date().toISOString().split('T')[0],
+                expiry: expiry.toISOString().split('T')[0],
+                autoRenew: document.getElementById('autoRenew').checked,
+                tld: document.getElementById('domainTLD').value
+            };
+            
+            data.domains.push(newDomain);
+            addActivity('Domain registered', name);
+            closeModal('domainModal');
+            refreshData();
+            alert('Domain registration initiated! You will receive an email once it\'s approved.');
+        }
+        
+        function createHosting(e) {
+            e.preventDefault();
+            const newHosting = {
+                id: data.hosting.length + 1,
+                plan: document.getElementById('hostingPlan').value,
+                domain: document.getElementById('hostingDomain').value,
+                location: document.getElementById('serverLocation').value,
+                os: document.getElementById('hostingOS').value,
+                status: 'active',
+                disk: '0GB',
+                bandwidth: '0GB',
+                created: new Date().toISOString().split('T')[0]
+            };
+            
+            data.hosting.push(newHosting);
+            addActivity('Hosting plan created', newHosting.domain);
+            closeModal('hostingModal');
+            refreshData();
+            alert('Hosting plan created successfully!');
+        }
+        
+        function installSSL(e) {
+            e.preventDefault();
+            const today = new Date();
+            const validUntil = new Date(today.setMonth(today.getMonth() + 3));
+            
+            const newSSL = {
+                id: data.ssl.length + 1,
+                domain: document.getElementById('sslDomain').value,
+                type: document.getElementById('sslType').value,
+                issuer: document.getElementById('sslType').value === 'letsencrypt' ? "Let's Encrypt" : 'Custom CA',
+                validFrom: new Date().toISOString().split('T')[0],
+                validUntil: validUntil.toISOString().split('T')[0],
+                status: 'active'
+            };
+            
+            data.ssl.push(newSSL);
+            addActivity('SSL certificate installed', newSSL.domain);
+            closeModal('sslModal');
+            refreshData();
+            alert('SSL certificate installation initiated!');
+        }
+        
+        function transferDomain(e) {
+            e.preventDefault();
+            alert('Domain transfer initiated! This process may take 5-7 days.');
+            closeModal('transferModal');
+        }
+        
+        function addDNSRecord(e) {
+            e.preventDefault();
+            const domain = document.getElementById('dnsDomainSelect').value;
+            if (!domain) {
+                alert('Please select a domain first');
+                return;
+            }
+            
+            const newRecord = {
+                type: document.getElementById('dnsRecordType').value,
+                name: document.getElementById('dnsRecordName').value,
+                value: document.getElementById('dnsRecordValue').value,
+                ttl: parseInt(document.getElementById('dnsRecordTTL').value),
+                priority: document.getElementById('dnsRecordPriority').value ? parseInt(document.getElementById('dnsRecordPriority').value) : null
+            };
+            
+            if (!data.dns[domain]) {
+                data.dns[domain] = [];
+            }
+            data.dns[domain].push(newRecord);
+            
+            addActivity('DNS record added', domain);
+            closeModal('dnsRecordModal');
+            loadDNSRecords(domain);
+            alert('DNS record added successfully!');
+        }
+        
+        function createEmail(e) {
+            e.preventDefault();
+            const username = document.getElementById('emailUsername').value;
+            const domain = document.getElementById('emailDomain').value;
+            const password = document.getElementById('emailPassword').value;
+            const confirm = document.getElementById('emailPasswordConfirm').value;
+            
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            const newEmail = {
+                id: data.email.length + 1,
+                address: `${username}@${domain}`,
+                domain: domain,
+                storage: 0,
+                status: 'active',
+                lastLogin: 'Never'
+            };
+            
+            data.email.push(newEmail);
+            addActivity('Email account created', newEmail.address);
+            closeModal('emailModal');
+            refreshData();
+            alert('Email account created successfully!');
+        }
+        
+        function createTicket(e) {
+            e.preventDefault();
+            const newTicket = {
+                id: `TKT-${String(data.tickets.length + 1).padStart(3, '0')}`,
+                subject: document.getElementById('ticketSubject').value,
+                department: document.getElementById('ticketDepartment').value,
+                status: 'open',
+                created: new Date().toISOString().split('T')[0],
+                lastReply: 'Pending'
+            };
+            
+            data.tickets.push(newTicket);
+            addActivity('Support ticket created', newTicket.id);
+            closeModal('ticketModal');
+            refreshData();
+            alert(`Ticket ${newTicket.id} created! We will respond within 24 hours.`);
+        }
+        
+        // Utility functions
+        function addActivity(action, domain) {
+            data.activity.unshift({
+                date: new Date().toLocaleString(),
+                action: action,
+                domain: domain
+            });
+        }
+        
+        function filterDomains(query) {
+            const rows = document.querySelectorAll('#domainsTableBody tr');
+            rows.forEach(row => {
+                const domainName = row.cells[0].textContent.toLowerCase();
+                row.style.display = domainName.includes(query.toLowerCase()) ? '' : 'none';
+            });
+        }
+        
+        function filterByStatus(status) {
+            const rows = document.querySelectorAll('#domainsTableBody tr');
+            rows.forEach(row => {
+                const cellStatus = row.cells[1].textContent.toLowerCase();
+                if (status === 'all' || cellStatus.includes(status)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function filterByTLD(tld) {
+            const rows = document.querySelectorAll('#domainsTableBody tr');
+            rows.forEach(row => {
+                const domainName = row.cells[0].textContent.toLowerCase();
+                if (tld === 'all' || domainName.endsWith(tld)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function updateDNSFields() {
+            const type = document.getElementById('dnsRecordType').value;
+            const priorityField = document.getElementById('dnsPriorityField');
+            priorityField.style.display = (type === 'MX' || type === 'SRV') ? 'block' : 'none';
+        }
+        
+        // Placeholder action functions
+        function manageDomain(id) { alert('Manage domain ' + id); }
+        function deleteDomain(id) { if(confirm('Delete this domain?')) { data.domains = data.domains.filter(d => d.id !== id); refreshData(); } }
+        function manageHosting(id) { alert('Manage hosting ' + id); }
+        function viewStats(id) { alert('View stats for hosting ' + id); }
+        function renewSSL(id) { alert('Renew SSL ' + id); }
+        function revokeSSL(id) { if(confirm('Revoke SSL?')) { data.ssl = data.ssl.filter(s => s.id !== id); refreshData(); } }
+        function resetPassword(id) { alert('Reset password for email ' + id); }
+        function deleteEmail(id) { if(confirm('Delete email account?')) { data.email = data.email.filter(e => e.id !== id); refreshData(); } }
+        function downloadInvoice(id) { alert('Download invoice ' + id); }
+        function viewTicket(id) { alert('View ticket ' + id); }
+        function editDNSRecord(index) { alert('Edit DNS record ' + index); }
+        function deleteDNSRecord(index) { 
+            const domain = document.getElementById('dnsDomainSelect').value;
+            if (confirm('Delete this DNS record?') && domain) {
+                data.dns[domain].splice(index, 1);
+                loadDNSRecords(domain);
+            }
+        }
+        function viewAllActivity() { alert('View all activity'); }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeData();
+            refreshData();
+        });
+    </script>
+</body>
+</html>
