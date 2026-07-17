@@ -1,5 +1,5 @@
 # https://southeastapp.github.io/view/digital.html
-# https://southeastapp.github.io/view/fiturdigital/index.html
+# https://southeastapp.github.io/view/fiturdigital/digital.html
 # https://southeastapp.github.io/view/aichatreber/index.html
 # https://southeastapp.github.io/view/filemanajer.html
 # https://southeastapp.github.io/view/appbrowser.html
