@@ -1,0 +1,390 @@
+/* ============================================
+   APP BROWSER STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #ee5a5a;
+    --bg-dark: #0a0a0f;
+    --bg-medium: #1a1a2e;
+    --bg-light: #16162a;
+    --border-color: #2a2a3e;
+    --text-primary: #ffffff;
+    --text-secondary: #aaaaaa;
+    --success-color: #27c93f;
+    --warning-color: #ffbd2e;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.browser-container {
+    display: grid;
+    grid-template-rows: 70px 1fr 60px;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ============================================
+   HEADER BAR
+   ============================================ */
+
+.browser-header {
+    background: linear-gradient(135deg, var(--bg-medium), var(--bg-light));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border-color);
+    gap: 20px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 250px;
+}
+
+.app-icon {
+    font-size: 2em;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.95); }
+}
+
+.app-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.user-badge {
+    background: rgba(255, 107, 107, 0.2);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    color: var(--primary-color);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    white-space: nowrap;
+}
+
+/* ============================================
+   URL BAR
+   ============================================ */
+
+.url-bar-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
+    max-width: 800px;
+}
+
+.url-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: var(--text-primary);
+    font-size: 0.95em;
+    transition: all 0.3s;
+}
+
+.url-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.3);
+}
+
+.url-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.btn-go {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.btn-go:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btn-proxy {
+    background: rgba(39, 201, 63, 0.2);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.btn-proxy.active {
+    background: rgba(39, 201, 63, 0.3);
+}
+
+.btn-proxy.inactive {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-secondary);
+    color: var(--text-secondary);
+}
+
+.btn-user {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-user:hover {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: var(--primary-color);
+}
+
+.header-right {
+    display: flex;
+    gap: 10px;
+    min-width: 100px;
+    justify-content: flex-end;
+}
+
+.btn-icon {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.2em;
+}
+
+.btn-icon:hover {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+
+.browser-main {
+    position: relative;
+    background: var(--bg-light);
+    overflow: hidden;
+}
+
+.iframe-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.content-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: white;
+}
+
+/* ============================================
+   LOADING INDICATOR
+   ============================================ */
+
+.loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+}
+
+.loading-indicator.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 107, 107, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   FALLBACK MESSAGE
+   ============================================ */
+
+.fallback-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 100;
+    max-width: 500px;
+    padding: 30px;
+    background: var(--bg-medium);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.fallback-message.hidden {
+    display: none;
+}
+
+.fallback-content h2 {
+    color: var(--warning-color);
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.fallback-content p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.fallback-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btn-action.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-action.secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   BOOKMARKS BAR
+   ============================================ */
+
+.bookmarks-bar {
+    background: var(--bg-medium);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    overflow-x: auto;
+    align-items: center;
+}
+
+.bookmark-item {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-size: 0.9em;
+}
+
+.bookmark-item:hover {
+    background: rgba(255, 107, 107, 0.2);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .browser-header {
+        flex-wrap: wrap;
+        padding: 10px;
+    }
+    
+    .header-left {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .url-bar-container {
+        order: 3;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .header-right {
+        order: 2;
+    }
+    
+    .user-badge {
+        display: none;
+    }
+    
+    .bookmarks-bar {
+        padding: 8px 10px;
+    }
+    
+    .bookmark-item {
+        padding: 6px 12px;
+        font-size: 0.85em;
+    }
+}
