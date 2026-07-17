@@ -70,7 +70,7 @@ Semua file CSS, JS, dan file fungsi sejenis (TS, JSX, TSX, SCSS, LESS) mengikuti
 ```
 <link rel=./digital ../digital/UkurAn.css >
 <script src=./digital ../digital/UkurAn.js >
-+ puluhan ribu komponen independen manual style script
++ jutaan komponen independen manual style script
 ```
 ```javascript
 import GlobalIO from './digital.js';
