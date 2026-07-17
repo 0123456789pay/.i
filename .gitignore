@@ -1,8 +1,7 @@
 # Examples 1:
-(No content - empty because only source/config files like HTML were mentioned)
+(empty — output nothing)
 
 # Example 2 (Project with artifacts):
-```
 # Compiled and build artifacts
 *.pyc
 __pycache__/
@@ -10,30 +9,18 @@ __pycache__/
 *.obj
 dist/
 build/
-target/
-
 # Dependencies
 .venv/
 venv/
 node_modules/
-.mypy_cache/
-.pytest_cache/
-.gradle/
-
 # Logs and temp files
 *.log
 *.tmp
 *.swp
-
 # Environment
 .env
 .env.local
 .env.*
-
 # Editors
 .vscode/
 .idea/
-
-# Original rules preserved
-*.log
-```
