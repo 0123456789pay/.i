@@ -54,11 +54,11 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 1px;
+            gap: 0;
             margin: 0;
             padding: 0;
             flex-wrap: nowrap;
-            overflow-x: auto;
+            overflow-x: visible;
             flex: 1;
         }
 
@@ -70,16 +70,21 @@
         .nav-link {
             display: flex;
             align-items: center;
-            gap: 5px;
-            padding: 7px 10px;
+            gap: 6px;
+            padding: 8px 12px;
             color: #333;
             text-decoration: none;
             font-weight: 600;
-            font-size: 12px;
-            border-radius: 4px;
+            font-size: 13px;
+            border-radius: 0;
             transition: all 0.2s;
             cursor: pointer;
             white-space: nowrap;
+            border-right: 1px solid #e3f2fd;
+        }
+
+        .nav-link:first-child {
+            border-left: 1px solid #e3f2fd;
         }
 
         .nav-link:hover {
@@ -93,7 +98,7 @@
         }
 
         .nav-link .arrow {
-            font-size: 9px;
+            font-size: 10px;
             transition: transform 0.2s;
         }
 
@@ -108,9 +113,10 @@
             top: 100%;
             left: 0;
             background: white;
-            border-radius: 8px;
+            border-radius: 0;
             box-shadow: 0 8px 30px rgba(33, 150, 243, 0.25);
             border: 1px solid #e3f2fd;
+            border-top: none;
             min-width: 260px;
             max-height: 0;
             overflow: hidden;
@@ -138,7 +144,7 @@
             color: white;
             font-weight: 700;
             font-size: 14px;
-            border-radius: 8px 8px 0 0;
+            border-radius: 0;
         }
 
         .dropdown-content {
@@ -458,7 +464,7 @@
             const maxVisible = 7;
             const totalCategories = categories.length;
 
-            // Render first 7 categories with icons in navbar
+            // Render first 7 categories with icons in navbar (icon only)
             categories.slice(0, maxVisible).forEach(([categoryName, categoryData]) => {
                 const navItem = document.createElement('li');
                 navItem.className = 'nav-item';
@@ -467,8 +473,8 @@
                 const categoryId = categoryName.replace(/\s+/g, '-').replace(/&/g, '-and-');
                 
                 navItem.innerHTML = `
-                    <a href="#" class="nav-link" onclick="toggleNav(event, '${safeCategoryName}')">
-                        ${categoryData.icon || '📁'} ${categoryName}
+                    <a href="#" class="nav-link" onclick="toggleNav(event, '${safeCategoryName}')" title="${categoryName}">
+                        ${categoryData.icon || '📁'}
                         <span class="arrow">▼</span>
                     </a>
                     <div class="dropdown" id="dropdown-${categoryId}">
@@ -519,8 +525,8 @@
                 });
                 
                 moreItem.innerHTML = `
-                    <a href="#" class="nav-link" onclick="toggleMoreNav(event)">
-                        📋 Lainnya (${totalCategories - maxVisible})
+                    <a href="#" class="nav-link" onclick="toggleMoreNav(event)" title="Kategori Lainnya">
+                        📋
                         <span class="arrow">▼</span>
                     </a>
                     <div class="dropdown" id="dropdown-more">
