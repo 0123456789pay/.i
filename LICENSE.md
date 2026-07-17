@@ -1,1 +1,1 @@
-# .io # NEW SISTEM VENDOR " .digital " TLD GTLD
+# .io # NEW SISTEM VENDOR .digital TLD GTLD
