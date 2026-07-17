@@ -1,0 +1,68 @@
+{
+  "proxy": {
+    "port": 8080,
+    "host": "0.0.0.0",
+    "timeout": 30000,
+    "max_connections": 1000,
+    "ssl": {
+      "enabled": true,
+      "cert_path": "/etc/ssl/certs/proxy.crt",
+      "key_path": "/etc/ssl/private/proxy.key"
+    }
+  },
+  "browser_search": {
+    "enabled": true,
+    "engines": ["google", "bing", "duckduckgo"],
+    "cache_ttl": 3600,
+    "rate_limit": 100
+  },
+  "api_gateway": {
+    "enabled": true,
+    "version": "v1",
+    "endpoints": ["/api/v1/*"],
+    "auth_required": true
+  },
+  "ai_mcp": {
+    "enabled": true,
+    "model_endpoint": "http://localhost:5000/mcp",
+    "max_tokens": 4096,
+    "temperature": 0.7
+  },
+  "ai_system": {
+    "enabled": true,
+    "models": ["gpt-4", "claude-3", "llama-3"],
+    "fallback_enabled": true,
+    "context_window": 128000
+  },
+  "routing": {
+    "algorithm": "least_connections",
+    "health_check_interval": 30,
+    "retry_attempts": 3,
+    "load_balancing": true
+  },
+  "hosting": {
+    "enabled": true,
+    "root_dir": "/var/www/html",
+    "index_files": ["index.html", "index.htm"],
+    "directory_listing": false
+  },
+  "domain": {
+    "managed_domains": ["example.com", "api.example.com"],
+    "ssl_auto_renew": true,
+    "dns_provider": "cloudflare"
+  },
+  "logging": {
+    "level": "info",
+    "file": "/workspace/controlproxy/logs/proxy.log",
+    "max_size_mb": 100,
+    "rotation_count": 5
+  },
+  "dashboard": {
+    "enabled": true,
+    "port": 3000,
+    "auth": {
+      "username": "admin",
+      "password_hash": "$2b$10$example_hash_here"
+    }
+  }
+}
