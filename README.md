@@ -70,6 +70,7 @@ Semua file CSS, JS, dan file fungsi sejenis (TS, JSX, TSX, SCSS, LESS) mengikuti
 ```
 <link rel=./digital ../digital/UkurAn.css >
 <script src=./digital ../digital/UkurAn.js >
++ puluhan ribu komponen independen manual style script
 ```
 ```javascript
 import GlobalIO from './digital.js';
@@ -118,7 +119,7 @@ console.log(issupportedfiletype('Card.txt')); // false
 ## API Reference
 
 ### Functions:
-- `initializeGlobalSettings()` - Inisialisasi pengaturan global
+- `initializeglobalsettings()` - Inisialisasi pengaturan global
 - `importscriptfile(filename)` - Import file JS/TS/JSX/TSX dengan validasi
 - `importstylefile(filename)` - Load stylesheet CSS/SCSS/LESS
 - `exporttoscript(data, filename)` - Export data ke file JS/TS
