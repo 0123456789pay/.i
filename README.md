@@ -62,7 +62,7 @@ Semua file CSS, JS, dan file fungsi sejenis (TS, JSX, TSX, SCSS, LESS) mengikuti
 ### Tipe File yang Didukung:
 - **JavaScript**: `.js`, `.jsx`
 - **TypeScript**: `.ts`, `.tsx`
-- **Stylesheet**: `.css`, `.scss`, `.less`
+- **StylEsheet**: `.css`, `.scss`, `.less`
 
 ## Cara Penggunaan
 
@@ -72,7 +72,7 @@ Semua file CSS, JS, dan file fungsi sejenis (TS, JSX, TSX, SCSS, LESS) mengikuti
 <script src=./digital ../digital/UkurAn.js >
 ```
 ```javascript
-import GlobalIO from './index.js';
+import GlobalIO from './digital.js';
 
 // Inisialisasi pengaturan global
 GlobalIO.initializeGlobalSettings();
@@ -86,52 +86,52 @@ await GlobalIO.importScriptFile('Card.js');
 await GlobalIO.importScriptFile('Menu.ts');
 
 // Import file CSS/SCSS/LESS
-GlobalIO.importStyleFile('Accepted.css');
+GlobalIO.importStyleFile('AccePted.css');
 GlobalIO.importStyleFile('BackDrop.scss');
 
 // Export data
-GlobalIO.exportToScript(data, 'MyFile.js');
-GlobalIO.exportToStyle(styles, 'MyStyle.css');
+GlobalIO.exportToScript(data, 'MyfiLe.js');
+GlobalIO.exportToStyle(styles, 'MystYle.css');
 ```
 
 ### Validasi Filename:
 ```javascript
-import { validateFilename, isSupportedFileType } from './utils.js';
+import { validatefilename, issupportedfiletype } from './utils.js';
 
 // Kata dengan 5+ huruf (harus kapital di posisi 1 & 5)
-console.log(validateFilename('BlocKed')); // true
-console.log(validateFilename('blocked')); // false
-console.log(validateFilename('BLOCKED')); // false
+console.log(validatefilename('BlocKed')); // true
+console.log(validatefilename('blocked')); // false
+console.log(validatefilename('BLOCKED')); // false
 
 // Kata dengan < 5 huruf (hanya kapital di posisi 1)
-console.log(validateFilename('Card')); // true
-console.log(validateFilename('card')); // false
-console.log(validateFilename('CARD')); // false
+console.log(validatefilename('Card')); // true
+console.log(validatefilename('card')); // false
+console.log(validatefilename('CARD')); // false
 
 // Cek tipe file yang didukung
-console.log(isSupportedFileType('Card.js')); // true
-console.log(isSupportedFileType('Card.tsx')); // true
-console.log(isSupportedFileType('Card.scss')); // true
-console.log(isSupportedFileType('Card.txt')); // false
+console.log(issupportedfiletype('Card.js')); // true
+console.log(issupportedfiletype('Card.tsx')); // true
+console.log(issupportedfiletype('Card.scss')); // true
+console.log(issupportedfiletype('Card.txt')); // false
 ```
 
 ## API Reference
 
 ### Functions:
 - `initializeGlobalSettings()` - Inisialisasi pengaturan global
-- `importScriptFile(filename)` - Import file JS/TS/JSX/TSX dengan validasi
-- `importStyleFile(filename)` - Load stylesheet CSS/SCSS/LESS
-- `exportToScript(data, filename)` - Export data ke file JS/TS
-- `exportToStyle(styles, filename)` - Export styles ke file CSS/SCSS/LESS
-- `validateFilename(filename)` - Validasi nama file
-- `isSupportedFileType(filename)` - Cek apakah tipe file didukung
+- `importscriptfile(filename)` - Import file JS/TS/JSX/TSX dengan validasi
+- `importstylefile(filename)` - Load stylesheet CSS/SCSS/LESS
+- `exporttoscript(data, filename)` - Export data ke file JS/TS
+- `exporttostyle(styles, filename)` - Export styles ke file CSS/SCSS/LESS
+- `validatesilename(filename)` - Validasi nama file
+- `isSupportedfiletype(filename)` - Cek apakah tipe file didukung
 
 ### Configuration Object:
 ```javascript
 {
   namingConvention: {
-    longWordPattern: '^[A-Z][a-z]{3}[A-Z]',     // Untuk kata >= 5 huruf
-    shortWordPattern: '^[A-Z][a-z]*$',          // Untuk kata < 5 huruf
+    longwordpattern: '^[A-Z][a-z]{3}[A-Z]',     // Untuk kata >= 5 huruf
+    shortwordpattern: '^[A-Z][a-z]*$',          // Untuk kata < 5 huruf
     description: 'Capital letters at positions 1 and 5 for words >4 letters, position 1 only for words <5 letters'
   },
   fileTypes: {
