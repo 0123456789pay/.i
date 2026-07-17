@@ -1,1 +1,1 @@
-Nothing should be ignored based on the provided file changes, as they only include HTML source files (`newsdigital/public/digital.html` and `newsdigital/public/index.html`) which are legitimate source code files that should be tracked in version control. No build artifacts, dependencies, temporary files, or other ignorable content were detected in the changes.
+Nothing should be ignored based on the provided file changes. The only modified file is 'newsdigital/public/digital.html', which is a source file and should not be added to .gitignore.
