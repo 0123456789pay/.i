@@ -27,11 +27,11 @@
             height: 60px;
             background: white;
             box-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
-            z-index: 1000;
+            z-index: 10000;
             display: flex;
             align-items: center;
             padding: 0 15px;
-            overflow: hidden;
+            overflow: visible;
         }
 
         /* Brand */
@@ -109,7 +109,7 @@
             left: 0;
             background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(33, 150, 243, 0.2);
+            box-shadow: 0 8px 30px rgba(33, 150, 243, 0.25);
             border: 1px solid #e3f2fd;
             min-width: 260px;
             max-height: 0;
@@ -117,8 +117,9 @@
             opacity: 0;
             transform: translateY(-8px);
             transition: all 0.25s ease;
-            z-index: 1001;
+            z-index: 9999;
             padding: 0;
+            pointer-events: none;
         }
 
         .nav-item:hover .dropdown,
@@ -127,6 +128,8 @@
             opacity: 1;
             transform: translateY(0);
             overflow-y: auto;
+            overflow-x: visible;
+            pointer-events: auto;
         }
 
         .dropdown-header {
