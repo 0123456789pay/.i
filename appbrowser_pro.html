@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Southeast App - Browser</title>
+    <title>Southeast App - Browser Pro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -489,6 +489,21 @@
             display: block;
         }
 
+        /* Proxy mode indicator */
+        .proxy-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .proxy-indicator.active {
+            background: var(--success-color);
+        }
+
         @media (max-width: 768px) {
             .toolbar {
                 flex-wrap: wrap;
@@ -510,8 +525,11 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><i class="fas fa-globe"></i> Web Browser</h1>
+            <h1><i class="fas fa-globe"></i> Web Browser Pro</h1>
             <div class="header-actions">
+                <button class="btn btn-primary" onclick="toggleProxyMode()" id="proxyBtn" title="Toggle Proxy Mode">
+                    <i class="fas fa-shield-alt"></i> <span id="proxyStatus">Proxy: OFF</span>
+                </button>
                 <button class="btn btn-primary" onclick="toggleHistory()">
                     <i class="fas fa-history"></i> History
                 </button>
@@ -587,6 +605,9 @@
                 <div class="bookmark-item" onclick="loadURL('https://www.google.com')">
                     <i class="fab fa-google"></i> Google
                 </div>
+                <div class="bookmark-item" onclick="loadURL('https://accounts.google.com')">
+                    <i class="fab fa-google"></i> Google Login
+                </div>
                 <div class="bookmark-item" onclick="loadURL('https://www.github.com')">
                     <i class="fab fa-github"></i> GitHub
                 </div>
@@ -606,6 +627,10 @@
                     <i class="fas fa-globe"></i>
                     <h3>Start Browsing</h3>
                     <p>Enter a URL or search query to begin</p>
+                    <br>
+                    <p style="font-size: 14px;">
+                        <strong>💡 Tip:</strong> Enable Proxy Mode for sites that block embedding (like Google Login)
+                    </p>
                 </div>
             </div>
         </div>
@@ -638,8 +663,16 @@
                 youtube: 'https://www.youtube.com/results?search_query=',
                 github: 'https://github.com/search?q=',
                 stackoverflow: 'https://stackoverflow.com/search?q='
-            }
+            },
+            proxyMode: false
         };
+
+        // Proxy services for bypassing CORS and X-Frame-Options
+        const proxyServices = [
+            'https://api.allorigins.win/raw?url=',
+            'https://corsproxy.io/?',
+            'https://thingproxy.freeboard.io/fetch/'
+        ];
 
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
@@ -647,17 +680,53 @@
             loadHistory();
             loadBookmarks();
             loadUserEmail();
+            loadProxyMode();
             // Auto-load default URL
             setTimeout(() => {
                 loadFromInput();
             }, 500);
         });
 
+        // Proxy mode toggle
+        function toggleProxyMode() {
+            state.proxyMode = !state.proxyMode;
+            localStorage.setItem('proxyMode', state.proxyMode);
+            updateProxyButton();
+            
+            // Reload current page if exists
+            const urlInput = document.getElementById('urlInput');
+            if (urlInput && urlInput.value) {
+                loadFromInput();
+            }
+            
+            alert(`Proxy Mode ${state.proxyMode ? 'ENABLED' : 'DISABLED'}\n\n` +
+                  `Proxy mode uses external services to bypass CORS and X-Frame-Options restrictions.\n` +
+                  `Enable this for sites like Google Login that block embedding.`);
+        }
+
+        function loadProxyMode() {
+            const saved = localStorage.getItem('proxyMode');
+            state.proxyMode = saved === 'true';
+            updateProxyButton();
+        }
+
+        function updateProxyButton() {
+            const btn = document.getElementById('proxyBtn');
+            const status = document.getElementById('proxyStatus');
+            if (state.proxyMode) {
+                btn.classList.add('active');
+                status.textContent = 'Proxy: ON';
+            } else {
+                btn.classList.remove('active');
+                status.textContent = 'Proxy: OFF';
+            }
+        }
+
         // User email management
         function setUserEmail() {
             const currentEmail = localStorage.getItem('userEmail') || 'logreg197@gmail.com';
             const newEmail = prompt('Masukkan email user:', currentEmail);
-            
+
             if (newEmail && newEmail.trim()) {
                 localStorage.setItem('userEmail', newEmail.trim());
                 alert('Email user berhasil diubah menjadi: ' + newEmail.trim());
@@ -668,7 +737,6 @@
         function loadUserEmail() {
             const email = localStorage.getItem('userEmail') || 'logreg197@gmail.com';
             console.log('Logged in as:', email);
-            // Tampilkan notifikasi di console
             console.log('%c========================================', 'color: #2563eb; font-size: 16px; font-weight: bold;');
             console.log('%c👤 User: ' + email, 'color: #10b981; font-size: 14px; font-weight: bold;');
             console.log('%c🌐 Browser siap digunakan!', 'color: #667eea; font-size: 14px;');
@@ -679,11 +747,11 @@
         function loadFromStorage() {
             const savedHistory = localStorage.getItem('browserHistory');
             const savedBookmarks = localStorage.getItem('browserBookmarks');
-            
+
             if (savedHistory) {
                 state.history = JSON.parse(savedHistory);
             }
-            
+
             if (savedBookmarks) {
                 state.bookmarks = JSON.parse(savedBookmarks);
             }
@@ -711,10 +779,10 @@
             searchDebounceTimer = setTimeout(() => {
                 const engine = document.getElementById('searchEngine').value;
                 const suggestions = generateSuggestions(query, engine);
-                
+
                 if (suggestions.length > 0) {
                     suggestionsDiv.innerHTML = suggestions.map(s => `
-                        <div class="suggestion-item" onclick="selectSuggestion('${s.text}')">
+                        <div class="suggestion-item" onclick="selectSuggestion('${s.text.replace(/'/g, "\\'")}')">
                             <i class="fas ${s.icon}"></i>
                             <span>${s.text}</span>
                         </div>
@@ -728,15 +796,13 @@
 
         function generateSuggestions(query, engine) {
             const suggestions = [];
-            
-            // Add direct search suggestion
+
             suggestions.push({
                 text: `Search "${query}" on ${engine.charAt(0).toUpperCase() + engine.slice(1)}`,
                 icon: 'fa-search',
                 type: 'search'
             });
 
-            // Check if it's a URL
             if (query.includes('.') && !query.includes(' ')) {
                 suggestions.push({
                     text: `Visit ${query}`,
@@ -745,12 +811,10 @@
                 });
             }
 
-            // Add some common suggestions based on query
             const commonSuggestions = [
                 `${query} tutorial`,
                 `${query} documentation`,
-                `${query} examples`,
-                `${query} best practices`
+                `${query} examples`
             ];
 
             commonSuggestions.slice(0, 3).forEach(s => {
@@ -784,7 +848,6 @@
 
             if (!query) return;
 
-            // Check if it's a URL
             if (isURL(query)) {
                 if (!query.startsWith('http://') && !query.startsWith('https://')) {
                     query = 'https://' + query;
@@ -795,7 +858,7 @@
                 loadURL(searchUrl);
             }
 
-            addToHistory(query, engine);
+            addToHistoryDirect(query);
         }
 
         function isURL(str) {
@@ -803,28 +866,40 @@
             return urlPattern.test(str);
         }
 
-        // Navigation functions
+        // Navigation functions with proxy support
         function loadURL(url) {
             const contentFrame = document.getElementById('contentFrame');
             const urlInput = document.getElementById('urlInput');
             
-            // Update URL input jika ada
             if (urlInput) {
                 urlInput.value = url;
             }
 
-            // Extract domain for better compatibility
             const domain = extractDomain(url);
             
-            // Use iframe with enhanced sandbox attributes for better compatibility
-            // allow-top-navigation-by-user-activation helps with some redirects
-            contentFrame.innerHTML = `<iframe src="${url}" 
-                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation-by-user-activation"
-                allow="geolocation; microphone; camera; fullscreen; payment; clipboard-write; autoplay"
-                style="width: 100%; height: 100%; border: none;"
-                id="mainFrame"></iframe>`;
+            // Sites known to block embedding - use proxy automatically
+            const blockedSites = ['google.com', 'accounts.google.com', 'facebook.com', 'twitter.com', 'instagram.com', 'linkedin.com'];
+            const shouldUseProxy = state.proxyMode || blockedSites.some(site => domain.includes(site));
+            
+            if (shouldUseProxy) {
+                // Use proxy service to bypass restrictions
+                const proxyUrl = proxyServices[0] + encodeURIComponent(url);
+                contentFrame.innerHTML = `<iframe src="${proxyUrl}" 
+                    sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals"
+                    allow="geolocation; microphone; camera; fullscreen; payment; clipboard-write; autoplay"
+                    style="width: 100%; height: 100%; border: none;"
+                    id="mainFrame"></iframe>`;
+                
+                console.log('Loading via proxy:', proxyUrl);
+            } else {
+                // Direct load for compatible sites
+                contentFrame.innerHTML = `<iframe src="${url}" 
+                    sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals allow-top-navigation-by-user-activation"
+                    allow="geolocation; microphone; camera; fullscreen; payment; clipboard-write; autoplay"
+                    style="width: 100%; height: 100%; border: none;"
+                    id="mainFrame"></iframe>`;
+            }
 
-            // Add error handling for blocked content
             const iframe = document.getElementById('mainFrame');
             if (iframe) {
                 iframe.onload = function() {
@@ -833,37 +908,44 @@
                 };
                 iframe.onerror = function() {
                     console.error('Failed to load:', url);
-                    showFallbackMessage(url);
+                    showFallbackMessage(url, shouldUseProxy);
                 };
             }
 
             updateTabTitle(url);
-            
-            // Tambahkan ke history
             addToHistoryDirect(url);
         }
 
-        function showFallbackMessage(url) {
+        function showFallbackMessage(url, wasProxy) {
             const contentFrame = document.getElementById('contentFrame');
             const domain = extractDomain(url);
             
-            // Show message that site cannot be embedded
             contentFrame.innerHTML = `
                 <div class="iframe-placeholder">
                     <i class="fas fa-exclamation-triangle" style="color: var(--warning-color);"></i>
                     <h3>Cannot Embed This Site</h3>
                     <p>The website <strong>${domain}</strong> does not allow embedding in an iframe.</p>
                     <br>
-                    <button class="btn btn-primary" onclick="window.open('${url}', '_blank')">
+                    ${!wasProxy ? `<button class="btn btn-primary" onclick="enableProxyAndLoad('${url}')" style="margin-bottom: 10px;">
+                        <i class="fas fa-shield-alt"></i> Try with Proxy Mode
+                    </button><br>` : ''}
+                    <button class="btn btn-success" onclick="window.open('${url}', '_blank')">
                         <i class="fas fa-external-link-alt"></i> Open in New Tab
                     </button>
                     <br><br>
                     <p style="font-size: 12px; color: var(--text-secondary);">
                         This is a security restriction set by the website itself.<br>
-                        Try using the direct link above to access the site.
+                        ${!wasProxy ? 'Try enabling Proxy Mode or use the direct link above.' : 'Use the direct link above to access the site.'}
                     </p>
                 </div>
             `;
+        }
+
+        function enableProxyAndLoad(url) {
+            state.proxyMode = true;
+            localStorage.setItem('proxyMode', 'true');
+            updateProxyButton();
+            loadURL(url);
         }
 
         function extractDomain(url) {
@@ -881,7 +963,6 @@
             
             if (!url) return;
             
-            // Auto-add https:// jika tidak ada
             if (!url.startsWith('http://') && !url.startsWith('https://')) {
                 url = 'https://' + url;
             }
@@ -900,7 +981,6 @@
 
             state.history.unshift(historyItem);
             
-            // Keep only last 100 items
             if (state.history.length > 100) {
                 state.history = state.history.slice(0, 100);
             }
@@ -957,28 +1037,28 @@
 
         function closeTab(event, tabId) {
             event.stopPropagation();
-            
+
             if (state.tabs.length === 1) {
                 alert('Cannot close the last tab');
                 return;
             }
 
             state.tabs = state.tabs.filter(t => t.id !== tabId);
-            
+
             if (state.activeTab === tabId) {
                 state.activeTab = state.tabs[0].id;
             }
-            
+
             renderTabs();
         }
 
         function renderTabs() {
             const tabsContainer = document.querySelector('.tabs-container');
             const newTabBtn = tabsContainer.querySelector('.new-tab-btn');
-            
+
             tabsContainer.innerHTML = state.tabs.map(tab => `
-                <div class="tab ${tab.id === state.activeTab ? 'active' : ''}" 
-                     data-id="${tab.id}" 
+                <div class="tab ${tab.id === state.activeTab ? 'active' : ''}"
+                     data-id="${tab.id}"
                      onclick="switchTab(${tab.id})">
                     <span class="tab-title">${escapeHtml(tab.title)}</span>
                     <span class="tab-close" onclick="closeTab(event, ${tab.id})">&times;</span>
@@ -1009,29 +1089,9 @@
         }
 
         // History management
-        function addToHistory(query, engine) {
-            const historyItem = {
-                id: Date.now(),
-                query: query,
-                engine: engine,
-                url: state.searchEngines[engine] + encodeURIComponent(query),
-                timestamp: new Date().toISOString()
-            };
-
-            state.history.unshift(historyItem);
-            
-            // Keep only last 100 items
-            if (state.history.length > 100) {
-                state.history = state.history.slice(0, 100);
-            }
-
-            saveToStorage();
-            loadHistory();
-        }
-
         function loadHistory() {
             const historyList = document.getElementById('historyList');
-            
+
             if (state.history.length === 0) {
                 historyList.innerHTML = '<p style="text-align: center; color: var(--text-secondary); padding: 40px;">No browsing history yet</p>';
                 return;
@@ -1055,7 +1115,7 @@
         // Bookmarks management
         function loadBookmarks() {
             const bookmarksBar = document.getElementById('bookmarksBar');
-            
+
             if (state.bookmarks.length === 0) return;
 
             const defaultBookmarks = bookmarksBar.innerHTML;
@@ -1065,31 +1125,30 @@
                 </div>
             `).join('');
 
-            // Insert custom bookmarks before "Add Bookmark"
             const addBookmarkBtn = bookmarksBar.lastElementChild;
-            bookmarksBar.innerHTML = defaultBookmarks.replace(addBookmarkBtn.outerHTML, '') + 
-                                    customBookmarks + 
+            bookmarksBar.innerHTML = defaultBookmarks.replace(addBookmarkBtn.outerHTML, '') +
+                                    customBookmarks +
                                     addBookmarkBtn.outerHTML;
         }
 
         function addBookmark() {
             const urlInput = document.getElementById('urlInput');
             const url = urlInput ? urlInput.value : '';
-            
+
             if (!url || url === '') {
                 alert('Please navigate to a page first');
                 return;
             }
 
             const title = prompt('Enter bookmark title:', url);
-            
+
             if (title) {
                 state.bookmarks.push({
                     id: Date.now(),
                     title: title,
                     url: url
                 });
-                
+
                 saveToStorage();
                 loadBookmarks();
                 alert('Bookmark added!');
@@ -1107,15 +1166,14 @@
             const date = new Date(isoString);
             const now = new Date();
             const diff = now - date;
-            
+
             if (diff < 60000) return 'Just now';
             if (diff < 3600000) return `${Math.floor(diff / 60000)} minutes ago`;
             if (diff < 86400000) return `${Math.floor(diff / 3600000)} hours ago`;
-            
+
             return date.toLocaleDateString();
         }
 
-        // Close suggestions when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.search-container')) {
                 document.getElementById('searchSuggestions').classList.remove('active');
