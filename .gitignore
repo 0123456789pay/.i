@@ -1,32 +1,47 @@
 ```
-# Compiled Python files
-*.pyc
-__pycache__/
+# HTML files that appear to be generated/build artifacts
+aichatreber/dashboard/digital.html
+aichatreber/filemanajer/digital.html
+aistudiodigital/modules/dashboard/digital.html
+component/digital.html
+controlproxy/views/digital.html
+datacenterdigital/digital.html
+designdigital/digital.html
+designdigital/filemanajer/digital.html
+digital.html
+editorkode/dashboard/digital.html
+editorkode/filemanajer/digital.html
+filemanajer/digital.html
+fiturdigital/digital.html
+hostingdigital/digital.html
+mediadigitalpusatiklan/manajemen_iklan/digital.html
+mediadigitalpusatiklan/manajemen_iklan/filemanajer/digital.html
+medsos/digital.html
+pusat/digital.html
+trafict/digital.html
+videolife/digital.html
+view/digital.html
 
-# Digital files (based on the pattern in your project)
-*.digital
-
-# Dependencies
-.venv/
-venv/
-node_modules/
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Environment files
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
-.idea/
-
-# Build artifacts
-dist/
-build/
-target/
+# Corresponding index files that were deleted (likely part of same pattern)
+aichatreber/dashboard/index.html
+aichatreber/filemanajer/index.html
+aistudiodigital/modules/dashboard/dashboard.html
+component/index.html
+controlproxy/views/dashboard.html
+datacenterdigital/index.html
+designdigital/dashboard.html
+designdigital/filemanajer/index.html
+editorkode/dashboard/index.html
+editorkode/filemanajer/index.html
+filemanajer/index.html
+fiturdigital/index.html
+hostingdigital/index.html
+index.html
+mediadigitalpusatiklan/manajemen_iklan/dashboard.html
+mediadigitalpusatiklan/manajemen_iklan/filemanajer/index.html
+medsos/dashboard.html
+pusat/index.html
+trafict/dashboard.html
+videolife/index.html
+view/index.html
 ```
