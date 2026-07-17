@@ -1,655 +1,2103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoutheastApp Digital Browser</title>
+    <title>Digital Hub - Semua Halaman HTML</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            min-height: 100vh; 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
             padding: 20px;
-        }
-        .container { max-width: 1800px; margin: 0 auto; }
-        header { 
-            text-align: center; 
-            color: white; 
-            padding: 30px 0; 
-            margin-bottom: 30px;
-        }
-        header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
-        header p { font-size: 1.1em; opacity: 0.9; }
-        
-        /* Browser Search Box */
-        .browser-section {
-            background: rgba(255,255,255,0.98);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-        .browser-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
-        }
-        .browser-controls {
-            display: flex;
-            gap: 8px;
-        }
-        .browser-btn {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-close { background: #ff5f56; }
-        .btn-minimize { background: #ffbd2e; }
-        .btn-maximize { background: #27c93f; }
-        
-        .search-engine-selector {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .engine-btn {
-            padding: 10px 20px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            background: white;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .engine-btn:hover { transform: translateY(-2px); }
-        .engine-btn.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-        .engine-google.active { background: #4285f4; border-color: #4285f4; }
-        .engine-edge.active { background: #0078d7; border-color: #0078d7; }
-        .engine-safari.active { background: #1da1f2; border-color: #1da1f2; }
-        
-        .url-bar {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .url-input {
-            flex: 1;
-            padding: 15px 20px;
-            font-size: 1em;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s;
-            background: #f8f9fa;
-        }
-        .url-input:focus {
-            border-color: #667eea;
-            background: white;
-        }
-        .search-btn {
-            padding: 15px 30px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        .search-btn:hover { background: #5a6fd6; }
-        
-        .base-url-display {
-            background: #e8f4fd;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-family: monospace;
-            color: #0066cc;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        /* View Box Container */
-        .view-container {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            min-height: 500px;
-        }
-        .view-header {
-            background: #f8f9fa;
-            padding: 15px 20px;
-            border-bottom: 2px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .view-tabs {
-            display: flex;
-            gap: 5px;
-        }
-        .view-tab {
-            padding: 8px 16px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 6px 6px 0 0;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-        .view-tab:hover { background: #667eea; color: white; }
-        .view-tab.active {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-        }
-        .view-content {
-            padding: 20px;
-            min-height: 450px;
-        }
-        .view-frame {
-            width: 100%;
-            height: 400px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #fafafa;
-        }
-        
-        /* Stats Grid */
-        .stats-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 20px; 
-            margin-bottom: 30px; 
-        }
-        .stat-card { 
-            background: rgba(255,255,255,0.95); 
-            border-radius: 15px; 
-            padding: 20px; 
-            text-align: center; 
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1); 
-            transition: transform 0.3s; 
-        }
-        .stat-card:hover { transform: translateY(-5px); }
-        .stat-number { font-size: 2em; font-weight: bold; color: #667eea; }
-        .stat-label { color: #666; margin-top: 5px; }
-        
-        /* Crawler Results */
-        .crawler-section {
-            background: rgba(255,255,255,0.95);
-            border-radius: 15px;
-            padding: 25px;
-            margin-top: 30px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        }
-        .crawler-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .crawler-results {
-            display: grid;
-            gap: 15px;
-        }
-        .result-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s;
-        }
-        .result-item:hover {
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .result-title {
-            font-weight: 600;
+        header h1 {
             color: #667eea;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
-        .result-url {
-            font-size: 0.85em;
+        
+        header p {
             color: #666;
+        }
+        
+        .container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .sidebar {
+            width: 350px;
+            background: rgba(255, 255, 255, 0.95);
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .file-list {
+            list-style: none;
+        }
+        
+        .file-list li {
+            margin-bottom: 8px;
+        }
+        
+        .file-list a {
+            display: block;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            color: #333;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 13px;
             word-break: break-all;
         }
         
-        /* Loading Animation */
-        .loader {
-            display: none;
+        .file-list a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .file-list a.active {
+            background: #764ba2;
+            color: white;
+        }
+        
+        .main-content {
+            flex: 1;
+            background: white;
+            position: relative;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #999;
+            font-size: 18px;
             text-align: center;
             padding: 40px;
         }
-        .loader.active { display: block; }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        
+        .stats {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8eaf6;
+            border-radius: 8px;
+            text-align: center;
         }
         
-        .loading { text-align: center; padding: 40px; color: white; }
+        .stats strong {
+            color: #667eea;
+            font-size: 24px;
+        }
+        
+        .category-group {
+            margin-bottom: 20px;
+        }
+        
+        .category-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #764ba2;
+        }
     </style>
 </head>
 <body>
+    <header>
+        <h1>🌐 Digital Hub</h1>
+        <p>Pusat Akses Semua Halaman HTML</p>
+    </header>
+    
     <div class="container">
-        <header>
-            <h1>🌐 SoutheastApp Digital Browser</h1>
-            <p>Advanced Search & Crawler System Powered by SoutheastApp</p>
-        </header>
-        
-        <!-- Browser Search Section -->
-        <div class="browser-section">
-            <div class="browser-header">
-                <div class="browser-controls">
-                    <button class="browser-btn btn-close"></button>
-                    <button class="browser-btn btn-minimize"></button>
-                    <button class="browser-btn btn-maximize"></button>
-                </div>
-                <div style="flex: 1; text-align: center; font-weight: 600; color: #666;">
-                    SoutheastApp Browser Engine
-                </div>
+        <div class="sidebar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Cari file HTML..." onkeyup="filterFiles()">
             </div>
             
-            <div class="base-url-display">
-                📍 Base URL: <strong>https://southeastapp.github.io/view/</strong>
-            </div>
+            <ul class="file-list" id="fileList"></ul>
             
-            <div class="search-engine-selector">
-                <button class="engine-btn engine-google active" onclick="selectEngine('google')">
-                    🔍 Google
-                </button>
-                <button class="engine-btn engine-edge" onclick="selectEngine('edge')">
-                    🌐 Edge
-                </button>
-                <button class="engine-btn engine-safari" onclick="selectEngine('safari')">
-                    🧭 Safari
-                </button>
-            </div>
-            
-            <div class="url-bar">
-                <input type="text" id="searchInput" class="url-input" 
-                       placeholder="Enter search query..." 
-                       value="https://southeastapp.github.io/view/">
-                <button class="search-btn" onclick="performSearch()">
-                    🔎 Search
-                </button>
-            </div>
-            
-            <!-- View Box Container -->
-            <div class="view-container">
-                <div class="view-header">
-                    <div class="view-tabs">
-                        <div class="view-tab active" onclick="switchTab('layout')">Layout</div>
-                        <div class="view-tab" onclick="switchTab('fungsi')">Fungsi</div>
-                        <div class="view-tab" onclick="switchTab('konfigurasi')">Konfigurasi</div>
-                        <div class="view-tab" onclick="switchTab('proxy')">Proxy</div>
-                        <div class="view-tab" onclick="switchTab('api')">API Config</div>
-                        <div class="view-tab" onclick="switchTab('loader')">Loader</div>
-                        <div class="view-tab" onclick="switchTab('kernel')">Kernel</div>
-                    </div>
-                    <div id="currentEngine" style="font-size: 0.9em; color: #666;">
-                        Engine: Google
-                    </div>
-                </div>
-                <div class="view-content">
-                    <div id="viewFrame" class="view-frame">
-                        <div class="loader" id="loader">
-                            <div class="spinner"></div>
-                            <p>Crawling and rendering data...</p>
-                        </div>
-                        <div id="renderContent">
-                            <h3 style="color: #667eea; margin-bottom: 15px;">Welcome to SoutheastApp Browser</h3>
-                            <p style="color: #666; line-height: 1.6;">
-                                This is a complete browser search system centered on SoutheastApp. 
-                                Enter your search query above to begin crawling and rendering data.
-                            </p>
-                            <div style="margin-top: 20px; padding: 15px; background: #e8f4fd; border-radius: 8px;">
-                                <strong>📁 View Structure:</strong>
-                                <ul style="margin-top: 10px; margin-left: 20px; color: #666;">
-                                    <li>Layout - UI Components & Structure</li>
-                                    <li>Fungsi - Core Functions</li>
-                                    <li>Konfigurasi - System Configuration</li>
-                                    <li>Proxy - Proxy Settings</li>
-                                    <li>API - API Configuration</li>
-                                    <li>Loader - Data Loading Module</li>
-                                    <li>Kernel - Browser Engine Core</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stats">
+                <p>Total File: <strong id="totalCount">0</strong></p>
+                <p>File Ditampilkan: <strong id="displayCount">0</strong></p>
             </div>
         </div>
         
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number" id="totalResults">0</div>
-                <div class="stat-label">Total Results</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="crawlTime">0ms</div>
-                <div class="stat-label">Crawl Time</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="dataRendered">0</div>
-                <div class="stat-label">Data Rendered</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="activeEngine">Google</div>
-                <div class="stat-label">Active Engine</div>
-            </div>
-        </div>
-        
-        <!-- Crawler Results Section -->
-        <div class="crawler-section">
-            <div class="crawler-header">
-                <h2 style="color: #667eea;">🕷️ Crawler Results</h2>
-                <button class="search-btn" onclick="clearResults()" style="padding: 10px 20px; font-size: 0.9em;">
-                    Clear Results
-                </button>
-            </div>
-            <div class="crawler-results" id="crawlerResults">
-                <p style="color: #666; text-align: center; padding: 20px;">
-                    No search results yet. Enter a query to start crawling.
-                </p>
+        <div class="main-content" id="mainContent">
+            <div class="placeholder">
+                <div>
+                    <p style="font-size: 48px; margin-bottom: 20px;">📄</p>
+                    <p>Pilih file HTML dari daftar untuk melihat tampilannya</p>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Configuration
-        const CONFIG = {
-            baseUrl: 'https://southeastapp.github.io/view/',
-            engines: {
-                google: 'https://www.google.com/search?q=',
-                edge: 'https://www.bing.com/search?q=',
-                safari: 'https://duckduckgo.com/?q='
-            },
-            currentEngine: 'google',
-            view: {
-                layout: [],
-                fungsi: [],
-                konfigurasi: [],
-                proxy: [],
-                api: [],
-                loader: [],
-                kernel: []
+        const files = [
+"/workspace/appvoicerecorder.html",
+"/workspace/filemanajer.html",
+"/workspace/appunitconverter.html",
+"/workspace/appcalendar.html",
+"/workspace/apptranslator.html",
+"/workspace/trafict/trafict.html",
+"/workspace/pembayaranmediadigital/Alfamart-Payment.html",
+"/workspace/pembayaranmediadigital/Bayar-Tagihan.html",
+"/workspace/pembayaranmediadigital/Deposit.html",
+"/workspace/pembayaranmediadigital/Domain-Hosting.html",
+"/workspace/pembayaranmediadigital/Mitra-Kami.html",
+"/workspace/pembayaranmediadigital/Pulsa-Elektrik.html",
+"/workspace/pembayaranmediadigital/Barcode-Generator.html",
+"/workspace/pembayaranmediadigital/Daftar.html",
+"/workspace/pembayaranmediadigital/Export-Laporan.html",
+"/workspace/pembayaranmediadigital/Promo-Hari-Ini.html",
+"/workspace/pembayaranmediadigital/Level-Membership.html",
+"/workspace/pembayaranmediadigital/Zakat-Online.html",
+"/workspace/pembayaranmediadigital/Reset-Password.html",
+"/workspace/pembayaranmediadigital/Withdraw.html",
+"/workspace/pembayaranmediadigital/Virtual-Account.html",
+"/workspace/pembayaranmediadigital/Taxi-App.html",
+"/workspace/pembayaranmediadigital/Permata-Virtual.html",
+"/workspace/pembayaranmediadigital/Donasi-Online.html",
+"/workspace/pembayaranmediadigital/Kirim-Uang.html",
+"/workspace/pembayaranmediadigital/Top-Up-Saldo.html",
+"/workspace/pembayaranmediadigital/VIP-Service.html",
+"/workspace/pembayaranmediadigital/Crypto-Wallet.html",
+"/workspace/pembayaranmediadigital/Mining-Pool.html",
+"/workspace/pembayaranmediadigital/Tol-Elektronik.html",
+"/workspace/pembayaranmediadigital/BNI-Virtual.html",
+"/workspace/pembayaranmediadigital/Bukti-Transfer.html",
+"/workspace/pembayaranmediadigital/E-Ticket.html",
+"/workspace/pembayaranmediadigital/Verifikasi-Email.html",
+"/workspace/pembayaranmediadigital/Food-Delivery.html",
+"/workspace/pembayaranmediadigital/Tentang-Kami.html",
+"/workspace/pembayaranmediadigital/Pembayaran-Listrik.html",
+"/workspace/pembayaranmediadigital/Referral-Bonus.html",
+"/workspace/pembayaranmediadigital/Paket-Data.html",
+"/workspace/pembayaranmediadigital/AdSense.html",
+"/workspace/pembayaranmediadigital/Konsultasi-Dokter.html",
+"/workspace/pembayaranmediadigital/Hapus-Rekening.html",
+"/workspace/pembayaranmediadigital/Download-Kwitansi.html",
+"/workspace/pembayaranmediadigital/Jadwal-Pembayaran.html",
+"/workspace/pembayaranmediadigital/Klaim-Online.html",
+"/workspace/pembayaranmediadigital/Rental-Mobil.html",
+"/workspace/pembayaranmediadigital/Tiket-Pesawat.html",
+"/workspace/pembayaranmediadigital/Monetisasi.html",
+"/workspace/pembayaranmediadigital/FAQ.html",
+"/workspace/pembayaranmediadigital/Konfirmasi-OTP.html",
+"/workspace/pembayaranmediadigital/Danamon-Virtual.html",
+"/workspace/pembayaranmediadigital/Riwayat-Transaksi.html",
+"/workspace/pembayaranmediadigital/Verifikasi-Rekening.html",
+"/workspace/pembayaranmediadigital/Pengingat-Tagihan.html",
+"/workspace/pembayaranmediadigital/BPJS-Kesehatan.html",
+"/workspace/pembayaranmediadigital/Circle-K.html",
+"/workspace/pembayaranmediadigital/Kartu-Kredit.html",
+"/workspace/pembayaranmediadigital/Upgrade-Akun.html",
+"/workspace/pembayaranmediadigital/Konfirmasi-Pembayaran.html",
+"/workspace/pembayaranmediadigital/Pengaturan-Akun.html",
+"/workspace/pembayaranmediadigital/Diskon-Khusus.html",
+"/workspace/pembayaranmediadigital/GoPay.html",
+"/workspace/pembayaranmediadigital/Premi-Bulanan.html",
+"/workspace/pembayaranmediadigital/Retribusi-Daerah.html",
+"/workspace/pembayaranmediadigital/Investasi.html",
+"/workspace/pembayaranmediadigital/PPOB-Online.html",
+"/workspace/pembayaranmediadigital/QRIS-Payment.html",
+"/workspace/pembayaranmediadigital/Transfer-Saldo.html",
+"/workspace/pembayaranmediadigital/Beranda.html",
+"/workspace/pembayaranmediadigital/Lawson-Payment.html",
+"/workspace/pembayaranmediadigital/Voucher-Game.html",
+"/workspace/pembayaranmediadigital/Cicilan-Belanja.html",
+"/workspace/pembayaranmediadigital/BPJS-Ketenagakerjaan.html",
+"/workspace/pembayaranmediadigital/Parkir-Digital.html",
+"/workspace/pembayaranmediadigital/Pinjaman-Online.html",
+"/workspace/pembayaranmediadigital/Ojek-Online.html",
+"/workspace/pembayaranmediadigital/Pembayaran-TV-Kabel.html",
+"/workspace/pembayaranmediadigital/Streaming-Video.html",
+"/workspace/pembayaranmediadigital/Analytics.html",
+"/workspace/pembayaranmediadigital/Auto-Debit.html",
+"/workspace/pembayaranmediadigital/Mandiri-Virtual.html",
+"/workspace/pembayaranmediadigital/Mobile-Banking.html",
+"/workspace/pembayaranmediadigital/Kontak-Kami.html",
+"/workspace/pembayaranmediadigital/Affiliate-Program.html",
+"/workspace/pembayaranmediadigital/Subscription.html",
+"/workspace/pembayaranmediadigital/DANA.html",
+"/workspace/pembayaranmediadigital/Verifikasi-Nomor-HP.html",
+"/workspace/pembayaranmediadigital/Polis-Digital.html",
+"/workspace/pembayaranmediadigital/Pembayaran-Air.html",
+"/workspace/pembayaranmediadigital/Benefit-Anggota.html",
+"/workspace/pembayaranmediadigital/ShopeePay.html",
+"/workspace/pembayaranmediadigital/Reksa-Dana.html",
+"/workspace/pembayaranmediadigital/SSL-Certificate.html",
+"/workspace/pembayaranmediadigital/Token-Swap.html",
+"/workspace/pembayaranmediadigital/Kartu-Debit.html",
+"/workspace/pembayaranmediadigital/Email-Bisnis.html",
+"/workspace/pembayaranmediadigital/PayPal.html",
+"/workspace/pembayaranmediadigital/Sedekah-Digital.html",
+"/workspace/pembayaranmediadigital/Telemedicine.html",
+"/workspace/pembayaranmediadigital/Kode-QR-Saya.html",
+"/workspace/pembayaranmediadigital/Rekening-Bank.html",
+"/workspace/pembayaranmediadigital/Cloud-Storage.html",
+"/workspace/pembayaranmediadigital/Reward-Points.html",
+"/workspace/pembayaranmediadigital/Bagi-Tagihan.html",
+"/workspace/pembayaranmediadigital/Tambah-Rekening.html",
+"/workspace/pembayaranmediadigital/Syarat-Ketentuan.html",
+"/workspace/pembayaranmediadigital/Cetak-Invoice.html",
+"/workspace/pembayaranmediadigital/Pembayaran-Asuransi.html",
+"/workspace/pembayaranmediadigital/Privasi.html",
+"/workspace/pembayaranmediadigital/Customer-Care.html",
+"/workspace/pembayaranmediadigital/Xendit.html",
+"/workspace/pembayaranmediadigital/Google-Pay.html",
+"/workspace/pembayaranmediadigital/Midtrans.html",
+"/workspace/pembayaranmediadigital/Booking-Hotel.html",
+"/workspace/pembayaranmediadigital/SMS-Banking.html",
+"/workspace/pembayaranmediadigital/Edit-Rekening.html",
+"/workspace/pembayaranmediadigital/Dashboard.html",
+"/workspace/pembayaranmediadigital/Tarik-Dana.html",
+"/workspace/pembayaranmediadigital/Apple-Pay.html",
+"/workspace/pembayaranmediadigital/OVO.html",
+"/workspace/pembayaranmediadigital/ATM-Finder.html",
+"/workspace/pembayaranmediadigital/Kebijakan-Privasi.html",
+"/workspace/pembayaranmediadigital/Tiket-Bus.html",
+"/workspace/pembayaranmediadigital/Lokasi-Terdekat.html",
+"/workspace/pembayaranmediadigital/Pembayaran-Internet.html",
+"/workspace/pembayaranmediadigital/Tagihan-Saya.html",
+"/workspace/pembayaranmediadigital/Family-Mart.html",
+"/workspace/pembayaranmediadigital/BNPL-Service.html",
+"/workspace/pembayaranmediadigital/Cashback.html",
+"/workspace/pembayaranmediadigital/Farmasi-Online.html",
+"/workspace/pembayaranmediadigital/Profil-Saya.html",
+"/workspace/pembayaranmediadigital/BCA-Virtual.html",
+"/workspace/pembayaranmediadigital/Status-Pembayaran.html",
+"/workspace/pembayaranmediadigital/Faspay.html",
+"/workspace/pembayaranmediadigital/Samsung-Pay.html",
+"/workspace/pembayaranmediadigital/Kredit-Cepat.html",
+"/workspace/pembayaranmediadigital/Flip.html",
+"/workspace/pembayaranmediadigital/Notifikasi.html",
+"/workspace/pembayaranmediadigital/Bantuan.html",
+"/workspace/pembayaranmediadigital/Premium-Member.html",
+"/workspace/pembayaranmediadigital/Website-Builder.html",
+"/workspace/pembayaranmediadigital/Tiket-Kereta.html",
+"/workspace/pembayaranmediadigital/Asuransi-Digital.html",
+"/workspace/pembayaranmediadigital/Grocery-Order.html",
+"/workspace/pembayaranmediadigital/SEO-Tools.html",
+"/workspace/pembayaranmediadigital/BRI-Virtual.html",
+"/workspace/pembayaranmediadigital/Lupa-Password.html",
+"/workspace/pembayaranmediadigital/Staking.html",
+"/workspace/pembayaranmediadigital/Iuran-Wajib.html",
+"/workspace/pembayaranmediadigital/LinkAja.html",
+"/workspace/pembayaranmediadigital/Doku.html",
+"/workspace/pembayaranmediadigital/Afiliasi.html",
+"/workspace/pembayaranmediadigital/Antivirus-Premium.html",
+"/workspace/pembayaranmediadigital/Stripe.html",
+"/workspace/pembayaranmediadigital/Scan-QR-Code.html",
+"/workspace/pembayaranmediadigital/Internet-Banking.html",
+"/workspace/pembayaranmediadigital/E-Wallet.html",
+"/workspace/pembayaranmediadigital/Indomaret-Payment.html",
+"/workspace/pembayaranmediadigital/Split-Bill.html",
+"/workspace/pembayaranmediadigital/NFT-Marketplace.html",
+"/workspace/pembayaranmediadigital/Keamanan.html",
+"/workspace/pembayaranmediadigital/CIMB-Virtual.html",
+"/workspace/pembayaranmediadigital/Paylater.html",
+"/workspace/pembayaranmediadigital/Terima-Uang.html",
+"/workspace/pembayaranmediadigital/Invoice-Generator.html",
+"/workspace/pembayaranmediadigital/Login.html",
+"/workspace/pembayaranmediadigital/Pajak-Online.html",
+"/workspace/pembayaranmediadigital/Emas-Digital.html",
+"/workspace/pembayaranmediadigital/Streaming-Music.html",
+"/workspace/pembayaranmediadigital/Karir.html",
+"/workspace/pembayaranmediadigital/Live-Chat.html",
+"/workspace/appgallery.html",
+"/workspace/appmusic.html",
+"/workspace/apptodo.html",
+"/workspace/aichatreber/database.html",
+"/workspace/aichatreber/pin-chat.html",
+"/workspace/aichatreber/promo.html",
+"/workspace/aichatreber/rollback.html",
+"/workspace/aichatreber/export-data.html",
+"/workspace/aichatreber/mute-chat.html",
+"/workspace/aichatreber/image-share.html",
+"/workspace/aichatreber/keamanan.html",
+"/workspace/aichatreber/error-log.html",
+"/workspace/aichatreber/feedback.html",
+"/workspace/aichatreber/kelola-grup.html",
+"/workspace/aichatreber/plugin.html",
+"/workspace/aichatreber/blokir-user.html",
+"/workspace/aichatreber/tentang.html",
+"/workspace/aichatreber/laporan.html",
+"/workspace/aichatreber/voice-note.html",
+"/workspace/aichatreber/video.html",
+"/workspace/aichatreber/kinerja.html",
+"/workspace/aichatreber/migrate.html",
+"/workspace/aichatreber/terima-pesan.html",
+"/workspace/aichatreber/statistik.html",
+"/workspace/aichatreber/broadcast.html",
+"/workspace/aichatreber/sort.html",
+"/workspace/aichatreber/update.html",
+"/workspace/aichatreber/tema.html",
+"/workspace/aichatreber/iklan.html",
+"/workspace/aichatreber/search.html",
+"/workspace/aichatreber/pengaturan.html",
+"/workspace/aichatreber/debug.html",
+"/workspace/aichatreber/restore.html",
+"/workspace/aichatreber/konfigurasi.html",
+"/workspace/aichatreber/metrik.html",
+"/workspace/aichatreber/system-info.html",
+"/workspace/aichatreber/log-aktivitas.html",
+"/workspace/aichatreber/arsip-chat.html",
+"/workspace/aichatreber/unpin-chat.html",
+"/workspace/aichatreber/hapus-pesan.html",
+"/workspace/aichatreber/api-keys.html",
+"/workspace/aichatreber/pilih-chat.html",
+"/workspace/aichatreber/custom.html",
+"/workspace/aichatreber/import-data.html",
+"/workspace/aichatreber/analytics.html",
+"/workspace/aichatreber/buat-grup.html",
+"/workspace/aichatreber/trash.html",
+"/workspace/aichatreber/upload.html",
+"/workspace/aichatreber/obrolan-baru.html",
+"/workspace/aichatreber/widget.html",
+"/workspace/aichatreber/bookmarks.html",
+"/workspace/aichatreber/evaluasi.html",
+"/workspace/aichatreber/reminder.html",
+"/workspace/aichatreber/hapus-cache.html",
+"/workspace/aichatreber/screen-share.html",
+"/workspace/aichatreber/cloud.html",
+"/workspace/aichatreber/edit-pesan.html",
+"/workspace/aichatreber/emoji.html",
+"/workspace/aichatreber/bantuan.html",
+"/workspace/aichatreber/privasi.html",
+"/workspace/aichatreber/extensions.html",
+"/workspace/aichatreber/personalisasi.html",
+"/workspace/aichatreber/tempel-pesan.html",
+"/workspace/aichatreber/backup.html",
+"/workspace/aichatreber/notes.html",
+"/workspace/aichatreber/sync.html",
+"/workspace/aichatreber/profil.html",
+"/workspace/aichatreber/bahasa.html",
+"/workspace/aichatreber/downgrade.html",
+"/workspace/aichatreber/download.html",
+"/workspace/aichatreber/call-audio.html",
+"/workspace/aichatreber/schedule.html",
+"/workspace/aichatreber/gif.html",
+"/workspace/aichatreber/optimasi.html",
+"/workspace/aichatreber/upgrade.html",
+"/workspace/aichatreber/marketing.html",
+"/workspace/aichatreber/cari-chat.html",
+"/workspace/aichatreber/tasks.html",
+"/workspace/aichatreber/recent.html",
+"/workspace/aichatreber/kirimi-pesan.html",
+"/workspace/aichatreber/balas-chat.html",
+"/workspace/aichatreber/kontak.html",
+"/workspace/aichatreber/call-video.html",
+"/workspace/aichatreber/undang-member.html",
+"/workspace/aichatreber/grup-chat.html",
+"/workspace/aichatreber/favorites.html",
+"/workspace/aichatreber/filter.html",
+"/workspace/aichatreber/auto-response.html",
+"/workspace/aichatreber/calendar.html",
+"/workspace/aichatreber/audio.html",
+"/workspace/aichatreber/quick-reply.html",
+"/workspace/aichatreber/templates.html",
+"/workspace/aichatreber/lapor-user.html",
+"/workspace/aichatreber/unblokir-user.html",
+"/workspace/aichatreber/location-share.html",
+"/workspace/aichatreber/pesan-tersimpan.html",
+"/workspace/aichatreber/sticker.html",
+"/workspace/aichatreber/salin-pesan.html",
+"/workspace/aichatreber/info-user.html",
+"/workspace/aichatreber/testing.html",
+"/workspace/aichatreber/share.html",
+"/workspace/aichatreber/archive.html",
+"/workspace/aichatreber/siaran.html",
+"/workspace/aichatreber/file-manager.html",
+"/workspace/aichatreber/riwayat-chat.html",
+"/workspace/aichatreber/unmute-chat.html",
+"/workspace/aichatreber/integrasi.html",
+"/workspace/aichatreber/shortcut.html",
+"/workspace/aichatreber/notifikasi.html",
+"/workspace/aichatreber/keluar-grup.html",
+"/workspace/aichatreber/document-share.html",
+"/workspace/aichatreber/forward-pesan.html",
+"/workspace/aichatreber/unarchive-chat.html",
+"/workspace/appcontacts.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/webhook_setup.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_display.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_media_sosial.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/duplikat_kampanye.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_roas.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/attribution_model.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/buat_kampanye_baru.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_cpm.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/export_data.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/test_ab.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/cohort_analysis.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_cpc.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/ekskusi_kata_kunci.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/link_shortener.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/lookalike_audience.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_video.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/session_recording.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/analitik_mingguan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/utm_builder.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/analitik_realtime.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/custom_audience.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_penayangan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/segmentasi_pelanggan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_mobile.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/kelola_anggaran.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/optimasi_iklan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/retention_analysis.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/geolokasi.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/first_click_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/multi_touch_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/import_data.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/kampanye_aktif.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/kampanye_draf.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_ctr.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_native.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/atur_bid.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_banner.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/retargeting.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/edit_kampanye.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_impression.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/kampanye_terjadwal.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/minat_perilaku.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/heatmaps.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/data_driven_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/pixel_tracking.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/event_tracking.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_email.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/lifetime_value.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/kampanye_diarsipkan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/kata_kunci.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_klik.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/time_decay_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/iklan_search.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/rotasi_iklan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/demografi.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/integrasi_api.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/last_click_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/conversion_tracking.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/analitik_bulanan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/churn_prediction.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/upload_creative.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/frekuensi_kap.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/template.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/funnel_analysis.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_konversi.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/laporan_kinerja.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/target_audience.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/linear_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/hapus_kampanye.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/position_based_attribution.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/jadwalkan_kampanye.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/preview_iklan.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/landing_page_builder.html",
+"/workspace/mediadigitalpusatiklan/manajemen_iklan/analitik_harian.html",
+"/workspace/appemail.html",
+"/workspace/appdictionary.html",
+"/workspace/apptexteditor.html",
+"/workspace/datacenterdigital/html/unicode-normalizer.html",
+"/workspace/datacenterdigital/html/seed-phrase.html",
+"/workspace/datacenterdigital/html/x509-certificates.html",
+"/workspace/datacenterdigital/html/siem-integration.html",
+"/workspace/datacenterdigital/html/smart-contract-audit.html",
+"/workspace/datacenterdigital/html/etl-jobs.html",
+"/workspace/datacenterdigital/html/cross-chain-bridge.html",
+"/workspace/datacenterdigital/html/microservices-mesh.html",
+"/workspace/datacenterdigital/html/elastic-search-cluster.html",
+"/workspace/datacenterdigital/html/granular-synth.html",
+"/workspace/datacenterdigital/html/referral-tracker.html",
+"/workspace/datacenterdigital/html/lens-flare.html",
+"/workspace/datacenterdigital/html/parallax-occlusion.html",
+"/workspace/datacenterdigital/html/settlement-system.html",
+"/workspace/datacenterdigital/html/alert-routing.html",
+"/workspace/datacenterdigital/html/mnemonic-generator.html",
+"/workspace/datacenterdigital/html/object-lifecycle.html",
+"/workspace/datacenterdigital/html/cdn-edge-node.html",
+"/workspace/datacenterdigital/html/geo-redundancy.html",
+"/workspace/datacenterdigital/html/certificate-authority.html",
+"/workspace/datacenterdigital/html/security-operations.html",
+"/workspace/datacenterdigital/html/site-reliability.html",
+"/workspace/datacenterdigital/html/texture-upscaler.html",
+"/workspace/datacenterdigital/html/translation-engine.html",
+"/workspace/datacenterdigital/html/devsecops-pipeline.html",
+"/workspace/datacenterdigital/html/legal-research.html",
+"/workspace/datacenterdigital/html/docker-registry.html",
+"/workspace/datacenterdigital/html/backup-verification.html",
+"/workspace/datacenterdigital/html/subscription-manager.html",
+"/workspace/datacenterdigital/html/sample-player.html",
+"/workspace/datacenterdigital/html/cost-allocation.html",
+"/workspace/datacenterdigital/html/cdn-distribution.html",
+"/workspace/datacenterdigital/html/optical-flow.html",
+"/workspace/datacenterdigital/html/fuzz-generator.html",
+"/workspace/datacenterdigital/html/character-encoder.html",
+"/workspace/datacenterdigital/html/vector-search.html",
+"/workspace/datacenterdigital/html/kubernetes-dashboard.html",
+"/workspace/datacenterdigital/html/event-bus.html",
+"/workspace/datacenterdigital/html/prometheus-metrics.html",
+"/workspace/datacenterdigital/html/nft-marketplace.html",
+"/workspace/datacenterdigital/html/exchange-rate.html",
+"/workspace/datacenterdigital/html/normal-map.html",
+"/workspace/datacenterdigital/html/real-time-alerting.html",
+"/workspace/datacenterdigital/html/cloud-migration.html",
+"/workspace/datacenterdigital/html/motion-blur.html",
+"/workspace/datacenterdigital/html/release-management.html",
+"/workspace/datacenterdigital/html/vocoder.html",
+"/workspace/datacenterdigital/html/nosql-database.html",
+"/workspace/datacenterdigital/html/video-transcoder.html",
+"/workspace/datacenterdigital/html/qr-generator.html",
+"/workspace/datacenterdigital/html/smart-beta.html",
+"/workspace/datacenterdigital/html/a-b-testing.html",
+"/workspace/datacenterdigital/html/cluster-management.html",
+"/workspace/datacenterdigital/html/gamma-correction.html",
+"/workspace/datacenterdigital/html/cluster-federation.html",
+"/workspace/datacenterdigital/html/query-optimizer.html",
+"/workspace/datacenterdigital/html/meter-analyzer.html",
+"/workspace/datacenterdigital/html/api-rate-limiter.html",
+"/workspace/datacenterdigital/html/data-aggregator.html",
+"/workspace/datacenterdigital/html/price-feed.html",
+"/workspace/datacenterdigital/html/build-automation.html",
+"/workspace/datacenterdigital/html/search-engine.html",
+"/workspace/datacenterdigital/html/node-management.html",
+"/workspace/datacenterdigital/html/small-claims.html",
+"/workspace/datacenterdigital/html/data-validation.html",
+"/workspace/datacenterdigital/html/memcached-config.html",
+"/workspace/datacenterdigital/html/replication-settings.html",
+"/workspace/datacenterdigital/html/hough-transform.html",
+"/workspace/datacenterdigital/html/xml-gateway.html",
+"/workspace/datacenterdigital/html/model-training.html",
+"/workspace/datacenterdigital/html/feature-tracker.html",
+"/workspace/datacenterdigital/html/jump-server.html",
+"/workspace/datacenterdigital/html/address-derivation.html",
+"/workspace/datacenterdigital/html/yaml-config-parser.html",
+"/workspace/datacenterdigital/html/inventory-tracking.html",
+"/workspace/datacenterdigital/html/auto-wah.html",
+"/workspace/datacenterdigital/html/streaming-protocol.html",
+"/workspace/datacenterdigital/html/resource-allocation.html",
+"/workspace/datacenterdigital/html/infrastructure-code.html",
+"/workspace/datacenterdigital/html/redaction-tool.html",
+"/workspace/datacenterdigital/html/single-sign-on.html",
+"/workspace/datacenterdigital/html/backup-automation.html",
+"/workspace/datacenterdigital/html/metaverse-gateway.html",
+"/workspace/datacenterdigital/html/version-control.html",
+"/workspace/datacenterdigital/html/lut-applier.html",
+"/workspace/datacenterdigital/html/platform-service.html",
+"/workspace/datacenterdigital/html/advanced-threat-protection.html",
+"/workspace/datacenterdigital/html/rfid-scanner.html",
+"/workspace/datacenterdigital/html/retro-filter.html",
+"/workspace/datacenterdigital/html/cloud-bursting.html",
+"/workspace/datacenterdigital/html/volumetric-fog.html",
+"/workspace/datacenterdigital/html/glacier-vault.html",
+"/workspace/datacenterdigital/html/log-aggregator.html",
+"/workspace/datacenterdigital/html/predictive-scaling.html",
+"/workspace/datacenterdigital/html/real-time-metrics.html",
+"/workspace/datacenterdigital/html/fleet-management.html",
+"/workspace/datacenterdigital/html/melody-extractor.html",
+"/workspace/datacenterdigital/html/tessellation.html",
+"/workspace/datacenterdigital/html/bluetooth-gateway.html",
+"/workspace/datacenterdigital/html/drum-machine.html",
+"/workspace/datacenterdigital/html/hybrid-cloud.html",
+"/workspace/datacenterdigital/html/data-archival.html",
+"/workspace/datacenterdigital/html/patch-management.html",
+"/workspace/datacenterdigital/html/decentralized-exchange.html",
+"/workspace/datacenterdigital/html/service-mesh-control.html",
+"/workspace/datacenterdigital/html/emotion-classifier.html",
+"/workspace/datacenterdigital/html/achievement-system.html",
+"/workspace/datacenterdigital/html/fm-synth.html",
+"/workspace/datacenterdigital/html/anomaly-detector.html",
+"/workspace/datacenterdigital/html/iot-device-mgmt.html",
+"/workspace/datacenterdigital/html/runbook-automation.html",
+"/workspace/datacenterdigital/html/malware-analysis.html",
+"/workspace/datacenterdigital/html/index-provider.html",
+"/workspace/datacenterdigital/html/maintenance-schedule.html",
+"/workspace/datacenterdigital/html/latency-optimizer.html",
+"/workspace/datacenterdigital/html/rating-engine.html",
+"/workspace/datacenterdigital/html/content-decryptor.html",
+"/workspace/datacenterdigital/html/knowledge-base-wiki.html",
+"/workspace/datacenterdigital/html/video-footage.html",
+"/workspace/datacenterdigital/html/maxicode-printer.html",
+"/workspace/datacenterdigital/html/capacity-planning.html",
+"/workspace/datacenterdigital/html/zigbee-coordinator.html",
+"/workspace/datacenterdigital/html/iot-gateway.html",
+"/workspace/datacenterdigital/html/forensic-collection.html",
+"/workspace/datacenterdigital/html/backup-automation-suite.html",
+"/workspace/datacenterdigital/html/grafana-charts.html",
+"/workspace/datacenterdigital/html/compliance-reports.html",
+"/workspace/datacenterdigital/html/load-testing.html",
+"/workspace/datacenterdigital/html/beat-detector.html",
+"/workspace/datacenterdigital/html/bandwidth-allocator.html",
+"/workspace/datacenterdigital/html/benchmark-tracker.html",
+"/workspace/datacenterdigital/html/sharpening-kernel.html",
+"/workspace/datacenterdigital/html/vulnerability-scanner.html",
+"/workspace/datacenterdigital/html/workload-optimizer.html",
+"/workspace/datacenterdigital/html/ocr-correction.html",
+"/workspace/datacenterdigital/html/change-management.html",
+"/workspace/datacenterdigital/html/envelope-follower.html",
+"/workspace/datacenterdigital/html/collision-detection.html",
+"/workspace/datacenterdigital/html/document-store.html",
+"/workspace/datacenterdigital/html/script-translator.html",
+"/workspace/datacenterdigital/html/sobel-filter.html",
+"/workspace/datacenterdigital/html/hair-fur.html",
+"/workspace/datacenterdigital/html/dispute-resolver.html",
+"/workspace/datacenterdigital/html/certificate-management.html",
+"/workspace/datacenterdigital/html/credit-check.html",
+"/workspace/datacenterdigital/html/cost-management.html",
+"/workspace/datacenterdigital/html/personalization-engine.html",
+"/workspace/datacenterdigital/html/mqtt-broker.html",
+"/workspace/datacenterdigital/html/hashrate-monitor.html",
+"/workspace/datacenterdigital/html/integrity-checker.html",
+"/workspace/datacenterdigital/html/business-continuity.html",
+"/workspace/datacenterdigital/html/microservices-registry.html",
+"/workspace/datacenterdigital/html/content-delivery.html",
+"/workspace/datacenterdigital/html/internationalization.html",
+"/workspace/datacenterdigital/html/grpc-load-balancer.html",
+"/workspace/datacenterdigital/html/distribution-platform.html",
+"/workspace/datacenterdigital/html/license-management.html",
+"/workspace/datacenterdigital/html/governance-policy.html",
+"/workspace/datacenterdigital/html/semantic-engine.html",
+"/workspace/datacenterdigital/html/ab-testing-platform.html",
+"/workspace/datacenterdigital/html/texture-streaming.html",
+"/workspace/datacenterdigital/html/node-validator.html",
+"/workspace/datacenterdigital/html/occlusion-culling.html",
+"/workspace/datacenterdigital/html/port-security.html",
+"/workspace/datacenterdigital/html/ddos-mitigation.html",
+"/workspace/datacenterdigital/html/code-review.html",
+"/workspace/datacenterdigital/html/billing-integration.html",
+"/workspace/datacenterdigital/html/live-streaming.html",
+"/workspace/datacenterdigital/html/virtual-machines.html",
+"/workspace/datacenterdigital/html/oracle-network.html",
+"/workspace/datacenterdigital/html/hardware-inventory.html",
+"/workspace/datacenterdigital/html/key-value-cache.html",
+"/workspace/datacenterdigital/html/multi-factor-auth.html",
+"/workspace/datacenterdigital/html/instancing-renderer.html",
+"/workspace/datacenterdigital/html/endpoint-security.html",
+"/workspace/datacenterdigital/html/git-repository.html",
+"/workspace/datacenterdigital/html/log-aggregation.html",
+"/workspace/datacenterdigital/html/content-filter.html",
+"/workspace/datacenterdigital/html/pixel-art-scaler.html",
+"/workspace/datacenterdigital/html/deployment-manager.html",
+"/workspace/datacenterdigital/html/alert-routing-system.html",
+"/workspace/datacenterdigital/html/webhook-config.html",
+"/workspace/datacenterdigital/html/blockchain-ledger.html",
+"/workspace/datacenterdigital/html/anti-aliasing.html",
+"/workspace/datacenterdigital/html/intent-detector.html",
+"/workspace/datacenterdigital/html/integration-hub.html",
+"/workspace/datacenterdigital/html/observability-stack.html",
+"/workspace/datacenterdigital/html/mempool-monitor.html",
+"/workspace/datacenterdigital/html/vpn-config.html",
+"/workspace/datacenterdigital/html/two-factor-auth.html",
+"/workspace/datacenterdigital/html/style-guide.html",
+"/workspace/datacenterdigital/html/connection-tracker.html",
+"/workspace/datacenterdigital/html/hybrid-backup.html",
+"/workspace/datacenterdigital/html/sto-issuer.html",
+"/workspace/datacenterdigital/html/gpu-compute.html",
+"/workspace/datacenterdigital/html/synthetic-monitoring.html",
+"/workspace/datacenterdigital/html/user-management.html",
+"/workspace/datacenterdigital/html/prosody-controller.html",
+"/workspace/datacenterdigital/html/email-filtering.html",
+"/workspace/datacenterdigital/html/energy-monitoring.html",
+"/workspace/datacenterdigital/html/ldap-directory.html",
+"/workspace/datacenterdigital/html/factor-investing.html",
+"/workspace/datacenterdigital/html/disaster-planning.html",
+"/workspace/datacenterdigital/html/api-management.html",
+"/workspace/datacenterdigital/html/traffic-shaping.html",
+"/workspace/datacenterdigital/html/intro-outro.html",
+"/workspace/datacenterdigital/html/optical-switch.html",
+"/workspace/datacenterdigital/html/ai-models.html",
+"/workspace/datacenterdigital/html/loyalty-program.html",
+"/workspace/datacenterdigital/html/rss-aggregator.html",
+"/workspace/datacenterdigital/html/cdn-settings.html",
+"/workspace/datacenterdigital/html/real-time-monitoring.html",
+"/workspace/datacenterdigital/html/orchestration-tool.html",
+"/workspace/datacenterdigital/html/locale-settings.html",
+"/workspace/datacenterdigital/html/kafka-streaming.html",
+"/workspace/datacenterdigital/html/limiter.html",
+"/workspace/datacenterdigital/html/hipaa-compliance.html",
+"/workspace/datacenterdigital/html/federated-identity.html",
+"/workspace/datacenterdigital/html/biometric-auth.html",
+"/workspace/datacenterdigital/html/terminology-manager.html",
+"/workspace/datacenterdigital/html/timezone-config.html",
+"/workspace/datacenterdigital/html/oauth-provider.html",
+"/workspace/datacenterdigital/html/unified-logging.html",
+"/workspace/datacenterdigital/html/face-recognizer.html",
+"/workspace/datacenterdigital/html/audio-codec.html",
+"/workspace/datacenterdigital/html/intrusion-prevention.html",
+"/workspace/datacenterdigital/html/subnet-management.html",
+"/workspace/datacenterdigital/html/workflow-automation.html",
+"/workspace/datacenterdigital/html/conversion-optimizer.html",
+"/workspace/datacenterdigital/html/resource-quota.html",
+"/workspace/datacenterdigital/html/release-notes.html",
+"/workspace/datacenterdigital/html/logstash-config.html",
+"/workspace/datacenterdigital/html/virtual-classroom.html",
+"/workspace/datacenterdigital/html/refund-processor.html",
+"/workspace/datacenterdigital/html/billing-analytics.html",
+"/workspace/datacenterdigital/html/ml-model-deployment.html",
+"/workspace/datacenterdigital/html/zone-dns-split.html",
+"/workspace/datacenterdigital/html/logging-service.html",
+"/workspace/datacenterdigital/html/mining-pool.html",
+"/workspace/datacenterdigital/html/digital-signature.html",
+"/workspace/datacenterdigital/html/document-parser.html",
+"/workspace/datacenterdigital/html/pagerduty-integration.html",
+"/workspace/datacenterdigital/html/network-slicing.html",
+"/workspace/datacenterdigital/html/cold-storage.html",
+"/workspace/datacenterdigital/html/network-forensics.html",
+"/workspace/datacenterdigital/html/world-builder.html",
+"/workspace/datacenterdigital/html/policy-enforcement.html",
+"/workspace/datacenterdigital/html/opencl-program.html",
+"/workspace/datacenterdigital/html/displacement-map.html",
+"/workspace/datacenterdigital/html/lyric-generator.html",
+"/workspace/datacenterdigital/html/reverse-proxy.html",
+"/workspace/datacenterdigital/html/cost-analysis.html",
+"/workspace/datacenterdigital/html/recommendation-engine.html",
+"/workspace/datacenterdigital/html/availability-zone-config.html",
+"/workspace/datacenterdigital/html/path-tracing.html",
+"/workspace/datacenterdigital/html/container-security.html",
+"/workspace/datacenterdigital/html/network-topology-map.html",
+"/workspace/datacenterdigital/html/data-masking.html",
+"/workspace/datacenterdigital/html/step-sequencer.html",
+"/workspace/datacenterdigital/html/data-warehouse.html",
+"/workspace/datacenterdigital/html/bastion-host.html",
+"/workspace/datacenterdigital/html/watermark-embedder.html",
+"/workspace/datacenterdigital/html/file-synchronization.html",
+"/workspace/datacenterdigital/html/hd-wallet.html",
+"/workspace/datacenterdigital/html/ocr-engine.html",
+"/workspace/datacenterdigital/html/physics-engine.html",
+"/workspace/datacenterdigital/html/cold-storage-vault.html",
+"/workspace/datacenterdigital/html/unified-communications.html",
+"/workspace/datacenterdigital/html/identity-provider.html",
+"/workspace/datacenterdigital/html/wavelength-manager.html",
+"/workspace/datacenterdigital/html/fragment-shader.html",
+"/workspace/datacenterdigital/html/network-status.html",
+"/workspace/datacenterdigital/html/nlp-processor.html",
+"/workspace/datacenterdigital/html/blue-green-deploy.html",
+"/workspace/datacenterdigital/html/ci-cd-runner.html",
+"/workspace/datacenterdigital/html/database-replication.html",
+"/workspace/datacenterdigital/html/asset-inventory-manager.html",
+"/workspace/datacenterdigital/html/application-performance.html",
+"/workspace/datacenterdigital/html/recovery-testing.html",
+"/workspace/datacenterdigital/html/han Xin.html",
+"/workspace/datacenterdigital/html/identity-access-mgmt.html",
+"/workspace/datacenterdigital/html/notification-service.html",
+"/workspace/datacenterdigital/html/billing-reports.html",
+"/workspace/datacenterdigital/html/auto-remediation.html",
+"/workspace/datacenterdigital/html/telemetry-data.html",
+"/workspace/datacenterdigital/html/proof-of-stake.html",
+"/workspace/datacenterdigital/html/pdf417-writer.html",
+"/workspace/datacenterdigital/html/global-server-load.html",
+"/workspace/datacenterdigital/html/wireless-controller.html",
+"/workspace/datacenterdigital/html/failover-controller.html",
+"/workspace/datacenterdigital/html/data-replication.html",
+"/workspace/datacenterdigital/html/proof-of-work.html",
+"/workspace/datacenterdigital/html/zero-day-protection.html",
+"/workspace/datacenterdigital/html/event-streaming.html",
+"/workspace/datacenterdigital/html/kernel-monitoring.html",
+"/workspace/datacenterdigital/html/transcription-service.html",
+"/workspace/datacenterdigital/html/document-management.html",
+"/workspace/datacenterdigital/html/event-correlation.html",
+"/workspace/datacenterdigital/html/key-management-service.html",
+"/workspace/datacenterdigital/html/privilege-log.html",
+"/workspace/datacenterdigital/html/expander.html",
+"/workspace/datacenterdigital/html/system-hardening.html",
+"/workspace/datacenterdigital/html/typography-picker.html",
+"/workspace/datacenterdigital/html/network-topology.html",
+"/workspace/datacenterdigital/html/neural-network.html",
+"/workspace/datacenterdigital/html/crypto-mining.html",
+"/workspace/datacenterdigital/html/geo-routing.html",
+"/workspace/datacenterdigital/html/endpoint-detection.html",
+"/workspace/datacenterdigital/html/dependency-tracker.html",
+"/workspace/datacenterdigital/html/websocket-proxy.html",
+"/workspace/datacenterdigital/html/cron-jobs.html",
+"/workspace/datacenterdigital/html/backup-recovery.html",
+"/workspace/datacenterdigital/html/legal-hold.html",
+"/workspace/datacenterdigital/html/api-gateway.html",
+"/workspace/datacenterdigital/html/micro-segmentation.html",
+"/workspace/datacenterdigital/html/virtual-network.html",
+"/workspace/datacenterdigital/html/exposure-control.html",
+"/workspace/datacenterdigital/html/global-load-balancer.html",
+"/workspace/datacenterdigital/html/sla-monitor.html",
+"/workspace/datacenterdigital/html/bot-detection.html",
+"/workspace/datacenterdigital/html/counterpoint-engine.html",
+"/workspace/datacenterdigital/html/ssl-certificates.html",
+"/workspace/datacenterdigital/html/api-versioning.html",
+"/workspace/datacenterdigital/html/anomaly-detection.html",
+"/workspace/datacenterdigital/html/etl-pipeline.html",
+"/workspace/datacenterdigital/html/software-defined-perimeter.html",
+"/workspace/datacenterdigital/html/qos-engine.html",
+"/workspace/datacenterdigital/html/websocket-relay.html",
+"/workspace/datacenterdigital/html/redundancy-manager.html",
+"/workspace/datacenterdigital/html/edge-computing.html",
+"/workspace/datacenterdigital/html/user-provisioning.html",
+"/workspace/datacenterdigital/html/configuration-db.html",
+"/workspace/datacenterdigital/html/yml-parser.html",
+"/workspace/datacenterdigital/html/elasticsearch.html",
+"/workspace/datacenterdigital/html/wavetable-synth.html",
+"/workspace/datacenterdigital/html/color-palette.html",
+"/workspace/datacenterdigital/html/phoneme-aligner.html",
+"/workspace/datacenterdigital/html/progression-analyzer.html",
+"/workspace/datacenterdigital/html/equalizer.html",
+"/workspace/datacenterdigital/html/traffic-mirroring.html",
+"/workspace/datacenterdigital/html/ci-cd-pipeline.html",
+"/workspace/datacenterdigital/html/time-sync.html",
+"/workspace/datacenterdigital/html/signature-verifier.html",
+"/workspace/datacenterdigital/html/resource-scheduler.html",
+"/workspace/datacenterdigital/html/venture-capital.html",
+"/workspace/datacenterdigital/html/triplestore.html",
+"/workspace/datacenterdigital/html/ambient-occlusion.html",
+"/workspace/datacenterdigital/html/overdrive-box.html",
+"/workspace/datacenterdigital/html/subtractive-synth.html",
+"/workspace/datacenterdigital/html/speech-synthesizer.html",
+"/workspace/datacenterdigital/html/automated-market-maker.html",
+"/workspace/datacenterdigital/html/seo-tools.html",
+"/workspace/datacenterdigital/html/arpeggiator.html",
+"/workspace/datacenterdigital/html/zero-trust-network.html",
+"/workspace/datacenterdigital/html/aztec-code.html",
+"/workspace/datacenterdigital/html/iam-policy-editor.html",
+"/workspace/datacenterdigital/html/wah-wah.html",
+"/workspace/datacenterdigital/html/private-equity.html",
+"/workspace/datacenterdigital/html/saml-identity.html",
+"/workspace/datacenterdigital/html/order-matching.html",
+"/workspace/datacenterdigital/html/kyc-process.html",
+"/workspace/datacenterdigital/html/natural-language.html",
+"/workspace/datacenterdigital/html/chorus-effect.html",
+"/workspace/datacenterdigital/html/temperature-monitoring.html",
+"/workspace/datacenterdigital/html/compute-shader.html",
+"/workspace/datacenterdigital/html/white-balance.html",
+"/workspace/datacenterdigital/html/storage-provisioning.html",
+"/workspace/datacenterdigital/html/vignette-effect.html",
+"/workspace/datacenterdigital/html/ontology-editor.html",
+"/workspace/datacenterdigital/html/recommendation-system.html",
+"/workspace/datacenterdigital/html/subsurface-scattering.html",
+"/workspace/datacenterdigital/html/mention-finder.html",
+"/workspace/datacenterdigital/html/message-queue.html",
+"/workspace/datacenterdigital/html/auto-scaling-groups.html",
+"/workspace/datacenterdigital/html/red-team-tools.html",
+"/workspace/datacenterdigital/html/storage-optimization.html",
+"/workspace/datacenterdigital/html/compressor.html",
+"/workspace/datacenterdigital/html/video-conferencing.html",
+"/workspace/datacenterdigital/html/invoice-generator.html",
+"/workspace/datacenterdigital/html/data-annotation.html",
+"/workspace/datacenterdigital/html/elastic-scaling.html",
+"/workspace/datacenterdigital/html/docket-tracker.html",
+"/workspace/datacenterdigital/html/compute-resources.html",
+"/workspace/datacenterdigital/html/api-documentation.html",
+"/workspace/datacenterdigital/html/capacity-monitoring.html",
+"/workspace/datacenterdigital/html/bandwidth-monitoring.html",
+"/workspace/datacenterdigital/html/database-monitoring.html",
+"/workspace/datacenterdigital/html/identity-verification.html",
+"/workspace/datacenterdigital/html/royalty-calculator.html",
+"/workspace/datacenterdigital/html/edge-detection.html",
+"/workspace/datacenterdigital/html/encryption-gateway.html",
+"/workspace/datacenterdigital/html/multi-cloud-mgmt.html",
+"/workspace/datacenterdigital/html/hedge-fund.html",
+"/workspace/datacenterdigital/html/indexing-service.html",
+"/workspace/datacenterdigital/html/asset-inventory.html",
+"/workspace/datacenterdigital/html/dashboard-builder.html",
+"/workspace/datacenterdigital/html/coap-gateway.html",
+"/workspace/datacenterdigital/html/denoising-filter.html",
+"/workspace/datacenterdigital/html/arbitration-system.html",
+"/workspace/datacenterdigital/html/hash-verifier.html",
+"/workspace/datacenterdigital/html/syndication-feed.html",
+"/workspace/datacenterdigital/html/chain-of-custody.html",
+"/workspace/datacenterdigital/html/governance-risk.html",
+"/workspace/datacenterdigital/html/storage-management.html",
+"/workspace/datacenterdigital/html/power-management.html",
+"/workspace/datacenterdigital/html/ddos-protection.html",
+"/workspace/datacenterdigital/html/resource-quota-mgr.html",
+"/workspace/datacenterdigital/html/blockchain-validator.html",
+"/workspace/datacenterdigital/html/privacy-preserving.html",
+"/workspace/datacenterdigital/html/webgpu-device.html",
+"/workspace/datacenterdigital/html/fluid-simulation.html",
+"/workspace/datacenterdigital/html/text-to-speech.html",
+"/workspace/datacenterdigital/html/dns-management.html",
+"/workspace/datacenterdigital/html/mobile-device-mgmt.html",
+"/workspace/datacenterdigital/html/watermark-detector.html",
+"/workspace/datacenterdigital/html/web-application-firewall.html",
+"/workspace/datacenterdigital/html/service-catalog.html",
+"/workspace/datacenterdigital/html/crawling-config.html",
+"/workspace/datacenterdigital/html/disaster-simulation.html",
+"/workspace/datacenterdigital/html/gamification-engine.html",
+"/workspace/datacenterdigital/html/god-rays.html",
+"/workspace/datacenterdigital/html/data-quality.html",
+"/workspace/datacenterdigital/html/jenkins-ci-cd.html",
+"/workspace/datacenterdigital/html/ Foley-artist.html",
+"/workspace/datacenterdigital/html/podcast-host.html",
+"/workspace/datacenterdigital/html/gpu-virtualization.html",
+"/workspace/datacenterdigital/html/columnar-store.html",
+"/workspace/datacenterdigital/html/scanlines-overlay.html",
+"/workspace/datacenterdigital/html/form-extractor.html",
+"/workspace/datacenterdigital/html/kubernetes-network.html",
+"/workspace/datacenterdigital/html/glossary-builder.html",
+"/workspace/datacenterdigital/html/5g-network-slice.html",
+"/workspace/datacenterdigital/html/threat-analysis.html",
+"/workspace/datacenterdigital/html/lorawan-server.html",
+"/workspace/datacenterdigital/html/commission-calculator.html",
+"/workspace/datacenterdigital/html/ssh-keys.html",
+"/workspace/datacenterdigital/html/chargeback-handler.html",
+"/workspace/datacenterdigital/html/confidential-computing.html",
+"/workspace/datacenterdigital/html/security-patching.html",
+"/workspace/datacenterdigital/html/computer-vision.html",
+"/workspace/datacenterdigital/html/clearing-house.html",
+"/workspace/datacenterdigital/html/dns-filtering.html",
+"/workspace/datacenterdigital/html/contour-finder.html",
+"/workspace/datacenterdigital/html/database-optimization.html",
+"/workspace/datacenterdigital/html/audit-logs.html",
+"/workspace/datacenterdigital/html/tax-calculator.html",
+"/workspace/datacenterdigital/html/copyright-verifier.html",
+"/workspace/datacenterdigital/html/log-analysis.html",
+"/workspace/datacenterdigital/html/sitemap-generator.html",
+"/workspace/datacenterdigital/html/threat-detection.html",
+"/workspace/datacenterdigital/html/mutual-fund.html",
+"/workspace/datacenterdigital/html/service-level-agreement.html",
+"/workspace/datacenterdigital/html/authentication-service.html",
+"/workspace/datacenterdigital/html/object-storage.html",
+"/workspace/datacenterdigital/html/xen-hypervisor-m....html",
+"/workspace/datacenterdigital/html/data-retention.html",
+"/workspace/datacenterdigital/html/cloud-integration.html",
+"/workspace/datacenterdigital/html/gesture-interpreter.html",
+"/workspace/datacenterdigital/html/license-tracking.html",
+"/workspace/datacenterdigital/html/screen-sharing.html",
+"/workspace/datacenterdigital/html/depth-of-field.html",
+"/workspace/datacenterdigital/html/yield-farming.html",
+"/workspace/datacenterdigital/html/file-integrity.html",
+"/workspace/datacenterdigital/html/private-network.html",
+"/workspace/datacenterdigital/html/secure-web-gateway.html",
+"/workspace/datacenterdigital/html/gpu-resource-pool.html",
+"/workspace/datacenterdigital/html/template-matcher.html",
+"/workspace/datacenterdigital/html/pattern-recognizer.html",
+"/workspace/datacenterdigital/html/secret-manager.html",
+"/workspace/datacenterdigital/html/access-control-list.html",
+"/workspace/datacenterdigital/html/server-monitoring.html",
+"/workspace/datacenterdigital/html/failover-testing.html",
+"/workspace/datacenterdigital/html/message-broker.html",
+"/workspace/datacenterdigital/html/malware-detection.html",
+"/workspace/datacenterdigital/html/job-scheduling.html",
+"/workspace/datacenterdigital/html/chromatic-aberration.html",
+"/workspace/datacenterdigital/html/database-admin.html",
+"/workspace/datacenterdigital/html/change-tracking.html",
+"/workspace/datacenterdigital/html/syllable-counter.html",
+"/workspace/datacenterdigital/html/hybrid-cloud-bridge.html",
+"/workspace/datacenterdigital/html/vulnerability-scan.html",
+"/workspace/datacenterdigital/html/zone-redundancy.html",
+"/workspace/datacenterdigital/html/feature-flags.html",
+"/workspace/datacenterdigital/html/configuration-management.html",
+"/workspace/datacenterdigital/html/gitops-pipeline.html",
+"/workspace/datacenterdigital/html/software-defined-wan.html",
+"/workspace/datacenterdigital/html/task-scheduler.html",
+"/workspace/datacenterdigital/html/phonetic-transcriber.html",
+"/workspace/datacenterdigital/html/biometric-scanner.html",
+"/workspace/datacenterdigital/html/parental-controls.html",
+"/workspace/datacenterdigital/html/embedding-generator.html",
+"/workspace/datacenterdigital/html/data-migration.html",
+"/workspace/datacenterdigital/html/steganography-tool.html",
+"/workspace/datacenterdigital/html/reverb-unit.html",
+"/workspace/datacenterdigital/html/database-sharding.html",
+"/workspace/datacenterdigital/html/grade-book.html",
+"/workspace/datacenterdigital/html/security-information-event.html",
+"/workspace/datacenterdigital/html/governance-framework.html",
+"/workspace/datacenterdigital/html/captcha-service.html",
+"/workspace/datacenterdigital/html/multi-cloud.html",
+"/workspace/datacenterdigital/html/privilege-access-mgmt.html",
+"/workspace/datacenterdigital/html/currency-converter.html",
+"/workspace/datacenterdigital/html/data-loss-prevention.html",
+"/workspace/datacenterdigital/html/edge-analytics.html",
+"/workspace/datacenterdigital/html/groove-box.html",
+"/workspace/datacenterdigital/html/tempo-analyzer.html",
+"/workspace/datacenterdigital/html/circuit-breaker.html",
+"/workspace/datacenterdigital/html/distortion-pedal.html",
+"/workspace/datacenterdigital/html/problem-management.html",
+"/workspace/datacenterdigital/html/latency-monitoring.html",
+"/workspace/datacenterdigital/html/e-learning.html",
+"/workspace/datacenterdigital/html/abac-access-control.html",
+"/workspace/datacenterdigital/html/affiliate-network.html",
+"/workspace/datacenterdigital/html/ai-inference.html",
+"/workspace/datacenterdigital/html/graph-database.html",
+"/workspace/datacenterdigital/html/feature-store.html",
+"/workspace/datacenterdigital/html/cache-invalidation.html",
+"/workspace/datacenterdigital/html/scale-finder.html",
+"/workspace/datacenterdigital/html/barcode-printer.html",
+"/workspace/datacenterdigital/html/threat-intelligence.html",
+"/workspace/datacenterdigital/html/ntp-client.html",
+"/workspace/datacenterdigital/html/pub-sub-system.html",
+"/workspace/datacenterdigital/html/video-surveillance.html",
+"/workspace/datacenterdigital/html/asset-tracker.html",
+"/workspace/datacenterdigital/html/bot-mitigation.html",
+"/workspace/datacenterdigital/html/rights-manager.html",
+"/workspace/datacenterdigital/html/icon-library.html",
+"/workspace/datacenterdigital/html/octree-builder.html",
+"/workspace/datacenterdigital/html/access-control.html",
+"/workspace/datacenterdigital/html/dialect-detector.html",
+"/workspace/datacenterdigital/html/kdtree-constructor.html",
+"/workspace/datacenterdigital/html/forensic-analysis.html",
+"/workspace/datacenterdigital/html/code-deployment.html",
+"/workspace/datacenterdigital/html/hotfix-deployment.html",
+"/workspace/datacenterdigital/html/adaptive-bitrate.html",
+"/workspace/datacenterdigital/html/particle-system.html",
+"/workspace/datacenterdigital/html/sentiment-analyzer.html",
+"/workspace/datacenterdigital/html/operational-insights.html",
+"/workspace/datacenterdigital/html/forensic-analyzer.html",
+"/workspace/datacenterdigital/html/constraint-solver.html",
+"/workspace/datacenterdigital/html/risk-parity.html",
+"/workspace/datacenterdigital/html/tamper-detector.html",
+"/workspace/datacenterdigital/html/network-access-control.html",
+"/workspace/datacenterdigital/html/digitization-workflow.html",
+"/workspace/datacenterdigital/html/container-registry.html",
+"/workspace/datacenterdigital/html/time-series-db.html",
+"/workspace/datacenterdigital/html/cloud-storage.html",
+"/workspace/datacenterdigital/html/virtual-private-cloud.html",
+"/workspace/datacenterdigital/html/chatbot-config.html",
+"/workspace/datacenterdigital/html/security-audit.html",
+"/workspace/datacenterdigital/html/release-coordinator.html",
+"/workspace/datacenterdigital/html/dns-load-balancer.html",
+"/workspace/datacenterdigital/html/block-explorer.html",
+"/workspace/datacenterdigital/html/mediation-platform.html",
+"/workspace/datacenterdigital/html/intrusion-detection.html",
+"/workspace/datacenterdigital/html/robots-txt.html",
+"/workspace/datacenterdigital/html/data-classification.html",
+"/workspace/datacenterdigital/html/quality-of-service.html",
+"/workspace/datacenterdigital/html/packet-capture.html",
+"/workspace/datacenterdigital/html/certificate-renewal.html",
+"/workspace/datacenterdigital/html/language-identifier.html",
+"/workspace/datacenterdigital/html/zero-trust.html",
+"/workspace/datacenterdigital/html/cloth-simulation.html",
+"/workspace/datacenterdigital/html/soft-body.html",
+"/workspace/datacenterdigital/html/stream-processor.html",
+"/workspace/datacenterdigital/html/incident-manager.html",
+"/workspace/datacenterdigital/html/payment-gateway.html",
+"/workspace/datacenterdigital/html/url-shortener.html",
+"/workspace/datacenterdigital/html/automated-patching.html",
+"/workspace/datacenterdigital/html/incident-ticketing.html",
+"/workspace/datacenterdigital/html/vertex-shader.html",
+"/workspace/datacenterdigital/html/microservices.html",
+"/workspace/datacenterdigital/html/remote-access.html",
+"/workspace/datacenterdigital/html/hook-creator.html",
+"/workspace/datacenterdigital/html/cloud-access-broker.html",
+"/workspace/datacenterdigital/html/email-security.html",
+"/workspace/datacenterdigital/html/rollback-procedure.html",
+"/workspace/datacenterdigital/html/hadoop-distributed.html",
+"/workspace/datacenterdigital/html/webhook-manager.html",
+"/workspace/datacenterdigital/html/image-recognition.html",
+"/workspace/datacenterdigital/html/e-discovery.html",
+"/workspace/datacenterdigital/html/reward-calculator.html",
+"/workspace/datacenterdigital/html/rate-shaping.html",
+"/workspace/datacenterdigital/html/quantum-encryption.html",
+"/workspace/datacenterdigital/html/performance-attribution.html",
+"/workspace/datacenterdigital/html/bandwidth-throttling.html",
+"/workspace/datacenterdigital/html/kibana-dashboard.html",
+"/workspace/datacenterdigital/html/cdn-configuration.html",
+"/workspace/datacenterdigital/html/voice-calls.html",
+"/workspace/datacenterdigital/html/language-pack.html",
+"/workspace/datacenterdigital/html/leaderboard.html",
+"/workspace/datacenterdigital/html/paper-backup.html",
+"/workspace/datacenterdigital/html/metric-collection.html",
+"/workspace/datacenterdigital/html/reliability-engine.html",
+"/workspace/datacenterdigital/html/incident-reports.html",
+"/workspace/datacenterdigital/html/snapshot-manager.html",
+"/workspace/datacenterdigital/html/message-queue-broker.html",
+"/workspace/datacenterdigital/html/spatial-partitioning.html",
+"/workspace/datacenterdigital/html/experiment-tracking.html",
+"/workspace/datacenterdigital/html/cluster-orchestrator.html",
+"/workspace/datacenterdigital/html/delay-line.html",
+"/workspace/datacenterdigital/html/remote-desktop.html",
+"/workspace/datacenterdigital/html/badge-creator.html",
+"/workspace/datacenterdigital/html/malware-scanning.html",
+"/workspace/datacenterdigital/html/utxo-manager.html",
+"/workspace/datacenterdigital/html/bass-line-generator.html",
+"/workspace/datacenterdigital/html/emoji-parser.html",
+"/workspace/datacenterdigital/html/user-segmentation.html",
+"/workspace/datacenterdigital/html/identity-management.html",
+"/workspace/datacenterdigital/html/taxonomy-builder.html",
+"/workspace/datacenterdigital/html/traffic-shaping-policy.html",
+"/workspace/datacenterdigital/html/incident-response-team.html",
+"/workspace/datacenterdigital/html/dns-resolver.html",
+"/workspace/datacenterdigital/html/data-archiving.html",
+"/workspace/datacenterdigital/html/transaction-monitor.html",
+"/workspace/datacenterdigital/html/crowdfunding.html",
+"/workspace/datacenterdigital/html/auto-ml.html",
+"/workspace/datacenterdigital/html/quantum-safe-crypto.html",
+"/workspace/datacenterdigital/html/satellite-uplink.html",
+"/workspace/datacenterdigital/html/ntp-server.html",
+"/workspace/datacenterdigital/html/microfilm-scanner.html",
+"/workspace/datacenterdigital/html/bridge-builder.html",
+"/workspace/datacenterdigital/html/dynamic-range.html",
+"/workspace/datacenterdigital/html/video-codec.html",
+"/workspace/datacenterdigital/html/sms-gateway.html",
+"/workspace/datacenterdigital/html/labeling-platform.html",
+"/workspace/datacenterdigital/html/metal-shader.html",
+"/workspace/datacenterdigital/html/personalization.html",
+"/workspace/datacenterdigital/html/ai-ops-automation.html",
+"/workspace/datacenterdigital/html/spam-filter.html",
+"/workspace/datacenterdigital/html/disaster-recovery.html",
+"/workspace/datacenterdigital/html/pronunciation-guide.html",
+"/workspace/datacenterdigital/html/accent-analyzer.html",
+"/workspace/datacenterdigital/html/backup-scheduling.html",
+"/workspace/datacenterdigital/html/malware-protection.html",
+"/workspace/datacenterdigital/html/traffic-analysis.html",
+"/workspace/datacenterdigital/html/cache-server.html",
+"/workspace/datacenterdigital/html/kubernetes-operator.html",
+"/workspace/datacenterdigital/html/encryption-keys.html",
+"/workspace/datacenterdigital/html/ crt-emulator.html",
+"/workspace/datacenterdigital/html/gdpr-compliance.html",
+"/workspace/datacenterdigital/html/hyperparameter-tuner.html",
+"/workspace/datacenterdigital/html/event-management.html",
+"/workspace/datacenterdigital/html/hsm-cluster.html",
+"/workspace/datacenterdigital/html/digital-collectibles.html",
+"/workspace/datacenterdigital/html/data-synchronization.html",
+"/workspace/datacenterdigital/html/key-detector.html",
+"/workspace/datacenterdigital/html/failover-automation.html",
+"/workspace/datacenterdigital/html/chatbot-engine.html",
+"/workspace/datacenterdigital/html/quota-management.html",
+"/workspace/datacenterdigital/html/quality-assurance.html",
+"/workspace/datacenterdigital/html/knowledge-graph.html",
+"/workspace/datacenterdigital/html/metadata-extractor.html",
+"/workspace/datacenterdigital/html/ip-address-mgmt.html",
+"/workspace/datacenterdigital/html/machine-learning-ops.html",
+"/workspace/datacenterdigital/html/localization.html",
+"/workspace/datacenterdigital/html/business-intelligence.html",
+"/workspace/datacenterdigital/html/attendance-tracker.html",
+"/workspace/datacenterdigital/html/synthetic-data.html",
+"/workspace/datacenterdigital/html/certificate-issuer.html",
+"/workspace/datacenterdigital/html/rest-proxy.html",
+"/workspace/datacenterdigital/html/datamatrix-creator.html",
+"/workspace/datacenterdigital/html/disaster-recovery-plan.html",
+"/workspace/datacenterdigital/html/chord-recognizer.html",
+"/workspace/datacenterdigital/html/harmony-arranger.html",
+"/workspace/datacenterdigital/html/etf-creator.html",
+"/workspace/datacenterdigital/html/staking-dashboard.html",
+"/workspace/datacenterdigital/html/quiz-engine.html",
+"/workspace/datacenterdigital/html/endpoint-protection.html",
+"/workspace/datacenterdigital/html/webinar-platform.html",
+"/workspace/datacenterdigital/html/homomorphic-encryption.html",
+"/workspace/datacenterdigital/html/security-settings.html",
+"/workspace/datacenterdigital/html/film-grain.html",
+"/workspace/datacenterdigital/html/dialog-manager.html",
+"/workspace/datacenterdigital/html/high-availability.html",
+"/workspace/datacenterdigital/html/qr-encoder.html",
+"/workspace/datacenterdigital/html/serverless-compute.html",
+"/workspace/datacenterdigital/html/report-generator.html",
+"/workspace/datacenterdigital/html/process-automation.html",
+"/workspace/datacenterdigital/html/photo-stock.html",
+"/workspace/datacenterdigital/html/graphql-gateway.html",
+"/workspace/datacenterdigital/html/packet-broker.html",
+"/workspace/datacenterdigital/html/reward-redemption.html",
+"/workspace/datacenterdigital/html/upgrade-manager.html",
+"/workspace/datacenterdigital/html/billing-engine.html",
+"/workspace/datacenterdigital/html/abuse-reports.html",
+"/workspace/datacenterdigital/html/asset-lifecycle-mgmt.html",
+"/workspace/datacenterdigital/html/api-rate-limiting.html",
+"/workspace/datacenterdigital/html/vendor-portal.html",
+"/workspace/datacenterdigital/html/log-viewer.html",
+"/workspace/datacenterdigital/html/public-network.html",
+"/workspace/datacenterdigital/html/similarity-search.html",
+"/workspace/datacenterdigital/html/availability-zones.html",
+"/workspace/datacenterdigital/html/data-pipeline.html",
+"/workspace/datacenterdigital/html/neural-networks.html",
+"/workspace/datacenterdigital/html/gateway-routing.html",
+"/workspace/datacenterdigital/html/filing-system.html",
+"/workspace/datacenterdigital/html/cost-optimizer.html",
+"/workspace/datacenterdigital/html/speech-recognition.html",
+"/workspace/datacenterdigital/html/escrow-service.html",
+"/workspace/datacenterdigital/html/multi-cloud-manager.html",
+"/workspace/datacenterdigital/html/integration-platform.html",
+"/workspace/datacenterdigital/html/archive-manager.html",
+"/workspace/datacenterdigital/html/batch-processing.html",
+"/workspace/datacenterdigital/html/object-detector.html",
+"/workspace/datacenterdigital/html/proxy-settings.html",
+"/workspace/datacenterdigital/html/file-storage.html",
+"/workspace/datacenterdigital/html/email-services.html",
+"/workspace/datacenterdigital/html/tone-mapping.html",
+"/workspace/datacenterdigital/html/event-driven-arch.html",
+"/workspace/datacenterdigital/html/music-library.html",
+"/workspace/datacenterdigital/html/level-of-detail.html",
+"/workspace/datacenterdigital/html/cost-optimization-dashboard.html",
+"/workspace/datacenterdigital/html/differential-privacy.html",
+"/workspace/datacenterdigital/html/uptime-monitoring.html",
+"/workspace/datacenterdigital/html/funnel-analytics.html",
+"/workspace/datacenterdigital/html/drm-encryptor.html",
+"/workspace/datacenterdigital/html/bloom-effect.html",
+"/workspace/datacenterdigital/html/welcome.html",
+"/workspace/datacenterdigital/html/tenant-isolation.html",
+"/workspace/datacenterdigital/html/operation-center-noc.html",
+"/workspace/datacenterdigital/html/network-automation.html",
+"/workspace/datacenterdigital/html/workload-planner.html",
+"/workspace/datacenterdigital/html/market-data.html",
+"/workspace/datacenterdigital/html/gpu-allocation.html",
+"/workspace/datacenterdigital/html/segment-creator.html",
+"/workspace/datacenterdigital/html/rendering-farm.html",
+"/workspace/datacenterdigital/html/zone-failover.html",
+"/workspace/datacenterdigital/html/yaml-config.html",
+"/workspace/datacenterdigital/html/domain-dns.html",
+"/workspace/datacenterdigital/html/data-lake.html",
+"/workspace/datacenterdigital/html/advanced-analytics.html",
+"/workspace/datacenterdigital/html/performance-metrics.html",
+"/workspace/datacenterdigital/html/user-behavior-analytics.html",
+"/workspace/datacenterdigital/html/secure-enclave.html",
+"/workspace/datacenterdigital/html/barcode-generator.html",
+"/workspace/datacenterdigital/html/directx-pipeline.html",
+"/workspace/datacenterdigital/html/distributed-tracing.html",
+"/workspace/datacenterdigital/html/workload-balancer.html",
+"/workspace/datacenterdigital/html/helm-repository.html",
+"/workspace/datacenterdigital/html/exchange-rates.html",
+"/workspace/datacenterdigital/html/root-cause-analysis.html",
+"/workspace/datacenterdigital/html/arrangement-helper.html",
+"/workspace/datacenterdigital/html/canary-release.html",
+"/workspace/datacenterdigital/html/sound-effects.html",
+"/workspace/datacenterdigital/html/operations-center.html",
+"/workspace/datacenterdigital/html/cuda-kernel.html",
+"/workspace/datacenterdigital/html/connection-pooling.html",
+"/workspace/datacenterdigital/html/data-governance.html",
+"/workspace/datacenterdigital/html/predictive-maintenance.html",
+"/workspace/datacenterdigital/html/jitter-analyzer.html",
+"/workspace/datacenterdigital/html/configuration-drift.html",
+"/workspace/datacenterdigital/html/alertmanager.html",
+"/workspace/datacenterdigital/html/microservices-gateway.html",
+"/workspace/datacenterdigital/html/rhyme-finder.html",
+"/workspace/datacenterdigital/html/system-updates.html",
+"/workspace/datacenterdigital/html/firmware-update.html",
+"/workspace/datacenterdigital/html/orchestration-engine.html",
+"/workspace/datacenterdigital/html/harmonizer.html",
+"/workspace/datacenterdigital/html/consensus-engine.html",
+"/workspace/datacenterdigital/html/blur-operator.html",
+"/workspace/datacenterdigital/html/workload-balancing.html",
+"/workspace/datacenterdigital/html/angel-investor.html",
+"/workspace/datacenterdigital/html/redis-cluster.html",
+"/workspace/datacenterdigital/html/verse-chorus.html",
+"/workspace/datacenterdigital/html/song-structure.html",
+"/workspace/datacenterdigital/html/custody-wallet.html",
+"/workspace/datacenterdigital/html/cache-management.html",
+"/workspace/datacenterdigital/html/geometry-shader.html",
+"/workspace/datacenterdigital/html/ai-inference-engine.html",
+"/workspace/datacenterdigital/html/network-segmentation.html",
+"/workspace/datacenterdigital/html/ray-tracing.html",
+"/workspace/datacenterdigital/html/hot-wallet.html",
+"/workspace/datacenterdigital/html/log-retention.html",
+"/workspace/datacenterdigital/html/compliance-monitoring.html",
+"/workspace/datacenterdigital/html/adaptive-load-balancing.html",
+"/workspace/datacenterdigital/html/service-discovery.html",
+"/workspace/datacenterdigital/html/health-checks.html",
+"/workspace/datacenterdigital/html/authentication-gateway.html",
+"/workspace/datacenterdigital/html/machine-learning.html",
+"/workspace/datacenterdigital/html/bounding-volume.html",
+"/workspace/datacenterdigital/html/analytics-dashboard.html",
+"/workspace/datacenterdigital/html/gate-processor.html",
+"/workspace/datacenterdigital/html/frustum-culling.html",
+"/workspace/datacenterdigital/html/color-grading.html",
+"/workspace/datacenterdigital/html/license-compliance.html",
+"/workspace/datacenterdigital/html/cyber-threat-intel.html",
+"/workspace/appcalculator.html",
+"/workspace/situsnewsmediadigital/promo.html",
+"/workspace/situsnewsmediadigital/redaksi.html",
+"/workspace/situsnewsmediadigital/kuliner.html",
+"/workspace/situsnewsmediadigital/sosial.html",
+"/workspace/situsnewsmediadigital/kalkulator.html",
+"/workspace/situsnewsmediadigital/keuangan.html",
+"/workspace/situsnewsmediadigital/sumut.html",
+"/workspace/situsnewsmediadigital/lifestyle.html",
+"/workspace/situsnewsmediadigital/kamus.html",
+"/workspace/situsnewsmediadigital/kalsel.html",
+"/workspace/situsnewsmediadigital/wisata.html",
+"/workspace/situsnewsmediadigital/olahraga.html",
+"/workspace/situsnewsmediadigital/metro.html",
+"/workspace/situsnewsmediadigital/event.html",
+"/workspace/situsnewsmediadigital/kesehatan.html",
+"/workspace/situsnewsmediadigital/hasil.html",
+"/workspace/situsnewsmediadigital/foto.html",
+"/workspace/situsnewsmediadigital/karir.html",
+"/workspace/situsnewsmediadigital/ntt.html",
+"/workspace/situsnewsmediadigital/teka-teki.html",
+"/workspace/situsnewsmediadigital/breaking-news.html",
+"/workspace/situsnewsmediadigital/internasional.html",
+"/workspace/situsnewsmediadigital/hukum.html",
+"/workspace/situsnewsmediadigital/tutorial.html",
+"/workspace/situsnewsmediadigital/video.html",
+"/workspace/situsnewsmediadigital/statistik.html",
+"/workspace/situsnewsmediadigital/properti.html",
+"/workspace/situsnewsmediadigital/langganan.html",
+"/workspace/situsnewsmediadigital/kalbar.html",
+"/workspace/situsnewsmediadigital/ekonomi.html",
+"/workspace/situsnewsmediadigital/ensiklopedia.html",
+"/workspace/situsnewsmediadigital/otomotif.html",
+"/workspace/situsnewsmediadigital/maluku.html",
+"/workspace/situsnewsmediadigital/kaltara.html",
+"/workspace/situsnewsmediadigital/lampung.html",
+"/workspace/situsnewsmediadigital/jambi.html",
+"/workspace/situsnewsmediadigital/terpopuler.html",
+"/workspace/situsnewsmediadigital/bengkulu.html",
+"/workspace/situsnewsmediadigital/lingkungan.html",
+"/workspace/situsnewsmediadigital/diskon.html",
+"/workspace/situsnewsmediadigital/pabar.html",
+"/workspace/situsnewsmediadigital/ntb.html",
+"/workspace/situsnewsmediadigital/headline.html",
+"/workspace/situsnewsmediadigital/sulteng.html",
+"/workspace/situsnewsmediadigital/kuis.html",
+"/workspace/situsnewsmediadigital/teknologi.html",
+"/workspace/situsnewsmediadigital/sains.html",
+"/workspace/situsnewsmediadigital/hiburan.html",
+"/workspace/situsnewsmediadigital/upload.html",
+"/workspace/situsnewsmediadigital/sultra.html",
+"/workspace/situsnewsmediadigital/arsip.html",
+"/workspace/situsnewsmediadigital/bali.html",
+"/workspace/situsnewsmediadigital/direktori.html",
+"/workspace/situsnewsmediadigital/klasemen.html",
+"/workspace/situsnewsmediadigital/diy.html",
+"/workspace/situsnewsmediadigital/horoskop.html",
+"/workspace/situsnewsmediadigital/aceh.html",
+"/workspace/situsnewsmediadigital/download.html",
+"/workspace/situsnewsmediadigital/agenda.html",
+"/workspace/situsnewsmediadigital/kolom.html",
+"/workspace/situsnewsmediadigital/kalut.html",
+"/workspace/situsnewsmediadigital/beasiswa.html",
+"/workspace/situsnewsmediadigital/budaya.html",
+"/workspace/situsnewsmediadigital/kalteng.html",
+"/workspace/situsnewsmediadigital/nasional.html",
+"/workspace/situsnewsmediadigital/konverter.html",
+"/workspace/situsnewsmediadigital/bisnis.html",
+"/workspace/situsnewsmediadigital/panduan.html",
+"/workspace/situsnewsmediadigital/pendidikan.html",
+"/workspace/situsnewsmediadigital/opini.html",
+"/workspace/situsnewsmediadigital/tips.html",
+"/workspace/situsnewsmediadigital/sulut.html",
+"/workspace/situsnewsmediadigital/feature.html",
+"/workspace/situsnewsmediadigital/jatim.html",
+"/workspace/situsnewsmediadigital/riau.html",
+"/workspace/situsnewsmediadigital/malut.html",
+"/workspace/situsnewsmediadigital/human-interest.html",
+"/workspace/situsnewsmediadigital/cari.html",
+"/workspace/situsnewsmediadigital/jateng.html",
+"/workspace/situsnewsmediadigital/kaltim.html",
+"/workspace/situsnewsmediadigital/investigasi.html",
+"/workspace/situsnewsmediadigital/papua.html",
+"/workspace/situsnewsmediadigital/gorontalo.html",
+"/workspace/situsnewsmediadigital/special-report.html",
+"/workspace/situsnewsmediadigital/infografis.html",
+"/workspace/situsnewsmediadigital/kepri.html",
+"/workspace/situsnewsmediadigital/tajuk-rencana.html",
+"/workspace/situsnewsmediadigital/politik.html",
+"/workspace/situsnewsmediadigital/jadwal.html",
+"/workspace/situsnewsmediadigital/sulsel.html",
+"/workspace/situsnewsmediadigital/terbaru.html",
+"/workspace/situsnewsmediadigital/banten.html",
+"/workspace/situsnewsmediadigital/review.html",
+"/workspace/situsnewsmediadigital/lowongan.html",
+"/workspace/situsnewsmediadigital/indepth.html",
+"/workspace/situsnewsmediadigital/sumsel.html",
+"/workspace/situsnewsmediadigital/gaya-hidup.html",
+"/workspace/situsnewsmediadigital/agama.html",
+"/workspace/situsnewsmediadigital/babel.html",
+"/workspace/situsnewsmediadigital/cuaca.html",
+"/workspace/appbrowser_pro.html",
+"/workspace/appcurrency.html",
+"/workspace/appsettings.html",
+"/workspace/appnews.html",
+"/workspace/view/utiloffline.html",
+"/workspace/view/appvoicerecorder.html",
+"/workspace/view/utilstoragelocal.html",
+"/workspace/view/uistatusbar.html",
+"/workspace/view/appunitconverter.html",
+"/workspace/view/uitoggleswitch.html",
+"/workspace/view/uiradiobutton.html",
+"/workspace/view/uinotificationcenter.html",
+"/workspace/view/appcalendar.html",
+"/workspace/view/appcodeeditor.html",
+"/workspace/view/utilcrypto.html",
+"/workspace/view/modelevent.html",
+"/workspace/view/apptranslator.html",
+"/workspace/view/servicenotification.html",
+"/workspace/view/utilworker.html",
+"/workspace/view/utilajax.html",
+"/workspace/view/serviceupdate.html",
+"/workspace/view/serviceshortcut.html",
+"/workspace/view/servicewifi.html",
+"/workspace/view/servicestorage.html",
+"/workspace/view/utildebounce.html",
+"/workspace/view/uitimepicker.html",
+"/workspace/view/modelsort.html",
+"/workspace/view/servicepower.html",
+"/workspace/view/uiaudioplayer.html",
+"/workspace/view/modelupload.html",
+"/workspace/view/modelreport.html",
+"/workspace/view/modelfolder.html",
+"/workspace/view/uifileuploader.html",
+"/workspace/view/utilthrottle.html",
+"/workspace/view/modeltask.html",
+"/workspace/view/servicedisk.html",
+"/workspace/view/modelextension.html",
+"/workspace/view/appfileexplorer.html",
+"/workspace/view/utilencoder.html",
+"/workspace/view/servicenetwork.html",
+"/workspace/view/appgallery.html",
+"/workspace/view/apppencarianbrowser.html",
+"/workspace/view/appmusic.html",
+"/workspace/view/utilstoragesession.html",
+"/workspace/view/modelfile.html",
+"/workspace/view/uiwindowmanager.html",
+"/workspace/view/apptodo.html",
+"/workspace/view/modelstatistic.html",
+"/workspace/view/utilstorageindexed.html",
+"/workspace/view/docssystem.html",
+"/workspace/view/utilstatemachine.html",
+"/workspace/view/servicepermission.html",
+"/workspace/view/serviceprinter.html",
+"/workspace/view/utilpool.html",
+"/workspace/view/servicelanguage.html",
+"/workspace/view/utilpubsub.html",
+"/workspace/view/modelwidget.html",
+"/workspace/view/appcontacts.html",
+"/workspace/view/utilmemoize.html",
+"/workspace/view/servicelog.html",
+"/workspace/view/uipagination.html",
+"/workspace/view/servicebluetooth.html",
+"/workspace/view/appcontrolpanel.html",
+"/workspace/view/appemail.html",
+"/workspace/view/serviceanalytics.html",
+"/workspace/view/modelrecent.html",
+"/workspace/view/serviceerror.html",
+"/workspace/view/uivideoplayer.html",
+"/workspace/view/modeljob.html",
+"/workspace/view/utilhistory.html",
+"/workspace/view/utilformatter.html",
+"/workspace/view/appdictionary.html",
+"/workspace/view/apptexteditor.html",
+"/workspace/view/appcalculator.html",
+"/workspace/view/serviceuser.html",
+"/workspace/view/uicheckbox.html",
+"/workspace/view/servicesecurity.html",
+"/workspace/view/uisearchbox.html",
+"/workspace/view/servicetelemetry.html",
+"/workspace/view/uitaskbarcomponent.html",
+"/workspace/view/appterminal.html",
+"/workspace/view/utilcompress.html",
+"/workspace/view/utilobserver.html",
+"/workspace/view/uisidebar.html",
+"/workspace/view/appcurrency.html",
+"/workspace/view/appsettings.html",
+"/workspace/view/uitabscomponent.html",
+"/workspace/view/modeldownload.html",
+"/workspace/view/uicontextmenu.html",
+"/workspace/view/appnews.html",
+"/workspace/view/appclock.html",
+"/workspace/view/uislider.html",
+"/workspace/view/modelplugin.html",
+"/workspace/view/appnotes.html",
+"/workspace/view/modelnote.html",
+"/workspace/view/uiloadingscreen.html",
+"/workspace/view/appcalculatorscientific.html",
+"/workspace/view/serviceaccessibility.html",
+"/workspace/view/utilhelpers.html",
+"/workspace/view/utilrouter.html",
+"/workspace/view/uidesktopgrid.html",
+"/workspace/view/uiimageviewer.html",
+"/workspace/view/aistudio.html",
+"/workspace/view/serviceprocess.html",
+"/workspace/view/modeltheme.html",
+"/workspace/view/uidropdown.html",
+"/workspace/view/reader.html",
+"/workspace/view/servicebackup.html",
+"/workspace/view/utilfetch.html",
+"/workspace/view/servicecrash.html",
+"/workspace/view/serviceapi.html",
+"/workspace/view/utilparser.html",
+"/workspace/view/modeluser.html",
+"/workspace/view/appdrawing.html",
+"/workspace/view/utildebug.html",
+"/workspace/view/servicetheme.html",
+"/workspace/view/modelsetting.html",
+"/workspace/view/utileventemitter.html",
+"/workspace/view/uibreadcrumb.html",
+"/workspace/view/servicesync.html",
+"/workspace/view/serviceclipboard.html",
+"/workspace/view/uiappicon.html",
+"/workspace/view/uimodaldialog.html",
+"/workspace/view/utilcache.html",
+"/workspace/view/appweather.html",
+"/workspace/view/modelnotification.html",
+"/workspace/view/utilqueue.html",
+"/workspace/view/appbrowser.html",
+"/workspace/view/apptaskmanager.html",
+"/workspace/view/modelapp.html",
+"/workspace/view/uistartmenu.html",
+"/workspace/view/modelchart.html",
+"/workspace/view/servicelocation.html",
+"/workspace/view/appcamera.html",
+"/workspace/view/serviceauth.html",
+"/workspace/view/appmaps.html",
+"/workspace/view/modelbookmark.html",
+"/workspace/view/modelmessage.html",
+"/workspace/view/modeltransfer.html",
+"/workspace/view/modelpaginationdata.html",
+"/workspace/view/modelfavorite.html",
+"/workspace/view/modelfilter.html",
+"/workspace/view/servicecloud.html",
+"/workspace/view/uicolorpicker.html",
+"/workspace/view/modelsearch.html",
+"/workspace/view/appphone.html",
+"/workspace/view/utilperformance.html",
+"/workspace/view/utilserviceworker.html",
+"/workspace/view/utilvalidator.html",
+"/workspace/view/appscreencapture.html",
+"/workspace/view/servicememory.html",
+"/workspace/view/modelhistory.html",
+"/workspace/view/utilwebsocket.html",
+"/workspace/view/uitoolbar.html",
+"/workspace/view/uitooltip.html",
+"/workspace/view/uiprogressbar.html",
+"/workspace/view/uidatepicker.html",
+"/workspace/view/modelcontact.html",
+"/workspace/appclock.html",
+"/workspace/appnotes.html",
+"/workspace/hostingdigital/clientdashboard.html",
+"/workspace/hostingdigital/tokoonline.html",
+"/workspace/hostingdigital/metodepembayaran.html",
+"/workspace/hostingdigital/pencariandomain.html",
+"/workspace/hostingdigital/pengelolaandns.html",
+"/workspace/hostingdigital/googleworkspace.html",
+"/workspace/hostingdigital/managedvps.html",
+"/workspace/hostingdigital/login.html",
+"/workspace/hostingdigital/emailhosting.html",
+"/workspace/hostingdigital/programafiliasi.html",
+"/workspace/hostingdigital/kebijakanprivasi.html",
+"/workspace/hostingdigital/migrasigratis.html",
+"/workspace/hostingdigital/invoicebelum.html",
+"/workspace/hostingdigital/tutorialvideo.html",
+"/workspace/hostingdigital/karir.html",
+"/workspace/hostingdigital/autoinstaller.html",
+"/workspace/hostingdigital/resellerwhm.html",
+"/workspace/hostingdigital/domainglobal.html",
+"/workspace/hostingdigital/cloudenterprise.html",
+"/workspace/hostingdigital/transferdomain.html",
+"/workspace/hostingdigital/fiturdeveloper.html",
+"/workspace/hostingdigital/hostingmagento.html",
+"/workspace/hostingdigital/sslgratis.html",
+"/workspace/hostingdigital/zohomail.html",
+"/workspace/hostingdigital/perlindunganwhois.html",
+"/workspace/hostingdigital/cronjobs.html",
+"/workspace/hostingdigital/sharedhosting.html",
+"/workspace/hostingdigital/backupotomatis.html",
+"/workspace/hostingdigital/hostingwordpress.html",
+"/workspace/hostingdigital/perpanjangandomain.html",
+"/workspace/hostingdigital/cloudhosting.html",
+"/workspace/hostingdigital/vpswindows.html",
+"/workspace/hostingdigital/kanalbantuan.html",
+"/workspace/hostingdigital/moneyback.html",
+"/workspace/hostingdigital/upgradedowngrade.html",
+"/workspace/hostingdigital/knowledgebase.html",
+"/workspace/hostingdigital/kemudahanpengelolaan.html",
+"/workspace/hostingdigital/preferensinotifikasi.html",
+"/workspace/hostingdigital/programreseller.html",
+"/workspace/hostingdigital/hostingprestashop.html",
+"/workspace/hostingdigital/webinarblog.html",
+"/workspace/hostingdigital/sistemtiket.html",
+"/workspace/hostingdigital/daftarlayanan.html",
+"/workspace/hostingdigital/manajemenlayanan.html",
+"/workspace/hostingdigital/domainpremium.html",
+"/workspace/hostingdigital/hostingbisnis.html",
+"/workspace/hostingdigital/proteksiserangan.html",
+"/workspace/hostingdigital/kebijakancookie.html",
+"/workspace/hostingdigital/syaratketentuan.html",
+"/workspace/hostingdigital/unmanagedvps.html",
+"/workspace/hostingdigital/multiversiphp.html",
+"/workspace/hostingdigital/hostingunlimited.html",
+"/workspace/hostingdigital/websitebuilder.html",
+"/workspace/hostingdigital/pengaturanakun.html",
+"/workspace/hostingdigital/integrasipembayaran.html",
+"/workspace/hostingdigital/globalcdn.html",
+"/workspace/hostingdigital/microsoft365.html",
+"/workspace/hostingdigital/register.html",
+"/workspace/hostingdigital/optimasicache.html",
+"/workspace/hostingdigital/teleponwhatsapp.html",
+"/workspace/hostingdigital/nodejspython.html",
+"/workspace/hostingdigital/vpshosting.html",
+"/workspace/hostingdigital/sslpremium.html",
+"/workspace/hostingdigital/perpanjanganmasa.html",
+"/workspace/hostingdigital/hostingwoocommerce.html",
+"/workspace/hostingdigital/kontak.html",
+"/workspace/hostingdigital/profilperusahaan.html",
+"/workspace/hostingdigital/resellerhosting.html",
+"/workspace/hostingdigital/paymentgateway.html",
+"/workspace/hostingdigital/resellercpanel.html",
+"/workspace/hostingdigital/domainmurah.html",
+"/workspace/hostingdigital/sumberdayabelajar.html",
+"/workspace/hostingdigital/cloudstarter.html",
+"/workspace/hostingdigital/profilpribadi.html",
+"/workspace/hostingdigital/aksessh.html",
+"/workspace/hostingdigital/performakecepatan.html",
+"/workspace/hostingdigital/garansiuptime.html",
+"/workspace/hostingdigital/keamananwebsite.html",
+"/workspace/hostingdigital/riwayattransaksi.html",
+"/workspace/hostingdigital/jaminanlayanan.html",
+"/workspace/hostingdigital/servicelevelagreement.html",
+"/workspace/hostingdigital/tagihankeuangan.html",
+"/workspace/hostingdigital/vpslinux.html",
+"/workspace/hostingdigital/controlpanel.html",
+"/workspace/hostingdigital/databasephpmyadmin.html",
+"/workspace/hostingdigital/keamananakun.html",
+"/workspace/hostingdigital/hostingpelajar.html",
+"/workspace/hostingdigital/domainindonesia.html",
+"/workspace/hostingdigital/ekstensidomain.html",
+"/workspace/hostingdigital/tambahsaldo.html",
+"/workspace/hostingdigital/emailkolaborasi.html",
+"/workspace/hostingdigital/sertifikatssl.html",
+"/workspace/hostingdigital/cloudprofessional.html",
+"/workspace/hostingdigital/livechat247.html",
+"/workspace/hostingdigital/visimisi.html",
+"/workspace/hostingdigital/teknologilitespeed.html",
+"/workspace/videolife/parents.html",
+"/workspace/videolife/kuliner.html",
+"/workspace/videolife/clips.html",
+"/workspace/videolife/contact.html",
+"/workspace/videolife/subtitles.html",
+"/workspace/videolife/watch-later.html",
+"/workspace/videolife/lifestyle.html",
+"/workspace/videolife/safety.html",
+"/workspace/videolife/olahraga.html",
+"/workspace/videolife/terms.html",
+"/workspace/videolife/kesehatan.html",
+"/workspace/videolife/sejarah.html",
+"/workspace/videolife/copyright.html",
+"/workspace/videolife/profile.html",
+"/workspace/videolife/film.html",
+"/workspace/videolife/privacy.html",
+"/workspace/videolife/monetization.html",
+"/workspace/videolife/settings.html",
+"/workspace/videolife/otomotif.html",
+"/workspace/videolife/playlist.html",
+"/workspace/videolife/history.html",
+"/workspace/videolife/live.html",
+"/workspace/videolife/shorts.html",
+"/workspace/videolife/playback.html",
+"/workspace/videolife/gaming.html",
+"/workspace/videolife/moderation.html",
+"/workspace/videolife/stories.html",
+"/workspace/videolife/careers.html",
+"/workspace/videolife/press.html",
+"/workspace/videolife/analytics.html",
+"/workspace/videolife/quality.html",
+"/workspace/videolife/account.html",
+"/workspace/videolife/teknologi.html",
+"/workspace/videolife/serial-tv.html",
+"/workspace/videolife/musik.html",
+"/workspace/videolife/community.html",
+"/workspace/videolife/sains.html",
+"/workspace/videolife/offline.html",
+"/workspace/videolife/upload.html",
+"/workspace/videolife/podcast.html",
+"/workspace/videolife/fashion.html",
+"/workspace/videolife/developers.html",
+"/workspace/videolife/dokumenter.html",
+"/workspace/videolife/help.html",
+"/workspace/videolife/about.html",
+"/workspace/videolife/subscriptions.html",
+"/workspace/videolife/memberships.html",
+"/workspace/videolife/trending.html",
+"/workspace/videolife/reports.html",
+"/workspace/videolife/diy.html",
+"/workspace/videolife/edukasi.html",
+"/workspace/videolife/api.html",
+"/workspace/videolife/super-chat.html",
+"/workspace/videolife/kids.html",
+"/workspace/videolife/download.html",
+"/workspace/videolife/studio.html",
+"/workspace/videolife/comments.html",
+"/workspace/videolife/education-hub.html",
+"/workspace/videolife/populer.html",
+"/workspace/videolife/ratings.html",
+"/workspace/videolife/favorites.html",
+"/workspace/videolife/premium.html",
+"/workspace/videolife/travel.html",
+"/workspace/videolife/premiere.html",
+"/workspace/videolife/channels.html",
+"/workspace/videolife/mobile.html",
+"/workspace/videolife/creator-fund.html",
+"/workspace/videolife/messages.html",
+"/workspace/videolife/tv-app.html",
+"/workspace/videolife/animasi.html",
+"/workspace/videolife/terbaru.html",
+"/workspace/videolife/notifications.html",
+"/workspace/videolife/merchandise.html",
+"/workspace/videolife/komedi.html",
+"/workspace/videolife/seni.html",
+"/workspace/videolife/berita.html",
+"/workspace/videolife/reviews.html",
+"/workspace/aistudio.html",
+"/workspace/lisensimediadigital.html",
+"/workspace/designdigital/portfolio.html",
+"/workspace/designdigital/integration.html",
+"/workspace/designdigital/webinars.html",
+"/workspace/designdigital/website-security.html",
+"/workspace/designdigital/e-books.html",
+"/workspace/designdigital/support.html",
+"/workspace/designdigital/a-b-testing.html",
+"/workspace/designdigital/documentation.html",
+"/workspace/designdigital/knowledge-base.html",
+"/workspace/designdigital/api-integration.html",
+"/workspace/designdigital/ppc-advertising.html",
+"/workspace/designdigital/white-papers.html",
+"/workspace/designdigital/landing-page.html",
+"/workspace/designdigital/campaigns.html",
+"/workspace/designdigital/voice-search.html",
+"/workspace/designdigital/user-research.html",
+"/workspace/designdigital/kebijakan-privasi.html",
+"/workspace/designdigital/karir.html",
+"/workspace/designdigital/themes.html",
+"/workspace/designdigital/reporting.html",
+"/workspace/designdigital/consulting.html",
+"/workspace/designdigital/performance-optimization.html",
+"/workspace/designdigital/workshops.html",
+"/workspace/designdigital/customer-support.html",
+"/workspace/designdigital/style-guide.html",
+"/workspace/designdigital/web-design.html",
+"/workspace/designdigital/email-marketing.html",
+"/workspace/designdigital/progressive-web-app.html",
+"/workspace/designdigital/certification.html",
+"/workspace/designdigital/leads.html",
+"/workspace/designdigital/components.html",
+"/workspace/designdigital/funnels.html",
+"/workspace/designdigital/custom-development.html",
+"/workspace/designdigital/ecommerce.html",
+"/workspace/designdigital/cloud-hosting.html",
+"/workspace/designdigital/crm-integration.html",
+"/workspace/designdigital/video-production.html",
+"/workspace/designdigital/plugins.html",
+"/workspace/designdigital/actions.html",
+"/workspace/designdigital/migration.html",
+"/workspace/designdigital/hooks.html",
+"/workspace/designdigital/conversion-optimization.html",
+"/workspace/designdigital/infographics.html",
+"/workspace/designdigital/monitoring.html",
+"/workspace/designdigital/mobile-app.html",
+"/workspace/designdigital/patches.html",
+"/workspace/designdigital/podcasts.html",
+"/workspace/designdigital/blog.html",
+"/workspace/designdigital/training.html",
+"/workspace/designdigital/website-maintenance.html",
+"/workspace/designdigital/konsultasi-gratis.html",
+"/workspace/designdigital/accessibility.html",
+"/workspace/designdigital/online-courses.html",
+"/workspace/designdigital/logo-design.html",
+"/workspace/designdigital/responsive-design.html",
+"/workspace/designdigital/prospects.html",
+"/workspace/designdigital/recovery.html",
+"/workspace/designdigital/automation.html",
+"/workspace/designdigital/shopify.html",
+"/workspace/designdigital/faq.html",
+"/workspace/designdigital/extensions.html",
+"/workspace/designdigital/video-tutorials.html",
+"/workspace/designdigital/backup.html",
+"/workspace/designdigital/layanan.html",
+"/workspace/designdigital/pipelines.html",
+"/workspace/designdigital/animation.html",
+"/workspace/designdigital/workflows.html",
+"/workspace/designdigital/ui-ux-design.html",
+"/workspace/designdigital/tutorials.html",
+"/workspace/designdigital/syarat-ketentuan.html",
+"/workspace/designdigital/photography.html",
+"/workspace/designdigital/triggers.html",
+"/workspace/designdigital/audit.html",
+"/workspace/designdigital/kontak.html",
+"/workspace/designdigital/graphic-design.html",
+"/workspace/designdigital/cms-development.html",
+"/workspace/designdigital/domain-registration.html",
+"/workspace/designdigital/shortcodes.html",
+"/workspace/designdigital/amp-pages.html",
+"/workspace/designdigital/copywriting.html",
+"/workspace/designdigital/modules.html",
+"/workspace/designdigital/widgets.html",
+"/workspace/designdigital/analytics-setup.html",
+"/workspace/designdigital/templates.html",
+"/workspace/designdigital/mobile-first.html",
+"/workspace/designdigital/updates.html",
+"/workspace/designdigital/design-system.html",
+"/workspace/designdigital/tentang-kami.html",
+"/workspace/designdigital/testimoni.html",
+"/workspace/designdigital/pricing.html",
+"/workspace/designdigital/chatbot-integration.html",
+"/workspace/designdigital/case-studies.html",
+"/workspace/designdigital/filters.html",
+"/workspace/designdigital/live-chat.html",
+"/workspace/designdigital/content-marketing.html",
+"/workspace/designdigital/prototyping.html",
+"/workspace/designdigital/social-media.html",
+"/workspace/designdigital/wireframing.html",
+"/workspace/designdigital/ssl-certificate.html",
+"/workspace/designdigital/strategy.html",
+"/workspace/designdigital/customization.html",
+"/workspace/designdigital/branding.html",
+"/workspace/designdigital/seo-optimization.html",
+"/workspace/designdigital/upgrades.html",
+"/workspace/designdigital/wordpress.html",
+"/workspace/designdigital/events.html",
+"/workspace/designdigital/multilingual.html",
+"/workspace/medsos/page_insights.html",
+"/workspace/medsos/page_settings.html",
+"/workspace/medsos/friends.html",
+"/workspace/medsos/reels.html",
+"/workspace/medsos/support.html",
+"/workspace/medsos/login.html",
+"/workspace/medsos/live_stream.html",
+"/workspace/medsos/edit_profile.html",
+"/workspace/medsos/group_settings.html",
+"/workspace/medsos/newsfeed.html",
+"/workspace/medsos/search_hashtags.html",
+"/workspace/medsos/upload_video.html",
+"/workspace/medsos/video_call.html",
+"/workspace/medsos/groups.html",
+"/workspace/medsos/edit_post.html",
+"/workspace/medsos/profile.html",
+"/workspace/medsos/wallet.html",
+"/workspace/medsos/payments.html",
+"/workspace/medsos/save_post.html",
+"/workspace/medsos/photos.html",
+"/workspace/medsos/policy.html",
+"/workspace/medsos/discover.html",
+"/workspace/medsos/search.html",
+"/workspace/medsos/activity_log.html",
+"/workspace/medsos/followers.html",
+"/workspace/medsos/contact_us.html",
+"/workspace/medsos/search_users.html",
+"/workspace/medsos/delete_post.html",
+"/workspace/medsos/stories.html",
+"/workspace/medsos/security_settings.html",
+"/workspace/medsos/inbox.html",
+"/workspace/medsos/event_invites.html",
+"/workspace/medsos/report_user.html",
+"/workspace/medsos/create_group.html",
+"/workspace/medsos/bookmarks.html",
+"/workspace/medsos/group_members.html",
+"/workspace/medsos/forgot_password.html",
+"/workspace/medsos/marketplace.html",
+"/workspace/medsos/about.html",
+"/workspace/medsos/trending.html",
+"/workspace/medsos/videos.html",
+"/workspace/medsos/feed.html",
+"/workspace/medsos/account_settings.html",
+"/workspace/medsos/share_post.html",
+"/workspace/medsos/create_page.html",
+"/workspace/medsos/muted_users.html",
+"/workspace/medsos/albums.html",
+"/workspace/medsos/my_events.html",
+"/workspace/medsos/register.html",
+"/workspace/medsos/view_story.html",
+"/workspace/medsos/report_post.html",
+"/workspace/medsos/create_reel.html",
+"/workspace/medsos/following.html",
+"/workspace/medsos/terms_conditions.html",
+"/workspace/medsos/notification_settings.html",
+"/workspace/medsos/blocked_users.html",
+"/workspace/medsos/buy_sell.html",
+"/workspace/medsos/saved_items.html",
+"/workspace/medsos/chat.html",
+"/workspace/medsos/sent_messages.html",
+"/workspace/medsos/verify_email.html",
+"/workspace/medsos/view_post.html",
+"/workspace/medsos/search_posts.html",
+"/workspace/medsos/privacy_settings.html",
+"/workspace/medsos/voice_call.html",
+"/workspace/medsos/messages.html",
+"/workspace/medsos/reset_password.html",
+"/workspace/medsos/friend_suggestions.html",
+"/workspace/medsos/explore.html",
+"/workspace/medsos/notifications.html",
+"/workspace/medsos/logout.html",
+"/workspace/medsos/group_chat.html",
+"/workspace/medsos/create_story.html",
+"/workspace/medsos/pages.html",
+"/workspace/medsos/upload_photo.html",
+"/workspace/medsos/change_password.html",
+"/workspace/medsos/friend_requests.html",
+"/workspace/medsos/create_post.html",
+"/workspace/medsos/help_center.html",
+"/workspace/medsos/create_event.html",
+"/workspace/medsos/events.html",
+"/workspace/medsos/orders.html",
+"/workspace/appdrawing.html",
+"/workspace/appweather.html",
+"/workspace/appbrowser.html",
+"/workspace/apptaskmanager.html",
+"/workspace/ai/aipromptui.html",
+"/workspace/appmaps.html",
+"/workspace/aistudiodigital/modules/automation/automation.html",
+"/workspace/aistudiodigital/modules/collaboration/collaboration.html",
+"/workspace/aistudiodigital/modules/codefile/codefile.html",
+"/workspace/aistudiodigital/modules/apiconfig/apiconfig.html",
+"/workspace/aistudiodigital/modules/integration/integration.html",
+"/workspace/aistudiodigital/modules/landingpage/landingpage.html",
+"/workspace/aistudiodigital/modules/settings/settings.html",
+"/workspace/aistudiodigital/modules/modelconfig/modelconfig.html",
+"/workspace/aistudiodigital/modules/notifications/notifications.html",
+"/workspace/aistudiodigital/modules/optimization/optimization.html",
+"/workspace/aistudiodigital/modules/security/security.html",
+"/workspace/aistudiodigital/modules/versioncontrol/versioncontrol.html",
+"/workspace/aistudiodigital/modules/analytics/analytics.html",
+"/workspace/aistudiodigital/modules/code/code.html",
+"/workspace/aistudiodigital/modules/backup/backup.html",
+"/workspace/aistudiodigital/modules/deployment/deployment.html",
+"/workspace/aistudiodigital/modules/reports/reports.html",
+"/workspace/aistudiodigital/modules/chatdownloadmanager/chatdownloadmanager.html",
+"/workspace/aistudiodigital/modules/chatbot/chatbot.html",
+"/workspace/aistudiodigital/modules/codemanager/codemanager.html",
+"/workspace/aistudiodigital/aistudio.html",
+"/workspace/appphone.html",
+"/workspace/githubqwenintegration.html",
+"/workspace/appscreencapture.html",
+"/workspace/filemanager.html"
+        ];
+
+        let totalFiles = files.length;
+        document.getElementById('totalCount').textContent = totalFiles;
+        document.getElementById('displayCount').textContent = totalFiles;
+
+        function getFileCategory(path) {
+            const parts = path.split('/');
+            if (parts.length > 2) {
+                return parts[2] || 'root';
             }
-        };
+            return 'root';
+        }
 
-        let currentTab = 'layout';
-        let searchHistory = [];
+        function getFileName(path) {
+            return path.split('/').pop();
+        }
 
-        // Select Search Engine
-        function selectEngine(engine) {
-            CONFIG.currentEngine = engine;
+        function renderFileList(filePaths) {
+            const fileList = document.getElementById('fileList');
+            fileList.innerHTML = '';
             
-            // Update UI
-            document.querySelectorAll('.engine-btn').forEach(btn => {
-                btn.classList.remove('active');
+            const categories = {};
+            filePaths.forEach(path => {
+                const category = getFileCategory(path);
+                if (!categories[category]) {
+                    categories[category] = [];
+                }
+                categories[category].push(path);
             });
-            document.querySelector(`.engine-${engine}`).classList.add('active');
-            
-            // Update display
-            const engineNames = { google: 'Google', edge: 'Edge', safari: 'Safari' };
-            document.getElementById('currentEngine').textContent = `Engine: ${engineNames[engine]}`;
-            document.getElementById('activeEngine').textContent = engineNames[engine];
-            
-            // Update input with base URL
-            document.getElementById('searchInput').value = CONFIG.baseUrl;
-        }
 
-        // Perform Search
-        function performSearch() {
-            const query = document.getElementById('searchInput').value;
-            const startTime = Date.now();
-            
-            // Show loader
-            document.getElementById('loader').classList.add('active');
-            document.getElementById('renderContent').style.display = 'none';
-            
-            // Simulate crawling and rendering
-            setTimeout(() => {
-                const crawlTime = Date.now() - startTime;
-                document.getElementById('crawlTime').textContent = `${crawlTime}ms`;
+            Object.keys(categories).sort().forEach(category => {
+                const group = document.createElement('div');
+                group.className = 'category-group';
                 
-                // Generate mock results (in real implementation, this would fetch from API)
-                const results = generateMockResults(query);
-                
-                // Update stats
-                document.getElementById('totalResults').textContent = results.length;
-                document.getElementById('dataRendered').textContent = results.length * 100;
-                
-                // Render results
-                renderResults(results);
-                renderContent(query, results);
-                
-                // Hide loader
-                document.getElementById('loader').classList.remove('active');
-                document.getElementById('renderContent').style.display = 'block';
-                
-                // Add to history
-                searchHistory.push({ query, timestamp: new Date(), results: results.length });
-            }, 1500);
-        }
+                const title = document.createElement('div');
+                title.className = 'category-title';
+                title.textContent = category + ' (' + categories[category].length + ')';
+                group.appendChild(title);
 
-        // Generate Mock Results (Simulates crawler)
-        function generateMockResults(query) {
-            const baseResults = [
-                { title: 'SoutheastApp Main Dashboard', url: CONFIG.baseUrl + 'dashboard' },
-                { title: 'SoutheastApp File Manager', url: CONFIG.baseUrl + 'files' },
-                { title: 'SoutheastApp API Documentation', url: CONFIG.baseUrl + 'api/docs' },
-                { title: 'SoutheastApp User Settings', url: CONFIG.baseUrl + 'settings' },
-                { title: 'SoutheastApp Analytics', url: CONFIG.baseUrl + 'analytics' },
-                { title: 'SoutheastApp Cloud Storage', url: CONFIG.baseUrl + 'cloud' },
-                { title: 'SoutheastApp Security Center', url: CONFIG.baseUrl + 'security' },
-                { title: 'SoutheastApp Integration Hub', url: CONFIG.baseUrl + 'integrations' }
-            ];
-            
-            return baseResults.map((item, index) => ({
-                ...item,
-                title: `${item.title} - ${query}`,
-                snippet: `Relevant content from SoutheastApp related to your search: ${query}`,
-                rank: index + 1
-            }));
-        }
+                categories[category].forEach(path => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = '#';
+                    a.textContent = getFileName(path);
+                    a.title = path;
+                    a.dataset.path = path;
+                    a.onclick = (e) => {
+                        e.preventDefault();
+                        loadFile(path, a);
+                    };
+                    li.appendChild(a);
+                    group.appendChild(li);
+                });
 
-        // Render Results
-        function renderResults(results) {
-            const container = document.getElementById('crawlerResults');
-            container.innerHTML = '';
-            
-            results.forEach(result => {
-                const item = document.createElement('div');
-                item.className = 'result-item';
-                item.innerHTML = `
-                    <div class="result-title">#${result.rank} - ${result.title}</div>
-                    <div class="result-url">${result.url}</div>
-                    <div style="margin-top: 8px; color: #666; font-size: 0.9em;">${result.snippet}</div>
-                `;
-                container.appendChild(item);
+                fileList.appendChild(group);
             });
+
+            document.getElementById('displayCount').textContent = filePaths.length;
         }
 
-        // Render Content in View Frame
-        function renderContent(query, results) {
-            const content = document.getElementById('renderContent');
-            content.innerHTML = `
-                <h3 style="color: #667eea; margin-bottom: 15px;">Search Results for: "${query}"</h3>
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                    <strong>Engine:</strong> ${CONFIG.currentEngine.toUpperCase()} | 
-                    <strong>Results:</strong> ${results.length} | 
-                    <strong>Base URL:</strong> ${CONFIG.baseUrl}
-                </div>
-                <div style="display: grid; gap: 10px;">
-                    ${results.slice(0, 5).map(r => `
-                        <div style="padding: 12px; background: white; border: 1px solid #ddd; border-radius: 6px;">
-                            <div style="font-weight: 600; color: #667eea;">${r.title}</div>
-                            <div style="font-size: 0.85em; color: #666;">${r.url}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-        // Switch Tabs
-        function switchTab(tabName) {
-            currentTab = tabName;
+        function loadFile(path, element) {
+            const mainContent = document.getElementById('mainContent');
+            const relativePath = path.replace('/workspace/', '');
             
-            // Update UI
-            document.querySelectorAll('.view-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            mainContent.innerHTML = `<iframe src="${relativePath}" id="contentFrame"></iframe>`;
             
-            // Load tab content
-            loadTabContent(tabName);
+            document.querySelectorAll('.file-list a').forEach(a => a.classList.remove('active'));
+            if (element) {
+                element.classList.add('active');
+            }
+            
+            window.location.hash = encodeURIComponent(path);
         }
 
-        // Load Tab Content
-        function loadTabContent(tabName) {
-            const content = document.getElementById('renderContent');
-            const tabContents = {
-                layout: `
-                    <h3 style="color: #667eea;">📐 Layout Module</h3>
-                    <p style="color: #666; margin: 15px 0;">UI Components and structure configuration for the browser interface.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.layout = {<br>
-                        &nbsp;&nbsp;header: true,<br>
-                        &nbsp;&nbsp;sidebar: true,<br>
-                        &nbsp;&nbsp;contentArea: 'flex',<br>
-                        &nbsp;&nbsp;footer: false<br>
-                        }
-                    </div>
-                `,
-                fungsi: `
-                    <h3 style="color: #667eea;">⚙️ Fungsi Module</h3>
-                    <p style="color: #666; margin: 15px 0;">Core functions for search, crawling, and data rendering.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.fungsi = [<br>
-                        &nbsp;&nbsp;'search()',<br>
-                        &nbsp;&nbsp;'crawl()',<br>
-                        &nbsp;&nbsp;'render()',<br>
-                        &nbsp;&nbsp;'fetch()',<br>
-                        &nbsp;&nbsp;'parse()'<br>
-                        ]
-                    </div>
-                `,
-                konfigurasi: `
-                    <h3 style="color: #667eea;">🔧 Konfigurasi Module</h3>
-                    <p style="color: #666; margin: 15px 0;">System configuration settings for the browser engine.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.konfigurasi = {<br>
-                        &nbsp;&nbsp;timeout: 30000,<br>
-                        &nbsp;&nbsp;maxResults: 100,<br>
-                        &nbsp;&nbsp;cacheEnabled: true,<br>
-                        &nbsp;&nbsp;debugMode: false<br>
-                        }
-                    </div>
-                `,
-                proxy: `
-                    <h3 style="color: #667eea;">🔒 Proxy Module</h3>
-                    <p style="color: #666; margin: 15px 0;">Proxy settings for secure and anonymous browsing.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.proxy = {<br>
-                        &nbsp;&nbsp;enabled: true,<br>
-                        &nbsp;&nbsp;server: 'proxy.southeastapp.io',<br>
-                        &nbsp;&nbsp;port: 8080,<br>
-                        &nbsp;&nbsp;protocol: 'https'<br>
-                        }
-                    </div>
-                `,
-                api: `
-                    <h3 style="color: #667eea;">🔌 API Configuration</h3>
-                    <p style="color: #666; margin: 15px 0;">API endpoints and authentication configuration.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.api = {<br>
-                        &nbsp;&nbsp;baseUrl: 'https://api.southeastapp.io',<br>
-                        &nbsp;&nbsp;version: 'v2',<br>
-                        &nbsp;&nbsp;auth: 'Bearer token',<br>
-                        &nbsp;&nbsp;endpoints: ['search', 'crawl', 'render']<br>
-                        }
-                    </div>
-                `,
-                loader: `
-                    <h3 style="color: #667eea;">📥 Loader Module</h3>
-                    <p style="color: #666; margin: 15px 0;">Data loading and caching mechanisms.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.loader = {<br>
-                        &nbsp;&nbsp;strategy: 'lazy',<br>
-                        &nbsp;&nbsp;cacheSize: '500MB',<br>
-                        &nbsp;&nbsp;preload: true,<br>
-                        &nbsp;&nbsp;compression: 'gzip'<br>
-                        }
-                    </div>
-                `,
-                kernel: `
-                    <h3 style="color: #667eea;">🔬 Kernel Module</h3>
-                    <p style="color: #666; margin: 15px 0;">Browser engine core and rendering kernel.</p>
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 0.9em;">
-                        view.kernel = {<br>
-                        &nbsp;&nbsp;engine: 'SoutheastApp v3.0',<br>
-                        &nbsp;&nbsp;renderer: 'Chromium-based',<br>
-                        &nbsp;&nbsp;javascript: 'V8',<br>
-                        &nbsp;&nbsp;security: 'Sandboxed'<br>
-                        }
-                    </div>
-                `
-            };
-            
-            content.innerHTML = tabContents[tabName] || '<p>Content not found</p>';
+        function filterFiles() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = files.filter(path => 
+                path.toLowerCase().includes(searchTerm) ||
+                getFileName(path).toLowerCase().includes(searchTerm)
+            );
+            renderFileList(filtered);
         }
 
-        // Clear Results
-        function clearResults() {
-            document.getElementById('crawlerResults').innerHTML = `
-                <p style="color: #666; text-align: center; padding: 20px;">
-                    No search results yet. Enter a query to start crawling.
-                </p>
-            `;
-            document.getElementById('totalResults').textContent = '0';
-            document.getElementById('dataRendered').textContent = '0';
-            document.getElementById('renderContent').innerHTML = `
-                <h3 style="color: #667eea; margin-bottom: 15px;">Welcome to SoutheastApp Browser</h3>
-                <p style="color: #666; line-height: 1.6;">
-                    This is a complete browser search system centered on SoutheastApp. 
-                    Enter your search query above to begin crawling and rendering data.
-                </p>
-            `;
+        function loadFromHash() {
+            const hash = decodeURIComponent(window.location.hash.slice(1));
+            if (hash && files.includes(hash)) {
+                const element = document.querySelector(`[data-path="${hash}"]`);
+                loadFile(hash, element);
+            }
         }
 
         // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            selectEngine('google');
-            loadTabContent('layout');
-        });
+        renderFileList(files);
+        loadFromHash();
 
-        // Allow Enter key to search
-        document.getElementById('searchInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
+        window.addEventListener('hashchange', loadFromHash);
     </script>
 </body>
 </html>
