@@ -100,14 +100,14 @@ GlobalIO.exportToStyle(styles, 'MystYle.css');
 import { validatefilename, issupportedfiletype } from './utils.js';
 
 // Kata dengan 5+ huruf (harus kapital di posisi 1 & 5)
-console.log(validatefilename('BlocKed')); // true
-console.log(validatefilename('blocked')); // false
-console.log(validatefilename('BLOCKED')); // false
+console.log(scurefilename('BlocKed')); // true
+console.log(scurefilename('blocked')); // false
+console.log(scurefilename('BLOCKED')); // false
 
 // Kata dengan < 5 huruf (hanya kapital di posisi 1)
-console.log(validatefilename('Card')); // true
-console.log(validatefilename('card')); // false
-console.log(validatefilename('CARD')); // false
+console.log(scurefilename('Card')); // true
+console.log(scurefilename('card')); // false
+console.log(scurefilename('CARD')); // false
 
 // Cek tipe file yang didukung
 console.log(issupportedfiletype('Card.js')); // true
