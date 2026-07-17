@@ -1,381 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Manager - Modern Blue-White Theme</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FileManajer Terminal - SoutheastApp</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Courier New',monospace;background:#0c0c0c;color:#00ff00;height:100vh;display:flex;flex-direction:column}
+.header{background:#1a1a1a;padding:10px 20px;border-bottom:1px solid #333}
+.header h1{font-size:18px;color:#00ff00}
+.tabs{display:flex;border-bottom:1px solid #333}
+.tab{padding:8px 16px;cursor:pointer;background:#1a1a1a;border:none;color:#aaa}
+.tab.active{background:#0c0c0c;color:#00ff00;border-bottom:2px solid #00ff00}
+.container{display:flex;flex:1;overflow:hidden}
+.terminal{flex:2;padding:20px;overflow-y:auto;border-right:1px solid #333}
+.sidebar{flex:1;padding:15px;overflow-y:auto;background:#0f0f0f;display:none}
+.output{white-space:pre-wrap;margin-bottom:10px}
+.input-line{display:flex;align-items:center}
+.prompt{color:#00ff00;margin-right:10px}
+#cmd{background:transparent;border:none;color:#00ff00;font-family:inherit;font-size:inherit;flex:1;outline:none}
+.err{color:#f44}.ok{color:#0f0}.info{color:#4af}.warn{color:#fa0}
+.tree{font-size:12px}
+.item{cursor:pointer;padding:2px 5px}
+.item:hover{background:#1a1a1a}
+.io-box{background:#1a1a1a;padding:10px;border-top:1px solid #333;max-height:150px;overflow-y:auto;margin-bottom:10px}
+.io-title{color:#fa0;font-weight:bold;margin-bottom:5px}
+.io-data{font-size:11px;color:#aaa}
+</style>
 </head>
 <body>
-    <!-- ==================== HEADER/NAVBAR ==================== -->
-    <header class="header">
-        <div class="logo">
-            <i class="fas fa-folder-open"></i>
-            <span>File Manager</span>
-        </div>
-        
-        <nav class="nav-menu">
-            <a href="#" class="nav-item">
-                <i class="fas fa-folder"></i>
-                <span>Folders</span>
-            </a>
-            
-            <div class="dropdown">
-                <button class="btn nav-item">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>New</span>
-                    <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
-                </button>
-                <div class="dropdown-menu" id="newDropdown">
-                    <div class="dropdown-item" data-action="new-folder">
-                        <i class="fas fa-folder-plus"></i>
-                        <span>Folder</span>
-                    </div>
-                    <div class="dropdown-item" data-action="new-file">
-                        <i class="fas fa-file"></i>
-                        <span>File</span>
-                    </div>
-                    <div class="dropdown-item" data-action="new-text">
-                        <i class="fas fa-file-alt"></i>
-                        <span>Text File</span>
-                    </div>
-                </div>
-            </div>
-            
-            <a href="#" class="nav-item">
-                <i class="fas fa-cloud-upload-alt"></i>
-                <span>Upload</span>
-            </a>
-            
-            <div class="search-container">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" placeholder="Search by name or content">
-            </div>
-            
-            <div class="dropdown">
-                <button class="btn nav-item">
-                    <i class="fas fa-cog"></i>
-                    <span>Administration</span>
-                    <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
-                </button>
-                <div class="dropdown-menu" id="adminDropdown">
-                    <div class="dropdown-item" data-action="settings">
-                        <i class="fas fa-cog"></i>
-                        <span>Settings</span>
-                    </div>
-                    <div class="dropdown-item" data-action="permissions">
-                        <i class="fas fa-user-shield"></i>
-                        <span>Permissions</span>
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-item" data-action="logs">
-                        <i class="fas fa-list-alt"></i>
-                        <span>Activity Logs</span>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        
-        <div class="user-profile">
-            <div class="avatar">A</div>
-            <span class="username">admin</span>
-            <i class="fas fa-chevron-down" style="font-size: 0.7rem; color: var(--text-secondary);"></i>
-        </div>
-    </header>
-
-    <!-- ==================== MAIN CONTAINER ==================== -->
-    <div class="main-container">
-        <!-- ==================== SIDEBAR ==================== -->
-        <aside class="sidebar">
-            <ul class="sidebar-menu">
-                <li class="sidebar-item" data-action="share">
-                    <i class="fas fa-share-alt"></i>
-                    <span>Share</span>
-                </li>
-                <li class="sidebar-item" data-action="cloud">
-                    <i class="fas fa-cloud"></i>
-                    <span>Cloud storages</span>
-                </li>
-                <li class="sidebar-item" data-action="download">
-                    <i class="fas fa-download"></i>
-                    <span>Download</span>
-                </li>
-                
-                <li class="sidebar-divider"></li>
-                
-                <li class="sidebar-item" data-action="new">
-                    <i class="fas fa-plus"></i>
-                    <span>New</span>
-                </li>
-                <li class="sidebar-item" data-action="favorites">
-                    <i class="fas fa-star"></i>
-                    <span>Add to favorites</span>
-                </li>
-                <li class="sidebar-item" data-action="rename">
-                    <i class="fas fa-edit"></i>
-                    <span>Rename</span>
-                </li>
-                <li class="sidebar-item" data-action="delete">
-                    <i class="fas fa-trash"></i>
-                    <span>Delete</span>
-                </li>
-                
-                <li class="sidebar-divider"></li>
-                
-                <li class="sidebar-item" data-action="copy">
-                    <i class="fas fa-copy"></i>
-                    <span>Copy</span>
-                </li>
-                <li class="sidebar-item" data-action="cut">
-                    <i class="fas fa-cut"></i>
-                    <span>Cut</span>
-                </li>
-                <li class="sidebar-item" data-action="compress">
-                    <i class="fas fa-file-archive"></i>
-                    <span>Compress to a Zip archive</span>
-                </li>
-                
-                <li class="sidebar-divider"></li>
-                
-                <li class="sidebar-item" data-action="label">
-                    <i class="fas fa-tag"></i>
-                    <span>Label</span>
-                </li>
-                <li class="sidebar-item" data-action="details">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Details</span>
-                </li>
-                <li class="sidebar-item" data-action="watch">
-                    <i class="fas fa-bell"></i>
-                    <span>Watch for modifications</span>
-                </li>
-                <li class="sidebar-item" data-action="more">
-                    <i class="fas fa-ellipsis-h"></i>
-                    <span>More</span>
-                </li>
-                
-                <li class="sidebar-divider"></li>
-                
-                <li class="sidebar-checkbox">
-                    <label>
-                        <input type="checkbox" id="selectAllCheckbox">
-                        <span>Select all</span>
-                    </label>
-                </li>
-                <li class="sidebar-item" data-action="invert">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>Invert selection</span>
-                </li>
-            </ul>
-        </aside>
-
-        <!-- ==================== CONTENT AREA ==================== -->
-        <main class="content-area">
-            <!-- Toolbar -->
-            <div class="toolbar">
-                <!-- Breadcrumb -->
-                <div class="breadcrumb">
-                    <a href="#" class="breadcrumb-item" data-path="/workspace/filemanajer">
-                        <i class="fas fa-home"></i>
-                    </a>
-                    <span class="breadcrumb-separator">/</span>
-                    <a href="#" class="breadcrumb-item" data-path="/workspace/filemanajer/Demo folder">Demo folder</a>
-                    <span class="breadcrumb-separator">/</span>
-                    <a href="#" class="breadcrumb-item" data-path="/workspace/filemanajer/Demo folder/Office">Office</a>
-                    <span class="breadcrumb-separator">/</span>
-                    <a href="#" class="breadcrumb-item current" data-path="/workspace/filemanajer/Demo folder/Office/Word files">Word files</a>
-                </div>
-                
-                <!-- Toolbar Buttons -->
-                <div class="toolbar-buttons">
-                    <button class="btn">
-                        <i class="fas fa-file"></i>
-                        <span>File</span>
-                    </button>
-                    
-                    <div class="dropdown">
-                        <button class="btn">
-                            <i class="fas fa-eye"></i>
-                            <span>View/Edit</span>
-                            <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
-                        </button>
-                        <div class="dropdown-menu" id="viewEditDropdown">
-                            <div class="dropdown-header">View Options</div>
-                            <div class="dropdown-item" data-action="view-browser">
-                                <i class="fas fa-globe"></i>
-                                <span>View in Browser</span>
-                            </div>
-                            <div class="dropdown-item" data-action="download">
-                                <i class="fas fa-download"></i>
-                                <span>Download</span>
-                            </div>
-                            
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Edit with Office</div>
-                            <div class="dropdown-item" data-action="edit-ms-office">
-                                <i class="fab fa-microsoft"></i>
-                                <span>Edit in MS Office</span>
-                            </div>
-                            <div class="dropdown-item" data-action="edit-ms-office-online">
-                                <i class="fas fa-cloud"></i>
-                                <span>Edit in MS Office Online</span>
-                            </div>
-                            <div class="dropdown-item" data-action="edit-office-365">
-                                <i class="fab fa-office"></i>
-                                <span>Edit in Office 365</span>
-                            </div>
-                            <div class="dropdown-item" data-action="edit-openoffice">
-                                <i class="fas fa-file-word"></i>
-                                <span>Edit in OpenOffice/LibreOffice</span>
-                            </div>
-                            <div class="dropdown-item" data-action="view-office-web">
-                                <i class="fas fa-globe"></i>
-                                <span>View in Office Web Apps</span>
-                            </div>
-                            
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Cloud Services</div>
-                            <div class="dropdown-item" data-action="edit-google-drive">
-                                <i class="fab fa-google-drive"></i>
-                                <span>Edit in Google Drive</span>
-                            </div>
-                            <div class="dropdown-item" data-action="view-google-docs">
-                                <i class="fas fa-file-alt"></i>
-                                <span>View in Google Docs</span>
-                            </div>
-                            <div class="dropdown-item" data-action="view-box">
-                                <i class="fas fa-box"></i>
-                                <span>View in Box</span>
-                            </div>
-                            <div class="dropdown-item" data-action="edit-zoho">
-                                <i class="fas fa-file"></i>
-                                <span>Edit in Zoho</span>
-                            </div>
-                            
-                            <div class="dropdown-divider"></div>
-                            <div class="dropdown-header">Other Tools</div>
-                            <div class="dropdown-item" data-action="convert-cloudconvert">
-                                <i class="fas fa-sync-alt"></i>
-                                <span>Convert with CloudConvert</span>
-                            </div>
-                            <div class="dropdown-item" data-action="edit-text">
-                                <i class="fas fa-file-code"></i>
-                                <span>Edit as text file</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <button class="btn">
-                        <i class="fas fa-cloud"></i>
-                        <span>Cloud Storages</span>
-                    </button>
-                    
-                    <!-- View Toggle -->
-                    <div class="view-toggle">
-                        <button class="view-btn active" data-view="grid" title="Grid View">
-                            <i class="fas fa-th-large"></i>
-                        </button>
-                        <button class="view-btn" data-view="list" title="List View">
-                            <i class="fas fa-list"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- File Grid View -->
-            <div class="file-grid">
-                <!-- Files will be rendered here by JavaScript -->
-            </div>
-
-            <!-- File List View -->
-            <div class="file-list">
-                <div class="file-list-header">
-                    <div></div>
-                    <div>Name</div>
-                    <div>Size</div>
-                    <div>Date Modified</div>
-                </div>
-                <div class="file-list-content">
-                    <!-- Files will be rendered here by JavaScript -->
-                </div>
-            </div>
-
-            <!-- Upload Zone -->
-            <div class="upload-zone">
-                <i class="fas fa-cloud-upload-alt upload-icon"></i>
-                <div class="upload-text">Drag and drop files here to upload</div>
-                <div class="upload-hint">or click to browse files from your computer</div>
-            </div>
-        </main>
-    </div>
-
-    <!-- ==================== CONTEXT MENU (Right-click) ==================== -->
-    <div class="context-menu">
-        <div class="context-item" data-action="open">
-            <i class="fas fa-folder-open"></i>
-            <span>Open</span>
-        </div>
-        <div class="context-item" data-action="preview">
-            <i class="fas fa-eye"></i>
-            <span>Preview</span>
-        </div>
-        <div class="context-divider"></div>
-        <div class="context-item" data-action="cut">
-            <i class="fas fa-cut"></i>
-            <span>Cut</span>
-        </div>
-        <div class="context-item" data-action="copy">
-            <i class="fas fa-copy"></i>
-            <span>Copy</span>
-        </div>
-        <div class="context-item" data-action="paste">
-            <i class="fas fa-paste"></i>
-            <span>Paste</span>
-        </div>
-        <div class="context-divider"></div>
-        <div class="context-item" data-action="rename">
-            <i class="fas fa-edit"></i>
-            <span>Rename</span>
-        </div>
-        <div class="context-item" data-action="delete">
-            <i class="fas fa-trash"></i>
-            <span>Delete</span>
-        </div>
-        <div class="context-divider"></div>
-        <div class="context-item" data-action="properties">
-            <i class="fas fa-info-circle"></i>
-            <span>Properties</span>
-        </div>
-    </div>
-
-    <!-- ==================== MODAL DIALOG ==================== -->
-    <div class="modal-overlay">
-        <div class="modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Confirm Action</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to proceed?
-            </div>
-            <div class="modal-footer">
-                <button class="btn modal-cancel">Cancel</button>
-                <button class="btn btn-primary modal-confirm">Confirm</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Custom JavaScript -->
-    <script src="js/main.js"></script>
+<div class="header"><h1>FileManajer Terminal - southeastapp.github.io</h1></div>
+<div class="tabs">
+<button class="tab active" onclick="showTab('term')">Terminal</button>
+<button class="tab" onclick="showTab('files')">Files</button>
+<button class="tab" onclick="showTab('io')">I/O</button>
+</div>
+<div class="container">
+<div class="terminal" id="term">
+<div class="output" id="out">FileManajer v2.0 | Domain: southeastapp.github.io | Root: /filemanajer/\nType 'help' for commands\n\n</div>
+<div class="input-line"><span class="prompt">user@filemanajer:~$</span><input type="text" id="cmd" autocomplete="off" autofocus></div>
+</div>
+<div class="sidebar" id="files"><h3 style="color:#fa0;margin-bottom:10px">File Structure</h3><div class="tree" id="tree"></div></div>
+<div class="sidebar" id="io">
+<h3 style="color:#fa0;margin-bottom:10px">I/O History</h3>
+<div class="io-box"><div class="io-title">INPUT:</div><div class="io-data" id="ioIn"></div></div>
+<div class="io-box"><div class="io-title">OUTPUT:</div><div class="io-data" id="ioOut"></div></div>
+</div>
+</div>
+<script>
+var out=document.getElementById('out'),cmd=document.getElementById('cmd'),hist=[],hi=-1,path='/filemanajer',ioI=[],ioO=[];
+var fs={'/filemanajer':{t:'d',c:{
+'Demo folder':{t:'d',c:{}},Home:{t:'d',c:{}},css:{t:'d',c:{}},js:{t:'d',c:{}},
+southeastapp:{t:'d',c:{api:{t:'d',c:{}},assets:{t:'d',c:{}},components:{t:'d',c:{}},config:{t:'d',c:{}},hooks:{t:'d',c:{}},locales:{t:'d',c:{}},middleware:{t:'d',c:{}},services:{t:'d',c:{}},storage:{t:'d',c:{}},utils:{t:'d',c{}},'README.md':{t:'f',v:'# SoutheastApp'},'index.js':{t:'f',v:'console.log("init")'},'package.json':{t:'f',v:'{"name":"southeastapp"}'},'terminal.html':{t:'f',v:'<!-- terminal -->'}}},
+'index.html':{t:'f',v:'<!-- main -->'}
+}}};
+function get(p){var a=p.split('/').filter(Boolean),n=fs['/filemanajer'];for(var i=1;i<a.length;i++){if(n.c&&n.c[a[i]])n=n.c[a[i]];else return null}return n}
+function ls(p){var f=get(p);if(!f||f.t!=='d')return null;return Object.keys(f.c||{})}
+function cat(p){var f=get(p);if(!f||f.t!=='f')return null;return f.v}
+function put(p,v){var a=p.split('/').filter(Boolean),fn=a.pop(),n=fs['/filemanajer'];for(var i=0;i<a.length-1;i++){if(n.c&&n.c[a[i+1]])n=n.c[a[i+1]];else return false}if(n.t==='d'){n.c[fn]={t:'f',v:v};return true}return false}
+function tree(p,l){l=l||0;var f=get(p),h='',sp='&nbsp;&nbsp;'.repeat(l);if(!f||f.t!=='d')return '';for(var k in f.c||{}){var ip=p+'/'+k;if(f.c[k].t==='d'){h+='<div class="item" onclick="exp(\''+ip+'\')">'+sp+'📁 '+k+'</div>'+tree(ip,l+1)}else{h+='<div class="item" onclick="vf(\''+ip+'\')">'+sp+'📄 '+k+'</div>'}}return h}
+function exp(p){out.innerHTML+='<div class="info">Expanded: '+p+'</div>';scroll()}
+function vf(p){var c=cat(p);if(c){out.innerHTML+='<div class="ok">=== '+p+' ===</div><div>'+c+'</div><br>';addIO('read',p,c)}else{out.innerHTML+='<div class="err">Cannot read: '+p+'</div>'}scroll()}
+function addIO(t,p,d){var ts=new Date().toLocaleTimeString();if(t==='read'){ioI.push('['+ts+'] READ: '+p);ioO.push('['+ts+'] DATA: '+d.substring(0,80))}else if(t==='write'){ioI.push('['+ts+'] WRITE: '+p);ioO.push('['+ts+'] OK')}else if(t==='exec'){ioI.push('['+ts+'] EXEC: '+p);ioO.push('['+ts+'] RESULT: '+d)}document.getElementById('ioIn').innerHTML=ioI.slice(-15).join('<br>');document.getElementById('ioOut').innerHTML=ioO.slice(-15).join('<br')}
+function showTab(t){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});event.target.classList.add('active');document.getElementById('term').style.display=t==='term'?'block':'none';document.getElementById('files').style.display=t==='files'?'block':'none';document.getElementById('io').style.display=t==='io'?'block':'none';if(t==='files')document.getElementById('tree').innerHTML=tree('/filemanajer');if(t!=='term')cmd.blur();else cmd.focus()}
+function scroll(){document.getElementById('term').scrollTop=document.getElementById('term').scrollHeight}
+var cmds={
+help:function(){return'Commands:\n  help - This help\n  clear - Clear screen\n  ls [path] - List dir\n  cd [path] - Change dir\n  pwd - Current path\n  cat <file> - Read file\n  read <file> - Alias cat\n  echo <text> - Print text\n  write <file> <text> - Write file\n  exec <script> - Execute JS\n  run <script> - Alias exec\n  scan - Scan all files\n  tree - Show tree\n  io - Show I/O history\n  status - System status\n  whoami - Current user\n  date - Current date'},
+clear:function(){out.innerHTML='';return''},
+ls:function(a){var p=a[0]||path,i=ls(p);if(!i)return'<span class="err">Not found: '+p+'</span>';return i.map(function(x){var fp=p+'/'+x,f=get(fp);return f&&f.t==='d'?'📁 '+x+'/' : '📄 '+x}).join('\n')},
+cd:function(a){if(!a[0]){path='/filemanajer';return''}var np=a[0].startsWith('/')?a[0]:path+'/'+a[0],f=get(np);if(f&&f.t==='d'){path=np;return'<span class="ok">Changed to: '+path+'</span>'}return'<span class="err">Not found: '+np+'</span>'},
+pwd:function(){return path},
+cat:function(a){if(!a[0])return'<span class="err">Usage: cat &lt;file&gt;</span>';var p=a[0].startsWith('/')?a[0]:path+'/'+a[0],c=cat(p);if(c){addIO('read',p,c);return c}return'<span class="err">Not found: '+p+'</span>'},
+read:function(a){return cmds.cat(a)},
+echo:function(a){return a.join(' ')},
+write:function(a){if(a.length<2)return'<span class="err">Usage: write &lt;file&gt; &lt;text&gt;</span>';var p=a[0].startsWith('/')?a[0]:path+'/'+a[0],v=a.slice(1).join(' ');if(put(p,v)){addIO('write',p,v);return'<span class="ok">Written: '+p+'</span>'}return'<span class="err">Cannot write: '+p+'</span>'},
+exec:function(a){if(!a[0])return'<span class="err">Usage: exec &lt;script&gt;</span>';var p=a[0].startsWith('/')?a[0]:path+'/'+a[0],c=cat(p);if(c){try{var r=eval(c);addIO('exec',p,String(r));return'<span class="ok">Executed: '+p+'\nResult: '+r+'</span>'}catch(e){return'<span class="err">Error: '+e.message+'</span>'}}return'<span class="err">Not found: '+p+'</span>'},
+run:function(a){return cmds.exec(a)},
+scan:function(){var r='<span class="info">Scanning...</span>\n';function sc(p,l){l=l||0;var i=ls(p);if(!i)return'';var s='';for(var x of i){var fp=p+'/'+x,f=get(fp);if(f.t==='f'){s+=Array(l+1).join('  ')+'📄 '+x+'\n';addIO('read',fp,f.v||'')}else{s+=Array(l+1).join('  ')+'📁 '+x+'/\n'+sc(fp,l+1)}}return s}return r+sc('/filemanajer')},
+tree:function(){return tree('/filemanajer').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'  ')},
+io:function(){return'Input:\n'+ioI.slice(-10).join('\n')+'\n\nOutput:\n'+ioO.slice(-10).join('\n')},
+status:function(){return'<span class="ok">✓ FileManajer OPERATIONAL</span>\nDomain: southeastapp.github.io\nRoot: /filemanajer/\nFolders: '+Object.keys(fs['/filemanajer'].c).length+'\nVersion: 2.0\nI/O: Active'},
+whoami:function(){return'user@filemanajer.southeastapp.github.io'},
+date:function(){return new Date().toString()}
+};
+cmd.addEventListener('keydown',function(e){if(e.key==='Enter'){var c=cmd.value.trim();if(c){hist.push(c);hi=hist.length;var p=c.split(' '),cn=p[0],ar=p.slice(1);out.innerHTML+='<div><span class="prompt">user@filemanajer:~$</span><span>'+c+'</span></div>';if(cmds[cn]){var r=cmds[cn](ar);if(r)out.innerHTML+='<div>'+r+'</div>'}else{out.innerHTML+='<div class="err">Unknown: '+cn+'. Type help.</div>'}out.innerHTML+='<br>';scroll()}cmd.value=''}else if(e.key==='ArrowUp'){e.preventDefault();if(hi>0){hi--;cmd.value=hist[hi]}}else if(e.key==='ArrowDown'){e.preventDefault();if(hi<hist.length-1){hi++;cmd.value=hist[hi]}else{hi=hist.length;cmd.value=''}}});
+document.getElementById('tree').innerHTML=tree('/filemanajer');
+</script>
 </body>
 </html>
