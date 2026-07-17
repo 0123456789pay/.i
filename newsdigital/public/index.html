@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Daily - Portal Berita Modern & Terpercaya</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        elegant: {
+                            blue: '#1E40AF',
+                            dark: '#0F4C81',
+                            light: '#F8FAFC',
+                            navy: '#0F172A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        heading: ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', Georgia, serif; }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        .news-card:hover .news-image { transform: scale(1.05); }
+        .news-image { transition: transform 0.5s ease; }
+    </style>
+</head>
+<body class="bg-white min-h-screen">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 glass-nav border-b border-slate-100 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex-shrink-0">
+                    <h1 class="font-heading text-3xl font-bold text-elegant-blue tracking-tight">ELITE DAILY</h1>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-1" id="desktop-nav">
+                    <!-- Categories will be loaded here -->
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleSearch()" class="p-2 text-slate-600 hover:text-elegant-blue transition-colors" aria-label="Search">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="hidden sm:inline-flex items-center px-5 py-2.5 bg-elegant-blue text-white text-sm font-semibold rounded-lg hover:bg-elegant-dark transition-all duration-200 shadow-sm hover:shadow-md">
+                        Berlangganan
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-600 hover:text-elegant-blue" aria-label="Menu">
+                        <svg class="w-6 h-6" id="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Search Bar -->
+            <div id="search-bar" class="hidden py-4 border-t border-slate-100">
+                <div class="relative">
+                    <input type="text" placeholder="Cari berita..." class="w-full px-4 py-3 pl-12 border border-slate-200 rounded-lg focus:outline-none focus:border-elegant-blue focus:ring-1 focus:ring-elegant-blue transition-all">
+                    <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white">
+            <div class="px-4 py-4 space-y-2 max-h-96 overflow-y-auto" id="mobile-nav">
+                <!-- Mobile categories will be loaded here -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-[500px] md:h-[600px] w-full overflow-hidden" id="hero-section">
+        <div class="absolute inset-0">
+            <img id="hero-image" src="" alt="Featured News" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-6 md:p-12 lg:p-16">
+            <div class="max-w-7xl mx-auto">
+                <span id="hero-category" class="inline-block px-4 py-1.5 bg-elegant-blue text-white text-xs font-semibold uppercase tracking-wider rounded-full mb-4"></span>
+                <h2 id="hero-title" class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight max-w-4xl"></h2>
+                <p id="hero-excerpt" class="text-slate-200 text-base md:text-lg mb-6 max-w-3xl line-clamp-2"></p>
+                <div class="flex flex-wrap items-center gap-4 text-slate-300 text-sm mb-6">
+                    <span id="hero-author" class="font-medium"></span>
+                    <span class="w-1 h-1 bg-slate-400 rounded-full"></span>
+                    <span id="hero-date"></span>
+                    <span class="w-1 h-1 bg-slate-400 rounded-full"></span>
+                    <span id="hero-readtime"></span>
+                </div>
+                <a id="hero-link" href="#" class="inline-flex items-center px-6 py-3 bg-white text-elegant-blue font-semibold rounded-lg hover:bg-slate-100 transition-all duration-200 shadow-md hover:shadow-lg">
+                    Baca Selengkapnya
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Latest News (70%) -->
+            <div class="lg:col-span-8">
+                <div class="flex items-center justify-between mb-6 pb-3 border-b-2 border-elegant-blue">
+                    <h2 class="font-heading text-2xl font-bold text-slate-800">Berita Terbaru</h2>
+                    <a href="#" class="text-elegant-blue text-sm font-semibold hover:text-elegant-dark transition-colors flex items-center gap-1">
+                        Lihat Semua
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div id="latest-news" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- News cards will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Sidebar (30%) -->
+            <aside class="lg:col-span-4 space-y-6">
+                <!-- Trending News -->
+                <div class="bg-white rounded-xl border border-slate-100 shadow-sm p-6">
+                    <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100">
+                        <div class="w-1 h-6 bg-elegant-blue rounded-full"></div>
+                        <h2 class="font-heading text-xl font-bold text-slate-800">Berita Trending</h2>
+                    </div>
+                    <div id="trending-news" class="space-y-5">
+                        <!-- Trending items will be loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Newsletter -->
+                <div class="bg-gradient-to-br from-elegant-blue to-elegant-dark rounded-xl p-6 text-white">
+                    <div class="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2">Berlangganan Newsletter</h3>
+                    <p class="text-slate-200 text-sm mb-4">Dapatkan berita terbaru langsung di inbox Anda setiap hari.</p>
+                    <form onsubmit="subscribeNewsletter(event)" class="space-y-3">
+                        <input type="email" id="newsletter-email" placeholder="Email Anda" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-slate-300 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all" required>
+                        <button type="submit" id="subscribe-btn" class="w-full px-4 py-3 bg-white text-elegant-blue font-semibold rounded-lg hover:bg-slate-100 transition-all duration-200 shadow-md hover:shadow-lg">Berlangganan Sekarang</button>
+                    </form>
+                    <p class="text-xs text-slate-300 mt-3 text-center">Kami menghargai privasi Anda. Unsubscribe kapan saja.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Technology Section -->
+    <section class="py-12 bg-elegant-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-6 pb-3 border-b-2 border-elegant-blue">
+                <h2 class="font-heading text-2xl font-bold text-slate-800">Teknologi</h2>
+                <a href="#" class="text-elegant-blue text-sm font-semibold hover:text-elegant-dark transition-colors flex items-center gap-1">
+                    Lihat Semua
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="technology-news" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Tech news will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-6 pb-3 border-b-2 border-elegant-blue">
+                <h2 class="font-heading text-2xl font-bold text-slate-800">Bisnis & Ekonomi</h2>
+                <a href="#" class="text-elegant-blue text-sm font-semibold hover:text-elegant-dark transition-colors flex items-center gap-1">
+                    Lihat Semua
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            <div id="business-news" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Business news will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-elegant-navy text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <h3 class="font-heading text-2xl font-bold text-white mb-4">ELITE DAILY</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">Portal berita terpercaya yang menyajikan informasi terkini, akurat, dan berimbang dari seluruh Indonesia dan dunia.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-elegant-blue transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-elegant-blue transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-elegant-blue transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Kategori Populer</h4>
+                    <ul class="space-y-2" id="footer-categories">
+                        <!-- Categories will be loaded here -->
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Tentang Kami</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Kontak Redaksi</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Iklan & Kerjasama</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Karir</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Legalitas</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Disclaimer</a></li>
+                        <li><a href="#" class="text-slate-400 hover:text-white text-sm transition-colors">Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-slate-400 text-sm" id="copyright"></p>
+                    <span class="text-slate-400 text-sm">Dibuat dengan ❤️ di Indonesia</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data & Configuration
+        const categories = [
+            { id: '1', name: 'Nasional', slug: 'nasional' },
+            { id: '2', name: 'Internasional', slug: 'internasional' },
+            { id: '3', name: 'Teknologi', slug: 'teknologi' },
+            { id: '4', name: 'Bisnis', slug: 'bisnis' },
+            { id: '5', name: 'Olahraga', slug: 'olahraga' },
+            { id: '6', name: 'Gaya Hidup', slug: 'gaya-hidup' },
+            { id: '7', name: 'Kesehatan', slug: 'kesehatan' },
+            { id: '8', name: 'Pendidikan', slug: 'pendidikan' },
+            { id: '9', name: 'Politik', slug: 'politik' },
+            { id: '10', name: 'Ekonomi', slug: 'ekonomi' },
+            { id: '11', name: 'Hiburan', slug: 'hiburan' },
+            { id: '12', name: 'Otomotif', slug: 'otomotif' },
+            { id: '13', name: 'Properti', slug: 'properti' },
+            { id: '14', name: 'Kuliner', slug: 'kuliner' },
+            { id: '15', name: 'Travel', slug: 'travel' },
+            { id: '16', name: 'Fashion', slug: 'fashion' },
+            { id: '17', name: 'Seni & Budaya', slug: 'seni-budaya' },
+            { id: '18', name: 'Lingkungan', slug: 'lingkungan' },
+            { id: '19', name: 'Sains', slug: 'sains' },
+            { id: '20', name: 'Hukum', slug: 'hukum' }
+        ];
+
+        let newsData = [];
+
+        // Generate mock news data
+        function generateNewsData() {
+            const titles = [
+                'Presiden Resmikan Infrastruktur Digital Nasional Terbaru',
+                'Revolusi AI Mengubah Industri Indonesia',
+                'Pasar Saham Mencapai Rekor Tertinggi Baru',
+                'Timnas Indonesia Lolos ke Piala Asia 2024',
+                'Destinasi Wisata Bali Ramai Dikunjungi Turis',
+                'Startup Fintech Indonesia Menarik Investasi Global',
+                'Kebijakan Baru Dorong Pertumbuhan UMKM Digital',
+                'Festival Kuliner Nusantara Hadirkan 100 Makanan Khas',
+                'Terobosan Penelitian Energi Terbarukan',
+                'Konser Musik Internasional Digelar di Jakarta',
+                'Program Kesehatan Gratis Tingkatkan Akses Masyarakat',
+                'Universitas Indonesia Raih Penghargaan Internasional'
+            ];
+
+            const excerpts = [
+                'Pemerintah resmi meluncurkan infrastruktur digital nasional yang akan menghubungkan seluruh wilayah Indonesia.',
+                'Teknologi AI semakin berkembang pesat di Indonesia, membawa transformasi besar bagi berbagai sektor.',
+                'IHSG menembus level psikologis penting didorong oleh sentimen positif investor asing.',
+                'Garuda Indonesia berhasil mengamankan tiket ke Piala Asia setelah mengalahkan lawan.',
+                'Kepulauan Dewata mencatat peningkatan signifikan kunjungan wisatawan asing.',
+                'Beberapa startup fintech lokal berhasil meraih pendanaan seri C dari investor internasional.',
+                'Program digitalisasi UMKM diharapkan dapat meningkatkan daya saing produk lokal.',
+                'Event tahunan ini menjadi ajang promosi kekayaan kuliner Indonesia.',
+                'Tim peneliti lokal berhasil mengembangkan teknologi panel surya efisien.',
+                'Artis-artis top dunia akan memeriahkan konser musik terbesar di ibu kota.'
+            ];
+
+            const images = [
+                'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&h=450&fit=crop',
+                'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=450&fit=crop',
+                'https://images.unsplash.com/photo-1611974765270-ca12586343bb?w=800&h=450&fit=crop',
+                'https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=800&h=450&fit=crop',
+                'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=800&h=450&fit=crop',
+                'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=450&fit=crop'
+            ];
+
+            const authors = ['Redaksi Elite Daily', 'Andi Pratama', 'Siti Nurhaliza', 'Budi Santoso', 'Made Wijaya', 'Rina Kusuma'];
+
+            newsData = titles.map((title, index) => ({
+                id: index + 1,
+                title: title,
+                excerpt: excerpts[index % excerpts.length],
+                category: categories[index % categories.length].name,
+                author: authors[index % authors.length],
+                publishedAt: new Date(Date.now() - index * 3600000).toISOString(),
+                readTime: `${Math.floor(Math.random() * 5) + 3} min`,
+                imageUrl: images[index % images.length],
+                isFeatured: index === 0,
+                isTrending: index < 5
+            }));
+
+            // Save to localStorage
+            localStorage.setItem('eliteDailyNews', JSON.stringify(newsData));
+        }
+
+        // Load or generate news data
+        function loadNewsData() {
+            const stored = localStorage.getItem('eliteDailyNews');
+            if (stored) {
+                newsData = JSON.parse(stored);
+            } else {
+                generateNewsData();
+            }
+        }
+
+        // Format date
+        function formatDate(dateString, short = false) {
+            const date = new Date(dateString);
+            const options = short ? 
+                { day: 'numeric', month: 'short' } : 
+                { day: 'numeric', month: 'long', year: 'numeric' };
+            return date.toLocaleDateString('id-ID', options);
+        }
+
+        // Render navigation
+        function renderNavigation() {
+            const desktopNav = document.getElementById('desktop-nav');
+            const mobileNav = document.getElementById('mobile-nav');
+            const footerCategories = document.getElementById('footer-categories');
+
+            const navHTML = categories.slice(0, 7).map(cat => `
+                <a href="#${cat.slug}" class="px-3 py-2 text-sm font-medium text-slate-600 hover:text-elegant-blue transition-colors duration-200">${cat.name}</a>
+            `).join('');
+
+            const mobileNavHTML = categories.map(cat => `
+                <a href="#${cat.slug}" class="block px-4 py-3 text-base font-medium text-slate-600 hover:text-elegant-blue hover:bg-slate-50 rounded-lg transition-colors">${cat.name}</a>
+            `).join('');
+
+            const footerHTML = categories.slice(0, 8).map(cat => `
+                <li><a href="#${cat.slug}" class="text-slate-400 hover:text-white text-sm transition-colors duration-200">${cat.name}</a></li>
+            `).join('');
+
+            desktopNav.innerHTML = navHTML;
+            mobileNav.innerHTML = mobileNavHTML;
+            footerCategories.innerHTML = footerHTML;
+        }
+
+        // Render hero section
+        function renderHero() {
+            const featured = newsData.find(a => a.isFeatured) || newsData[0];
+            document.getElementById('hero-image').src = featured.imageUrl;
+            document.getElementById('hero-category').textContent = featured.category;
+            document.getElementById('hero-title').textContent = featured.title;
+            document.getElementById('hero-excerpt').textContent = featured.excerpt;
+            document.getElementById('hero-author').textContent = featured.author;
+            document.getElementById('hero-date').textContent = formatDate(featured.publishedAt);
+            document.getElementById('hero-readtime').textContent = featured.readTime;
+            document.getElementById('hero-link').href = `#article-${featured.id}`;
+        }
+
+        // Render news card
+        function createNewsCard(article, index = 0) {
+            return `
+                <article class="group bg-white rounded-xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 news-card" style="animation-delay: ${index * 0.1}s">
+                    <a href="#article-${article.id}" class="block relative overflow-hidden aspect-video">
+                        <img src="${article.imageUrl}" alt="${article.title}" class="w-full h-full object-cover news-image" loading="lazy">
+                        <div class="absolute top-3 left-3">
+                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-elegant-blue text-xs font-semibold uppercase tracking-wider rounded-full">${article.category}</span>
+                        </div>
+                    </a>
+                    <div class="p-5">
+                        <a href="#article-${article.id}">
+                            <h3 class="font-heading text-lg font-bold text-slate-800 mb-2 line-clamp-2 group-hover:text-elegant-blue transition-colors duration-200">${article.title}</h3>
+                        </a>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2 leading-relaxed">${article.excerpt}</p>
+                        <div class="flex items-center justify-between text-xs text-slate-500">
+                            <span class="font-medium">${article.author}</span>
+                            <div class="flex items-center gap-2">
+                                <span>${formatDate(article.publishedAt, true)}</span>
+                                <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                <span>${article.readTime}</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Render latest news
+        function renderLatestNews() {
+            const container = document.getElementById('latest-news');
+            container.innerHTML = newsData.slice(0, 6).map((article, index) => createNewsCard(article, index)).join('');
+        }
+
+        // Render trending news
+        function renderTrendingNews() {
+            const container = document.getElementById('trending-news');
+            const trending = newsData.filter(a => a.isTrending).slice(0, 5);
+            
+            container.innerHTML = trending.map((article, index) => `
+                <div class="group">
+                    <a href="#article-${article.id}" class="flex gap-4">
+                        <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full text-sm font-bold ${index < 3 ? 'bg-elegant-blue text-white' : 'bg-slate-100 text-slate-600'}">${index + 1}</span>
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-medium text-slate-800 text-sm line-clamp-2 group-hover:text-elegant-blue transition-colors duration-200 mb-1">${article.title}</h3>
+                            <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <span>${formatDate(article.publishedAt, true)}</span>
+                                <span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+                                <span>${article.readTime}</span>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden">
+                            <img src="${article.imageUrl}" alt="${article.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" loading="lazy">
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        // Render category sections
+        function renderCategorySections() {
+            const techContainer = document.getElementById('technology-news');
+            const businessContainer = document.getElementById('business-news');
+            
+            const techNews = newsData.filter(a => a.category === 'Teknologi').slice(0, 3);
+            const businessNews = newsData.filter(a => a.category === 'Bisnis').slice(0, 3);
+            
+            techContainer.innerHTML = techNews.map((article, index) => createNewsCard(article, index)).join('');
+            businessContainer.innerHTML = businessNews.map((article, index) => createNewsCard(article, index)).join('');
+        }
+
+        // Toggle functions
+        function toggleSearch() {
+            const searchBar = document.getElementById('search-bar');
+            searchBar.classList.toggle('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            const btn = document.getElementById('subscribe-btn');
+            
+            if (email) {
+                btn.textContent = '✓ Berhasil Berlangganan!';
+                document.getElementById('newsletter-email').value = '';
+                setTimeout(() => {
+                    btn.textContent = 'Berlangganan Sekarang';
+                }, 3000);
+            }
+        }
+
+        // Set copyright year
+        function setCopyright() {
+            document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} Elite Daily. All rights reserved.`;
+        }
+
+        // Auto-generate news every 5 minutes
+        function autoGenerateNews() {
+            setInterval(() => {
+                const newArticle = {
+                    id: newsData.length + 1,
+                    title: `Berita Terbaru ${new Date().toLocaleTimeString('id-ID')}`,
+                    excerpt: 'Ini adalah berita otomatis yang dihasilkan setiap 5 menit sekali untuk demo sistem.',
+                    category: categories[Math.floor(Math.random() * categories.length)].name,
+                    author: 'Sistem Otomatis',
+                    publishedAt: new Date().toISOString(),
+                    readTime: `${Math.floor(Math.random() * 5) + 3} min`,
+                    imageUrl: `https://images.unsplash.com/photo-${['1504711434969-e33886168f5c','1677442136019-21780ecad995','1611974765270-ca12586343bb'][Math.floor(Math.random() * 3)]}?w=800&h=450&fit=crop`,
+                    isFeatured: false,
+                    isTrending: false
+                };
+                
+                newsData.unshift(newArticle);
+                if (newsData.length > 50) newsData.pop();
+                localStorage.setItem('eliteDailyNews', JSON.stringify(newsData));
+                
+                // Refresh UI
+                renderLatestNews();
+                renderTrendingNews();
+                console.log('New article generated:', newArticle.title);
+            }, 300000); // 5 minutes
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadNewsData();
+            renderNavigation();
+            renderHero();
+            renderLatestNews();
+            renderTrendingNews();
+            renderCategorySections();
+            setCopyright();
+            autoGenerateNews();
+            
+            // Smooth scroll for navbar
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
