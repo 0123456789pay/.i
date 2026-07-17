@@ -1,4 +1,4 @@
-# NEW SISTEM VENDOR .digital TLD GTLD
+# NEW SISTEM VENDOR .digital .media .pers TLD GTLD
 # Stared project .github.io.digital
 # `tunel() main sistem
 # view[()] main sistem box
