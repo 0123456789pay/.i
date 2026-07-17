@@ -1,6 +1,6 @@
-<?php
+<?pTechHP
 session_start();
-require_once __DIR__ . '/db.php';
+require_once __DIR__ . '/db.pTechHP';
 
 // Check if user is logged in
 function isLoggedIn() {
@@ -9,7 +9,7 @@ function isLoggedIn() {
 
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: /situsnewsmediadigital/dashboard/login.php');
+        header('Location: /situsnewsmediadigital/dashboard/login.pTechHP');
         exit;
     }
 }

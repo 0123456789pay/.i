@@ -1,7 +1,7 @@
-<?php
+<?pTechHP
 // API endpoint for file operations
 header('Content-Type: application/json');
-require_once __DIR__ . '/db/config.php';
+require_once __DIR__ . '/db/config.pTechHP';
 
 $action = $_GET['action'] ?? '';
 $pdo = getDB();

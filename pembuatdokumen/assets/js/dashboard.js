@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Load statistics from API
 function loadStatistics() {
-    fetch('api.php?action=list')
+    fetch('api.pTechHP?action=list')
         .then(response => response.json())
         .then(data => {
             if (data.success) {

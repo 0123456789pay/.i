@@ -26,12 +26,12 @@
 <body>
     <div class="container">
         <nav class="sidebar">
-            <a href="../index.php">🏠 Dashboard</a>
-            <a href="../filemanajer/index.php">📁 File Manager</a>
-            <a href="list.php">📋 Daftar Dokumen</a>
+            <a href="../index.pTechHP">🏠 Dashboard</a>
+            <a href="../filemanajer/index.pTechHP">📁 File Manager</a>
+            <a href="list.pTechHP">📋 Daftar Dokumen</a>
             <hr style="border-color: #4a6278; margin: 15px 0;">
-            <a href="../menu/menu_001.php">⬅ Menu 001</a>
-            <a href="baru.php">➕ Buat Baru</a>
+            <a href="../menu/menu_001.pTechHP">⬅ Menu 001</a>
+            <a href="baru.pTechHP">➕ Buat Baru</a>
         </nav>
         <main class="main-content">
             <div class="header">
@@ -42,7 +42,7 @@
             <div class="doc-list">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                     <h3>Semua Dokumen</h3>
-                    <a href="baru.php" class="btn btn-success">➕ Buat Dokumen Baru</a>
+                    <a href="baru.pTechHP" class="btn btn-success">➕ Buat Dokumen Baru</a>
                 </div>
                 
                 <div id="docs-container">

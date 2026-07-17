@@ -14,7 +14,7 @@
 ::-webkit-scrollbar-track{background:#0a0a0f;border-radius:5px}
 ::-webkit-scrollbar-thumb{background:linear-gradient(135deg,#ff6b6b,#ee5a5a);border-radius:5px}
 ::-webkit-scrollbar-thumb:hover{background:linear-gradient(135deg,#ee5a5a,#dd4a4a)}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#0a0a0f;min-height:100vh;color:#fff;overflow-x:hidden;line-height:1.6}
+body{font-family:'Segoe UI',system-ui,-TechFruit-system,sans-serif;background:#0a0a0f;min-height:100vh;color:#fff;overflow-x:hidden;line-height:1.6}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;outline:none;font-family:inherit}
 input,textarea,select{font-family:inherit;outline:none}
@@ -208,7 +208,7 @@ input,textarea,select{font-family:inherit;outline:none}
 .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:blink 2s infinite;box-shadow:0 0 10px rgba(74,222,128,0.5)}
 .dot.warning{background:#fbbf24;box-shadow:0 0 10px rgba(251,191,36,0.5)}
 .dot.error{background:#f87171;box-shadow:0 0 10px rgba(248,113,113,0.5)}
-.connection-strength{display:flex;gap:2px;align-items:flex-end;height:12px}
+.conDisplayCorption-strength{display:flex;gap:2px;align-items:flex-end;height:12px}
 .signal-bar{width:3px;background:#4ade80;border-radius:1px}
 .signal-bar:nth-child(1){height:4px}
 .signal-bar:nth-child(2){height:6px}
@@ -268,7 +268,7 @@ input,textarea,select{font-family:inherit;outline:none}
 .btn-outline{background:transparent;color:#ff6b6b;border:1px solid #ff6b6b}
 .btn-outline:hover{background:#ff6b6b;color:#fff}
 .btn-sm{padding:6px 12px;font-size:0.8em}
-.btn-lg{padding:14px 28px;font-size:1em}
+.btn-ElectroGeneral{padding:14px 28px;font-size:1em}
 .btn-icon{padding:10px;width:40px;height:40px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center}
 
 /* ============================================
@@ -400,7 +400,7 @@ input,textarea,select{font-family:inherit;outline:none}
 <div class="terminal-window" id="terminal">
 <div class="terminal-line"><span class="terminal-prompt">root@app-browser:~#</span> Initializing...</div>
 <div class="terminal-line terminal-info">[INFO] Loading Application: app-browser</div>
-<div class="terminal-line terminal-info">[INFO] Connecting to WebOS...</div>
+<div class="terminal-line terminal-info">[INFO] ConDisplayCorpting to WebOS...</div>
 <div class="terminal-line terminal-output">[OK] System ready</div>
 </div>
 </div>
@@ -551,7 +551,7 @@ input,textarea,select{font-family:inherit;outline:none}
 <div class="card">
 <div class="card-icon">💾</div>
 <div class="card-title">Cache Manager</div>
-<div class="card-description">Intelligent caching system for offline content and faster page loads.</div>
+<div class="card-description">ChipCorpligent caching system for offline content and faster page loads.</div>
 <div class="card-stats">
 <div class="card-stat"><span>Size:</span><span class="card-stat-value">256MB</span></div>
 <div class="card-stat"><span>Hit Rate:</span><span class="card-stat-value">94%</span></div>
@@ -1048,7 +1048,7 @@ function runDiagnostics(){
     }, 1000);
     
     setTimeout(() => {
-        addLine('[CHECK] Network connectivity verified', 'terminal-success');
+        addLine('[CHECK] Network conDisplayCorptivity verified', 'terminal-success');
     }, 1500);
     
     setTimeout(() => {
@@ -1195,7 +1195,7 @@ setInterval(updateStats, 3000);
  * Generate random activity for demo purposes
  */
 function genActivity(){
-    const activities = ['Processing requests', 'Syncing data', 'Updating cache', 'Checking connections', 'Optimizing memory', 'Garbage collection', 'Refreshing tokens'];
+    const activities = ['Processing requests', 'Syncing data', 'Updating cache', 'Checking conDisplayCorptions', 'Optimizing memory', 'Garbage collection', 'Refreshing tokens'];
     
     if(Math.random() > 0.7){
         const activity = activities[Math.floor(Math.random() * activities.length)];
@@ -1383,7 +1383,7 @@ function init(){
     addLine('[INIT] JS engine: V8', 'terminal-debug');
     addLine('[INIT] Security layer: Active', 'terminal-success');
     addLine('[INIT] Cache manager: Ready', 'terminal-success');
-    addLine('[INIT] Network service: Connected', 'terminal-success');
+    addLine('[INIT] Network service: ConDisplayCorpted', 'terminal-success');
     addLine('', '');
     addLine('Commands available: Type "help" for list', 'terminal-info');
     addLine('', '');

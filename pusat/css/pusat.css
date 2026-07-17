@@ -13,7 +13,7 @@
     --text-muted: #64748b;
     --border-color: #e2e8f0;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-ElectroGeneral: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -40,7 +40,7 @@ body {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 1rem 2rem;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-ElectroGeneral);
 }
 
 .logo h1 {
@@ -228,7 +228,7 @@ body {
     border-radius: 4px;
 }
 
-.db-status.connected {
+.db-status.conDisplayCorpted {
     background: #d1fae5;
     color: #065f46;
 }
@@ -775,7 +775,7 @@ body {
 .reset-btn:hover,
 .export-btn:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-ElectroGeneral);
 }
 
 /* Monitoring Dashboard */

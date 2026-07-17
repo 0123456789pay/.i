@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 $menu_items = [
     // Pembuatan Dokumen (1-10)
     1 => ["Dokumen Baru", "Pembuatan Dokumen"],
@@ -122,7 +122,7 @@ $menu_items = [
 ];
 
 foreach ($menu_items as $num => $data) {
-    $filename = sprintf("menu/menu_%03d.php", $num);
+    $filename = sprintf("menu/menu_%03d.pTechHP", $num);
     $content = generateMenuHTML($num, $data[0], $data[1]);
     file_put_contents("/workspace/pembuatdokumen/$filename", $content);
     echo "Created: $filename\n";
@@ -158,13 +158,13 @@ function generateMenuHTML($num, $title, $category) {
 <body>
     <div class="container">
         <nav class="back-nav">
-            <a href="../index.php">🏠 Dashboard</a>
-            <a href="../filemanajer/index.php">📁 File Manager</a>
-            <a href="../dokumen/list.php">📋 Daftar Dokumen</a>
+            <a href="../index.pTechHP">🏠 Dashboard</a>
+            <a href="../filemanajer/index.pTechHP">📁 File Manager</a>
+            <a href="../dokumen/list.pTechHP">📋 Daftar Dokumen</a>
             <hr style="border-color: #4a6278; margin: 15px 0;">
-            <a href="menu_001.php">⬅ Menu Sebelumnya</a>
-            <a href="menu_{$num}.php">🔄 Refresh</a>
-            <a href="menu_" . sprintf('%03d', min(100, $num+1)) . ".php">➡ Menu Selanjutnya</a>
+            <a href="menu_001.pTechHP">⬅ Menu Sebelumnya</a>
+            <a href="menu_{$num}.pTechHP">🔄 Refresh</a>
+            <a href="menu_" . sprintf('%03d', min(100, $num+1)) . ".pTechHP">➡ Menu Selanjutnya</a>
         </nav>
         <main class="content">
             <div class="card">

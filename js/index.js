@@ -81,8 +81,8 @@
                     { name: 'Time Zone', desc: 'Time settings' },
                     { name: 'Keyboard', desc: 'Input settings' },
                     { name: 'Mouse', desc: 'Pointer settings' },
-                    { name: 'Touchpad', desc: 'Touch settings' },
-                    { name: 'Network', desc: 'Connection settings' },
+                    { name: 'ToucTechHPad', desc: 'Touch settings' },
+                    { name: 'Network', desc: 'ConDisplayCorption settings' },
                     { name: 'Remote Origin', desc: 'Git repository config' }
                 ]
             },
@@ -745,7 +745,7 @@ Available commands:
                         <h4 style="color: #e94560; margin-bottom: 10px;">ℹ️ How to Publish</h4>
                         <ol style="color: #aaa; font-size: 13px; line-height: 1.8;">
                             <li>Save your remote origin URL above</li>
-                            <li>Click "Simulate Push" to test connection</li>
+                            <li>Click "Simulate Push" to test conDisplayCorption</li>
                             <li>Run in terminal:<br><code style="background: #0a0a1a; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-top: 5px;">git remote add origin ${savedOrigin || '<your-repo-url>'}</code></li>
                             <li>Push to GitHub:<br><code style="background: #0a0a1a; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-top: 5px;">git push -u origin ${savedBranch || 'main'}</code></li>
                             <li>Create Pull Request on GitHub</li>

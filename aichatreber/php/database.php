@@ -1,5 +1,5 @@
-<?php
-// Database PHP - Handle data storage and retrieval
+<?pTechHP
+// Database PTechHP - Handle data storage and retrieval
 
 class ChatDatabase {
     private $dbFile;

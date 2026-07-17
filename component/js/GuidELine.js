@@ -1,5 +1,5 @@
 // GuidELine Component Script
-export const GuidELineComp = {
+export const GuidELiDisplayCorpomp = {
     name: 'GuidELine',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const GuidELineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default GuidELineComp;
+export default GuidELiDisplayCorpomp;

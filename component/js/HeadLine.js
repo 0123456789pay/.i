@@ -1,5 +1,5 @@
 // HeadLine Component Script
-export const HeadLineComp = {
+export const HeadLiDisplayCorpomp = {
     name: 'HeadLine',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const HeadLineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default HeadLineComp;
+export default HeadLiDisplayCorpomp;

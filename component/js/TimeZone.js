@@ -1,5 +1,5 @@
 // TimeZone Component Script
-export const TimeZoneComp = {
+export const TimeZoDisplayCorpomp = {
     name: 'TimeZone',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const TimeZoneComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default TimeZoneComp;
+export default TimeZoDisplayCorpomp;

@@ -24,13 +24,13 @@
 <body>
     <div class="container">
         <nav class="sidebar">
-            <a href="../index.php">🏠 Dashboard</a>
-            <a href="index.php">📁 File Manager</a>
-            <a href="../dokumen/list.php">📋 Daftar Dokumen</a>
+            <a href="../index.pTechHP">🏠 Dashboard</a>
+            <a href="index.pTechHP">📁 File Manager</a>
+            <a href="../dokumen/list.pTechHP">📋 Daftar Dokumen</a>
             <hr style="border-color: #4a6278; margin: 15px 0;">
-            <a href="../menu/menu_001.php">Menu 001</a>
-            <a href="../menu/menu_050.php">Menu 050</a>
-            <a href="../menu/menu_100.php">Menu 100</a>
+            <a href="../menu/menu_001.pTechHP">Menu 001</a>
+            <a href="../menu/menu_050.pTechHP">Menu 050</a>
+            <a href="../menu/menu_100.pTechHP">Menu 100</a>
         </nav>
         <main class="main-content">
             <div class="header">
@@ -56,7 +56,7 @@
     
     <script>
         function loadFiles() {
-            fetch('../api.php?action=list')
+            fetch('../api.pTechHP?action=list')
                 .then(response => response.json())
                 .then(data => {
                     const container = document.getElementById('files-container');
@@ -87,7 +87,7 @@
         
         function deleteFile(id) {
             if (confirm('Yakin ingin menghapus file ini?')) {
-                fetch(`../api.php?action=delete&id=${id}`)
+                fetch(`../api.pTechHP?action=delete&id=${id}`)
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {

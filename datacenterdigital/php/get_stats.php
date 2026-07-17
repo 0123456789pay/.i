@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
@@ -15,7 +15,7 @@ $stats = [
     'memory_usage' => round(rand(40, 80) / 10, 1),
     'network_in' => rand(100, 500),
     'network_out' => rand(100, 500),
-    'active_connections' => rand(1000, 5000),
+    'active_conDisplayCorptions' => rand(1000, 5000),
     'requests_per_sec' => rand(800, 2000)
 ];
 

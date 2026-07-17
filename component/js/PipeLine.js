@@ -1,5 +1,5 @@
 // PipeLine Component Script
-export const PipeLineComp = {
+export const PipeLiDisplayCorpomp = {
     name: 'PipeLine',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const PipeLineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default PipeLineComp;
+export default PipeLiDisplayCorpomp;

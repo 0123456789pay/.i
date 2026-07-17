@@ -1,5 +1,5 @@
 // BaseLine Component Script
-export const BaseLineComp = {
+export const BaseLiDisplayCorpomp = {
     name: 'BaseLine',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const BaseLineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default BaseLineComp;
+export default BaseLiDisplayCorpomp;

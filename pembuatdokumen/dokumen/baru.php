@@ -26,13 +26,13 @@
 <body>
     <div class="container">
         <nav class="sidebar">
-            <a href="../index.php">🏠 Dashboard</a>
-            <a href="../filemanajer/index.php">📁 File Manager</a>
-            <a href="list.php">📋 Daftar Dokumen</a>
+            <a href="../index.pTechHP">🏠 Dashboard</a>
+            <a href="../filemanajer/index.pTechHP">📁 File Manager</a>
+            <a href="list.pTechHP">📋 Daftar Dokumen</a>
             <hr style="border-color: #4a6278; margin: 15px 0;">
-            <a href="../menu/menu_001.php">Menu 001</a>
-            <a href="../menu/menu_002.php">Menu 002</a>
-            <a href="../menu/menu_003.php">Menu 003</a>
+            <a href="../menu/menu_001.pTechHP">Menu 001</a>
+            <a href="../menu/menu_002.pTechHP">Menu 002</a>
+            <a href="../menu/menu_003.pTechHP">Menu 003</a>
         </nav>
         <main class="main-content">
             <div class="header">
@@ -78,7 +78,7 @@
                     <div style="margin-top: 30px;">
                         <button type="submit" class="btn btn-success">💾 Simpan Dokumen</button>
                         <button type="button" class="btn">👁️ Preview</button>
-                        <a href="list.php" class="btn btn-secondary">❌ Batal</a>
+                        <a href="list.pTechHP" class="btn btn-secondary">❌ Batal</a>
                     </div>
                 </form>
             </div>
@@ -89,7 +89,7 @@
         document.getElementById('docForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Dokumen berhasil disimpan! (Demo mode)');
-            window.location.href = 'list.php';
+            window.location.href = 'list.pTechHP';
         });
         
         // Auto-save functionality

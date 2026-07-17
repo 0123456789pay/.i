@@ -43,7 +43,7 @@ export const regionData = {
   PH: {
     name: 'Philippines',
     capital: 'Manila',
-    currency: 'PHP',
+    currency: 'PTechHP',
     language: 'Filipino',
     timezone: 'Asia/Manila',
     population: 109581078,

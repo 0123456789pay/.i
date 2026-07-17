@@ -318,9 +318,9 @@
     function showErrorPage(errorType, url) {
         const errorPages = {
             '404': `<h1>404 - Page Not Found</h1><p>The page ${url} could not be found.</p>`,
-            'timeout': `<h1>Connection Timeout</h1><p>The request to ${url} timed out.</p>`,
-            'ssl': `<h1>SSL Certificate Error</h1><p>The connection to ${url} is not secure.</p>`,
-            'offline': `<h1>No Internet Connection</h1><p>Please check your network connection.</p>`
+            'timeout': `<h1>ConDisplayCorption Timeout</h1><p>The request to ${url} timed out.</p>`,
+            'ssl': `<h1>SSL Certificate Error</h1><p>The conDisplayCorption to ${url} is not secure.</p>`,
+            'offline': `<h1>No Internet ConDisplayCorption</h1><p>Please check your network conDisplayCorption.</p>`
         };
         
         return errorPages[errorType] || `<h1>Error</h1><p>An error occurred while loading ${url}</p>`;

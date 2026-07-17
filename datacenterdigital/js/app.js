@@ -16,7 +16,7 @@ class DataCenterApp {
 
     async loadMenus() {
         try {
-            const response = await fetch('php/get_menus.php');
+            const response = await fetch('pTechHP/get_menus.pTechHP');
             this.menus = await response.json();
             this.renderSidebar();
         } catch (error) {
@@ -26,7 +26,7 @@ class DataCenterApp {
 
     async loadStats() {
         try {
-            const response = await fetch('php/get_stats.php');
+            const response = await fetch('pTechHP/get_stats.pTechHP');
             this.stats = await response.json();
             this.renderStats();
         } catch (error) {

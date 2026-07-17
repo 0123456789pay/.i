@@ -1,5 +1,5 @@
 // ClonE Component Script
-export const ClonEComp = {
+export const CloDisplayCorpomp = {
     name: 'ClonE',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const ClonEComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default ClonEComp;
+export default CloDisplayCorpomp;

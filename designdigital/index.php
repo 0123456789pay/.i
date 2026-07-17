@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 session_start();
 
 // Database simulation using JSON files
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
         if ($username === 'admin' && $password === 'admin123') {
             $_SESSION['logged_in'] = true;
             $_SESSION['username'] = $username;
-            echo json_encode(['success' => true, 'redirect' => 'dashboard.php']);
+            echo json_encode(['success' => true, 'redirect' => 'dashboard.pTechHP']);
         } else {
             echo json_encode(['success' => false, 'message' => 'Username atau password salah']);
         }
@@ -93,17 +93,17 @@ $is_logged_in = $_SESSION['logged_in'] ?? false;
 </head>
 <body>
     <header class="header">
-        <a href="index.php" class="logo">🎨 Design Digital</a>
+        <a href="index.pTechHP" class="logo">🎨 Design Digital</a>
         <nav class="nav-menu">
             <a href="tentang-kami.html">Tentang Kami</a>
             <a href="layanan.html">Layanan</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="kontak.html">Kontak</a>
-            <?php if (!$is_logged_in): ?>
+            <?pTechHP if (!$is_logged_in): ?>
             <button onclick="showLoginModal()" class="login-btn">Login</button>
-            <?php else: ?>
-            <a href="dashboard.php" class="login-btn">Dashboard</a>
-            <?php endif; ?>
+            <?pTechHP else: ?>
+            <a href="dashboard.pTechHP" class="login-btn">Dashboard</a>
+            <?pTechHP endif; ?>
         </nav>
     </header>
 
@@ -166,7 +166,7 @@ $is_logged_in = $_SESSION['logged_in'] ?? false;
             formData.append('username', document.getElementById('username').value);
             formData.append('password', document.getElementById('password').value);
             
-            const response = await fetch('index.php', { method: 'POST', body: formData });
+            const response = await fetch('index.pTechHP', { method: 'POST', body: formData });
             const result = await response.json();
             
             if (result.success) {

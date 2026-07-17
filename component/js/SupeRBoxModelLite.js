@@ -1,6 +1,6 @@
-// SupeRBoxModelLite Component Script
-export const SupeRBoxModelLiteComp = {
-    name: 'SupeRBoxModelLite',
+// SupeRBoxMoCompDellite Component Script
+export const SupeRBoxMoCompDelliteComp = {
+    name: 'SupeRBoxMoCompDellite',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const SupeRBoxModelLiteComp = {
     },
     methods: {
         init() {
-            console.log('SupeRBoxModelLite initialized');
+            console.log('SupeRBoxMoCompDellite initialized');
         },
         render(data) {
-            return `<div class="SupeRBoxModelLite-container">${JSON.stringify(data)}</div>`;
+            return `<div class="SupeRBoxMoCompDellite-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('SupeRBoxModelLite destroyed');
+            console.log('SupeRBoxMoCompDellite destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default SupeRBoxModelLiteComp;
+export default SupeRBoxMoCompDelliteComp;

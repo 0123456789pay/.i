@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 /**
  * Database Manager - FileManajer
  * Sistem Manajemen Iklan - Media Digital Pusat Iklan
@@ -228,7 +228,7 @@ if (isset($_GET['api'])) {
             
         case 'add':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $data = json_decode(file_get_contents('php://input'), true);
+                $data = json_decode(file_get_contents('pTechHP://input'), true);
                 $id = $db->addItem($collection, $data);
                 echo json_encode(['success' => true, 'id' => $id]);
             }

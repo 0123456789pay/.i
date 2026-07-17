@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 // Database configuration - data stored in JSON files (file manager)
 define('DATA_PATH', __DIR__ . '/data/');
 define('DB_FILE', DATA_PATH . 'database.json');

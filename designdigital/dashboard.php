@@ -1,7 +1,7 @@
-<?php
+<?pTechHP
 session_start();
 if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
-    header('Location: index.php');
+    header('Location: index.pTechHP');
     exit;
 }
 
@@ -45,14 +45,14 @@ $fm_count = count(array_diff($fm_files, ['.', '..']));
 <body>
     <aside class="sidebar">
         <h2>🎨 Dashboard</h2>
-        <a href="dashboard.php" class="active">📊 Overview</a>
+        <a href="dashboard.pTechHP" class="active">📊 Overview</a>
         <a href="filemanajer/">📁 File Manager</a>
         <a href="?view=pages">📄 Halaman</a>
         <a href="?view=analytics">📈 Analytics</a>
         <a href="?view=settings">⚙️ Pengaturan</a>
         <hr style="border-color: rgba(255,255,255,0.2); margin: 20px 0;">
         <small style="color: rgba(255,255,255,0.6);">Menu Situs</small>
-        <a href="index.php" target="_blank">🌐 Lihat Situs</a>
+        <a href="index.pTechHP" target="_blank">🌐 Lihat Situs</a>
         <a href="tentang-kami.html">Tentang Kami</a>
         <a href="layanan.html">Layanan</a>
         <a href="portfolio.html">Portfolio</a>
@@ -61,18 +61,18 @@ $fm_count = count(array_diff($fm_files, ['.', '..']));
 
     <main class="main-content">
         <div class="header-bar">
-            <h1>Selamat Datang, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
-            <a href="logout.php" class="logout-btn">Logout</a>
+            <h1>Selamat Datang, <?pTechHP echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+            <a href="logout.pTechHP" class="logout-btn">Logout</a>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
                 <h3>Total Halaman</h3>
-                <div class="number"><?php echo count($data['pages']); ?></div>
+                <div class="number"><?pTechHP echo count($data['pages']); ?></div>
             </div>
             <div class="stat-card">
                 <h3>File Manager</h3>
-                <div class="number"><?php echo $fm_count; ?></div>
+                <div class="number"><?pTechHP echo $fm_count; ?></div>
             </div>
             <div class="stat-card">
                 <h3>Pengunjung Hari Ini</h3>
@@ -96,14 +96,14 @@ $fm_count = count(array_diff($fm_files, ['.', '..']));
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach (array_slice($data['pages'], 0, 10) as $page): ?>
+                    <?pTechHP foreach (array_slice($data['pages'], 0, 10) as $page): ?>
                     <tr>
-                        <td><?php echo substr($page['id'], 0, 8); ?>...</td>
-                        <td><?php echo htmlspecialchars($page['title']); ?></td>
-                        <td><?php echo $page['created_at']; ?></td>
+                        <td><?pTechHP echo substr($page['id'], 0, 8); ?>...</td>
+                        <td><?pTechHP echo htmlspecialchars($page['title']); ?></td>
+                        <td><?pTechHP echo $page['created_at']; ?></td>
                         <td><button class="btn btn-primary">Edit</button></td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?pTechHP endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -111,9 +111,9 @@ $fm_count = count(array_diff($fm_files, ['.', '..']));
         <div class="content-section">
             <h2>🔗 Akses Cepat Menu</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;">
-                <?php
+                <?pTechHP
                 $quick_links = [
-                    'Beranda' => 'index.php',
+                    'Beranda' => 'index.pTechHP',
                     'Tentang Kami' => 'tentang-kami.html',
                     'Layanan' => 'layanan.html',
                     'Portfolio' => 'portfolio.html',
@@ -125,8 +125,8 @@ $fm_count = count(array_diff($fm_files, ['.', '..']));
                     'Pricing' => 'pricing.html'
                 ];
                 foreach ($quick_links as $name => $link): ?>
-                <a href="<?php echo $link; ?>" class="btn btn-primary" style="text-align: center;"><?php echo $name; ?></a>
-                <?php endforeach; ?>
+                <a href="<?pTechHP echo $link; ?>" class="btn btn-primary" style="text-align: center;"><?pTechHP echo $name; ?></a>
+                <?pTechHP endforeach; ?>
             </div>
         </div>
     </main>
