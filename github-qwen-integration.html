@@ -362,6 +362,164 @@
             50% { opacity: 0.5; }
         }
 
+        /* Terminal Core System Styles */
+        .terminal-core-container {
+            padding: 20px;
+            background: #0a0a0f;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .terminal-core-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px 15px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .terminal-core-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .terminal-core-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .terminal-core-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .terminal-core-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .terminal-window-core {
+            background: #0d0d15;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #2a2a3e;
+        }
+
+        .terminal-line-core {
+            margin-bottom: 6px;
+            line-height: 1.5;
+            font-size: 13px;
+        }
+
+        .terminal-prompt-core {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .terminal-output-core {
+            color: #4ade80;
+        }
+
+        .terminal-info-core {
+            color: #60a5fa;
+        }
+
+        .terminal-warning-core {
+            color: #fbbf24;
+        }
+
+        .terminal-input-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .terminal-input-core {
+            flex: 1;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #4ade80;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .terminal-input-core:focus {
+            border-color: #ff6b6b;
+        }
+
+        .terminal-submit-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .terminal-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .subsystem-status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .subsystem-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #2a2a3e;
+        }
+
+        .subsystem-label {
+            color: #888;
+            font-size: 11px;
+            margin-bottom: 6px;
+        }
+
+        .subsystem-value {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+
+        .subsystem-progress {
+            background: #2a2a3e;
+            height: 6px;
+            border-radius: 3px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .subsystem-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a5a);
+            transition: width 0.5s ease;
+        }
+
         @media (max-width: 1024px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -433,6 +591,96 @@
                 <div class="status-item">
                     <div class="status-dot"></div>
                     <span>All Protocols: Enabled</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal Core System - SoutheastApp Core -->
+        <div class="terminal-core-container">
+            <div class="terminal-core-header">
+                <div class="terminal-core-title">
+                    <i class="fas fa-terminal"></i>
+                    <span>SoutheastApp Terminal Core</span>
+                </div>
+                <div class="terminal-core-controls">
+                    <button class="terminal-core-btn" onclick="clearTerminalCore()">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                    <button class="terminal-core-btn" onclick="resetTerminalCore()">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                    <button class="terminal-core-btn" onclick="toggleFullscreenTerminal()">
+                        <i class="fas fa-expand"></i> Fullscreen
+                    </button>
+                </div>
+            </div>
+            
+            <div class="terminal-window-core" id="terminalCore">
+                <div class="terminal-line-core"><span class="terminal-prompt-core">root@southeastapp:~#</span> Initializing SoutheastApp Core System...</div>
+                <div class="terminal-line-core terminal-info-core">[INFO] Loading Terminal Core Module</div>
+                <div class="terminal-line-core terminal-info-core">[INFO] Mounting GitHub Subsystem (.github.com)...</div>
+                <div class="terminal-line-core terminal-output-core">[OK] GitHub Subsystem mounted at /subsystems/github</div>
+                <div class="terminal-line-core terminal-info-core">[INFO] Mounting Qwen AI Subsystem (coder.qwen.ai)...</div>
+                <div class="terminal-line-core terminal-output-core">[OK] Qwen AI Subsystem mounted at /subsystems/qwen</div>
+                <div class="terminal-line-core terminal-info-core">[INFO] Activating Protocol Stack...</div>
+                <div class="terminal-line-core terminal-output-core">[OK] HTTP Protocol Active</div>
+                <div class="terminal-line-core terminal-output-core">[OK] HTTPS Protocol Active</div>
+                <div class="terminal-line-core terminal-output-core">[OK] SSL/TLS Protocol Active</div>
+                <div class="terminal-line-core terminal-output-core">[OK] SSH Protocol Active</div>
+                <div class="terminal-line-core terminal-warning-core">[WARN] Unlimited Protocol Mode: ENABLED</div>
+                <div class="terminal-line-core terminal-info-core">[INFO] All subsystems operational</div>
+                <div class="terminal-line-core"><span class="terminal-prompt-core">root@southeastapp:~#</span> System ready. Type 'help' for commands.</div>
+            </div>
+            
+            <div class="terminal-input-container">
+                <input type="text" class="terminal-input-core" id="terminalInputCore" placeholder="Enter command..." onkeypress="handleTerminalInput(event)">
+                <button class="terminal-submit-btn" onclick="executeTerminalCommand()">
+                    <i class="fas fa-paper-plane"></i> Execute
+                </button>
+            </div>
+            
+            <div class="subsystem-status-bar">
+                <div class="subsystem-card">
+                    <div class="subsystem-label">GitHub Subsystem</div>
+                    <div class="subsystem-value" id="github-subsystem-status">Online</div>
+                    <div class="subsystem-progress">
+                        <div class="subsystem-progress-fill" id="github-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="subsystem-card">
+                    <div class="subsystem-label">Qwen AI Subsystem</div>
+                    <div class="subsystem-value" id="qwen-subsystem-status">Online</div>
+                    <div class="subsystem-progress">
+                        <div class="subsystem-progress-fill" id="qwen-progress" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="subsystem-card">
+                    <div class="subsystem-label">HTTP/HTTPS</div>
+                    <div class="subsystem-value" id="http-status">Active</div>
+                    <div class="subsystem-progress">
+                        <div class="subsystem-progress-fill" id="http-progress" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="subsystem-card">
+                    <div class="subsystem-label">SSL/TLS</div>
+                    <div class="subsystem-value" id="ssl-status">Active</div>
+                    <div class="subsystem-progress">
+                        <div class="subsystem-progress-fill" id="ssl-progress" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="subsystem-card">
+                    <div class="subsystem-label">SSH</div>
+                    <div class="subsystem-value" id="ssh-status">Active</div>
+                    <div class="subsystem-progress">
+                        <div class="subsystem-progress-fill" id="ssh-progress" style="width: 98%"></div>
+                    </div>
+                </div>
+                <div class="subsystem-card">
+                    <div class="subsystem-label">System Load</div>
+                    <div class="subsystem-value" id="system-load">24%</div>
+                    <div class="subsystem-progress">
+                        <div class="subsystem-progress-fill" id="load-progress" style="width: 24%"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -744,6 +992,172 @@
                 refreshQwen();
             }
         });
+
+        // Terminal Core Functions
+        function addTerminalLine(text, type = '') {
+            const terminal = document.getElementById('terminalCore');
+            const line = document.createElement('div');
+            line.className = 'terminal-line-core ' + type;
+            
+            if (type === 'prompt') {
+                line.innerHTML = '<span class="terminal-prompt-core">root@southeastapp:~#</span> ' + text;
+            } else {
+                line.textContent = text;
+            }
+            
+            terminal.appendChild(line);
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function clearTerminalCore() {
+            const terminal = document.getElementById('terminalCore');
+            terminal.innerHTML = '';
+            addTerminalLine('Terminal cleared', 'terminal-info-core');
+            addTerminalLine('Type help for available commands', 'prompt');
+        }
+
+        function resetTerminalCore() {
+            if (confirm('Reset SoutheastApp Terminal Core?')) {
+                const terminal = document.getElementById('terminalCore');
+                terminal.innerHTML = '';
+                addTerminalLine('Resetting SoutheastApp Core System...', 'terminal-info-core');
+                
+                setTimeout(() => {
+                    addTerminalLine('[INFO] Reloading Terminal Core Module', 'terminal-info-core');
+                    addTerminalLine('[INFO] Remounting GitHub Subsystem (.github.com)...', 'terminal-info-core');
+                    addTerminalLine('[OK] GitHub Subsystem remounted', 'terminal-output-core');
+                    addTerminalLine('[INFO] Remounting Qwen AI Subsystem (coder.qwen.ai)...', 'terminal-info-core');
+                    addTerminalLine('[OK] Qwen AI Subsystem remounted', 'terminal-output-core');
+                    addTerminalLine('[INFO] Reactivating Protocol Stack...', 'terminal-info-core');
+                    addTerminalLine('[OK] All protocols active', 'terminal-output-core');
+                    addTerminalLine('[WARN] Unlimited Protocol Mode: ENABLED', 'terminal-warning-core');
+                    addTerminalLine('System ready. Type help for commands.', 'prompt');
+                }, 500);
+            }
+        }
+
+        function toggleFullscreenTerminal() {
+            const terminalContainer = document.querySelector('.terminal-core-container');
+            if (!document.fullscreenElement) {
+                terminalContainer.requestFullscreen().catch(err => {
+                    addTerminalLine(`[ERROR] Fullscreen failed: ${err.message}`, 'terminal-warning-core');
+                });
+                addTerminalLine('Fullscreen mode enabled', 'terminal-info-core');
+            } else {
+                document.exitFullscreen();
+                addTerminalLine('Fullscreen mode disabled', 'terminal-info-core');
+            }
+        }
+
+        function handleTerminalInput(event) {
+            if (event.key === 'Enter') {
+                executeTerminalCommand();
+            }
+        }
+
+        function executeTerminalCommand() {
+            const input = document.getElementById('terminalInputCore');
+            const command = input.value.trim();
+            
+            if (!command) return;
+            
+            addTerminalLine(command, 'prompt');
+            input.value = '';
+            
+            // Process commands
+            const cmd = command.toLowerCase();
+            
+            if (cmd === 'help') {
+                addTerminalLine('Available commands:', 'terminal-info-core');
+                addTerminalLine('  help          - Show this help message', 'terminal-output-core');
+                addTerminalLine('  status        - Show system status', 'terminal-output-core');
+                addTerminalLine('  github        - GitHub subsystem info', 'terminal-output-core');
+                addTerminalLine('  qwen          - Qwen AI subsystem info', 'terminal-output-core');
+                addTerminalLine('  protocols     - Show active protocols', 'terminal-output-core');
+                addTerminalLine('  clear         - Clear terminal', 'terminal-output-core');
+                addTerminalLine('  reset         - Reset system', 'terminal-output-core');
+                addTerminalLine('  mount <name>  - Mount subsystem', 'terminal-output-core');
+                addTerminalLine('  umount <name> - Unmount subsystem', 'terminal-output-core');
+            }
+            else if (cmd === 'status') {
+                addTerminalLine('=== SoutheastApp System Status ===', 'terminal-info-core');
+                addTerminalLine('GitHub Subsystem: Online (95%)', 'terminal-output-core');
+                addTerminalLine('Qwen AI Subsystem: Online (92%)', 'terminal-output-core');
+                addTerminalLine('HTTP/HTTPS: Active', 'terminal-output-core');
+                addTerminalLine('SSL/TLS: Active', 'terminal-output-core');
+                addTerminalLine('SSH: Active', 'terminal-output-core');
+                addTerminalLine('Unlimited Protocol: ENABLED', 'terminal-warning-core');
+            }
+            else if (cmd === 'github') {
+                addTerminalLine('GitHub Subsystem Information:', 'terminal-info-core');
+                addTerminalLine('  URL: https://github.com', 'terminal-output-core');
+                addTerminalLine('  Mount Point: /subsystems/github', 'terminal-output-core');
+                addTerminalLine('  Status: Online', 'terminal-output-core');
+                addTerminalLine('  Protocols: HTTP, HTTPS, SSL, TLS, SSH', 'terminal-output-core');
+            }
+            else if (cmd === 'qwen') {
+                addTerminalLine('Qwen AI Subsystem Information:', 'terminal-info-core');
+                addTerminalLine('  URL: https://coder.qwen.ai', 'terminal-output-core');
+                addTerminalLine('  Mount Point: /subsystems/qwen', 'terminal-output-core');
+                addTerminalLine('  Status: Online', 'terminal-output-core');
+                addTerminalLine('  Protocols: HTTP, HTTPS, SSL, TLS, SSH', 'terminal-output-core');
+            }
+            else if (cmd === 'protocols') {
+                addTerminalLine('Active Protocols:', 'terminal-info-core');
+                addTerminalLine('  ✓ HTTP   - Port 80', 'terminal-output-core');
+                addTerminalLine('  ✓ HTTPS  - Port 443', 'terminal-output-core');
+                addTerminalLine('  ✓ SSL    - Enabled', 'terminal-output-core');
+                addTerminalLine('  ✓ TLS    - Enabled', 'terminal-output-core');
+                addTerminalLine('  ✓ SSH    - Port 22', 'terminal-output-core');
+                addTerminalLine('  ∞ Unlimited Protocol Mode: ACTIVE', 'terminal-warning-core');
+            }
+            else if (cmd === 'clear') {
+                clearTerminalCore();
+                return;
+            }
+            else if (cmd === 'reset') {
+                resetTerminalCore();
+                return;
+            }
+            else if (cmd.startsWith('mount ')) {
+                const subsystem = command.substring(6).trim().toLowerCase();
+                if (subsystem === 'github') {
+                    addTerminalLine('[INFO] Mounting GitHub Subsystem...', 'terminal-info-core');
+                    addTerminalLine('[OK] GitHub mounted at /subsystems/github', 'terminal-output-core');
+                } else if (subsystem === 'qwen') {
+                    addTerminalLine('[INFO] Mounting Qwen AI Subsystem...', 'terminal-info-core');
+                    addTerminalLine('[OK] Qwen AI mounted at /subsystems/qwen', 'terminal-output-core');
+                } else {
+                    addTerminalLine(`[ERROR] Unknown subsystem: ${subsystem}`, 'terminal-warning-core');
+                }
+            }
+            else if (cmd.startsWith('umount ')) {
+                const subsystem = command.substring(7).trim().toLowerCase();
+                if (subsystem === 'github' || subsystem === 'qwen') {
+                    addTerminalLine(`[WARN] Cannot unmount core subsystem: ${subsystem}`, 'terminal-warning-core');
+                } else {
+                    addTerminalLine(`[ERROR] Unknown subsystem: ${subsystem}`, 'terminal-warning-core');
+                }
+            }
+            else {
+                addTerminalLine(`[ERROR] Unknown command: ${command}`, 'terminal-warning-core');
+                addTerminalLine('Type help for available commands', 'terminal-info-core');
+            }
+        }
+
+        // Update subsystem stats periodically
+        function updateSubsystemStats() {
+            const load = Math.floor(Math.random() * 30) + 15;
+            const githubLoad = Math.floor(Math.random() * 10) + 90;
+            const qwenLoad = Math.floor(Math.random() * 10) + 88;
+            
+            document.getElementById('system-load').textContent = load + '%';
+            document.getElementById('load-progress').style.width = load + '%';
+            document.getElementById('github-progress').style.width = githubLoad + '%';
+            document.getElementById('qwen-progress').style.width = qwenLoad + '%';
+        }
+
+        setInterval(updateSubsystemStats, 5000);
     </script>
 </body>
 </html>
