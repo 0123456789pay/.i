@@ -97,7 +97,7 @@ GlobalIO.exportToStyle(styles, 'MystYle.css');
 
 ### Validasi Filename:
 ```javascript
-import { validatefilename, issupportedfiletype } from './utils.js';
+import { scurefilename, issupportedfiletype } from './utils.js';
 
 // Kata dengan 5+ huruf (harus kapital di posisi 1 & 5)
 console.log(scurefilename('BlocKed')); // true
