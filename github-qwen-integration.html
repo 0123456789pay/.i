@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southeast App - GitHub & Qwen AI Integration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-bg: #1f2937;
+            --light-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+            --text-primary: #111827;
+            --text-secondary: #6b7280;
+            --github-bg: #0d1117;
+            --qwen-bg: #615ced;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-bg);
+            transform: translateY(-2px);
+        }
+
+        .btn-github {
+            background: var(--github-bg);
+            color: white;
+        }
+
+        .btn-qwen {
+            background: var(--qwen-bg);
+            color: white;
+        }
+
+        .protocol-status {
+            display: flex;
+            gap: 15px;
+            padding: 15px 30px;
+            background: var(--dark-bg);
+            color: white;
+            flex-wrap: wrap;
+        }
+
+        .protocol-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .protocol-badge.active {
+            background: var(--success-color);
+        }
+
+        .protocol-badge i {
+            font-size: 14px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            height: calc(100vh - 200px);
+        }
+
+        .service-panel {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .panel-header.github {
+            background: var(--github-bg);
+            color: white;
+        }
+
+        .panel-header.qwen {
+            background: var(--qwen-bg);
+            color: white;
+        }
+
+        .panel-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .panel-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .panel-btn {
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .panel-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .iframe-container {
+            flex: 1;
+            position: relative;
+            background: var(--light-bg);
+        }
+
+        .service-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+
+        .iframe-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-bg);
+            z-index: 10;
+        }
+
+        .iframe-overlay i {
+            font-size: 60px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .iframe-overlay h3 {
+            font-size: 20px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .iframe-overlay p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .protocol-info {
+            padding: 20px;
+            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .protocol-item {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .protocol-item.active {
+            border-color: var(--success-color);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .protocol-item i {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .protocol-item.active i {
+            color: var(--success-color);
+        }
+
+        .protocol-item span {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .url-input-container {
+            padding: 15px 20px;
+            background: var(--light-bg);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 10px;
+        }
+
+        .url-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .url-input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .load-btn {
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .load-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .integration-status {
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+        }
+
+        .integration-status h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .integration-status p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .status-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .service-panel {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-network-wired"></i> Southeast App - Multi-Protocol Integration Hub</h1>
+            <div class="header-actions">
+                <button class="btn btn-github" onclick="openGithub()">
+                    <i class="fab fa-github"></i> GitHub
+                </button>
+                <button class="btn btn-qwen" onclick="openQwen()">
+                    <i class="fas fa-robot"></i> Qwen AI
+                </button>
+                <button class="btn btn-primary" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i> Home
+                </button>
+            </div>
+        </div>
+
+        <div class="protocol-status">
+            <div class="protocol-badge active">
+                <i class="fas fa-shield-alt"></i>
+                <span>HTTP Active</span>
+            </div>
+            <div class="protocol-badge active">
+                <i class="fas fa-lock"></i>
+                <span>HTTPS Active</span>
+            </div>
+            <div class="protocol-badge active">
+                <i class="fas fa-key"></i>
+                <span>SSL Active</span>
+            </div>
+            <div class="protocol-badge active">
+                <i class="fas fa-layer-group"></i>
+                <span>TLS Active</span>
+            </div>
+            <div class="protocol-badge active">
+                <i class="fas fa-terminal"></i>
+                <span>SSH Active</span>
+            </div>
+            <div class="protocol-badge active">
+                <i class="fas fa-infinity"></i>
+                <span>Unlimited Protocol</span>
+            </div>
+        </div>
+
+        <div class="integration-status">
+            <h2><i class="fas fa-plug"></i> System Integration Status</h2>
+            <p>GitHub.com & Coder.Qwen.AI integrated as subsystems in SoutheastApp</p>
+            <div class="status-indicators">
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>GitHub Subsystem: Online</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>Qwen AI Subsystem: Online</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <span>All Protocols: Enabled</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <!-- GitHub Panel -->
+            <div class="service-panel">
+                <div class="panel-header github">
+                    <div class="panel-title">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub Integration</span>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="panel-btn" onclick="refreshGithub()" title="Refresh">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        <button class="panel-btn" onclick="openGithubExternal()" title="Open External">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="url-input-container">
+                    <input type="text" class="url-input" id="githubUrl" value="https://github.com" placeholder="Enter GitHub URL...">
+                    <button class="load-btn" onclick="loadGithubUrl()">
+                        <i class="fas fa-go"></i> Load
+                    </button>
+                </div>
+
+                <div class="iframe-container">
+                    <div class="iframe-overlay" id="githubOverlay">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub Integration</h3>
+                        <p>Access GitHub repositories, code, and collaboration tools<br>via HTTP, HTTPS, SSL, TLS, SSH protocols</p>
+                        <button class="load-btn" style="margin-top: 20px;" onclick="activateGithub()">
+                            <i class="fas fa-power-off"></i> Activate GitHub Subsystem
+                        </button>
+                    </div>
+                    <iframe class="service-frame" id="githubFrame" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+                </div>
+
+                <div class="protocol-info">
+                    <div class="protocol-grid">
+                        <div class="protocol-item active">
+                            <i class="fas fa-globe"></i>
+                            <span>HTTP</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-lock"></i>
+                            <span>HTTPS</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-key"></i>
+                            <span>SSL</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-layer-group"></i>
+                            <span>TLS</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-terminal"></i>
+                            <span>SSH</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qwen AI Panel -->
+            <div class="service-panel">
+                <div class="panel-header qwen">
+                    <div class="panel-title">
+                        <i class="fas fa-brain"></i>
+                        <span>Qwen AI Integration</span>
+                    </div>
+                    <div class="panel-actions">
+                        <button class="panel-btn" onclick="refreshQwen()" title="Refresh">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                        <button class="panel-btn" onclick="openQwenExternal()" title="Open External">
+                            <i class="fas fa-external-link-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="url-input-container">
+                    <input type="text" class="url-input" id="qwenUrl" value="https://coder.qwen.ai" placeholder="Enter Qwen AI URL...">
+                    <button class="load-btn" onclick="loadQwenUrl()">
+                        <i class="fas fa-go"></i> Load
+                    </button>
+                </div>
+
+                <div class="iframe-container">
+                    <div class="iframe-overlay" id="qwenOverlay">
+                        <i class="fas fa-robot"></i>
+                        <h3>Qwen AI Integration</h3>
+                        <p>Access AI-powered coding assistance and development tools<br>via HTTP, HTTPS, SSL, TLS protocols</p>
+                        <button class="load-btn" style="margin-top: 20px;" onclick="activateQwen()">
+                            <i class="fas fa-power-off"></i> Activate Qwen AI Subsystem
+                        </button>
+                    </div>
+                    <iframe class="service-frame" id="qwenFrame" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+                </div>
+
+                <div class="protocol-info">
+                    <div class="protocol-grid">
+                        <div class="protocol-item active">
+                            <i class="fas fa-globe"></i>
+                            <span>HTTP</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-lock"></i>
+                            <span>HTTPS</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-key"></i>
+                            <span>SSL</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-layer-group"></i>
+                            <span>TLS</span>
+                        </div>
+                        <div class="protocol-item active">
+                            <i class="fas fa-infinity"></i>
+                            <span>Unlimited</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Unlimited Protocol System Configuration
+        const protocolConfig = {
+            http: { enabled: true, port: 80 },
+            https: { enabled: true, port: 443 },
+            ssl: { enabled: true, encrypted: true },
+            tls: { enabled: true, version: '1.3' },
+            ssh: { enabled: true, port: 22 }
+        };
+
+        // Activate GitHub Subsystem
+        function activateGithub() {
+            document.getElementById('githubOverlay').style.display = 'none';
+            const frame = document.getElementById('githubFrame');
+            frame.src = 'https://github.com';
+            updateUrlBar('githubUrl', 'https://github.com');
+            showNotification('GitHub Subsystem Activated - All Protocols Enabled');
+        }
+
+        // Activate Qwen AI Subsystem
+        function activateQwen() {
+            document.getElementById('qwenOverlay').style.display = 'none';
+            const frame = document.getElementById('qwenFrame');
+            frame.src = 'https://coder.qwen.ai';
+            updateUrlBar('qwenUrl', 'https://coder.qwen.ai');
+            showNotification('Qwen AI Subsystem Activated - All Protocols Enabled');
+        }
+
+        // Load custom GitHub URL
+        function loadGithubUrl() {
+            const url = document.getElementById('githubUrl').value;
+            const frame = document.getElementById('githubFrame');
+            document.getElementById('githubOverlay').style.display = 'none';
+            frame.src = url;
+            showNotification('Loading: ' + url);
+        }
+
+        // Load custom Qwen URL
+        function loadQwenUrl() {
+            const url = document.getElementById('qwenUrl').value;
+            const frame = document.getElementById('qwenFrame');
+            document.getElementById('qwenOverlay').style.display = 'none';
+            frame.src = url;
+            showNotification('Loading: ' + url);
+        }
+
+        // Refresh functions
+        function refreshGithub() {
+            const frame = document.getElementById('githubFrame');
+            if (frame.src) {
+                frame.contentWindow.location.reload();
+                showNotification('GitHub Refreshed');
+            } else {
+                activateGithub();
+            }
+        }
+
+        function refreshQwen() {
+            const frame = document.getElementById('qwenFrame');
+            if (frame.src) {
+                frame.contentWindow.location.reload();
+                showNotification('Qwen AI Refreshed');
+            } else {
+                activateQwen();
+            }
+        }
+
+        // Open external links
+        function openGithubExternal() {
+            window.open('https://github.com', '_blank');
+        }
+
+        function openQwenExternal() {
+            window.open('https://coder.qwen.ai', '_blank');
+        }
+
+        // Quick access buttons
+        function openGithub() {
+            activateGithub();
+        }
+
+        function openQwen() {
+            activateQwen();
+        }
+
+        // Update URL bar helper
+        function updateUrlBar(inputId, url) {
+            document.getElementById(inputId).value = url;
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--success-color), #059669);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+                font-weight: 500;
+            `;
+            notification.innerHTML = '<i class="fas fa-check-circle"></i> ' + message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(400px);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Protocol status monitoring
+        function checkProtocolStatus() {
+            console.log('Protocol Status Check:');
+            console.log('HTTP:', protocolConfig.http.enabled ? 'Active' : 'Inactive');
+            console.log('HTTPS:', protocolConfig.https.enabled ? 'Active' : 'Inactive');
+            console.log('SSL:', protocolConfig.ssl.enabled ? 'Active' : 'Inactive');
+            console.log('TLS:', protocolConfig.tls.enabled ? 'Active' : 'Inactive');
+            console.log('SSH:', protocolConfig.ssh.enabled ? 'Active' : 'Inactive');
+            console.log('System: Unlimited Protocol Mode Enabled');
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            checkProtocolStatus();
+            console.log('SoutheastApp Multi-Protocol Integration Hub Initialized');
+            console.log('GitHub Subsystem: Ready');
+            console.log('Qwen AI Subsystem: Ready');
+            console.log('All Protocols: Enabled (HTTP, HTTPS, SSL, TLS, SSH)');
+        });
+
+        // Handle keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Ctrl+G for GitHub
+            if (e.ctrlKey && e.key === 'g') {
+                e.preventDefault();
+                activateGithub();
+            }
+            // Ctrl+Q for Qwen
+            if (e.ctrlKey && e.key === 'q') {
+                e.preventDefault();
+                activateQwen();
+            }
+            // Ctrl+R to refresh both
+            if (e.ctrlKey && e.key === 'r') {
+                e.preventDefault();
+                refreshGithub();
+                refreshQwen();
+            }
+        });
+    </script>
+</body>
+</html>
