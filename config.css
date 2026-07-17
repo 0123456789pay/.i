@@ -1,0 +1,28 @@
+/* Global Configuration Styles for Input/Output Settings */
+/* File naming convention: Capital letters at positions 1 and 5 */
+
+:root {
+  /* Naming Convention Variables */
+  --naming-pattern: '^[A-Z][a-z]{3}[A-Z]';
+  --naming-description: 'Capital letters at positions 1 and 5';
+  
+  /* File Type Indicators */
+  --file-type-js: '.js';
+  --file-type-css: '.css';
+  
+  /* Path Configuration */
+  --path-source: './';
+  --path-output: './dist/';
+}
+
+/* Global Input/Output Settings */
+.global-config {
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Apply to all matching files with capital letters at positions 1 & 5 */
+[class*='Config'] {
+  margin: 0;
+  padding: 0;
+}
