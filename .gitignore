@@ -1,66 +1,47 @@
-```
+```gitignore
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
 # Dependencies
 node_modules/
+venv/
+.venv/
+.env
+.env.local
+.env.*
 
-# Editor/IDE files
+# Build directories
+dist/
+build/
+target/
+.gradle/
+
+# Cache directories
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+.coverage
+
+# Editors and IDEs
 .vscode/
 .idea/
 *.swp
 *.swo
 *.tmp
 
-# System files
-.DS_Store
-Thumbs.db
-
 # Logs
 *.log
 
-# Environment variables
-.env
-.env.local
-*.env.*
-
-# Python specific
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-venv/
-.venv/
-.env
-.env.local
-.env.dev
-.env.prod
-.env.test
-.env.backup
-.coverage
-htmlcov/
-.pytest_cache/
-.mypy_cache/
-.hypothesis/
-
-# Build outputs
-dist/
-build/
-*.egg-info/
-target/
-.gradle/
+# System files
 .DS_Store
-
-# Backup and swap files
-*~
-*.bak
-*.swp
-*.swo
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 ```
