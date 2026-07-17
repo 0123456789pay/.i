@@ -1,0 +1,89 @@
+{
+  "proxy": {
+    "enabled": true,
+    "provider": "allorigins",
+    "endpoints": {
+      "allorigins": "https://api.allorigins.win/get?url=",
+      "corsproxy": "https://corsproxy.io/?",
+      "thingproxy": "https://thingproxy.freeboard.io/fetch/"
+    },
+    "defaultEndpoint": "allorigins",
+    "bypassRules": [
+      "localhost",
+      "127.0.0.1",
+      "*.github.io"
+    ]
+  },
+  "domains": {
+    "google": {
+      "patterns": ["accounts.google.com", "google.com", "gmail.com"],
+      "requireProxy": true,
+      "allowIframe": true,
+      "sandbox": "allow-same-origin allow-scripts allow-forms allow-popups allow-modals"
+    },
+    "facebook": {
+      "patterns": ["facebook.com", "www.facebook.com", "m.facebook.com"],
+      "requireProxy": true,
+      "allowIframe": true
+    },
+    "twitter": {
+      "patterns": ["twitter.com", "x.com", "www.twitter.com"],
+      "requireProxy": true,
+      "allowIframe": true
+    },
+    "github": {
+      "patterns": ["github.com", "www.github.com", "*.github.io"],
+      "requireProxy": false,
+      "allowIframe": true
+    },
+    "coder": {
+      "patterns": ["coder.qwen.ai", "qwen.ai"],
+      "requireProxy": false,
+      "allowIframe": true,
+      "defaultUser": "logreg197@gmail.com"
+    },
+    "youtube": {
+      "patterns": ["youtube.com", "www.youtube.com", "youtu.be"],
+      "requireProxy": false,
+      "allowIframe": true
+    },
+    "stackoverflow": {
+      "patterns": ["stackoverflow.com", "www.stackoverflow.com"],
+      "requireProxy": false,
+      "allowIframe": true
+    }
+  },
+  "iframe": {
+    "defaultSandbox": "allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation",
+    "permissions": [
+      "geolocation",
+      "microphone",
+      "camera",
+      "fullscreen",
+      "payment",
+      "clipboard-write",
+      "autoplay"
+    ],
+    "allowFullscreen": true,
+    "allowPopups": true
+  },
+  "security": {
+    "blockMalicious": true,
+    "allowedProtocols": ["http:", "https:"],
+    "blockedDomains": [],
+    "contentSecurityPolicy": "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:"
+  },
+  "user": {
+    "defaultEmail": "logreg197@gmail.com",
+    "storageKey": "browserUserEmail",
+    "persistSession": true
+  },
+  "features": {
+    "autoDetectBlocking": true,
+    "fallbackToNewTab": true,
+    "showProxyToggle": true,
+    "proxyDefaultOn": true,
+    "historyEnabled": true,
+    "bookmarksEnabled": true
+  }
+}

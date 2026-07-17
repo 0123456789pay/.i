@@ -344,7 +344,76 @@ input,textarea,select{font-family:inherit;outline:none}
 .rounded{border-radius:10px}
 .border{border:1px solid #2a2a3e}
 .shadow{box-shadow:0 5px 20px rgba(0,0,0,0.3)}
+
+/* ============================================
+   IFRAME CONTAINER - For embedding URLs
+   ============================================ */
+.iframe-container {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+.browser-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+.proxy-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 107, 107, 0.9);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    z-index: 100;
+    display: none;
+}
+.proxy-indicator.active {
+    display: block;
+}
+.fallback-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 15, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    display: none;
+}
+.fallback-overlay.active {
+    display: flex;
+}
+.fallback-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 30px;
+}
+.fallback-content h3 {
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+.fallback-content p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+.fallback-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
 </style>
+<script src="/controlproxy/proxymanager.js"></script>
 </head>
 <body>
 <div class="sandbox-container">
@@ -364,6 +433,7 @@ input,textarea,select{font-family:inherit;outline:none}
     <input type="text" id="urlInput" placeholder="Enter URL (e.g., https://coder.qwen.ai)" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 12px;color:#fff;width:300px;font-size:0.9em;" value="https://coder.qwen.ai">
     <button class="control-btn" onclick="loadUrl()" style="padding:8px 16px;">🚀 Go</button>
     <button class="control-btn" onclick="setUserEmail()" style="padding:8px 16px;">👤 User</button>
+    <button class="control-btn" id="proxyToggleBtn" onclick="toggleProxyMode()" style="padding:8px 16px;background:rgba(74,222,128,0.2);border-color:#4ade80;">🔒 Proxy: ON</button>
 </div>
 <button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
 <button class="control-btn" onclick="resetSystem()">🔄 Reset</button>
@@ -402,6 +472,24 @@ input,textarea,select{font-family:inherit;outline:none}
 <button class="btn btn-primary" onclick="runDiagnostics()">Diagnostics</button>
 </div>
 </div>
+
+<!-- Browser View - Iframe Container -->
+<div id="browserView" class="iframe-container" style="display:none;height:calc(100vh - 200px);">
+    <div class="proxy-indicator" id="proxyIndicator">🔒 Proxy Active</div>
+    <iframe id="browserFrame" class="browser-frame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals allow-top-navigation-by-user-activation" allow="geolocation;microphone;camera;fullscreen;payment;clipboard-write;autoplay"></iframe>
+    <div class="fallback-overlay" id="fallbackOverlay">
+        <div class="fallback-content">
+            <h3>⚠️ Content Cannot Be Embedded</h3>
+            <p>This website has security restrictions that prevent it from being displayed in an iframe.</p>
+            <div class="fallback-buttons">
+                <button class="control-btn" onclick="retryWithProxy()">🔄 Try with Proxy Mode</button>
+                <button class="control-btn" onclick="openInNewTab()">📑 Open in New Tab</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Terminal View (default) -->
 <div class="terminal-window" id="terminal">
 <div class="terminal-line"><span class="terminal-prompt">root@app-browser:~#</span> Initializing...</div>
 <div class="terminal-line terminal-info">[INFO] Loading Application: app-browser</div>
@@ -1430,9 +1518,34 @@ addLine('[TIP] Press F1 for help, Ctrl+S to save', 'terminal-info');
 
 let searchDebounceTimer = null;
 let currentUserEmail = 'logreg197@gmail.com'; // Default user email
+let proxyModeEnabled = true; // Proxy mode enabled by default
+let currentUrl = ''; // Store current URL for retry
 
 /**
- * Load URL in browser (opens in new tab for external URLs)
+ * Toggle proxy mode on/off
+ */
+function toggleProxyMode() {
+    proxyModeEnabled = !proxyModeEnabled;
+    const btn = document.getElementById('proxyToggleBtn');
+    const indicator = document.getElementById('proxyIndicator');
+    
+    if (proxyModeEnabled) {
+        btn.innerHTML = '🔒 Proxy: ON';
+        btn.style.background = 'rgba(74,222,128,0.2)';
+        btn.style.borderColor = '#4ade80';
+        if (indicator) indicator.classList.add('active');
+        addLine('[PROXY] Proxy mode enabled', 'terminal-success');
+    } else {
+        btn.innerHTML = '🔓 Proxy: OFF';
+        btn.style.background = 'rgba(255,255,255,0.1)';
+        btn.style.borderColor = 'rgba(255,255,255,0.2)';
+        if (indicator) indicator.classList.remove('active');
+        addLine('[PROXY] Proxy mode disabled', 'terminal-warning');
+    }
+}
+
+/**
+ * Load URL in browser iframe container
  */
 function loadUrl() {
     const urlInput = document.getElementById('urlInput');
@@ -1449,13 +1562,107 @@ function loadUrl() {
         urlInput.value = url;
     }
     
+    currentUrl = url; // Store for retry functionality
+    
     addLine(`[NAVIGATE] Loading: ${url}`, 'terminal-info');
     addLog('Navigating to: ' + url);
     
-    // Open URL in new tab
-    window.open(url, '_blank');
+    // Show browser view, hide terminal
+    const browserView = document.getElementById('browserView');
+    const terminal = document.getElementById('terminal');
+    if (browserView) browserView.style.display = 'block';
+    if (terminal) terminal.style.display = 'none';
     
-    showNotification('Navigation', 'Opening ' + url + ' in new tab', 'info');
+    // Get iframe and configure it
+    const iframe = document.getElementById('browserFrame');
+    if (!iframe) {
+        console.error('Browser iframe not found');
+        return;
+    }
+    
+    // Check if proxy is needed
+    let finalUrl = url;
+    const needsProxy = proxyModeEnabled && !ProxyConfig.shouldBypassProxy(url);
+    
+    if (needsProxy) {
+        finalUrl = ProxyConfig.getProxyUrl(url);
+        addLine(`[PROXY] Using proxy: ${finalUrl}`, 'terminal-info');
+        const indicator = document.getElementById('proxyIndicator');
+        if (indicator) indicator.classList.add('active');
+    } else {
+        const indicator = document.getElementById('proxyIndicator');
+        if (indicator) indicator.classList.remove('active');
+    }
+    
+    // Set sandbox attributes based on domain
+    const sandboxAttrs = ProxyConfig.getSandboxAttributes(url);
+    iframe.setAttribute('sandbox', sandboxAttrs);
+    
+    // Load URL in iframe
+    iframe.src = finalUrl;
+    
+    // Handle iframe load events
+    iframe.onload = function() {
+        addLine(`[IFRAME] Loaded: ${url}`, 'terminal-success');
+        showNotification('Browser', 'Loaded ' + url + ' in container', 'success');
+    };
+    
+    iframe.onerror = function() {
+        addLine(`[IFRAME] Error loading: ${url}`, 'terminal-error');
+        showFallbackOverlay();
+    };
+    
+    // Show fallback overlay after timeout if nothing loads
+    setTimeout(() => {
+        if (iframe.src === '' || iframe.contentWindow?.location.href === 'about:blank') {
+            showFallbackOverlay();
+        }
+    }, 5000);
+    
+    showNotification('Browser', 'Loading ' + url + ' in container...', 'info');
+}
+
+/**
+ * Show fallback overlay when iframe cannot load content
+ */
+function showFallbackOverlay() {
+    const overlay = document.getElementById('fallbackOverlay');
+    if (overlay) {
+        overlay.classList.add('active');
+        addLine('[IFRAME] Content blocked, showing fallback', 'terminal-warning');
+    }
+}
+
+/**
+ * Hide fallback overlay
+ */
+function hideFallbackOverlay() {
+    const overlay = document.getElementById('fallbackOverlay');
+    if (overlay) {
+        overlay.classList.remove('active');
+    }
+}
+
+/**
+ * Retry loading with proxy mode enabled
+ */
+function retryWithProxy() {
+    hideFallbackOverlay();
+    if (!proxyModeEnabled) {
+        toggleProxyMode();
+    }
+    loadUrl();
+}
+
+/**
+ * Open current URL in new tab as fallback
+ */
+function openInNewTab() {
+    hideFallbackOverlay();
+    if (currentUrl) {
+        window.open(currentUrl, '_blank');
+        addLine(`[FALLBACK] Opened in new tab: ${currentUrl}`, 'terminal-info');
+    }
 }
 
 /**
