@@ -12,20 +12,20 @@ __pycache__/
 *.out
 
 # Dependencies
-node_modules/
-venv/
 .venv/
-.env
-.env.local
-.env.*
+venv/
+node_modules/
+.mypy_cache/
+.pytest_cache/
+.coverage
+coverage/
+htmlcov/
 
 # Build directories
 dist/
 build/
 target/
-.coverage
-coverage/
-htmlcov/
+.gradle/
 
 # Logs and temp files
 *.log
@@ -33,7 +33,12 @@ htmlcov/
 *.swp
 *.swo
 
-# Editors
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Editors and IDEs
 .vscode/
 .idea/
 *.swp
@@ -43,8 +48,6 @@ htmlcov/
 .DS_Store
 Thumbs.db
 
-# Caches
-.mypy_cache/
-.pytest_cache/
-.gradle/
+# Analytics and cache
+aichatreber/*.html
 ```
