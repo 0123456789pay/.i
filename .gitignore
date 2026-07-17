@@ -1,1 +1,32 @@
-Nothing should be ignored based on the provided file changes. The only added file is `newsdigital/digital.html`, which appears to be a source HTML file and should not be ignored.
+```
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Digital files (based on the pattern in your project)
+*.digital
+
+# Dependencies
+.venv/
+venv/
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+target/
+```
