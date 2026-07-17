@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Area - News Digital</title>
+    <link rel="stylesheet" href="/newsdigital/assets/css/style.css">
+    <style>
+        .public-area {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .public-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .public-nav-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .public-nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .public-nav-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .public-nav-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .public-nav-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>📰 News<span>Digital</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/newsdigital/digital.html">Beranda</a></li>
+                    <li><a href="/newsdigital/digital.html#categories">Kategori</a></li>
+                    <li><a href="/newsdigital/digital.html#filemanager">File Manager</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h2>Public Area</h2>
+                <p>Akses Publik ke Konten News Digital</p>
+            </section>
+
+            <div class="public-area">
+                <h2 style="color: #2c3e50; margin-bottom: 20px;">🌐 Menu Publik</h2>
+                <p>Berikut adalah berbagai akses publik yang tersedia untuk membaca dan menjelajahi konten berita:</p>
+                
+                <div class="public-nav">
+                    <a href="/newsdigital/digital.html" class="public-nav-item">
+                        <div class="public-nav-icon">🏠</div>
+                        <div class="public-nav-title">Halaman Utama</div>
+                        <div class="public-nav-desc">Kembali ke halaman utama news digital</div>
+                    </a>
+                    
+                    <a href="/newsdigital/public/articles.php" class="public-nav-item">
+                        <div class="public-nav-icon">📰</div>
+                        <div class="public-nav-title">Semua Artikel</div>
+                        <div class="public-nav-desc">Lihat semua artikel yang tersedia</div>
+                    </a>
+                    
+                    <a href="/newsdigital/public/categories.php" class="public-nav-item">
+                        <div class="public-nav-icon">📑</div>
+                        <div class="public-nav-title">Daftar Kategori</div>
+                        <div class="public-nav-desc">Jelajahi ratusan kategori berita</div>
+                    </a>
+                    
+                    <a href="/newsdigital/public/archive.php" class="public-nav-item">
+                        <div class="public-nav-icon">🗄️</div>
+                        <div class="public-nav-title">Arsip Berita</div>
+                        <div class="public-nav-desc">Akses arsip berita yang tersimpan permanen</div>
+                    </a>
+                    
+                    <a href="/newsdigital/public/search.php" class="public-nav-item">
+                        <div class="public-nav-icon">🔍</div>
+                        <div class="public-nav-title">Pencarian</div>
+                        <div class="public-nav-desc">Cari berita berdasarkan kata kunci</div>
+                    </a>
+                    
+                    <a href="/newsdigital/public/latest.php" class="public-nav-item">
+                        <div class="public-nav-icon">⚡</div>
+                        <div class="public-nav-title">Terbaru</div>
+                        <div class="public-nav-desc">Berita yang baru saja diterbitkan</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- File System Info -->
+            <div class="file-manager" style="margin-top: 30px;">
+                <h2>📂 Struktur Penyimpanan</h2>
+                <p>Sistem ini menggunakan struktur folder berikut untuk menyimpan data secara permanen:</p>
+                <div class="folder-grid" style="margin-top: 20px;">
+                    <div class="folder-item">
+                        <div class="folder-icon">📁</div>
+                        <div class="folder-name">/data</div>
+                        <div class="folder-desc">Database JSON untuk berita, kategori, dan pengaturan</div>
+                    </div>
+                    <div class="folder-item">
+                        <div class="folder-icon">🌐</div>
+                        <div class="folder-name">/public</div>
+                        <div class="folder-desc">File-file yang dapat diakses publik</div>
+                    </div>
+                    <div class="folder-item">
+                        <div class="folder-icon">⚙️</div>
+                        <div class="folder-name">/system</div>
+                        <div class="folder-desc">File sistem dan konfigurasi</div>
+                    </div>
+                    <div class="folder-item">
+                        <div class="folder-icon">🎨</div>
+                        <div class="folder-name">/assets</div>
+                        <div class="folder-desc">CSS, JavaScript, dan aset lainnya</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Tentang News Digital</h4>
+                    <p>Sistem berita otomatis dengan penyimpanan permanen.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Tautan</h4>
+                    <ul>
+                        <li><a href="/newsdigital/digital.html">Beranda</a></li>
+                        <li><a href="/newsdigital/public/">Public Area</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li>Auto-News: Setiap 5 Menit</li>
+                        <li>Penyimpanan: Permanen</li>
+                        <li>Kategori: Ratusan</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>&copy; <?php echo date('Y'); ?> News Digital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/newsdigital/assets/js/main.js"></script>
+</body>
+</html>

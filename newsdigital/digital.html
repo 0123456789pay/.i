@@ -1,0 +1,211 @@
+<?php
+require_once __DIR__ . '/system/db.php';
+
+$categories = getCategories();
+$news = getNews(12); // Get latest 12 news items
+$totalNews = count(getAllNews());
+$totalCategories = count($categories);
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="News Digital - Portal Berita Otomatis Terkini">
+    <meta name="keywords" content="news, berita, digital, otomatis, terkini">
+    <title>News Digital - Portal Berita Otomatis</title>
+    <link rel="stylesheet" href="/newsdigital/assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>📰 News<span>Digital</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/newsdigital/digital.html">Beranda</a></li>
+                    <li><a href="#categories">Kategori</a></li>
+                    <li><a href="#filemanager">File Manager</a></li>
+                    <li><a href="/newsdigital/public/">Public</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <div class="stat-number"><?php echo $totalNews; ?></div>
+                    <div class="stat-label">Total Berita</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number"><?php echo $totalCategories; ?></div>
+                    <div class="stat-label">Kategori</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="next-news-countdown">5:00</div>
+                    <div class="stat-label">Berita Berikutnya</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Penyimpanan</div>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <h2>Selamat Datang di News Digital</h2>
+                <p>Sistem Berita Otomatis dengan Ratusan Kategori</p>
+                <div class="auto-news-indicator">
+                    <span>⚡</span>
+                    <span>Auto-News: Berita Baru Setiap 5 Menit</span>
+                </div>
+            </section>
+
+            <!-- Category Sidebar -->
+            <section id="categories" class="category-sidebar">
+                <h3>📂 Semua Kategori (<?php echo $totalCategories; ?>)</h3>
+                <div class="category-grid">
+                    <?php foreach(array_slice($categories, 0, 100) as $cat): ?>
+                    <a href="?category=<?php echo $cat['slug']; ?>" class="category-item">
+                        <span class="category-icon"><?php echo $cat['icon']; ?></span>
+                        <span class="category-name"><?php echo htmlspecialchars($cat['name']); ?></span>
+                    </a>
+                    <?php endforeach; ?>
+                </div>
+            </section>
+
+            <!-- File Manager Section -->
+            <section id="filemanager" class="file-manager">
+                <h2>🗂️ Sistem Penyimpanan File & Folder</h2>
+                <div class="folder-grid">
+                    <div class="folder-item" data-folder="data">
+                        <div class="folder-icon">📁</div>
+                        <div class="folder-name">Data</div>
+                        <div class="folder-desc">Penyimpanan Database</div>
+                    </div>
+                    <div class="folder-item" data-folder="public">
+                        <div class="folder-icon">🌐</div>
+                        <div class="folder-name">Public</div>
+                        <div class="folder-desc">File Publik</div>
+                    </div>
+                    <div class="folder-item" data-folder="system">
+                        <div class="folder-icon">⚙️</div>
+                        <div class="folder-name">System</div>
+                        <div class="folder-desc">File Sistem</div>
+                    </div>
+                    <div class="folder-item" data-folder="assets">
+                        <div class="folder-icon">🎨</div>
+                        <div class="folder-name">Assets</div>
+                        <div class="folder-desc">Aset Website</div>
+                    </div>
+                    <div class="folder-item" data-folder="categories">
+                        <div class="folder-icon">📑</div>
+                        <div class="folder-name">Categories</div>
+                        <div class="folder-desc">Daftar Kategori</div>
+                    </div>
+                    <div class="folder-item" data-folder="news">
+                        <div class="folder-icon">📰</div>
+                        <div class="folder-name">News Archive</div>
+                        <div class="folder-desc">Arsip Berita</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Grid -->
+            <section id="news">
+                <h2 style="margin: 30px 0 20px; color: #2c3e50;">📰 Berita Terbaru</h2>
+                
+                <?php if (empty($news)): ?>
+                <div style="text-align: center; padding: 50px; background: white; border-radius: 8px;">
+                    <h3>Belum ada berita</h3>
+                    <p>Berita pertama akan dibuat secara otomatis dalam 5 menit.</p>
+                </div>
+                <?php else: ?>
+                <div class="news-grid">
+                    <?php foreach($news as $article): 
+                        $category = getCategoryBySlug($article['category']);
+                    ?>
+                    <article class="news-card" data-category="<?php echo htmlspecialchars($article['category']); ?>">
+                        <div class="news-card-image">
+                            <img src="<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>">
+                            <?php if ($article['video']): ?>
+                            <div class="news-card-video">🎥 VIDEO</div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="news-card-content">
+                            <span class="news-card-category">
+                                <?php echo $category ? $category['icon'] . ' ' . $category['name'] : $article['category']; ?>
+                            </span>
+                            <h3 class="news-card-title"><?php echo htmlspecialchars($article['title']); ?></h3>
+                            <p class="news-card-excerpt"><?php echo strip_tags(substr($article['content'], 0, 200)); ?>...</p>
+                            <div class="news-card-meta">
+                                <span>📅 <?php echo date('d M Y, H:i', strtotime($article['created_at'])); ?></span>
+                                <span>👤 <?php echo htmlspecialchars($article['author']); ?></span>
+                            </div>
+                            <a href="/newsdigital/public/article.php?id=<?php echo $article['id']; ?>" class="read-more">Baca Selengkapnya →</a>
+                        </div>
+                    </article>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
+            </section>
+
+            <!-- Pagination -->
+            <?php if ($totalNews > 12): ?>
+            <div style="text-align: center; margin-top: 40px;">
+                <nav class="pagination">
+                    <a href="#" class="read-more">Muat Lebih Banyak</a>
+                </nav>
+            </div>
+            <?php endif; ?>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Tentang News Digital</h4>
+                    <p>Sistem berita otomatis yang menghasilkan konten berkualitas setiap 5 menit sekali untuk ratusan kategori berbeda.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="/newsdigital/digital.html">Beranda</a></li>
+                        <li><a href="#categories">Kategori</a></li>
+                        <li><a href="#filemanager">File Manager</a></li>
+                        <li><a href="/newsdigital/public/">Public Area</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Informasi</h4>
+                    <ul>
+                        <li>Total Berita: <?php echo $totalNews; ?></li>
+                        <li>Total Kategori: <?php echo $totalCategories; ?></li>
+                        <li>Update: Setiap 5 Menit</li>
+                        <li>Penyimpanan: Permanen</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Struktur Folder</h4>
+                    <ul>
+                        <li>📁 /data - Database</li>
+                        <li>🌐 /public - File Publik</li>
+                        <li>⚙️ /system - Sistem</li>
+                        <li>📰 /news - Arsip Berita</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p>&copy; <?php echo date('Y'); ?> News Digital. All rights reserved. | Auto-Generated News System</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/newsdigital/assets/js/main.js"></script>
+</body>
+</html>
