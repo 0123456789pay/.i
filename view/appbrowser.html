@@ -360,6 +360,11 @@ input,textarea,select{font-family:inherit;outline:none}
     <input type="text" class="search-input" id="browserSearchInput" placeholder="Search..." onkeyup="handleBrowserSearch(event)">
     <div class="search-suggestions" id="searchSuggestions"></div>
 </div>
+<div class="url-bar-container" style="display:flex;gap:10px;align-items:center;margin-right:10px;">
+    <input type="text" id="urlInput" placeholder="Enter URL (e.g., https://coder.qwen.ai)" style="background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:8px 12px;color:#fff;width:300px;font-size:0.9em;" value="https://coder.qwen.ai">
+    <button class="control-btn" onclick="loadUrl()" style="padding:8px 16px;">🚀 Go</button>
+    <button class="control-btn" onclick="setUserEmail()" style="padding:8px 16px;">👤 User</button>
+</div>
 <button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
 <button class="control-btn" onclick="resetSystem()">🔄 Reset</button>
 <button class="control-btn" onclick="openSettings()">⚙️ Settings</button>
@@ -1373,6 +1378,12 @@ document.addEventListener('keydown', (e) => {
  * Initialize the application
  */
 function init(){
+    // Load saved user email from localStorage if available
+    const savedEmail = localStorage.getItem('browserUserEmail');
+    if (savedEmail) {
+        currentUserEmail = savedEmail;
+    }
+    
     addLine('', '');
     addLine('╔════════════════════════════════════════╗', 'terminal-info');
     addLine('║   WebView Browser OS - Initialization  ║', 'terminal-info');
@@ -1385,6 +1396,7 @@ function init(){
     addLine('[INIT] Cache manager: Ready', 'terminal-success');
     addLine('[INIT] Network service: Connected', 'terminal-success');
     addLine('', '');
+    addLine(`[USER] Logged in as: ${currentUserEmail}`, 'terminal-success');
     addLine('Commands available: Type "help" for list', 'terminal-info');
     addLine('', '');
     
@@ -1394,6 +1406,9 @@ function init(){
     // Welcome notification
     setTimeout(() => {
         showNotification('Welcome', 'WebView Browser OS is ready', 'success');
+        setTimeout(() => {
+            showNotification('User', 'Logged in as: ' + currentUserEmail, 'info');
+        }, 500);
     }, 1000);
     
     addLog('Application initialized');
@@ -1414,6 +1429,51 @@ addLine('[TIP] Press F1 for help, Ctrl+S to save', 'terminal-info');
 // ============================================
 
 let searchDebounceTimer = null;
+let currentUserEmail = 'logreg197@gmail.com'; // Default user email
+
+/**
+ * Load URL in browser (opens in new tab for external URLs)
+ */
+function loadUrl() {
+    const urlInput = document.getElementById('urlInput');
+    let url = urlInput.value.trim();
+    
+    if (!url) {
+        showNotification('Error', 'Please enter a URL', 'error');
+        return;
+    }
+    
+    // Add https:// if not present
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+        urlInput.value = url;
+    }
+    
+    addLine(`[NAVIGATE] Loading: ${url}`, 'terminal-info');
+    addLog('Navigating to: ' + url);
+    
+    // Open URL in new tab
+    window.open(url, '_blank');
+    
+    showNotification('Navigation', 'Opening ' + url + ' in new tab', 'info');
+}
+
+/**
+ * Set user email for the browser session
+ */
+function setUserEmail() {
+    const email = prompt('Enter user email:', currentUserEmail);
+    
+    if (email && email.trim()) {
+        currentUserEmail = email.trim();
+        addLine(`[USER] Email set to: ${currentUserEmail}`, 'terminal-success');
+        addLog('User email updated: ' + currentUserEmail);
+        showNotification('User Profile', 'Logged in as: ' + currentUserEmail, 'success');
+        
+        // Store in localStorage for persistence
+        localStorage.setItem('browserUserEmail', currentUserEmail);
+    }
+}
 
 /**
  * Handle browser search input
