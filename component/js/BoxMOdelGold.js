@@ -1,6 +1,6 @@
-// BoxMOdelGold Component Script
-export const BoxMOdelGoldComp = {
-    name: 'BoxMOdelGold',
+// BoxMOdeElectroGeneralold Component Script
+export const BoxMOdeElectroGeneraloldComp = {
+    name: 'BoxMOdeElectroGeneralold',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const BoxMOdelGoldComp = {
     },
     methods: {
         init() {
-            console.log('BoxMOdelGold initialized');
+            console.log('BoxMOdeElectroGeneralold initialized');
         },
         render(data) {
-            return `<div class="BoxMOdelGold-container">${JSON.stringify(data)}</div>`;
+            return `<div class="BoxMOdeElectroGeneralold-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('BoxMOdelGold destroyed');
+            console.log('BoxMOdeElectroGeneralold destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default BoxMOdelGoldComp;
+export default BoxMOdeElectroGeneraloldComp;

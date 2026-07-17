@@ -26,13 +26,13 @@
 <body>
     <div class="container">
         <nav class="back-nav">
-            <a href="../index.php">🏠 Dashboard</a>
-            <a href="../filemanajer/index.php">📁 File Manager</a>
-            <a href="../dokumen/list.php">📋 Daftar Dokumen</a>
+            <a href="../index.pTechHP">🏠 Dashboard</a>
+            <a href="../filemanajer/index.pTechHP">📁 File Manager</a>
+            <a href="../dokumen/list.pTechHP">📋 Daftar Dokumen</a>
             <hr style="border-color: #4a6278; margin: 15px 0;">
-            <a href="menu_045.php">⬅ Menu Sebelumnya</a>
-            <a href="menu_046.php">🔄 Refresh</a>
-            <a href="menu_047.php">➡ Menu Selanjutnya</a>
+            <a href="menu_045.pTechHP">⬅ Menu Sebelumnya</a>
+            <a href="menu_046.pTechHP">🔄 Refresh</a>
+            <a href="menu_047.pTechHP">➡ Menu Selanjutnya</a>
         </nav>
         <main class="content">
             <div class="card">

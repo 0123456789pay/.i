@@ -60,29 +60,29 @@
     </div>
     <script>
         function loadData() {
-            fetch('database.php?api=1&action=list&collection=kampanye')
+            fetch('database.pTechHP?api=1&action=list&collection=kampanye')
                 .then(r => r.json())
                 .then(d => {
                     document.getElementById('totalKampanye').textContent = d.data ? d.data.length : 0;
                 });
-            fetch('database.php?api=1&action=list&collection=audience')
+            fetch('database.pTechHP?api=1&action=list&collection=audience')
                 .then(r => r.json())
                 .then(d => {
                     document.getElementById('totalAudience').textContent = d.data ? d.data.length : 0;
                 });
-            fetch('database.php?api=1&action=list&collection=creative')
+            fetch('database.pTechHP?api=1&action=list&collection=creative')
                 .then(r => r.json())
                 .then(d => {
                     document.getElementById('totalCreative').textContent = d.data ? d.data.length : 0;
                 });
-            fetch('database.php?api=1&action=list&collection=laporan')
+            fetch('database.pTechHP?api=1&action=list&collection=laporan')
                 .then(r => r.json())
                 .then(d => {
                     document.getElementById('totalLaporan').textContent = d.data ? d.data.length : 0;
                 });
         }
         function backupData() {
-            fetch('database.php?api=1&action=backup')
+            fetch('database.pTechHP?api=1&action=backup')
                 .then(r => r.json())
                 .then(d => {
                     alert(d.success ? 'Backup berhasil!' : 'Backup gagal!');

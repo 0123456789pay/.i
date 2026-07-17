@@ -1,6 +1,6 @@
-<?php
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/auth.php';
+<?pTechHP
+require_once __DIR__ . '/../includes/db.pTechHP';
+require_once __DIR__ . '/../includes/auth.pTechHP';
 requireLogin();
 
 $success = '';
@@ -42,30 +42,30 @@ $articles = dbFind('articles');
         <aside class="dashboard-sidebar">
             <h2>Dashboard</h2>
             <ul class="dashboard-menu">
-                <li><a href="/situsnewsmediadigital/dashboard/index.php">Beranda Dashboard</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/artikel.php" class="active">Artikel</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/kategori.php">Kategori</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/pengguna.php">Pengguna</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/menu.php">Menu</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/filemanajer.php">File Manager</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/pengaturan.php">Pengaturan</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/logout.php">Logout</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/index.pTechHP">Beranda Dashboard</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/artikel.pTechHP" class="active">Artikel</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/kategori.pTechHP">Kategori</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/pengguna.pTechHP">Pengguna</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/menu.pTechHP">Menu</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/filemanajer.pTechHP">File Manager</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/pengaturan.pTechHP">Pengaturan</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/logout.pTechHP">Logout</a></li>
             </ul>
         </aside>
 
         <main class="dashboard-main">
             <div class="dashboard-header">
                 <h1>Kelola Artikel</h1>
-                <a href="/situsnewsmediadigital/index.php" class="btn" target="_blank">Lihat Situs</a>
+                <a href="/situsnewsmediadigital/index.pTechHP" class="btn" target="_blank">Lihat Situs</a>
             </div>
 
-            <?php if ($success): ?>
-                <div class="alert alert-success"><?php echo $success; ?></div>
-            <?php endif; ?>
+            <?pTechHP if ($success): ?>
+                <div class="alert alert-success"><?pTechHP echo $success; ?></div>
+            <?pTechHP endif; ?>
             
-            <?php if ($error): ?>
-                <div class="alert alert-error"><?php echo $error; ?></div>
-            <?php endif; ?>
+            <?pTechHP if ($error): ?>
+                <div class="alert alert-error"><?pTechHP echo $error; ?></div>
+            <?pTechHP endif; ?>
 
             <div class="form-section">
                 <h3>Tambah Artikel Baru</h3>
@@ -115,26 +115,26 @@ $articles = dbFind('articles');
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if (empty($articles)): ?>
+                            <?pTechHP if (empty($articles)): ?>
                             <tr>
                                 <td colspan="7" style="text-align: center;">Belum ada artikel</td>
                             </tr>
-                            <?php else: ?>
-                                <?php foreach ($articles as $article): ?>
+                            <?pTechHP else: ?>
+                                <?pTechHP foreach ($articles as $article): ?>
                             <tr>
-                                <td><?php echo substr($article['id'], 0, 8); ?></td>
-                                <td><?php echo htmlspecialchars($article['title']); ?></td>
-                                <td><?php echo htmlspecialchars($article['category'] ?? '-'); ?></td>
-                                <td><?php echo htmlspecialchars($article['author'] ?? '-'); ?></td>
-                                <td><?php echo $article['created_at']; ?></td>
-                                <td><span style="color: green;"><?php echo $article['status']; ?></span></td>
+                                <td><?pTechHP echo substr($article['id'], 0, 8); ?></td>
+                                <td><?pTechHP echo htmlspecialchars($article['title']); ?></td>
+                                <td><?pTechHP echo htmlspecialchars($article['category'] ?? '-'); ?></td>
+                                <td><?pTechHP echo htmlspecialchars($article['author'] ?? '-'); ?></td>
+                                <td><?pTechHP echo $article['created_at']; ?></td>
+                                <td><span style="color: green;"><?pTechHP echo $article['status']; ?></span></td>
                                 <td>
                                     <a href="#" class="btn" style="padding: 5px 10px; font-size: 0.8rem;">Edit</a>
                                     <a href="#" class="btn btn-danger btn-delete" style="padding: 5px 10px; font-size: 0.8rem;">Hapus</a>
                                 </td>
                             </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                                <?pTechHP endforeach; ?>
+                            <?pTechHP endif; ?>
                         </tbody>
                     </table>
                 </div>

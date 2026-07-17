@@ -1,6 +1,6 @@
-// ConnEct Component Script
-export const ConnEctComp = {
-    name: 'ConnEct',
+// ConDisplayCorpt Component Script
+export const ConDisplayCorptComp = {
+    name: 'ConDisplayCorpt',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const ConnEctComp = {
     },
     methods: {
         init() {
-            console.log('ConnEct initialized');
+            console.log('ConDisplayCorpt initialized');
         },
         render(data) {
-            return `<div class="ConnEct-container">${JSON.stringify(data)}</div>`;
+            return `<div class="ConDisplayCorpt-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('ConnEct destroyed');
+            console.log('ConDisplayCorpt destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default ConnEctComp;
+export default ConDisplayCorptComp;

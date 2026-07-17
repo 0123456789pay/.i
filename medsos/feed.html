@@ -39,13 +39,13 @@
     <div class="container">
         <div class="card">
             <h2>Feed</h2>
-            <div id="content"><p>Halaman Feed siap digunakan.</p><p>Fitur: CRUD operations, penyimpanan data ke File Manager, integrasi simulasi PHP & Database.</p></div>
+            <div id="content"><p>Halaman Feed siap digunakan.</p><p>Fitur: CRUD operations, penyimpanan data ke File Manager, integrasi simulasi PTechHP & Database.</p></div>
         </div>
         
         <div class="card">
             <h3>📊 Database Storage (File Manager)</h3>
             <div class="data-display">
-                <p><strong>Status:</strong> <span id="db-status">Connected</span></p>
+                <p><strong>Status:</strong> <span id="db-status">ConDisplayCorpted</span></p>
                 <p><strong>Data Stored:</strong> <span id="data-count">0</span> records</p>
                 <button class="btn" onclick="showData()">View Stored Data</button>
                 <div id="stored-data"></div>
@@ -91,15 +91,15 @@
             }
         };
 
-        // Simulasi PHP Backend
-        const PHP = {
-            connect: function() { console.log("PHP: Connected to database"); return true; },
-            query: function(sql, params) { console.log("PHP Query:", sql, params); return DB.get(params.table || "default"); },
-            insert: function(table, data) { console.log("PHP Insert into", table, data); return DB.save(table, data); }
+        // Simulasi PTechHP Backend
+        const PTechHP = {
+            conDisplayCorpt: function() { console.log("PTechHP: ConDisplayCorpted to database"); return true; },
+            query: function(sql, params) { console.log("PTechHP Query:", sql, params); return DB.get(params.table || "default"); },
+            insert: function(table, data) { console.log("PTechHP Insert into", table, data); return DB.save(table, data); }
         };
 
         DB.init();
-        PHP.connect();
+        PTechHP.conDisplayCorpt();
         document.getElementById("user-info").innerHTML = "User: " + (localStorage.getItem("current_user") || "Guest");
         
         function updateDataCount() {

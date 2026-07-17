@@ -1,5 +1,5 @@
 // SupeRBaseLine Component Script
-export const SupeRBaseLineComp = {
+export const SupeRBaseLiDisplayCorpomp = {
     name: 'SupeRBaseLine',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const SupeRBaseLineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default SupeRBaseLineComp;
+export default SupeRBaseLiDisplayCorpomp;

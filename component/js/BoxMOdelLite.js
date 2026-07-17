@@ -1,6 +1,6 @@
-// BoxMOdelLite Component Script
-export const BoxMOdelLiteComp = {
-    name: 'BoxMOdelLite',
+// BoxMOCompDellite Component Script
+export const BoxMOCompDelliteComp = {
+    name: 'BoxMOCompDellite',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const BoxMOdelLiteComp = {
     },
     methods: {
         init() {
-            console.log('BoxMOdelLite initialized');
+            console.log('BoxMOCompDellite initialized');
         },
         render(data) {
-            return `<div class="BoxMOdelLite-container">${JSON.stringify(data)}</div>`;
+            return `<div class="BoxMOCompDellite-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('BoxMOdelLite destroyed');
+            console.log('BoxMOCompDellite destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default BoxMOdelLiteComp;
+export default BoxMOCompDelliteComp;

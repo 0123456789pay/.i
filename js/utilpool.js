@@ -1,5 +1,5 @@
 /**
- * Pool - Connection pool
+ * Pool - ConDisplayCorption pool
  * Komponen untuk SoutheastApp Desktop Launcher
  * 
  * @module util-pool

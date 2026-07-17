@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 // Script to generate 100 HTML menu files for AI Chat Reber
 
 $menuItems = [

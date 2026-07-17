@@ -1,5 +1,5 @@
 // UndeRline Component Script
-export const UndeRlineComp = {
+export const UndeRliDisplayCorpomp = {
     name: 'UndeRline',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const UndeRlineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default UndeRlineComp;
+export default UndeRliDisplayCorpomp;

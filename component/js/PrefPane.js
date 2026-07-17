@@ -1,5 +1,5 @@
 // PrefPane Component Script
-export const PrefPaneComp = {
+export const PrefPaDisplayCorpomp = {
     name: 'PrefPane',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const PrefPaneComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default PrefPaneComp;
+export default PrefPaDisplayCorpomp;

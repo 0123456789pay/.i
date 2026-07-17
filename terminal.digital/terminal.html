@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebOS Terminal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Courier New', monospace; background: #0c0c0c; color: #00ff00; height: 100vh; overflow: hidden; }
+        .terminal { padding: 20px; height: 100%; overflow-y: auto; }
+        .output { white-space: pre-wrap; margin-bottom: 10px; }
+        .input-line { display: flex; align-items: center; }
+        .prompt { color: #00ff00; margin-right: 10px; }
+        #cmd-input { background: transparent; border: none; color: #00ff00; font-family: inherit; font-size: inherit; flex: 1; outline: none; }
+        .command { color: #fff; }
+        .error { color: #ff4444; }
+        .success { color: #00ff00; }
+        .info { color: #44aaff; }
+        .warning { color: #ffaa00; }
+    </style>
+</head>
+<body>
+    <div class="terminal" id="terminal" onclick="document.getElementById('cmd-input').focus()">
+        <div class="output">WebOS Terminal v1.0<br>Type 'help' for available commands<br/><br/></div>
+        <div class="input-line">
+            <span class="prompt">user@webos:~$</span>
+            <input type="text" id="cmd-input" autocomplete="off" autofocus>
+        </div>
+    </div>
+
+    <script>
+        const terminal = document.getElementById('terminal');
+        const input = document.getElementById('cmd-input');
+        const history = [];
+        let historyIndex = -1;
+
+        const commands = {
+            help: () => `Available commands:
+  help          - Show this help message
+  clear         - Clear terminal
+  status        - Show system status
+  build         - Build project
+  publish       - Publish release
+  merge         - Merge branches
+  deploy        - Deploy to server
+  ls            - List files
+  whoami        - Current user
+  date          - Current date
+  echo [text]   - Print text`,
+            
+            clear: () => { terminal.querySelector('.output').innerHTML = ''; return ''; },
+            
+            status: () => {
+                return `<span class="success">✓ System Status: OPERATIONAL</span>
+JavaScript Modules: 151
+CSS Stylesheets:  151
+Database Modules: 151
+Server Routes:    151
+PTechHP Handlers:     151
+HTML Views:       151
+Total Components: 907`;
+            },
+            
+            build: () => '<span class="info">Building project...</span>\n[SUCCESS] Build completed successfully',
+            
+            publish: () => '<span class="info">Creating release package...</span>\n[SUCCESS] Release package created: webos_release_' + new Date().toISOString().slice(0,10) + '.tar.gz',
+            
+            merge: () => '<span class="info">Merging branches...</span>\n[SUCCESS] All branches merged successfully',
+            
+            deploy: () => '<span class="info">Deploying to server...</span>\n[SUCCESS] Deployment completed',
+            
+            ls: () => 'css/  db/  dist/  js/  pTechHP/  srv/  views/\nindex.html  terminal.html  README.md',
+            
+            whoami: () => 'user@webos',
+            
+            date: () => new Date().toString(),
+            
+            echo: (args) => args.join(' ')
+        };
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const cmd = input.value.trim();
+                if (cmd) {
+                    history.push(cmd);
+                    historyIndex = history.length;
+                    
+                    const [command, ...args] = cmd.split(' ');
+                    const outputDiv = terminal.querySelector('.output');
+                    outputDiv.innerHTML += `<div><span class="prompt">user@webos:~$</span><span class="command">${cmd}</span></div>`;
+                    
+                    if (commands[command]) {
+                        const result = commands[command](args);
+                        if (result) outputDiv.innerHTML += `<div>${result}</div>`;
+                    } else if (cmd) {
+                        outputDiv.innerHTML += `<div class="error">Command not found: ${command}. Type 'help' for available commands.</div>`;
+                    }
+                    
+                    outputDiv.innerHTML += '<br/>';
+                    terminal.scrollTop = terminal.scrollHeight;
+                }
+                input.value = '';
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    input.value = history[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex < history.length - 1) {
+                    historyIndex++;
+                    input.value = history[historyIndex];
+                } else {
+                    historyIndex = history.length;
+                    input.value = '';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

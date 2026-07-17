@@ -28,7 +28,7 @@ body { font-family: Arial, sans-serif; background: #1a1a2e; color: #fff; }
 input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; background: #1a1a2e; border: 1px solid #0f3460; color: #fff; border-radius: 5px; }
 .file-manager { background: #16213e; padding: 20px; margin-top: 20px; border-radius: 10px; }
 .file-item { padding: 10px; background: #0f3460; margin: 5px 0; border-radius: 5px; display: flex; justify-content: space-between; }
-.php-section { background: #2d1f3d; padding: 20px; margin-top: 20px; border-radius: 10px; }
+.pTechHP-section { background: #2d1f3d; padding: 20px; margin-top: 20px; border-radius: 10px; }
 </style>
 </head>
 <body>
@@ -64,11 +64,11 @@ input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; background
             <button class="btn" onclick="createFile()">New File</button>
         </div>
         
-        <div class="php-section">
-            <h2>PHP Backend Info</h2>
+        <div class="pTechHP-section">
+            <h2>PTechHP Backend Info</h2>
             <p>Server Time: <span id="serverTime"></span></p>
-            <p>PHP Version: <span id="phpVersion">8.x (simulated)</span></p>
-            <p>Database: <span id="dbStatus2">Connected (localStorage)</span></p>
+            <p>PTechHP Version: <span id="pTechHPVersion">8.x (simulated)</span></p>
+            <p>Database: <span id="dbStatus2">ConDisplayCorpted (localStorage)</span></p>
             <button class="btn" onclick="checkServer()">Check Server</button>
         </div>
     </div>
@@ -144,7 +144,7 @@ input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; background
             fileList.innerHTML = '<div class="file-item"><span>database.json</span><span>2KB</span></div>';
             fileList.innerHTML += '<div class="file-item"><span>videos.json</span><span>15KB</span></div>';
             fileList.innerHTML += '<div class="file-item"><span>users.json</span><span>8KB</span></div>';
-            fileList.innerHTML += '<div class="file-item"><span>config.php</span><span>1KB</span></div>';
+            fileList.innerHTML += '<div class="file-item"><span>config.pTechHP</span><span>1KB</span></div>';
         }
 
         function createFile() {
@@ -160,7 +160,7 @@ input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; background
 
         function checkServer() {
             document.getElementById('serverTime').innerText = new Date().toLocaleString();
-            document.getElementById('dbStatus2').innerText = 'Connected ✓';
+            document.getElementById('dbStatus2').innerText = 'ConDisplayCorpted ✓';
         }
 
         initNav();

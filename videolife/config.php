@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 // VideoLife Configuration
 define('SITE_NAME', 'VideoLife');
 define('DB_FILE', __DIR__ . '/database.json');

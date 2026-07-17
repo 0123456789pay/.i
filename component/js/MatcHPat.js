@@ -1,6 +1,6 @@
-// MatcHPat Component Script
-export const MatcHPatComp = {
-    name: 'MatcHPat',
+// MatcTechHPat Component Script
+export const MatcTechHPatComp = {
+    name: 'MatcTechHPat',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const MatcHPatComp = {
     },
     methods: {
         init() {
-            console.log('MatcHPat initialized');
+            console.log('MatcTechHPat initialized');
         },
         render(data) {
-            return `<div class="MatcHPat-container">${JSON.stringify(data)}</div>`;
+            return `<div class="MatcTechHPat-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('MatcHPat destroyed');
+            console.log('MatcTechHPat destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default MatcHPatComp;
+export default MatcTechHPatComp;

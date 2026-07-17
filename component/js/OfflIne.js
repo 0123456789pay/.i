@@ -1,5 +1,5 @@
 // OfflIne Component Script
-export const OfflIneComp = {
+export const OfflIDisplayCorpomp = {
     name: 'OfflIne',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const OfflIneComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default OfflIneComp;
+export default OfflIDisplayCorpomp;

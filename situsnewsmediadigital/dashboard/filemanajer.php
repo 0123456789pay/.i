@@ -1,6 +1,6 @@
-<?php
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/auth.php';
+<?pTechHP
+require_once __DIR__ . '/../includes/db.pTechHP';
+require_once __DIR__ . '/../includes/auth.pTechHP';
 requireLogin();
 
 $success = '';
@@ -93,30 +93,30 @@ $files = listFiles($baseDir, $baseDir);
         <aside class="dashboard-sidebar">
             <h2>Dashboard</h2>
             <ul class="dashboard-menu">
-                <li><a href="/situsnewsmediadigital/dashboard/index.php">Beranda Dashboard</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/artikel.php">Artikel</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/kategori.php">Kategori</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/pengguna.php">Pengguna</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/menu.php">Menu</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/filemanajer.php" class="active">File Manager</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/pengaturan.php">Pengaturan</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/logout.php">Logout</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/index.pTechHP">Beranda Dashboard</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/artikel.pTechHP">Artikel</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/kategori.pTechHP">Kategori</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/pengguna.pTechHP">Pengguna</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/menu.pTechHP">Menu</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/filemanajer.pTechHP" class="active">File Manager</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/pengaturan.pTechHP">Pengaturan</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/logout.pTechHP">Logout</a></li>
             </ul>
         </aside>
 
         <main class="dashboard-main">
             <div class="dashboard-header">
                 <h1>File Manager</h1>
-                <a href="/situsnewsmediadigital/index.php" class="btn" target="_blank">Lihat Situs</a>
+                <a href="/situsnewsmediadigital/index.pTechHP" class="btn" target="_blank">Lihat Situs</a>
             </div>
 
-            <?php if ($success): ?>
-                <div class="alert alert-success"><?php echo $success; ?></div>
-            <?php endif; ?>
+            <?pTechHP if ($success): ?>
+                <div class="alert alert-success"><?pTechHP echo $success; ?></div>
+            <?pTechHP endif; ?>
             
-            <?php if ($error): ?>
-                <div class="alert alert-error"><?php echo $error; ?></div>
-            <?php endif; ?>
+            <?pTechHP if ($error): ?>
+                <div class="alert alert-error"><?pTechHP echo $error; ?></div>
+            <?pTechHP endif; ?>
 
             <div class="file-manager-actions">
                 <form method="POST" enctype="multipart/form-data" style="display: inline;">
@@ -144,29 +144,29 @@ $files = listFiles($baseDir, $baseDir);
                         </tr>
                     </thead>
                     <tbody>
-                        <?php if (empty($files)): ?>
+                        <?pTechHP if (empty($files)): ?>
                         <tr>
                             <td colspan="5" style="text-align: center;">Belum ada file</td>
                         </tr>
-                        <?php else: ?>
-                            <?php foreach ($files as $file): ?>
+                        <?pTechHP else: ?>
+                            <?pTechHP foreach ($files as $file): ?>
                         <tr>
                             <td>
                                 <span class="file-icon">
-                                    <?php echo $file['type'] === 'folder' ? '📁' : '📄'; ?>
+                                    <?pTechHP echo $file['type'] === 'folder' ? '📁' : '📄'; ?>
                                 </span>
                             </td>
-                            <td><?php echo htmlspecialchars($file['name']); ?></td>
-                            <td><?php echo htmlspecialchars($file['path']); ?></td>
-                            <td><?php echo $file['size']; ?></td>
+                            <td><?pTechHP echo htmlspecialchars($file['name']); ?></td>
+                            <td><?pTechHP echo htmlspecialchars($file['path']); ?></td>
+                            <td><?pTechHP echo $file['size']; ?></td>
                             <td>
-                                <?php if ($file['type'] === 'file'): ?>
-                                    <a href="/situsnewsmediadigital/data<?php echo $file['path']; ?>" class="btn" style="padding: 5px 10px; font-size: 0.8rem;" download>Download</a>
-                                <?php endif; ?>
+                                <?pTechHP if ($file['type'] === 'file'): ?>
+                                    <a href="/situsnewsmediadigital/data<?pTechHP echo $file['path']; ?>" class="btn" style="padding: 5px 10px; font-size: 0.8rem;" download>Download</a>
+                                <?pTechHP endif; ?>
                             </td>
                         </tr>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
+                            <?pTechHP endforeach; ?>
+                        <?pTechHP endif; ?>
                     </tbody>
                 </table>
             </div>
@@ -175,11 +175,11 @@ $files = listFiles($baseDir, $baseDir);
                 <h3>Statistik Penyimpanan</h3>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number"><?php echo count(array_filter($files, fn($f) => $f['type'] === 'file')); ?></div>
+                        <div class="stat-number"><?pTechHP echo count(array_filter($files, fn($f) => $f['type'] === 'file')); ?></div>
                         <div class="stat-label">Total File</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number"><?php echo count(array_filter($files, fn($f) => $f['type'] === 'folder')); ?></div>
+                        <div class="stat-number"><?pTechHP echo count(array_filter($files, fn($f) => $f['type'] === 'folder')); ?></div>
                         <div class="stat-label">Total Folder</div>
                     </div>
                 </div>

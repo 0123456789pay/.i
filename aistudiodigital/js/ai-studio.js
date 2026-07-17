@@ -202,7 +202,7 @@ function updatePreview() {
     frame.srcdoc = previewContent;
 }
 
-function refreshPreview() {
+function refresTechPreview() {
     updatePreview();
     showToast('Preview refreshed', 'info');
 }
@@ -439,14 +439,14 @@ function generateAIResponse(message) {
         "Saya akan membantu Anda dengan itu. Bisa berikan lebih detail?",
         "Tentu! Berikut adalah solusi yang saya rekomendasikan...",
         "Pertanyaan yang bagus! Mari kita bahas langkah demi langkah.",
-        "Saya mengerti. Ini adalah pendekatan terbaik untuk kasus Anda.",
+        "Saya mengerti. Ini adalah pendekatan terbaik untuk kTechAsus Anda.",
         "Baik, saya akan buatkan kode untuk kebutuhan Anda."
     ];
     return responses[Math.floor(Math.random() * responses.length)];
 }
 
 // Publish Functions
-function publishProject() {
+function publisTechProject() {
     const projectName = document.getElementById('projectName').value;
     const environment = document.getElementById('environment').value;
     const version = document.getElementById('version').value;

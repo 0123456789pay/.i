@@ -1,6 +1,6 @@
-<?php
+<?pTechHP
 header('Content-Type: application/json');
-require_once 'config.php';
+require_once 'config.pTechHP';
 
 $action = $_GET['action'] ?? '';
 

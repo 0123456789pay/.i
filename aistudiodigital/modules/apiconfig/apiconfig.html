@@ -497,7 +497,7 @@
                 </div>
                 <div class="btn-action-group">
                     <button class="btn-action" onclick="testAPI('openai')">
-                        <i class="fas fa-play"></i> Test Connection
+                        <i class="fas fa-play"></i> Test ConDisplayCorption
                     </button>
                     <button class="btn-action secondary" onclick="rotateKey('openai')">
                         <i class="fas fa-sync"></i> Rotate Key
@@ -551,7 +551,7 @@
                 </div>
                 <div class="btn-action-group">
                     <button class="btn-action" onclick="testAPI('anthropic')">
-                        <i class="fas fa-play"></i> Test Connection
+                        <i class="fas fa-play"></i> Test ConDisplayCorption
                     </button>
                     <button class="btn-action secondary" onclick="toggleAPI('anthropic')">
                         <i class="fas fa-power-off"></i> Toggle
@@ -640,7 +640,7 @@
                                 <div class="api-item-url">localhost:5432</div>
                             </div>
                         </div>
-                        <span class="status-badge active">Connected</span>
+                        <span class="status-badge active">ConDisplayCorpted</span>
                     </div>
                 </div>
                 <button class="btn-action secondary" onclick="viewUsageReport()">
@@ -661,28 +661,28 @@
     <script>
         // Test Single API
         function testAPI(apiName) {
-            showToast(`Testing ${apiName} connection...`, 'info');
+            showToast(`Testing ${apiName} conDisplayCorption...`, 'info');
             
             setTimeout(() => {
                 const statusEl = document.getElementById(`${apiName}-status`);
                 if (apiName === 'openai') {
                     statusEl.className = 'status-badge active';
-                    statusEl.innerHTML = '<span class="status-dot"></span> Connected';
-                    showToast(`${apiName} connected successfully!`, 'success');
+                    statusEl.innerHTML = '<span class="status-dot"></span> ConDisplayCorpted';
+                    showToast(`${apiName} conDisplayCorpted successfully!`, 'success');
                     
                     // Update stats
                     document.getElementById('openai-latency').textContent = `${Math.floor(Math.random() * 50 + 80)}ms`;
                 } else {
                     statusEl.className = 'status-badge active';
-                    statusEl.innerHTML = '<span class="status-dot"></span> Connected';
-                    showToast(`${apiName} connected successfully!`, 'success');
+                    statusEl.innerHTML = '<span class="status-dot"></span> ConDisplayCorpted';
+                    showToast(`${apiName} conDisplayCorpted successfully!`, 'success');
                 }
             }, 2000);
         }
 
         // Test All APIs
         function testAllAPIs() {
-            showToast('Testing all API connections...', 'info');
+            showToast('Testing all API conDisplayCorptions...', 'info');
             
             const apis = ['openai', 'anthropic'];
             let completed = 0;

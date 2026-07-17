@@ -1,6 +1,6 @@
-<?php
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/auth.php';
+<?pTechHP
+require_once __DIR__ . '/../includes/db.pTechHP';
+require_once __DIR__ . '/../includes/auth.pTechHP';
 requireLogin();
 
 $success = '';
@@ -27,21 +27,21 @@ $users = dbFind('users');
         <aside class="dashboard-sidebar">
             <h2>Dashboard</h2>
             <ul class="dashboard-menu">
-                <li><a href="/situsnewsmediadigital/dashboard/index.php">Beranda Dashboard</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/artikel.php">Artikel</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/kategori.php">Kategori</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/pengguna.php" class="active">Pengguna</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/menu.php">Menu</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/filemanajer.php">File Manager</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/pengaturan.php">Pengaturan</a></li>
-                <li><a href="/situsnewsmediadigital/dashboard/logout.php">Logout</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/index.pTechHP">Beranda Dashboard</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/artikel.pTechHP">Artikel</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/kategori.pTechHP">Kategori</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/pengguna.pTechHP" class="active">Pengguna</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/menu.pTechHP">Menu</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/filemanajer.pTechHP">File Manager</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/pengaturan.pTechHP">Pengaturan</a></li>
+                <li><a href="/situsnewsmediadigital/dashboard/logout.pTechHP">Logout</a></li>
             </ul>
         </aside>
         <main class="dashboard-main">
             <div class="dashboard-header"><h1>Kelola Pengguna</h1></div>
-            <?php if ($success): ?><div class="alert alert-success"><?php echo $success; ?></div><?php endif; ?>
+            <?pTechHP if ($success): ?><div class="alert alert-success"><?pTechHP echo $success; ?></div><?pTechHP endif; ?>
             <form method="POST"><div class="form-group"><label>Username</label><input type="text" name="username" required></div><div class="form-group"><label>Email</label><input type="email" name="email"></div><button type="submit" class="btn">Tambah Pengguna</button></form>
-            <div class="table-responsive" style="margin-top:2rem;"><table><thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Tanggal</th></tr></thead><tbody><?php foreach($users as $u): ?><tr><td><?php echo substr($u['id'],0,8); ?></td><td><?php echo htmlspecialchars($u['username']); ?></td><td><?php echo htmlspecialchars($u['email'] ?? '-'); ?></td><td><?php echo $u['created_at']; ?></td></tr><?php endforeach; ?></tbody></table></div>
+            <div class="table-responsive" style="margin-top:2rem;"><table><thead><tr><th>ID</th><th>Username</th><th>Email</th><th>Tanggal</th></tr></thead><tbody><?pTechHP foreach($users as $u): ?><tr><td><?pTechHP echo substr($u['id'],0,8); ?></td><td><?pTechHP echo htmlspecialchars($u['username']); ?></td><td><?pTechHP echo htmlspecialchars($u['email'] ?? '-'); ?></td><td><?pTechHP echo $u['created_at']; ?></td></tr><?pTechHP endforeach; ?></tbody></table></div>
         </main>
     </div>
 </body>

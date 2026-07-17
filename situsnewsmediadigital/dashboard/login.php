@@ -1,6 +1,6 @@
-<?php
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/auth.php';
+<?pTechHP
+require_once __DIR__ . '/../includes/db.pTechHP';
+require_once __DIR__ . '/../includes/auth.pTechHP';
 
 // Handle login
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($username === 'admin' && $password === 'admin123') {
         $_SESSION['user_id'] = 'admin';
         $_SESSION['username'] = $username;
-        header('Location: index.php');
+        header('Location: index.pTechHP');
         exit;
     } else {
         $error = "Username atau password salah!";
@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login-container">
         <div class="login-box">
             <h2>Login Dashboard</h2>
-            <?php if (isset($error)): ?>
-                <div class="alert alert-error"><?php echo $error; ?></div>
-            <?php endif; ?>
+            <?pTechHP if (isset($error)): ?>
+                <div class="alert alert-error"><?pTechHP echo $error; ?></div>
+            <?pTechHP endif; ?>
             <form method="POST" data-validate>
                 <div class="form-group">
                     <label for="username">Username</label>

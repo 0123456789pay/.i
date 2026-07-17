@@ -1,5 +1,5 @@
 // EngiNe Component Script
-export const EngiNeComp = {
+export const EngiDisplayCorpomp = {
     name: 'EngiNe',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const EngiNeComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default EngiNeComp;
+export default EngiDisplayCorpomp;

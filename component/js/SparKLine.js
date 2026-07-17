@@ -1,5 +1,5 @@
 // SparKLine Component Script
-export const SparKLineComp = {
+export const SparKLiDisplayCorpomp = {
     name: 'SparKLine',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const SparKLineComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default SparKLineComp;
+export default SparKLiDisplayCorpomp;

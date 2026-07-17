@@ -1,4 +1,4 @@
-<?php
+<?pTechHP
 $menus = [
     // Kategori Berita Utama (20)
     'Nasional', 'Internasional', 'Ekonomi', 'Olahraga', 'Teknologi',
@@ -35,8 +35,8 @@ $menus = [
     'Investigasi', 'Special Report', 'Feature', 'Human Interest', 'Lifestyle'
 ];
 
-$template = '<?php
-require_once __DIR__ . \'/includes/db.php\';
+$template = '<?pTechHP
+require_once __DIR__ . \'/includes/db.pTechHP\';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -56,14 +56,14 @@ require_once __DIR__ . \'/includes/db.php\';
             </div>
             <nav>
                 <ul>
-                    <li><a href="/situsnewsmediadigital/index.php">Beranda</a></li>
+                    <li><a href="/situsnewsmediadigital/index.pTechHP">Beranda</a></li>
                     <li><a href="/situsnewsmediadigital/nasional.html">Nasional</a></li>
                     <li><a href="/situsnewsmediadigital/internasional.html">Internasional</a></li>
                     <li><a href="/situsnewsmediadigital/ekonomi.html">Ekonomi</a></li>
                     <li><a href="/situsnewsmediadigital/olahraga.html">Olahraga</a></li>
                     <li><a href="/situsnewsmediadigital/teknologi.html">Teknologi</a></li>
                     <li><a href="/situsnewsmediadigital/hiburan.html">Hiburan</a></li>
-                    <li><a href="/situsnewsmediadigital/dashboard/index.php">Dashboard</a></li>
+                    <li><a href="/situsnewsmediadigital/dashboard/index.pTechHP">Dashboard</a></li>
                 </ul>
             </nav>
         </div>
@@ -77,20 +77,20 @@ require_once __DIR__ . \'/includes/db.php\';
             </section>
 
             <div class="news-grid">
-                <?php for($i = 1; $i <= 9; $i++): ?>
+                <?pTechHP for($i = 1; $i <= 9; $i++): ?>
                 <article class="news-card" data-category="{{MENU_LOWER}}">
-                    <img src="https://via.placeholder.com/400x200?text={{MENU_TITLE}}+News+<?php echo $i; ?>" alt="{{MENU_TITLE}} Image">
+                    <img src="https://via.placeholder.com/400x200?text={{MENU_TITLE}}+News+<?pTechHP echo $i; ?>" alt="{{MENU_TITLE}} Image">
                     <div class="news-card-content">
-                        <h3 class="news-card-title">Judul Berita {{MENU_TITLE}} <?php echo $i; ?></h3>
+                        <h3 class="news-card-title">Judul Berita {{MENU_TITLE}} <?pTechHP echo $i; ?></h3>
                         <p class="news-card-excerpt">Ini adalah cuplikan berita terbaru tentang {{MENU_LOWER}} yang menyajikan informasi lengkap dan akurat...</p>
                         <div class="news-card-meta">
-                            <span><?php echo date(\'d M Y\'); ?></span>
+                            <span><?pTechHP echo date(\'d M Y\'); ?></span>
                             <span>Redaksi</span>
                         </div>
                         <a href="#" class="read-more">Baca Selengkapnya</a>
                     </div>
                 </article>
-                <?php endfor; ?>
+                <?pTechHP endfor; ?>
             </div>
 
             <aside class="sidebar">
@@ -144,7 +144,7 @@ require_once __DIR__ . \'/includes/db.php\';
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; <?php echo date(\'Y\'); ?> Situs News Media Digital. All rights reserved.</p>
+                <p>&copy; <?pTechHP echo date(\'Y\'); ?> Situs News Media Digital. All rights reserved.</p>
             </div>
         </div>
     </footer>

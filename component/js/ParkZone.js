@@ -1,5 +1,5 @@
 // ParkZone Component Script
-export const ParkZoneComp = {
+export const ParkZoDisplayCorpomp = {
     name: 'ParkZone',
     type: 'component',
     version: '1.0.0',
@@ -23,4 +23,4 @@ export const ParkZoneComp = {
     props: ['id', 'class', 'style', 'data']
 };
 
-export default ParkZoneComp;
+export default ParkZoDisplayCorpomp;

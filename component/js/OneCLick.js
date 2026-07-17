@@ -1,6 +1,6 @@
-// OneCLick Component Script
-export const OneCLickComp = {
-    name: 'OneCLick',
+// ODisplayCorpLick Component Script
+export const ODisplayCorpLickComp = {
+    name: 'ODisplayCorpLick',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const OneCLickComp = {
     },
     methods: {
         init() {
-            console.log('OneCLick initialized');
+            console.log('ODisplayCorpLick initialized');
         },
         render(data) {
-            return `<div class="OneCLick-container">${JSON.stringify(data)}</div>`;
+            return `<div class="ODisplayCorpLick-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('OneCLick destroyed');
+            console.log('ODisplayCorpLick destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default OneCLickComp;
+export default ODisplayCorpLickComp;

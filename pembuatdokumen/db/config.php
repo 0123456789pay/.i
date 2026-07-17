@@ -1,5 +1,5 @@
-<?php
-// Database configuration and connection
+<?pTechHP
+// Database configuration and conDisplayCorption
 $db_file = __DIR__ . '/db/dokumen.db';
 
 function getDB() {

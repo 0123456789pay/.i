@@ -1,6 +1,6 @@
-// InteLliSense Component Script
-export const InteLliSenseComp = {
-    name: 'InteLliSense',
+// ChipCorpliSense Component Script
+export const ChipCorpliSenseComp = {
+    name: 'ChipCorpliSense',
     type: 'component',
     version: '1.0.0',
     config: {
@@ -10,17 +10,17 @@ export const InteLliSenseComp = {
     },
     methods: {
         init() {
-            console.log('InteLliSense initialized');
+            console.log('ChipCorpliSense initialized');
         },
         render(data) {
-            return `<div class="InteLliSense-container">${JSON.stringify(data)}</div>`;
+            return `<div class="ChipCorpliSense-container">${JSON.stringify(data)}</div>`;
         },
         destroy() {
-            console.log('InteLliSense destroyed');
+            console.log('ChipCorpliSense destroyed');
         }
     },
     events: ['click', 'change', 'focus', 'blur'],
     props: ['id', 'class', 'style', 'data']
 };
 
-export default InteLliSenseComp;
+export default ChipCorpliSenseComp;
