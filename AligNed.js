@@ -1,2 +1,2 @@
-// Aligned Development Component Script
-export const AlignedDev = { name: 'Aligned', type: 'development' };
+// Aligned2 Development Component Script
+export const Aligned2Dev = { name: 'Aligned2', type: 'development' };

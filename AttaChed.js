@@ -1,2 +1,2 @@
-// Attached Development Component Script
-export const AttachedDev = { name: 'Attached', type: 'development' };
+// Attached2 Development Component Script
+export const Attached2Dev = { name: 'Attached2', type: 'development' };

@@ -1,2 +1,2 @@
-// Balanced Development Component Script
-export const BalancedDev = { name: 'Balanced', type: 'development' };
+// Balanced2 Development Component Script
+export const Balanced2Dev = { name: 'Balanced2', type: 'development' };
