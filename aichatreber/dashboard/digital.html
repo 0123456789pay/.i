@@ -183,5 +183,92 @@
         console.log("[Digital] Semua fungsi dimuat");
     </script>
 
+
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --danger-gradient: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+            --card-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --border-radius-lg: 20px;
+            --border-radius-md: 12px;
+        }
+        .main-wrapper { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .page-header { background: var(--primary-gradient); color: white; padding: 30px; border-radius: var(--border-radius-lg); margin-bottom: 30px; box-shadow: var(--card-shadow); }
+        .page-title { font-size: 2.5em; font-weight: 700; margin-bottom: 10px; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 30px; }
+        .stat-card { background: white; border-radius: var(--border-radius-lg); padding: 25px; box-shadow: var(--card-shadow); transition: transform 0.3s; }
+        .stat-card:hover { transform: translateY(-10px); }
+        .stat-icon { width: 60px; height: 60px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; font-size: 1.8em; margin-bottom: 15px; }
+        .stat-value { font-size: 2.5em; font-weight: 700; color: #2d3748; }
+        .stat-label { color: #718096; }
+        .content-panel { background: white; border-radius: var(--border-radius-lg); padding: 30px; margin-bottom: 30px; box-shadow: var(--card-shadow); }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; margin: 5px; }
+        .btn-primary { background: var(--primary-gradient); color: white; }
+        .btn-success { background: var(--success-gradient); color: white; }
+        .btn-warning { background: var(--warning-gradient); color: white; }
+        .data-table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td { padding: 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+        .status-badge { padding: 6px 14px; border-radius: 20px; font-size: 0.85em; }
+        .status-active { background: #c6f6d5; color: #22543d; }
+        .form-input, .form-select { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 9999; }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: white; border-radius: 20px; padding: 30px; max-width: 600px; width: 90%; }
+        .activity-log { background: #1a202c; color: #e2e8f0; padding: 20px; font-family: monospace; max-height: 400px; overflow-y: auto; }
+        .notification-container { position: fixed; top: 20px; right: 20px; z-index: 10000; }
+        .notification { background: white; padding: 15px 25px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); margin-bottom: 10px; }
+    </style>
+    
+    <div class="main-wrapper">
+        <header class="page-header"><h1 class="page-title">📊 Digital Dashboard</h1><p>Kelola dan pantau semua aspek dengan mudah</p></header>
+        
+        <section class="dashboard-grid">
+            <div class="stat-card"><div class="stat-icon">📈</div><div class="stat-value" id="statTotal">0</div><div class="stat-label">Total Data</div></div>
+            <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-value" id="statSuccess">0</div><div class="stat-label">Berhasil</div></div>
+            <div class="stat-card"><div class="stat-icon">⏳</div><div class="stat-value" id="statPending">0</div><div class="stat-label">Tertunda</div></div>
+            <div class="stat-card"><div class="stat-icon">❌</div><div class="stat-value" id="statFailed">0</div><div class="stat-label">Gagal</div></div>
+        </section>
+        
+        <section class="content-panel">
+            <div class="panel-header"><h2>Manajemen Digital</h2>
+                <div><button class="btn btn-primary" onclick="openModal('addModal')">➕ Tambah Baru</button><button class="btn btn-success" onclick="exportData()">📥 Export</button><button class="btn btn-warning" onclick="refreshData()">🔄 Refresh</button></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 2fr 1fr auto; gap: 15px; margin-bottom: 20px;">
+                <input type="text" class="form-input" placeholder="🔍 Cari..." id="searchInput" onkeyup="filterData()">
+                <select class="form-select" id="filterStatus" onchange="filterData()"><option value="">Semua Status</option><option value="active">Aktif</option><option value="pending">Tertunda</option></select>
+                <button class="btn btn-primary" onclick="applyFilters()">Terapkan</button>
+            </div>
+            <table class="data-table"><thead><tr><th>ID</th><th>Nama</th><th>Tanggal</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="tableBody"></tbody></table>
+        </section>
+        
+        <section class="content-panel"><h2>Log Aktivitas</h2><div class="activity-log" id="activityLog"></div></section>
+    </div>
+    
+    <div class="modal-overlay" id="addModal"><div class="modal-content"><h3>Tambah Data Baru</h3><form id="addForm"><div class="form-group"><label>Nama</label><input type="text" class="form-input" required id="addName"></div><button type="submit" class="btn btn-primary">Simpan</button><button type="button" class="btn" onclick="closeModal('addModal')">Batal</button></form></div></div>
+    <div class="notification-container" id="notificationContainer"></div>
+    
+    <script>
+        const AppState = { data: [], filteredData: [], currentPage: 1, itemsPerPage: 10 };
+        document.addEventListener('DOMContentLoaded', function() { initializeApp(); });
+        function initializeApp() { generateSampleData(); renderTable(); updateStatistics(); logActivity('info', 'Aplikasi diinisialisasi'); showNotification('success', 'Selamat datang!'); }
+        function generateSampleData() { for (let i = 1; i <= 50; i++) { AppState.data.push({ id: i, name: 'Item #' + i, status: ['active','pending','inactive'][Math.floor(Math.random()*3)], date: new Date().toISOString().split('T')[0] }); } AppState.filteredData = [...AppState.data]; }
+        function updateStatistics() { document.getElementById('statTotal').textContent = AppState.data.length; document.getElementById('statSuccess').textContent = AppState.data.filter(d=>d.status==='active').length; }
+        function filterData() { const search = document.getElementById('searchInput').value.toLowerCase(); AppState.filteredData = AppState.data.filter(item => item.name.toLowerCase().includes(search)); renderTable(); }
+        function applyFilters() { showNotification('info', 'Filter diterapkan'); }
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+        function editItem(id) { showNotification('info', 'Edit item '+id); }
+        function exportData() { const blob = new Blob([JSON.stringify(AppState.data)], {type:'application/json'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'export.json'; a.click(); showNotification('success', 'Data diekspor!'); }
+        function refreshData() { showNotification('info', 'Data disegarkan!'); }
+        function showNotification(type, msg) { const c = document.getElementById('notificationContainer'); const n = document.createElement('div'); n.className = 'notification'; n.textContent = msg; c.appendChild(n); setTimeout(()=>n.remove(), 3000); }
+        function logActivity(type, msg) { const c = document.getElementById('activityLog'); if(cd /workspace && git remote remove origin) return; const e = document.createElement('div'); e.textContent = '['+new Date().toLocaleTimeString()+'] '+msg; c.insertBefore(e, c.firstChild); }
+        document.getElementById('addForm').addEventListener('submit', function(e) { e.preventDefault(); AppState.data.unshift({id:Date.now(),name:document.getElementById('addName').value,status:'active',date:new Date().toISOString().split('T')[0]}); renderTable(); updateStatistics(); closeModal('addModal'); showNotification('success', 'Data ditambahkan!'); });
+    </script>
+
+
 </body>
 </html>
