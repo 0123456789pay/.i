@@ -13,9 +13,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
             min-height: 100vh;
-            padding-top: 70px;
+            padding-top: 60px;
         }
 
         /* Navbar */
@@ -24,72 +24,77 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 70px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            height: 60px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.15);
             z-index: 1000;
             display: flex;
             align-items: center;
-            padding: 0 30px;
+            padding: 0 15px;
+            overflow: hidden;
         }
 
         /* Brand */
         .brand {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
-            color: #667eea;
+            color: #1976d2;
             text-decoration: none;
-            margin-right: 40px;
-            letter-spacing: -1px;
+            margin-right: 20px;
+            letter-spacing: -0.5px;
             white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .brand:hover {
-            color: #764ba2;
+            color: #1565c0;
         }
 
         /* Nav Menu */
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 5px;
+            gap: 1px;
             margin: 0;
             padding: 0;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            flex: 1;
         }
 
         .nav-item {
             position: relative;
+            flex-shrink: 0;
         }
 
         .nav-link {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
+            gap: 5px;
+            padding: 7px 10px;
             color: #333;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            border-radius: 8px;
-            transition: all 0.3s;
+            font-size: 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
             cursor: pointer;
             white-space: nowrap;
         }
 
         .nav-link:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: #e3f2fd;
+            color: #1976d2;
         }
 
         .nav-link.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1976d2;
             color: white;
         }
 
         .nav-link .arrow {
-            font-size: 10px;
-            transition: transform 0.3s;
+            font-size: 9px;
+            transition: transform 0.2s;
         }
 
         .nav-link:hover .arrow,
@@ -103,14 +108,15 @@
             top: 100%;
             left: 0;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            min-width: 280px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(33, 150, 243, 0.2);
+            border: 1px solid #e3f2fd;
+            min-width: 260px;
             max-height: 0;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+            transform: translateY(-8px);
+            transition: all 0.25s ease;
             z-index: 1001;
             padding: 0;
         }
@@ -124,55 +130,55 @@
         }
 
         .dropdown-header {
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 12px 18px;
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
             color: white;
             font-weight: 700;
-            font-size: 16px;
-            border-radius: 12px 12px 0 0;
+            font-size: 14px;
+            border-radius: 8px 8px 0 0;
         }
 
         .dropdown-content {
-            padding: 10px 0;
+            padding: 8px 0;
         }
 
         /* Folder Group in Dropdown */
         .folder-group-dropdown {
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
 
         .folder-title-dropdown {
-            padding: 10px 20px 8px;
-            font-size: 11px;
+            padding: 8px 18px 6px;
+            font-size: 10px;
             font-weight: 700;
-            color: #999;
+            color: #90a4ae;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .file-item-dropdown {
-            padding: 10px 20px 10px 30px;
+            padding: 8px 18px 8px 28px;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 13px;
-            color: #555;
+            font-size: 12px;
+            color: #546e7a;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             text-decoration: none;
         }
 
         .file-item-dropdown:hover {
-            background: #f0f4ff;
-            color: #667eea;
+            background: #e3f2fd;
+            color: #1976d2;
         }
 
         .file-item-dropdown.active {
-            background: #e8eeff;
-            color: #667eea;
+            background: #bbdefb;
+            color: #1976d2;
             font-weight: 600;
         }
 
@@ -233,13 +239,13 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
             color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
         }
 
         .btn-secondary {
@@ -306,7 +312,7 @@
         }
 
         .stat-item strong {
-            color: #667eea;
+            color: #1976d2;
         }
 
         /* Responsive */
@@ -349,14 +355,14 @@
             align-items: center;
             justify-content: center;
             padding: 40px;
-            color: #667eea;
+            color: #1976d2;
         }
 
         .spinner {
             width: 30px;
             height: 30px;
             border: 3px solid #f3f3f3;
-            border-top: 3px solid #667eea;
+            border-top: 3px solid #1976d2;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin-right: 10px;
