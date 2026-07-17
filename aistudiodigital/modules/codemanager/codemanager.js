@@ -18,7 +18,7 @@ const CodeManager = {
         } else {
             // Default files
             this.files = [
-                { id: 1, name: 'index.html', type: 'html', content: '<!DOCTYPE html>\n<html>\n<head>\n    <title>My Project</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>', path: '/', modified: new Date().toISOString() },
+                { id: 1, name: 'digital.html', type: 'html', content: '<!DOCTYPE html>\n<html>\n<head>\n    <title>My Project</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>', path: '/', modified: new Date().toISOString() },
                 { id: 2, name: 'style.css', type: 'css', content: 'body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 20px;\n}', path: '/', modified: new Date().toISOString() },
                 { id: 3, name: 'script.js', type: 'js', content: 'console.log("Hello World");', path: '/', modified: new Date().toISOString() }
             ];

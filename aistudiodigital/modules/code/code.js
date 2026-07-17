@@ -26,7 +26,7 @@ const CodeModule = {
                     children: [
                         {
                             id: 'html',
-                            name: 'index.html',
+                            name: 'digital.html',
                             type: 'file',
                             language: 'html',
                             content: '<!DOCTYPE html>\n<html>\n<head>\n    <title>AI Studio</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>',
@@ -202,7 +202,7 @@ const CodeModule = {
         const frame = document.getElementById('codePreviewFrame');
         if (!frame) return;
         
-        const htmlFile = this.findFileByName('index.html');
+        const htmlFile = this.findFileByName('digital.html');
         const cssFile = this.findFileByName('style.css');
         const jsFile = this.findFileByName('script.js');
         

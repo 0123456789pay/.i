@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Manager - Editor Kode</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: white; text-align: center; margin-bottom: 30px; font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .toolbar { background: white; border-radius: 15px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; gap: 15px; flex-wrap: wrap; align-items: center; }
+        .btn { padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; transition: all 0.3s; display: flex; align-items: center; gap: 8px; }
+        .btn-primary { background: #667eea; color: white; }
+        .btn-primary:hover { background: #5568d3; }
+        .btn-success { background: #4CAF50; color: white; }
+        .btn-success:hover { background: #45a049; }
+        .btn-danger { background: #f44336; color: white; }
+        .btn-danger:hover { background: #da190b; }
+        .file-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .file-card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
+        .file-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .file-icon { font-size: 3em; text-align: center; margin-bottom: 15px; }
+        .file-name { font-weight: bold; color: #333; text-align: center; word-break: break-word; }
+        .file-meta { color: #666; font-size: 0.85em; text-align: center; margin-top: 8px; }
+        .storage-info { background: white; border-radius: 15px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .storage-bar { height: 20px; background: #e0e0e0; border-radius: 10px; overflow: hidden; margin-top: 10px; }
+        .storage-used { height: 100%; background: linear-gradient(90deg, #667eea, #764ba2); width: 35%; }
+        .breadcrumb { color: white; margin-bottom: 20px; }
+        .breadcrumb a { color: rgba(255,255,255,0.8); text-decoration: none; }
+        .breadcrumb a:hover { color: white; }
+        .search-box { flex: 1; min-width: 250px; }
+        .search-box input { width: 100%; padding: 12px 20px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; outline: none; transition: border-color 0.3s; }
+        .search-box input:focus { border-color: #667eea; }
+        .upload-area { border: 3px dashed #ccc; border-radius: 15px; padding: 40px; text-align: center; background: white; margin-bottom: 20px; transition: all 0.3s; }
+        .upload-area:hover { border-color: #667eea; background: rgba(102, 126, 234, 0.05); }
+        .upload-area.dragover { border-color: #4CAF50; background: rgba(76, 175, 80, 0.1); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="dashboard/digital.html">🏠 Dashboard</a> > 📁 File Manager
+        </div>
+        
+        <h1>📁 File Manager</h1>
+        
+        <div class="storage-info">
+            <h3>Penyimpanan</h3>
+            <p>Total: 100 MB | Digunakan: 35 MB | Tersedia: 65 MB</p>
+            <div class="storage-bar">
+                <div class="storage-used"></div>
+            </div>
+        </div>
+        
+        <div class="toolbar">
+            <button class="btn btn-primary" onclick="createNewFile()">📄 File Baru</button>
+            <button class="btn btn-primary" onclick="createFolder()">📁 Folder Baru</button>
+            <button class="btn btn-success" onclick="uploadFile()">⬆️ Upload</button>
+            <button class="btn btn-danger" onclick="deleteSelected()">🗑️ Hapus</button>
+            <div class="search-box">
+                <input type="text" id="searchFiles" placeholder="🔍 Cari file..." onkeyup="searchFiles()">
+            </div>
+        </div>
+        
+        <div class="upload-area" id="uploadArea" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)">
+            <p style="font-size: 1.2em; color: #666;">📥 Drag & Drop file di sini atau klik untuk upload</p>
+            <input type="file" id="fileInput" multiple style="display: none;" onchange="handleFileSelect(event)">
+        </div>
+        
+        <div class="file-grid" id="fileGrid"></div>
+    </div>
+    
+    <script>
+        const files = [
+            { name: "digital.html", type: "html", icon: "🌐", size: "2.5 KB", date: "2025-01-15" },
+            { name: "style.css", type: "css", icon: "🎨", size: "1.8 KB", date: "2025-01-15" },
+            { name: "app.js", type: "js", icon: "⚡", size: "5.2 KB", date: "2025-01-14" },
+            { name: "config.php", type: "php", icon: "🐘", size: "3.1 KB", date: "2025-01-14" },
+            { name: "database.sql", type: "db", icon: "🗄️", size: "12.4 KB", date: "2025-01-13" },
+            { name: "images", type: "folder", icon: "📁", size: "-", date: "2025-01-12" },
+            { name: "scripts", type: "folder", icon: "📁", size: "-", date: "2025-01-11" },
+            { name: "styles", type: "folder", icon: "📁", size: "-", date: "2025-01-10" },
+            { name: "data.json", type: "json", icon: "📋", size: "8.7 KB", date: "2025-01-09" },
+            { name: "readme.md", type: "md", icon: "📝", size: "1.2 KB", date: "2025-01-08" },
+            { name: "menu_1.html", type: "html", icon: "🌐", size: "4.5 KB", date: "2025-01-15" },
+            { name: "menu_2.html", type: "html", icon: "🌐", size: "4.5 KB", date: "2025-01-15" },
+            { name: "menu_3.html", type: "html", icon: "🌐", size: "4.5 KB", date: "2025-01-15" },
+            { name: "dashboard", type: "folder", icon: "📁", size: "-", date: "2025-01-15" },
+            { name: "backup.zip", type: "zip", icon: "📦", size: "25.3 KB", date: "2025-01-07" }
+        ];
+        
+        function renderFiles(fileList) {
+            const grid = document.getElementById('fileGrid');
+            grid.innerHTML = '';
+            
+            fileList.forEach(file => {
+                const card = document.createElement('div');
+                card.className = 'file-card';
+                card.onclick = () => openFile(file);
+                card.innerHTML = `
+                    <div class="file-icon">${file.icon}</div>
+                    <div class="file-name">${file.name}</div>
+                    <div class="file-meta">${file.size} | ${file.date}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+        
+        function searchFiles() {
+            const searchTerm = document.getElementById('searchFiles').value.toLowerCase();
+            const filtered = files.filter(file => file.name.toLowerCase().includes(searchTerm));
+            renderFiles(filtered);
+        }
+        
+        function createNewFile() {
+            const name = prompt('Nama file baru:');
+            if (name) {
+                alert(`File "${name}" dibuat dan disimpan di File Manager!`);
+            }
+        }
+        
+        function createFolder() {
+            const name = prompt('Nama folder baru:');
+            if (name) {
+                alert(`Folder "${name}" dibuat!`);
+            }
+        }
+        
+        function uploadFile() {
+            document.getElementById('fileInput').click();
+        }
+        
+        function handleFileSelect(event) {
+            const selectedFiles = event.target.files;
+            for (let i = 0; i < selectedFiles.length; i++) {
+                console.log('Uploaded:', selectedFiles[i].name);
+            }
+            alert(`${selectedFiles.length} file diupload ke File Manager!`);
+        }
+        
+        function handleDrop(event) {
+            event.preventDefault();
+            document.getElementById('uploadArea').classList.remove('dragover');
+            const droppedFiles = event.dataTransfer.files;
+            alert(`${droppedFiles.length} file didrop ke File Manager!`);
+        }
+        
+        function handleDragOver(event) {
+            event.preventDefault();
+            document.getElementById('uploadArea').classList.add('dragover');
+        }
+        
+        function handleDragLeave(event) {
+            document.getElementById('uploadArea').classList.remove('dragover');
+        }
+        
+        function deleteSelected() {
+            if (confirm('Hapus file yang dipilih?')) {
+                alert('File dihapus dari File Manager!');
+            }
+        }
+        
+        function openFile(file) {
+            if (file.type === 'folder') {
+                alert(`Membuka folder: ${file.name}`);
+            } else {
+                alert(`Membuka file: ${file.name}`);
+            }
+        }
+        
+        renderFiles(files);
+    </script>
+</body>
+</html>

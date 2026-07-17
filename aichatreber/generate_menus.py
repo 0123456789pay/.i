@@ -60,7 +60,7 @@ for index, menu_item in enumerate(menu_items):
     </style>
 </head>
 <body>
-    <a href="dashboard/index.html" class="back-btn">← Kembali ke Dashboard</a>
+    <a href="dashboard/digital.html" class="back-btn">← Kembali ke Dashboard</a>
     
     <div class="chat-container">
         <div class="chat-header">

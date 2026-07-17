@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Monitoring Dashboard - Southeast Produk</title>
+    <style>
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #6366f1;
+            --dark: #0f172a;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #1e293b, #334155);
+            padding: 20px;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            color: #94a3b8;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .stat-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .stat-card.success { border-left-color: var(--success); }
+        .stat-card.warning { border-left-color: var(--warning); }
+        .stat-card.danger { border-left-color: var(--danger); }
+        
+        .stat-card h3 {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-change {
+            font-size: 0.9rem;
+            color: var(--success);
+        }
+        
+        .stat-change.negative {
+            color: var(--danger);
+        }
+        
+        .chart-container {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px;
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            background: #0f172a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+        }
+        
+        .traffic-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .traffic-table th,
+        .traffic-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .traffic-table th {
+            background: #0f172a;
+            color: #94a3b8;
+        }
+        
+        .traffic-table tr:hover {
+            background: #334155;
+        }
+        
+        .status-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-dot.active { background: var(--success); }
+        .status-dot.busy { background: var(--warning); }
+        .status-dot.error { background: var(--danger); }
+        
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #334155;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background: #475569;
+        }
+        
+        .live-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><span class="live-indicator"></span>📊 Traffic Monitoring Dashboard</h1>
+        <p>Southeast Produk - Real-time Network & System Monitoring</p>
+    </div>
+    
+    <div class="dashboard-grid">
+        <div class="stat-card">
+            <h3>Total Requests</h3>
+            <div class="stat-value" id="totalRequests">0</div>
+            <div class="stat-change">+0% dari jam lalu</div>
+        </div>
+        
+        <div class="stat-card success">
+            <h3>Success Rate</h3>
+            <div class="stat-value" id="successRate">0%</div>
+            <div class="stat-change">Stable</div>
+        </div>
+        
+        <div class="stat-card warning">
+            <h3>Avg Response Time</h3>
+            <div class="stat-value" id="avgResponse">0ms</div>
+            <div class="stat-change negative">+0ms</div>
+        </div>
+        
+        <div class="stat-card danger">
+            <h3>Error Rate</h3>
+            <div class="stat-value" id="errorRate">0%</div>
+            <div class="stat-change negative">+0%</div>
+        </div>
+        
+        <div class="stat-card">
+            <h3>Active Connections</h3>
+            <div class="stat-value" id="activeConnections">0</div>
+            <div class="stat-change">Live</div>
+        </div>
+        
+        <div class="stat-card success">
+            <h3>Bandwidth Usage</h3>
+            <div class="stat-value" id="bandwidth">0 MB/s</div>
+            <div class="stat-change">Normal</div>
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <h3 style="margin-bottom: 15px;">📈 Traffic Overview (Last Hour)</h3>
+        <div class="chart-placeholder">
+            [Real-time Chart Visualization - Integration Ready]
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <h3 style="margin-bottom: 15px;">🌐 Active Endpoints</h3>
+        <table class="traffic-table">
+            <thead>
+                <tr>
+                    <th>Endpoint</th>
+                    <th>Method</th>
+                    <th>Requests</th>
+                    <th>Avg Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="endpointsTable">
+                <tr>
+                    <td>/api/ai/query</td>
+                    <td>POST</td>
+                    <td>0</td>
+                    <td>0ms</td>
+                    <td><span class="status-dot active"></span>Active</td>
+                </tr>
+                <tr>
+                    <td>/api/rag/search</td>
+                    <td>GET</td>
+                    <td>0</td>
+                    <td>0ms</td>
+                    <td><span class="status-dot active"></span>Active</td>
+                </tr>
+                <tr>
+                    <td>/api/traffic/stats</td>
+                    <td>GET</td>
+                    <td>0</td>
+                    <td>0ms</td>
+                    <td><span class="status-dot active"></span>Active</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="nav-links">
+        <a href="/digital.html">🏠 Dashboard Utama</a>
+        <a href="/terminal.html">💻 Terminal</a>
+        <a href="/ai/ai-prompt-ui.html">🤖 AI Prompt</a>
+        <a href="/views/docs-system.html">📖 Dokumentasi</a>
+        <a href="#" onclick="refreshData()">🔄 Refresh Data</a>
+    </div>
+    
+    <script>
+        // Simulasi data real-time
+        function updateStats() {
+            document.getElementById('totalRequests').textContent = Math.floor(Math.random() * 10000).toLocaleString();
+            document.getElementById('successRate').textContent = (95 + Math.random() * 5).toFixed(1) + '%';
+            document.getElementById('avgResponse').textContent = Math.floor(50 + Math.random() * 100) + 'ms';
+            document.getElementById('errorRate').textContent = (Math.random() * 2).toFixed(1) + '%';
+            document.getElementById('activeConnections').textContent = Math.floor(Math.random() * 500);
+            document.getElementById('bandwidth').textContent = (Math.random() * 100).toFixed(1) + ' MB/s';
+        }
+        
+        function refreshData() {
+            updateStats();
+            alert('Data monitoring diperbarui!');
+        }
+        
+        // Update setiap 5 detik
+        setInterval(updateStats, 5000);
+        updateStats();
+    </script>
+</body>
+</html>
