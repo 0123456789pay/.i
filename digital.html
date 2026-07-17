@@ -71,11 +71,11 @@
             display: flex;
             align-items: center;
             gap: 5px;
-            padding: 8px 7px;
+            padding: 6px 4px;
             color: #333;
             text-decoration: none;
             font-weight: 600;
-            font-size: 11px;
+            font-size: 8px;
             border-radius: 0;
             transition: all 0.2s;
             cursor: pointer;
@@ -461,10 +461,10 @@
             container.innerHTML = '';
 
             const categories = Object.entries(fileData.categories);
-            const maxVisible = 8;
+            const maxVisible = categories.length; // Tampilkan semua kategori
             const totalCategories = categories.length;
 
-            // Render first 8 categories with TEXT in navbar
+            // Render semua kategori dengan TEXT di navbar
             categories.slice(0, maxVisible).forEach(([categoryName, categoryData]) => {
                 const navItem = document.createElement('li');
                 navItem.className = 'nav-item';
@@ -486,58 +486,6 @@
                 `;
                 container.appendChild(navItem);
             });
-
-            // If more than 7 categories, add "More" button with ICON ONLY and remaining categories in dropdown card
-            if (totalCategories > maxVisible) {
-                const moreItem = document.createElement('li');
-                moreItem.className = 'nav-item';
-                
-                let moreDropdownContent = '';
-                categories.slice(maxVisible).forEach(([categoryName, categoryData]) => {
-                    const safeCategoryName = categoryName.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                    const categoryId = categoryName.replace(/\s+/g, '-').replace(/&/g, '-and-');
-                    
-                    moreDropdownContent += `
-                        <div class="folder-group-dropdown">
-                            <div class="folder-title-dropdown">
-                                ${categoryData.icon || '📁'} ${categoryName}
-                            </div>
-                    `;
-                    
-                    for (const [folderName, files] of Object.entries(categoryData.folders)) {
-                        if (files.length === 0) continue;
-                        const folderDisplayName = folderName.split('/').pop();
-                        moreDropdownContent += `
-                            <div style="padding: 8px 18px 6px; font-size: 10px; color: #90a4ae; text-transform: uppercase;">📂 ${folderDisplayName}</div>
-                        `;
-                        files.forEach(file => {
-                            const safePath = file.path.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                            const safeName = file.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-                            moreDropdownContent += `
-                                <a href="#" class="file-item-dropdown" onclick="loadFile('${safePath}', '${safeName}'); return false;" style="padding-left: 38px;">
-                                    <span class="file-icon">📄</span>
-                                    <span>${file.name}</span>
-                                </a>
-                            `;
-                        });
-                    }
-                    moreDropdownContent += '</div>';
-                });
-                
-                moreItem.innerHTML = `
-                    <a href="#" class="nav-link" onclick="toggleMoreNav(event)" title="Kategori Lainnya">
-                        📋
-                        <span class="arrow">▼</span>
-                    </a>
-                    <div class="dropdown" id="dropdown-more">
-                        <div class="dropdown-header">📋 Kategori Lainnya</div>
-                        <div class="dropdown-content">
-                            ${moreDropdownContent}
-                        </div>
-                    </div>
-                `;
-                container.appendChild(moreItem);
-            }
         }
 
         function renderDropdownFolders(folders) {
@@ -584,22 +532,6 @@
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             
             // Open clicked item if it was closed
-            if (!isActive) {
-                navItem.classList.add('active');
-            }
-        }
-
-        function toggleMoreNav(event) {
-            event.preventDefault();
-            const navItem = event.currentTarget.parentElement;
-            const isActive = navItem.classList.contains('active');
-            
-            // Close all nav items except the "More" item
-            document.querySelectorAll('.nav-item').forEach(el => {
-                if (el !== navItem) el.classList.remove('active');
-            });
-            
-            // Toggle the "More" item
             if (!isActive) {
                 navItem.classList.add('active');
             }
