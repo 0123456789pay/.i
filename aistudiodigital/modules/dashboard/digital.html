@@ -1,1027 +1,1447 @@
-<!-- dashboard Module -->
-<div class="module-wrapper full-screen-module" id="dashboard-module">
-    <div class="module-header-fullscreen">
-        <div class="header-title-section">
-            <h2><i class="fas fa-chart-line"></i> Dashboard - AI Studio Digital</h2>
-            <p class="subtitle">Overview sistem AI dan performa aplikasi</p>
-        </div>
-        <div class="header-actions-section">
-            <button class="btn-action-header" onclick="DashboardModule.refreshData()" title="Refresh Data">
-                <i class="fas fa-sync-alt"></i>
-                <span>Refresh</span>
-            </button>
-            <button class="btn-action-header" onclick="DashboardModule.exportReport()" title="Export Report">
-                <i class="fas fa-download"></i>
-                <span>Export</span>
-            </button>
-            <button class="btn-action-header" onclick="DashboardModule.settings()" title="Settings">
-                <i class="fas fa-cog"></i>
-                <span>Settings</span>
-            </button>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>digital - System</title>
+        <link rel="stylesheet" href="../../../../config.css">
+    <link rel="stylesheet" href="../../../../All.css">
+    <link rel="stylesheet" href="../../../../components/Button.css">
+    <link rel="stylesheet" href="../../../../digital.css" id="page-specific-css">
+    <link rel="stylesheet" href="../../../../aistudiodigital/modules/dashboard/style.css" id="folder-style">
     
-    <div class="module-body-fullscreen">
-        <!-- Stats Cards Row -->
-        <div class="stats-grid">
-            <div class="stat-card stat-primary">
-                <div class="stat-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Total AI Models</h3>
-                    <div class="stat-value" id="totalModels">12</div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i> 2 new this week
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stat-card stat-success">
-                <div class="stat-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Code Files</h3>
-                    <div class="stat-value" id="totalFiles">847</div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i> 23 today
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stat-card stat-warning">
-                <div class="stat-icon">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Pending Issues</h3>
-                    <div class="stat-value" id="pendingIssues">5</div>
-                    <div class="stat-change negative">
-                        <i class="fas fa-arrow-down"></i> Need attention
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stat-card stat-info">
-                <div class="stat-icon">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="stat-content">
-                    <h3>Deployments</h3>
-                    <div class="stat-value" id="totalDeployments">34</div>
-                    <div class="stat-change positive">
-                        <i class="fas fa-arrow-up"></i> 98% success rate
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Main Content Grid -->
-        <div class="dashboard-main-grid">
-            <!-- Activity Chart Section -->
-            <div class="dashboard-panel panel-large">
-                <div class="panel-header">
-                    <h3><i class="fas fa-chart-area"></i> Activity Overview</h3>
-                    <div class="panel-controls">
-                        <button class="btn-time-filter active" onclick="DashboardModule.setTimeframe('day')">Day</button>
-                        <button class="btn-time-filter" onclick="DashboardModule.setTimeframe('week')">Week</button>
-                        <button class="btn-time-filter" onclick="DashboardModule.setTimeframe('month')">Month</button>
-                    </div>
-                </div>
-                <div class="panel-body">
-                    <canvas id="activityChart"></canvas>
-                </div>
-            </div>
-            
-            <!-- Recent Projects -->
-            <div class="dashboard-panel panel-medium">
-                <div class="panel-header">
-                    <h3><i class="fas fa-folder-open"></i> Recent Projects</h3>
-                    <button class="btn-view-all" onclick="DashboardModule.viewAllProjects()">View All</button>
-                </div>
-                <div class="panel-body">
-                    <div class="project-list" id="recentProjects">
-                        <div class="project-item">
-                            <div class="project-icon">
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="project-info">
-                                <h4>E-Commerce Landing Page</h4>
-                                <p>Last edited: 2 hours ago</p>
-                            </div>
-                            <div class="project-status status-active">Active</div>
-                        </div>
-                        <div class="project-item">
-                            <div class="project-icon">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <div class="project-info">
-                                <h4>Customer Support Chatbot</h4>
-                                <p>Last edited: 5 hours ago</p>
-                            </div>
-                            <div class="project-status status-processing">Processing</div>
-                        </div>
-                        <div class="project-item">
-                            <div class="project-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="project-info">
-                                <h4>Analytics Dashboard</h4>
-                                <p>Last edited: 1 day ago</p>
-                            </div>
-                            <div class="project-status status-active">Active</div>
-                        </div>
-                        <div class="project-item">
-                            <div class="project-icon">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="project-info">
-                                <h4>Mobile App Integration</h4>
-                                <p>Last edited: 2 days ago</p>
-                            </div>
-                            <div class="project-status status-pending">Pending</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- System Health -->
-            <div class="dashboard-panel panel-small">
-                <div class="panel-header">
-                    <h3><i class="fas fa-heartbeat"></i> System Health</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="health-indicator">
-                        <div class="health-item">
-                            <span class="health-label">API Status</span>
-                            <div class="health-bar">
-                                <div class="health-progress" style="width: 98%;"></div>
-                            </div>
-                            <span class="health-value">98%</span>
-                        </div>
-                        <div class="health-item">
-                            <span class="health-label">Storage</span>
-                            <div class="health-bar">
-                                <div class="health-progress" style="width: 67%;"></div>
-                            </div>
-                            <span class="health-value">67%</span>
-                        </div>
-                        <div class="health-item">
-                            <span class="health-label">Memory Usage</span>
-                            <div class="health-bar">
-                                <div class="health-progress" style="width: 45%;"></div>
-                            </div>
-                            <span class="health-value">45%</span>
-                        </div>
-                        <div class="health-item">
-                            <span class="health-label">CPU Load</span>
-                            <div class="health-bar">
-                                <div class="health-progress" style="width: 32%;"></div>
-                            </div>
-                            <span class="health-value">32%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Quick Actions -->
-            <div class="dashboard-panel panel-medium">
-                <div class="panel-header">
-                    <h3><i class="fas fa-bolt"></i> Quick Actions</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="quick-actions-grid">
-                        <button class="quick-action-btn" onclick="DashboardModule.createNewProject()">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>New Project</span>
-                        </button>
-                        <button class="quick-action-btn" onclick="DashboardModule.importProject()">
-                            <i class="fas fa-file-import"></i>
-                            <span>Import</span>
-                        </button>
-                        <button class="quick-action-btn" onclick="DashboardModule.runDiagnostics()">
-                            <i class="fas fa-stethoscope"></i>
-                            <span>Diagnostics</span>
-                        </button>
-                        <button class="quick-action-btn" onclick="DashboardModule.openDocumentation()">
-                            <i class="fas fa-book"></i>
-                            <span>Docs</span>
-                        </button>
-                        <button class="quick-action-btn" onclick="DashboardModule.deployNow()">
-                            <i class="fas fa-rocket"></i>
-                            <span>Deploy</span>
-                        </button>
-                        <button class="quick-action-btn" onclick="DashboardModule.backupSystem()">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Backup</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Notifications Feed -->
-            <div class="dashboard-panel panel-large">
-                <div class="panel-header">
-                    <h3><i class="fas fa-bell"></i> Recent Notifications</h3>
-                    <button class="btn-clear-all" onclick="DashboardModule.clearNotifications()">Clear All</button>
-                </div>
-                <div class="panel-body">
-                    <div class="notifications-feed" id="notificationsFeed">
-                        <div class="notification-item notification-info">
-                            <div class="notification-icon">
-                                <i class="fas fa-info-circle"></i>
-                            </div>
-                            <div class="notification-content">
-                                <h4>System Update Available</h4>
-                                <p>Version 2.5.0 is ready to install with new features and improvements.</p>
-                                <span class="notification-time">5 minutes ago</span>
-                            </div>
-                        </div>
-                        <div class="notification-item notification-success">
-                            <div class="notification-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <div class="notification-content">
-                                <h4>Deployment Successful</h4>
-                                <p>Your project "E-Commerce Landing" has been deployed successfully.</p>
-                                <span class="notification-time">1 hour ago</span>
-                            </div>
-                        </div>
-                        <div class="notification-item notification-warning">
-                            <div class="notification-icon">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </div>
-                            <div class="notification-content">
-                                <h4>API Rate Limit Warning</h4>
-                                <p>You're approaching your API rate limit. Consider upgrading your plan.</p>
-                                <span class="notification-time">3 hours ago</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-/* Dashboard Full Screen Styles */
-.full-screen-module {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e8eff5 100%);
-    overflow: hidden;
-}
-
-.module-header-fullscreen {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f5ff 100%);
-    border-bottom: 2px solid #dbe4f0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.header-title-section h2 {
-    color: #1a3a6e;
-    font-size: 28px;
-    font-weight: 700;
-    margin: 0 0 5px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header-title-section h2 i {
-    color: #3b82f6;
-}
-
-.header-title-section .subtitle {
-    color: #64748b;
-    font-size: 14px;
-    margin: 0;
-}
-
-.header-actions-section {
-    display: flex;
-    gap: 10px;
-}
-
-.btn-action-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-}
-
-.btn-action-header:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-}
-
-.btn-action-header i {
-    font-size: 16px;
-}
-
-.module-body-fullscreen {
-    flex: 1;
-    padding: 25px 30px;
-    overflow-y: auto;
-    background: #f8fafc;
-}
-
-/* Stats Grid */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 25px;
-}
-
-.stat-card {
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border-left: 4px solid;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.stat-card.stat-primary {
-    border-left-color: #3b82f6;
-}
-
-.stat-card.stat-success {
-    border-left-color: #10b981;
-}
-
-.stat-card.stat-warning {
-    border-left-color: #f59e0b;
-}
-
-.stat-card.stat-info {
-    border-left-color: #06b6d4;
-}
-
-.stat-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-}
-
-.stat-primary .stat-icon {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-}
-
-.stat-success .stat-icon {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    color: white;
-}
-
-.stat-warning .stat-icon {
-    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-    color: white;
-}
-
-.stat-info .stat-icon {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-    color: white;
-}
-
-.stat-content h3 {
-    color: #64748b;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 0 0 8px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.stat-value {
-    color: #1e293b;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.stat-change {
-    font-size: 13px;
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.stat-change.positive {
-    color: #10b981;
-}
-
-.stat-change.negative {
-    color: #ef4444;
-}
-
-/* Dashboard Main Grid */
-.dashboard-main-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto;
-    gap: 20px;
-}
-
-.dashboard-panel {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-}
-
-.panel-large {
-    grid-column: span 2;
-}
-
-.panel-medium {
-    grid-column: span 1;
-}
-
-.panel-small {
-    grid-column: span 1;
-}
-
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 20px;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border-bottom: 1px solid #e2e8f0;
-}
-
-.panel-header h3 {
-    color: #1a3a6e;
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0;
-}
-
-.panel-header h3 i {
-    color: #3b82f6;
-}
-
-.panel-controls {
-    display: flex;
-    gap: 5px;
-}
-
-.btn-time-filter {
-    padding: 6px 12px;
-    background: white;
-    border: 1px solid #cbd5e1;
-    color: #64748b;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.btn-time-filter.active {
-    background: #3b82f6;
-    border-color: #3b82f6;
-    color: white;
-}
-
-.btn-view-all {
-    padding: 6px 12px;
-    background: transparent;
-    border: 1px solid #3b82f6;
-    color: #3b82f6;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.btn-view-all:hover {
-    background: #3b82f6;
-    color: white;
-}
-
-.btn-clear-all {
-    padding: 6px 12px;
-    background: transparent;
-    border: 1px solid #ef4444;
-    color: #ef4444;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.btn-clear-all:hover {
-    background: #ef4444;
-    color: white;
-}
-
-.panel-body {
-    padding: 20px;
-}
-
-/* Project List */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.project-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    background: #f8fafc;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-.project-item:hover {
-    background: #f1f5f9;
-}
-
-.project-icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-}
-
-.project-info h4 {
-    color: #1e293b;
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0 0 4px 0;
-}
-
-.project-info p {
-    color: #64748b;
-    font-size: 13px;
-    margin: 0;
-}
-
-.project-status {
-    margin-left: auto;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.status-active {
-    background: #d1fae5;
-    color: #059669;
-}
-
-.status-processing {
-    background: #dbeafe;
-    color: #2563eb;
-}
-
-.status-pending {
-    background: #fef3c7;
-    color: #d97706;
-}
-
-/* Health Indicator */
-.health-indicator {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.health-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.health-label {
-    width: 120px;
-    color: #64748b;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.health-bar {
-    flex: 1;
-    height: 10px;
-    background: #e2e8f0;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.health-progress {
-    height: 100%;
-    background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%);
-    border-radius: 5px;
-    transition: width 0.5s ease;
-}
-
-.health-value {
-    width: 50px;
-    text-align: right;
-    color: #1e293b;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* Quick Actions */
-.quick-actions-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-}
-
-.quick-action-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 15px;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    border: 2px solid #e2e8f0;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.quick-action-btn:hover {
-    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    border-color: #3b82f6;
-    color: white;
-    transform: translateY(-3px);
-}
-
-.quick-action-btn i {
-    font-size: 28px;
-    color: #3b82f6;
-}
-
-.quick-action-btn:hover i {
-    color: white;
-}
-
-.quick-action-btn span {
-    font-size: 13px;
-    font-weight: 600;
-}
-
-/* Notifications Feed */
-.notifications-feed {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.notification-item {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    background: #f8fafc;
-    border-radius: 8px;
-    border-left: 4px solid;
-}
-
-.notification-info {
-    border-left-color: #3b82f6;
-}
-
-.notification-success {
-    border-left-color: #10b981;
-}
-
-.notification-warning {
-    border-left-color: #f59e0b;
-}
-
-.notification-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-.notification-info .notification-icon {
-    background: #dbeafe;
-    color: #3b82f6;
-}
-
-.notification-success .notification-icon {
-    background: #d1fae5;
-    color: #10b981;
-}
-
-.notification-warning .notification-icon {
-    background: #fef3c7;
-    color: #f59e0b;
-}
-
-.notification-content h4 {
-    color: #1e293b;
-    font-size: 15px;
-    font-weight: 600;
-    margin: 0 0 5px 0;
-}
-
-.notification-content p {
-    color: #64748b;
-    font-size: 13px;
-    margin: 0 0 8px 0;
-}
-
-.notification-time {
-    color: #94a3b8;
-    font-size: 12px;
-}
-
-/* Responsive Design */
-@media (max-width: 1400px) {
-    .dashboard-main-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    <style>
+    /* ========================================
+    // SETTINGS PANEL STYLES
+    // Comprehensive styling for system settings
+    // ======================================== */
     
-    .panel-large {
-        grid-column: span 2;
-    }
-}
-
-@media (max-width: 1024px) {
-    .dashboard-main-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .panel-large,
-    .panel-medium,
-    .panel-small {
-        grid-column: span 1;
-    }
-    
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .module-header-fullscreen {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-    
-    .header-actions-section {
+    /* Settings Overlay */
+    .settings-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
         justify-content: center;
+        align-items: center;
+        z-index: 999999;
+        backdrop-filter: blur(5px);
+        animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    /* Settings Panel */
+    .settings-panel {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 20px;
+        width: 90%;
+        max-width: 1200px;
+        max-height: 90vh;
+        overflow: hidden;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        animation: slideUp 0.3s ease;
+    }
+    
+    @keyframes slideUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    /* Settings Header */
+    .settings-header {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .settings-header h2 {
+        color: white;
+        margin: 0;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .settings-icon {
+        font-size: 28px;
+        animation: rotate 3s linear infinite;
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    .settings-info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .close-settings {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 32px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .close-settings:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(90deg);
+    }
+    
+    /* Settings Tabs */
+    .settings-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .tab-btn {
+        background: rgba(255, 255, 255, 0.1);
+        border: none;
+        color: rgba(255, 255, 255, 0.8);
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        font-weight: 500;
+    }
+    
+    .tab-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+    
+    .tab-btn.active {
+        background: white;
+        color: #667eea;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Settings Content */
+    .settings-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 30px;
+        background: white;
+    }
+    
+    .tab-content {
+        display: none;
+        animation: fadeInContent 0.3s ease;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    @keyframes fadeInContent {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tab-content h3 {
+        color: #333;
+        margin: 0 0 20px 0;
+        font-size: 20px;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 10px;
+    }
+    
+    /* Setting Groups */
+    .setting-group {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border-left: 4px solid #667eea;
+    }
+    
+    .setting-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    
+    .setting-input {
+        width: 100%;
+        padding: 10px 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+    
+    .setting-input:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    }
+    
+    input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 4px;
+        background: #e0e0e0;
+        outline: none;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #667eea;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+    }
+    
+    /* Checkbox Styling */
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+    
+    .checkbox-label input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        accent-color: #667eea;
+    }
+    
+    /* Buttons */
+    .btn-action {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        margin-right: 10px;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-action:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-small {
+        background: #6c757d;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    
+    /* Settings Footer */
+    .settings-footer {
+        padding: 20px 30px;
+        background: rgba(255, 255, 255, 0.05);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        gap: 15px;
+        justify-content: flex-end;
         flex-wrap: wrap;
     }
     
-    .stats-grid {
-        grid-template-columns: 1fr;
+    .btn-save {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
     }
     
-    .quick-actions-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .btn-save:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
     }
     
-    .module-body-fullscreen {
+    .btn-reset {
+        background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-reset:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(235, 51, 73, 0.4);
+    }
+    
+    .btn-cancel {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 12px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-cancel:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Log Viewer */
+    .log-controls {
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .log-viewer {
+        background: #1e1e1e;
+        border-radius: 10px;
         padding: 15px;
+        max-height: 400px;
+        overflow-y: auto;
+        font-family: 'Courier New', monospace;
+        font-size: 12px;
     }
-}
-</style>
-
-<script>
-// Dashboard Module JavaScript
-const DashboardModule = {
-    init: function() {
-        console.log('Dashboard module initialized');
-        this.loadChartData();
-        this.updateStats();
-        this.startRealTimeUpdates();
-    },
     
-    refreshData: function() {
-        const btn = document.querySelector('.btn-action-header[onclick="DashboardModule.refreshData()"]');
-        if (btn) {
-            const icon = btn.querySelector('i');
-            icon.classList.add('fa-spin');
-            setTimeout(() => {
-                icon.classList.remove('fa-spin');
-                this.updateStats();
-                this.loadChartData();
-            }, 1000);
+    .log-entry {
+        padding: 8px 12px;
+        margin-bottom: 5px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .log-time {
+        color: #888;
+        min-width: 80px;
+    }
+    
+    .log-level {
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 10px;
+        min-width: 60px;
+        text-align: center;
+    }
+    
+    .log-level.info {
+        background: #17a2b8;
+        color: white;
+    }
+    
+    .log-level.success {
+        background: #28a745;
+        color: white;
+    }
+    
+    .log-level.warn {
+        background: #ffc107;
+        color: #333;
+    }
+    
+    .log-level.error {
+        background: #dc3545;
+        color: white;
+    }
+    
+    .log-message {
+        color: #fff;
+        flex: 1;
+    }
+    
+    /* Floating Action Button */
+    .fab-settings {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        color: white;
+        font-size: 28px;
+        cursor: pointer;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s ease;
+        z-index: 999998;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .fab-settings:hover {
+        transform: scale(1.1) rotate(90deg);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+    
+    .fab-icon {
+        animation: rotate 4s linear infinite;
+    }
+    
+    /* Scrollbar Styling */
+    .settings-content::-webkit-scrollbar {
+        width: 10px;
+    }
+    
+    .settings-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 5px;
+    }
+    
+    .settings-content::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 5px;
+    }
+    
+    .settings-content::-webkit-scrollbar-thumb:hover {
+        background: #667eea;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .settings-panel {
+            width: 95%;
+            max-height: 95vh;
         }
-    },
-    
-    updateStats: function() {
-        // Simulate updating stats
-        document.getElementById('totalModels').textContent = Math.floor(Math.random() * 20) + 10;
-        document.getElementById('totalFiles').textContent = Math.floor(Math.random() * 100) + 800;
-        document.getElementById('pendingIssues').textContent = Math.floor(Math.random() * 10);
-        document.getElementById('totalDeployments').textContent = Math.floor(Math.random() * 50) + 30;
-    },
-    
-    loadChartData: function() {
-        const canvas = document.getElementById('activityChart');
-        if (!canvas) return;
         
-        const ctx = canvas.getContext('2d');
-        canvas.width = canvas.parentElement.offsetWidth;
-        canvas.height = 300;
-        
-        // Clear previous chart
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        // Draw simple line chart
-        const data = [65, 59, 80, 81, 56, 55, 40, 70, 85, 90, 75, 95];
-        const max = Math.max(...data);
-        const stepX = canvas.width / (data.length - 1);
-        const stepY = canvas.height / max;
-        
-        // Draw grid lines
-        ctx.strokeStyle = '#e2e8f0';
-        ctx.lineWidth = 1;
-        for (let i = 0; i <= 5; i++) {
-            const y = (canvas.height / 5) * i;
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(canvas.width, y);
-            ctx.stroke();
+        .settings-header {
+            padding: 15px 20px;
         }
         
-        // Draw line
-        ctx.strokeStyle = '#3b82f6';
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        data.forEach((value, index) => {
-            const x = index * stepX;
-            const y = canvas.height - (value * stepY);
-            if (index === 0) {
-                ctx.moveTo(x, y);
-            } else {
-                ctx.lineTo(x, y);
+        .settings-tabs {
+            padding: 10px 20px;
+        }
+        
+        .tab-btn {
+            padding: 8px 15px;
+            font-size: 12px;
+        }
+        
+        .settings-content {
+            padding: 20px;
+        }
+        
+        .settings-footer {
+            padding: 15px 20px;
+            justify-content: center;
+        }
+        
+        .fab-settings {
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+        }
+    }
+    
+    /* Dark Mode Support */
+    [data-theme="dark"] .settings-content {
+        background: #1a1a2e;
+        color: #eee;
+    }
+    
+    [data-theme="dark"] .tab-content h3 {
+        color: #eee;
+    }
+    
+    [data-theme="dark"] .setting-group {
+        background: #16213e;
+        border-left-color: #667eea;
+    }
+    
+    [data-theme="dark"] .setting-group label {
+        color: #eee;
+    }
+    
+    [data-theme="dark"] .setting-input {
+        background: #0f3460;
+        border-color: #0f3460;
+        color: #eee;
+    }
+    
+    [data-theme="dark"] .log-viewer {
+        background: #0a0a0a;
+    }
+    </style>
+    
+    <!-- Database Configuration -->
+    <script id="db-config" type="application/json">
+    {
+        "database": {
+            "name": "digital_aistudiodigital_modules_dashboard_db",
+            "version": "1.0.0",
+            "tables": [
+                "settings",
+                "users",
+                "logs",
+                "cache",
+                "sessions",
+                "preferences",
+                "bookmarks",
+                "history"
+            ],
+            "connection": {
+                "type": "indexedDB",
+                "provider": "local",
+                "syncEnabled": true,
+                "encryption": "AES-256"
+            },
+            "paths": {
+                "php": "../php/api.php",
+                "backup": "../db/backups/",
+                "config": "../db/config.json"
             }
-        });
-        ctx.stroke();
-        
-        // Draw points
-        ctx.fillStyle = '#2563eb';
-        data.forEach((value, index) => {
-            const x = index * stepX;
-            const y = canvas.height - (value * stepY);
-            ctx.beginPath();
-            ctx.arc(x, y, 5, 0, Math.PI * 2);
-            ctx.fill();
-        });
-        
-        // Fill area under line
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.1)';
-        ctx.beginPath();
-        ctx.moveTo(0, canvas.height);
-        data.forEach((value, index) => {
-            const x = index * stepX;
-            const y = canvas.height - (value * stepY);
-            ctx.lineTo(x, y);
-        });
-        ctx.lineTo(canvas.width, canvas.height);
-        ctx.closePath();
-        ctx.fill();
-    },
-    
-    setTimeframe: function(timeframe) {
-        const buttons = document.querySelectorAll('.btn-time-filter');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
-        this.loadChartData();
-    },
-    
-    viewAllProjects: function() {
-        alert('Navigating to all projects view...');
-    },
-    
-    createNewProject: function() {
-        const projectName = prompt('Enter project name:');
-        if (projectName) {
-            alert(`Creating new project: ${projectName}`);
         }
-    },
+    }
+    </script>
     
-    importProject: function() {
-        alert('Opening file import dialog...');
-    },
-    
-    runDiagnostics: function() {
-        alert('Running system diagnostics...');
-    },
-    
-    openDocumentation: function() {
-        window.open('https://docs.aistudio.com', '_blank');
-    },
-    
-    deployNow: function() {
-        alert('Starting deployment process...');
-    },
-    
-    backupSystem: function() {
-        alert('Creating system backup...');
-    },
-    
-    exportReport: function() {
-        alert('Generating and exporting report...');
-    },
-    
-    settings: function() {
-        alert('Opening dashboard settings...');
-    },
-    
-    clearNotifications: function() {
-        const feed = document.getElementById('notificationsFeed');
-        if (feed) {
-            feed.innerHTML = '<div class="notification-item"><p>All notifications cleared</p></div>';
+    <!-- PHP Backend Configuration -->
+    <script id="php-config" type="application/json">
+    {
+        "backend": {
+            "apiEndpoint": "../php/api.php",
+            "authEndpoint": "../php/auth.php",
+            "uploadEndpoint": "../php/upload.php",
+            "downloadEndpoint": "../php/download.php",
+            "modules": {
+                "folder": "aistudiodigital_modules_dashboard",
+                "file": "digital",
+                "namespace": "aistudiodigital_modules_dashboard_digital"
+            },
+            "features": {
+                "authentication": true,
+                "authorization": true,
+                "logging": true,
+                "caching": true,
+                "compression": true
+            }
         }
-    },
+    }
+    </script>
     
-    startRealTimeUpdates: function() {
-        setInterval(() => {
-            this.updateHealthBars();
-        }, 5000);
-    },
+    <!-- 
+    ================================================================================
+    DOKUMENTASI TEKNIS - DIGITAL
+    ================================================================================
     
-    updateHealthBars: function() {
-        const healthBars = document.querySelectorAll('.health-progress');
-        healthBars.forEach(bar => {
-            const currentWidth = parseFloat(bar.style.width);
-            const variation = (Math.random() - 0.5) * 10;
-            const newWidth = Math.max(10, Math.min(100, currentWidth + variation));
-            bar.style.width = newWidth + '%';
+    INFORMASI FILE:
+    ---------------
+    Nama File     : digital.html
+    Lokasi        : aistudiodigital/modules/dashboard/digital.html
+    Folder        : aistudiodigital/modules/dashboard
+    ID Unik       : aistudiodigital_modules_dashboard_digital
+    Tanggal Generate : 2026-07-17 19:19:51
+    Versi         : 1.0.0
+    
+    STRUKTUR SISTEM:
+    ----------------
+    1. HTML Structure
+       - Main content area
+       - Settings overlay panel
+       - Floating action button
+       - Tab navigation system
+    
+    2. CSS Styling
+       - Gradient backgrounds
+       - Animations (fadeIn, slideUp, rotate)
+       - Responsive design
+       - Dark mode support
+       - Custom scrollbar
+    
+    3. JavaScript Functionality
+       - Settings state management
+       - LocalStorage persistence
+       - Tab switching
+       - Log viewer
+       - Backup/Restore
+       - Cache management
+    
+    4. Database Integration
+       - IndexedDB configuration
+       - Table structure
+       - Encryption settings
+       - Sync capabilities
+    
+    5. PHP Backend
+       - API endpoints
+       - Authentication
+       - File upload/download
+       - Module namespace
+    
+    FITUR UTAMA:
+    ------------
+    ✓ Panel pengaturan dengan 8 tab kategori
+    ✓ Konfigurasi otomatis berdasarkan folder dan nama file
+    ✓ LocalStorage untuk persistensi pengaturan
+    ✓ Log viewer real-time
+    ✓ Backup dan restore pengaturan
+    ✓ Cache management
+    ✓ API integration ready
+    ✓ Responsive design
+    ✓ Dark mode support
+    ✓ Multi-language support
+    
+    TAB PENGATURAN:
+    ---------------
+    1. UMUM (General)
+       - Bahasa/Language
+       - Tema/Theme
+       - Ukuran Font
+       - Zona Waktu
+       - Format Tanggal
+    
+    2. KEAMANAN (Security)
+       - 2-Factor Authentication
+       - Sesi Aman
+       - Auto Logout
+       - Password Length
+       - Enkripsi Data
+    
+    3. JARINGAN (Network)
+       - API Endpoint
+       - WebSocket Server
+       - Timeout Request
+       - Mode Offline
+       - Proxy Server
+    
+    4. PENYIMPANAN (Storage)
+       - Cache Size Limit
+       - Auto Clear Cache
+       - Storage Location
+       - Manual Clear Cache
+    
+    5. LANJUTAN (Advanced)
+       - Debug Mode
+       - Performance Monitoring
+       - Analytics Tracking
+       - Log Level
+       - Max Concurrent Requests
+    
+    6. LOG SISTEM (System Logs)
+       - Real-time log viewer
+       - Export logs
+       - Clear logs
+       - Filter by level
+    
+    7. BACKUP
+       - Create backup
+       - Restore backup
+       - Auto backup schedule
+       - Backup history
+    
+    8. API & INTEGRASI
+       - API Key management
+       - Webhook configuration
+       - Rate limiting
+       - Integration status
+    
+    CARA PENGGUNAAN:
+    ----------------
+    1. Klik tombol floating gear (⚙️) di pojok kanan bawah
+    2. Pilih tab pengaturan yang diinginkan
+    3. Ubah pengaturan sesuai kebutuhan
+    4. Klik "Simpan Pengaturan" untuk menyimpan
+    5. Gunakan "Reset ke Default" untuk mengembalikan ke awal
+    
+    API ENDPOINTS:
+    --------------
+    - GET  /php/api.php?action=get_settings
+    - POST /php/api.php?action=save_settings
+    - GET  /php/api.php?action=get_logs
+    - POST /php/api.php?action=create_backup
+    - POST /php/api.php?action=restore_backup
+    - GET  /php/api.php?action=check_storage
+    - POST /php/api.php?action=clear_cache
+    
+    DATABASE TABLES:
+    ----------------
+    - settings: Menyimpan konfigurasi pengguna
+    - users: Data pengguna dan autentikasi
+    - logs: Log aktivitas sistem
+    - cache: Cache data untuk performa
+    - sessions: Session management
+    - preferences: Preferensi pengguna
+    - bookmarks: Bookmark/tanda baca
+    - history: Riwayat aktivitas
+    
+    DEPENDENCIES:
+    -------------
+    - config.css: Konfigurasi global CSS
+    - All.css: Style dasar sistem
+    - config.js: Konfigurasi global JS
+    - All.js: Fungsi dasar sistem
+    - components/Button.js: Komponen button
+    
+    SECURITY FEATURES:
+    ------------------
+    - AES-256 Encryption
+    - 2-Factor Authentication
+    - Secure Sessions (HTTPS Only)
+    - Auto Logout
+    - Rate Limiting
+    - Input Validation
+    - XSS Protection
+    - CSRF Protection
+    
+    PERFORMANCE OPTIMIZATION:
+    -------------------------
+    - Lazy loading untuk resource berat
+    - Cache management otomatis
+    - Minified CSS/JS production
+    - CDN integration ready
+    - Service Worker PWA support
+    
+    BROWSER COMPATIBILITY:
+    ----------------------
+    ✓ Chrome 90+
+    ✓ Firefox 88+
+    ✓ Safari 14+
+    ✓ Edge 90+
+    ✓ Opera 76+
+    
+    LICENSE:
+    --------
+    Copyright © 2026 - All Rights Reserved
+    Proprietary and Confidential
+    
+    SUPPORT:
+    --------
+    Email: support@example.com
+    Documentation: https://docs.example.com
+    Issue Tracker: https://github.com/example/issues
+    
+    ================================================================================
+    END OF DOCUMENTATION
+    ================================================================================
+    -->
+</head>
+<body>
+    <main class="content">
+        <h1>digital</h1>
+        <p>File: aistudiodigital/modules/dashboard/digital.html</p>
+        <p>Folder: aistudiodigital/modules/dashboard</p>
+    </main>
+    
+    <!-- Settings Panel Overlay -->
+    <div id="settings-overlay-aistudiodigital_modules_dashboard_digital" class="settings-overlay" style="display: none;">
+        <div class="settings-panel">
+            <div class="settings-header">
+                <h2><span class="settings-icon">⚙️</span> Pengaturan Sistem</h2>
+                <div class="settings-info">
+                    <span class="file-path">aistudiodigital/modules/dashboard/digital.html</span>
+                    <span class="folder-name">aistudiodigital/modules/dashboard</span>
+                    <span class="file-name">digital</span>
+                </div>
+                <button class="close-settings" onclick="toggleSettings('aistudiodigital_modules_dashboard_digital')">&times;</button>
+            </div>
             
-            // Update corresponding value
-            const healthItem = bar.closest('.health-item');
-            if (healthItem) {
-                const valueSpan = healthItem.querySelector('.health-value');
-                if (valueSpan) {
-                    valueSpan.textContent = Math.round(newWidth) + '%';
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="general">Umum</button>
+                <button class="tab-btn" data-tab="security">Keamanan</button>
+                <button class="tab-btn" data-tab="network">Jaringan</button>
+                <button class="tab-btn" data-tab="storage">Penyimpanan</button>
+                <button class="tab-btn" data-tab="advanced">Lanjutan</button>
+                <button class="tab-btn" data-tab="logs">Log Sistem</button>
+                <button class="tab-btn" data-tab="backup">Backup</button>
+                <button class="tab-btn" data-tab="api">API & Integrasi</button>
+            </div>
+            
+            <div class="settings-content">
+                <!-- Tab General -->
+                <div class="tab-content active" id="tab-general-aistudiodigital_modules_dashboard_digital">
+                    <h3>Pengaturan Umum</h3>
+                    <div class="setting-group">
+                        <label>Bahasa / Language</label>
+                        <select id="language-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="id">Bahasa Indonesia</option>
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
+                            <option value="zh">中文</option>
+                            <option value="ja">日本語</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Tema / Theme</label>
+                        <select id="theme-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="light">Light Mode</option>
+                            <option value="dark">Dark Mode</option>
+                            <option value="auto">Auto (System)</option>
+                            <option value="custom">Custom Theme</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Ukuran Font</label>
+                        <input type="range" id="fontsize-aistudiodigital_modules_dashboard_digital" min="12" max="24" value="16" class="setting-input">
+                        <span id="fontsize-value-aistudiodigital_modules_dashboard_digital">16px</span>
+                    </div>
+                    <div class="setting-group">
+                        <label>Zona Waktu</label>
+                        <select id="timezone-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="Asia/Jakarta">WIB (Jakarta)</option>
+                            <option value="Asia/Makassar">WITA (Makassar)</option>
+                            <option value="Asia/Jayapura">WIT (Jayapura)</option>
+                            <option value="UTC">UTC</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Format Tanggal</label>
+                        <select id="dateformat-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                            <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                            <option value="YYYY-MM-DD">YYYY-MM-DD</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Tab Security -->
+                <div class="tab-content" id="tab-security-aistudiodigital_modules_dashboard_digital">
+                    <h3>Keamanan & Privasi</h3>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="2fa-aistudiodigital_modules_dashboard_digital" checked>
+                            <span>Aktifkan 2-Factor Authentication</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="session-secure-aistudiodigital_modules_dashboard_digital" checked>
+                            <span>Sesi Aman (HTTPS Only)</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="auto-logout-aistudiodigital_modules_dashboard_digital" checked>
+                            <span>Auto Logout setelah 30 menit</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Password Minimum Length</label>
+                        <input type="number" id="pass-length-aistudiodigital_modules_dashboard_digital" min="8" max="128" value="12" class="setting-input">
+                    </div>
+                    <div class="setting-group">
+                        <label>Enkripsi Data</label>
+                        <select id="encryption-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="AES-256">AES-256</option>
+                            <option value="AES-128">AES-128</option>
+                            <option value="RSA-2048">RSA-2048</option>
+                            <option value="ChaCha20">ChaCha20-Poly1305</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Tab Network -->
+                <div class="tab-content" id="tab-network-aistudiodigital_modules_dashboard_digital">
+                    <h3>Konfigurasi Jaringan</h3>
+                    <div class="setting-group">
+                        <label>API Endpoint</label>
+                        <input type="text" id="api-endpoint-aistudiodigital_modules_dashboard_digital" value="../php/api.php" class="setting-input">
+                    </div>
+                    <div class="setting-group">
+                        <label>WebSocket Server</label>
+                        <input type="text" id="ws-server-aistudiodigital_modules_dashboard_digital" value="wss://localhost:8080" class="setting-input">
+                    </div>
+                    <div class="setting-group">
+                        <label>Timeout Request (ms)</label>
+                        <input type="number" id="timeout-aistudiodigital_modules_dashboard_digital" value="30000" class="setting-input">
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="offline-mode-aistudiodigital_modules_dashboard_digital">
+                            <span>Mode Offline</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Proxy Server</label>
+                        <input type="text" id="proxy-aistudiodigital_modules_dashboard_digital" placeholder="http://proxy:port" class="setting-input">
+                    </div>
+                </div>
+                
+                <!-- Tab Storage -->
+                <div class="tab-content" id="tab-storage-aistudiodigital_modules_dashboard_digital">
+                    <h3>Penyimpanan & Cache</h3>
+                    <div class="setting-group">
+                        <label>Cache Size Limit (MB)</label>
+                        <input type="number" id="cache-limit-aistudiodigital_modules_dashboard_digital" value="500" class="setting-input">
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="auto-clear-cache-aistudiodigital_modules_dashboard_digital" checked>
+                            <span>Auto Clear Cache setiap 7 hari</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Storage Location</label>
+                        <select id="storage-location-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="local">Local Storage</option>
+                            <option value="indexeddb">IndexedDB</option>
+                            <option value="cloud">Cloud Storage</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <button onclick="clearCache('aistudiodigital_modules_dashboard_digital')" class="btn-action">Clear Cache Sekarang</button>
+                        <button onclick="checkStorage('aistudiodigital_modules_dashboard_digital')" class="btn-action">Cek Penggunaan</button>
+                    </div>
+                </div>
+                
+                <!-- Tab Advanced -->
+                <div class="tab-content" id="tab-advanced-aistudiodigital_modules_dashboard_digital">
+                    <h3>Pengaturan Lanjutan</h3>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="debug-mode-aistudiodigital_modules_dashboard_digital">
+                            <span>Debug Mode</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="performance-monitor-aistudiodigital_modules_dashboard_digital" checked>
+                            <span>Performance Monitoring</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="analytics-aistudiodigital_modules_dashboard_digital" checked>
+                            <span>Analytics Tracking</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Log Level</label>
+                        <select id="log-level-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="error">Error Only</option>
+                            <option value="warn">Warning & Error</option>
+                            <option value="info" selected>Info, Warning, Error</option>
+                            <option value="debug">All (Debug)</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Max Concurrent Requests</label>
+                        <input type="number" id="max-requests-aistudiodigital_modules_dashboard_digital" value="10" class="setting-input">
+                    </div>
+                </div>
+                
+                <!-- Tab Logs -->
+                <div class="tab-content" id="tab-logs-aistudiodigital_modules_dashboard_digital">
+                    <h3>Log Sistem</h3>
+                    <div class="log-controls">
+                        <button onclick="refreshLogs('aistudiodigital_modules_dashboard_digital')" class="btn-action">Refresh</button>
+                        <button onclick="exportLogs('aistudiodigital_modules_dashboard_digital')" class="btn-action">Export</button>
+                        <button onclick="clearLogs('aistudiodigital_modules_dashboard_digital')" class="btn-action">Clear</button>
+                    </div>
+                    <div class="log-viewer" id="log-viewer-aistudiodigital_modules_dashboard_digital">
+                        <div class="log-entry"><span class="log-time">--:--:--</span> <span class="log-level info">INFO</span> <span class="log-message">System initialized for digital</span></div>
+                        <div class="log-entry"><span class="log-time">--:--:--</span> <span class="log-level success">SUCCESS</span> <span class="log-message">Settings panel loaded</span></div>
+                    </div>
+                </div>
+                
+                <!-- Tab Backup -->
+                <div class="tab-content" id="tab-backup-aistudiodigital_modules_dashboard_digital">
+                    <h3>Backup & Restore</h3>
+                    <div class="setting-group">
+                        <label>Last Backup</label>
+                        <span id="last-backup-aistudiodigital_modules_dashboard_digital">Belum ada backup</span>
+                    </div>
+                    <div class="setting-group">
+                        <button onclick="createBackup('aistudiodigital_modules_dashboard_digital')" class="btn-action">Buat Backup Sekarang</button>
+                    </div>
+                    <div class="setting-group">
+                        <label>Auto Backup Interval</label>
+                        <select id="backup-interval-aistudiodigital_modules_dashboard_digital" class="setting-input">
+                            <option value="daily">Harian</option>
+                            <option value="weekly" selected>Mingguan</option>
+                            <option value="monthly">Bulanan</option>
+                        </select>
+                    </div>
+                    <div class="setting-group">
+                        <label>Restore dari File</label>
+                        <input type="file" id="backup-file-aistudiodigital_modules_dashboard_digital" accept=".json,.bak" class="setting-input">
+                        <button onclick="restoreBackup('aistudiodigital_modules_dashboard_digital')" class="btn-action">Restore</button>
+                    </div>
+                </div>
+                
+                <!-- Tab API -->
+                <div class="tab-content" id="tab-api-aistudiodigital_modules_dashboard_digital">
+                    <h3>API & Integrasi</h3>
+                    <div class="setting-group">
+                        <label>API Key</label>
+                        <input type="password" id="api-key-aistudiodigital_modules_dashboard_digital" value="sk-****************" class="setting-input">
+                        <button onclick="toggleApiKey('aistudiodigital_modules_dashboard_digital')" class="btn-small">Show/Hide</button>
+                    </div>
+                    <div class="setting-group">
+                        <label>Webhook URL</label>
+                        <input type="url" id="webhook-aistudiodigital_modules_dashboard_digital" placeholder="https://your-webhook.com" class="setting-input">
+                    </div>
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="webhook-enabled-aistudiodigital_modules_dashboard_digital">
+                            <span>Aktifkan Webhook</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>Rate Limit (requests/min)</label>
+                        <input type="number" id="rate-limit-aistudiodigital_modules_dashboard_digital" value="60" class="setting-input">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-footer">
+                <button onclick="saveSettings('aistudiodigital_modules_dashboard_digital')" class="btn-save">Simpan Pengaturan</button>
+                <button onclick="resetSettings('aistudiodigital_modules_dashboard_digital')" class="btn-reset">Reset ke Default</button>
+                <button onclick="toggleSettings('aistudiodigital_modules_dashboard_digital')" class="btn-cancel">Tutup</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Action Button -->
+    <button id="fab-settings-aistudiodigital_modules_dashboard_digital" class="fab-settings" onclick="toggleSettings('aistudiodigital_modules_dashboard_digital')">
+        <span class="fab-icon">⚙️</span>
+    </button>
+        <script src="../../../../config.js"></script>
+    <script src="../../../../All.js"></script>
+    <script src="../../../../components/Button.js"></script>
+    <script src="../../../../digital.js" id="page-specific-js"></script>
+    <script src="../../../../ai/aiengine.js"></script>
+    
+    <script>
+    // ========================================
+    // SYSTEM CONFIGURATION FOR DIGITAL
+    // Folder: aistudiodigital/modules/dashboard
+    // File: aistudiodigital/modules/dashboard/digital.html
+    // Generated: 2026-07-17 19:19:51
+    // ========================================
+    
+    (function() {
+        'use strict';
+        
+        // System Constants
+        const SYSTEM_CONFIG_{file_id.upper()} = {
+            fileId: 'aistudiodigital_modules_dashboard_digital',
+            fileName: 'digital',
+            folderPath: 'aistudiodigital/modules/dashboard',
+            relativePath: 'aistudiodigital/modules/dashboard/digital.html',
+            version: '1.0.0',
+            buildDate: '2026-07-17',
+            environment: 'production'
+        };
+        
+        // Settings State Management
+        const SettingsState_{file_id} = {
+            general: {
+                language: 'id',
+                theme: 'light',
+                fontSize: 16,
+                timezone: 'Asia/Jakarta',
+                dateFormat: 'DD/MM/YYYY'
+            },
+            security: {
+                twoFactor: true,
+                secureSession: true,
+                autoLogout: true,
+                passwordLength: 12,
+                encryption: 'AES-256'
+            },
+            network: {
+                apiEndpoint: '../php/api.php',
+                wsServer: 'wss://localhost:8080',
+                timeout: 30000,
+                offlineMode: false,
+                proxy: ''
+            },
+            storage: {
+                cacheLimit: 500,
+                autoClearCache: true,
+                storageLocation: 'local'
+            },
+            advanced: {
+                debugMode: false,
+                performanceMonitor: true,
+                analytics: true,
+                logLevel: 'info',
+                maxRequests: 10
+            },
+            backup: {
+                lastBackup: null,
+                interval: 'weekly'
+            },
+            api: {
+                apiKey: '',
+                webhookUrl: '',
+                webhookEnabled: false,
+                rateLimit: 60
+            }
+        };
+        
+        // Load settings from LocalStorage
+        function loadSettings() {
+            try {
+                const saved = localStorage.getItem('settings_aistudiodigital_modules_dashboard_digital');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    Object.assign(SettingsState_{file_id}, parsed);
+                    console.log('[digital] Settings loaded from storage');
+                    applySettings();
+                }
+            } catch (e) {
+                console.error('[digital] Error loading settings:', e);
+            }
+        }
+        
+        // Save settings to LocalStorage
+        function saveSettings() {
+            try {
+                localStorage.setItem('settings_aistudiodigital_modules_dashboard_digital', JSON.stringify(SettingsState_{file_id}));
+                addLog('Settings saved successfully', 'success');
+                console.log('[digital] Settings saved');
+            } catch (e) {
+                console.error('[digital] Error saving settings:', e);
+                addLog('Error saving settings', 'error');
+            }
+        }
+        
+        // Apply settings to the page
+        function applySettings() {
+            // Apply theme
+            document.documentElement.setAttribute('data-theme', SettingsState_{file_id}.general.theme);
+            
+            // Apply font size
+            document.documentElement.style.fontSize = SettingsState_{file_id}.general.fontSize + 'px';
+            
+            // Apply language
+            document.documentElement.setAttribute('lang', SettingsState_{file_id}.general.language);
+            
+            console.log('[digital] Settings applied');
+        }
+        
+        // Toggle settings panel
+        window.toggleSettings = function(id) {
+            const overlay = document.getElementById('settings-overlay-' + id);
+            if (overlay) {
+                const isVisible = overlay.style.display !== 'none';
+                overlay.style.display = isVisible ? 'none' : 'flex';
+                if (!isVisible) {
+                    addLog('Settings panel opened', 'info');
                 }
             }
-        });
-    }
-};
-
-// Initialize dashboard when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    DashboardModule.init();
-});
-
-// Handle window resize for responsive chart
-window.addEventListener('resize', function() {
-    DashboardModule.loadChartData();
-});
-</script>
-
-    <script src="../../../digital/digital-system.js"></script>
+        };
+        
+        // Add log entry
+        function addLog(message, level = 'info') {
+            const logViewer = document.getElementById('log-viewer-aistudiodigital_modules_dashboard_digital');
+            if (!logViewer) return;
+            
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('id-ID');
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `
+                <span class="log-time">${timeStr}</span>
+                <span class="log-level ${level}">${level.toUpperCase()}</span>
+                <span class="log-message">${message}</span>
+            `;
+            
+            logViewer.insertBefore(logEntry, logViewer.firstChild);
+            
+            // Keep only last 100 logs
+            while (logViewer.children.length > 100) {
+                logViewer.removeChild(logViewer.lastChild);
+            }
+        }
+        
+        // Refresh logs
+        window.refreshLogs = function(id) {
+            addLog('Logs refreshed', 'info');
+            console.log('[digital] Logs refreshed');
+        };
+        
+        // Export logs
+        window.exportLogs = function(id) {
+            const logViewer = document.getElementById('log-viewer-' + id);
+            if (!logViewer) return;
+            
+            const logs = [];
+            Array.from(logViewer.children).forEach(entry => {
+                const time = entry.querySelector('.log-time').textContent;
+                const level = entry.querySelector('.log-level').textContent;
+                const message = entry.querySelector('.log-message').textContent;
+                logs.push(`[${time}] ${level}: ${message}`);
+            });
+            
+            const blob = new Blob([logs.join('\n')], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `logs_aistudiodigital_modules_dashboard_digital_${new Date().toISOString()}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            addLog('Logs exported', 'success');
+        };
+        
+        // Clear logs
+        window.clearLogs = function(id) {
+            const logViewer = document.getElementById('log-viewer-' + id);
+            if (logViewer) {
+                logViewer.innerHTML = '';
+                addLog('Logs cleared', 'info');
+            }
+        };
+        
+        // Clear cache
+        window.clearCache = function(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus cache?')) {
+                caches.keys().then(names => {
+                    names.forEach(name => caches.delete(name));
+                });
+                localStorage.clear();
+                addLog('Cache cleared successfully', 'success');
+            }
+        };
+        
+        // Check storage usage
+        window.checkStorage = function(id) {
+            if (navigator.storage && navigator.storage.estimate) {
+                navigator.storage.estimate().then(estimate => {
+                    const used = (estimate.usage / 1024 / 1024).toFixed(2);
+                    const quota = (estimate.quota / 1024 / 1024).toFixed(2);
+                    alert(`Storage Usage: ${used} MB / ${quota} MB`);
+                    addLog(`Storage: ${used}MB of ${quota}MB`, 'info');
+                });
+            } else {
+                alert('Storage API not supported');
+            }
+        };
+        
+        // Create backup
+        window.createBackup = function(id) {
+            const backupData = {
+                settings: SettingsState_{file_id},
+                timestamp: new Date().toISOString(),
+                version: SYSTEM_CONFIG_{file_id.upper()}.version
+            };
+            
+            const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `backup_aistudiodigital_modules_dashboard_digital_${new Date().toISOString().slice(0,10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            SettingsState_{file_id}.backup.lastBackup = new Date().toISOString();
+            document.getElementById('last-backup-' + id).textContent = new Date().toLocaleString('id-ID');
+            addLog('Backup created successfully', 'success');
+        };
+        
+        // Restore backup
+        window.restoreBackup = function(id) {
+            const fileInput = document.getElementById('backup-file-' + id);
+            if (!fileInput.files[0]) {
+                alert('Pilih file backup terlebih dahulu');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const data = JSON.parse(e.target.result);
+                    if (data.settings) {
+                        Object.assign(SettingsState_{file_id}, data.settings);
+                        saveSettings();
+                        applySettings();
+                        addLog('Backup restored successfully', 'success');
+                        alert('Backup berhasil dipulihkan!');
+                    }
+                } catch (err) {
+                    alert('Error membaca file backup: ' + err.message);
+                    addLog('Error restoring backup', 'error');
+                }
+            };
+            reader.readAsText(file);
+        };
+        
+        // Toggle API key visibility
+        window.toggleApiKey = function(id) {
+            const input = document.getElementById('api-key-' + id);
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
+            }
+        };
+        
+        // Reset settings
+        window.resetSettings = function(id) {
+            if (confirm('Apakah Anda yakin ingin mereset semua pengaturan ke default?')) {
+                localStorage.removeItem('settings_aistudiodigital_modules_dashboard_digital');
+                location.reload();
+            }
+        };
+        
+        // Tab switching
+        function initTabs() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remove active from all tabs
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active to selected
+                    this.classList.add('active');
+                    document.getElementById('tab-' + tabId + '-aistudiodigital_modules_dashboard_digital').classList.add('active');
+                });
+            });
+        }
+        
+        // Initialize settings form values
+        function initFormValues() {
+            // General
+            const lang = document.getElementById('language-aistudiodigital_modules_dashboard_digital');
+            if (lang) lang.value = SettingsState_{file_id}.general.language;
+            
+            const theme = document.getElementById('theme-aistudiodigital_modules_dashboard_digital');
+            if (theme) theme.value = SettingsState_{file_id}.general.theme;
+            
+            const fontsize = document.getElementById('fontsize-aistudiodigital_modules_dashboard_digital');
+            if (fontsize) {
+                fontsize.value = SettingsState_{file_id}.general.fontSize;
+                document.getElementById('fontsize-value-aistudiodigital_modules_dashboard_digital').textContent = fontsize.value + 'px';
+                fontsize.addEventListener('input', function() {
+                    document.getElementById('fontsize-value-aistudiodigital_modules_dashboard_digital').textContent = this.value + 'px';
+                });
+            }
+            
+            // Security
+            const twoFa = document.getElementById('2fa-aistudiodigital_modules_dashboard_digital');
+            if (twoFa) twoFa.checked = SettingsState_{file_id}.security.twoFactor;
+            
+            // Add more initializations as needed...
+        }
+        
+        // Save button handler
+        window.saveSettings = function(id) {
+            // Collect values from form
+            const lang = document.getElementById('language-aistudiodigital_modules_dashboard_digital');
+            if (lang) SettingsState_{file_id}.general.language = lang.value;
+            
+            const theme = document.getElementById('theme-aistudiodigital_modules_dashboard_digital');
+            if (theme) SettingsState_{file_id}.general.theme = theme.value;
+            
+            const fontsize = document.getElementById('fontsize-aistudiodigital_modules_dashboard_digital');
+            if (fontsize) SettingsState_{file_id}.general.fontSize = parseInt(fontsize.value);
+            
+            const twoFa = document.getElementById('2fa-aistudiodigital_modules_dashboard_digital');
+            if (twoFa) SettingsState_{file_id}.security.twoFactor = twoFa.checked;
+            
+            // Save and apply
+            saveSettings();
+            applySettings();
+            
+            alert('Pengaturan berhasil disimpan!');
+        };
+        
+        // Initialize on DOM ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                loadSettings();
+                initTabs();
+                initFormValues();
+                addLog('System initialized for digital', 'success');
+                console.log('[digital] System ready');
+            });
+        } else {
+            loadSettings();
+            initTabs();
+            initFormValues();
+            addLog('System initialized for digital', 'success');
+            console.log('[digital] System ready');
+        }
+        
+        // Performance monitoring
+        if (window.performance && window.performance.now) {
+            const loadTime = performance.now();
+            console.log('[digital] Page loaded in', loadTime.toFixed(2), 'ms');
+            addLog(`Page loaded in ${loadTime.toFixed(2)}ms`, 'info');
+        }
+        
+        // Expose to global scope for debugging
+        window.SystemConfig_aistudiodigital_modules_dashboard_digital = SYSTEM_CONFIG_{file_id.upper()};
+        window.SettingsState_aistudiodigital_modules_dashboard_digital = SettingsState_{file_id};
+    })();
+    </script>
+</body>
+</html>
