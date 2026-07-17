@@ -70,12 +70,12 @@
         .nav-link {
             display: flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 12px;
+            gap: 5px;
+            padding: 8px 7px;
             color: #333;
             text-decoration: none;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 11px;
             border-radius: 0;
             transition: all 0.2s;
             cursor: pointer;
@@ -461,10 +461,10 @@
             container.innerHTML = '';
 
             const categories = Object.entries(fileData.categories);
-            const maxVisible = 7;
+            const maxVisible = 8;
             const totalCategories = categories.length;
 
-            // Render first 7 categories with TEXT in navbar
+            // Render first 8 categories with TEXT in navbar
             categories.slice(0, maxVisible).forEach(([categoryName, categoryData]) => {
                 const navItem = document.createElement('li');
                 navItem.className = 'nav-item';
