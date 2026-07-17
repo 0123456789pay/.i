@@ -15,136 +15,136 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding-top: 70px;
         }
 
-        .container {
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
             display: flex;
-            height: 100vh;
-            overflow: hidden;
+            align-items: center;
+            padding: 0 30px;
         }
 
-        /* Sidebar */
-        .sidebar {
-            width: 380px;
-            background: #fff;
-            overflow-y: auto;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        /* Brand */
+        .brand {
+            font-size: 28px;
+            font-weight: 800;
+            color: #667eea;
+            text-decoration: none;
+            margin-right: 40px;
+            letter-spacing: -1px;
+            white-space: nowrap;
         }
 
-        .sidebar-header {
+        .brand:hover {
+            color: #764ba2;
+        }
+
+        /* Nav Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 5px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
         }
 
-        .sidebar-header h1 {
-            font-size: 22px;
+        .nav-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .nav-link .arrow {
+            font-size: 10px;
+            transition: transform 0.3s;
+        }
+
+        .nav-link:hover .arrow,
+        .nav-link.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            min-width: 280px;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1001;
+            padding: 0;
+        }
+
+        .nav-item:hover .dropdown,
+        .nav-item.active .dropdown {
+            max-height: 80vh;
+            opacity: 1;
+            transform: translateY(0);
+            overflow-y: auto;
+        }
+
+        .dropdown-header {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .dropdown-content {
+            padding: 10px 0;
+        }
+
+        /* Folder Group in Dropdown */
+        .folder-group-dropdown {
             margin-bottom: 5px;
         }
 
-        .sidebar-header p {
-            font-size: 12px;
-            opacity: 0.9;
-        }
-
-        .search-box {
-            padding: 15px;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
-            position: sticky;
-            top: 85px;
-            z-index: 9;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .search-box input:focus {
-            border-color: #667eea;
-        }
-
-        .category-list {
-            padding: 10px;
-        }
-
-        .category-item {
-            margin-bottom: 10px;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-            color: #333;
-            border: 1px solid transparent;
-        }
-
-        .category-header:hover {
-            background: #e9ecef;
-            border-color: #dee2e6;
-        }
-
-        .category-header.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
-        }
-
-        .category-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .category-icon {
-            font-size: 18px;
-        }
-
-        .category-count {
-            background: rgba(0,0,0,0.1);
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: normal;
-        }
-
-        .category-header.active .category-count {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .file-list {
-            display: none;
-            padding: 8px 0;
-        }
-
-        .file-list.show {
-            display: block;
-        }
-
-        .folder-group {
-            margin-bottom: 12px;
-        }
-
-        .folder-title {
-            padding: 8px 15px 8px 25px;
+        .folder-title-dropdown {
+            padding: 10px 20px 8px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -153,29 +153,27 @@
             gap: 6px;
         }
 
-        .file-item {
-            padding: 10px 15px 10px 35px;
+        .file-item-dropdown {
+            padding: 10px 20px 10px 30px;
             cursor: pointer;
             transition: all 0.2s;
-            border-left: 3px solid transparent;
             font-size: 13px;
             color: #555;
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
 
-        .file-item:hover {
+        .file-item-dropdown:hover {
             background: #f0f4ff;
-            border-left-color: #667eea;
             color: #667eea;
         }
 
-        .file-item.active {
+        .file-item-dropdown.active {
             background: #e8eeff;
-            border-left-color: #667eea;
             color: #667eea;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .file-icon {
@@ -184,10 +182,11 @@
 
         /* Main Content */
         .main-content {
-            flex: 1;
             background: #fff;
             display: flex;
             flex-direction: column;
+            height: calc(100vh - 70px);
+            margin-top: 70px;
         }
 
         .preview-header {
@@ -371,55 +370,42 @@
     <link rel="stylesheet" href="digital/digital-system.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-header">
-                <h1>📁 Digital Hub</h1>
-                <p id="total-files">Memuat daftar file...</p>
-            </div>
-            
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="🔍 Cari file HTML... (tekan / untuk fokus)">
-            </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="brand">.digital</a>
+        <ul class="nav-menu" id="nav-menu">
+            <!-- Nav items will be rendered here by JavaScript -->
+        </ul>
+    </nav>
 
-            <div class="category-list" id="category-list">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <span>Memuat kategori...</span>
-                </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="preview-header">
+            <div class="preview-info">
+                <div class="preview-title" id="preview-title">Pilih file untuk melihat preview</div>
+                <div class="preview-path" id="preview-path"></div>
+            </div>
+            <div class="preview-actions">
+                <a href="#" class="btn btn-primary" id="open-new-tab" target="_blank" style="display: none;">🚀 Buka Tab Baru</a>
+                <button class="btn btn-secondary" onclick="refreshPreview()">🔄 Refresh</button>
             </div>
         </div>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="preview-header">
-                <div class="preview-info">
-                    <div class="preview-title" id="preview-title">Pilih file untuk melihat preview</div>
-                    <div class="preview-path" id="preview-path"></div>
-                </div>
-                <div class="preview-actions">
-                    <a href="#" class="btn btn-primary" id="open-new-tab" target="_blank" style="display: none;">🚀 Buka Tab Baru</a>
-                    <button class="btn btn-secondary" onclick="refreshPreview()">🔄 Refresh</button>
-                </div>
+        <div class="preview-container">
+            <iframe id="preview-frame" class="preview-frame" src="about:blank"></iframe>
+            <div class="empty-state" id="empty-state">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <h3>Belum ada file yang dipilih</h3>
+                <p>Klik pada nama file di menu untuk melihat tampilannya</p>
             </div>
+        </div>
 
-            <div class="preview-container">
-                <iframe id="preview-frame" class="preview-frame" src="about:blank"></iframe>
-                <div class="empty-state" id="empty-state">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <h3>Belum ada file yang dipilih</h3>
-                    <p>Klik pada nama file di sidebar untuk melihat tampilannya</p>
-                </div>
-            </div>
-
-            <div class="stats-bar">
-                <div class="stat-item">📊 Total File: <strong id="stat-total">0</strong></div>
-                <div class="stat-item">📁 Kategori: <strong id="stat-categories">0</strong></div>
-                <div class="stat-item">👁️ File Aktif: <strong id="stat-active">-</strong></div>
-            </div>
+        <div class="stats-bar">
+            <div class="stat-item">📊 Total File: <strong id="stat-total">0</strong></div>
+            <div class="stat-item">📁 Kategori: <strong id="stat-categories">0</strong></div>
+            <div class="stat-item">👁️ File Aktif: <strong id="stat-active">-</strong></div>
         </div>
     </div>
 
@@ -455,61 +441,59 @@
             }
         }
 
-        function renderCategories() {
-            const container = document.getElementById('category-list');
+        function renderNavMenu() {
+            const container = document.getElementById('nav-menu');
             container.innerHTML = '';
 
             for (const [categoryName, categoryData] of Object.entries(fileData.categories)) {
-                const categoryEl = document.createElement('div');
-                categoryEl.className = 'category-item';
+                const navItem = document.createElement('li');
+                navItem.className = 'nav-item';
                 
                 const safeCategoryName = categoryName.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                const categoryId = categoryName.replace(/\s+/g, '-').replace(/&/g, '-and-');
                 
-                categoryEl.innerHTML = `
-                    <div class="category-header" onclick="toggleCategory('${safeCategoryName}')">
-                        <div class="category-info">
-                            <span class="category-icon">${categoryData.icon}</span>
-                            <span>${categoryName}</span>
+                navItem.innerHTML = `
+                    <a href="#" class="nav-link" onclick="toggleNav(event, '${safeCategoryName}')">
+                        ${categoryName}
+                        <span class="arrow">▼</span>
+                    </a>
+                    <div class="dropdown" id="dropdown-${categoryId}">
+                        <div class="dropdown-header">${categoryData.icon} ${categoryName}</div>
+                        <div class="dropdown-content">
+                            ${renderDropdownFolders(categoryData.folders)}
                         </div>
-                        <span class="category-count">${categoryData.total} file</span>
-                    </div>
-                    <div class="file-list" id="cat-${categoryName.replace(/\s+/g, '-').replace(/&/g, '-and-')}">
-                        ${renderFolders(categoryData.folders)}
                     </div>
                 `;
-                container.appendChild(categoryEl);
+                container.appendChild(navItem);
             }
-
-            document.getElementById('total-files').textContent = `${fileData.total_files} file HTML ditemukan`;
         }
 
-        function renderFolders(folders) {
+        function renderDropdownFolders(folders) {
             let html = '';
 
             for (const [folderName, files] of Object.entries(folders)) {
                 if (files.length === 0) continue;
 
-                // Show folder name if it's not empty (not root)
                 if (folderName) {
                     const folderDisplayName = folderName.split('/').pop();
                     html += `
-                        <div class="folder-group">
-                            <div class="folder-title">
+                        <div class="folder-group-dropdown">
+                            <div class="folder-title-dropdown">
                                 📂 ${folderDisplayName}
                             </div>
                     `;
                 } else {
-                    html += '<div class="folder-group">';
+                    html += '<div class="folder-group-dropdown">';
                 }
 
                 files.forEach(file => {
                     const safePath = file.path.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     const safeName = file.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     html += `
-                        <div class="file-item" onclick="loadFile('${safePath}', '${safeName}')">
+                        <a href="#" class="file-item-dropdown" onclick="loadFile('${safePath}', '${safeName}'); return false;">
                             <span class="file-icon">📄</span>
                             <span>${file.name}</span>
-                        </div>
+                        </a>
                     `;
                 });
 
@@ -519,27 +503,31 @@
             return html;
         }
 
-        function toggleCategory(categoryName) {
-            const header = event.currentTarget;
-            const categoryId = categoryName.replace(/\s+/g, '-').replace(/&/g, '-and-');
-            const fileList = document.getElementById(`cat-${categoryId}`);
-            const isShowing = fileList.classList.contains('show');
-
-            // Close all categories
-            document.querySelectorAll('.file-list').forEach(el => el.classList.remove('show'));
-            document.querySelectorAll('.category-header').forEach(el => el.classList.remove('active'));
-
-            // Open clicked category if it was closed
-            if (!isShowing) {
-                fileList.classList.add('show');
-                header.classList.add('active');
+        function toggleNav(event, categoryName) {
+            event.preventDefault();
+            const navItem = event.currentTarget.parentElement;
+            const isActive = navItem.classList.contains('active');
+            
+            // Close all nav items
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            
+            // Open clicked item if it was closed
+            if (!isActive) {
+                navItem.classList.add('active');
             }
+        }
+
+        function renderCategories() {
+            // This function is now deprecated but kept for compatibility
+            renderNavMenu();
         }
 
         function loadFile(path, name) {
             // Update active state
-            document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            document.querySelectorAll('.file-item-dropdown').forEach(el => el.classList.remove('active'));
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
 
             // Load file in iframe
             const frame = document.getElementById('preview-frame');
@@ -566,20 +554,15 @@
 
         function loadFileByPath(path) {
             // Find the file item with matching path
-            const fileItems = document.querySelectorAll('.file-item');
+            const fileItems = document.querySelectorAll('.file-item-dropdown');
             for (const item of fileItems) {
                 const onclick = item.getAttribute('onclick');
                 if (onclick && onclick.includes(`'${path}'`)) {
                     item.click();
-                    // Expand the parent category
-                    const categoryItem = item.closest('.category-item');
-                    if (categoryItem) {
-                        const header = categoryItem.querySelector('.category-header');
-                        const fileList = categoryItem.querySelector('.file-list');
-                        if (header && fileList) {
-                            fileList.classList.add('show');
-                            header.classList.add('active');
-                        }
+                    // Expand the parent dropdown
+                    const navItem = item.closest('.nav-item');
+                    if (navItem) {
+                        navItem.classList.add('active');
                     }
                     break;
                 }
@@ -598,49 +581,11 @@
             document.getElementById('stat-categories').textContent = Object.keys(fileData.categories).length;
         }
 
-        // Search functionality
-        document.getElementById('search-input').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            
-            document.querySelectorAll('.file-item').forEach(item => {
-                const text = item.textContent.toLowerCase();
-                if (text.includes(query)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-
-            // Auto-expand categories with results
-            if (query) {
-                document.querySelectorAll('.category-item').forEach(cat => {
-                    const visibleFiles = cat.querySelectorAll('.file-item[style="display: flex"], .file-item:not([style*="display"])');
-                    const hasVisible = Array.from(visibleFiles).some(f => f.style.display !== 'none');
-                    if (hasVisible) {
-                        cat.querySelector('.file-list').classList.add('show');
-                        cat.querySelector('.category-header').classList.add('active');
-                    }
-                });
-            } else {
-                // Reset when search is cleared
-                document.querySelectorAll('.file-list').forEach(el => el.classList.remove('show'));
-                document.querySelectorAll('.category-header').forEach(el => el.classList.remove('active'));
-            }
-        });
-
         // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            // Focus search on / key
-            if (e.key === '/' && e.target.tagName !== 'INPUT') {
-                e.preventDefault();
-                document.getElementById('search-input').focus();
-            }
-            
-            // ESC to clear search
-            if (e.key === 'Escape' && e.target.id === 'search-input') {
-                e.target.value = '';
-                e.target.dispatchEvent(new Event('input'));
-                e.target.blur();
+            // Close dropdowns on ESC
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
             }
         });
 
