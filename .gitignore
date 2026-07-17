@@ -2,48 +2,31 @@
 # Compiled Python files
 *.pyc
 __pycache__/
-*.pyo
-*.pyd
 
-# Virtual environments
-venv/
+# Digital files (based on the pattern in your project)
+*.digital
+
+# Dependencies
 .venv/
-env/
-ENV/
+venv/
+node_modules/
 
-# Dependency directories
-pip-wheel-metadata/
-.eggs/
-*.egg-info/
-
-# Logs
+# Logs and temporary files
 *.log
-
-# Temporary files
 *.tmp
-*~
-.DS_Store
-Thumbs.db
+*.swp
 
-# Environment variables
+# Environment files
 .env
 .env.local
 *.env.*
 
-# IDE specific
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Coverage reports
-.coverage
-coverage/
-htmlcov/
-
-# Build outputs
-build/
+# Build artifacts
 dist/
-*.egg
-*.whl
+build/
+target/
 ```
