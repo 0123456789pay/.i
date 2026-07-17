@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FileManajer Terminal - SoutheastApp</title>
+<title>FileManajer AI Terminal - SoutheastApp</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Courier New',monospace;background:#0c0c0c;color:#00ff00;height:100vh;display:flex;flex-direction:column}
@@ -26,18 +26,26 @@ body{font-family:'Courier New',monospace;background:#0c0c0c;color:#00ff00;height
 .io-box{background:#1a1a1a;padding:10px;border-top:1px solid #333;max-height:150px;overflow-y:auto;margin-bottom:10px}
 .io-title{color:#fa0;font-weight:bold;margin-bottom:5px}
 .io-data{font-size:11px;color:#aaa}
+.ai-status{background:#2a1a2a;padding:5px 10px;border-radius:3px;margin-bottom:10px;border:1px solid #a0a}
+.ai-active{color:#f0f}
 </style>
 </head>
 <body>
-<div class="header"><h1>FileManajer Terminal - southeastapp.github.io</h1></div>
+<div class="header"><h1>FileManajer AI Terminal - southeastapp.github.io</h1></div>
 <div class="tabs">
-<button class="tab active" onclick="showTab('term')">Terminal</button>
+<button class="tab active" onclick="showTab('term')">Terminal (=)</button>
 <button class="tab" onclick="showTab('files')">Files</button>
 <button class="tab" onclick="showTab('io')">I/O</button>
 </div>
 <div class="container">
 <div class="terminal" id="term">
-<div class="output" id="out">FileManajer v2.0 | Domain: southeastapp.github.io | Root: /filemanajer/\nType 'help' for commands\n\n</div>
+<div class="ai-status"><span class="ai-active">🤖 AI SYSTEM ACTIVE</span> | Running scripts from /southeastapp/ | I/O Enabled</div>
+<div class="output" id="out">FileManajer AI v3.0 | Domain: southeastapp.github.io | Root: /filemanajer/
+AI Engine: Integrated with /southeastapp/ scripts
+Type 'help' for commands | '=' activates terminal mode
+
+Supported: #!bash, chmod, install, exec, run, io streams
+</div>
 <div class="input-line"><span class="prompt">user@filemanajer:~$</span><input type="text" id="cmd" autocomplete="off" autofocus></div>
 </div>
 <div class="sidebar" id="files"><h3 style="color:#fa0;margin-bottom:10px">File Structure</h3><div class="tree" id="tree"></div></div>
@@ -51,8 +59,16 @@ body{font-family:'Courier New',monospace;background:#0c0c0c;color:#00ff00;height
 var out=document.getElementById('out'),cmd=document.getElementById('cmd'),hist=[],hi=-1,path='/filemanajer',ioI=[],ioO=[];
 var fs={'/filemanajer':{t:'d',c:{
 'Demo folder':{t:'d',c:{}},Home:{t:'d',c:{}},css:{t:'d',c:{}},js:{t:'d',c:{}},
-southeastapp:{t:'d',c:{api:{t:'d',c:{}},assets:{t:'d',c:{}},components:{t:'d',c:{}},config:{t:'d',c:{}},hooks:{t:'d',c:{}},locales:{t:'d',c:{}},middleware:{t:'d',c:{}},services:{t:'d',c:{}},storage:{t:'d',c:{}},utils:{t:'d',c{}},'README.md':{t:'f',v:'# SoutheastApp'},'index.js':{t:'f',v:'console.log("init")'},'package.json':{t:'f',v:'{"name":"southeastapp"}'},'terminal.html':{t:'f',v:'<!-- terminal -->'}}},
-'index.html':{t:'f',v:'<!-- main -->'}
+southeastapp:{t:'d',c:{
+api:{t:'d',c:{}},assets:{t:'d',c:{}},components:{t:'d',c:{}},config:{t:'d',c:{}},
+hooks:{t:'d',c:{}},locales:{t:'d',c:{}},middleware:{t:'d',c:{}},services:{t:'d',c:{}},
+storage:{t:'d',c:{}},utils:{t:'d',c:{}},
+'README.md':{t:'f',v:'# SoutheastApp\nAI-Powered Application Framework'},
+'index.js':{t:'f',v:'// SoutheastApp Entry Point\nconsole.log("AI System Initialized");\nexport function init(){return "ready"}'},
+'package.json':{t:'f',v:'{"name":"southeastapp","version":"3.0","type":"module","scripts":{"start":"node index.js"}}'},
+'terminal.html':{t:'f',v:'<!-- AI Terminal Interface -->'}
+}},
+'index.html':{t:'f',v:'<!-- FileManajer AI Main -->'}
 }}};
 function get(p){var a=p.split('/').filter(Boolean),n=fs['/filemanajer'];for(var i=1;i<a.length;i++){if(n.c&&n.c[a[i]])n=n.c[a[i]];else return null}return n}
 function ls(p){var f=get(p);if(!f||f.t!=='d')return null;return Object.keys(f.c||{})}
@@ -61,11 +77,11 @@ function put(p,v){var a=p.split('/').filter(Boolean),fn=a.pop(),n=fs['/filemanaj
 function tree(p,l){l=l||0;var f=get(p),h='',sp='&nbsp;&nbsp;'.repeat(l);if(!f||f.t!=='d')return '';for(var k in f.c||{}){var ip=p+'/'+k;if(f.c[k].t==='d'){h+='<div class="item" onclick="exp(\''+ip+'\')">'+sp+'📁 '+k+'</div>'+tree(ip,l+1)}else{h+='<div class="item" onclick="vf(\''+ip+'\')">'+sp+'📄 '+k+'</div>'}}return h}
 function exp(p){out.innerHTML+='<div class="info">Expanded: '+p+'</div>';scroll()}
 function vf(p){var c=cat(p);if(c){out.innerHTML+='<div class="ok">=== '+p+' ===</div><div>'+c+'</div><br>';addIO('read',p,c)}else{out.innerHTML+='<div class="err">Cannot read: '+p+'</div>'}scroll()}
-function addIO(t,p,d){var ts=new Date().toLocaleTimeString();if(t==='read'){ioI.push('['+ts+'] READ: '+p);ioO.push('['+ts+'] DATA: '+d.substring(0,80))}else if(t==='write'){ioI.push('['+ts+'] WRITE: '+p);ioO.push('['+ts+'] OK')}else if(t==='exec'){ioI.push('['+ts+'] EXEC: '+p);ioO.push('['+ts+'] RESULT: '+d)}document.getElementById('ioIn').innerHTML=ioI.slice(-15).join('<br>');document.getElementById('ioOut').innerHTML=ioO.slice(-15).join('<br')}
+function addIO(t,p,d){var ts=new Date().toLocaleTimeString();if(t==='read'){ioI.push('['+ts+'] READ: '+p);ioO.push('['+ts+'] DATA: '+(d||'').substring(0,80))}else if(t==='write'){ioI.push('['+ts+'] WRITE: '+p);ioO.push('['+ts+'] OK')}else if(t==='exec'){ioI.push('['+ts+'] EXEC: '+p);ioO.push('['+ts+'] RESULT: '+d)}else if(t==='bash'){ioI.push('['+ts+'] BASH: '+p);ioO.push('['+ts+'] '+d)}document.getElementById('ioIn').innerHTML=ioI.slice(-15).join('<br>');document.getElementById('ioOut').innerHTML=ioO.slice(-15).join('<br')}
 function showTab(t){document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});event.target.classList.add('active');document.getElementById('term').style.display=t==='term'?'block':'none';document.getElementById('files').style.display=t==='files'?'block':'none';document.getElementById('io').style.display=t==='io'?'block':'none';if(t==='files')document.getElementById('tree').innerHTML=tree('/filemanajer');if(t!=='term')cmd.blur();else cmd.focus()}
 function scroll(){document.getElementById('term').scrollTop=document.getElementById('term').scrollHeight}
 var cmds={
-help:function(){return'Commands:\n  help - This help\n  clear - Clear screen\n  ls [path] - List dir\n  cd [path] - Change dir\n  pwd - Current path\n  cat <file> - Read file\n  read <file> - Alias cat\n  echo <text> - Print text\n  write <file> <text> - Write file\n  exec <script> - Execute JS\n  run <script> - Alias exec\n  scan - Scan all files\n  tree - Show tree\n  io - Show I/O history\n  status - System status\n  whoami - Current user\n  date - Current date'},
+help:function(){return'AI Terminal Commands:\n  help - This help\n  clear - Clear screen\n  ls [path] - List directory\n  cd [path] - Change directory\n  pwd - Current path\n  cat <file> - Read file\n  read <file> - Alias cat\n  echo <text> - Print text\n  write <file> <text> - Write file\n  exec <script> - Execute JS\n  run <script> - Alias exec\n  scan - Scan all files recursively\n  tree - Show file tree\n  io - Show I/O history\n  status - System status\n  whoami - Current user\n  date - Current date\n  #!bash <cmd> - Run bash command\n  chmod <mode> <file> - Change permissions\n  install <pkg> - Install package\n  = - Activate terminal mode'},
 clear:function(){out.innerHTML='';return''},
 ls:function(a){var p=a[0]||path,i=ls(p);if(!i)return'<span class="err">Not found: '+p+'</span>';return i.map(function(x){var fp=p+'/'+x,f=get(fp);return f&&f.t==='d'?'📁 '+x+'/' : '📄 '+x}).join('\n')},
 cd:function(a){if(!a[0]){path='/filemanajer';return''}var np=a[0].startsWith('/')?a[0]:path+'/'+a[0],f=get(np);if(f&&f.t==='d'){path=np;return'<span class="ok">Changed to: '+path+'</span>'}return'<span class="err">Not found: '+np+'</span>'},
@@ -76,14 +92,17 @@ echo:function(a){return a.join(' ')},
 write:function(a){if(a.length<2)return'<span class="err">Usage: write &lt;file&gt; &lt;text&gt;</span>';var p=a[0].startsWith('/')?a[0]:path+'/'+a[0],v=a.slice(1).join(' ');if(put(p,v)){addIO('write',p,v);return'<span class="ok">Written: '+p+'</span>'}return'<span class="err">Cannot write: '+p+'</span>'},
 exec:function(a){if(!a[0])return'<span class="err">Usage: exec &lt;script&gt;</span>';var p=a[0].startsWith('/')?a[0]:path+'/'+a[0],c=cat(p);if(c){try{var r=eval(c);addIO('exec',p,String(r));return'<span class="ok">Executed: '+p+'\nResult: '+r+'</span>'}catch(e){return'<span class="err">Error: '+e.message+'</span>'}}return'<span class="err">Not found: '+p+'</span>'},
 run:function(a){return cmds.exec(a)},
-scan:function(){var r='<span class="info">Scanning...</span>\n';function sc(p,l){l=l||0;var i=ls(p);if(!i)return'';var s='';for(var x of i){var fp=p+'/'+x,f=get(fp);if(f.t==='f'){s+=Array(l+1).join('  ')+'📄 '+x+'\n';addIO('read',fp,f.v||'')}else{s+=Array(l+1).join('  ')+'📁 '+x+'/\n'+sc(fp,l+1)}}return s}return r+sc('/filemanajer')},
+scan:function(){var r='<span class="info">AI Scanning all files in /southeastapp/...</span>\n';function sc(p,l){l=l||0;var i=ls(p);if(!i)return'';var s='';for(var x of i){var fp=p+'/'+x,f=get(fp);if(f.t==='f'){s+=Array(l+1).join('  ')+'📄 '+x+'\n';addIO('read',fp,f.v||'')}else{s+=Array(l+1).join('  ')+'📁 '+x+'/\n'+sc(fp,l+1)}}return s}return r+sc('/filemanajer/southeastapp')},
 tree:function(){return tree('/filemanajer').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'  ')},
 io:function(){return'Input:\n'+ioI.slice(-10).join('\n')+'\n\nOutput:\n'+ioO.slice(-10).join('\n')},
-status:function(){return'<span class="ok">✓ FileManajer OPERATIONAL</span>\nDomain: southeastapp.github.io\nRoot: /filemanajer/\nFolders: '+Object.keys(fs['/filemanajer'].c).length+'\nVersion: 2.0\nI/O: Active'},
+status:function(){return'<span class="ok">✓ FileManajer AI OPERATIONAL</span>\nDomain: southeastapp.github.io\nRoot: /filemanajer/\nAI Source: /southeastapp/\nFolders: '+Object.keys(fs['/filemanajer'].c).length+'\nVersion: 3.0 (AI Enhanced)\nI/O Streams: Active\nBash Mode: Enabled'},
 whoami:function(){return'user@filemanajer.southeastapp.github.io'},
-date:function(){return new Date().toString()}
+date:function(){return new Date().toString()},
+bash:function(a){if(!a[0])return'<span class="err">Usage: #!bash &lt;command&gt;</span>';var c=a.join(' ');addIO('bash',c,'simulated');return'<span class="ok">BASH: '+c+'</span>\n[simulated execution in browser environment]'},
+chmod:function(a){if(a.length<2)return'<span class="err">Usage: chmod &lt;mode&gt; &lt;file&gt;</span>';var mode=a[0],f=a[1],fp=f.startsWith('/')?f:path+'/'+f;var file=get(fp);if(file){addIO('bash','chmod '+mode+' '+fp,'OK');return'<span class="ok">Permissions changed: '+fp+' -> '+mode+'</span>'}return'<span class="err">File not found: '+fp+'</span>'},
+install:function(a){if(!a[0])return'<span class="err">Usage: install &lt;package&gt;</span>';var pkg=a[0];addIO('bash','install '+pkg,'fetching...');return'<span class="info">Installing: '+pkg+'</span>\n[Package manager simulated in browser]\n✓ Dependencies resolved\n✓ Package installed'}
 };
-cmd.addEventListener('keydown',function(e){if(e.key==='Enter'){var c=cmd.value.trim();if(c){hist.push(c);hi=hist.length;var p=c.split(' '),cn=p[0],ar=p.slice(1);out.innerHTML+='<div><span class="prompt">user@filemanajer:~$</span><span>'+c+'</span></div>';if(cmds[cn]){var r=cmds[cn](ar);if(r)out.innerHTML+='<div>'+r+'</div>'}else{out.innerHTML+='<div class="err">Unknown: '+cn+'. Type help.</div>'}out.innerHTML+='<br>';scroll()}cmd.value=''}else if(e.key==='ArrowUp'){e.preventDefault();if(hi>0){hi--;cmd.value=hist[hi]}}else if(e.key==='ArrowDown'){e.preventDefault();if(hi<hist.length-1){hi++;cmd.value=hist[hi]}else{hi=hist.length;cmd.value=''}}});
+cmd.addEventListener('keydown',function(e){if(e.key==='Enter'){var c=cmd.value.trim();if(c){hist.push(c);hi=hist.length;var cn=c.split(' ')[0],ar=c.split(' ').slice(1);out.innerHTML+='<div><span class="prompt">user@filemanajer:~$</span><span>'+c+'</span></div>';if(c==='#!bash'){var bashCmd=ar.join(' ');if(cmds.bash){var r=cmds.bash(ar);if(r)out.innerHTML+='<div>'+r+'</div>'}}else if(cmds[cn]){var r=cmds[cn](ar);if(r)out.innerHTML+='<div>'+r+'</div>'}else{out.innerHTML+='<div class="err">Unknown: '+cn+'. Type help.</div>'}out.innerHTML+='<br>';scroll()}cmd.value=''}else if(e.key==='ArrowUp'){e.preventDefault();if(hi>0){hi--;cmd.value=hist[hi]}}else if(e.key==='ArrowDown'){e.preventDefault();if(hi<hist.length-1){hi++;cmd.value=hist[hi]}else{hi=hist.length;cmd.value=''}}});
 document.getElementById('tree').innerHTML=tree('/filemanajer');
 </script>
 </body>
