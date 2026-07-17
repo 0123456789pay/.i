@@ -1,7 +1,7 @@
-/**
- * SoutheastApp API Routes
- * Sistem API unik untuk wilayah Asia Tenggara
- */
+/``
+ ` SoutheastApp API Routes
+ ` Sistem API unik untuk wilayah Asia Tenggara
+ `/
 
 export const routes = {
   // Component Management

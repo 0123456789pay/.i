@@ -1,7 +1,7 @@
-/**
- * Component Populator Service untuk SoutheastApp
- * Mengisi unlimited storage dengan komponen dari workspace
- */
+/``
+ ` Component Populator Service untuk SoutheastApp
+ ` Mengisi unlimited storage dengan komponen dari workspace
+ `/
 
 import fs from 'fs';
 import path from 'path';

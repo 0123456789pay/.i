@@ -1,6 +1,6 @@
-/**
- * Locale Indonesia untuk SoutheastApp
- */
+/``
+ ` Locale Indonesia untuk SoutheastApp
+ `/
 
 export const idID = {
   common: {

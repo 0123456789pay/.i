@@ -1,7 +1,7 @@
-/**
- * Custom Hook untuk Component Management
- * useComponent - Hook untuk mengelola komponen dengan pola penamaan khusus
- */
+/``
+ ` Custom Hook untuk Component Management
+ ` useComponent - Hook untuk mengelola komponen dengan pola penamaan khusus
+ `/
 
 import { componentRegistry, getComponent, registerComponent } from '../components/index.js';
 

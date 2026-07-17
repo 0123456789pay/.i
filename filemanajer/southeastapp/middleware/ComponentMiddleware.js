@@ -1,7 +1,7 @@
-/**
- * Component Middleware for SoutheastApp
- * Middleware untuk validasi dan transformasi komponen
- */
+/``
+ ` Component Middleware for SoutheastApp
+ ` Middleware untuk validasi dan transformasi komponen
+ `/
 
 import { componentPattern } from '../components/index.js';
 
