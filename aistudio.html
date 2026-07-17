@@ -500,6 +500,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="digital/digital-system.css">
 </head>
 <body>
     <div class="container">
@@ -861,7 +862,9 @@
             const codes = {
                 javascript: `// Generated JavaScript code\nfunction main() {\n    console.log("Hello, World!");\n    // Your logic here\n}\n\nmain();`,
                 python: `# Generated Python code\ndef main():\n    print("Hello, World!")\n    # Your logic here\n\nif __name__ == "__main__":\n    main()`,
-                html: `<!-- Generated HTML code -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>My Page</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n</body>\n</html>`,
+                html: `<!-- Generated HTML code -->\n<!DOCTYPE html>\n<html>\n<head>\n    <title>My Page</title>\n    <link rel="stylesheet" href="digital/digital-system.css">
+</head>\n<body>\n    <h1>Hello, World!</h1>\n    <script src="digital/digital-system.js"></script>
+</body>\n</html>`,
                 react: `// Generated React component\nimport React from 'react';\n\nfunction MyComponent() {\n    return (\n        <div>\n            <h1>Hello, World!</h1>\n        </div>\n    );\n}\n\nexport default MyComponent;`,
                 nodejs: `// Generated Node.js code\nconst express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n    res.send('Hello, World!');\n});\n\napp.listen(3000, () => {\n    console.log('Server running on port 3000');\n});`
             };
@@ -1020,5 +1023,6 @@
             }
         }
     </script>
+    <script src="digital/digital-system.js"></script>
 </body>
 </html>

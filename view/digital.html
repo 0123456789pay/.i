@@ -57,6 +57,7 @@ body{font-family:'Segoe UI',sans-serif;background:#f0f4ff;min-height:100vh;color
 @media(max-width:1200px){.main-area{grid-template-columns:200px 1fr}.sidebar-right{display:none}}
 @media(max-width:768px){.main-area{grid-template-columns:1fr}.sidebar-left{display:none}}
 </style>
+    <link rel="stylesheet" href="../digital/digital-system.css">
 </head>
 <body>
 <div class="sandbox-container">
@@ -187,5 +188,6 @@ function genActivity(){const acts=['Processing','Syncing','Updating','Checking',
 setInterval(genActivity,5000);
 addLine('','');addLine('Commands: start, stop, restart, deploy','terminal-info');
 </script>
+    <script src="../digital/digital-system.js"></script>
 </body>
 </html>

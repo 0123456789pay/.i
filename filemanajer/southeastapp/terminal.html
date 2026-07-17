@@ -39,6 +39,7 @@
         .io-panel h3 { font-size: 0.8rem; color: var(--accent-color); margin-bottom: 0.5rem; }
         .io-content { font-size: 0.8rem; max-height: 150px; overflow-y: auto; white-space: pre-wrap; }
     </style>
+    <link rel="stylesheet" href="../../digital/digital-system.css">
 </head>
 <body>
     <div class="header"><h1>SoutheastApp Terminal - IO Executor</h1><div class="status" id="connectionStatus">Connected</div></div>
@@ -77,5 +78,6 @@
         function clearTerminal() { document.getElementById('terminalOutput').innerHTML = '<div class="output-line system">Terminal cleared</div><br>'; }
         function scrollToBottom() { const output = document.getElementById('terminalOutput'); output.scrollTop = output.scrollHeight; }
     </script>
+    <script src="../../digital/digital-system.js"></script>
 </body>
 </html>
