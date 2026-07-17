@@ -1,2 +1,2 @@
-// Archived Development Component Script
-export const ArchivedDev = { name: 'Archived', type: 'development' };
+// Archived2 Development Component Script
+export const Archived2Dev = { name: 'Archived2', type: 'development' };
