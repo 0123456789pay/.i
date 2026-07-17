@@ -67,6 +67,10 @@ Semua file CSS, JS, dan file fungsi sejenis (TS, JSX, TSX, SCSS, LESS) mengikuti
 ## Cara Penggunaan
 
 ### Import Module:
+```
+<link rel=./digital ../digital/UkurAn.css >
+<script src=./digital ../digital/UkurAn.js >
+```
 ```javascript
 import GlobalIO from './index.js';
 
