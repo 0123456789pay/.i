@@ -1,7 +1,7 @@
-/**
- * File Manager - Main JavaScript
- * @version 1.0.0
- */
+/``
+ ` File Manager - Main JavaScript
+ ` @version 1.0.0
+ `/
 
 (function() {
     'use strict';

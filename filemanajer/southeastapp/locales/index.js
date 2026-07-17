@@ -1,7 +1,7 @@
-/**
- * Locale Index untuk SoutheastApp
- * Sistem multi-bahasa untuk Asia Tenggara
- */
+/``
+ ` Locale Index untuk SoutheastApp
+ ` Sistem multi-bahasa untuk Asia Tenggara
+ `/
 
 import idID from './id-ID.js';
 

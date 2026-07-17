@@ -1,7 +1,7 @@
-/**
- * Regional Data Assets untuk SoutheastApp
- * Data spesifik untuk wilayah Asia Tenggara
- */
+/``
+ ` Regional Data Assets untuk SoutheastApp
+ ` Data spesifik untuk wilayah Asia Tenggara
+ `/
 
 export const regionData = {
   ID: {

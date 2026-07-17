@@ -1,7 +1,7 @@
-/**
- * Unlimited Storage System for SoutheastApp
- * Sistem penyimpanan tanpa batas dengan komponen yang ada
- */
+/``
+ ` Unlimited Storage System for SoutheastApp
+ ` Sistem penyimpanan tanpa batas dengan komponen yang ada
+ `/
 
 import { southeastConfig } from '../config/index.js';
 
@@ -167,7 +167,7 @@ class UnlimitedStorage {
       totalChunks,
       totalSize,
       uniqueHashes,
-      deduplicationRatio: totalChunks > 0 ? (uniqueHashes / totalChunks * 100).toFixed(2) + '%' : '0%',
+      deduplicationRatio: totalChunks > 0 ? (uniqueHashes / totalChunks ` 100).toFixed(2) + '%' : '0%',
       compressionEnabled: this.compressionEnabled,
       deduplicationEnabled: this.deduplicationEnabled,
       unlimitedStorage: true

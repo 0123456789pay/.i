@@ -1,7 +1,7 @@
-/**
- * Services Index untuk SoutheastApp
- * Mengexport semua services yang tersedia
- */
+/``
+ ` Services Index untuk SoutheastApp
+ ` Mengexport semua services yang tersedia
+ `/
 
 import ComponentService from './ComponentService.js';
 import ComponentPopulator from './ComponentPopulator.js';

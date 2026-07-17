@@ -1,7 +1,7 @@
-/**
- * SoutheastApp Components Index
- * Mengimpor dan mengekspor semua komponen dengan pola penamaan khusus
- */
+/``
+ ` SoutheastApp Components Index
+ ` Mengimpor dan mengekspor semua komponen dengan pola penamaan khusus
+ `/
 
 // Export pattern untuk komponen
 export const componentPattern = {

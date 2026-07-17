@@ -1,7 +1,7 @@
-/**
- * SoutheastApp Utility Helpers
- * Fungsi-fungsi bantuan untuk sistem
- */
+/``
+ ` SoutheastApp Utility Helpers
+ ` Fungsi-fungsi bantuan untuk sistem
+ `/
 
 // Format file size
 export function formatSize(bytes) {
@@ -61,7 +61,7 @@ export async function retry(fn, retries = 3, delay = 1000) {
   } catch (error) {
     if (retries === 0) throw error;
     await sleep(delay);
-    return retry(fn, retries - 1, delay * 2);
+    return retry(fn, retries - 1, delay ` 2);
   }
 }
 

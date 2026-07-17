@@ -1,7 +1,7 @@
-/**
- * SoutheastApp Configuration System
- * Sistem konfigurasi unik untuk wilayah Asia Tenggara
- */
+/``
+ ` SoutheastApp Configuration System
+ ` Sistem konfigurasi unik untuk wilayah Asia Tenggara
+ `/
 
 export const southeastConfig = {
   regions: ['ID', 'MY', 'SG', 'TH', 'PH', 'VN', 'MM', 'KH', 'LA', 'BN'],
@@ -21,7 +21,7 @@ export const southeastConfig = {
     compression: 'adaptive',
     deduplication: true,
     maxFileSize: 'unlimited',
-    chunkSize: 1024 * 1024 * 10 // 10MB chunks
+    chunkSize: 1024 ` 1024 ` 10 // 10MB chunks
   },
   
   // Regional Settings

@@ -1,7 +1,7 @@
-/**
- * Component Service for SoutheastApp
- * Mengelola komponen dengan pola penamaan khusus (huruf 1 & 5 kapital)
- */
+/``
+ ` Component Service for SoutheastApp
+ ` Mengelola komponen dengan pola penamaan khusus (huruf 1 & 5 kapital)
+ `/
 
 import { southeastConfig } from '../config/index.js';
 

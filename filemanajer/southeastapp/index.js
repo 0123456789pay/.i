@@ -1,7 +1,7 @@
-/**
- * SoutheastApp - Main Entry Point
- * Sistem berbeda daripada sistem lainnya
- */
+/``
+ ` SoutheastApp - Main Entry Point
+ ` Sistem berbeda daripada sistem lainnya
+ `/
 
 import { southeastConfig } from './config/index.js';
 import { UnlimitedStorage } from './storage/UnlimitedStorage.js';

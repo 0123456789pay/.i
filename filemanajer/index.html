@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>`terminal AI - FileManajer | southeastapp.github.io</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+`{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Courier New',monospace;background:#0c0c0c;color:#00ff00;height:100vh;display:flex;flex-direction:column}
 .header{background:#1a1a1a;padding:10px 20px;border-bottom:1px solid #333}
 .header h1{font-size:18px;color:#00ff00}
@@ -131,7 +131,7 @@ write:function(a){if(a.length<2)return'<span class="err">Usage: write &lt;file&g
 exec:function(a){if(!a[0])return'<span class="err">Usage: exec &lt;script&gt;</span>';var p=a[0].startsWith('/')?a[0]:path+'/'+a[0],c=cat(p);if(c){try{var r=eval(c);addIO('exec',p,String(r));return'<span class="ok">Executed: '+p+'\nResult: '+r+'</span>'}catch(e){return'<span class="err">Error: '+e.message+'</span>'}}return'<span class="err">Not found: '+p+'</span>'},
 run:function(a){return cmds.exec(a)},
 scan:function(){var r='<span class="info">AI Scanning all files in /southeastapp/...</span>\n';function sc(p,l){l=l||0;var i=ls(p);if(!i)return'';var s='';for(var x of i){var fp=p+'/'+x,f=get(fp);if(f.t==='f'){s+=Array(l+1).join('  ')+'📄 '+x+'\n';addIO('read',fp,f.v||'')}else{s+=Array(l+1).join('  ')+'📁 '+x+'/\n'+sc(fp,l+1)}}return s}return r+sc('/filemanajer/southeastapp')},
-tree:function(){return tree('/filemanajer').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,'  ')},
+tree:function(){return tree('/filemanajer').replace(/<[^>]`>/g,'').replace(/&nbsp;/g,'  ')},
 io:function(){return'Input:\n'+ioI.slice(-10).join('\n')+'\n\nOutput:\n'+ioO.slice(-10).join('\n')},
 status:function(){return'<span class="ok">✓ FileManajer AI OPERATIONAL</span>\nDomain: southeastapp.github.io\nRoot: /filemanajer/\nAI Source: /southeastapp/\nFolders: '+Object.keys(fs['/filemanajer'].c).length+'\nVersion: 5.0 (Backtick Terminal)\nI/O Streams: Active\nBash Mode: Enabled\nScript Execution: All types via `'},
 whoami:function(){return'user@filemanajer.southeastapp.github.io'},
