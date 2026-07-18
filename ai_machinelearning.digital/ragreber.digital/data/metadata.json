@@ -1,0 +1,258 @@
+{
+  "system": "RAGREBER.DIGITAL",
+  "description": "Retrieval-Augmented Generation Knowledge Base",
+  "total_files": 500,
+  "lines_per_file": 1000000,
+  "total_knowledge_points": 500000000,
+  "storage_mode": "simulated",
+  "actual_sample_files": 10,
+  "actual_sample_lines": 100,
+  "categories": {
+    "countries": [
+      "Indonesia",
+      "USA",
+      "China",
+      "Japan",
+      "Germany",
+      "UK",
+      "France",
+      "India",
+      "Brazil",
+      "Australia",
+      "Canada",
+      "Russia",
+      "South Korea",
+      "Italy",
+      "Spain",
+      "Mexico",
+      "Argentina",
+      "Egypt",
+      "Nigeria",
+      "South Africa"
+    ],
+    "cities": [
+      "Jakarta",
+      "Tokyo",
+      "Beijing",
+      "Berlin",
+      "London",
+      "Paris",
+      "New York",
+      "Mumbai",
+      "Sydney",
+      "Toronto",
+      "Moscow",
+      "Seoul",
+      "Rome",
+      "Madrid",
+      "Cairo",
+      "Lagos"
+    ],
+    "devices": [
+      "Router",
+      "Switch",
+      "Firewall",
+      "Server",
+      "Laptop",
+      "Smartphone",
+      "Tablet",
+      "IoT Sensor",
+      "Gateway",
+      "Modem",
+      "Access Point",
+      "Load Balancer",
+      "Proxy Server",
+      "Database Server",
+      "Web Server"
+    ],
+    "networks": [
+      "TCP/IP",
+      "HTTP/HTTPS",
+      "FTP",
+      "SSH",
+      "DNS",
+      "DHCP",
+      "VLAN",
+      "VPN",
+      "MPLS",
+      "SD-WAN",
+      "5G",
+      "LTE",
+      "WiFi 6",
+      "Bluetooth",
+      "Zigbee",
+      "LoRaWAN"
+    ],
+    "protocols": [
+      "REST API",
+      "GraphQL",
+      "gRPC",
+      "WebSocket",
+      "MQTT",
+      "AMQP",
+      "SOAP",
+      "JSON-RPC",
+      "XML-RPC",
+      "CORBA"
+    ],
+    "programming_languages": [
+      "Python",
+      "JavaScript",
+      "Java",
+      "C++",
+      "Go",
+      "Rust",
+      "Ruby",
+      "PHP",
+      "Swift",
+      "Kotlin",
+      "TypeScript",
+      "C#",
+      "R",
+      "Scala",
+      "Haskell"
+    ],
+    "frameworks": [
+      "React",
+      "Vue.js",
+      "Angular",
+      "Django",
+      "Flask",
+      "Spring Boot",
+      "Express.js",
+      "Laravel",
+      "Rails",
+      "FastAPI",
+      "Next.js",
+      "Nuxt.js",
+      "Svelte",
+      "ASP.NET"
+    ],
+    "databases": [
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "Elasticsearch",
+      "Cassandra",
+      "Oracle",
+      "SQL Server",
+      "SQLite",
+      "MariaDB",
+      "Firebase",
+      "DynamoDB"
+    ],
+    "cloud_providers": [
+      "AWS",
+      "Google Cloud",
+      "Microsoft Azure",
+      "Alibaba Cloud",
+      "IBM Cloud",
+      "Oracle Cloud",
+      "DigitalOcean",
+      "Linode",
+      "Vultr",
+      "Heroku"
+    ],
+    "security_terms": [
+      "Encryption",
+      "Authentication",
+      "Authorization",
+      "Firewall",
+      "IDS/IPS",
+      "SIEM",
+      "Penetration Testing",
+      "Vulnerability Assessment",
+      "Zero Trust",
+      "Multi-Factor Authentication"
+    ],
+    "ai_concepts": [
+      "Machine Learning",
+      "Deep Learning",
+      "Neural Networks",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Reinforcement Learning",
+      "Generative AI",
+      "Transformers",
+      "GANs",
+      "RAG Systems"
+    ]
+  },
+  "category_counts": {
+    "countries": 20,
+    "devices": 15,
+    "networks": 16,
+    "protocols": 10,
+    "languages": 15,
+    "frameworks": 14,
+    "databases": 12,
+    "cloud_providers": 10,
+    "security_terms": 10,
+    "ai_concepts": 10
+  },
+  "file_index": [
+    {
+      "file_id": 0,
+      "filename": "knowledge_0000.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 1,
+      "filename": "knowledge_0001.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 2,
+      "filename": "knowledge_0002.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 3,
+      "filename": "knowledge_0003.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 4,
+      "filename": "knowledge_0004.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 5,
+      "filename": "knowledge_0005.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 6,
+      "filename": "knowledge_0006.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 7,
+      "filename": "knowledge_0007.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 8,
+      "filename": "knowledge_0008.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    },
+    {
+      "file_id": 9,
+      "filename": "knowledge_0009.txt",
+      "total_lines": 1000000,
+      "sample_lines": 100
+    }
+  ],
+  "created_at": "2024-01-01T00:00:00Z",
+  "version": "1.0.0"
+}

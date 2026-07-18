@@ -261,18 +261,86 @@
             }, 1500);
         }
 
+        // RAG System Configuration
+        const RAG_CONFIG = {
+            endpoint: '../../ragreber.digital/data/',
+            metadataFile: '../../ragreber.digital/data/metadata.json',
+            totalKnowledgePoints: 500000000, // 500 juta poin pengetahuan
+            categories: ['countries', 'devices', 'networks', 'protocols', 'languages', 'frameworks', 'databases', 'cloud_providers', 'security_terms', 'ai_concepts']
+        };
+
+        // Load RAG knowledge base
+        let ragKnowledge = [];
+        let ragMetadata = null;
+
+        async function loadRAGData() {
+            try {
+                const response = await fetch(RAG_CONFIG.metadataFile);
+                ragMetadata = await response.json();
+                
+                // Load sample knowledge files
+                for (let i = 0; i < 10; i++) {
+                    const fileResponse = await fetch(`${RAG_CONFIG.endpoint}knowledge_${String(i).padStart(4, '0')}.txt`);
+                    const text = await fileResponse.text();
+                    const lines = text.split('\n').filter(line => line.trim());
+                    lines.forEach(line => {
+                        const parts = line.split('|');
+                        if (parts.length >= 3) {
+                            ragKnowledge.push({
+                                fileId: parts[0],
+                                lineId: parts[1],
+                                content: parts.slice(2).join('|')
+                            });
+                        }
+                    });
+                }
+                console.log(`RAG Loaded: ${ragKnowledge.length} knowledge points from ${ragMetadata.total_files} files (${ragMetadata.total_knowledge_points.toLocaleString()} capacity)`);
+            } catch (error) {
+                console.error('Error loading RAG data:', error);
+            }
+        }
+
+        function searchRAG(query) {
+            const queryLower = query.toLowerCase();
+            const results = ragKnowledge.filter(knowledge => {
+                const contentLower = knowledge.content.toLowerCase();
+                // Simple keyword matching (simulated semantic search)
+                const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2);
+                return queryWords.some(word => contentLower.includes(word));
+            }).slice(0, 5); // Return top 5 results
+            
+            return results;
+        }
+
         function generateResponse(input) {
+            const inputLower = input.toLowerCase();
+            
+            // Check RAG knowledge base first
+            const ragResults = searchRAG(input);
+            if (ragResults.length > 0) {
+                const randomResult = ragResults[Math.floor(Math.random() * ragResults.length)];
+                return `Berdasarkan basis pengetahuan RAGREBER.DIGITAL: ${randomResult.content}`;
+            }
+            
+            // Fallback to keyword-based responses
             const keywords = {
-                'halo': 'Halo juga! Senang bertemu dengan Anda.',
-                'apa': 'Saya adalah asisten AI yang siap membantu Anda.',
-                'bagaimana': 'Saya akan menjelaskan langkah-langkahnya secara detail.',
-                'mengapa': 'Pertanyaan yang bagus! Ada beberapa alasan untuk ini.',
-                'siapa': 'Saya adalah AI yang dikembangkan oleh AI_MACHINELEARNING.DIGITAL.',
-                'default': 'Saya akan memproses permintaan Anda dan memberikan jawaban terbaik.'
+                'halo': 'Halo juga! Senang bertemu dengan Anda. Saya memiliki akses ke 500 juta poin pengetahuan dari sistem RAG.',
+                'apa': 'Saya adalah asisten AI yang didukung oleh sistem RAG (Retrieval-Augmented Generation) dengan basis pengetahuan masif.',
+                'bagaimana': 'Saya akan menjelaskan langkah-langkahnya secara detail berdasarkan data dari sistem RAGREBER.DIGITAL.',
+                'mengapa': 'Pertanyaan yang bagus! Berdasarkan analisis dari basis pengetahuan kami, ada beberapa faktor yang mempengaruhi hal ini.',
+                'siapa': 'Saya adalah AI Assistant yang dikembangkan oleh AI_MACHINELEARNING.DIGITAL, didukung oleh sistem RAG dengan 500 juta poin pengetahuan.',
+                'negara': 'Sistem RAG kami menyimpan informasi tentang berbagai negara termasuk Indonesia, USA, China, Japan, Germany, dan banyak lagi.',
+                'perangkat': 'Dalam basis pengetahuan kami, terdapat informasi tentang Router, Switch, Firewall, Server, Laptop, Smartphone, dan perangkat jaringan lainnya.',
+                'jaringan': 'Kami memiliki data lengkap tentang TCP/IP, HTTP/HTTPS, FTP, SSH, DNS, DHCP, VLAN, VPN, 5G, WiFi 6, dan protokol jaringan lainnya.',
+                'bahasa pemrograman': 'Sistem RAG mencakup Python, JavaScript, Java, C++, Go, Rust, Ruby, PHP, Swift, Kotlin, TypeScript, dan bahasa lainnya.',
+                'database': 'Informasi tentang MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch, Cassandra, Oracle, SQL Server, dan database modern tersedia di RAG.',
+                'cloud': 'Kami memiliki data tentang AWS, Google Cloud, Microsoft Azure, Alibaba Cloud, IBM Cloud, dan penyedia cloud lainnya.',
+                'ai': 'Sistem RAG mencakup Machine Learning, Deep Learning, Neural Networks, NLP, Computer Vision, Generative AI, Transformers, dan konsep AI modern.',
+                'default': 'Saya akan mencari informasi terkait pertanyaan Anda dalam basis pengetahuan RAGREBER.DIGITAL yang berisi 500 juta poin pengetahuan.'
             };
 
             for (const [key, value] of Object.entries(keywords)) {
-                if (input.toLowerCase().includes(key)) {
+                if (inputLower.includes(key)) {
                     return value;
                 }
             }
@@ -346,8 +414,11 @@
             `;
         }
 
-        // Custom cursor
+        // Load RAG data on startup
         document.addEventListener('DOMContentLoaded', function() {
+            loadRAGData();
+            
+            // Custom cursor
             const cursor = document.createElement('div');
             cursor.className = 'custom-cursor';
             cursor.style.cssText = `
