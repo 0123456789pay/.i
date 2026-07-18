@@ -2,8 +2,8 @@
 # Build artifacts
 dist/
 build/
-*.min.css
 *.min.js
+*.min.css
 *.bundle.js
 
 # Dependencies
@@ -42,16 +42,6 @@ __pycache__/
 *.egg-info/
 .eggs/
 
-# Compiled files
-*.class
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
-*.out
-
 # Compressed files
 *.zip
 *.gz
@@ -71,33 +61,8 @@ __pycache__/
 *.Z
 *.lz
 *.lzo
-
-# Caching
-.cache/
-*.cache
-.tmp
-
-# Testing
-*.pytest_cache/
-.mypy_cache/
-.tox/
-.nyc_output/
-coverage.xml
-
-# Distribution
-*.egg
-*.whl
-dist/
-build/
-*.spec
-
-# IDE specific
-.vs/
-*.swp
-*.swo
-*~
-.DS_Store
-ehthumbs.db
-Icon?
-Thumbs.db
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 ```

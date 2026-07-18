@@ -126,7 +126,6 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">AI_MACHINELEARNING.DIGITAL</h1>
-            <p class="hero-subtitle">Pusat Sistem AI & Machine Learning Terintegrasi - 41+ Sistem Digital .digital</p>
             <div class="stats-container">
                 <div class="stat-box"><span class="stat-number" id="totalSystems">0</span><span class="stat-label">Sistem AI</span></div>
                 <div class="stat-box"><span class="stat-number" id="totalFolders">0</span><span class="stat-label">Folder</span></div>
@@ -135,6 +134,13 @@
             </div>
         </div>
     </section>
+
+    <!-- AI Studio Quick Access Menu -->
+    <div class="studio-quick-access">
+        <div class="studio-grid" id="studioQuickAccessGrid">
+            <!-- Studio cards will be rendered here by JavaScript -->
+        </div>
+    </div>
 
     <!-- Search Bar -->
     <div class="search-container">
@@ -186,21 +192,12 @@
         <!-- Quick Access Box System -->
         <div class="box-system">
             <div class="box-header">
-                <h3 class="box-title"><i class="fas fa-bolt"></i>Akses Cepat - AI Studio</h3>
-                <span class="badge bg-primary" id="totalStudioBadge">6 Studio</span>
+                <h3 class="box-title"><i class="fas fa-bolt"></i>Sistem AI .digital - Direktori Lengkap</h3>
+                <span class="badge bg-primary" id="totalSystemsBadge">41 Sistem</span>
             </div>
-            <div class="box-grid" id="quickAccessBox">
-                <!-- Studio cards will be rendered here -->
+            <div class="box-grid" id="systemsDirectory">
+                <!-- All 41 digital systems will be rendered here -->
             </div>
-        </div>
-
-        <!-- Directory Panel (Hidden by default) -->
-        <div id="directoryPanel" style="display: none;" class="box-system">
-            <div class="box-header">
-                <h3 class="box-title"><i class="fas fa-folder-open"></i>Direktori Lengkap Sistem AI</h3>
-                <button onclick="toggleDirectoryPanel()" class="btn btn-sm btn-outline-secondary"><i class="fas fa-times me-1"></i>Tutup</button>
-            </div>
-            <div class="box-grid" id="systemsDirectory"></div>
         </div>
     </main>
 
@@ -216,19 +213,6 @@
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
             <p style="opacity: 0.6; font-size: 0.9rem;">&copy; 2026 AI_MACHINELEARNING.DIGITAL. Semua hak dilindungi.</p>
-
-            <!-- Studio Menu -->
-            <div class="footer-directory-menu">
-                <h5 style="font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;"><i class="fas fa-layer-group me-2"></i>AI Studio - Alat Kreatif</h5>
-                <div class="directory-grid" id="studioGrid">
-                    <a href="studio/chat-generation/index.html" class="directory-link" target="_blank"><i class="fas fa-comments me-1"></i>Chat Generation</a>
-                    <a href="studio/web-app-builder/index.html" class="directory-link" target="_blank"><i class="fas fa-code me-1"></i>Web App Builder</a>
-                    <a href="studio/design-editor/index.html" class="directory-link" target="_blank"><i class="fas fa-palette me-1"></i>Design Editor</a>
-                    <a href="studio/image-generator/index.html" class="directory-link" target="_blank"><i class="fas fa-image me-1"></i>Image Generator</a>
-                    <a href="studio/video-maker/index.html" class="directory-link" target="_blank"><i class="fas fa-video me-1"></i>Video Maker</a>
-                    <a href="studio/search-engine/index.html" class="directory-link" target="_blank"><i class="fas fa-search me-1"></i>Search Engine</a>
-                </div>
-            </div>
         </div>
     </footer>
 
