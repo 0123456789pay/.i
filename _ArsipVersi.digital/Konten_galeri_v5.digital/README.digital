@@ -1,0 +1,23 @@
+# Konten - galeri
+
+## Deskripsi
+Modul galeri merupakan bagian dari menu Konten dalam sistem Media Digital.
+
+## Struktur Folder
+- `html/` - File antarmuka pengguna
+- `css/` - File styling
+- `js/` - File JavaScript
+- `php/` - File backend
+- `db/` - Schema database
+
+## Fitur
+- Antarmuka Bahasa Indonesia
+- Responsive design
+- API endpoint terintegrasi
+- Database schema lengkap
+
+## Versi
+1.0.0
+
+## Status
+Aktif
