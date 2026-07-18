@@ -1,46 +1,63 @@
 ```
-# Build artifacts
-dist/
-build/
-*.min.js
-*.min.css
-*.bundle.js
-
 # Dependencies
 node_modules/
 
-# Logs
-*.log
-
-# Environment variables
-.env
-.env.local
-*.env.*
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
+# Build artifacts
+dist/
+build/
+target/
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-*.so
-.PyCharmCache
+*.py.class
+*.py.obj
+*.py.out
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.directory
+.Trashes
+
+# Environment variables
+.env
+.env.local
+.env.*
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# IDE specific
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+.settings/
+.project
 
 # Compressed files
 *.zip
@@ -65,4 +82,10 @@ __pycache__/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Testing
+.pytest_cache/
+.mypy_cache/
+.nyc_output/
+coverage.xml
 ```
