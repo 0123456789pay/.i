@@ -124,109 +124,324 @@
             50% { transform: translateY(-100px) rotate(180deg); }
         }
 
-        /* Sidebar Navigation */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%);
-            color: white;
-            padding: 20px;
-            overflow-y: auto;
-            transition: transform 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
-        }
-
-        .sidebar.hidden {
-            transform: translateX(-280px);
-        }
-
-        .sidebar-header {
+        /* ==================== LANDING PAGE FULL SCREEN ==================== */
+        .landing-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1E293B 50%, #3B82F6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .landing-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .landing-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+        }
+
+        .landing-logo {
+            font-size: 5rem;
             margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .sidebar-header h1 {
-            font-size: 1.5rem;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .landing-title {
+            font-size: 3.5rem;
+            font-weight: 800;
             color: #FFFFFF;
-            font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: -1px;
+            line-height: 1.2;
         }
 
-        .sidebar-header p {
-            font-size: 0.8rem;
+        .landing-subtitle {
+            font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .nav-section {
-            margin-bottom: 25px;
+        .landing-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        .nav-section-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
-            padding-left: 10px;
+        .landing-cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+            color: #3B82F6;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;
         }
 
-        .nav-item {
+        .landing-cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ==================== NAVIGATION BAR WITH DROPDOWN ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 0 40px;
+            height: 70px;
             display: flex;
             align-items: center;
-            padding: 12px 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            justify-content: space-between;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3B82F6;
             text-decoration: none;
-            color: white;
-            margin-bottom: 5px;
         }
 
-        .nav-item:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateX(5px);
+        .navbar-brand-icon {
+            font-size: 2rem;
         }
 
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            list-style: none;
         }
 
-        .nav-item-icon {
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
+        .navbar-item {
+            position: relative;
+        }
+
+        .navbar-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .navbar-link:hover {
+            background: var(--background-tertiary);
+            color: var(--primary);
+        }
+
+        .navbar-link .arrow {
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-item:hover .navbar-link .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Panel */
+        .dropdown-panel {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            min-width: 600px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            z-index: 1001;
+        }
+
+        .navbar-item:hover .dropdown-panel {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .dropdown-panel-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--background-tertiary);
+        }
+
+        .dropdown-panel-icon {
+            font-size: 2rem;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 12px;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            border-radius: 12px;
+            color: white;
+        }
+
+        .dropdown-panel-title h3 {
             font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
         }
 
-        .nav-item-text {
-            flex: 1;
-            font-size: 0.9rem;
+        .dropdown-panel-title p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
         }
 
-        .nav-item-badge {
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .dropdown-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .dropdown-card:hover {
+            background: var(--background-tertiary);
+            border-color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        .dropdown-card-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .dropdown-card-name {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Navbar Actions */
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: none;
+            background: var(--background-tertiary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .navbar-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .navbar-btn .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
             background: var(--danger);
             color: white;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
         }
 
         /* Main Content */
         .main-content {
-            margin-left: 280px;
-            padding: 30px;
-            min-height: 100vh;
+            margin-top: 70px;
+            padding: 40px;
+            min-height: calc(100vh - 70px);
         }
 
         /* Top Bar */
@@ -1659,201 +1874,353 @@
     <!-- Background Animation -->
     <div class="bg-animation" id="bgAnimation"></div>
 
-    <!-- Menu Toggle -->
-    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <!-- Navigation Bar dengan Dropdown -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <span class="navbar-brand-icon">🌐</span>
+            <span>Pusat Domain Digital</span>
+        </a>
 
-    <!-- Sidebar Navigation -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h1>🌐 Pusat Domain Digital</h1>
-            <p>Penyedia Ekstensi Domain .digital .media .pers</p>
+        <ul class="navbar-menu">
+            <!-- Menu Domain -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>🌍</span>
+                    <span>Domain</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">🌍</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Domain & Lisensi</h3>
+                            <p>Ekstensi domain premium berlisensi</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="digital.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🌐</span>
+                            <span class="dropdown-card-name">Digital</span>
+                        </a>
+                        <a href="lisensimediadigital.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📜</span>
+                            <span class="dropdown-card-name">Lisensi Media</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu Browser -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>🌐</span>
+                    <span>Browser</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">🌐</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Browser</h3>
+                            <p>Jelajah internet dengan cepat</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="appbrowser.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🌍</span>
+                            <span class="dropdown-card-name">Browser</span>
+                        </a>
+                        <a href="appbrowser_pro.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">⚡</span>
+                            <span class="dropdown-card-name">Browser Pro</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu Produktivitas -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>💼</span>
+                    <span>Produktivitas</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">💼</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Produktivitas</h3>
+                            <p>Tools untuk meningkatkan produktivitas</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="appcalculator.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🔢</span>
+                            <span class="dropdown-card-name">Kalkulator</span>
+                        </a>
+                        <a href="appcalendar.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📅</span>
+                            <span class="dropdown-card-name">Kalender</span>
+                        </a>
+                        <a href="appclock.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">⏰</span>
+                            <span class="dropdown-card-name">Jam</span>
+                        </a>
+                        <a href="appnotes.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📝</span>
+                            <span class="dropdown-card-name">Catatan</span>
+                        </a>
+                        <a href="apptodo.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">✅</span>
+                            <span class="dropdown-card-name">To Do</span>
+                        </a>
+                        <a href="apptaskmanager.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📋</span>
+                            <span class="dropdown-card-name">Task Manager</span>
+                        </a>
+                        <a href="apptexteditor.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📄</span>
+                            <span class="dropdown-card-name">Text Editor</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu Komunikasi -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>💬</span>
+                    <span>Komunikasi</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">💬</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Komunikasi</h3>
+                            <p>Tetap terhubung dengan siapa saja</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="appemail.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📧</span>
+                            <span class="dropdown-card-name">Email</span>
+                        </a>
+                        <a href="appcontacts.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">👥</span>
+                            <span class="dropdown-card-name">Kontak</span>
+                        </a>
+                        <a href="appphone.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📞</span>
+                            <span class="dropdown-card-name">Telepon</span>
+                        </a>
+                        <a href="apptranslator.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🌐</span>
+                            <span class="dropdown-card-name">Penerjemah</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu Media -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>🎨</span>
+                    <span>Media</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">🎨</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Media & Kreativitas</h3>
+                            <p>Kelola dan buat konten media</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="appgallery.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🖼️</span>
+                            <span class="dropdown-card-name">Galeri</span>
+                        </a>
+                        <a href="appmusic.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🎵</span>
+                            <span class="dropdown-card-name">Musik</span>
+                        </a>
+                        <a href="appdrawing.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🎨</span>
+                            <span class="dropdown-card-name">Menggambar</span>
+                        </a>
+                        <a href="appvoicerecorder.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🎤</span>
+                            <span class="dropdown-card-name">Perekam Suara</span>
+                        </a>
+                        <a href="appscreencapture.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📸</span>
+                            <span class="dropdown-card-name">Screen Capture</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu Informasi -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>📰</span>
+                    <span>Informasi</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">📰</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Informasi</h3>
+                            <p>Akses informasi terkini</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="appnews.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📰</span>
+                            <span class="dropdown-card-name">Berita</span>
+                        </a>
+                        <a href="appweather.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🌤️</span>
+                            <span class="dropdown-card-name">Cuaca</span>
+                        </a>
+                        <a href="appmaps.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🗺️</span>
+                            <span class="dropdown-card-name">Peta</span>
+                        </a>
+                        <a href="appdictionary.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📖</span>
+                            <span class="dropdown-card-name">Kamus</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu File Manager -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>📁</span>
+                    <span>File Manager</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">📁</div>
+                        <div class="dropdown-panel-title">
+                            <h3>File Manager</h3>
+                            <p>Kelola file Anda dengan mudah</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="filemanager.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📂</span>
+                            <span class="dropdown-card-name">File Manager</span>
+                        </a>
+                        <a href="filemanajer.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🗂️</span>
+                            <span class="dropdown-card-name">File Manajer</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Menu Sistem -->
+            <li class="navbar-item">
+                <a href="#" class="navbar-link">
+                    <span>⚙️</span>
+                    <span>Sistem</span>
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-panel">
+                    <div class="dropdown-panel-header">
+                        <div class="dropdown-panel-icon">⚙️</div>
+                        <div class="dropdown-panel-title">
+                            <h3>Sistem & Tools</h3>
+                            <p>Pengaturan dan utilitas sistem</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-grid">
+                        <a href="appsettings.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">⚙️</span>
+                            <span class="dropdown-card-name">Pengaturan</span>
+                        </a>
+                        <a href="appcurrency.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">💱</span>
+                            <span class="dropdown-card-name">Konverter Mata Uang</span>
+                        </a>
+                        <a href="appunitconverter.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">📏</span>
+                            <span class="dropdown-card-name">Konverter Unit</span>
+                        </a>
+                        <a href="aistudio.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🤖</span>
+                            <span class="dropdown-card-name">AI Studio</span>
+                        </a>
+                        <a href="githubqwenintegration.html" class="dropdown-card">
+                            <span class="dropdown-card-icon">🐙</span>
+                            <span class="dropdown-card-name">GitHub Qwen</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="navbar-actions">
+            <button class="navbar-btn" onclick="toggleDarkMode()" title="Dark Mode">
+                🌙
+            </button>
+            <button class="navbar-btn" title="Notifikasi">
+                🔔
+                <span class="badge">3</span>
+            </button>
+            <button class="navbar-btn" title="Profil">
+                👤
+            </button>
+        </div>
+    </nav>
+
+    <!-- Landing Page Hero Section - Tampilan Pertama Dibuka -->
+    <section class="landing-hero" id="landingHero">
+        <div class="landing-hero-content">
+            <div class="landing-logo">🌐</div>
+            <div class="landing-badge">Berbayar dan Berlisensi</div>
+            <h1 class="landing-title">Penyedia Pusat Ekstensi Domain<br>.digital .media .pers</h1>
+            <p class="landing-subtitle">Platform digital premium dengan lisensi resmi untuk ekstensi domain terpercaya, aman, dan profesional</p>
+            <a href="#mainDashboard" class="landing-cta-btn">Jelajahi Sekarang →</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll untuk melanjutkan ↓</span>
+        </div>
+    </section>
+
+    <!-- Main Content Dashboard -->
+    <main class="main-content" id="mainDashboard">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="search-box">
+                <span>🔍</span>
+                <input type="text" id="searchInput" placeholder="Cari fitur atau modul..." onkeyup="searchModules()">
+            </div>
+            <div class="top-actions">
+                <button class="action-btn" onclick="refreshData()" title="Refresh">
+                    🔄
+                </button>
+                <button class="action-btn" onclick="toggleDarkMode()" title="Dark Mode">
+                    🌙
+                </button>
+                <button class="action-btn" onclick="showNotifications()" title="Notifikasi">
+                    🔔
+                    <span class="badge" id="notifBadge">3</span>
+                </button>
+                <button class="action-btn" onclick="showProfile()" title="Profil">
+                    👤
+                </button>
+            </div>
         </div>
 
-        <nav>
-            <div class="nav-section">
-                <div class="nav-section-title">Utama</div>
-                <a href="index.html" class="nav-item active">
-                    <div class="nav-item-icon">🏠</div>
-                    <span class="nav-item-text">Beranda</span>
-                </a>
-                <a href="dashboard/digital.html" class="nav-item">
-                    <div class="nav-item-icon">📊</div>
-                    <span class="nav-item-text">Analitik</span>
-                </a>
-                <a href="statistik.html" class="nav-item">
-                    <div class="nav-item-icon">📈</div>
-                    <span class="nav-item-text">Statistik</span>
-                </a>
-                <a href="kinerja.html" class="nav-item">
-                    <div class="nav-item-icon">⚡</div>
-                    <span class="nav-item-text">Kinerja</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-section-title">Chat & Pesan</div>
-                <a href="riwayat-chat.html" class="nav-item">
-                    <div class="nav-item-icon">💬</div>
-                    <span class="nav-item-text">Riwayat Chat</span>
-                </a>
-                <a href="grup-chat.html" class="nav-item">
-                    <div class="nav-item-icon">👥</div>
-                    <span class="nav-item-text">Grup Chat</span>
-                </a>
-                <a href="broadcast.html" class="nav-item">
-                    <div class="nav-item-icon">📢</div>
-                    <span class="nav-item-text">Broadcast</span>
-                </a>
-                <a href="quick-reply.html" class="nav-item">
-                    <div class="nav-item-icon">⚡</div>
-                    <span class="nav-item-text">Quick Reply</span>
-                </a>
-                <a href="auto-response.html" class="nav-item">
-                    <div class="nav-item-icon">🤖</div>
-                    <span class="nav-item-text">Auto Response</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-section-title">Media & File</div>
-                <a href="file-manager.html" class="nav-item">
-                    <div class="nav-item-icon">📁</div>
-                    <span class="nav-item-text">File Manager</span>
-                </a>
-                <a href="upload.html" class="nav-item">
-                    <div class="nav-item-icon">⬆️</div>
-                    <span class="nav-item-text">Upload</span>
-                </a>
-                <a href="download.html" class="nav-item">
-                    <div class="nav-item-icon">⬇️</div>
-                    <span class="nav-item-text">Download</span>
-                </a>
-                <a href="image-share.html" class="nav-item">
-                    <div class="nav-item-icon">🖼️</div>
-                    <span class="nav-item-text">Image Share</span>
-                </a>
-                <a href="video.html" class="nav-item">
-                    <div class="nav-item-icon">🎬</div>
-                    <span class="nav-item-text">Video</span>
-                </a>
-                <a href="audio.html" class="nav-item">
-                    <div class="nav-item-icon">🎵</div>
-                    <span class="nav-item-text">Audio</span>
-                </a>
-                <a href="voice-note.html" class="nav-item">
-                    <div class="nav-item-icon">🎤</div>
-                    <span class="nav-item-text">Voice Note</span>
-                </a>
-                <a href="sticker.html" class="nav-item">
-                    <div class="nav-item-icon">😊</div>
-                    <span class="nav-item-text">Sticker</span>
-                </a>
-                <a href="gif.html" class="nav-item">
-                    <div class="nav-item-icon">🎭</div>
-                    <span class="nav-item-text">GIF</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-section-title">Pengaturan</div>
-                <a href="pengaturan.html" class="nav-item">
-                    <div class="nav-item-icon">⚙️</div>
-                    <span class="nav-item-text">Pengaturan</span>
-                </a>
-                <a href="profil.html" class="nav-item">
-                    <div class="nav-item-icon">👤</div>
-                    <span class="nav-item-text">Profil</span>
-                </a>
-                <a href="keamanan.html" class="nav-item">
-                    <div class="nav-item-icon">🔒</div>
-                    <span class="nav-item-text">Keamanan</span>
-                </a>
-                <a href="privasi.html" class="nav-item">
-                    <div class="nav-item-icon">🛡️</div>
-                    <span class="nav-item-text">Privasi</span>
-                </a>
-                <a href="notifikasi.html" class="nav-item">
-                    <div class="nav-item-icon">🔔</div>
-                    <span class="nav-item-text">Notifikasi</span>
-                </a>
-                <a href="tema.html" class="nav-item">
-                    <div class="nav-item-icon">🎨</div>
-                    <span class="nav-item-text">Tema</span>
-                </a>
-                <a href="bahasa.html" class="nav-item">
-                    <div class="nav-item-icon">🌐</div>
-                    <span class="nav-item-text">Bahasa</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-section-title">Lainnya</div>
-                <a href="bookmarks.html" class="nav-item">
-                    <div class="nav-item-icon">🔖</div>
-                    <span class="nav-item-text">Bookmarks</span>
-                </a>
-                <a href="notes.html" class="nav-item">
-                    <div class="nav-item-icon">📝</div>
-                    <span class="nav-item-text">Notes</span>
-                </a>
-                <a href="calendar.html" class="nav-item">
-                    <div class="nav-item-icon">📅</div>
-                    <span class="nav-item-text">Calendar</span>
-                </a>
-                <a href="tasks.html" class="nav-item">
-                    <div class="nav-item-icon">✅</div>
-                    <span class="nav-item-text">Tasks</span>
-                </a>
-                <a href="reminder.html" class="nav-item">
-                    <div class="nav-item-icon">⏰</div>
-                    <span class="nav-item-text">Reminder</span>
-                </a>
-                <a href="schedule.html" class="nav-item">
-                    <div class="nav-item-icon">📆</div>
-                    <span class="nav-item-text">Schedule</span>
-                </a>
-            </div>
-
-            <div class="nav-section">
-                <div class="nav-section-title">Sistem</div>
-                <a href="system-info.html" class="nav-item">
-                    <div class="nav-item-icon">ℹ️</div>
-                    <span class="nav-item-text">System Info</span>
-                </a>
-                <a href="error-log.html" class="nav-item">
-                    <div class="nav-item-icon">🐛</div>
-                    <span class="nav-item-text">Error Log</span>
-                </a>
-                <a href="log-aktivitas.html" class="nav-item">
-                    <div class="nav-item-icon">📋</div>
-                    <span class="nav-item-text">Log Aktivitas</span>
-                </a>
-                <a href="database.html" class="nav-item">
-                    <div class="nav-item-icon">🗄️</div>
-                    <span class="nav-item-text">Database</span>
-                </a>
-                <a href="backup.html" class="nav-item">
-                    <div class="nav-item-icon">💾</div>
-                    <span class="nav-item-text">Backup</span>
-                </a>
-                <a href="restore.html" class="nav-item">
-                    <div class="nav-item-icon">🔄</div>
-                    <span class="nav-item-text">Restore</span>
-                </a>
-            </div>
-        </nav>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Banner Penyedia Domain -->
-        <div class="domain-banner">
-            <div class="banner-content">
-                <h2>Sebagai Penyedia Pusat Ekstensi Domain .digital .media .pers - Berbayar dan Berlisensi</h2>
-            </div>
-        </div>
-
-        <!-- Landing Page - Index Menu Semua HTML -->
+        <!-- Portal Aplikasi Section -->
         <section class="landing-page-section">
             <div class="landing-header">
                 <h1>🌐 Portal Aplikasi Digital</h1>
