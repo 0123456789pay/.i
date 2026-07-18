@@ -277,10 +277,11 @@
             height: 100%;
             border: none;
             background: #fff;
+            display: none;
         }
 
         .empty-state {
-            display: flex;
+            display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -288,6 +289,57 @@
             color: #999;
             text-align: center;
             padding: 40px;
+        }
+
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .landing-page h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .landing-page p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .landing-page .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .landing-page .feature-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .landing-page .feature-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .landing-page .feature-item p {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.8;
         }
 
         .empty-state svg {
@@ -416,6 +468,24 @@
                 <h3>Belum ada file yang dipilih</h3>
                 <p>Klik pada nama file di menu untuk melihat tampilannya</p>
             </div>
+            <div class="landing-page" id="landing-page">
+                <h1>🚀 Digital Hub</h1>
+                <p>Platform Direktori HTML Terkategorisasi</p>
+                <div class="features">
+                    <div class="feature-item">
+                        <h3>📁 12 Kategori</h3>
+                        <p>AI, Data, Design, Files, Hosting, Media, News, Payment, Root, Social, Traffic, View</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>⚡ Cepat & Mudah</h3>
+                        <p>Akses semua file HTML dengan mudah melalui menu navigasi</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>🎨 Preview Langsung</h3>
+                        <p>Lihat tampilan file secara real-time dalam iframe</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="stats-bar">
@@ -435,13 +505,22 @@
                 const response = await fetch('file-categories.json');
                 if (response.ok) {
                     fileData = await response.json();
-                    renderCategories();
+                    renderNavMenu();
                     updateStats();
                     
-                    // Check for hash in URL
+                    // Check for hash in URL - if present, load that file and hide landing page
                     const hash = decodeURIComponent(window.location.hash.substring(1));
                     if (hash) {
-                        setTimeout(() => loadFileByPath(hash), 500);
+                        setTimeout(() => {
+                            loadFileByPath(hash);
+                            // Hide landing page when loading from hash
+                            const landingPage = document.getElementById('landing-page');
+                            const frame = document.getElementById('preview-frame');
+                            if (landingPage && frame && frame.src !== 'about:blank') {
+                                landingPage.style.display = 'none';
+                                frame.style.display = 'block';
+                            }
+                        }, 500);
                     }
                 } else {
                     throw new Error('Gagal memuat file-categories.json');
@@ -527,11 +606,13 @@
 
                 files.forEach(file => {
                     const safePath = file.path.replace(/'/g, "\\'").replace(/"/g, '&quot;');
+                    // Remove .html extension from display name
+                    const displayName = file.name.replace(/\.html$/i, '');
                     const safeName = file.name.replace(/'/g, "\\'").replace(/"/g, '&quot;');
                     html += `
                         <a href="#" class="file-item-dropdown" onclick="loadFile('${safePath}', '${safeName}'); return false;">
                             <span class="file-icon">📄</span>
-                            <span>${file.name}</span>
+                            <span>${displayName}</span>
                         </a>
                     `;
                 });
@@ -568,10 +649,13 @@
                 event.currentTarget.classList.add('active');
             }
 
-            // Load file in iframe
+            // Hide landing page and show iframe content
+            const landingPage = document.getElementById('landing-page');
             const frame = document.getElementById('preview-frame');
             const emptyState = document.getElementById('empty-state');
             
+            landingPage.style.display = 'none';
+            frame.style.display = 'block';
             frame.src = path;
             emptyState.style.display = 'none';
             
@@ -605,6 +689,14 @@
                     }
                     break;
                 }
+            }
+            
+            // If no file was found/loaded, show landing page
+            const frame = document.getElementById('preview-frame');
+            const landingPage = document.getElementById('landing-page');
+            if (!currentFile || !frame.src || frame.src === 'about:blank') {
+                landingPage.style.display = 'flex';
+                frame.style.display = 'none';
             }
         }
 
