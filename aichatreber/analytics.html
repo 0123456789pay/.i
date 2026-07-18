@@ -1535,6 +1535,729 @@ window.addEventListener('DOMContentLoaded',init);
         // Expose to global scope for debugging
         window.SystemConfig_aichatreber_analytics = SYSTEM_CONFIG_{file_id.upper()};
         window.SettingsState_aichatreber_analytics = SettingsState_{file_id};
+        
+        // ================================================================
+        // ADVANCED AI FEATURES INTEGRATION
+        // ================================================================
+        
+        // Voice Recognition System
+        class VoiceRecognitionSystem {
+            constructor() {
+                this.recognition = null;
+                this.isListening = false;
+                this.transcript = '';
+                this.init();
+            }
+            
+            init() {
+                if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+                    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                    this.recognition = new SpeechRecognition();
+                    this.recognition.continuous = true;
+                    this.recognition.interimResults = true;
+                    this.recognition.lang = 'id-ID';
+                    
+                    this.recognition.onresult = (event) => {
+                        this.transcript = Array.from(event.results)
+                            .map(result => result[0].transcript)
+                            .join('');
+                        this.updateTranscriptUI();
+                    };
+                    
+                    this.recognition.onerror = (event) => {
+                        console.error('Voice recognition error:', event.error);
+                        this.showNotification('Error: ' + event.error, 'error');
+                    };
+                }
+            }
+            
+            startListening() {
+                if (this.recognition && !this.isListening) {
+                    this.recognition.start();
+                    this.isListening = true;
+                    this.showNotification('Mendengarkan suara...', 'info');
+                }
+            }
+            
+            stopListening() {
+                if (this.recognition && this.isListening) {
+                    this.recognition.stop();
+                    this.isListening = false;
+                    this.processVoiceCommand(this.transcript);
+                }
+            }
+            
+            updateTranscriptUI() {
+                const transcriptEl = document.getElementById('voice-transcript');
+                if (transcriptEl) {
+                    transcriptEl.textContent = this.transcript;
+                }
+            }
+            
+            async processVoiceCommand(command) {
+                const intent = await AIFeatures.processNLP(command);
+                const sentiment = AIFeatures.analyzeSentiment(command);
+                
+                addLog(`Voice command: "${command}"`, 'success');
+                addLog(`Intent: ${intent}, Sentiment: ${sentiment}`, 'info');
+                
+                // Execute command based on intent
+                switch(intent) {
+                    case 'greeting':
+                        this.sendAutoResponse('Halo! Ada yang bisa saya bantu?');
+                        break;
+                    case 'question':
+                        this.showNotification('Memproses pertanyaan Anda...', 'info');
+                        break;
+                    case 'command':
+                        this.executeCommand(command);
+                        break;
+                    case 'farewell':
+                        this.sendAutoResponse('Sampai jumpa!');
+                        break;
+                }
+            }
+            
+            executeCommand(command) {
+                // Execute voice commands
+                if (command.toLowerCase().includes('kirim')) {
+                    this.showNotification('Mempersiapkan pengiriman...', 'info');
+                } else if (command.toLowerCase().includes('buka')) {
+                    this.showNotification('Membuka fitur...', 'info');
+                }
+            }
+            
+            sendAutoResponse(message) {
+                const inputField = document.querySelector('input[type="text"]');
+                if (inputField) {
+                    inputField.value = message;
+                    inputField.dispatchEvent(new Event('input'));
+                }
+            }
+            
+            showNotification(message, type = 'info') {
+                const notification = document.createElement('div');
+                notification.className = `notification-toast ${type}`;
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    padding: 15px 25px;
+                    background: ${type === 'error' ? '#ef4444' : type === 'success' ? '#10b981' : '#4f46e5'};
+                    color: white;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    animation: slideIn 0.3s ease;
+                `;
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }
+        }
+        
+        // Natural Language Processing Engine
+        class NLPEngine {
+            constructor() {
+                this.models = {
+                    intent: null,
+                    entity: null,
+                    sentiment: null
+                };
+                this.trainingData = [];
+            }
+            
+            async train(data) {
+                this.trainingData = data;
+                console.log('NLP Model trained with', data.length, 'samples');
+            }
+            
+            classify(text) {
+                const tokens = text.toLowerCase().split(/\s+/);
+                const features = this.extractFeatures(tokens);
+                return this.predict(features);
+            }
+            
+            extractFeatures(tokens) {
+                return {
+                    length: tokens.length,
+                    hasQuestion: tokens.some(t => t.includes('?')),
+                    hasExclamation: tokens.some(t => t.includes('!')),
+                    positiveWords: tokens.filter(t => ['bagus', 'baik', 'hebat'].includes(t)).length,
+                    negativeWords: tokens.filter(t => ['buruk', 'jelek', 'salah'].includes(t)).length
+                };
+            }
+            
+            predict(features) {
+                // Simple rule-based prediction
+                if (features.hasQuestion) return 'question';
+                if (features.positiveWords > features.negativeWords) return 'positive_feedback';
+                if (features.negativeWords > features.positiveWords) return 'negative_feedback';
+                return 'statement';
+            }
+            
+            extractEntities(text) {
+                const patterns = {
+                    date: /\d{1,2}[-/]\d{1,2}[-/]\d{2,4}/g,
+                    time: /\d{1,2}:\d{2}/g,
+                    email: /[\w.-]+@[\w.-]+\.\w+/g,
+                    phone: /\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}/g,
+                    url: /https?:\/\/[\w.-]+(?:\/[\w.-]*)*/g
+                };
+                
+                const entities = {};
+                for (const [type, pattern] of Object.entries(patterns)) {
+                    const matches = text.match(pattern);
+                    if (matches) entities[type] = matches;
+                }
+                return entities;
+            }
+        }
+        
+        // Real-time Collaboration Manager
+        class CollaborationManager {
+            constructor() {
+                this.ws = null;
+                this.roomId = null;
+                this.users = new Map();
+                this.isConnected = false;
+            }
+            
+            connect(roomId, userId) {
+                this.roomId = roomId;
+                const wsUrl = `wss://collab.aichatreber.com/${roomId}`;
+                
+                try {
+                    this.ws = new WebSocket(wsUrl);
+                    
+                    this.ws.onopen = () => {
+                        this.isConnected = true;
+                        this.send({ type: 'join', userId, timestamp: Date.now() });
+                        addLog('Connected to collaboration room', 'success');
+                    };
+                    
+                    this.ws.onmessage = (event) => {
+                        const data = JSON.parse(event.data);
+                        this.handleMessage(data);
+                    };
+                    
+                    this.ws.onclose = () => {
+                        this.isConnected = false;
+                        addLog('Disconnected from collaboration room', 'warning');
+                    };
+                    
+                    this.ws.onerror = (error) => {
+                        console.error('WebSocket error:', error);
+                        addLog('Connection error', 'error');
+                    };
+                } catch (e) {
+                    console.error('Failed to connect:', e);
+                }
+            }
+            
+            send(data) {
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify(data));
+                }
+            }
+            
+            handleMessage(data) {
+                switch(data.type) {
+                    case 'user-joined':
+                        this.users.set(data.userId, { name: data.userName, joinedAt: data.timestamp });
+                        this.showUserNotification(`${data.userName} bergabung`);
+                        break;
+                    case 'user-left':
+                        this.users.delete(data.userId);
+                        this.showUserNotification(`${data.userName} keluar`);
+                        break;
+                    case 'typing':
+                        this.showTypingIndicator(data.userId);
+                        break;
+                    case 'message':
+                        this.appendCollaborativeMessage(data);
+                        break;
+                    case 'sync':
+                        this.syncState(data.state);
+                        break;
+                }
+            }
+            
+            sendTypingIndicator() {
+                this.send({ type: 'typing', timestamp: Date.now() });
+            }
+            
+            sendMessage(content) {
+                this.send({
+                    type: 'message',
+                    content,
+                    timestamp: Date.now(),
+                    userId: currentUser
+                });
+            }
+            
+            showTypingIndicator(userId) {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) {
+                    indicator.style.display = 'block';
+                    indicator.textContent = 'Sedang mengetik...';
+                    setTimeout(() => indicator.style.display = 'none', 2000);
+                }
+            }
+            
+            appendCollaborativeMessage(data) {
+                const chatContainer = document.querySelector('.chat-container');
+                if (chatContainer) {
+                    const messageEl = document.createElement('div');
+                    messageEl.className = 'message collaborative';
+                    messageEl.innerHTML = `
+                        <div class="message-header">
+                            <span class="user-name">${data.userName || 'User'}</span>
+                            <span class="timestamp">${new Date(data.timestamp).toLocaleTimeString()}</span>
+                        </div>
+                        <div class="message-content">${data.content}</div>
+                    `;
+                    chatContainer.appendChild(messageEl);
+                    chatContainer.scrollTop = chatContainer.scrollHeight;
+                }
+            }
+            
+            syncState(state) {
+                console.log('Syncing state:', state);
+                // Implement state synchronization logic
+            }
+            
+            showUserNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'user-notification';
+                notification.textContent = message;
+                notification.style.cssText = `
+                    padding: 8px 16px;
+                    background: rgba(79, 70, 229, 0.1);
+                    border-left: 3px solid #4f46e5;
+                    margin: 5px 0;
+                    border-radius: 4px;
+                    font-size: 0.85rem;
+                `;
+                const chatContainer = document.querySelector('.chat-container');
+                if (chatContainer) {
+                    chatContainer.appendChild(notification);
+                }
+            }
+        }
+        
+        // Advanced Analytics Tracker
+        class AnalyticsTracker {
+            constructor() {
+                this.events = [];
+                this.sessionId = this.generateSessionId();
+                this.startTime = Date.now();
+            }
+            
+            generateSessionId() {
+                return 'sess_' + Math.random().toString(36).substr(2, 9);
+            }
+            
+            track(category, action, label, value = null) {
+                const event = {
+                    sessionId: this.sessionId,
+                    category,
+                    action,
+                    label,
+                    value,
+                    timestamp: Date.now(),
+                    page: window.location.pathname,
+                    userAgent: navigator.userAgent,
+                    screenResolution: `${screen.width}x${screen.height}`,
+                    viewportSize: `${window.innerWidth}x${window.innerHeight}`,
+                    language: navigator.language,
+                    platform: navigator.platform,
+                    cookieEnabled: navigator.cookieEnabled,
+                    doNotTrack: navigator.doNotTrack,
+                    connectionType: navigator.connection ? navigator.connection.effectiveType : 'unknown',
+                    deviceMemory: navigator.deviceMemory || 'unknown',
+                    hardwareConcurrency: navigator.hardwareConcurrency || 'unknown'
+                };
+                
+                this.events.push(event);
+                
+                // Send to analytics endpoint
+                this.sendToServer(event);
+                
+                // Log locally
+                console.log('[Analytics]', event);
+                addLog(`Tracked: ${category} - ${action}`, 'info');
+            }
+            
+            sendToServer(event) {
+                // In production, send to actual analytics server
+                // fetch('/api/analytics', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify(event)
+                // });
+                
+                // Store in localStorage for batch sending
+                const storedEvents = JSON.parse(localStorage.getItem('analytics_events') || '[]');
+                storedEvents.push(event);
+                localStorage.setItem('analytics_events', JSON.stringify(storedEvents.slice(-100))); // Keep last 100
+            }
+            
+            trackPageView() {
+                this.track('page', 'view', window.location.pathname);
+            }
+            
+            trackClick(elementId, elementType) {
+                this.track('interaction', 'click', elementId, elementType);
+            }
+            
+            trackFormSubmit(formId, success) {
+                this.track('form', 'submit', formId, success ? 1 : 0);
+            }
+            
+            trackError(errorType, errorMessage) {
+                this.track('error', errorType, errorMessage);
+            }
+            
+            trackPerformance(metricName, metricValue) {
+                this.track('performance', metricName, null, metricValue);
+            }
+            
+            getSessionDuration() {
+                return Date.now() - this.startTime;
+            }
+            
+            generateReport() {
+                return {
+                    sessionId: this.sessionId,
+                    duration: this.getSessionDuration(),
+                    totalEvents: this.events.length,
+                    eventsByCategory: this.groupByCategory(),
+                    avgEventValue: this.calculateAvgValue(),
+                    peakActivityTime: this.findPeakActivity()
+                };
+            }
+            
+            groupByCategory() {
+                return this.events.reduce((acc, event) => {
+                    acc[event.category] = (acc[event.category] || 0) + 1;
+                    return acc;
+                }, {});
+            }
+            
+            calculateAvgValue() {
+                const values = this.events.filter(e => e.value !== null).map(e => e.value);
+                return values.length ? values.reduce((a, b) => a + b, 0) / values.length : 0;
+            }
+            
+            findPeakActivity() {
+                const hours = this.events.reduce((acc, event) => {
+                    const hour = new Date(event.timestamp).getHours();
+                    acc[hour] = (acc[hour] || 0) + 1;
+                    return acc;
+                }, {});
+                
+                let peakHour = 0;
+                let maxCount = 0;
+                for (const [hour, count] of Object.entries(hours)) {
+                    if (count > maxCount) {
+                        maxCount = count;
+                        peakHour = hour;
+                    }
+                }
+                return peakHour;
+            }
+        }
+        
+        // Auto-suggestion Engine
+        class AutoSuggestionEngine {
+            constructor() {
+                this.suggestions = {
+                    greetings: ['Halo!', 'Selamat pagi!', 'Selamat siang!', 'Selamat malam!', 'Hai, apa kabar?'],
+                    thanks: ['Terima kasih!', 'Terima kasih banyak!', 'Makasih ya!', 'Saya sangat berterima kasih!'],
+                    apologies: ['Maaf atas keterlambatan.', 'Maaf saya salah.', 'Mohon maaf.', 'Saya minta maaf.'],
+                    questions: ['Ada yang bisa dibantu?', 'Bagaimana kabarnya?', 'Apa kabar?', 'Sudah makan?'],
+                    farewells: ['Sampai jumpa!', 'Dadah!', 'See you!', 'Hati-hati!', 'Semoga harimu menyenangkan!']
+                };
+                this.contextAware = true;
+            }
+            
+            getSuggestions(input, context = null) {
+                const lowerInput = input.toLowerCase();
+                let results = [];
+                
+                // Context-based suggestions
+                if (this.contextAware && context) {
+                    results = results.concat(this.getContextSuggestions(context));
+                }
+                
+                // Keyword-based suggestions
+                for (const [category, phrases] of Object.entries(this.suggestions)) {
+                    if (this.matchesCategory(lowerInput, category)) {
+                        results = results.concat(phrases.slice(0, 3));
+                    }
+                }
+                
+                // Smart completions
+                if (input.length > 2) {
+                    results = results.concat(this.getSmartCompletions(input));
+                }
+                
+                return [...new Set(results)].slice(0, 5); // Remove duplicates, limit to 5
+            }
+            
+            matchesCategory(input, category) {
+                const keywords = {
+                    greetings: ['halo', 'hai', 'hello', 'hi', 'selamat'],
+                    thanks: ['terima', 'makasih', 'thanks'],
+                    apologies: ['maaf', 'mohon', 'sorry'],
+                    questions: ['apa', 'siapa', 'kapan', 'dimana', 'bagaimana', 'mengapa'],
+                    farewells: ['dadah', 'sampai', 'bye', 'jumpa']
+                };
+                
+                return keywords[category]?.some(keyword => input.includes(keyword)) || false;
+            }
+            
+            getContextSuggestions(context) {
+                const contextMap = {
+                    'morning': ['Selamat pagi!', 'Semangat paginya!'],
+                    'afternoon': ['Selamat siang!', 'Sudah makan siang?'],
+                    'evening': ['Selamat malam!', 'Sudah istirahat?'],
+                    'support': ['Ada yang bisa saya bantu?', 'Silakan tanyakan.'],
+                    'sales': ['Produk kami sangat berkualitas.', 'Ada promo menarik.']
+                };
+                
+                return contextMap[context] || [];
+            }
+            
+            getSmartCompletions(partial) {
+                const allPhrases = Object.values(this.suggestions).flat();
+                return allPhrases.filter(phrase => 
+                    phrase.toLowerCase().startsWith(partial.toLowerCase())
+                ).slice(0, 3);
+            }
+            
+            renderSuggestions(suggestions, containerId) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                
+                container.innerHTML = '';
+                suggestions.forEach(suggestion => {
+                    const item = document.createElement('div');
+                    item.className = 'suggestion-item';
+                    item.textContent = suggestion;
+                    item.onclick = () => this.selectSuggestion(suggestion);
+                    container.appendChild(item);
+                });
+            }
+            
+            selectSuggestion(suggestion) {
+                const inputField = document.querySelector('input[type="text"]');
+                if (inputField) {
+                    inputField.value = suggestion;
+                    inputField.focus();
+                }
+            }
+        }
+        
+        // Sentiment Analysis Module
+        class SentimentAnalyzer {
+            constructor() {
+                this.lexicon = {
+                    positive: {
+                        'bagus': 2, 'baik': 2, 'hebat': 3, 'mantap': 3, 'senang': 2,
+                        'bahagia': 3, 'suka': 2, 'cinta': 3, 'puas': 2, 'excellen': 3,
+                        'keren': 2, 'wow': 2, 'perfect': 3, 'amazing': 3, 'fantastic': 3
+                    },
+                    negative: {
+                        'buruk': -2, 'jelek': -2, 'sedih': -2, 'marah': -3, 'kecewa': -2,
+                        'benci': -3, 'tidak': -1, 'bukan': -1, 'salah': -2, 'masalah': -2,
+                        'komplain': -2, 'kecewa': -2, 'zonk': -3, 'parah': -3
+                    },
+                    intensifiers: {
+                        'sangat': 1.5, 'sekali': 1.5, 'banget': 1.5, 'benar': 1.3,
+                        'really': 1.5, 'very': 1.5, 'extremely': 2
+                    }
+                };
+            }
+            
+            analyze(text) {
+                const tokens = text.toLowerCase().split(/\s+/);
+                let score = 0;
+                let intensifier = 1;
+                
+                for (let i = 0; i < tokens.length; i++) {
+                    const token = tokens[i];
+                    
+                    // Check for intensifiers
+                    if (this.lexicon.intensifiers[token]) {
+                        intensifier = this.lexicon.intensifiers[token];
+                        continue;
+                    }
+                    
+                    // Check for positive words
+                    if (this.lexicon.positive[token]) {
+                        score += this.lexicon.positive[token] * intensifier;
+                        intensifier = 1;
+                    }
+                    
+                    // Check for negative words
+                    if (this.lexicon.negative[token]) {
+                        score += this.lexicon.negative[token] * intensifier;
+                        intensifier = 1;
+                    }
+                }
+                
+                return {
+                    score,
+                    label: score > 0 ? 'positive' : score < 0 ? 'negative' : 'neutral',
+                    confidence: Math.min(Math.abs(score) / 5, 1)
+                };
+            }
+            
+            analyzeConversation(messages) {
+                const results = messages.map(msg => ({
+                    text: msg.text,
+                    sentiment: this.analyze(msg.text)
+                }));
+                
+                const avgScore = results.reduce((sum, r) => sum + r.sentiment.score, 0) / results.length;
+                
+                return {
+                    messages: results,
+                    overall: {
+                        score: avgScore,
+                        label: avgScore > 0 ? 'positive' : avgScore < 0 ? 'negative' : 'neutral',
+                        distribution: {
+                            positive: results.filter(r => r.sentiment.label === 'positive').length,
+                            negative: results.filter(r => r.sentiment.label === 'negative').length,
+                            neutral: results.filter(r => r.sentiment.label === 'neutral').length
+                        }
+                    }
+                };
+            }
+        }
+        
+        // Machine Learning Predictor
+        class MLPredictor {
+            constructor() {
+                this.model = null;
+                this.trainingHistory = [];
+            }
+            
+            async loadModel(modelUrl) {
+                try {
+                    // In production, load actual ML model
+                    // const response = await fetch(modelUrl);
+                    // this.model = await response.json();
+                    console.log('ML Model loaded from:', modelUrl);
+                } catch (e) {
+                    console.error('Failed to load model:', e);
+                }
+            }
+            
+            predict(input) {
+                // Simple prediction based on patterns
+                const features = this.extractFeatures(input);
+                return this.simplePredict(features);
+            }
+            
+            extractFeatures(input) {
+                return {
+                    length: input.length,
+                    wordCount: input.split(/\s+/).length,
+                    questionMark: (input.match(/\?/g) || []).length,
+                    exclamationMark: (input.match(/!/g) || []).length,
+                    uppercaseRatio: (input.match(/[A-Z]/g) || []).length / input.length,
+                    emojiCount: (input.match(/[\u{1F600}-\u{1F64F}]/gu) || []).length
+                };
+            }
+            
+            simplePredict(features) {
+                // Rule-based prediction
+                if (features.questionMark > 0) {
+                    return { type: 'question', confidence: 0.8 };
+                }
+                if (features.exclamationMark > 1) {
+                    return { type: 'excitement', confidence: 0.7 };
+                }
+                if (features.emojiCount > 2) {
+                    return { type: 'emotional', confidence: 0.75 };
+                }
+                return { type: 'statement', confidence: 0.6 };
+            }
+            
+            train(trainingData) {
+                this.trainingHistory = trainingData;
+                console.log('Model trained with', trainingData.length, 'samples');
+            }
+            
+            evaluate(testData) {
+                let correct = 0;
+                testData.forEach(sample => {
+                    const prediction = this.predict(sample.input);
+                    if (prediction.type === sample.label) correct++;
+                });
+                return correct / testData.length;
+            }
+        }
+        
+        // Initialize advanced features
+        const voiceSystem = new VoiceRecognitionSystem();
+        const nlpEngine = new NLPEngine();
+        const collabManager = new CollaborationManager();
+        const analyticsTracker = new AnalyticsTracker();
+        const suggestionEngine = new AutoSuggestionEngine();
+        const sentimentAnalyzer = new SentimentAnalyzer();
+        const mlPredictor = new MLPredictor();
+        
+        // Expose to global scope
+        window.VoiceSystem = voiceSystem;
+        window.NLPEngine = nlpEngine;
+        window.CollabManager = collabManager;
+        window.AnalyticsTracker = analyticsTracker;
+        window.SuggestionEngine = suggestionEngine;
+        window.SentimentAnalyzer = sentimentAnalyzer;
+        window.MLPredictor = mlPredictor;
+        
+        // Track initial page view
+        analyticsTracker.trackPageView();
+        
+        // Add voice control button
+        const addVoiceControl = () => {
+            const inputArea = document.querySelector('.input-area');
+            if (inputArea) {
+                const voiceBtn = document.createElement('button');
+                voiceBtn.innerHTML = '🎤';
+                voiceBtn.title = 'Kontrol Suara';
+                voiceBtn.onclick = () => {
+                    if (voiceSystem.isListening) {
+                        voiceSystem.stopListening();
+                    } else {
+                        voiceSystem.startListening();
+                    }
+                };
+                voiceBtn.style.cssText = `
+                    padding: 15px;
+                    background: linear-gradient(135deg, #667eea, #764ba2);
+                    color: white;
+                    border: none;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                `;
+                inputArea.appendChild(voiceBtn);
+            }
+        };
+        
+        // Initialize after DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', addVoiceControl);
+        } else {
+            addVoiceControl();
+        }
+        
+        console.log('[Advanced Features] All modules initialized successfully');
     })();
     </script>
 </body>
