@@ -138,12 +138,12 @@ function renderStudioQuickAccess() {
     if (!grid) return;
     
     const studios = [
-        { name: "Chat Generation", icon: "fa-comments", path: "studio/chat-generation/index.html", desc: "Asisten AI chat interaktif" },
-        { name: "Web App Builder", icon: "fa-code", path: "studio/web-app-builder/index.html", desc: "Pembuat aplikasi web + preview kode" },
-        { name: "Design Editor", icon: "fa-palette", path: "studio/design-editor/index.html", desc: "Editor desain grafis AI" },
-        { name: "Image Generator", icon: "fa-image", path: "studio/image-generator/index.html", desc: "Pembuat gambar dari prompt" },
-        { name: "Video Maker", icon: "fa-video", path: "studio/video-maker/index.html", desc: "Editor video pendek AI" },
-        { name: "Search Engine", icon: "fa-search", path: "studio/search-engine/index.html", desc: "Mesin pencari cerdas" }
+        { name: "Chat Generation", icon: "fa-comments", path: "studioreber/chat-generation/index.html", desc: "Asisten AI chat interaktif" },
+        { name: "Web App Builder", icon: "fa-code", path: "studioreber/web-app-builder/index.html", desc: "Pembuat aplikasi web + preview kode" },
+        { name: "Design Editor", icon: "fa-palette", path: "studioreber/design-editor/index.html", desc: "Editor desain grafis AI" },
+        { name: "Image Generator", icon: "fa-image", path: "studioreber/image-generator/index.html", desc: "Pembuat gambar dari prompt" },
+        { name: "Video Maker", icon: "fa-video", path: "studioreber/video-maker/index.html", desc: "Editor video pendek AI" },
+        { name: "Search Engine", icon: "fa-search", path: "studioreber/search-engine/index.html", desc: "Mesin pencari cerdas" }
     ];
     
     grid.innerHTML = studios.map((studio, index) => {
