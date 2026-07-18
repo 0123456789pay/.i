@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Ekstensi Domain - .digital .media .pers</title>
+    <style>
+        :root {
+            --primary: #3B82F6;
+            --primary-dark: #2563EB;
+            --primary-light: #60A5FA;
+            --secondary: #1E40AF;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1E293B;
+            --darker: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --background-primary: #FFFFFF;
+            --background-secondary: #F8FAFC;
+            --border-color: #E2E8F0;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --gradient-1: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            --gradient-3: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+            --shadow-sm: 0 2px 8px rgba(59, 130, 246, 0.08);
+            --shadow-lg: 0 10px 40px rgba(59, 130, 246, 0.16);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%); min-height: 100vh; color: var(--text-primary); overflow-x: hidden; }
+
+        .bg-grid-pattern { position: fixed; inset: 0; background-image: linear-gradient(to right, #3B82F6 1px, transparent 1px), linear-gradient(to bottom, #3B82F6 1px, transparent 1px); background-size: 50px 50px; opacity: 0.03; pointer-events: none; z-index: -1; }
+        .bg-glow-1 { position: fixed; top: 20px; right: 20px; width: 384px; height: 384px; background: var(--primary-light); border-radius: 50%; opacity: 0.05; filter: blur(80px); pointer-events: none; z-index: -1; }
+        .bg-glow-2 { position: fixed; bottom: 20px; left: 20px; width: 320px; height: 320px; background: var(--primary); border-radius: 50%; opacity: 0.05; filter: blur(80px); pointer-events: none; z-index: -1; }
+
+        .header { background: var(--gradient-1); color: white; padding: 3rem 2rem; text-align: center; box-shadow: var(--shadow-lg); }
+        .header h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .header p { font-size: 1.25rem; opacity: 0.95; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        .header-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.9rem; margin-top: 1rem; backdrop-filter: blur(10px); }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-title { font-size: 1.75rem; font-weight: 700; color: var(--text-primary); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 3px solid var(--primary); display: inline-block; }
+        .grid-menu { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+
+        .menu-card { background: var(--card-bg); border-radius: 16px; padding: 1.5rem; text-decoration: none; color: var(--text-primary); box-shadow: var(--shadow-sm); transition: all 0.3s ease; border: 1px solid var(--border-color); display: flex; align-items: center; gap: 1rem; }
+        .menu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .menu-card-icon { width: 50px; height: 50px; background: var(--gradient-3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; flex-shrink: 0; }
+        .menu-card-content { flex: 1; }
+        .menu-card-title { font-size: 1.1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; }
+        .menu-card-desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .category-section { margin-bottom: 3rem; }
+        .footer { background: var(--dark); color: white; padding: 3rem 2rem; text-align: center; margin-top: 4rem; }
+        .footer p { opacity: 0.8; margin-bottom: 0.5rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: var(--primary-light); text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: white; }
+
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.75rem; }
+            .header p { font-size: 1rem; }
+            .grid-menu { grid-template-columns: 1fr; }
+            .container { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid-pattern"></div>
+    <div class="bg-glow-1"></div>
+    <div class="bg-glow-2"></div>
+
+    <header class="header">
+        <h1>🌐 Pusat Ekstensi Domain Digital</h1>
+        <p>Sebagai Penyedia Pusat Ekstensi Domain .digital .media .pers - Berbayar dan Berlisensi</p>
+        <span class="header-badge">✨ Domain Resmi & Terpercaya</span>
+    </header>
+
+    <main class="container">
+        <section class="category-section">
+            <h2 class="section-title">🔗 Layanan Domain</h2>
+            <div class="grid-menu">
+                <a href="digital.html" class="menu-card">
+                    <div class="menu-card-icon">🌐</div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-title">Domain .digital</div>
+                        <div class="menu-card-desc">Ekstensi domain digital premium</div>
+                    </div>
+                </a>
+                <a href="lisensimediadigital.html" class="menu-card">
+                    <div class="menu-card-icon">📜</div>
+                    <div class="menu-card-content">
+                        <div class="menu-card-title">Lisensi Media Digital</div>
+                        <div class="menu-card-desc">Lisensi resmi media digital</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">🌐 Browser & Navigasi</h2>
+            <div class="grid-menu">
+                <a href="appbrowser.html" class="menu-card"><div class="menu-card-icon">🌍</div><div class="menu-card-content"><div class="menu-card-title">App Browser</div><div class="menu-card-desc">Browser aplikasi web</div></div></a>
+                <a href="appbrowser_pro.html" class="menu-card"><div class="menu-card-icon">⚡</div><div class="menu-card-content"><div class="menu-card-title">App Browser Pro</div><div class="menu-card-desc">Browser profesional dengan fitur lengkap</div></div></a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">📊 Produktivitas</h2>
+            <div class="grid-menu">
+                <a href="appnotes.html" class="menu-card"><div class="menu-card-icon">📝</div><div class="menu-card-content"><div class="menu-card-title">App Notes</div><div class="menu-card-desc">Aplikasi catatan digital</div></div></a>
+                <a href="apptodo.html" class="menu-card"><div class="menu-card-icon">✅</div><div class="menu-card-content"><div class="menu-card-title">App Todo</div><div class="menu-card-desc">Daftar tugas harian</div></div></a>
+                <a href="apptaskmanager.html" class="menu-card"><div class="menu-card-icon">📋</div><div class="menu-card-content"><div class="menu-card-title">Task Manager</div><div class="menu-card-desc">Manajemen tugas profesional</div></div></a>
+                <a href="appcalendar.html" class="menu-card"><div class="menu-card-icon">📅</div><div class="menu-card-content"><div class="menu-card-title">App Calendar</div><div class="menu-card-desc">Kalender dan penjadwalan</div></div></a>
+                <a href="appclock.html" class="menu-card"><div class="menu-card-icon">⏰</div><div class="menu-card-content"><div class="menu-card-title">App Clock</div><div class="menu-card-desc">Jam dan alarm</div></div></a>
+                <a href="appcalculator.html" class="menu-card"><div class="menu-card-icon">🔢</div><div class="menu-card-content"><div class="menu-card-title">App Calculator</div><div class="menu-card-desc">Kalkulator ilmiah</div></div></a>
+                <a href="appunitconverter.html" class="menu-card"><div class="menu-card-icon">🔄</div><div class="menu-card-content"><div class="menu-card-title">Unit Converter</div><div class="menu-card-desc">Konversi satuan lengkap</div></div></a>
+                <a href="appcurrency.html" class="menu-card"><div class="menu-card-icon">💱</div><div class="menu-card-content"><div class="menu-card-title">Currency Converter</div><div class="menu-card-desc">Konversi mata uang</div></div></a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">💬 Komunikasi</h2>
+            <div class="grid-menu">
+                <a href="appemail.html" class="menu-card"><div class="menu-card-icon">📧</div><div class="menu-card-content"><div class="menu-card-title">App Email</div><div class="menu-card-desc">Klien email terintegrasi</div></div></a>
+                <a href="appphone.html" class="menu-card"><div class="menu-card-icon">📞</div><div class="menu-card-content"><div class="menu-card-title">App Phone</div><div class="menu-card-desc">Aplikasi telepon</div></div></a>
+                <a href="appcontacts.html" class="menu-card"><div class="menu-card-icon">👥</div><div class="menu-card-content"><div class="menu-card-title">App Contacts</div><div class="menu-card-desc">Manajemen kontak</div></div></a>
+                <a href="apptranslator.html" class="menu-card"><div class="menu-card-icon">🌐</div><div class="menu-card-content"><div class="menu-card-title">App Translator</div><div class="menu-card-desc">Penerjemah bahasa</div></div></a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">🎨 Media & Hiburan</h2>
+            <div class="grid-menu">
+                <a href="appmusic.html" class="menu-card"><div class="menu-card-icon">🎵</div><div class="menu-card-content"><div class="menu-card-title">App Music</div><div class="menu-card-desc">Pemutar musik</div></div></a>
+                <a href="appgallery.html" class="menu-card"><div class="menu-card-icon">🖼️</div><div class="menu-card-content"><div class="menu-card-title">App Gallery</div><div class="menu-card-desc">Galeri foto dan video</div></div></a>
+                <a href="appdrawing.html" class="menu-card"><div class="menu-card-icon">🎨</div><div class="menu-card-content"><div class="menu-card-title">App Drawing</div><div class="menu-card-desc">Aplikasi menggambar</div></div></a>
+                <a href="appvoicerecorder.html" class="menu-card"><div class="menu-card-icon">🎤</div><div class="menu-card-content"><div class="menu-card-title">Voice Recorder</div><div class="menu-card-desc">Perekam suara</div></div></a>
+                <a href="appscreencapture.html" class="menu-card"><div class="menu-card-icon">📸</div><div class="menu-card-content"><div class="menu-card-title">Screen Capture</div><div class="menu-card-desc">Tangkap layar</div></div></a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">📰 Informasi & Berita</h2>
+            <div class="grid-menu">
+                <a href="appnews.html" class="menu-card"><div class="menu-card-icon">📰</div><div class="menu-card-content"><div class="menu-card-title">App News</div><div class="menu-card-desc">Berita terkini</div></div></a>
+                <a href="appweather.html" class="menu-card"><div class="menu-card-icon">🌤️</div><div class="menu-card-content"><div class="menu-card-title">App Weather</div><div class="menu-card-desc">Cuaca dan prakiraan</div></div></a>
+                <a href="appmaps.html" class="menu-card"><div class="menu-card-icon">🗺️</div><div class="menu-card-content"><div class="menu-card-title">App Maps</div><div class="menu-card-desc">Peta dan navigasi</div></div></a>
+                <a href="appdictionary.html" class="menu-card"><div class="menu-card-icon">📖</div><div class="menu-card-content"><div class="menu-card-title">App Dictionary</div><div class="menu-card-desc">Kamus digital</div></div></a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">📁 Manajemen File</h2>
+            <div class="grid-menu">
+                <a href="filemanager.html" class="menu-card"><div class="menu-card-icon">📂</div><div class="menu-card-content"><div class="menu-card-title">File Manager</div><div class="menu-card-desc">Pengelola file</div></div></a>
+                <a href="filemanajer.html" class="menu-card"><div class="menu-card-icon">🗂️</div><div class="menu-card-content"><div class="menu-card-title">File Manajer</div><div class="menu-card-desc">Manajer file alternatif</div></div></a>
+                <a href="apptexteditor.html" class="menu-card"><div class="menu-card-icon">📄</div><div class="menu-card-content"><div class="menu-card-title">Text Editor</div><div class="menu-card-desc">Editor teks</div></div></a>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">⚙️ Sistem & Pengaturan</h2>
+            <div class="grid-menu">
+                <a href="appsettings.html" class="menu-card"><div class="menu-card-icon">⚙️</div><div class="menu-card-content"><div class="menu-card-title">App Settings</div><div class="menu-card-desc">Pengaturan aplikasi</div></div></a>
+                <a href="githubqwenintegration.html" class="menu-card"><div class="menu-card-icon">🔗</div><div class="menu-card-content"><div class="menu-card-title">GitHub Integration</div><div class="menu-card-desc">Integrasi GitHub Qwen</div></div></a>
+                <a href="aistudio.html" class="menu-card"><div class="menu-card-icon">🤖</div><div class="menu-card-content"><div class="menu-card-title">AI Studio</div><div class="menu-card-desc">Studio kecerdasan buatan</div></div></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Pusat Ekstensi Domain Digital</p>
+        <p>Penyedia Resmi Domain .digital .media .pers - Berbayar dan Berlisensi</p>
+        <div class="footer-links">
+            <a href="digital.html">Domain Digital</a>
+            <a href="lisensimediadigital.html">Lisensi</a>
+            <a href="#">Privasi</a>
+            <a href="#">Syarat & Ketentuan</a>
+            <a href="#">Kontak</a>
+        </div>
+    </footer>
+</body>
+</html>
