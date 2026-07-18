@@ -1,50 +1,30 @@
 ```
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-*.class
-*.exe
-*.dll
-*.so
-*.a
-*.out
-
-# Dependencies
-node_modules/
-venv/
-.venv/
-.env
-.env.local
-.env.*
-
-# Build directories
+# Build artifacts
 dist/
 build/
 target/
-.gradle/
 
-# Python specific
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-.venv/
-venv/
-ENV/
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
+# Dependencies
+node_modules/
+vendor/
+
+# Logs
 *.log
-.git/
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
 
 # Compressed files
 *.zip
@@ -70,27 +50,6 @@ coverage.xml
 *.tar.xz
 *.tar.zst
 
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Testing and coverage
-.coverage
-htmlcov/
-.nyc_output
-coverage/
-.mypy_cache/
-.pytest_cache/
-.hypothesis/
-
-# Logs
-*.log
-
+# PHP specific
+*.php~
 ```
