@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI_MACHINELEARNING.DIGITAL - Pusat Sistem AI & Machine Learning Terintegrasi</title>
+    <meta name="description" content="AI_MACHINELEARNING.DIGITAL - Platform pusat untuk 41+ sistem AI dan machine learning terintegrasi dengan ribuan folder dan puluhan ribu file">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Brand Navbar -->
+    <nav class="brand-navbar">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a href="#" class="brand-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI_MACHINELEARNING.DIGITAL</span>
+            </a>
+            <div class="auth-buttons">
+                <button class="btn-auth btn-login" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="fas fa-sign-in-alt me-1"></i> Login
+                </button>
+                <button class="btn-auth btn-register" data-bs-toggle="modal" data-bs-target="#registerModal">
+                    <i class="fas fa-user-plus me-1"></i> Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel"><i class="fas fa-sign-in-alt me-2"></i>Login ke Akun Anda</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="nama@email.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Masukkan password" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom">
+                            <i class="fas fa-sign-in-alt me-2"></i>Login
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p class="mb-0">Belum punya akun? <span class="auth-switch" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">Daftar disini</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel"><i class="fas fa-user-plus me-2"></i>Buat Akun Baru</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nama Lengkap</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="registerName" placeholder="Nama lengkap anda" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="registerEmail" placeholder="nama@email.com" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="registerPassword" placeholder="Minimal 8 karakter" required minlength="8">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Konfirmasi Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Ulangi password" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">Saya setuju dengan Syarat & Ketentuan</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom">
+                            <i class="fas fa-user-plus me-2"></i>Daftar Sekarang
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <p class="mb-0">Sudah punya akun? <span class="auth-switch" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login disini</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">AI_MACHINELEARNING.DIGITAL</h1>
+            <p class="hero-subtitle">Pusat Sistem AI & Machine Learning Terintegrasi - 41+ Sistem Digital .digital</p>
+            <div class="stats-container">
+                <div class="stat-box"><span class="stat-number" id="totalSystems">0</span><span class="stat-label">Sistem AI</span></div>
+                <div class="stat-box"><span class="stat-number" id="totalFolders">0</span><span class="stat-label">Folder</span></div>
+                <div class="stat-box"><span class="stat-number" id="totalFiles">0</span><span class="stat-label">File</span></div>
+                <div class="stat-box"><span class="stat-number">99.9%</span><span class="stat-label">Uptime</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari sistem AI, fitur, atau folder...">
+            <button onclick="searchFeatures()"><i class="fas fa-search me-2"></i>Cari</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="jaringan">Jaringan Saraf</button>
+            <button class="filter-btn" data-filter="desain">Desain AI</button>
+            <button class="filter-btn" data-filter="pembelajaran">Pembelajaran</button>
+            <button class="filter-btn" data-filter="generatif">Generatif</button>
+            <button class="filter-btn" data-filter="analitik">Analitik</button>
+            <button class="filter-btn" data-filter="lainnya">Lainnya</button>
+        </div>
+
+        <!-- Section Title -->
+        <div class="section-title">
+            <h2><i class="fas fa-brain me-3"></i>Sistem AI & Machine Learning Terintegrasi</h2>
+            <p>Klik pada kartu untuk mengakses sistem lengkap dengan semua fitur, folder, dan file konfigurasi</p>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading"><div class="spinner"></div><p style="margin-top: 1rem; color: #666;">Memuat sistem AI...</p></div>
+
+        <!-- Features Grid -->
+        <div class="features-grid" id="featuresGrid"></div>
+
+        <!-- Lanjutan Button -->
+        <div style="text-align: center; margin: 2rem 0;">
+            <button onclick="toggleDirectoryPanel()" class="filter-btn active" style="padding: 1rem 3rem; font-size: 1.1rem;">
+                <i class="fas fa-folder-tree me-2"></i>Lihat Direktori Lengkap
+            </button>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>Tidak ditemukan</h3>
+            <p>Coba kata kunci pencarian lain atau pilih kategori berbeda</p>
+        </div>
+
+        <!-- Quick Access Box System -->
+        <div class="box-system">
+            <div class="box-header">
+                <h3 class="box-title"><i class="fas fa-th"></i>Akses Cepat - Kategori Sistem AI</h3>
+                <span class="badge bg-primary" id="totalSystemsBadge">41 Sistem</span>
+            </div>
+            <div class="box-grid" id="quickAccessBox"></div>
+        </div>
+
+        <!-- Directory Panel (Hidden by default) -->
+        <div id="directoryPanel" style="display: none;" class="box-system">
+            <div class="box-header">
+                <h3 class="box-title"><i class="fas fa-folder-open"></i>Direktori Lengkap Sistem AI</h3>
+                <button onclick="toggleDirectoryPanel()" class="btn btn-sm btn-outline-secondary"><i class="fas fa-times me-1"></i>Tutup</button>
+            </div>
+            <div class="box-grid" id="systemsDirectory"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-brain me-2"></i>AI_MACHINELEARNING.DIGITAL</h3>
+            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Platform pusat untuk mengelola seluruh ekosistem AI dan machine learning digital</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p style="opacity: 0.6; font-size: 0.9rem;">&copy; 2026 AI_MACHINELEARNING.DIGITAL. Semua hak dilindungi.</p>
+            <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 1rem;">
+                <a href="#" style="color: white; text-decoration: none;">Dokumentasi</a> •
+                <a href="#" style="color: white; text-decoration: none;">API</a> •
+                <a href="#" style="color: white; text-decoration: none;">Bantuan</a>
+            </p>
+
+            <!-- Directory Menu -->
+            <div class="footer-directory-menu">
+                <h5 style="font-size: 1.1rem; margin-bottom: 1rem; opacity: 0.9;">Direktori .digital - Sistem AI</h5>
+                <div class="directory-grid" id="directoryGrid">
+                    <!-- Directory links will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

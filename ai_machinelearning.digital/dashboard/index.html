@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI_MACHINELEARNING.DIGITAL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .dashboard-wrapper { margin-top: 70px; }
+        .sidebar {
+            background: linear-gradient(135deg, #0047b3 0%, #0066ff 100%);
+            min-height: calc(100vh - 70px);
+            padding: 2rem 0;
+        }
+        .sidebar-menu { list-style: none; padding: 0; }
+        .sidebar-menu li { margin-bottom: 0.5rem; }
+        .sidebar-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            display: block;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: rgba(255,255,255,0.2);
+        }
+        .sidebar-menu i { margin-right: 0.8rem; width: 20px; text-align: center; }
+        .main-dashboard { padding: 2rem; }
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,102,255,0.1);
+            margin-bottom: 1.5rem;
+        }
+        .stat-card-icon {
+            width: 60px; height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .stat-card-value { font-size: 2rem; font-weight: 700; color: #0047b3; }
+        .stat-card-label { color: #64748b; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="brand-navbar">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a href="../index.html" class="brand-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI_MACHINELEARNING.DIGITAL</span>
+            </a>
+            <div class="auth-buttons">
+                <a href="../index.html" class="btn-auth btn-login">
+                    <i class="fas fa-home me-1"></i> Beranda
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-md-3 col-lg-2 sidebar d-none d-md-block">
+                    <ul class="sidebar-menu">
+                        <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                        <li><a href="../konten/index.html"><i class="fas fa-folder"></i> Sistem Digital</a></li>
+                        <li><a href="../analitik/index.html"><i class="fas fa-chart-line"></i> Analitik</a></li>
+                        <li><a href="#"><i class="fas fa-database"></i> Database</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> Konfigurasi</a></li>
+                        <li><a href="#"><i class="fas fa-shield-alt"></i> Keamanan</a></li>
+                        <li><a href="../bantuan/index.html"><i class="fas fa-question-circle"></i> Bantuan</a></li>
+                        <li><a href="../pengaturan/index.html"><i class="fas fa-sliders-h"></i> Pengaturan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-md-9 col-lg-10 main-dashboard">
+                    <h2 class="mb-4"><i class="fas fa-tachometer-alt me-2"></i>Dashboard Utama</h2>
+                    
+                    <!-- Stats Row -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="stat-card-icon" style="background: linear-gradient(135deg, #0047b3, #0066ff); color: white;">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="stat-card-value" id="totalAiSystems">0</div>
+                                <div class="stat-card-label">Sistem AI Aktif</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="stat-card-icon" style="background: linear-gradient(135deg, #28a745, #20c997); color: white;">
+                                    <i class="fas fa-folder"></i>
+                                </div>
+                                <div class="stat-card-value" id="totalFolders">0</div>
+                                <div class="stat-card-label">Total Folder</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="stat-card-icon" style="background: linear-gradient(135deg, #dc3545, #fd7e14); color: white;">
+                                    <i class="fas fa-file"></i>
+                                </div>
+                                <div class="stat-card-value" id="totalFiles">0</div>
+                                <div class="stat-card-label">Total File</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="stat-card">
+                                <div class="stat-card-icon" style="background: linear-gradient(135deg, #6f42c1, #e83e8c); color: white;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-card-value">99.9%</div>
+                                <div class="stat-card-label">Uptime</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Systems List -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-header bg-white py-3">
+                                    <h5 class="mb-0"><i class="fas fa-list me-2"></i>Daftar Sistem AI</h5>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sistem</th>
+                                                    <th>Kategori</th>
+                                                    <th>Folder</th>
+                                                    <th>File</th>
+                                                    <th>Status</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="systemsTableBody">
+                                                <!-- Populated by JavaScript -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const aiSystems = [
+            { name: "AITepi", category: "Jaringan", folders: 9, files: 15, status: "Aktif" },
+            { name: "AgenRAG", category: "Analitik", folders: 7, files: 12, status: "Aktif" },
+            { name: "DesainAplikasi", category: "Desain", folders: 10, files: 18, status: "Aktif" },
+            { name: "GenerasiGambar", category: "Generatif", folders: 12, files: 22, status: "Aktif" },
+            { name: "JaringanSaraf", category: "Jaringan", folders: 14, files: 25, status: "Aktif" }
+        ];
+
+        // Update stats
+        document.getElementById('totalAiSystems').textContent = aiSystems.length;
+        document.getElementById('totalFolders').textContent = aiSystems.reduce((sum, s) => sum + s.folders, 0);
+        document.getElementById('totalFiles').textContent = aiSystems.reduce((sum, s) => sum + s.files, 0);
+
+        // Populate table
+        const tbody = document.getElementById('systemsTableBody');
+        tbody.innerHTML = aiSystems.map(sys => `
+            <tr>
+                <td><strong>${sys.name}</strong></td>
+                <td><span class="badge bg-primary">${sys.category}</span></td>
+                <td>${sys.folders}</td>
+                <td>${sys.files}</td>
+                <td><span class="badge bg-success">${sys.status}</span></td>
+                <td><a href="../${sys.name}.digital/index.html" class="btn btn-sm btn-primary">Akses</a></td>
+            </tr>
+        `).join('');
+    </script>
+</body>
+</html>
