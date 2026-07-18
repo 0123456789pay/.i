@@ -383,6 +383,147 @@
         .stat-change.positive { color: #10b981; }
         .stat-change.negative { color: #ef4444; }
 
+        /* Landing Page Styles */
+        .landing-page-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid #E2E8F0;
+        }
+
+        .landing-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .landing-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1E293B;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .landing-header p {
+            font-size: 1.1rem;
+            color: #64748B;
+        }
+
+        .landing-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .landing-category {
+            background: #FFFFFF;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1);
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s ease;
+        }
+
+        .landing-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3B82F6;
+        }
+
+        .landing-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .landing-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid #E2E8F0;
+            text-align: center;
+        }
+
+        .landing-card:hover {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .landing-card:hover .card-icon,
+        .landing-card:hover .card-name {
+            color: white;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .card-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1E293B;
+            transition: all 0.3s ease;
+        }
+
+        .content-separator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .content-separator hr {
+            flex: 1;
+            max-width: 200px;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #3B82F6, transparent);
+        }
+
+        .content-separator span {
+            color: #64748B;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .landing-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .landing-card-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .card-icon {
+                font-size: 2rem;
+            }
+        }
+
         /* Modules Grid */
         .modules-section {
             margin-bottom: 30px;
@@ -1710,6 +1851,203 @@
             <div class="banner-content">
                 <h2>Sebagai Penyedia Pusat Ekstensi Domain .digital .media .pers - Berbayar dan Berlisensi</h2>
             </div>
+        </div>
+
+        <!-- Landing Page - Index Menu Semua HTML -->
+        <section class="landing-page-section">
+            <div class="landing-header">
+                <h1>🌐 Portal Aplikasi Digital</h1>
+                <p>Akses semua aplikasi dan modul dalam satu tempat</p>
+            </div>
+
+            <div class="landing-grid">
+                <!-- Kategori: Domain -->
+                <div class="landing-category">
+                    <h3 class="category-title">🌍 Domain</h3>
+                    <div class="landing-card-grid">
+                        <a href="digital.html" class="landing-card">
+                            <span class="card-icon">🌐</span>
+                            <span class="card-name">Digital</span>
+                        </a>
+                        <a href="lisensimediadigital.html" class="landing-card">
+                            <span class="card-icon">📜</span>
+                            <span class="card-name">Lisensi Media</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: Browser -->
+                <div class="landing-category">
+                    <h3 class="category-title">🌐 Browser</h3>
+                    <div class="landing-card-grid">
+                        <a href="appbrowser.html" class="landing-card">
+                            <span class="card-icon">🌍</span>
+                            <span class="card-name">Browser</span>
+                        </a>
+                        <a href="appbrowser_pro.html" class="landing-card">
+                            <span class="card-icon">⚡</span>
+                            <span class="card-name">Browser Pro</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: Produktivitas -->
+                <div class="landing-category">
+                    <h3 class="category-title">💼 Produktivitas</h3>
+                    <div class="landing-card-grid">
+                        <a href="appcalculator.html" class="landing-card">
+                            <span class="card-icon">🔢</span>
+                            <span class="card-name">Kalkulator</span>
+                        </a>
+                        <a href="appcalendar.html" class="landing-card">
+                            <span class="card-icon">📅</span>
+                            <span class="card-name">Kalender</span>
+                        </a>
+                        <a href="appclock.html" class="landing-card">
+                            <span class="card-icon">⏰</span>
+                            <span class="card-name">Jam</span>
+                        </a>
+                        <a href="appnotes.html" class="landing-card">
+                            <span class="card-icon">📝</span>
+                            <span class="card-name">Catatan</span>
+                        </a>
+                        <a href="apptodo.html" class="landing-card">
+                            <span class="card-icon">✅</span>
+                            <span class="card-name">To Do</span>
+                        </a>
+                        <a href="apptaskmanager.html" class="landing-card">
+                            <span class="card-icon">📋</span>
+                            <span class="card-name">Task Manager</span>
+                        </a>
+                        <a href="apptexteditor.html" class="landing-card">
+                            <span class="card-icon">📄</span>
+                            <span class="card-name">Text Editor</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: Komunikasi -->
+                <div class="landing-category">
+                    <h3 class="category-title">💬 Komunikasi</h3>
+                    <div class="landing-card-grid">
+                        <a href="appemail.html" class="landing-card">
+                            <span class="card-icon">📧</span>
+                            <span class="card-name">Email</span>
+                        </a>
+                        <a href="appcontacts.html" class="landing-card">
+                            <span class="card-icon">👥</span>
+                            <span class="card-name">Kontak</span>
+                        </a>
+                        <a href="appphone.html" class="landing-card">
+                            <span class="card-icon">📞</span>
+                            <span class="card-name">Telepon</span>
+                        </a>
+                        <a href="apptranslator.html" class="landing-card">
+                            <span class="card-icon">🌐</span>
+                            <span class="card-name">Penerjemah</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: Media -->
+                <div class="landing-category">
+                    <h3 class="category-title">🎨 Media</h3>
+                    <div class="landing-card-grid">
+                        <a href="appgallery.html" class="landing-card">
+                            <span class="card-icon">🖼️</span>
+                            <span class="card-name">Galeri</span>
+                        </a>
+                        <a href="appmusic.html" class="landing-card">
+                            <span class="card-icon">🎵</span>
+                            <span class="card-name">Musik</span>
+                        </a>
+                        <a href="appdrawing.html" class="landing-card">
+                            <span class="card-icon">🎨</span>
+                            <span class="card-name">Menggambar</span>
+                        </a>
+                        <a href="appvoicerecorder.html" class="landing-card">
+                            <span class="card-icon">🎤</span>
+                            <span class="card-name">Perekam Suara</span>
+                        </a>
+                        <a href="appscreencapture.html" class="landing-card">
+                            <span class="card-icon">📸</span>
+                            <span class="card-name">Screen Capture</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: Informasi -->
+                <div class="landing-category">
+                    <h3 class="category-title">📰 Informasi</h3>
+                    <div class="landing-card-grid">
+                        <a href="appnews.html" class="landing-card">
+                            <span class="card-icon">📰</span>
+                            <span class="card-name">Berita</span>
+                        </a>
+                        <a href="appweather.html" class="landing-card">
+                            <span class="card-icon">🌤️</span>
+                            <span class="card-name">Cuaca</span>
+                        </a>
+                        <a href="appmaps.html" class="landing-card">
+                            <span class="card-icon">🗺️</span>
+                            <span class="card-name">Peta</span>
+                        </a>
+                        <a href="appdictionary.html" class="landing-card">
+                            <span class="card-icon">📖</span>
+                            <span class="card-name">Kamus</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: File Manager -->
+                <div class="landing-category">
+                    <h3 class="category-title">📁 File Manager</h3>
+                    <div class="landing-card-grid">
+                        <a href="filemanager.html" class="landing-card">
+                            <span class="card-icon">📂</span>
+                            <span class="card-name">File Manager</span>
+                        </a>
+                        <a href="filemanajer.html" class="landing-card">
+                            <span class="card-icon">🗂️</span>
+                            <span class="card-name">File Manajer</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kategori: Sistem & Tools -->
+                <div class="landing-category">
+                    <h3 class="category-title">⚙️ Sistem & Tools</h3>
+                    <div class="landing-card-grid">
+                        <a href="appsettings.html" class="landing-card">
+                            <span class="card-icon">⚙️</span>
+                            <span class="card-name">Pengaturan</span>
+                        </a>
+                        <a href="appcurrency.html" class="landing-card">
+                            <span class="card-icon">💱</span>
+                            <span class="card-name">Konverter Mata Uang</span>
+                        </a>
+                        <a href="appunitconverter.html" class="landing-card">
+                            <span class="card-icon">📏</span>
+                            <span class="card-name">Konverter Unit</span>
+                        </a>
+                        <a href="aistudio.html" class="landing-card">
+                            <span class="card-icon">🤖</span>
+                            <span class="card-name">AI Studio</span>
+                        </a>
+                        <a href="githubqwenintegration.html" class="landing-card">
+                            <span class="card-icon">🐙</span>
+                            <span class="card-name">GitHub Qwen</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Separator -->
+        <div class="content-separator">
+            <hr>
+            <span>atau lanjut ke dashboard</span>
+            <hr>
         </div>
 
         <!-- Top Bar -->
