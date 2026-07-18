@@ -1,0 +1,1 @@
+-- Schema for hostingServer\nCREATE TABLE IF NOT EXISTS hostingServer_data (id INT AUTO_INCREMENT PRIMARY KEY, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
