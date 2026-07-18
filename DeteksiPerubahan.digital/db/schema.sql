@@ -1,1 +1,0 @@
--- Schema for changepoint\nCREATE TABLE IF NOT EXISTS changepoint_data (id INT AUTO_INCREMENT PRIMARY KEY, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
