@@ -1,1 +1,24 @@
-Nothing should be ignored in this case, as the only modified file is a source HTML file (`media.digital/index.html`) which is not a build artifact, dependency, or temporary file.
+```
+# Backup files
+*.backup
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+```
