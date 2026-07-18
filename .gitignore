@@ -1,65 +1,13 @@
 ```
-# Build artifacts and dependencies
-build/
-dist/
-node_modules/
-vendor/
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.python-version
-
-# PHP
-composer.lock
-vendor/
-
-# IDE and editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Environment variables and secrets
-.env
-.env.local
-*.env.*
-
-# Logs
-*.log
-
-# Database
-*.sqlite
-*.db
-
-# Backup files
-*~
-*.bak
-*.backup
-
-# Compression and archives
+# Compressed files
 *.zip
-*.tar
 *.gz
+*.tar
+*.tgz
 *.bz2
 *.xz
 *.7z
 *.rar
-*.tgz
-*.tar.gz
-*.tar.bz2
-*.tar.xz
 *.zst
 *.lz4
 *.lzh
@@ -70,5 +18,77 @@ Thumbs.db
 *.Z
 *.lz
 *.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+.env
+.venv.bak/
+pip-log.txt
+pip-selfcheck.json
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.pot
+*.po
+*.mo
+julia-*/
+zig*/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+*.out
+*.exe
+*.dll
+*.so
+*.a
+*.obj
+target/
+.gradle/
+
+# Testing and coverage
+.coverage
+htmlcov/
+.nyc_output
+coverage/
+.pytest_cache/
+.mypy_cache/
+
+# System files
+.DS_Store
+Thumbs.db
 ```
