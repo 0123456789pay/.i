@@ -1,69 +1,36 @@
 ```
-# Compiled and build artifacts
-*.pyc
+# Data files directory - assuming these are generated/processed data files
+ragreber.digital/data/
+
+# Python cache files
 __pycache__/
-*.o
-*.obj
-*.class
-*.exe
-*.dll
-*.so
-*.a
-*.out
+*.pyc
+*.pyo
+*.pyd
 
-# Dependencies
-.venv/
-venv/
-node_modules/
-pip-wheel-metadata/
-*.egg-info/
-
-# Logs and temp files
+# Logs
 *.log
-*.tmp
-*.swp
-*.swo
 
-# Environment
+# Environment files
 .env
 .env.local
-.env.*
+*.env.*
 
-# Editors
+# IDE specific files
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Build outputs
-dist/
-build/
-target/
-*.pyc
-__pycache__/
-
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Cache directories
-.mypy_cache/
-.pytest_cache/
-.gradle/
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
+# Build/dependency directories
+dist/
+build/
+target/
+node_modules/
+.venv/
+venv/
 ```

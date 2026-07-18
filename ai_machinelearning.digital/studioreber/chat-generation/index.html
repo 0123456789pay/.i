@@ -225,6 +225,141 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // RAG System Configuration - Terintegrasi dengan RAGREBER.DIGITAL
+        const RAG_CONFIG = {
+            endpoint: '../../ragreber.digital/data/',
+            metadataFile: '../../ragreber.digital/data/metadata.json',
+            indexFile: '../../ragreber.digital/data/rag_index.json',
+            totalKnowledgePoints: 500000000, // 500 juta poin pengetahuan
+            categories: ['negara', 'perangkat', 'jaringan', 'kode', 'ai']
+        };
+
+        let ragKnowledge = [];
+        let ragMetadata = null;
+        let ragIndex = null;
+
+        // Load RAG knowledge base saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            loadRAGData();
+        });
+
+        async function loadRAGData() {
+            try {
+                // Load metadata
+                const metaResponse = await fetch(RAG_CONFIG.metadataFile);
+                ragMetadata = await metaResponse.json();
+                
+                // Load index
+                const indexResponse = await fetch(RAG_CONFIG.indexFile);
+                ragIndex = await indexResponse.json();
+                
+                console.log('✅ RAGREBER.DIGITAL Loaded:', ragMetadata);
+                console.log('📊 Total kapasitas:', ragMetadata.total_knowledge_capacity.toLocaleString(), 'poin pengetahuan');
+                
+                // Tampilkan status di chat
+                addMessage(`Sistem RAGREBER.DIGITAL berhasil dimuat! Saya memiliki akses ke ${ragMetadata.total_knowledge_capacity.toLocaleString()} poin pengetahuan dari ${ragMetadata.total_files} file dalam 5 kategori: ${ragMetadata.categories.join(', ')}. Silakan tanyakan apa saja!`, 'ai');
+                
+            } catch (error) {
+                console.error('❌ Error loading RAG data:', error);
+                addMessage('Maaf, terjadi kesalahan saat memuat basis pengetahuan RAG.', 'ai');
+            }
+        }
+
+        // Fungsi pencarian RAG yang membaca langsung dari file
+        async function searchRAG(query) {
+            const queryLower = query.toLowerCase();
+            const results = [];
+            
+            // Tentukan kategori berdasarkan query
+            let targetCategories = [];
+            if (queryLower.includes('indonesia') || queryLower.includes('negara') || queryLower.includes('pulau')) {
+                targetCategories.push('negara');
+            }
+            if (queryLower.includes('komputer') || queryLower.includes('cpu') || queryLower.includes('ram') || queryLower.includes('perangkat')) {
+                targetCategories.push('perangkat');
+            }
+            if (queryLower.includes('jaringan') || queryLower.includes('internet') || queryLower.includes('tcp') || queryLower.includes('wifi')) {
+                targetCategories.push('jaringan');
+            }
+            if (queryLower.includes('python') || queryLower.includes('javascript') || queryLower.includes('kode') || queryLower.includes('program')) {
+                targetCategories.push('kode');
+            }
+            if (queryLower.includes('ai') || queryLower.includes('machine learning') || queryLower.includes('deep learning')) {
+                targetCategories.push('ai');
+            }
+            
+            // Jika tidak ada kategori spesifik, cari di semua kategori
+            if (targetCategories.length === 0) {
+                targetCategories = [...RAG_CONFIG.categories];
+            }
+            
+            // Baca file dari setiap kategori yang relevan
+            for (const category of targetCategories) {
+                if (ragIndex && ragIndex.categories_index[category]) {
+                    // Ambil 3 file pertama dari setiap kategori untuk pencarian cepat
+                    const filesToSearch = ragIndex.categories_index[category].files.slice(0, 3);
+                    
+                    for (const filename of filesToSearch) {
+                        try {
+                            const fileResponse = await fetch(`${RAG_CONFIG.endpoint}${filename}`);
+                            const text = await fileResponse.text();
+                            const lines = text.split('\n');
+                            
+                            for (const line of lines) {
+                                if (line.startsWith('#') || !line.trim()) continue;
+                                
+                                const lineLower = line.toLowerCase();
+                                const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2);
+                                
+                                // Cek apakah line mengandung kata kunci dari query
+                                const matchCount = queryWords.filter(word => lineLower.includes(word)).length;
+                                
+                                if (matchCount > 0) {
+                                    results.push({
+                                        category: category,
+                                        content: line,
+                                        relevance: matchCount
+                                    });
+                                }
+                            }
+                        } catch (error) {
+                            console.error(`Error reading file ${filename}:`, error);
+                        }
+                    }
+                }
+            }
+            
+            // Urutkan berdasarkan relevansi dan ambil top 5
+            results.sort((a, b) => b.relevance - a.relevance);
+            return results.slice(0, 5);
+        }
+
+        function generateResponse(input) {
+            const inputLower = input.toLowerCase();
+            
+            // Keyword-based responses untuk pertanyaan umum
+            const keywords = {
+                'halo': 'Halo juga! Senang bertemu dengan Anda. Saya terhubung dengan sistem RAGREBER.DIGITAL yang memiliki 500 juta poin pengetahuan.',
+                'apa kabar': 'Saya baik! Siap membantu Anda dengan basis pengetahuan masif dari RAGREBER.DIGITAL.',
+                'siapa kamu': 'Saya adalah AI Assistant yang didukung oleh sistem RAG (Retrieval-Augmented Generation) dari RAGREBER.DIGITAL dengan 500 juta poin pengetahuan.',
+                'bisa apa': 'Saya dapat menjawab pertanyaan tentang negara, perangkat komputer, jaringan, bahasa pemrograman, dan AI berdasarkan basis pengetahuan RAGREBER.DIGITAL.',
+                'indonesia': 'Indonesia adalah negara kepulauan terbesar di dunia dengan lebih dari 17.000 pulau. Saya memiliki informasi lengkap tentang Indonesia di basis pengetahuan RAG.',
+                'python': 'Python adalah bahasa pemrograman tingkat tinggi yang populer untuk AI dan data science. Bahasa ini dikenal dengan sintaksnya yang mudah dibaca.',
+                'ai': 'AI (Artificial Intelligence) adalah simulasi kecerdasan manusia dalam mesin. Sistem kami menggunakan teknologi AI untuk memproses pertanyaan Anda.',
+                'jaringan': 'Jaringan komputer adalah sistem yang menghubungkan beberapa perangkat untuk berbagi sumber daya. TCP/IP adalah protokol dasar internet.',
+                'cpu': 'CPU (Central Processing Unit) adalah otak dari komputer yang memproses instruksi. Kinerja CPU mempengaruhi kecepatan komputer secara keseluruhan.'
+            };
+
+            // Cek keyword terlebih dahulu
+            for (const [key, value] of Object.entries(keywords)) {
+                if (inputLower.includes(key)) {
+                    return value;
+                }
+            }
+            
+            return null; // Tidak ada match keyword
+        }
+
         let chatHistory = [];
         let currentChat = [];
 
@@ -234,7 +369,7 @@
             }
         }
 
-        function sendMessage() {
+        async function sendMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
             
@@ -247,104 +382,39 @@
             // Show typing indicator
             showTypingIndicator();
 
-            // Simulate AI response
-            setTimeout(() => {
+            // Generate AI response dengan RAG
+            setTimeout(async () => {
                 hideTypingIndicator();
-                const responses = [
-                    "Terima kasih atas pertanyaan Anda. Berdasarkan analisis saya, " + generateResponse(message),
-                    "Saya memahami pertanyaan Anda. Mari saya jelaskan lebih detail...",
-                    "Pertanyaan yang menarik! Berikut adalah jawaban saya...",
-                    "Berdasarkan data yang saya miliki, " + generateResponse(message)
-                ];
-                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                addMessage(randomResponse, 'ai');
-            }, 1500);
-        }
-
-        // RAG System Configuration
-        const RAG_CONFIG = {
-            endpoint: '../../ragreber.digital/data/',
-            metadataFile: '../../ragreber.digital/data/metadata.json',
-            totalKnowledgePoints: 500000000, // 500 juta poin pengetahuan
-            categories: ['countries', 'devices', 'networks', 'protocols', 'languages', 'frameworks', 'databases', 'cloud_providers', 'security_terms', 'ai_concepts']
-        };
-
-        // Load RAG knowledge base
-        let ragKnowledge = [];
-        let ragMetadata = null;
-
-        async function loadRAGData() {
-            try {
-                const response = await fetch(RAG_CONFIG.metadataFile);
-                ragMetadata = await response.json();
                 
-                // Load sample knowledge files
-                for (let i = 0; i < 10; i++) {
-                    const fileResponse = await fetch(`${RAG_CONFIG.endpoint}knowledge_${String(i).padStart(4, '0')}.txt`);
-                    const text = await fileResponse.text();
-                    const lines = text.split('\n').filter(line => line.trim());
-                    lines.forEach(line => {
-                        const parts = line.split('|');
-                        if (parts.length >= 3) {
-                            ragKnowledge.push({
-                                fileId: parts[0],
-                                lineId: parts[1],
-                                content: parts.slice(2).join('|')
-                            });
+                // Coba generate response dari keyword
+                const keywordResponse = generateResponse(message);
+                
+                if (keywordResponse) {
+                    addMessage(keywordResponse, 'ai');
+                } else {
+                    // Cari di RAG
+                    const ragResults = await searchRAG(message);
+                    
+                    if (ragResults.length > 0) {
+                        const topResult = ragResults[0];
+                        const cleanContent = topResult.content.replace(/^\[.*?\]\s*Poin\s*#?\d*:?\s*/i, '');
+                        addMessage(`📚 **Dari RAGREBER.DIGITAL** (${topResult.category.toUpperCase()}):** ${cleanContent}`, 'ai');
+                        
+                        // Tampilkan hasil tambahan jika ada
+                        if (ragResults.length > 1) {
+                            const additionalInfo = ragResults.slice(1, 3).map(r => {
+                                const clean = r.content.replace(/^\[.*?\]\s*Poin\s*#?\d*:?\s*/i, '');
+                                return `• ${clean}`;
+                            }).join('\n');
+                            if (additionalInfo) {
+                                addMessage(`**Informasi Tambahan:**\n${additionalInfo}`, 'ai');
+                            }
                         }
-                    });
+                    } else {
+                        addMessage('Maaf, saya tidak menemukan informasi spesifik tentang itu dalam basis pengetahuan RAGREBER.DIGITAL. Namun, sistem kami terus belajar dan berkembang. Apakah ada hal lain yang bisa saya bantu?', 'ai');
+                    }
                 }
-                console.log(`RAG Loaded: ${ragKnowledge.length} knowledge points from ${ragMetadata.total_files} files (${ragMetadata.total_knowledge_points.toLocaleString()} capacity)`);
-            } catch (error) {
-                console.error('Error loading RAG data:', error);
-            }
-        }
-
-        function searchRAG(query) {
-            const queryLower = query.toLowerCase();
-            const results = ragKnowledge.filter(knowledge => {
-                const contentLower = knowledge.content.toLowerCase();
-                // Simple keyword matching (simulated semantic search)
-                const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2);
-                return queryWords.some(word => contentLower.includes(word));
-            }).slice(0, 5); // Return top 5 results
-            
-            return results;
-        }
-
-        function generateResponse(input) {
-            const inputLower = input.toLowerCase();
-            
-            // Check RAG knowledge base first
-            const ragResults = searchRAG(input);
-            if (ragResults.length > 0) {
-                const randomResult = ragResults[Math.floor(Math.random() * ragResults.length)];
-                return `Berdasarkan basis pengetahuan RAGREBER.DIGITAL: ${randomResult.content}`;
-            }
-            
-            // Fallback to keyword-based responses
-            const keywords = {
-                'halo': 'Halo juga! Senang bertemu dengan Anda. Saya memiliki akses ke 500 juta poin pengetahuan dari sistem RAG.',
-                'apa': 'Saya adalah asisten AI yang didukung oleh sistem RAG (Retrieval-Augmented Generation) dengan basis pengetahuan masif.',
-                'bagaimana': 'Saya akan menjelaskan langkah-langkahnya secara detail berdasarkan data dari sistem RAGREBER.DIGITAL.',
-                'mengapa': 'Pertanyaan yang bagus! Berdasarkan analisis dari basis pengetahuan kami, ada beberapa faktor yang mempengaruhi hal ini.',
-                'siapa': 'Saya adalah AI Assistant yang dikembangkan oleh AI_MACHINELEARNING.DIGITAL, didukung oleh sistem RAG dengan 500 juta poin pengetahuan.',
-                'negara': 'Sistem RAG kami menyimpan informasi tentang berbagai negara termasuk Indonesia, USA, China, Japan, Germany, dan banyak lagi.',
-                'perangkat': 'Dalam basis pengetahuan kami, terdapat informasi tentang Router, Switch, Firewall, Server, Laptop, Smartphone, dan perangkat jaringan lainnya.',
-                'jaringan': 'Kami memiliki data lengkap tentang TCP/IP, HTTP/HTTPS, FTP, SSH, DNS, DHCP, VLAN, VPN, 5G, WiFi 6, dan protokol jaringan lainnya.',
-                'bahasa pemrograman': 'Sistem RAG mencakup Python, JavaScript, Java, C++, Go, Rust, Ruby, PHP, Swift, Kotlin, TypeScript, dan bahasa lainnya.',
-                'database': 'Informasi tentang MySQL, PostgreSQL, MongoDB, Redis, Elasticsearch, Cassandra, Oracle, SQL Server, dan database modern tersedia di RAG.',
-                'cloud': 'Kami memiliki data tentang AWS, Google Cloud, Microsoft Azure, Alibaba Cloud, IBM Cloud, dan penyedia cloud lainnya.',
-                'ai': 'Sistem RAG mencakup Machine Learning, Deep Learning, Neural Networks, NLP, Computer Vision, Generative AI, Transformers, dan konsep AI modern.',
-                'default': 'Saya akan mencari informasi terkait pertanyaan Anda dalam basis pengetahuan RAGREBER.DIGITAL yang berisi 500 juta poin pengetahuan.'
-            };
-
-            for (const [key, value] of Object.entries(keywords)) {
-                if (inputLower.includes(key)) {
-                    return value;
-                }
-            }
-            return keywords['default'];
+            }, 1000);
         }
 
         function addMessage(content, type) {
