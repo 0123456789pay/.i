@@ -1,0 +1,44 @@
+{
+  "name": "Pusat.Digital - Universal Digital Platform",
+  "short_name": "PusatDigital",
+  "description": "Integrated system of 250+ digital features with fast loading, SEO optimization, and cross-device support",
+  "start_url": "/tunel/pusat.digital/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#8b5cf6",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities", "business"],
+  "screenshots": [],
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "shortcuts": [
+    {
+      "name": "All Features",
+      "short_name": "Features",
+      "description": "Browse all digital features",
+      "url": "/tunel/pusat.digital/fitur",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "System Status",
+      "short_name": "Status",
+      "description": "Check system status",
+      "url": "/tunel/pusat.digital/api/status",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

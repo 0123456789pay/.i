@@ -1,0 +1,58 @@
+{
+  "system": {
+    "name": "Pusat.Digital",
+    "version": "1.0.0",
+    "ecosystem": "tunel()",
+    "paths": ["/", "`", ".", "\\", "|"],
+    "description": "Universal Digital Platform with 250+ integrated features"
+  },
+  "performance": {
+    "gzip": true,
+    "brotli": true,
+    "cache_ttl": 31536000,
+    "lazy_load": true,
+    "prefetch": true,
+    "minify": true,
+    "cdn_enabled": true,
+    "http2": true,
+    "keep_alive": true
+  },
+  "seo": {
+    "enabled": true,
+    "sitemap_auto": true,
+    "robots_auto": true,
+    "structured_data": true,
+    "open_graph": true,
+    "twitter_cards": true,
+    "canonical_urls": true,
+    "meta_tags_auto": true
+  },
+  "crawler": {
+    "enabled": true,
+    "fast_render": true,
+    "bot_detection": true,
+    "dynamic_rendering": true,
+    "crawl_delay": 0,
+    "allowed_bots": ["Googlebot", "Bingbot", "Slurp", "DuckDuckBot", "Baiduspider", "YandexBot"],
+    "instant_indexing": true
+  },
+  "browser": {
+    "refresh_rate": 60,
+    "service_worker": true,
+    "offline_support": true,
+    "push_notifications": true,
+    "background_sync": true,
+    "app_manifest": true,
+    "installable": true
+  },
+  "security": {
+    "https_only": true,
+    "hsts": true,
+    "csp": true,
+    "xss_protection": true,
+    "content_type_nosniff": true,
+    "frame_options": "SAMEORIGIN"
+  },
+  "features_count": 250,
+  "last_updated": "2024-07-18"
+}
