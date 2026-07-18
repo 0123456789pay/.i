@@ -1,0 +1,16 @@
+/* Stylesheet untuk Analitik Konversi V2 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #1a1a2e;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
+}
