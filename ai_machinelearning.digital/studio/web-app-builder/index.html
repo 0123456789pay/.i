@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Web App Builder - AI_MACHINELEARNING.DIGITAL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .studio-container {
+            display: flex;
+            height: calc(100vh - 70px);
+            margin-top: 70px;
+        }
+        .sidebar {
+            width: 300px;
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        .main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .preview-area {
+            flex: 1;
+            background: white;
+            border: 1px solid #e2e8f0;
+            margin: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .preview-header {
+            background: #f1f5f9;
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .preview-frame {
+            width: 100%;
+            height: calc(100% - 50px);
+            border: none;
+            background: white;
+        }
+        .code-panel {
+            height: 300px;
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        .component-item {
+            padding: 0.8rem 1rem;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border: 2px solid #e2e8f0;
+        }
+        .component-item:hover {
+            border-color: #0066ff;
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 102, 255, 0.2);
+        }
+        .component-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .file-tree-item {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .file-tree-item:hover {
+            background: #e2e8f0;
+        }
+        .file-tree-item.active {
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+        }
+        .toolbar {
+            padding: 1rem;
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .tool-btn {
+            padding: 0.6rem 1rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+        .tool-btn:hover {
+            border-color: #0066ff;
+            color: #0066ff;
+            transform: translateY(-2px);
+        }
+        .tab-nav {
+            display: flex;
+            background: #f1f5f9;
+            padding: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .tab-item {
+            padding: 0.6rem 1.5rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .tab-item:hover {
+            background: #e2e8f0;
+        }
+        .tab-item.active {
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+        }
+        .split-view {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .split-pane {
+            flex: 1;
+            overflow: auto;
+            padding: 1rem;
+        }
+        .split-divider {
+            width: 4px;
+            background: #e2e8f0;
+            cursor: col-resize;
+        }
+    </style>
+</head>
+<body>
+    <!-- Brand Navbar -->
+    <nav class="brand-navbar">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a href="../../index.html" class="brand-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI_MACHINELEARNING.DIGITAL</span>
+            </a>
+            <div class="auth-buttons">
+                <a href="../../index.html" class="btn-auth btn-login">
+                    <i class="fas fa-arrow-left me-1"></i> Kembali
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Studio Container -->
+    <div class="studio-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h6 class="mb-3"><i class="fas fa-folder-tree me-2"></i>Direktori Kode</h6>
+            <div id="fileTree">
+                <div class="file-tree-item active" onclick="selectFile('index.html')">
+                    <i class="fas fa-file-code"></i>
+                    <span>index.html</span>
+                </div>
+                <div class="file-tree-item" onclick="selectFile('style.css')">
+                    <i class="fas fa-file-code"></i>
+                    <span>style.css</span>
+                </div>
+                <div class="file-tree-item" onclick="selectFile('script.js')">
+                    <i class="fas fa-file-code"></i>
+                    <span>script.js</span>
+                </div>
+            </div>
+
+            <h6 class="mb-3 mt-4"><i class="fas fa-puzzle-piece me-2"></i>Komponen UI</h6>
+            <div id="componentsList">
+                <div class="component-item" onclick="addComponent('button')">
+                    <div class="component-icon">
+                        <i class="fas fa-square"></i>
+                    </div>
+                    <div>
+                        <strong>Tombol</strong><br>
+                        <small class="text-muted">Button component</small>
+                    </div>
+                </div>
+                <div class="component-item" onclick="addComponent('input')">
+                    <div class="component-icon">
+                        <i class="fas fa-i-cursor"></i>
+                    </div>
+                    <div>
+                        <strong>Input</strong><br>
+                        <small class="text-muted">Text input field</small>
+                    </div>
+                </div>
+                <div class="component-item" onclick="addComponent('card')">
+                    <div class="component-icon">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <div>
+                        <strong>Kartu</strong><br>
+                        <small class="text-muted">Card container</small>
+                    </div>
+                </div>
+                <div class="component-item" onclick="addComponent('navbar')">
+                    <div class="component-icon">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div>
+                        <strong>Navbar</strong><br>
+                        <small class="text-muted">Navigation bar</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Area -->
+        <div class="main-area">
+            <!-- Toolbar -->
+            <div class="toolbar">
+                <button class="tool-btn" onclick="runPreview()">
+                    <i class="fas fa-play"></i> Jalankan
+                </button>
+                <button class="tool-btn" onclick="exportCode()">
+                    <i class="fas fa-download"></i> Ekspor
+                </button>
+                <button class="tool-btn" onclick="clearAll()">
+                    <i class="fas fa-trash"></i> Bersihkan
+                </button>
+                <div style="flex: 1;"></div>
+                <button class="tool-btn" style="background: linear-gradient(135deg, #0066ff, #0047b3); color: white; border: none;" onclick="saveProject()">
+                    <i class="fas fa-save"></i> Simpan
+                </button>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <div class="tab-item active" onclick="switchTab('preview')">
+                    <i class="fas fa-eye me-2"></i>Preview
+                </div>
+                <div class="tab-item" onclick="switchTab('code')">
+                    <i class="fas fa-code me-2"></i>Kode
+                </div>
+            </div>
+
+            <!-- Preview Area -->
+            <div id="previewPanel" class="preview-area">
+                <div class="preview-header">
+                    <span><i class="fas fa-desktop me-2"></i>Preview Aplikasi</span>
+                    <button class="btn btn-sm btn-outline-primary" onclick="refreshPreview()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <iframe id="previewFrame" class="preview-frame" srcdoc="<html><body style='font-family: Arial; padding: 2rem; text-align: center;'><h1>Aplikasi Web Anda</h1><p>Mulai tambahkan komponen untuk membangun aplikasi.</p></body></html>"></iframe>
+            </div>
+
+            <!-- Code Panel -->
+            <div id="codePanel" class="code-panel" style="display: none;">
+                <pre id="codeContent">&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Aplikasi Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Aplikasi Web Anda&lt;/h1&gt;
+    &lt;p&gt;Mulai tambahkan komponen...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentFiles = {
+            'index.html': '<!DOCTYPE html>\n<html lang="id">\n<head>\n    <meta charset="UTF-8">\n    <title>Aplikasi Web</title>\n</head>\n<body>\n    <h1>Aplikasi Web Anda</h1>\n    <p>Mulai tambahkan komponen...</p>\n</body>\n</html>',
+            'style.css': 'body {\n    font-family: Arial, sans-serif;\n    margin: 0;\n    padding: 20px;\n}',
+            'script.js': '// JavaScript code here\nconsole.log("App loaded");'
+        };
+
+        function selectFile(filename) {
+            document.querySelectorAll('.file-tree-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.file-tree-item').classList.add('active');
+            
+            const codeContent = document.getElementById('codeContent');
+            codeContent.textContent = currentFiles[filename] || '';
+        }
+
+        function addComponent(type) {
+            const components = {
+                'button': '<button style="padding: 10px 20px; background: #0066ff; color: white; border: none; border-radius: 5px; cursor: pointer;">Klik Saya</button>',
+                'input': '<input type="text" placeholder="Ketik sesuatu..." style="padding: 10px; border: 2px solid #e2e8f0; border-radius: 5px; width: 200px;">',
+                'card': '<div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin: 10px 0;"><h3>Judul Kartu</h3><p>Isi kartu di sini...</p></div>',
+                'navbar': '<nav style="background: linear-gradient(135deg, #0066ff, #0047b3); padding: 1rem; color: white; border-radius: 8px;"><strong>Logo</strong> | Home | About | Contact</nav>'
+            };
+
+            currentFiles['index.html'] = currentFiles['index.html'].replace('</body>', `    ${components[type]}\n</body>`);
+            updatePreview();
+            updateCodeDisplay();
+            
+            // Show notification
+            alert(`Komponen ${type} berhasil ditambahkan!`);
+        }
+
+        function runPreview() {
+            updatePreview();
+            alert('Preview dijalankan!');
+        }
+
+        function updatePreview() {
+            const iframe = document.getElementById('previewFrame');
+            const html = currentFiles['index.html'];
+            const css = currentFiles['style.css'];
+            
+            const fullHTML = `
+                <html>
+                <head>
+                    <style>${css}</style>
+                </head>
+                <body>
+                    ${html.replace(/<\/?html>|<\/?head>|<\/?body>|<meta[^>]*>|<title[^>]*>.*?<\/title>/g, '')}
+                </body>
+                </html>
+            `;
+            
+            iframe.srcdoc = fullHTML;
+        }
+
+        function refreshPreview() {
+            updatePreview();
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.tab-item').classList.add('active');
+
+            if (tab === 'preview') {
+                document.getElementById('previewPanel').style.display = 'block';
+                document.getElementById('codePanel').style.display = 'none';
+            } else {
+                document.getElementById('previewPanel').style.display = 'none';
+                document.getElementById('codePanel').style.display = 'block';
+                updateCodeDisplay();
+            }
+        }
+
+        function updateCodeDisplay() {
+            const codeContent = document.getElementById('codeContent');
+            codeContent.textContent = currentFiles['index.html'];
+        }
+
+        function exportCode() {
+            const blob = new Blob([currentFiles['index.html']], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'aplikasi-web.html';
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('Kode berhasil diekspor!');
+        }
+
+        function clearAll() {
+            if (confirm('Apakah Anda yakin ingin menghapus semua konten?')) {
+                currentFiles['index.html'] = '<!DOCTYPE html>\n<html lang="id">\n<head>\n    <meta charset="UTF-8">\n    <title>Aplikasi Web</title>\n</head>\n<body>\n    <h1>Aplikasi Web Anda</h1>\n</body>\n</html>';
+                updatePreview();
+                updateCodeDisplay();
+            }
+        }
+
+        function saveProject() {
+            localStorage.setItem('webAppProject', JSON.stringify(currentFiles));
+            alert('Proyek berhasil disimpan!');
+        }
+
+        // Auto-save on changes
+        setInterval(() => {
+            localStorage.setItem('webAppProject', JSON.stringify(currentFiles));
+        }, 30000);
+
+        // Load saved project
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('webAppProject');
+            if (saved) {
+                currentFiles = JSON.parse(saved);
+                updatePreview();
+            }
+        });
+
+        // Custom cursor effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.createElement('div');
+            cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border: 2px solid #0066ff;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.1s ease;
+                display: none;
+            `;
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.display = 'block';
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+            });
+        });
+    </script>
+</body>
+</html>

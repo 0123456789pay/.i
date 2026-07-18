@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Chat Generation - AI_MACHINELEARNING.DIGITAL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        .studio-container {
+            display: flex;
+            height: calc(100vh - 70px);
+            margin-top: 70px;
+        }
+        .chat-sidebar {
+            width: 280px;
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        .chat-messages {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+            background: #fafbfc;
+        }
+        .message {
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+        .message.user {
+            flex-direction: row-reverse;
+        }
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .message.ai .message-avatar {
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+        }
+        .message.user .message-avatar {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+        .message-content {
+            max-width: 70%;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            line-height: 1.6;
+        }
+        .message.ai .message-content {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-top-left-radius: 5px;
+        }
+        .message.user .message-content {
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+            border-top-right-radius: 5px;
+        }
+        .chat-input-area {
+            padding: 1.5rem;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+        }
+        .chat-input-wrapper {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .chat-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .chat-input:focus {
+            border-color: #0066ff;
+            box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+        }
+        .send-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.3);
+        }
+        .chat-history-item {
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .chat-history-item:hover {
+            background: #e2e8f0;
+        }
+        .chat-history-item.active {
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+        }
+        .new-chat-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #0066ff, #0047b3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .typing-indicator {
+            display: flex;
+            gap: 0.3rem;
+            padding: 0.5rem;
+        }
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #0066ff;
+            animation: typing 1.4s infinite;
+        }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Brand Navbar -->
+    <nav class="brand-navbar">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a href="../../index.html" class="brand-logo">
+                <i class="fas fa-brain"></i>
+                <span>AI_MACHINELEARNING.DIGITAL</span>
+            </a>
+            <div class="auth-buttons">
+                <a href="../../index.html" class="btn-auth btn-login">
+                    <i class="fas fa-arrow-left me-1"></i> Kembali
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Studio Container -->
+    <div class="studio-container">
+        <!-- Sidebar -->
+        <div class="chat-sidebar">
+            <button class="new-chat-btn" onclick="newChat()">
+                <i class="fas fa-plus me-2"></i>Chat Baru
+            </button>
+            <h6 class="mb-3 text-muted"><i class="fas fa-history me-2"></i>Riwayat Chat</h6>
+            <div id="chatHistory">
+                <div class="chat-history-item active">
+                    <i class="fas fa-comment"></i>
+                    <span>Chat Saat Ini</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="chat-main">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <strong>AI Assistant</strong><br>
+                        Halo! Saya adalah AI Chat Generation Studio. Saya dapat membantu Anda dengan berbagai pertanyaan dan tugas. Apa yang bisa saya bantu hari ini?
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ketik pesan Anda di sini..." onkeypress="handleKeyPress(event)">
+                    <button class="send-btn" onclick="sendMessage()">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let chatHistory = [];
+        let currentChat = [];
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            // Simulate AI response
+            setTimeout(() => {
+                hideTypingIndicator();
+                const responses = [
+                    "Terima kasih atas pertanyaan Anda. Berdasarkan analisis saya, " + generateResponse(message),
+                    "Saya memahami pertanyaan Anda. Mari saya jelaskan lebih detail...",
+                    "Pertanyaan yang menarik! Berikut adalah jawaban saya...",
+                    "Berdasarkan data yang saya miliki, " + generateResponse(message)
+                ];
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                addMessage(randomResponse, 'ai');
+            }, 1500);
+        }
+
+        function generateResponse(input) {
+            const keywords = {
+                'halo': 'Halo juga! Senang bertemu dengan Anda.',
+                'apa': 'Saya adalah asisten AI yang siap membantu Anda.',
+                'bagaimana': 'Saya akan menjelaskan langkah-langkahnya secara detail.',
+                'mengapa': 'Pertanyaan yang bagus! Ada beberapa alasan untuk ini.',
+                'siapa': 'Saya adalah AI yang dikembangkan oleh AI_MACHINELEARNING.DIGITAL.',
+                'default': 'Saya akan memproses permintaan Anda dan memberikan jawaban terbaik.'
+            };
+
+            for (const [key, value] of Object.entries(keywords)) {
+                if (input.toLowerCase().includes(key)) {
+                    return value;
+                }
+            }
+            return keywords['default'];
+        }
+
+        function addMessage(content, type) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            
+            const avatarIcon = type === 'ai' ? 'fa-robot' : 'fa-user';
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas ${avatarIcon}"></i>
+                </div>
+                <div class="message-content">
+                    <strong>${type === 'ai' ? 'AI Assistant' : 'Anda'}</strong><br>
+                    ${content}
+                </div>
+            `;
+            
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            
+            currentChat.push({ type, content });
+        }
+
+        function showTypingIndicator() {
+            const messagesDiv = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message ai';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                </div>
+            `;
+            messagesDiv.appendChild(typingDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const typingDiv = document.getElementById('typingIndicator');
+            if (typingDiv) {
+                typingDiv.remove();
+            }
+        }
+
+        function newChat() {
+            currentChat = [];
+            const messagesDiv = document.getElementById('chatMessages');
+            messagesDiv.innerHTML = `
+                <div class="message ai">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <strong>AI Assistant</strong><br>
+                        Chat baru dimulai! Apa yang bisa saya bantu?
+                    </div>
+                </div>
+            `;
+        }
+
+        // Custom cursor
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+            cursor.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                border: 2px solid #0066ff;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transition: all 0.1s ease;
+                display: none;
+            `;
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.display = 'block';
+                cursor.style.left = e.clientX - 10 + 'px';
+                cursor.style.top = e.clientY - 10 + 'px';
+            });
+
+            document.querySelectorAll('button, a, input').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.transform = 'scale(1.5)';
+                    cursor.style.borderColor = '#0047b3';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.transform = 'scale(1)';
+                    cursor.style.borderColor = '#0066ff';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
