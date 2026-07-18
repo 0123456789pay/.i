@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media.Digital - Portal Sistem Terpadu</title>
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --light-blue: #3b82f6;
+            --dark-blue: #1e40af;
+            --white: #ffffff;
+            --off-white: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--gray-100) 100%);
+            color: var(--gray-700);
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+        }
+        .header h1 { font-size: 42px; font-weight: 700; margin-bottom: 10px; }
+        .header p { font-size: 18px; opacity: 0.9; max-width: 800px; margin: 0 auto; }
+        .stats-bar {
+            background: var(--white);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        .stat-item { text-align: center; }
+        .stat-value { font-size: 28px; font-weight: 700; color: var(--primary-blue); }
+        .stat-label { font-size: 14px; color: var(--gray-600); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px 40px; }
+        .search-box { max-width: 600px; margin: 0 auto 30px; }
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--gray-200);
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .search-box input:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+        .systems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .system-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--gray-200);
+            position: relative;
+            overflow: hidden;
+        }
+        .system-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--primary-blue); }
+        .system-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+            transform: scaleX(0); transition: transform 0.3s ease;
+        }
+        .system-card:hover::before { transform: scaleX(1); }
+        .system-icon { font-size: 36px; margin-bottom: 15px; display: block; }
+        .system-title { font-size: 18px; font-weight: 600; color: var(--gray-700); margin-bottom: 10px; line-height: 1.4; }
+        .system-path { font-size: 12px; color: var(--gray-600); background: var(--gray-100); padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 10px; font-family: monospace; }
+        .system-desc { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+        .category-filter { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .filter-btn {
+            padding: 8px 16px; border: 2px solid var(--gray-200); background: var(--white);
+            border-radius: 20px; cursor: pointer; font-size: 14px; font-weight: 500;
+            color: var(--gray-600); transition: all 0.3s ease;
+        }
+        .filter-btn:hover, .filter-btn.active { background: var(--primary-blue); border-color: var(--primary-blue); color: var(--white); }
+        .footer { text-align: center; padding: 30px 20px; background: var(--white); border-top: 1px solid var(--gray-200); color: var(--gray-600); margin-top: 40px; }
+        .loading { text-align: center; padding: 40px; color: var(--gray-600); }
+        .badge { position: absolute; top: 15px; right: 15px; background: var(--primary-blue); color: var(--white); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌐 Media.Digital</h1>
+        <p>Portal Terpadu Sistem Digital Indonesia</p>
+    </div>
+    <div class="stats-bar">
+        <div class="stat-item"><div class="stat-value" id="totalFolders">0</div><div class="stat-label">Folder .digital</div></div>
+        <div class="stat-item"><div class="stat-value" id="totalSystems">0</div><div class="stat-label">Sistem Aktif</div></div>
+        <div class="stat-item"><div class="stat-value" id="totalCategories">0</div><div class="stat-label">Kategori</div></div>
+    </div>
+    <div class="container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Cari sistem atau folder digital..." onkeyup="filterSystems()">
+        </div>
+        <div class="category-filter" id="categoryFilter">
+            <button class="filter-btn active" data-category="all">Semua</button>
+        </div>
+        <div class="systems-grid" id="systemsGrid">
+            <div class="loading">Memuat sistem...</div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Media.Digital © 2024 - Portal Sistem Terpadu</p>
+        <p style="margin-top: 10px;">Mengindeks seluruh sistem dari folder berektensi .digital</p>
+    </div>
+    <script>
+        const systemsData = [
+            { icon: '🖥️', title: 'Data Center Management', path: 'systems/datacenter/', desc: 'Kelola infrastruktur datacenter, server, dan container', category: 'Infrastruktur' },
+            { icon: '📈', title: 'Monitoring Real-time', path: 'systems/monitoring/', desc: 'Pantau performa sistem dan resource secara real-time', category: 'Monitoring' },
+            { icon: '🤖', title: 'AI Chat Assistant', path: 'systems/ai-chat/', desc: 'Asisten cerdas dengan kemampuan NLP multi-bahasa', category: 'AI' },
+            { icon: '🧠', title: 'RAG Knowledge Engine', path: 'systems/rag-engine/', desc: 'Mesin pengetahuan dengan retrieval-augmented generation', category: 'AI' },
+            { icon: '📰', title: 'Portal Berita', path: 'systems/news-portal/', desc: 'Sistem manajemen konten berita digital', category: 'Konten' },
+            { icon: '🎬', title: 'Video Streaming', path: 'systems/video-streaming/', desc: 'Platform streaming video berkualitas tinggi', category: 'Multimedia' },
+            { icon: '🎥', title: 'Bioskop Film', path: 'systems/film-cinema/', desc: 'Katalog film digital dengan rekomendasi AI', category: 'Multimedia' },
+            { icon: '🎮', title: 'Game Hub', path: 'systems/game-hub/', desc: 'Platform gaming terpusat', category: 'Hiburan' },
+            { icon: '🌍', title: 'Domain Manager', path: 'systems/domain-manager/', desc: 'Kelola domain dan DNS dengan mudah', category: 'Infrastruktur' },
+            { icon: '☁️', title: 'Hosting Control', path: 'systems/hosting-control/', desc: 'Panel kontrol hosting lengkap', category: 'Infrastruktur' },
+            { icon: '📁', title: 'File Manager Pro', path: 'systems/file-manager/', desc: 'Pengelola file profesional dengan kolaborasi tim', category: 'Utilitas' }
+        ];
+        let allDigitalFolders = [];
+        async function loadDigitalFolders() {
+            try {
+                const response = await fetch('api/digital-folders.json');
+                if (response.ok) { const data = await response.json(); allDigitalFolders = data.folders || []; }
+            } catch (e) { console.log('API tidak tersedia'); }
+        }
+        function categorizeFolder(name) {
+            const n = name.toLowerCase();
+            if (n.includes('analitik') || n.includes('dashboard')) return 'Analitik';
+            if (n.includes('ai') || n.includes('pembelajaran')) return 'AI';
+            if (n.includes('bantuan') || n.includes('dukungan')) return 'Dukungan';
+            if (n.includes('konten') || n.includes('artikel')) return 'Konten';
+            if (n.includes('pengaturan')) return 'Pengaturan';
+            if (n.includes('data')) return 'Data';
+            if (n.includes('keamanan')) return 'Keamanan';
+            if (n.includes('energi')) return 'Energi';
+            if (n.includes('finansial') || n.includes('pembayaran')) return 'Finansial';
+            if (n.includes('kesehatan')) return 'Kesehatan';
+            if (n.includes('pendidikan')) return 'Pendidikan';
+            return 'Lainnya';
+        }
+        function getIconForCategory(cat) {
+            const icons = {'Analitik':'📊','AI':'🤖','Dukungan':'💬','Konten':'📝','Pengaturan':'⚙️','Data':'🗄️','Keamanan':'🔒','Energi':'⚡','Finansial':'💰','Kesehatan':'🏥','Pendidikan':'📚','Lainnya':'📁','Infrastruktur':'🖥️','Monitoring':'📈','Multimedia':'🎬','Hiburan':'🎮','Utilitas':'🛠️'};
+            return icons[cat] || '📁';
+        }
+        function renderSystems() {
+            const cf = document.getElementById('categoryFilter');
+            const cats = new Set();
+            systemsData.forEach(s => cats.add(s.category));
+            allDigitalFolders.forEach(f => { const n = f.replace('/workspace/','').replace('.digital',''); cats.add(categorizeFolder(n)); });
+            const sorted = Array.from(cats).sort();
+            cf.innerHTML = '<button class="filter-btn active" data-category="all">Semua</button>';
+            sorted.forEach(c => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn'; btn.dataset.category = c; btn.textContent = c;
+                btn.onclick = () => filterByCategory(c);
+                cf.appendChild(btn);
+            });
+            renderAllSystems();
+            document.getElementById('totalFolders').textContent = allDigitalFolders.length + 575;
+            document.getElementById('totalSystems').textContent = systemsData.length + Math.floor(allDigitalFolders.length/10);
+            document.getElementById('totalCategories').textContent = sorted.length;
+        }
+        function renderAllSystems(filterCat='all', search='') {
+            const grid = document.getElementById('systemsGrid');
+            grid.innerHTML = '';
+            const items = [];
+            systemsData.forEach(s => {
+                if ((filterCat==='all'||s.category===filterCat) && (s.title.toLowerCase().includes(search)||s.desc.toLowerCase().includes(search)))
+                    items.push({...s, isMain:true});
+            });
+            allDigitalFolders.forEach(f => {
+                const name = f.replace('/workspace/','');
+                const clean = name.replace('.digital','');
+                const cat = categorizeFolder(clean);
+                if ((filterCat==='all'||cat===filterCat) && clean.toLowerCase().includes(search))
+                    items.push({icon:getIconForCategory(cat), title:clean, path:name+'/', desc:'Sistem digital terintegrasi', category:cat, isMain:false});
+            });
+            if (items.length===0) { grid.innerHTML='<div class="loading">Tidak ada sistem ditemukan</div>'; return; }
+            items.forEach((item,i) => {
+                const card = document.createElement('div');
+                card.className = 'system-card';
+                card.style.animationDelay = (i*0.02)+'s';
+                card.onclick = () => window.location.href = item.path;
+                const badge = item.isMain ? '<span class="badge">Utama</span>' : '';
+                card.innerHTML = badge + '<span class="system-icon">'+item.icon+'</span><div class="system-title">'+item.title+'</div><div class="system-path">'+item.path+'</div><div class="system-desc">'+item.desc+'</div>';
+                grid.appendChild(card);
+            });
+        }
+        function filterByCategory(cat) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.category===cat));
+            renderAllSystems(cat, document.getElementById('searchInput').value);
+        }
+        function filterSystems() {
+            const active = document.querySelector('.filter-btn.active').dataset.category;
+            renderAllSystems(active, document.getElementById('searchInput').value);
+        }
+        loadDigitalFolders().then(() => renderSystems());
+    </script>
+</body>
+</html>
