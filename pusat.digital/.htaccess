@@ -2,7 +2,7 @@
 # Optimized for .digital folders as independent domains
 
 RewriteEngine On
-RewriteBase /tunel/pusat.digital/
+RewriteBase /pusat.digital/
 
 # Enable Gzip compression
 <IfModule mod_deflate.c>
@@ -48,5 +48,5 @@ RewriteRule ^(.*)$ router.php [L,QSA]
 Options -Indexes
 
 # Custom error pages
-ErrorDocument 404 /tunel/pusat.digital/error404.html
-ErrorDocument 500 /tunel/pusat.digital/error500.html
+ErrorDocument 404 /pusat.digital/error404.html
+ErrorDocument 500 /pusat.digital/error500.html
