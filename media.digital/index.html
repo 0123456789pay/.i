@@ -9,29 +9,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            --info-gradient: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
-            --dark-gradient: linear-gradient(135deg, #232526 0%, #414345 100%);
-            --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --hover-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --primary-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            --secondary: #60a5fa;
+            --accent: #93c5fd;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: rgba(37, 99, 235, 0.1);
+            --card-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            --hover-shadow: 0 15px 40px rgba(37, 99, 235, 0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--bg);
             min-height: 100vh;
             overflow-x: hidden;
+            color: var(--text);
         }
 
         .hero-section {
             background: var(--primary-gradient);
             color: white;
-            padding: 4rem 1rem 6rem;
+            padding: 5rem 1rem 7rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -97,6 +104,7 @@
             box-shadow: var(--card-shadow);
             display: flex;
             align-items: center;
+            border: 2px solid var(--primary-light);
         }
 
         .search-box input {
@@ -116,10 +124,13 @@
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
 
-        .search-box button:hover { transform: scale(1.05); }
+        .search-box button:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
+        }
 
         .category-filter {
             display: flex;
@@ -132,9 +143,9 @@
 
         .filter-btn {
             padding: 0.6rem 1.5rem;
-            border: 2px solid #667eea;
+            border: 2px solid var(--primary);
             background: white;
-            color: #667eea;
+            color: var(--primary);
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
@@ -146,7 +157,7 @@
             color: white;
             border-color: transparent;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 15px var(--shadow);
         }
 
         .main-content {
@@ -185,7 +196,7 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
         }
 
         .feature-card::before {
@@ -201,6 +212,7 @@
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--hover-shadow);
+            border-color: var(--primary-light);
         }
 
         .feature-card:hover::before { transform: scaleX(1); }
@@ -214,27 +226,28 @@
             font-size: 2rem;
             margin-bottom: 1.5rem;
             color: white;
+            background: var(--primary-gradient);
         }
 
         .icon-analytics { background: var(--primary-gradient); }
-        .icon-konten { background: var(--secondary-gradient); }
-        .icon-bantuan { background: var(--success-gradient); }
-        .icon-pengaturan { background: var(--warning-gradient); }
-        .icon-dashboard { background: var(--info-gradient); }
-        .icon-lainnya { background: var(--dark-gradient); }
+        .icon-konten { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); }
+        .icon-bantuan { background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); }
+        .icon-pengaturan { background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); }
+        .icon-dashboard { background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%); }
+        .icon-lainnya { background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%); }
 
         .feature-name {
             font-size: 1.3rem;
             font-weight: 700;
-            color: #333;
+            color: var(--primary-dark);
             margin-bottom: 0.5rem;
         }
 
         .feature-path {
             font-size: 0.85rem;
-            color: #888;
+            color: var(--text-light);
             font-family: 'Courier New', monospace;
-            background: #f8f9fa;
+            background: var(--bg-alt);
             padding: 0.4rem 0.8rem;
             border-radius: 8px;
             display: inline-block;
@@ -245,7 +258,7 @@
             display: flex;
             gap: 1rem;
             font-size: 0.85rem;
-            color: #666;
+            color: var(--text-light);
         }
 
         .feature-stat {
@@ -272,6 +285,7 @@
             padding: 2rem;
             box-shadow: var(--card-shadow);
             margin-bottom: 3rem;
+            border: 1px solid var(--border);
         }
 
         .box-header {
@@ -280,13 +294,13 @@
             align-items: center;
             margin-bottom: 2rem;
             padding-bottom: 1rem;
-            border-bottom: 2px solid #f0f0f0;
+            border-bottom: 2px solid var(--border);
         }
 
         .box-title {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #333;
+            color: var(--primary-dark);
             display: flex;
             align-items: center;
             gap: 0.8rem;
@@ -299,7 +313,7 @@
         }
 
         .box-item {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, var(--bg-alt) 0%, #e0e7ff 100%);
             padding: 1.2rem;
             border-radius: 12px;
             text-align: center;
@@ -310,14 +324,14 @@
 
         .box-item:hover {
             background: white;
-            border-color: #667eea;
+            border-color: var(--primary-light);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+            box-shadow: 0 5px 15px var(--shadow);
         }
 
         .box-item i {
             font-size: 1.5rem;
-            color: #667eea;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
@@ -325,11 +339,11 @@
             display: block;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #333;
+            color: var(--primary-dark);
         }
 
         footer {
-            background: var(--dark-gradient);
+            background: var(--primary-gradient);
             color: white;
             padding: 3rem 1rem;
             text-align: center;
@@ -358,7 +372,7 @@
 
         .social-links a:hover {
             background: white;
-            color: #667eea;
+            color: var(--primary);
             transform: translateY(-5px);
         }
 
@@ -393,8 +407,8 @@
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        .no-results { text-align: center; padding: 4rem 2rem; color: #666; }
-        .no-results i { font-size: 4rem; color: #ddd; margin-bottom: 1rem; }
+        .no-results { text-align: center; padding: 4rem 2rem; color: var(--text-light); }
+        .no-results i { font-size: 4rem; color: var(--secondary); margin-bottom: 1rem; }
 
         .scroll-top {
             position: fixed;
@@ -410,8 +424,13 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 20px var(--shadow);
             z-index: 999;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow);
         }
 
         .scroll-top.visible { opacity: 1; visibility: visible; }
