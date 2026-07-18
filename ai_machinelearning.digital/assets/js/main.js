@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeApp() {
     calculateStatistics();
     renderFeaturesGrid(aiSystemsData);
-    renderQuickAccessBox();
-    renderDirectoryGrid();
+    renderStudioQuickAccess();
+    renderSystemsDirectory();
     setupEventListeners();
     updateStatisticsDisplay();
 }
@@ -132,10 +132,10 @@ function createFeatureCard(system) {
     `;
 }
 
-// Render kotak akses cepat
-function renderQuickAccessBox() {
-    const box = document.getElementById('quickAccessBox');
-    if (!box) return;
+// Render kotak akses cepat - AI Studio Menu di bawah hero section
+function renderStudioQuickAccess() {
+    const grid = document.getElementById('studioQuickAccessGrid');
+    if (!grid) return;
     
     const studios = [
         { name: "Chat Generation", icon: "fa-comments", path: "studio/chat-generation/index.html", desc: "Asisten AI chat interaktif" },
@@ -146,8 +146,8 @@ function renderQuickAccessBox() {
         { name: "Search Engine", icon: "fa-search", path: "studio/search-engine/index.html", desc: "Mesin pencari cerdas" }
     ];
     
-    box.innerHTML = studios.map(studio => `
-        <a href="${studio.path}" class="box-item studio-card" target="_blank">
+    grid.innerHTML = studios.map(studio => `
+        <a href="${studio.path}" class="studio-card-item" target="_blank">
             <div class="studio-icon-wrapper">
                 <i class="fas ${studio.icon}"></i>
             </div>
@@ -158,14 +158,15 @@ function renderQuickAccessBox() {
     `).join('');
 }
 
-// Render grid direktori footer
-function renderDirectoryGrid() {
-    const grid = document.getElementById('directoryGrid');
-    if (!grid) return;
+// Render direktori sistem .digital
+function renderSystemsDirectory() {
+    const directory = document.getElementById('systemsDirectory');
+    if (!directory) return;
     
-    grid.innerHTML = aiSystemsData.map(system => `
-        <a href="#" class="directory-link" onclick="openSystemDetail('${system.path}'); return false;" title="${system.name}">
-            ${system.path}
+    directory.innerHTML = aiSystemsData.map(system => `
+        <a href="${system.path}/index.html" class="box-item system-link" target="_blank" title="${system.name}">
+            <i class="fas ${system.icon}"></i>
+            <span>${system.name}</span>
         </a>
     `).join('');
 }
@@ -245,49 +246,6 @@ function searchFeatures() {
             renderFeaturesGrid(filtered);
         }
     }, 300);
-}
-
-// Filter by category
-function filterByCategory(category) {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.filter === category) {
-            btn.classList.add('active');
-        }
-    });
-    
-    const filtered = category === 'all' ? aiSystemsData : aiSystemsData.filter(s => s.category === category);
-    renderFeaturesGrid(filtered);
-    
-    // Scroll to features grid
-    document.getElementById('featuresGrid').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Toggle directory panel
-function toggleDirectoryPanel() {
-    const panel = document.getElementById('directoryPanel');
-    if (!panel) return;
-    
-    if (panel.style.display === 'none') {
-        panel.style.display = 'block';
-        renderSystemsDirectory();
-        panel.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        panel.style.display = 'none';
-    }
-}
-
-// Render systems directory
-function renderSystemsDirectory() {
-    const directory = document.getElementById('systemsDirectory');
-    if (!directory) return;
-    
-    directory.innerHTML = aiSystemsData.map(system => `
-        <div class="box-item" onclick="openSystemDetail('${system.path}')">
-            <i class="fas ${system.icon}"></i>
-            <span>${system.name}</span>
-        </div>
-    `).join('');
 }
 
 // Open system detail (modal or new page)
@@ -429,6 +387,4 @@ function handleScroll() {
 
 // Export functions for external use
 window.searchFeatures = searchFeatures;
-window.toggleDirectoryPanel = toggleDirectoryPanel;
 window.openSystemDetail = openSystemDetail;
-window.filterByCategory = filterByCategory;
