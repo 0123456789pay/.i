@@ -1,0 +1,52 @@
+# Pusat.Digital - Apache Configuration
+# Optimized for .digital folders as independent domains
+
+RewriteEngine On
+RewriteBase /tunel/pusat.digital/
+
+# Enable Gzip compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml
+</IfModule>
+
+# Browser caching for fast load
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# Route all .digital requests to router.php
+RewriteRule ^([a-zA-Z0-9]+)\.digital/?$ router.php?feature=$1 [L,QSA]
+RewriteRule ^fitur/([a-zA-Z0-9]+)\.digital/?$ ../router.php?feature=$1 [L,QSA]
+RewriteRule ^([a-zA-Z0-9]+)\.digital/(.*)$ router.php?feature=$1&path=$2 [L,QSA]
+
+# SEO-friendly URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ router.php [L,QSA]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: https:"
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Custom error pages
+ErrorDocument 404 /tunel/pusat.digital/error404.html
+ErrorDocument 500 /tunel/pusat.digital/error500.html
