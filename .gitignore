@@ -1,3 +1,1 @@
-```
-*.backup
-```
+Nothing should be ignored in this case, as the only modified file is a source HTML file (`media.digital/index.html`) which is not a build artifact, dependency, or temporary file.
