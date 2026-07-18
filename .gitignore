@@ -1,43 +1,50 @@
 ```
-# Environment and configuration
+# Environment and configuration files
 .env
 .env.local
 .env.*
 
-# Dependencies and build artifacts
+# Dependency directories
 node_modules/
-vendor/
 
-# Logs
+# Build artifacts and temporary files
+dist/
+build/
+*.tmp
 *.log
 
-# OS generated files
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS-specific files
 .DS_Store
 Thumbs.db
 
-# PHP specific
-*.php~
-**/cache/
-
-# Web files
-.swp
-*.tmp
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Backup files
-*.bak
-*.backup
-
-# IDE
-.idea/
-.vscode/
-
-# System
-*.swp
-*.swo
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 
 ```

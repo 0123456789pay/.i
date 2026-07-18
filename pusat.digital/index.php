@@ -39,7 +39,7 @@ sort($features);
     <meta property="og:type" content="website">
     
     <!-- PWA -->
-    <link rel="manifest" href="/tunel/pusat.digital/manifest.json">
+    <link rel="manifest" href="/pusat.digital/manifest.json">
     <meta name="theme-color" content="#8b5cf6">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     
@@ -248,7 +248,7 @@ sort($features);
         
         <div class="feature-grid" id="featureGrid">
             <?php foreach ($features as $feature): ?>
-            <a href="/tunel/pusat.digital/fitur/<?= htmlspecialchars($feature) ?>.digital" class="feature-card">
+            <a href="/pusat.digital/fitur/<?= htmlspecialchars($feature) ?>.digital" class="feature-card">
                 <div class="feature-name"><?= htmlspecialchars(ucfirst($feature)) ?></div>
                 <div class="feature-url"><?= htmlspecialchars($feature) ?>.digital</div>
             </a>
@@ -281,7 +281,7 @@ sort($features);
         
         // Service Worker registration
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/tunel/pusat.digital/sw.js');
+            navigator.serviceWorker.register('/pusat.digital/sw.js');
         }
         
         // Performance monitoring
