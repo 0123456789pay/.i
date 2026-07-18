@@ -1,0 +1,40 @@
+{
+  "system": {
+    "id": "PUSAT-DIGITAL-001",
+    "name": "Pusat Digital",
+    "version": "1.0.0",
+    "environment": "production",
+    "parent_system": "tunel()",
+    "structure_symbols": ["/", "`", ".", "\\", "|"]
+  },
+  "features": {
+    "total_count": 250,
+    "categories": [
+      "registrar_domain",
+      "hosting",
+      "marketing_package",
+      "pengembangan_terpusat",
+      "ai_terintegrasi",
+      "monitoring_data",
+      "email_system",
+      "network_root",
+      "language_system"
+    ]
+  },
+  "modules": {
+    "datacenter": {"enabled": true, "path": "/datacenter"},
+    "filemanager": {"enabled": true, "path": "/filemanager"},
+    "hosting": {"enabled": true, "path": "/hosting"},
+    "domain": {"enabled": true, "path": "/domain"},
+    "ai": {"enabled": true, "path": "/ai"},
+    "monitoring": {"enabled": true, "path": "/monitoring"},
+    "email": {"enabled": true, "path": "/email"},
+    "network": {"enabled": true, "path": "/network"},
+    "language": {"enabled": true, "path": "/language"}
+  },
+  "deployment": {
+    "public_domains": true,
+    "search_engine_indexed": true,
+    "responsive_devices": "all"
+  }
+}
