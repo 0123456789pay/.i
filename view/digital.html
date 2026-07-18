@@ -3,178 +3,230 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>index - Live Sandbox</title>
+<title>Digital Workspace - Live Sandbox</title>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',sans-serif;background:#f0f4ff;min-height:100vh;color:#1e3a5f;overflow-x:hidden}
-.sandbox-container{display:grid;grid-template-rows:60px 1fr 40px;height:100vh;width:100vw;position:fixed;top:0;left:0}
-.header-bar{background:linear-gradient(135deg,#2563eb,#1e40af);display:flex;justify-content:space-between;align-items:center;padding:0 20px;box-shadow:0 2px 10px rgba(37,99,235,0.2);z-index:1000}
-.header-left{display:flex;align-items:center;gap:15px}
-.app-icon{font-size:1.8em;animation:pulse 2s infinite}
-.app-title{font-size:1.3em;font-weight:bold;color:#fff}
-.category-badge{background:rgba(255,255,255,0.2);padding:5px 12px;border-radius:20px;font-size:0.85em;color:#fff}
-.header-controls{display:flex;gap:10px}
-.control-btn{background:rgba(255,255,255,0.2);border:none;color:#fff;padding:8px 15px;border-radius:8px;cursor:pointer;transition:all 0.3s}
-.control-btn:hover{background:rgba(255,255,255,0.3);transform:translateY(-2px)}
-.main-area{display:grid;grid-template-columns:250px 1fr 300px;gap:1px;background:#dbeafe;overflow:hidden}
-.sidebar-left{background:#ffffff;padding:20px;overflow-y:auto;border-right:1px solid #bfdbfe}
-.sidebar-section{margin-bottom:25px}
-.sidebar-title{color:#64748b;font-size:0.75em;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:all 0.3s;margin-bottom:5px;color:#334155}
-.nav-item:hover{background:#eff6ff}
-.nav-item.active{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff}
-.workspace{background:#ffffff;padding:20px;overflow-y:auto}
-.workspace-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.terminal-window{background:#f8fafc;border-radius:10px;padding:20px;font-family:'Courier New',monospace;height:calc(100% - 80px);overflow-y:auto;border:1px solid #bfdbfe}
-.terminal-line{margin-bottom:8px;line-height:1.5}
-.terminal-prompt{color:#2563eb;font-weight:bold}
-.terminal-output{color:#16a34a}
-.terminal-info{color:#2563eb}
-.sidebar-right{background:#ffffff;padding:20px;overflow-y:auto;border-left:1px solid #bfdbfe}
-.stat-card{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:10px;padding:15px;margin-bottom:15px;border:1px solid #bfdbfe}
-.stat-label{color:#64748b;font-size:0.8em;margin-bottom:8px}
-.stat-value{font-size:1.5em;font-weight:bold;color:#2563eb}
-.progress-bar{background:#e2e8f0;height:8px;border-radius:4px;margin-top:10px;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,#2563eb,#1e40af);transition:width 0.5s}
-.log-entry{font-size:0.75em;padding:8px;border-bottom:1px solid #e2e8f0;font-family:'Courier New',monospace;color:#475569}
-.status-bar{background:#ffffff;border-top:1px solid #bfdbfe;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-size:0.85em;color:#64748b}
-.status-indicators{display:flex;gap:20px}
-.indicator{display:flex;align-items:center;gap:6px}
-.dot{width:8px;height:8px;border-radius:50%;background:#16a34a;animation:blink 2s infinite}
-.dot.warning{background:#ca8a04}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
-.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);display:none;justify-content:center;align-items:center;z-index:2000}
-.modal{background:#ffffff;border-radius:15px;padding:30px;max-width:500px;width:90%;border:1px solid #bfdbfe;box-shadow:0 10px 40px rgba(37,99,235,0.2)}
-.modal h3{margin-bottom:20px;color:#2563eb}
-.modal-input{width:100%;padding:12px;background:#f8fafc;border:1px solid #bfdbfe;border-radius:8px;color:#1e3a5f;margin-bottom:15px}
-.modal-input:focus{outline:none;border-color:#2563eb}
-.modal-buttons{display:flex;gap:10px;justify-content:flex-end}
-.btn{padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-weight:bold}
-.btn-primary{background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff}
-.btn-secondary{background:#e2e8f0;color:#475569}
-.btn-secondary:hover{background:#cbd5e1}
-@media(max-width:1200px){.main-area{grid-template-columns:200px 1fr}.sidebar-right{display:none}}
-@media(max-width:768px){.main-area{grid-template-columns:1fr}.sidebar-left{display:none}}
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);min-height:100vh;color:#0c4a6e;overflow-x:hidden}
+.sandbox-container{display:grid;grid-template-rows:70px 1fr 45px;height:100vh;width:100vw;position:fixed;top:0;left:0}
+
+/* Header Bar - White Blue Elegant */
+.header-bar{background:linear-gradient(135deg,#ffffff 0%,#f0f9ff 100%);display:flex;justify-content:space-between;align-items:center;padding:0 25px;box-shadow:0 4px 20px rgba(14,116,144,0.08);z-index:1000;border-bottom:1px solid #bae6fd}
+.header-left{display:flex;align-items:center;gap:18px}
+.app-icon{font-size:2em;background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 4px rgba(14,165,233,0.3));animation:elegantPulse 3s infinite}
+.app-title{font-size:1.4em;font-weight:700;background:linear-gradient(135deg,#0369a1,#075985);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:0.5px}
+.category-badge{background:linear-gradient(135deg,#e0f2fe,#bae6fd);padding:6px 16px;border-radius:25px;font-size:0.85em;color:#0369a1;font-weight:600;box-shadow:0 2px 8px rgba(14,165,233,0.15)}
+.header-controls{display:flex;gap:12px}
+.control-btn{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border:1px solid #bae6fd;color:#0369a1;padding:10px 18px;border-radius:10px;cursor:pointer;transition:all 0.3s;font-weight:500;display:flex;align-items:center;gap:8px}
+.control-btn:hover{background:linear-gradient(135deg,#e0f2fe,#bae6fd);transform:translateY(-2px);box-shadow:0 4px 12px rgba(14,165,233,0.2)}
+.control-btn i{font-size:1.2em;background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Main Area */
+.main-area{display:grid;grid-template-columns:280px 1fr 320px;gap:1px;background:#bae6fd;overflow:hidden}
+
+/* Sidebar Left - White Blue Theme */
+.sidebar-left{background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);padding:25px;overflow-y:auto;border-right:1px solid #e0f2fe}
+.sidebar-section{margin-bottom:28px}
+.sidebar-title{color:#64748b;font-size:0.7em;text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;font-weight:600;padding-left:5px;border-left:3px solid #0ea5e9}
+
+/* Navigation Items with Gradient Icons */
+.nav-item{display:flex;align-items:center;gap:12px;padding:12px 15px;border-radius:12px;cursor:pointer;transition:all 0.3s;margin-bottom:6px;color:#475569;font-weight:500}
+.nav-item:hover{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);color:#0369a1}
+.nav-item.active{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;box-shadow:0 4px 15px rgba(14,165,233,0.3)}
+.nav-item i{font-size:1.3em;background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;transition:all 0.3s}
+.nav-item:hover i,.nav-item.active i{background:linear-gradient(135deg,#fff,#e0f2fe);-webkit-background-clip:text;-webkit-text-fill-color:transparent;transform:scale(1.1)}
+.nav-item.active i{background:linear-gradient(135deg,#fff,#bae6fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+/* Dropdown Menu */
+.nav-dropdown{position:relative}
+.dropdown-content{max-height:0;overflow:hidden;transition:max-height 0.4s ease;background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-radius:8px;margin-top:5px}
+.nav-dropdown.active .dropdown-content{max-height:500px}
+.dropdown-item{display:flex;align-items:center;gap:12px;padding:10px 15px 10px 42px;color:#475569;cursor:pointer;transition:all 0.3s;font-size:0.9em}
+.dropdown-item:hover{background:linear-gradient(135deg,#e0f2fe,#bae6fd);color:#0369a1}
+.dropdown-item i{font-size:1.1em;background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.dropdown-toggle{margin-left:auto;transition:transform 0.3s}
+.nav-dropdown.active .dropdown-toggle{transform:rotate(90deg)}
+
+/* Workspace */
+.workspace{background:linear-gradient(180deg,#ffffff 0%,#fafafa 100%);padding:25px;overflow-y:auto}
+.workspace-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px;padding-bottom:15px;border-bottom:2px solid #e0f2fe}
+.workspace-header h2{color:#0369a1;font-weight:700;font-size:1.5em}
+.terminal-window{background:linear-gradient(180deg,#f8fafc,#f1f5f9);border-radius:15px;padding:25px;font-family:'Courier New',monospace;height:calc(100% - 100px);overflow-y:auto;border:1px solid #e0f2fe;box-shadow:inset 0 2px 10px rgba(14,116,144,0.05)}
+.terminal-line{margin-bottom:10px;line-height:1.6}
+.terminal-prompt{color:#0ea5e9;font-weight:bold}
+.terminal-output{color:#059669}
+.terminal-info{color:#0284c7}
+
+/* Sidebar Right */
+.sidebar-right{background:linear-gradient(180deg,#ffffff 0%,#f8fafc 100%);padding:25px;overflow-y:auto;border-left:1px solid #e0f2fe}
+.stat-card{background:linear-gradient(135deg,#f0f9ff,#e0f2fe);border-radius:15px;padding:18px;margin-bottom:18px;border:1px solid #bae6fd;box-shadow:0 4px 12px rgba(14,165,233,0.1)}
+.stat-label{color:#64748b;font-size:0.8em;margin-bottom:10px;font-weight:600}
+.stat-value{font-size:1.6em;font-weight:700;background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.progress-bar{background:#e2e8f0;height:10px;border-radius:6px;margin-top:12px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#0ea5e9,#0284c7);transition:width 0.5s;border-radius:6px}
+.log-entry{font-size:0.75em;padding:10px;border-bottom:1px solid #e0f2fe;font-family:'Courier New',monospace;color:#64748b;border-radius:6px;margin-bottom:5px;background:#f8fafc}
+.log-entry:hover{background:#f0f9ff}
+
+/* Status Bar */
+.status-bar{background:linear-gradient(135deg,#ffffff,#f8fafc);border-top:1px solid #bae6fd;display:flex;justify-content:space-between;align-items:center;padding:0 25px;font-size:0.85em;color:#64748b}
+.status-indicators{display:flex;gap:25px}
+.indicator{display:flex;align-items:center;gap:8px;font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#059669);animation:blink 2s infinite;box-shadow:0 0 8px rgba(22,163,74,0.4)}
+.dot.warning{background:linear-gradient(135deg,#ca8a04,#a16207)}
+
+/* Animations */
+@keyframes elegantPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.85;transform:scale(1.05)}}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px rgba(22,163,74,0.4)}50%{opacity:0.5;box-shadow:0 0 4px rgba(22,163,74,0.2)}}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+/* Modal */
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(15,23,42,0.6);display:none;justify-content:center;align-items:center;z-index:2000;backdrop-filter:blur(4px)}
+.modal{background:linear-gradient(180deg,#ffffff,#f8fafc);border-radius:20px;padding:35px;max-width:550px;width:90%;border:1px solid #bae6fd;box-shadow:0 20px 60px rgba(14,116,144,0.15)}
+.modal h3{margin-bottom:25px;color:#0369a1;font-weight:700;font-size:1.4em}
+.modal-input{width:100%;padding:14px;background:#f0f9ff;border:2px solid #bae6fd;border-radius:12px;color:#0c4a6e;margin-bottom:18px;font-family:'Poppins',sans-serif;transition:all 0.3s}
+.modal-input:focus{outline:none;border-color:#0ea5e9;box-shadow:0 0 0 4px rgba(14,165,233,0.1)}
+.modal-buttons{display:flex;gap:12px;justify-content:flex-end}
+.btn{padding:12px 24px;border-radius:12px;border:none;cursor:pointer;font-weight:600;transition:all 0.3s;font-family:'Poppins',sans-serif}
+.btn-primary{background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;box-shadow:0 4px 12px rgba(14,165,233,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(14,165,233,0.4)}
+.btn-secondary{background:linear-gradient(135deg,#f1f5f9,#e2e8f0);color:#475569}
+.btn-secondary:hover{background:linear-gradient(135deg,#e2e8f0,#cbd5e1)}
+
+/* Responsive */
+@media(max-width:1200px){.main-area{grid-template-columns:220px 1fr}.sidebar-right{display:none}}
+@media(max-width:768px){.main-area{grid-template-columns:1fr}.sidebar-left{display:none}.header-bar{padding:0 15px}.app-title{font-size:1.1em}}
 </style>
     <link rel="stylesheet" href="../digital/digital-system.css">
-
 </head>
 <body>
 <div class="sandbox-container">
 <div class="header-bar">
 <div class="header-left">
-<span class="app-icon">💻</span>
-<span class="app-title">Index</span>
-<span class="category-badge">System</span>
+<i class='bx bxl-codepen app-icon'></i>
+<span class="app-title">Digital Workspace</span>
+<span class="category-badge">System Portal</span>
 </div>
 <div class="header-controls">
-<button class="control-btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
-<button class="control-btn" onclick="resetSystem()">🔄 Reset</button>
-<button class="control-btn" onclick="openSettings()">⚙️ Settings</button>
+<button class="control-btn" onclick="toggleFullscreen()"><i class='bx bx-fullscreen'></i> Fullscreen</button>
+<button class="control-btn" onclick="resetSystem()"><i class='bx bx-reset'></i> Reset</button>
+<button class="control-btn" onclick="openSettings()"><i class='bx bx-cog'></i> Settings</button>
 </div>
 </div>
 <div class="main-area">
 <div class="sidebar-left">
 <div class="sidebar-section">
-<div class="sidebar-title">Navigation</div>
-<div class="nav-item active" onclick="navigate('dashboard')">📊 Dashboard</div>
-<div class="nav-item" onclick="navigate('console')">💻 Console</div>
-<div class="nav-item" onclick="navigate('files')">📁 Files</div>
-<div class="nav-item" onclick="navigate('network')">🌐 Network</div>
-<div class="nav-item" onclick="navigate('settings')">⚙️ Settings</div>
+<div class="sidebar-title">Main Navigation</div>
+<div class="nav-item active" onclick="navigate('dashboard')"><i class='bx bx-grid-alt'></i> Dashboard</div>
+<div class="nav-item" onclick="navigate('console')"><i class='bx bx-terminal'></i> Console</div>
+<div class="nav-item" onclick="navigate('files')"><i class='bx bx-folder'></i> Files</div>
+<div class="nav-item" onclick="navigate('network')"><i class='bx bx-globe'></i> Network</div>
+
+<!-- Portal Dropdown Menu -->
+<div class="nav-dropdown" onclick="toggleDropdown(this)">
+<div class="nav-item"><i class='bx bx-layer'></i> Portal <i class='bx bx-chevron-right dropdown-toggle'></i></div>
+<div class="dropdown-content">
+<div class="dropdown-item" onclick="navigate('portal-apps')"><i class='bx bx-grid-vertical'></i> Applications</div>
+<div class="dropdown-item" onclick="navigate('portal-services')"><i class='bx bx-wrench'></i> Services</div>
+<div class="dropdown-item" onclick="navigate('portal-tools')"><i class='bx bx-buildings'></i> Tools</div>
+<div class="dropdown-item" onclick="navigate('portal-resources')"><i class='bx bx-data'></i> Resources</div>
+</div>
+</div>
+
+<div class="nav-item" onclick="navigate('settings')"><i class='bx bx-cog'></i> Settings</div>
 </div>
 <div class="sidebar-section">
 <div class="sidebar-title">Quick Actions</div>
-<div class="nav-item" onclick="executeCommand('start')">▶️ Start</div>
-<div class="nav-item" onclick="executeCommand('stop')">⏹️ Stop</div>
-<div class="nav-item" onclick="executeCommand('restart')">🔄 Restart</div>
-<div class="nav-item" onclick="executeCommand('deploy')">🚀 Deploy</div>
+<div class="nav-item" onclick="executeCommand('start')"><i class='bx bx-play'></i> Start</div>
+<div class="nav-item" onclick="executeCommand('stop')"><i class='bx bx-stop-circle'></i> Stop</div>
+<div class="nav-item" onclick="executeCommand('restart')"><i class='bx bx-revision'></i> Restart</div>
+<div class="nav-item" onclick="executeCommand('deploy')"><i class='bx bx-rocket'></i> Deploy</div>
 </div>
 <div class="sidebar-section">
 <div class="sidebar-title">System</div>
-<div class="nav-item" onclick="navigate('logs')">📋 Logs</div>
-<div class="nav-item" onclick="navigate('metrics')">📈 Metrics</div>
-<div class="nav-item" onclick="navigate('security')">🔒 Security</div>
+<div class="nav-item" onclick="navigate('logs')"><i class='bx bx-file'></i> Logs</div>
+<div class="nav-item" onclick="navigate('metrics')"><i class='bx bx-bar-chart-alt-2'></i> Metrics</div>
+<div class="nav-item" onclick="navigate('security')"><i class='bx bx-shield-quarter'></i> Security</div>
 </div>
 </div>
 <div class="workspace">
 <div class="workspace-header">
 <h2 id="workspace-title">Dashboard</h2>
 <div style="display:flex;gap:10px">
-<button class="btn btn-secondary" onclick="clearConsole()">Clear</button>
-<button class="btn btn-primary" onclick="runDiagnostics()">Diagnostics</button>
+<button class="btn btn-secondary" onclick="clearConsole()"><i class='bx bx-trash'></i> Clear</button>
+<button class="btn btn-primary" onclick="runDiagnostics()"><i class='bx bx-stethoscope'></i> Diagnostics</button>
 </div>
 </div>
 <div class="terminal-window" id="terminal">
-<div class="terminal-line"><span class="terminal-prompt">root@index:~#</span> Initializing...</div>
-<div class="terminal-line terminal-info">[INFO] Loading System: index</div>
-<div class="terminal-line terminal-info">[INFO] Connecting to WebOS...</div>
-<div class="terminal-line terminal-output">[OK] System ready</div>
+<div class="terminal-line"><span class="terminal-prompt">root@digital:~#</span> <i class='bx bx-loader-alt' style="animation:spin 1s linear infinite"></i> Initializing...</div>
+<div class="terminal-line terminal-info"><i class='bx bx-info-circle'></i> [INFO] Loading System: digital</div>
+<div class="terminal-line terminal-info"><i class='bx bx-cloud-connection'></i> [INFO] Connecting to WebOS...</div>
+<div class="terminal-line terminal-output"><i class='bx bx-check-circle'></i> [OK] System ready</div>
 </div>
 </div>
 <div class="sidebar-right">
 <div class="sidebar-section">
 <div class="sidebar-title">Stats</div>
 <div class="stat-card">
-<div class="stat-label">CPU</div>
+<div class="stat-label"><i class='bx bx-cpu' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> CPU</div>
 <div class="stat-value" id="cpu-stat">24%</div>
 <div class="progress-bar"><div class="progress-fill" id="cpu-bar" style="width:24%"></div></div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Memory</div>
+<div class="stat-label"><i class='bx bx-memory-card' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Memory</div>
 <div class="stat-value" id="mem-stat">1.2GB/8GB</div>
 <div class="progress-bar"><div class="progress-fill" id="mem-bar" style="width:15%"></div></div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Storage</div>
+<div class="stat-label"><i class='bx bx-hard-drive' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Storage</div>
 <div class="stat-value" id="storage-stat">45GB/500GB</div>
 <div class="progress-bar"><div class="progress-fill" id="storage-bar" style="width:9%"></div></div>
 </div>
 <div class="stat-card">
-<div class="stat-label">Network</div>
+<div class="stat-label"><i class='bx bx-wifi' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Network</div>
 <div class="stat-value" id="net-stat">↑125↓89MB/s</div>
 </div>
 </div>
 <div class="sidebar-section">
 <div class="sidebar-title">Activity</div>
 <div id="activity-log">
-<div class="log-entry">[00:00:00] Started</div>
-<div class="log-entry">[00:00:01] Ready</div>
+<div class="log-entry"><i class='bx bx-play-circle' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> [00:00:00] Started</div>
+<div class="log-entry"><i class='bx bx-check-circle' style="background:linear-gradient(135deg,#059669,#047857);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> [00:00:01] Ready</div>
 </div>
 </div>
 </div>
 </div>
 <div class="status-bar">
 <div class="status-indicators">
-<div class="indicator"><div class="dot"></div>Online</div>
-<div class="indicator"><div class="dot warning"></div>Updates</div>
+<div class="indicator"><i class='bx bx-wifi' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Online</div>
+<div class="indicator"><i class='bx bx-bell' style="background:linear-gradient(135deg,#ca8a04,#a16207);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Updates</div>
 </div>
 <div id="clock"></div>
-<div>index v1.0 | System</div>
+<div><i class='bx bx-code-alt' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Digital Workspace v2.0 | System Portal</div>
 </div>
 </div>
 <div class="modal-overlay" id="settings-modal">
 <div class="modal">
-<h3>⚙️ Settings</h3>
-<label style="color:#888;font-size:0.9em">Module</label>
-<input type="text" class="modal-input" value="index" id="setting-name">
-<label style="color:#888;font-size:0.9em">API</label>
-<input type="text" class="modal-input" value="/api/index" id="setting-api">
+<h3><i class='bx bx-cog' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Settings</h3>
+<label style="color:#888;font-size:0.9em;display:flex;align-items:center;gap:8px"><i class='bx bx-package' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> Module</label>
+<input type="text" class="modal-input" value="digital" id="setting-name">
+<label style="color:#888;font-size:0.9em;display:flex;align-items:center;gap:8px"><i class='bx bx-link' style="background:linear-gradient(135deg,#0ea5e9,#0284c7);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></i> API</label>
+<input type="text" class="modal-input" value="/api/digital" id="setting-api">
 <div class="modal-buttons">
-<button class="btn btn-secondary" onclick="closeSettings()">Cancel</button>
-<button class="btn btn-primary" onclick="saveSettings()">Save</button>
+<button class="btn btn-secondary" onclick="closeSettings()"><i class='bx bx-x'></i> Cancel</button>
+<button class="btn btn-primary" onclick="saveSettings()"><i class='bx bx-check'></i> Save</button>
 </div>
 </div>
 </div>
 <script>
-const mod='index',cat='System',col='#667eea';
+const mod='digital',cat='System',col='#0ea5e9';
 function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleString()}
 setInterval(updateClock,1000);updateClock();
 function getTime(){return new Date().toTimeString().split(' ')[0]}
 function addLine(t,type=''){const term=document.getElementById('terminal'),l=document.createElement('div');l.className='terminal-line '+type;l.textContent=t;term.appendChild(l);term.scrollTop=term.scrollHeight}
 function clearConsole(){document.getElementById('terminal').innerHTML='';addLine('Cleared','terminal-info')}
-function navigate(p){document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));event.target.classList.add('active');const titles={dashboard:'Dashboard',console:'Console',files:'Files',network:'Network',settings:'Settings',logs:'Logs',metrics:'Metrics',security:'Security'};document.getElementById('workspace-title').textContent=titles[p]||p;addLine('Navigating to '+p+'...','terminal-info')}
+function toggleDropdown(el){el.classList.toggle('active')}
+function navigate(p){document.querySelectorAll('.nav-item').forEach(e=>e.classList.remove('active'));if(event.target.closest('.nav-dropdown')){event.target.closest('.nav-dropdown').querySelector('.nav-item').classList.add('active')}else if(event.target.classList.contains('dropdown-item')){event.target.classList.add('active')}else{event.target.classList.add('active')};const titles={dashboard:'Dashboard',console:'Console',files:'Files',network:'Network',settings:'Settings',logs:'Logs',metrics:'Metrics',security:'Security','portal-apps':'Applications','portal-services':'Services','portal-tools':'Tools','portal-resources':'Resources'};document.getElementById('workspace-title').textContent=titles[p]||p;addLine('Navigating to '+p+'...','terminal-info')}
 function executeCommand(c){addLine('root@'+mod+':~# '+c,'terminal-prompt');setTimeout(()=>{if(c==='start'){addLine('[OK] Started','terminal-output');addLog('Started')}else if(c==='stop'){addLine('[OK] Stopped','terminal-output');addLog('Stopped')}else if(c==='restart'){addLine('[OK] Restarted','terminal-output');addLog('Restarted')}else if(c==='deploy'){addLine('[DEPLOY] Building...','terminal-info');setTimeout(()=>addLine('[OK] Deployed!','terminal-output'),2000);addLog('Deploying')}},300)}
 function addLog(m){const lc=document.getElementById('activity-log'),e=document.createElement('div');e.className='log-entry';e.textContent='['+getTime()+'] '+m;lc.insertBefore(e,lc.firstChild);while(lc.children.length>20)lc.removeChild(lc.lastChild)}
 function runDiagnostics(){addLine('Running diagnostics...','terminal-info');setTimeout(()=>addLine('[CHECK] CPU OK','terminal-output'),500);setTimeout(()=>addLine('[CHECK] Memory OK','terminal-output'),1000);setTimeout(()=>addLine('[OK] All systems operational','terminal-output'),2000);addLog('Diagnostics done')}
