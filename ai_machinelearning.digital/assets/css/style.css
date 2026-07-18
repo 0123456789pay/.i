@@ -357,8 +357,38 @@ body {
 
 .box-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(6, 1fr);
     gap: 1rem;
+}
+
+@media (max-width: 1400px) {
+    .box-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .box-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .box-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .box-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .box-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .box-item {
@@ -369,6 +399,8 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     border: 2px solid rgba(255,255,255,0.3);
+    text-decoration: none;
+    display: block;
 }
 
 .box-item:hover {
@@ -397,6 +429,56 @@ body {
     font-weight: 600;
     color: #ffffff;
     text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* Studio Card Styles */
+.studio-card {
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+.studio-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.8rem;
+    transition: all 0.3s;
+}
+
+.studio-card:hover .studio-icon-wrapper {
+    background: var(--primary);
+    transform: scale(1.1) rotate(5deg);
+}
+
+.studio-name {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.3rem !important;
+}
+
+.studio-desc {
+    font-size: 0.75rem !important;
+    opacity: 0.9;
+    font-weight: 400 !important;
+    min-height: 2.5rem;
+}
+
+.studio-open {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.studio-card:hover .studio-open {
+    opacity: 1;
 }
 
 footer {
@@ -442,38 +524,38 @@ footer {
 
 .directory-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 0.5rem;
     margin-top: 1rem;
 }
 
 @media (max-width: 1400px) {
     .directory-grid {
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
 @media (max-width: 1100px) {
     .directory-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 900px) {
     .directory-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
     .directory-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
     .directory-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
