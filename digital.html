@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penyedia Pusat Ekstensi Domain - .digital .media .pers</title>
+    <title>Penyedia Domain Digital - .digital .media .pers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -39,155 +39,33 @@
                         'blue-card': '0 2px 8px rgba(0, 0, 0, 0.05)',
                         'blue-hover': '0 8px 24px rgba(59, 130, 246, 0.15)',
                         'blue-glow': '0 4px 16px rgba(59, 130, 246, 0.1)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        glow: {
+                            '0%': { opacity: '0.3', transform: 'scale(1)' },
+                            '100%': { opacity: '0.5', transform: 'scale(1.1)' },
+                        }
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Custom CSS for Landing Page */
-        
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
         body {
             font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        
-        /* Background Grid Pattern */
         .bg-grid-pattern {
-            background-image: 
-                linear-gradient(to right, #3B82F6 1px, transparent 1px),
-                linear-gradient(to bottom, #3B82F6 1px, transparent 1px);
-            background-size: 50px 50px;
+            background-image: linear-gradient(to right, #3B82F6 1px, transparent 1px),
+                              linear-gradient(to bottom, #3B82F6 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-        
-        /* Button Styles */
-        .btn-primary {
-            background-color: #3B82F6;
-            color: #FFFFFF;
-            border: 2px solid #3B82F6;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: #2563EB;
-            border-color: #2563EB;
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
-        }
-        
-        .btn-secondary {
-            background-color: #FFFFFF;
-            color: #3B82F6;
-            border: 2px solid #3B82F6;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #3B82F6;
-            color: #FFFFFF;
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: #3B82F6;
-            border: 2px solid #3B82F6;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline:hover {
-            background-color: #3B82F6;
-            color: #FFFFFF;
-        }
-        
-        /* Feature Card Animations */
-        .feature-card {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .feature-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .feature-card:hover {
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
-            border-color: #93C5FD;
-        }
-        
-        /* Animation Keyframes */
-        @keyframes pulse-slow {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.8;
-                transform: scale(1.05);
-            }
-        }
-        
-        @keyframes glow {
-            0%, 100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(1.1);
-            }
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Animation Classes */
-        .animate-pulse-slow {
-            animation: pulse-slow 3s ease-in-out infinite;
-        }
-        
-        .animate-glow {
-            animation: glow 2s ease-in-out infinite;
-        }
-        
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-        
-        /* Navigation Link Underline Animation */
         .nav-link {
             position: relative;
         }
-        
         .nav-link::after {
             content: '';
             position: absolute;
@@ -195,119 +73,47 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #3B82F6;
+            background: #3B82F6;
             transition: width 0.3s ease;
         }
-        
         .nav-link:hover::after {
             width: 100%;
         }
-        
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Navbar Scroll Effect */
-        #navbar.scrolled {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            background-color: rgba(255, 255, 255, 0.98);
-        }
-        
-        /* Gradient Text */
-        .gradient-text {
+        .btn-primary {
             background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
+            transition: all 0.3s ease;
         }
-        
-        /* Card Hover Lift Effect */
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
         }
-        
-        .hover-lift:hover {
+        .btn-secondary {
+            background: white;
+            color: #3B82F6;
+            border: 2px solid #3B82F6;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: #3B82F6;
+            color: white;
+            transform: scale(1.05);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
         }
-        
-        /* Smooth Transitions for All Interactive Elements */
-        a, button, .card, .feature-card {
-            transition: all 0.3s ease;
-        }
-        
-        /* Focus States for Accessibility */
-        button:focus, a:focus {
-            outline: 2px solid #3B82F6;
-            outline-offset: 2px;
-        }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #F1F5F9;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #93C5FD;
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3B82F6;
-        }
-        
-        /* Badge Styles */
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            font-size: 12px;
+        .domain-badge {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-weight: 600;
-        }
-        
-        .badge-primary {
-            background-color: #DBEAFE;
-            color: #1D4ED8;
-        }
-        
-        .badge-success {
-            background-color: #D1FAE5;
-            color: #065F46;
-        }
-        
-        /* Responsive Typography */
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-        }
-        
-        /* Mobile Menu Transitions */
-        #mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        #mobile-menu.open {
-            max-height: 400px;
+            display: inline-block;
+            margin: 4px;
         }
     </style>
 </head>
@@ -316,7 +122,7 @@
     <!-- Background Pattern -->
     <div class="fixed inset-0 bg-grid-pattern pointer-events-none opacity-[0.03]"></div>
     <div class="fixed top-20 right-20 w-96 h-96 bg-primary-light rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
-    <div class="fixed bottom-20 left-20 w-80 h-80 bg-primary DEFAULT rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
+    <div class="fixed bottom-20 left-20 w-80 h-80 bg-primary-DEFAULT rounded-full opacity-[0.05] blur-3xl pointer-events-none"></div>
 
     <!-- Header/Navbar -->
     <header class="fixed top-0 left-0 right-0 bg-background-primary border-b border-background-border z-50 transition-all duration-300" id="navbar">
@@ -330,28 +136,13 @@
                     <span class="text-2xl font-bold text-text-primary">DomainDigital</span>
                 </div>
 
-                <!-- Desktop Navigation - Menu Berjajar Kesamping -->
+                <!-- Desktop Navigation - Horizontal Menu -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#beranda" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
-                        Beranda
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#layanan" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
-                        Layanan
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#fitur" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
-                        Fitur
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#harga" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
-                        Harga
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#kontak" class="nav-link text-text-primary hover:text-primary transition-colors duration-300 relative group">
-                        Kontak
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </a>
+                    <a href="#beranda" class="nav-link text-text-primary hover:text-primary transition-colors duration-300">Beranda</a>
+                    <a href="#layanan" class="nav-link text-text-primary hover:text-primary transition-colors duration-300">Layanan</a>
+                    <a href="#fitur" class="nav-link text-text-primary hover:text-primary transition-colors duration-300">Fitur</a>
+                    <a href="#harga" class="nav-link text-text-primary hover:text-primary transition-colors duration-300">Harga</a>
+                    <a href="#kontak" class="nav-link text-text-primary hover:text-primary transition-colors duration-300">Kontak</a>
                 </nav>
 
                 <!-- CTA Button -->
@@ -384,7 +175,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 bg-gradient-to-b from-background-primary to-background-secondary relative overflow-hidden" id="beranda">
+    <section id="beranda" class="pt-32 pb-20 bg-gradient-to-b from-background-primary to-background-secondary relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-4xl mx-auto">
                 <!-- Icon with Glow Effect -->
@@ -395,15 +186,22 @@
                     <div class="absolute inset-0 bg-primary/30 rounded-full blur-2xl animate-glow"></div>
                 </div>
 
-                <!-- Headline -->
+                <!-- Main Headline -->
                 <h1 class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-text-primary mb-6 leading-tight">
                     Sebagai Penyedia Pusat Ekstensi Domain <span class="text-primary">.digital .media .pers</span>
                 </h1>
 
                 <!-- Subheadline -->
                 <p class="text-xl text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Solusi lengkap untuk pendaftaran dan pengelolaan domain digital Anda. Terpercaya, aman, dan mudah digunakan dengan dukungan teknis profesional.
+                    Solusi lengkap untuk pendaftaran dan pengelolaan domain digital Anda. Terpercaya, aman, dan mudah digunakan.
                 </p>
+
+                <!-- Domain Badges -->
+                <div class="mb-10">
+                    <span class="domain-badge">.digital</span>
+                    <span class="domain-badge">.media</span>
+                    <span class="domain-badge">.pers</span>
+                </div>
 
                 <!-- CTA Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -437,81 +235,81 @@
     </section>
 
     <!-- Layanan Section -->
-    <section class="py-20 bg-background-tertiary" id="layanan">
+    <section id="layanan" class="py-20 bg-background-tertiary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
                     Layanan Kami
                 </h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">
-                    Berbagai layanan premium untuk kebutuhan domain dan hosting Anda
+                    Berbagai layanan domain dan hosting untuk kebutuhan digital Anda
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Card 1 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-globe text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-text-primary mb-3">Pendaftaran Domain</h3>
                     <p class="text-text-secondary leading-relaxed">
-                        Daftar domain .digital, .media, dan .pers dengan mudah dan cepat. Proses otomatis dan aktivasi instan.
+                        Daftarkan domain .digital, .media, dan .pers Anda dengan mudah dan cepat. Proses instan dan aktivasi langsung.
                     </p>
                 </div>
 
                 <!-- Service Card 2 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-server text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-text-primary mb-3">Hosting Premium</h3>
                     <p class="text-text-secondary leading-relaxed">
-                        Layanan hosting berkinerja tinggi dengan uptime 99.9% dan dukungan teknis 24/7 untuk website Anda.
+                        Layanan hosting cepat dan aman dengan uptime 99.9%. Cocok untuk website bisnis dan personal.
                     </p>
                 </div>
 
                 <!-- Service Card 3 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-shield-alt text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-text-primary mb-3">Keamanan SSL</h3>
                     <p class="text-text-secondary leading-relaxed">
-                        Sertifikat SSL gratis untuk melindungi data pengunjung dan meningkatkan kepercayaan website Anda.
+                        Sertifikat SSL gratis untuk semua domain. Lindungi data pengunjung website Anda dengan enkripsi tingkat tinggi.
                     </p>
                 </div>
 
                 <!-- Service Card 4 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-envelope text-primary text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-text-primary mb-3">Email Bisnis</h3>
-                    <p class="text-text-secondary leading-relaxed">
-                        Email profesional dengan nama domain Anda sendiri. Tingkatkan kredibilitas bisnis Anda.
-                    </p>
-                </div>
-
-                <!-- Service Card 5 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-headset text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-text-primary mb-3">Dukungan 24/7</h3>
                     <p class="text-text-secondary leading-relaxed">
-                        Tim support kami siap membantu Anda kapan saja melalui live chat, email, atau telepon.
+                        Tim dukungan teknis siap membantu Anda kapan saja. Respon cepat melalui chat, email, dan telepon.
                     </p>
                 </div>
 
-                <!-- Service Card 6 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
+                <!-- Service Card 5 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-sync text-primary text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-text-primary mb-3">Transfer Domain</h3>
                     <p class="text-text-secondary leading-relaxed">
-                        Transfer domain Anda ke kami dengan mudah. Proses cepat tanpa downtime untuk website Anda.
+                        Transfer domain Anda ke kami dengan mudah. Proses tanpa downtime dan harga kompetitif.
+                    </p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border border-t-4 border-t-primary shadow-blue-card">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-text-primary mb-3">Manajemen DNS</h3>
+                    <p class="text-text-secondary leading-relaxed">
+                        Panel manajemen DNS yang mudah digunakan. Kelola record domain Anda dengan fleksibilitas penuh.
                     </p>
                 </div>
             </div>
@@ -519,67 +317,81 @@
     </section>
 
     <!-- Fitur Section -->
-    <section class="py-20 bg-background-primary" id="fitur">
+    <section id="fitur" class="py-20 bg-background-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
                     Fitur Unggulan
                 </h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">
-                    Teknologi terkini untuk memastikan pengalaman terbaik dalam pengelolaan domain
+                    Teknologi terkini untuk memastikan performa optimal domain Anda
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Feature Item 1 -->
-                <div class="feature-card flex items-start space-x-4 p-6 rounded-xl hover-lift bg-background-secondary">
+                <div class="flex items-start space-x-4">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-bolt text-primary text-2xl"></i>
+                        <i class="fas fa-bolt text-primary text-xl"></i>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-text-primary mb-2">Aktivasi Instan</h3>
-                        <p class="text-text-secondary leading-relaxed">
-                            Domain Anda akan aktif segera setelah pembayaran dikonfirmasi. Tidak perlu menunggu lama.
-                        </p>
+                        <p class="text-text-secondary">Domain Anda akan aktif segera setelah pembayaran dikonfirmasi.</p>
                     </div>
                 </div>
 
                 <!-- Feature Item 2 -->
-                <div class="feature-card flex items-start space-x-4 p-6 rounded-xl hover-lift bg-background-secondary">
+                <div class="flex items-start space-x-4">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-lock text-primary text-2xl"></i>
+                        <i class="fas fa-lock text-primary text-xl"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-text-primary mb-2">Keamanan Terjamin</h3>
-                        <p class="text-text-secondary leading-relaxed">
-                            Sistem keamanan berlapis melindungi domain Anda dari ancaman cyber dan akses tidak sah.
-                        </p>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">Keamanan Tinggi</h3>
+                        <p class="text-text-secondary">Proteksi WHOIS dan keamanan berlapis untuk domain Anda.</p>
                     </div>
                 </div>
 
                 <!-- Feature Item 3 -->
-                <div class="feature-card flex items-start space-x-4 p-6 rounded-xl hover-lift bg-background-secondary">
+                <div class="flex items-start space-x-4">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-cog text-primary text-2xl"></i>
+                        <i class="fas fa-globe text-primary text-xl"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-text-primary mb-2">Panel Kontrol Mudah</h3>
-                        <p class="text-text-secondary leading-relaxed">
-                            Kelola domain Anda dengan panel kontrol yang intuitif dan user-friendly.
-                        </p>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">DNS Global</h3>
+                        <p class="text-text-secondary">Jaringan DNS global untuk resolusi cepat di seluruh dunia.</p>
                     </div>
                 </div>
 
                 <!-- Feature Item 4 -->
-                <div class="feature-card flex items-start space-x-4 p-6 rounded-xl hover-lift bg-background-secondary">
+                <div class="flex items-start space-x-4">
                     <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-chart-line text-primary text-2xl"></i>
+                        <i class="fas fa-mobile-alt text-primary text-xl"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-text-primary mb-2">Analitik Lengkap</h3>
-                        <p class="text-text-secondary leading-relaxed">
-                            Pantau performa domain Anda dengan tools analitik yang komprehensif dan real-time.
-                        </p>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">Panel Mobile-Friendly</h3>
+                        <p class="text-text-secondary">Kelola domain Anda dari mana saja dengan panel responsif.</p>
+                    </div>
+                </div>
+
+                <!-- Feature Item 5 -->
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-envelope text-primary text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">Email Forwarding</h3>
+                        <p class="text-text-secondary">Teruskan email domain Anda ke alamat email pribadi.</p>
+                    </div>
+                </div>
+
+                <!-- Feature Item 6 -->
+                <div class="flex items-start space-x-4">
+                    <div class="w-12 h-12 bg-primary-light/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-redo text-primary text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">Auto Renewal</h3>
+                        <p class="text-text-secondary">Perpanjangan otomatis agar domain tidak kadaluarsa.</p>
                     </div>
                 </div>
             </div>
@@ -587,167 +399,100 @@
     </section>
 
     <!-- Harga Section -->
-    <section class="py-20 bg-background-tertiary" id="harga">
+    <section id="harga" class="py-20 bg-background-tertiary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
                     Paket Harga
                 </h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">
-                    Pilih paket yang sesuai dengan kebutuhan Anda
+                    Pilihan paket fleksibel sesuai kebutuhan Anda
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Pricing Card 1 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-text-primary mb-2">Starter</h3>
-                        <div class="text-4xl font-bold text-primary mb-2">Rp 150K<span class="text-lg text-text-secondary">/tahun</span></div>
-                        <p class="text-text-secondary">Cocok untuk pemula</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            1 Domain (.digital/.media/.pers)
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            SSL Gratis
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Email Bisnis (1 akun)
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Dukungan Email
-                        </li>
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border shadow-blue-card text-center">
+                    <div class="text-2xl font-bold text-text-primary mb-2">.digital</div>
+                    <div class="text-4xl font-extrabold text-primary mb-4">Rp 450.000<span class="text-sm text-text-secondary">/tahun</span></div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Aktivasi Instan</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> SSL Gratis</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> DNS Management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Email Forwarding</li>
                     </ul>
-                    <button class="btn-outline w-full py-3 rounded-lg font-semibold transition-all duration-300">
-                        Pilih Paket
-                    </button>
+                    <button class="btn-primary w-full px-6 py-3 rounded-lg font-semibold">Pilih Paket</button>
                 </div>
 
                 <!-- Pricing Card 2 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border-2 border-primary shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1 relative">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="badge badge-primary">Terpopuler</span>
-                    </div>
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-text-primary mb-2">Business</h3>
-                        <div class="text-4xl font-bold text-primary mb-2">Rp 350K<span class="text-lg text-text-secondary">/tahun</span></div>
-                        <p class="text-text-secondary">Untuk bisnis berkembang</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            5 Domain (.digital/.media/.pers)
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            SSL Gratis
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Email Bisnis (10 akun)
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Hosting 10GB
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Dukungan Prioritas 24/7
-                        </li>
+                <div class="feature-card bg-background-primary rounded-xl p-8 border-2 border-primary shadow-blue-hover text-center relative transform scale-105">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">Populer</div>
+                    <div class="text-2xl font-bold text-text-primary mb-2">.media</div>
+                    <div class="text-4xl font-extrabold text-primary mb-4">Rp 380.000<span class="text-sm text-text-secondary">/tahun</span></div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Aktivasi Instan</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> SSL Gratis</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> DNS Management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Email Forwarding</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Prioritas Support</li>
                     </ul>
-                    <button class="btn-primary w-full py-3 rounded-lg font-semibold transition-all duration-300">
-                        Pilih Paket
-                    </button>
+                    <button class="btn-primary w-full px-6 py-3 rounded-lg font-semibold">Pilih Paket</button>
                 </div>
 
                 <!-- Pricing Card 3 -->
-                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border shadow-blue-card hover:shadow-blue-hover transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl font-bold text-text-primary mb-2">Enterprise</h3>
-                        <div class="text-4xl font-bold text-primary mb-2">Rp 750K<span class="text-lg text-text-secondary">/tahun</span></div>
-                        <p class="text-text-secondary">Untuk perusahaan besar</p>
-                    </div>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Domain Unlimited
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            SSL Premium
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Email Bisnis Unlimited
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Hosting Unlimited
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Dukungan Dedikasi 24/7
-                        </li>
-                        <li class="flex items-center text-text-secondary">
-                            <i class="fas fa-check text-primary mr-3"></i>
-                            Manajer Akun Pribadi
-                        </li>
+                <div class="feature-card bg-background-primary rounded-xl p-8 border border-background-border shadow-blue-card text-center">
+                    <div class="text-2xl font-bold text-text-primary mb-2">.pers</div>
+                    <div class="text-4xl font-extrabold text-primary mb-4">Rp 420.000<span class="text-sm text-text-secondary">/tahun</span></div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Aktivasi Instan</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> SSL Gratis</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> DNS Management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-primary mr-2"></i> Email Forwarding</li>
                     </ul>
-                    <button class="btn-outline w-full py-3 rounded-lg font-semibold transition-all duration-300">
-                        Pilih Paket
-                    </button>
+                    <button class="btn-primary w-full px-6 py-3 rounded-lg font-semibold">Pilih Paket</button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Kontak Section -->
-    <section class="py-20 bg-background-primary" id="kontak">
+    <section id="kontak" class="py-20 bg-background-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-4">
                     Hubungi Kami
                 </h2>
                 <p class="text-xl text-text-secondary max-w-2xl mx-auto">
-                    Kami siap membantu Anda dengan pertanyaan atau kebutuhan domain
+                    Siap membantu Anda dengan pertanyaan dan kebutuhan domain
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Contact Info 1 -->
-                <div class="feature-card bg-background-secondary rounded-xl p-8 text-center hover-lift">
-                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-phone text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-text-primary mb-3">Telepon</h3>
-                    <p class="text-text-secondary mb-2">Hubungi kami langsung</p>
-                    <p class="text-primary font-semibold">+62 21 1234 5678</p>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">Telepon</h3>
+                    <p class="text-text-secondary">+62 21 1234 5678</p>
                 </div>
 
                 <!-- Contact Info 2 -->
-                <div class="feature-card bg-background-secondary rounded-xl p-8 text-center hover-lift">
-                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-envelope text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-text-primary mb-3">Email</h3>
-                    <p class="text-text-secondary mb-2">Kirim pesan kepada kami</p>
-                    <p class="text-primary font-semibold">info@domaindigital.id</p>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">Email</h3>
+                    <p class="text-text-secondary">info@domaindigital.id</p>
                 </div>
 
                 <!-- Contact Info 3 -->
-                <div class="feature-card bg-background-secondary rounded-xl p-8 text-center hover-lift">
-                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-primary-light/20 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-map-marker-alt text-primary text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-text-primary mb-3">Alamat</h3>
-                    <p class="text-text-secondary mb-2">Kunjungi kantor kami</p>
-                    <p class="text-primary font-semibold">Jakarta, Indonesia</p>
+                    <h3 class="text-xl font-semibold text-text-primary mb-2">Alamat</h3>
+                    <p class="text-text-secondary">Jakarta, Indonesia</p>
                 </div>
             </div>
         </div>
@@ -758,35 +503,25 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Company Info -->
-                <div class="col-span-1 md:col-span-2">
+                <div>
                     <div class="flex items-center space-x-3 mb-4">
                         <div class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center">
                             <i class="fas fa-globe text-primary text-xl"></i>
                         </div>
-                        <span class="text-2xl font-bold text-text-primary">DomainDigital</span>
+                        <span class="text-xl font-bold text-text-primary">DomainDigital</span>
                     </div>
-                    <p class="text-text-secondary mb-4 max-w-md">
-                        Penyedia pusat ekstensi domain .digital, .media, dan .pers terpercaya di Indonesia. Melayani dengan profesional sejak 2020.
-                    </p>
+                    <p class="text-text-secondary mb-4">Penyedia pusat ekstensi domain .digital .media .pers terpercaya di Indonesia.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-primary-light/20 rounded-lg flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-text-secondary hover:text-primary transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
                     </div>
                 </div>
 
                 <!-- Quick Links -->
                 <div>
-                    <h4 class="text-lg font-semibold text-text-primary mb-4">Tautan Cepat</h4>
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Tautan Cepat</h3>
                     <ul class="space-y-2">
                         <li><a href="#beranda" class="text-text-secondary hover:text-primary transition-colors">Beranda</a></li>
                         <li><a href="#layanan" class="text-text-secondary hover:text-primary transition-colors">Layanan</a></li>
@@ -796,22 +531,33 @@
                     </ul>
                 </div>
 
-                <!-- Legal -->
+                <!-- Layanan -->
                 <div>
-                    <h4 class="text-lg font-semibold text-text-primary mb-4">Legal</h4>
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Layanan</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Kebijakan Privasi</a></li>
-                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Syarat & Ketentuan</a></li>
-                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Kebijakan Cookie</a></li>
-                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">FAQ</a></li>
+                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Domain .digital</a></li>
+                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Domain .media</a></li>
+                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Domain .pers</a></li>
+                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">Hosting</a></li>
+                        <li><a href="#" class="text-text-secondary hover:text-primary transition-colors">SSL Certificate</a></li>
                     </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-lg font-semibold text-text-primary mb-4">Newsletter</h3>
+                    <p class="text-text-secondary mb-4">Dapatkan informasi terbaru tentang promo dan update layanan.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Email Anda" class="flex-1 px-4 py-2 border border-background-border rounded-l-lg focus:outline-none focus:border-primary">
+                        <button class="btn-primary px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             <div class="border-t border-background-border mt-8 pt-8 text-center">
-                <p class="text-text-secondary">
-                    &copy; 2024 DomainDigital. Hak Cipta Dilindungi Undang-Undang.
-                </p>
+                <p class="text-text-secondary">&copy; 2024 DomainDigital. Hak Cipta Dilindungi.</p>
             </div>
         </div>
     </footer>
@@ -821,70 +567,32 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileMenuBtn && mobileMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                setTimeout(() => {
-                    mobileMenu.classList.toggle('open');
-                }, 10);
-            });
-        }
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
         // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
-        
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
+                navbar.classList.add('shadow-lg');
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('shadow-lg');
             }
         });
 
-        // Scroll Reveal Animation
-        function reveal() {
-            const reveals = document.querySelectorAll('.feature-card, .reveal');
-            
-            reveals.forEach(element => {
-                const windowHeight = window.innerHeight;
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < windowHeight - elementVisible) {
-                    element.classList.add('visible');
-                    element.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', reveal);
-        
-        // Trigger once on load
-        reveal();
-
-        // Smooth Scroll for Anchor Links
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                    
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    
                     // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenu.classList.remove('open');
-                    }
+                    mobileMenu.classList.add('hidden');
                 }
             });
         });
