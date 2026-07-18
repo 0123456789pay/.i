@@ -146,16 +146,19 @@ function renderStudioQuickAccess() {
         { name: "Search Engine", icon: "fa-search", path: "studio/search-engine/index.html", desc: "Mesin pencari cerdas" }
     ];
     
-    grid.innerHTML = studios.map(studio => `
-        <a href="${studio.path}" class="studio-card-item" target="_blank">
-            <div class="studio-icon-wrapper">
-                <i class="fas ${studio.icon}"></i>
+    grid.innerHTML = studios.map((studio, index) => {
+        const studioTypes = ['chat', 'web-builder', 'design', 'image', 'video', 'search'];
+        const type = studioTypes[index] || 'chat';
+        return `
+        <div class=\"studio-card-item\" onclick=\"openWorkspacePanel('${type}')\" style=\"cursor: pointer;\">
+            <div class=\"studio-icon-wrapper\">
+                <i class=\"fas ${studio.icon}\"></i>
             </div>
-            <span class="studio-name">${studio.name}</span>
-            <span class="studio-desc">${studio.desc}</span>
-            <span class="studio-open"><i class="fas fa-external-link-alt"></i></span>
-        </a>
-    `).join('');
+            <span class=\"studio-name\">${studio.name}</span>
+            <span class=\"studio-desc\">${studio.desc}</span>
+            <span class=\"studio-open\"><i class=\"fas fa-external-link-alt\"></i></span>
+        </div>
+    `}).join('');
 }
 
 // Render direktori sistem .digital
@@ -388,3 +391,481 @@ function handleScroll() {
 // Export functions for external use
 window.searchFeatures = searchFeatures;
 window.openSystemDetail = openSystemDetail;
+
+// ============================================
+// WORKSPACE PANEL FUNCTIONS (MODAL BESAR)
+// ============================================
+
+let currentPanelState = 'normal'; // normal, minimized, maximized
+let activeStudio = null;
+
+// Open Workspace Panel dengan Studio tertentu
+function openWorkspacePanel(studioType, studioData = null) {
+    const panel = document.getElementById('workspacePanel');
+    const panelBody = document.getElementById('panelBody');
+    const panelTitle = document.getElementById('panelTitle');
+    const panelIcon = document.getElementById('panelIcon');
+    
+    activeStudio = studioType;
+    
+    // Set title & icon based on studio type
+    const studioConfig = getStudioConfig(studioType);
+    panelTitle.textContent = studioConfig.title;
+    panelIcon.className = `fas ${studioConfig.icon}`;
+    
+    // Render studio content
+    panelBody.innerHTML = renderStudioContent(studioType, studioData);
+    
+    // Show panel
+    panel.style.display = 'flex';
+    
+    // Initialize studio-specific functionality
+    setTimeout(() => initStudioFunctionality(studioType), 100);
+}
+
+// Close Panel
+function closePanel() {
+    const panel = document.getElementById('workspacePanel');
+    panel.style.display = 'none';
+    activeStudio = null;
+}
+
+// Minimize Panel
+function minimizePanel() {
+    const panel = document.getElementById('workspacePanel');
+    const modal = panel.querySelector('.workspace-modal');
+    
+    if (currentPanelState === 'minimized') {
+        // Restore
+        modal.classList.remove('minimized');
+        currentPanelState = 'normal';
+    } else {
+        // Minimize
+        modal.classList.add('minimized');
+        currentPanelState = 'minimized';
+    }
+}
+
+// Toggle Maximize
+function toggleMaximize() {
+    const panel = document.getElementById('workspacePanel');
+    const modal = panel.querySelector('.workspace-modal');
+    
+    if (currentPanelState === 'maximized') {
+        modal.classList.remove('maximized');
+        currentPanelState = 'normal';
+    } else {
+        modal.classList.add('maximized');
+        currentPanelState = 'maximized';
+    }
+}
+
+// Get Studio Configuration
+function getStudioConfig(type) {
+    const configs = {
+        'chat': { title: 'Chat Generation', icon: 'fa-comments' },
+        'web-builder': { title: 'Web App Builder', icon: 'fa-code' },
+        'design': { title: 'Design Editor', icon: 'fa-palette' },
+        'image': { title: 'Image Generator', icon: 'fa-image' },
+        'video': { title: 'Video Maker', icon: 'fa-video' },
+        'search': { title: 'Search Engine', icon: 'fa-search' }
+    };
+    return configs[type] || { title: 'AI Studio', icon: 'fa-robot' };
+}
+
+// Render Studio Content based on type
+function renderStudioContent(type, data) {
+    switch(type) {
+        case 'chat':
+            return renderChatStudio();
+        case 'web-builder':
+            return renderWebBuilderStudio();
+        case 'design':
+            return renderDesignStudio();
+        case 'image':
+            return renderImageStudio();
+        case 'video':
+            return renderVideoStudio();
+        case 'search':
+            return renderSearchStudio();
+        default:
+            return '<div class="loading-state">Studio tidak ditemukan</div>';
+    }
+}
+
+// Render Chat Studio
+function renderChatStudio() {
+    return `
+        <div class="studio-container">
+            <div class="studio-sidebar">
+                <h5 style="margin-bottom: 15px; color: #333;">Riwayat Chat</h5>
+                <div class="chat-history-item" style="padding: 10px; background: #f5f5f5; border-radius: 8px; cursor: pointer; margin-bottom: 8px;">
+                    <strong>Chat Baru</strong>
+                    <div style="font-size: 0.8rem; color: #666;">Baru saja</div>
+                </div>
+            </div>
+            <div class="studio-main">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai">
+                        Halo! Saya AI Assistant Anda. Ada yang bisa saya bantu hari ini?
+                    </div>
+                </div>
+                <div class="studio-input-area">
+                    <input type="text" id="chatInput" class="form-control" placeholder="Ketik pesan Anda..." onkeypress="if(event.key==='Enter') sendChatMessage()">
+                    <button class="btn btn-primary" onclick="sendChatMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render Web Builder Studio
+function renderWebBuilderStudio() {
+    return `
+        <div class="code-editor-container">
+            <div class="code-panel">
+                <div class="code-tabs">
+                    <button class="code-tab active" onclick="switchCodeTab('html')">index.html</button>
+                    <button class="code-tab" onclick="switchCodeTab('css')">style.css</button>
+                    <button class="code-tab" onclick="switchCodeTab('js')">script.js</button>
+                </div>
+                <textarea class="code-area" id="codeEditor">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title>Aplikasi Saya&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;button id=\"myBtn\"&gt;Klik Saya&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+            </div>
+            <div class="preview-panel">
+                <div style="padding: 10px; background: #f1f1f1; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: center;">
+                    <strong>Preview</strong>
+                    <button class="btn btn-sm btn-primary" onclick="updatePreview()"><i class="fas fa-sync"></i> Refresh</button>
+                </div>
+                <iframe class="preview-frame" id="previewFrame"></iframe>
+            </div>
+        </div>
+    `;
+}
+
+// Render Design Studio
+function renderDesignStudio() {
+    return `
+        <div class="studio-container">
+            <div class="studio-sidebar">
+                <h5 style="margin-bottom: 15px; color: #333;">Tools</h5>
+                <button class="tool-btn" onclick="addShape('rect')"><i class="far fa-square"></i> Kotak</button>
+                <button class="tool-btn" onclick="addShape('circle')"><i class="far fa-circle"></i> Lingkaran</button>
+                <button class="tool-btn" onclick="addShape('text')"><i class="fas fa-font"></i> Teks</button>
+                <hr style="width: 100%; border: 1px solid #eee;">
+                <h5 style="margin-bottom: 10px; color: #333; font-size: 0.9rem;">Properti</h5>
+                <div style="font-size: 0.85rem;">
+                    <label>Warna:</label>
+                    <input type="color" id="shapeColor" value="#0066ff" style="width: 100%; margin-bottom: 10px;">
+                    <label>Ukuran:</label>
+                    <input type="range" min="10" max="200" value="100" style="width: 100%;">
+                </div>
+            </div>
+            <div class="studio-main">
+                <div class="tool-bar">
+                    <button class="tool-btn active"><i class="fas fa-mouse-pointer"></i> Select</button>
+                    <button class="tool-btn"><i class="fas fa-hand-pointer"></i> Move</button>
+                    <button class="tool-btn"><i class="fas fa-crop-alt"></i> Crop</button>
+                    <button class="tool-btn" style="margin-left: auto;"><i class="fas fa-download"></i> Export</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="designCanvas" width="800" height="600"></canvas>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render Image Studio
+function renderImageStudio() {
+    return `
+        <div class="studio-content">
+            <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                <input type="text" id="imagePrompt" class="form-control" placeholder="Deskripsikan gambar yang ingin dibuat..." style="flex: 1;">
+                <select class="form-control" style="width: 150px;">
+                    <option>Realistic</option>
+                    <option>Cartoon</option>
+                    <option>Anime</option>
+                    <option>Abstract</option>
+                </select>
+                <button class="btn btn-primary" onclick="generateImage()"><i class="fas fa-magic"></i> Generate</button>
+            </div>
+            <div class="gallery-grid" id="imageGallery">
+                <div class="generated-image-card" style="display: flex; align-items: center; justify-content: center; color: #999;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-image" style="font-size: 3rem; margin-bottom: 10px;"></i>
+                        <div>Hasil generate akan muncul di sini</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render Video Studio
+function renderVideoStudio() {
+    return `
+        <div class="studio-main">
+            <div class="preview-window" id="videoPreview">
+                <div style="text-align: center;">
+                    <i class="fas fa-play-circle" style="font-size: 4rem; opacity: 0.5;"></i>
+                    <div style="margin-top: 20px;">Preview Video</div>
+                </div>
+                <div class="play-controls">
+                    <button class="btn btn-sm btn-light" onclick="togglePlay()"><i class="fas fa-play"></i></button>
+                    <button class="btn btn-sm btn-light"><i class="fas fa-pause"></i></button>
+                    <span style="color: white; line-height: 30px;">00:00 / 00:30</span>
+                </div>
+            </div>
+            <div style="padding: 10px; background: #f1f1f1; border-bottom: 1px solid #ddd;">
+                <strong>Media Library</strong>
+                <div style="display: flex; gap: 10px; margin-top: 10px;">
+                    <button class="tool-btn"><i class="fas fa-video"></i> Video</button>
+                    <button class="tool-btn"><i class="fas fa-music"></i> Audio</button>
+                    <button class="tool-btn"><i class="fas fa-font"></i> Text</button>
+                    <button class="tool-btn"><i class="fas fa-magic"></i> Effect</button>
+                </div>
+            </div>
+            <div class="timeline-container">
+                <div class="track" style="position: relative;">
+                    <div class="clip" style="left: 10px; width: 100px;">Clip 1</div>
+                    <div class="clip" style="left: 120px; width: 80px;">Clip 2</div>
+                </div>
+                <div class="track" style="position: relative;">
+                    <div class="clip" style="left: 50px; width: 150px; background: #28a745;">Audio 1</div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Render Search Studio
+function renderSearchStudio() {
+    return `
+        <div class="studio-content">
+            <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <input type="text" id="searchQuery" class="form-control" placeholder="Cari sesuatu..." onkeypress="if(event.key==='Enter') performSearch()" style="flex: 1;">
+                <button class="btn btn-primary" onclick="performSearch()"><i class="fas fa-search"></i> Cari</button>
+            </div>
+            <div class="filter-tabs">
+                <div class="filter-tab active">Semua</div>
+                <div class="filter-tab">Web</div>
+                <div class="filter-tab">Gambar</div>
+                <div class="filter-tab">Berita</div>
+                <div class="filter-tab">Video</div>
+            </div>
+            <div class="search-results-list" id="searchResults">
+                <div class="result-item">
+                    <a href="#" class="result-title">Cara Menggunakan AI untuk Produktivitas</a>
+                    <span class="result-url">https://example.com/ai-productivity</span>
+                    <p class="result-snippet">Temukan cara memanfaatkan AI untuk meningkatkan produktivitas kerja Anda sehari-hari...</p>
+                </div>
+                <div class="result-item">
+                    <a href="#" class="result-title">Tutorial Machine Learning untuk Pemula</a>
+                    <span class="result-url">https://example.com/ml-tutorial</span>
+                    <p class="result-snippet">Panduan lengkap memulai belajar machine learning dari nol hingga mahir...</p>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Initialize Studio Functionality
+function initStudioFunctionality(type) {
+    switch(type) {
+        case 'chat':
+            initChat();
+            break;
+        case 'web-builder':
+            initWebBuilder();
+            break;
+        case 'design':
+            initDesignStudio();
+            break;
+        case 'search':
+            initSearch();
+            break;
+    }
+}
+
+// Chat Functions
+function sendChatMessage() {
+    const input = document.getElementById('chatInput');
+    const messages = document.getElementById('chatMessages');
+    const message = input.value.trim();
+    
+    if (!message) return;
+    
+    // Add user message
+    messages.innerHTML += `<div class="message user">${message}</div>`;
+    input.value = '';
+    
+    // Show typing indicator
+    messages.innerHTML += `<div class="typing-indicator" id="typingIndicator"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
+    messages.scrollTop = messages.scrollHeight;
+    
+    // Simulate AI response
+    setTimeout(() => {
+        document.getElementById('typingIndicator').remove();
+        const responses = [
+            "Saya mengerti. Bisa jelaskan lebih detail?",
+            "Itu pertanyaan yang menarik! Berikut penjelasannya...",
+            "Tentu, saya bisa membantu dengan itu.",
+            "Berdasarkan data saya, berikut informasinya..."
+        ];
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        messages.innerHTML += `<div class="message ai">${randomResponse}</div>`;
+        messages.scrollTop = messages.scrollHeight;
+    }, 1500);
+}
+
+function initChat() {
+    // Chat already initialized in render
+}
+
+// Web Builder Functions
+function switchCodeTab(tab) {
+    document.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    // In real implementation, switch editor content
+}
+
+function updatePreview() {
+    const code = document.getElementById('codeEditor').value;
+    const frame = document.getElementById('previewFrame');
+    const doc = frame.contentDocument || frame.contentWindow.document;
+    doc.open();
+    doc.write(code);
+    doc.close();
+}
+
+function initWebBuilder() {
+    updatePreview();
+}
+
+// Design Studio Functions
+function addShape(type) {
+    const canvas = document.getElementById('designCanvas');
+    const ctx = canvas.getContext('2d');
+    const color = document.getElementById('shapeColor').value;
+    
+    ctx.fillStyle = color;
+    
+    if (type === 'rect') {
+        ctx.fillRect(100, 100, 100, 100);
+    } else if (type === 'circle') {
+        ctx.beginPath();
+        ctx.arc(150, 150, 50, 0, Math.PI * 2);
+        ctx.fill();
+    } else if (type === 'text') {
+        ctx.font = '30px Arial';
+        ctx.fillText('Teks Baru', 100, 200);
+    }
+}
+
+function initDesignStudio() {
+    const canvas = document.getElementById('designCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+// Image Generator Functions
+function generateImage() {
+    const prompt = document.getElementById('imagePrompt').value;
+    const gallery = document.getElementById('imageGallery');
+    
+    if (!prompt) {
+        alert('Masukkan deskripsi gambar terlebih dahulu!');
+        return;
+    }
+    
+    gallery.innerHTML = '<div class="loading-state">Sedang menghasilkan gambar...</div>';
+    
+    setTimeout(() => {
+        // Simulate generated images with placeholders
+        gallery.innerHTML = `
+            <div class="generated-image-card">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fas fa-image" style="font-size: 3rem;"></i>
+                </div>
+            </div>
+            <div class="generated-image-card">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fas fa-image" style="font-size: 3rem;"></i>
+                </div>
+            </div>
+            <div class="generated-image-card">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fas fa-image" style="font-size: 3rem;"></i>
+                </div>
+            </div>
+            <div class="generated-image-card">
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; color: white;">
+                    <i class="fas fa-image" style="font-size: 3rem;"></i>
+                </div>
+            </div>
+        `;
+    }, 2000);
+}
+
+// Video Maker Functions
+function togglePlay() {
+    // Simulate play/pause
+    const preview = document.getElementById('videoPreview');
+    // In real implementation, control video playback
+}
+
+// Search Functions
+function performSearch() {
+    const query = document.getElementById('searchQuery').value;
+    const results = document.getElementById('searchResults');
+    
+    if (!query) return;
+    
+    results.innerHTML = '<div class="loading-state">Mencari...</div>';
+    
+    setTimeout(() => {
+        results.innerHTML = `
+            <div class="result-item">
+                <a href="#" class="result-title">Hasil untuk: ${query}</a>
+                <span class="result-url">https://example.com/result-1</span>
+                <p class="result-snippet">Ini adalah hasil pencarian simulasi untuk kata kunci "${query}". Dalam implementasi nyata, ini akan menampilkan hasil dari mesin pencari...</p>
+            </div>
+            <div class="result-item">
+                <a href="#" class="result-title">Informasi Terkait: ${query}</a>
+                <span class="result-url">https://example.com/result-2</span>
+                <p class="result-snippet">Lebih banyak informasi tentang "${query}". Sistem akan mengintegrasikan dengan API pencarian sungguhan...</p>
+            </div>
+        `;
+    }, 1000);
+}
+
+function initSearch() {
+    // Search already initialized in render
+}
+
+// Update card click handlers to open workspace panel instead of new tab
+function attachWorkspacePanelHandlers() {
+    document.querySelectorAll('.feature-card[data-studio]').forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const studioType = this.getAttribute('data-studio');
+            openWorkspacePanel(studioType);
+        });
+        card.style.cursor = 'pointer';
+    });
+}
+
+// Attach handlers on page load
+document.addEventListener('DOMContentLoaded', function() {
+    attachWorkspacePanelHandlers();
+});
