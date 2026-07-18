@@ -3,38 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Digital - Platform Konten Digital</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Sistem Media Digital Terpadu</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f0f2f5; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
+        nav { display: flex; justify-content: center; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex-wrap: wrap; }
+        nav a { padding: 1rem 2rem; text-decoration: none; color: #333; font-weight: bold; transition: 0.3s; }
+        nav a:hover { background: #eee; color: #764ba2; }
+        .container { max-width: 1400px; margin: 2rem auto; padding: 0 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .card h3 { color: #764ba2; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
+        .badge { background: #e0e7ff; color: #4f46e5; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+        .card ul { list-style: none; padding: 0; }
+        .card ul li { margin: 0.5rem 0; }
+        .card ul li a { color: #007bff; text-decoration: none; font-size: 0.9rem; }
+        .card ul li a:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; margin-top: 2rem; }
+        .stats { background: white; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>🚀 Sistem Media Digital</h1>
+        <p>Platform Terintegrasi dengan Struktur Folder .digital</p>
+    </header>
+    <nav>
+        <a href="#dashboard">Dasbor</a>
+        <a href="#pengaturan">Pengaturan</a>
+        <a href="#konten">Konten</a>
+        <a href="#analitik">Analitik</a>
+        <a href="#bantuan">Bantuan</a>
+    </nav>
     <div class="container">
-        <h1>Media Digital</h1>
-        <p style="text-align:center;color:white;margin-bottom:30px;">Platform Manajemen Konten Digital Terpadu</p>
-        
-        <nav>
-            <ul>
-                <li><a href="dashboard/index.html">📊 Dashboard</a></li>
-                <li><a href="pengaturan/index.html">⚙️ Pengaturan</a></li>
-                <li><a href="konten/index.html">📝 Konten</a></li>
-                <li><a href="analitik/index.html">📈 Analitik</a></li>
-                <li><a href="bantuan/index.html">❓ Bantuan</a></li>
-            </ul>
-        </nav>
-
-        <div class="card" style="margin-top:40px;">
-            <h2>Selamat Datang di Media Digital</h2>
-            <p>Sistem manajemen konten digital dengan fitur lengkap untuk mengelola media, analitik, dan publikasi Anda.</p>
-            <br>
-            <h3>Fitur Utama:</h3>
-            <ul style="margin-left:20px;margin-top:10px;">
-                <li>Dashboard terintegrasi</li>
-                <li>Pengelolaan konten multimedia</li>
-                <li>Analitik performa real-time</li>
-                <li>Penjadwalan publikasi</li>
-                <li>Dukungan multi-bahasa</li>
-            </ul>
+        <div class="stats">
+            <h3>📊 Statistik Sistem</h3>
+            <p><strong>Total Menu Utama:</strong> 5 | <strong>Total Sub-menu:</strong> 46 | <strong>Struktur File:</strong> html, css, js, php, db</p>
+            <p><strong>Bahasa:</strong> Indonesia | <strong>Ekstensi Folder:</strong> .digital</p>
+        </div>
+        <div class="grid">
+            <div class="card" id="dashboard">
+                <h3>📊 Dasbor Utama</h3>
+                <span class="badge">8 Sub-modul</span>
+                <p>Ringkasan statistik, notifikasi realtime, dan peta pengguna.</p>
+                <ul>
+                    <li><a href="ringkasan.digital/index.html">📄 Ringkasan</a></li>
+                    <li><a href="statistik_realtime.digital/index.html">⚡ Statistik Realtime</a></li>
+                    <li><a href="notifikasi.digital/index.html">🔔 Notifikasi</a></li>
+                    <li><a href="aktivitas_terkini.digital/index.html">📝 Aktivitas Terkini</a></li>
+                    <li><a href="peta_pengguna.digital/index.html">🗺️ Peta Pengguna</a></li>
+                    <li><a href="laporan_harian.digital/index.html">📋 Laporan Harian</a></li>
+                    <li><a href="kalender_event.digital/index.html">📅 Kalender Event</a></li>
+                    <li><a href="target_kinerja.digital/index.html">🎯 Target Kinerja</a></li>
+                </ul>
+            </div>
+            <div class="card" id="pengaturan">
+                <h3>⚙️ Konfigurasi Sistem</h3>
+                <span class="badge">10 Sub-modul</span>
+                <p>Kelola keamanan, pengguna, backup, dan integrasi API.</p>
+                <ul>
+                    <li><a href="umum.digital/index.html">🔧 Umum</a></li>
+                    <li><a href="keamanan.digital/index.html">🔒 Keamanan</a></li>
+                    <li><a href="pengguna_dan_hak_akses.digital/index.html">👥 Hak Akses</a></li>
+                    <li><a href="backup_data.digital/index.html">💾 Backup Data</a></li>
+                    <li><a href="integrasi_api.digital/index.html">🔌 Integrasi API</a></li>
+                    <li><a href="email_smtp.digital/index.html">📧 Email SMTP</a></li>
+                    <li><a href="penyimpanan_cloud.digital/index.html">☁️ Penyimpanan Cloud</a></li>
+                    <li><a href="log_sistem.digital/index.html">📜 Log Sistem</a></li>
+                    <li><a href="pembaruan_otomatis.digital/index.html">🔄 Pembaruan Otomatis</a></li>
+                    <li><a href="manajemen_database.digital/index.html">🗄️ Manajemen Database</a></li>
+                </ul>
+            </div>
+            <div class="card" id="konten">
+                <h3>📝 Manajemen Konten</h3>
+                <span class="badge">10 Sub-modul</span>
+                <p>Artikel, galeri, video, dan manajemen media pustaka.</p>
+                <ul>
+                    <li><a href="artikel_blog.digital/index.html">✍️ Artikel Blog</a></li>
+                    <li><a href="galeri_foto.digital/index.html">🖼️ Galeri Foto</a></li>
+                    <li><a href="video_streaming.digital/index.html">🎬 Video Streaming</a></li>
+                    <li><a href="dokumen_pdf.digital/index.html">📕 Dokumen PDF</a></li>
+                    <li><a href="manajemen_kategori.digital/index.html">🏷️ Kategori</a></li>
+                    <li><a href="tagar_trending.digital/index.html">#️⃣ Tagar Trending</a></li>
+                    <li><a href="komentar_ulasan.digital/index.html">💬 Komentar</a></li>
+                    <li><a href="jadwal_publikasi.digital/index.html">📆 Jadwal Publikasi</a></li>
+                    <li><a href="arsip_konten.digital/index.html">🗂️ Arsip Konten</a></li>
+                    <li><a href="media_pustaka.digital/index.html">📚 Media Pustaka</a></li>
+                </ul>
+            </div>
+            <div class="card" id="analitik">
+                <h3>📈 Analisis Data</h3>
+                <span class="badge">9 Sub-modul</span>
+                <p>Lalu lintas web, perilaku pengguna, dan laporan keuangan.</p>
+                <ul>
+                    <li><a href="lalu_lintas_web.digital/index.html">🌐 Lalu Lintas Web</a></li>
+                    <li><a href="perilaku_pengguna.digital/index.html">👤 Perilaku Pengguna</a></li>
+                    <li><a href="konversi_penjualan.digital/index.html">💰 Konversi Penjualan</a></li>
+                    <li><a href="seo_performance.digital/index.html">🔍 SEO Performance</a></li>
+                    <li><a href="laporan_keuangan.digital/index.html">💵 Laporan Keuangan</a></li>
+                    <li><a href="retensi_pelanggan.digital/index.html">🔄 Retensi Pelanggan</a></li>
+                    <li><a href="heatmap_klik.digital/index.html">🔥 Heatmap Klik</a></li>
+                    <li><a href="eksport_data.digital/index.html">📤 Eksport Data</a></li>
+                    <li><a href="prediksi_ai.digital/index.html">🤖 Prediksi AI</a></li>
+                </ul>
+            </div>
+            <div class="card" id="bantuan">
+                <h3>❓ Pusat Bantuan</h3>
+                <span class="badge">9 Sub-modul</span>
+                <p>FAQ, tiket support, chat langsung, dan forum komunitas.</p>
+                <ul>
+                    <li><a href="faq_pertanyaan.digital/index.html">❓ FAQ</a></li>
+                    <li><a href="panduan_pengguna.digital/index.html">📘 Panduan</a></li>
+                    <li><a href="tiket_support.digital/index.html">🎫 Tiket Support</a></li>
+                    <li><a href="chat_langsung.digital/index.html">💬 Chat Langsung</a></li>
+                    <li><a href="forum_komunitas.digital/index.html">👥 Forum Komunitas</a></li>
+                    <li><a href="video_tutorial.digital/index.html">🎥 Video Tutorial</a></li>
+                    <li><a href="kontak_admin.digital/index.html">📞 Kontak Admin</a></li>
+                    <li><a href="status_server.digital/index.html">🖥️ Status Server</a></li>
+                    <li><a href="lapor_bug.digital/index.html">🐛 Lapor Bug</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <script src="js/dashboard.js"></script>
+    <footer>
+        &copy; 2024 Media Digital System. Dibangun dengan teknologi stack lengkap (HTML/CSS/JS/PHP/DB).
+    </footer>
 </body>
 </html>
