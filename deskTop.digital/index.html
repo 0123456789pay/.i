@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desk Top | MEDIA.DIGITAL</title>
-    <meta name="description" content="Desk Top - Enterprise digital solution with advanced features and seamless integration.">
+    <title>DeskTop | MEDIA.DIGITAL</title>
+    <meta name="description" content="DeskTop - Enterprise digital solution with advanced features.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
@@ -16,7 +17,7 @@
             <a class="navbar-brand fw-bold d-flex align-items-center" href="../../index.html">
                 <span style="font-size: 1.8rem; margin-right: 0.5rem;">⚡</span>
                 <div>
-                    <div style="font-size: 1.1rem; color: #0066cc;">Desk Top</div>
+                    <div style="font-size: 1.1rem; color: #0066cc;">DeskTop</div>
                     <div style="font-size: 0.7rem; color: #666; font-weight: normal;">MEDIA.DIGITAL</div>
                 </div>
             </a>
@@ -29,38 +30,44 @@
                         <a class="nav-link active" href="#home">Home</a>
                     </li>
                     
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="operationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Operations ▾
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="operationsDropdown">
-                    <li><a href="#workflow">Workflow</a></li><li><a href="#process-automation">Process Automation</a></li><li><a href="#task-management">Task Management</a></li><li><a href="#reporting">Reporting</a></li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="customerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Customer ▾
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="customerDropdown">
-                    <li><a href="#support">Support</a></li><li><a href="#engagement">Engagement</a></li><li><a href="#feedback">Feedback</a></li><li><a href="#retention">Retention</a></li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="growthDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Growth ▾
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="growthDropdown">
-                    <li><a href="#marketing">Marketing</a></li><li><a href="#sales">Sales</a></li><li><a href="#partnerships">Partnerships</a></li><li><a href="#expansion">Expansion</a></li>
-                </ul>
-            </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#docs">Docs</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu1Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Features ▾
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menu1Dropdown">
+                            <li><a href="#item1">Overview</a></li>
+                            <li><a href="#item2">Documentation</a></li>
+                            <li><a href="#item3">API</a></li>
+                            <li><a href="#item4">Settings</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#support">Support</a>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu2Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Services ▾
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menu2Dropdown">
+                            <li><a href="#item5">Analytics</a></li>
+                            <li><a href="#item6">Reports</a></li>
+                            <li><a href="#item7">Integration</a></li>
+                            <li><a href="#item8">Support</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item ms-2">
-                        <a href="#get-started" class="btn btn-primary px-4 py-2 rounded-pill">Get Started</a>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="menu3Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Resources ▾
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="menu3Dropdown">
+                            <li><a href="#item9">Tutorials</a></li>
+                            <li><a href="#item10">Guides</a></li>
+                            <li><a href="#item11">Templates</a></li>
+                            <li><a href="#item12">Community</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="filemanajer.html"><i class="fas fa-folder me-1"></i>Files</a>
                     </li>
                 </ul>
             </div>
@@ -68,246 +75,144 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section py-5" style="background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%); color: white;">
+    <section id="home" class="py-5 bg-gradient">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <h1 class="display-4 fw-bold mb-4">Desk Top</h1>
-                    <p class="lead mb-4" style="opacity: 0.95;">Enterprise-grade digital solution designed for scalability, security, and seamless integration. Transform your workflow with cutting-edge technology.</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <a href="#features" class="btn btn-light btn-lg px-4 py-3 rounded-pill fw-bold text-primary">Explore Features</a>
-                        <a href="#docs" class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">View Documentation</a>
-                    </div>
-                    <div class="mt-4 d-flex gap-4 flex-wrap">
-                        <div class="text-center">
-                            <div class="h4 fw-bold mb-0">99.9%</div>
-                            <small style="opacity: 0.8;">Uptime SLA</small>
-                        </div>
-                        <div class="text-center">
-                            <div class="h4 fw-bold mb-0">24/7</div>
-                            <small style="opacity: 0.8;">Support</small>
-                        </div>
-                        <div class="text-center">
-                            <div class="h4 fw-bold mb-0">10K+</div>
-                            <small style="opacity: 0.8;">Users</small>
-                        </div>
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold text-primary mb-4">DeskTop</h1>
+                    <p class="lead text-muted mb-4">Advanced digital solution for enterprise needs. Streamline your workflow with powerful tools and seamless integration.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#features" class="btn btn-primary btn-lg px-4"><i class="fas fa-rocket me-2"></i>Get Started</a>
+                        <a href="filemanajer.html" class="btn btn-outline-primary btn-lg px-4"><i class="fas fa-folder-open me-2"></i>File Manager</a>
                     </div>
                 </div>
-                <div class="col-lg-5 d-none d-lg-block text-center">
-                    <div style="font-size: 15rem; opacity: 0.3;">⚡</div>
+                <div class="col-lg-6 text-center">
+                    <div class="position-relative">
+                        <div class="bg-white rounded-4 shadow-lg p-4 mx-auto" style="max-width: 500px;">
+                            <div class="row g-3">
+                                <div class="col-6"><div class="p-3 bg-light rounded-3 text-center"><i class="fas fa-cog fa-2x text-primary mb-2"></i><br><small>Configuration</small></div></div>
+                                <div class="col-6"><div class="p-3 bg-light rounded-3 text-center"><i class="fas fa-chart-line fa-2x text-primary mb-2"></i><br><small>Analytics</small></div></div>
+                                <div class="col-6"><div class="p-3 bg-light rounded-3 text-center"><i class="fas fa-shield-alt fa-2x text-primary mb-2"></i><br><small>Security</small></div></div>
+                                <div class="col-6"><div class="p-3 bg-light rounded-3 text-center"><i class="fas fa-sync fa-2x text-primary mb-2"></i><br><small>Sync</small></div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="py-5" style="background-color: #f8fbff;">
+    <section id="features" class="py-5">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="fw-bold text-primary mb-3">Powerful Features</h2>
-                <p class="text-muted">Everything you need to succeed with Desk Top</p>
+                <h2 class="fw-bold text-primary">Powerful Features</h2>
+                <p class="text-muted">Everything you need to manage your digital operations</p>
             </div>
             <div class="row g-4">
-                
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-card h-100 p-4 rounded-3 border border-light shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);">
-                    <div class="feature-icon mb-3" style="font-size: 2.5rem;">🚀</div>
-                    <h5 class="fw-bold text-primary">CRM</h5>
-                    <p class="text-muted small">Advanced crm capabilities with enterprise-grade security and scalability.</p>
-                    <a href="#crm" class="btn btn-outline-primary btn-sm mt-2">Learn More →</a>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-bolt fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Fast Performance</h5>
+                            <p class="text-muted">Optimized for speed and efficiency</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-card h-100 p-4 rounded-3 border border-light shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);">
-                    <div class="feature-icon mb-3" style="font-size: 2.5rem;">⚡</div>
-                    <h5 class="fw-bold text-primary">ERP</h5>
-                    <p class="text-muted small">Advanced erp capabilities with enterprise-grade security and scalability.</p>
-                    <a href="#erp" class="btn btn-outline-primary btn-sm mt-2">Learn More →</a>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-lock fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Secure by Default</h5>
+                            <p class="text-muted">Enterprise-grade security built-in</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-card h-100 p-4 rounded-3 border border-light shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);">
-                    <div class="feature-icon mb-3" style="font-size: 2.5rem;">🔒</div>
-                    <h5 class="fw-bold text-primary">Project Management</h5>
-                    <p class="text-muted small">Advanced project management capabilities with enterprise-grade security and scalability.</p>
-                    <a href="#project-management" class="btn btn-outline-primary btn-sm mt-2">Learn More →</a>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-plug fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Easy Integration</h5>
+                            <p class="text-muted">Connect with your favorite tools</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-card h-100 p-4 rounded-3 border border-light shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);">
-                    <div class="feature-icon mb-3" style="font-size: 2.5rem;">📊</div>
-                    <h5 class="fw-bold text-primary">Finance</h5>
-                    <p class="text-muted small">Advanced finance capabilities with enterprise-grade security and scalability.</p>
-                    <a href="#finance" class="btn btn-outline-primary btn-sm mt-2">Learn More →</a>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-chart-bar fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Advanced Analytics</h5>
+                            <p class="text-muted">Deep insights into your data</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-card h-100 p-4 rounded-3 border border-light shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);">
-                    <div class="feature-icon mb-3" style="font-size: 2.5rem;">🤖</div>
-                    <h5 class="fw-bold text-primary">HR Management</h5>
-                    <p class="text-muted small">Advanced hr management capabilities with enterprise-grade security and scalability.</p>
-                    <a href="#hr-management" class="btn btn-outline-primary btn-sm mt-2">Learn More →</a>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-cloud fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">Cloud Native</h5>
+                            <p class="text-muted">Built for modern cloud infrastructure</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="feature-card h-100 p-4 rounded-3 border border-light shadow-sm" style="background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);">
-                    <div class="feature-icon mb-3" style="font-size: 2.5rem;">☁️</div>
-                    <h5 class="fw-bold text-primary">Supply Chain</h5>
-                    <p class="text-muted small">Advanced supply chain capabilities with enterprise-grade security and scalability.</p>
-                    <a href="#supply-chain" class="btn btn-outline-primary btn-sm mt-2">Learn More →</a>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon bg-primary text-white rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 70px; height: 70px;">
+                                <i class="fas fa-headset fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold">24/7 Support</h5>
+                            <p class="text-muted">Always here when you need us</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
-    <section class="py-5" style="background: linear-gradient(135deg, #0066cc 0%, #0099ff 100%); color: white;">
-        <div class="container py-4">
-            <div class="row text-center g-4">
-                <div class="col-md-3 col-6">
-                    <div class="h2 fw-bold mb-0">500M+</div>
-                    <small style="opacity: 0.9;">API Calls Daily</small>
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <h3 class="display-5 fw-bold text-primary">99.9%</h3>
+                    <p class="text-muted">Uptime Guarantee</p>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="h2 fw-bold mb-0">150+</div>
-                    <small style="opacity: 0.9;">Countries</small>
+                <div class="col-md-3">
+                    <h3 class="display-5 fw-bold text-primary">10M+</h3>
+                    <p class="text-muted">Requests/Day</p>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="h2 fw-bold mb-0">99.99%</div>
-                    <small style="opacity: 0.9;">Reliability</small>
+                <div class="col-md-3">
+                    <h3 class="display-5 fw-bold text-primary">24/7</h3>
+                    <p class="text-muted">Customer Support</p>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="h2 fw-bold mb-0">&lt;50ms</div>
-                    <small style="opacity: 0.9;">Latency</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Documentation Section -->
-    <section id="docs" class="py-5">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-primary mb-3">Documentation</h2>
-                <p class="text-muted">Get started with comprehensive guides and resources</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm" style="background: #f8fbff;">
-                        <div class="card-body p-4">
-                            <h5 class="fw-bold text-primary mb-3">📚 Getting Started</h5>
-                            <p class="text-muted small">Quick start guide to help you set up and configure Desk Top in minutes.</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm">Read Guide →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm" style="background: #f8fbff;">
-                        <div class="card-body p-4">
-                            <h5 class="fw-bold text-primary mb-3">🔧 API Reference</h5>
-                            <p class="text-muted small">Complete API documentation with examples, parameters, and response formats.</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm">View API →</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-100 border-0 shadow-sm" style="background: #f8fbff;">
-                        <div class="card-body p-4">
-                            <h5 class="fw-bold text-primary mb-3">💡 Best Practices</h5>
-                            <p class="text-muted small">Industry best practices and optimization tips for maximum performance.</p>
-                            <a href="#" class="btn btn-outline-primary btn-sm">Learn More →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Support Section -->
-    <section id="support" class="py-5" style="background-color: #f8fbff;">
-        <div class="container py-5">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-primary mb-3">Support & Resources</h2>
-                <p class="text-muted">We're here to help you succeed</p>
-            </div>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-3 col-sm-6 text-center">
-                    <div class="p-4">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">💬</div>
-                        <h6 class="fw-bold">Live Chat</h6>
-                        <p class="text-muted small">24/7 instant support</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center">
-                    <div class="p-4">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">📧</div>
-                        <h6 class="fw-bold">Email Support</h6>
-                        <p class="text-muted small">Response within 2 hours</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center">
-                    <div class="p-4">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">📖</div>
-                        <h6 class="fw-bold">Knowledge Base</h6>
-                        <p class="text-muted small">500+ articles</p>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center">
-                    <div class="p-4">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">👥</div>
-                        <h6 class="fw-bold">Community</h6>
-                        <p class="text-muted small">Join 10K+ users</p>
-                    </div>
+                <div class="col-md-3">
+                    <h3 class="display-5 fw-bold text-primary">150+</h3>
+                    <p class="text-muted">Integrations</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">⚡ Desk Top</h5>
-                    <p class="text-muted small">Enterprise digital solution powered by MEDIA.DIGITAL ecosystem.</p>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-bold mb-3">Product</h6>
-                    <ul class="list-unstyled small text-muted">
-                        <li class="mb-2"><a href="#features" class="text-muted text-decoration-none">Features</a></li>
-                        <li class="mb-2"><a href="#pricing" class="text-muted text-decoration-none">Pricing</a></li>
-                        <li class="mb-2"><a href="#docs" class="text-muted text-decoration-none">Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-bold mb-3">Company</h6>
-                    <ul class="list-unstyled small text-muted">
-                        <li class="mb-2"><a href="#about" class="text-muted text-decoration-none">About</a></li>
-                        <li class="mb-2"><a href="#blog" class="text-muted text-decoration-none">Blog</a></li>
-                        <li class="mb-2"><a href="#careers" class="text-muted text-decoration-none">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-bold mb-3">Legal</h6>
-                    <ul class="list-unstyled small text-muted">
-                        <li class="mb-2"><a href="#privacy" class="text-muted text-decoration-none">Privacy</a></li>
-                        <li class="mb-2"><a href="#terms" class="text-muted text-decoration-none">Terms</a></li>
-                        <li class="mb-2"><a href="#security" class="text-muted text-decoration-none">Security</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-bold mb-3">Connect</h6>
-                    <ul class="list-unstyled small text-muted">
-                        <li class="mb-2"><a href="#twitter" class="text-muted text-decoration-none">Twitter</a></li>
-                        <li class="mb-2"><a href="#github" class="text-muted text-decoration-none">GitHub</a></li>
-                        <li class="mb-2"><a href="#linkedin" class="text-muted text-decoration-none">LinkedIn</a></li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
-            <div class="text-center text-muted small">
-                © 2024 Desk Top | Part of MEDIA.DIGITAL Ecosystem
+    <footer class="bg-white border-top border-primary py-4">
+        <div class="container text-center">
+            <p class="text-muted mb-2">&copy; 2024 DeskTop | MEDIA.DIGITAL. All rights reserved.</p>
+            <div>
+                <a href="#" class="text-primary me-3"><i class="fab fa-github"></i></a>
+                <a href="#" class="text-primary me-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-primary me-3"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-primary"><i class="fab fa-discord"></i></a>
             </div>
         </div>
     </footer>
