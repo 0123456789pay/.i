@@ -227,10 +227,9 @@
     <script>
         // RAG System Configuration - Terintegrasi dengan RAGREBER.DIGITAL
         const RAG_CONFIG = {
-            endpoint: '../../ragreber.digital/data/',
-            metadataFile: '../../ragreber.digital/data/metadata.json',
-            indexFile: '../../ragreber.digital/data/rag_index.json',
-            totalKnowledgePoints: 500000000, // 500 juta poin pengetahuan
+            endpoint: '../../ragreber.digital/datareber/',
+            metadataFile: '../../ragreber.digital/datareber/metadata.json',
+            totalKnowledgePoints: 100000, // 100 ribu poin pengetahuan (sample aktif)
             categories: ['negara', 'perangkat', 'jaringan', 'kode', 'ai']
         };
 
@@ -249,15 +248,11 @@
                 const metaResponse = await fetch(RAG_CONFIG.metadataFile);
                 ragMetadata = await metaResponse.json();
                 
-                // Load index
-                const indexResponse = await fetch(RAG_CONFIG.indexFile);
-                ragIndex = await indexResponse.json();
-                
                 console.log('✅ RAGREBER.DIGITAL Loaded:', ragMetadata);
-                console.log('📊 Total kapasitas:', ragMetadata.total_knowledge_capacity.toLocaleString(), 'poin pengetahuan');
+                console.log('📊 Total kapasitas:', ragMetadata.total_poin.toLocaleString(), 'poin pengetahuan');
                 
                 // Tampilkan status di chat
-                addMessage(`Sistem RAGREBER.DIGITAL berhasil dimuat! Saya memiliki akses ke ${ragMetadata.total_knowledge_capacity.toLocaleString()} poin pengetahuan dari ${ragMetadata.total_files} file dalam 5 kategori: ${ragMetadata.categories.join(', ')}. Silakan tanyakan apa saja!`, 'ai');
+                addMessage(`Sistem RAGREBER.DIGITAL berhasil dimuat! Saya memiliki akses ke ${ragMetadata.total_poin.toLocaleString()} poin pengetahuan dari ${ragMetadata.total_file} file dalam 5 kategori: ${ragMetadata.kategori.join(', ')}. Silakan tanyakan apa saja!`, 'ai');
                 
             } catch (error) {
                 console.error('❌ Error loading RAG data:', error);
@@ -295,36 +290,33 @@
             
             // Baca file dari setiap kategori yang relevan
             for (const category of targetCategories) {
-                if (ragIndex && ragIndex.categories_index[category]) {
-                    // Ambil 3 file pertama dari setiap kategori untuk pencarian cepat
-                    const filesToSearch = ragIndex.categories_index[category].files.slice(0, 3);
-                    
-                    for (const filename of filesToSearch) {
-                        try {
-                            const fileResponse = await fetch(`${RAG_CONFIG.endpoint}${filename}`);
-                            const text = await fileResponse.text();
-                            const lines = text.split('\n');
+                // Ambil 5 file pertama dari setiap kategori untuk pencarian cepat
+                for (let i = 0; i < 5; i++) {
+                    const filename = `${category}_${i.toString().padStart(3, '0')}.txt`;
+                    try {
+                        const fileResponse = await fetch(`${RAG_CONFIG.endpoint}${filename}`);
+                        const text = await fileResponse.text();
+                        const lines = text.split('\n');
+                        
+                        for (const line of lines) {
+                            if (!line.trim()) continue;
                             
-                            for (const line of lines) {
-                                if (line.startsWith('#') || !line.trim()) continue;
-                                
-                                const lineLower = line.toLowerCase();
-                                const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2);
-                                
-                                // Cek apakah line mengandung kata kunci dari query
-                                const matchCount = queryWords.filter(word => lineLower.includes(word)).length;
-                                
-                                if (matchCount > 0) {
-                                    results.push({
-                                        category: category,
-                                        content: line,
-                                        relevance: matchCount
-                                    });
-                                }
+                            const lineLower = line.toLowerCase();
+                            const queryWords = queryLower.split(/\s+/).filter(w => w.length > 2);
+                            
+                            // Cek apakah line mengandung kata kunci dari query
+                            const matchCount = queryWords.filter(word => lineLower.includes(word)).length;
+                            
+                            if (matchCount > 0) {
+                                results.push({
+                                    category: category,
+                                    content: line,
+                                    relevance: matchCount
+                                });
                             }
-                        } catch (error) {
-                            console.error(`Error reading file ${filename}:`, error);
                         }
+                    } catch (error) {
+                        console.error(`Error reading file ${filename}:`, error);
                     }
                 }
             }
