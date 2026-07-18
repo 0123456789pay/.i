@@ -137,20 +137,24 @@ function renderQuickAccessBox() {
     const box = document.getElementById('quickAccessBox');
     if (!box) return;
     
-    const categories = [
-        { name: "Jaringan Saraf", icon: "fa-brain", filter: "jaringan" },
-        { name: "Desain AI", icon: "fa-paint-brush", filter: "desain" },
-        { name: "Generatif", icon: "fa-robot", filter: "generatif" },
-        { name: "Pembelajaran", icon: "fa-graduation-cap", filter: "pembelajaran" },
-        { name: "Analitik", icon: "fa-chart-line", filter: "analitik" },
-        { name: "Lainnya", icon: "fa-folder", filter: "lainnya" }
+    const studios = [
+        { name: "Chat Generation", icon: "fa-comments", path: "studio/chat-generation/index.html", desc: "Asisten AI chat interaktif" },
+        { name: "Web App Builder", icon: "fa-code", path: "studio/web-app-builder/index.html", desc: "Pembuat aplikasi web + preview kode" },
+        { name: "Design Editor", icon: "fa-palette", path: "studio/design-editor/index.html", desc: "Editor desain grafis AI" },
+        { name: "Image Generator", icon: "fa-image", path: "studio/image-generator/index.html", desc: "Pembuat gambar dari prompt" },
+        { name: "Video Maker", icon: "fa-video", path: "studio/video-maker/index.html", desc: "Editor video pendek AI" },
+        { name: "Search Engine", icon: "fa-search", path: "studio/search-engine/index.html", desc: "Mesin pencari cerdas" }
     ];
     
-    box.innerHTML = categories.map(cat => `
-        <div class="box-item" onclick="filterByCategory('${cat.filter}')">
-            <i class="fas ${cat.icon}"></i>
-            <span>${cat.name}</span>
-        </div>
+    box.innerHTML = studios.map(studio => `
+        <a href="${studio.path}" class="box-item studio-card" target="_blank">
+            <div class="studio-icon-wrapper">
+                <i class="fas ${studio.icon}"></i>
+            </div>
+            <span class="studio-name">${studio.name}</span>
+            <span class="studio-desc">${studio.desc}</span>
+            <span class="studio-open"><i class="fas fa-external-link-alt"></i></span>
+        </a>
     `).join('');
 }
 

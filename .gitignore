@@ -1,63 +1,56 @@
 ```
-# Dependencies
-node_modules/
-
 # Build artifacts
 dist/
 build/
-target/
+*.min.css
+*.min.js
+*.bundle.js
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
 # Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-*.py.class
-*.py.obj
-*.py.out
+.Python
+*.so
+*.egg-info/
+.eggs/
 
-# Virtual environments
-venv/
-.venv/
-env/
-ENV/
-
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-*.bak
-*.swp
-*.swo
-
-# OS generated files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Icon?
-.directory
-.Trashes
-
-# Environment variables
-.env
-.env.local
-.env.*
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# IDE specific
-.vscode/
-.idea/
-*.iml
-*.ipr
-*.iws
-.settings/
-.project
+# Compiled files
+*.class
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
 # Compressed files
 *.zip
@@ -78,14 +71,33 @@ htmlcov/
 *.Z
 *.lz
 *.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
+
+# Caching
+.cache/
+*.cache
+.tmp
 
 # Testing
-.pytest_cache/
+*.pytest_cache/
 .mypy_cache/
+.tox/
 .nyc_output/
 coverage.xml
+
+# Distribution
+*.egg
+*.whl
+dist/
+build/
+*.spec
+
+# IDE specific
+.vs/
+*.swp
+*.swo
+*~
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
 ```
