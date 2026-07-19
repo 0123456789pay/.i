@@ -64,18 +64,22 @@ body {
 }
 
 .nav-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-50);
     border: none;
     background: rgba(255, 255, 255, 0.15);
     color: white;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.nav-btn i {
+    font-size: 14px;
 }
 
 .nav-btn:hover {
@@ -114,13 +118,13 @@ body {
 }
 
 .menu-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: var(--radius-50);
     border: none;
     background: rgba(255, 255, 255, 0.15);
     color: white;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     transition: var(--transition);
     display: flex;
@@ -128,6 +132,10 @@ body {
     justify-content: center;
     text-decoration: none;
     padding: 0;
+}
+
+.menu-btn i {
+    font-size: 14px;
 }
 
 .menu-btn:hover {
@@ -232,10 +240,15 @@ body {
 }
 
 .menu-icon {
-    font-size: 18px;
-    width: 24px;
+    font-size: 16px;
+    width: 20px;
     text-align: center;
     flex-shrink: 0;
+    color: var(--primary-blue);
+}
+
+.menu-icon i {
+    font-size: 14px;
 }
 
 .menu-label {
@@ -1048,11 +1061,19 @@ body {
 .main-tab-view {
     display: flex !important;
     flex-direction: column;
+    height: calc(100vh - 70px) !important;
 }
 
 .search-engine-container {
-    max-width: 1600px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-height-container {
+    height: 100% !important;
 }
 
 /* Domain Display Panel */
@@ -1583,6 +1604,7 @@ body {
     margin-bottom: 0;
     border-bottom: 2px solid var(--secondary-blue);
     width: 100%;
+    flex-shrink: 0;
 }
 
 /* Main Tabs Header - Gradasi Putih-Biru untuk tampilan utama */
@@ -1590,6 +1612,7 @@ body {
     background: linear-gradient(180deg, #ffffff 0%, #f0f4ff 50%, #e0e8ff 100%);
     border-bottom: 2px solid var(--secondary-blue);
     padding: 12px 24px 0;
+    flex-shrink: 0;
 }
 
 .main-tabs-header .tab {
@@ -1719,6 +1742,7 @@ body {
     border-radius: 0;
     box-shadow: none;
     padding: 0;
+    height: 100%;
 }
 
 .content-frame iframe {
@@ -1989,6 +2013,8 @@ body {
     gap: 20px;
     padding: 30px;
     max-width: 100%;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .main-site-card {
