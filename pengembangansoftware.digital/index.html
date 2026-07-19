@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PENGEMBANGANSOFTWARE.DIGITAL - Platform Pengembangan Software Terintegrasi</title>
+    <meta name="description" content="Platform pengembangan software dengan UI putih-biru modern, sistem login/register, dan manajemen komponen digital">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Brand Navbar -->
+    <nav class="brand-navbar">
+        <div class="container-fluid">
+            <a href="#" class="brand-logo">
+                <i class="fas fa-code"></i>
+                <span>PENGEMBANGANSOFTWARE.DIGITAL</span>
+            </a>
+            <div class="nav-actions">
+                <button class="btn-login" onclick="showLoginModal()">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="btn-register" onclick="showRegisterModal()">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">PENGEMBANGANSOFTWARE.DIGITAL</h1>
+            <p class="hero-subtitle">Platform Rekonstruksi Pengembangan Software dengan Ekstensi .digital</p>
+            <p class="hero-description">Sistem terintegrasi untuk manajemen komponen, konfigurasi, dan fungsi digital</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Search & Filter -->
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Cari komponen, modul, atau fitur..." />
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all"><i class="fas fa-th-large"></i> Semua</button>
+                    <button class="filter-btn" data-filter="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</button>
+                    <button class="filter-btn" data-filter="komponen"><i class="fas fa-puzzle-piece"></i> Komponen</button>
+                    <button class="filter-btn" data-filter="konfigurasi"><i class="fas fa-cog"></i> Konfigurasi</button>
+                    <button class="filter-btn" data-filter="sistem"><i class="fas fa-server"></i> Sistem</button>
+                    <button class="filter-btn" data-filter="detail"><i class="fas fa-info-circle"></i> Detail</button>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div id="featuresGrid" class="features-grid"></div>
+            <div id="noResults" class="no-results" style="display: none;">
+                <i class="fas fa-search"></i>
+                <p>Tidak ditemukan hasil pencarian</p>
+            </div>
+
+            <!-- Directory Panel -->
+            <div class="directory-section">
+                <button class="btn-directory" onclick="toggleDirectoryPanel()">
+                    <i class="fas fa-folder-tree"></i> Lihat Direktori
+                </button>
+                <div id="directoryPanel" class="directory-panel" style="display: none;">
+                    <h3><i class="fas fa-folder-open"></i> Struktur Direktori .digital</h3>
+                    <div id="systemsDirectory" class="systems-directory"></div>
+                </div>
+            </div>
+
+            <!-- Quick Access Box -->
+            <div class="quick-access-section">
+                <h3><i class="fas fa-bolt"></i> Akses Cepat</h3>
+                <div id="quickAccessBox" class="quick-access-box"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLoginModal()">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-sign-in-alt"></i>
+                <h2>Login</h2>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="loginEmail" required placeholder="nama@email.com" />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Masukkan password" />
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-sign-in-alt"></i> Masuk
+                </button>
+                <p class="modal-footer-text">
+                    Belum punya akun? <a href="#" onclick="closeLoginModal(); showRegisterModal();">Daftar disini</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeRegisterModal()">&times;</button>
+            <div class="modal-header">
+                <i class="fas fa-user-plus"></i>
+                <h2>Register</h2>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Nama Lengkap</label>
+                    <input type="text" id="registerName" required placeholder="Nama lengkap Anda" />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="registerEmail" required placeholder="nama@email.com" />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="registerPassword" required placeholder="Minimal 8 karakter" minlength="8" />
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-lock"></i> Konfirmasi Password</label>
+                    <input type="password" id="registerConfirmPassword" required placeholder="Ulangi password" />
+                </div>
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-user-plus"></i> Daftar
+                </button>
+                <p class="modal-footer-text">
+                    Sudah punya akun? <a href="#" onclick="closeRegisterModal(); showLoginModal();">Login disini</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scroll Top Button -->
+    <div class="scroll-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
