@@ -1,0 +1,104 @@
+# API Documentation - Simbol Akar Digital
+# ==========================================
+
+# BASE URL: /configsimbolakar.digital/
+
+# ENDPOINTS
+# ---------
+
+# 1. GET Configuration
+# --------------------
+# URL: config/system.digital.php?api=config
+# Method: GET
+# Response: JSON
+# Description: Returns complete system configuration
+
+# Example Request:
+# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=config"
+
+# Example Response:
+# {
+#   "system": {
+#     "name": "Simbol Akar Digital",
+#     "version": "1.0.0",
+#     "root_symbol": "√"
+#   },
+#   "binary_config": "10101000 01010101 00101010",
+#   "secure_mode": true
+# }
+
+# 2. GET Root Symbol
+# ------------------
+# URL: config/system.digital.php?api=symbol
+# Method: GET
+# Response: JSON
+# Description: Returns the root symbol (√)
+
+# Example Request:
+# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=symbol"
+
+# Example Response:
+# {"symbol": "√"}
+
+# 3. GET Binary Configuration
+# ---------------------------
+# URL: config/system.digital.php?api=binary
+# Method: GET
+# Response: JSON
+# Description: Returns binary activation code
+
+# Example Request:
+# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=binary"
+
+# Example Response:
+# {"binary": "10101000 01010101 00101010"}
+
+# 4. GET Secure Status
+# --------------------
+# URL: config/system.digital.php?api=secure
+# Method: GET
+# Response: JSON
+# Description: Returns secure mode status
+
+# Example Request:
+# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=secure"
+
+# Example Response:
+# {"secure": true}
+
+# ERROR RESPONSES
+# ---------------
+# 400 Bad Request: Invalid API endpoint
+# 500 Internal Server Error: Server configuration error
+
+# RATE LIMITING
+# -------------
+# Maximum 100 requests per minute per IP
+
+# AUTHENTICATION
+# --------------
+# Currently no authentication required for public endpoints
+# Secure endpoints require valid session token
+
+# DATA FORMATS
+# ------------
+# All responses are in JSON format
+# Character encoding: UTF-8
+# Content-Type: application/json
+
+# SUPPORTED SYMBOLS
+# -----------------
+# √ (U+221A) - Square Root
+# ∛ (U+221B) - Cube Root
+# ∜ (U+221C) - Fourth Root
+# ∑ (U+2211) - Summation
+# ∏ (U+220F) - Product
+# ∫ (U+222B) - Integral
+
+# VERSION HISTORY
+# ---------------
+# v1.0.0 - Initial release
+# - Core symbol system
+# - Binary configuration
+# - Regex patterns
+# - Secure mode
