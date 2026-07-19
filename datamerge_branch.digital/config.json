@@ -1,12 +1,50 @@
 {
-  "created_at": "2026-07-19T16:35:36.944606",
-  "last_updated": "2026-07-19T16:35:36.944910",
-  "monitoring_enabled": true,
-  "github_sync": true,
-  "ai_integration": [
-    "Qwen",
-    "Chat AI",
-    "Coder AI"
+  "system_name": "DataMerge Branch Digital",
+  "version": "1.0.0",
+  "created_at": "2026-07-19T16:35:36Z",
+  "last_updated": "2026-07-19T16:40:00Z",
+  "monitoring": {
+    "enabled": true,
+    "auto_log": true,
+    "github_integration": true,
+    "ai_integration": ["qwen_ai", "coder_qwen_ai", "chat_ai"]
+  },
+  "folders": {
+    "sub_commit": "sub_commit/",
+    "pull": "pull/",
+    "merge": "merge/",
+    "datainput": "datainput/",
+    "dataoutput": "dataoutput/",
+    "barisinput": "barisinput/",
+    "barisoutput": "barisoutput/"
+  },
+  "log_settings": {
+    "extension": ".log",
+    "format": "json",
+    "include_timestamp": true,
+    "include_activity_type": true,
+    "include_source": true,
+    "include_content_hash": true
+  },
+  "storage": {
+    "current": "github_repository",
+    "migration_ready": true,
+    "large_storage_support": true
+  },
+  "tracked_activities": [
+    "chat_ai_request",
+    "chat_ai_response",
+    "qwen_ai_action",
+    "coder_qwen_ai_action",
+    "git_commit",
+    "git_pull",
+    "git_merge",
+    "data_input",
+    "data_output",
+    "file_modification",
+    "system_event",
+    "user_prompt",
+    "ai_action"
   ],
   "log_retention_days": 365,
   "auto_backup": true
