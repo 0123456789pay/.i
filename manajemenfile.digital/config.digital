@@ -1,0 +1,7 @@
+MENU_UTAMA=ManajemenFile
+SUB_MENU=digital
+BAHASA=id
+STATUS=aktif
+VERSI=1.0.0
+TEMA=putih_biru
+FITUR=login,register,dashboard,file_manager,folder_manager,settings,help,analytics
