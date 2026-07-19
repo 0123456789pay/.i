@@ -56,6 +56,93 @@
         </div>
     </section>
 
+    <!-- Search Engine View Section - Penampil URL/Domain dengan List Hasil Query -->
+    <section class="search-engine-view" id="searchEngineView">
+        <div class="search-engine-container">
+            <!-- Domain/URL Display Panel -->
+            <div class="domain-display-panel">
+                <div class="domain-header">
+                    <h3 class="domain-title">🔍 Mesin Pencarian - Tampilan Indeks</h3>
+                    <div class="domain-stats">
+                        <span class="stat-item"><strong id="totalIndexed">0</strong> Terindeks</span>
+                        <span class="stat-item"><strong id="totalResults">0</strong> Hasil</span>
+                        <span class="stat-item"><strong id="activeQuery">-</strong> Query Aktif</span>
+                    </div>
+                </div>
+                
+                <!-- Active Query Display -->
+                <div class="active-query-display" id="activeQueryDisplay">
+                    <div class="query-info">
+                        <span class="query-label">Query:</span>
+                        <span class="query-text" id="currentQueryText">Tidak ada query aktif</span>
+                    </div>
+                    <div class="query-actions">
+                        <button class="query-action-btn" id="btnClearQuery" title="Hapus Query">🗑️</button>
+                        <button class="query-action-btn" id="btnExportResults" title="Export Hasil">📤</button>
+                        <button class="query-action-btn" id="btnRefreshIndex" title="Segarkan Indeks">↻</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Index Activity Panel -->
+            <div class="index-activity-panel">
+                <div class="activity-header">
+                    <h4>📊 Aktivitas Indeks</h4>
+                    <div class="activity-controls">
+                        <button class="activity-control-btn active" data-view="grid" id="viewGrid">▦ Grid</button>
+                        <button class="activity-control-btn" data-view="list" id="viewList">☰ List</button>
+                        <button class="activity-control-btn" data-view="compact" id="viewCompact">◫ Compact</button>
+                    </div>
+                </div>
+                
+                <!-- Index Progress Bar -->
+                <div class="index-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="indexProgressFill" style="width: 100%"></div>
+                    </div>
+                    <div class="progress-status">
+                        <span id="indexStatus">Siap</span>
+                        <span id="indexPercentage">100%</span>
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer">
+                    <!-- Hasil query akan ditampilkan di sini -->
+                    <div class="results-placeholder" id="resultsPlaceholder">
+                        <div class="placeholder-icon">🔎</div>
+                        <h4>Mulai Pencarian</h4>
+                        <p>Masukkan kata kunci di kolom pencarian untuk melihat hasil indeks</p>
+                    </div>
+                    
+                    <!-- Results Grid View -->
+                    <div class="results-grid-view" id="resultsGridView" style="display: none;">
+                        <!-- Grid results will be injected here -->
+                    </div>
+                    
+                    <!-- Results List View -->
+                    <div class="results-list-view" id="resultsListView" style="display: none;">
+                        <!-- List results will be injected here -->
+                    </div>
+                    
+                    <!-- Results Compact View -->
+                    <div class="results-compact-view" id="resultsCompactView" style="display: none;">
+                        <!-- Compact results will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Pagination Controls -->
+                <div class="pagination-controls" id="paginationControls" style="display: none;">
+                    <button class="pagination-btn" id="btnFirstPage">⏮ Pertama</button>
+                    <button class="pagination-btn" id="btnPrevPage">◀ Sebelumnya</button>
+                    <span class="page-info" id="pageInfo">Halaman 1 dari 1</span>
+                    <button class="pagination-btn" id="btnNextPage">Berikutnya ▶</button>
+                    <button class="pagination-btn" id="btnLastPage">Terakhir ⏭</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Main Container - Hanya Kartu-kartu Situs -->
     <div class="main-container">
         <!-- Sites Grid - 7 Kolom (responsive) -->

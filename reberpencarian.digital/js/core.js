@@ -9,6 +9,14 @@ class ReberPencarian {
         this.settings = { gridColumns: 7 };
         this.allSites = [];
         
+        // Search Engine View Properties
+        this.currentQuery = '';
+        this.currentResults = [];
+        this.currentView = 'grid';
+        this.currentPage = 1;
+        this.itemsPerPage = 12;
+        this.isIndexing = false;
+        
         this.init();
     }
 
@@ -117,6 +125,22 @@ class ReberPencarian {
 
         // Close Tab Content Overlay
         document.getElementById('closeTabBtn')?.addEventListener('click', () => this.closeActiveTabContent());
+
+        // Search Engine View - Query Action Buttons
+        document.getElementById('btnClearQuery')?.addEventListener('click', () => this.clearQuery());
+        document.getElementById('btnExportResults')?.addEventListener('click', () => this.exportResults());
+        document.getElementById('btnRefreshIndex')?.addEventListener('click', () => this.refreshIndex());
+
+        // Search Engine View - View Toggle Buttons
+        document.getElementById('viewGrid')?.addEventListener('click', () => this.setViewMode('grid'));
+        document.getElementById('viewList')?.addEventListener('click', () => this.setViewMode('list'));
+        document.getElementById('viewCompact')?.addEventListener('click', () => this.setViewMode('compact'));
+
+        // Search Engine View - Pagination Buttons
+        document.getElementById('btnFirstPage')?.addEventListener('click', () => this.goToPage(1));
+        document.getElementById('btnPrevPage')?.addEventListener('click', () => this.goToPage(this.currentPage - 1));
+        document.getElementById('btnNextPage')?.addEventListener('click', () => this.goToPage(this.currentPage + 1));
+        document.getElementById('btnLastPage')?.addEventListener('click', () => this.goToPage(this.getTotalPages()));
     }
 
     // Render Sites Grid
@@ -527,21 +551,295 @@ class ReberPencarian {
         }
     }
 
-    // Perform Search
+    // Perform Search - Updated with Search Engine View
     performSearch() {
         const urlInput = document.getElementById('urlInput');
         const query = urlInput.value.trim().toLowerCase();
         
+        // Show search engine view
+        this.showSearchEngineView();
+        
         if (!query) {
+            this.currentQuery = '';
+            this.currentResults = [];
             this.renderSites(this.allSites);
+            this.updateSearchEngineStats();
+            this.showPlaceholder();
         } else {
-            const filtered = this.allSites.filter(site => 
+            this.currentQuery = query;
+            this.currentResults = this.allSites.filter(site => 
                 site.name.toLowerCase().includes(query) ||
                 site.path.toLowerCase().includes(query) ||
                 site.category.toLowerCase().includes(query)
             );
-            this.renderSites(filtered);
+            
+            this.renderSites(this.currentResults);
+            this.updateSearchEngineStats();
+            this.renderResults();
         }
+    }
+
+    // Show Search Engine View
+    showSearchEngineView() {
+        const viewSection = document.getElementById('searchEngineView');
+        if (viewSection) {
+            viewSection.classList.add('active');
+        }
+    }
+
+    // Hide Search Engine View
+    hideSearchEngineView() {
+        const viewSection = document.getElementById('searchEngineView');
+        if (viewSection) {
+            viewSection.classList.remove('active');
+        }
+    }
+
+    // Update Search Engine Stats
+    updateSearchEngineStats() {
+        document.getElementById('totalIndexed').textContent = this.allSites.length;
+        document.getElementById('totalResults').textContent = this.currentResults.length;
+        document.getElementById('activeQuery').textContent = this.currentQuery || '-';
+        document.getElementById('currentQueryText').textContent = this.currentQuery || 'Tidak ada query aktif';
+    }
+
+    // Render Results in Search Engine View
+    renderResults() {
+        const placeholder = document.getElementById('resultsPlaceholder');
+        const gridView = document.getElementById('resultsGridView');
+        const listView = document.getElementById('resultsListView');
+        const compactView = document.getElementById('resultsCompactView');
+        const paginationControls = document.getElementById('paginationControls');
+
+        if (this.currentResults.length === 0) {
+            this.showPlaceholder();
+            return;
+        }
+
+        placeholder.style.display = 'none';
+        paginationControls.style.display = 'flex';
+
+        // Get current page items
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = startIndex + this.itemsPerPage;
+        const pageItems = this.currentResults.slice(startIndex, endIndex);
+
+        // Clear all views
+        gridView.innerHTML = '';
+        listView.innerHTML = '';
+        compactView.innerHTML = '';
+
+        // Render based on current view mode
+        if (this.currentView === 'grid') {
+            gridView.style.display = 'grid';
+            listView.style.display = 'none';
+            compactView.style.display = 'none';
+            pageItems.forEach((site, index) => {
+                const card = this.createResultCard(site, startIndex + index);
+                gridView.appendChild(card);
+            });
+        } else if (this.currentView === 'list') {
+            gridView.style.display = 'none';
+            listView.style.display = 'block';
+            compactView.style.display = 'none';
+            pageItems.forEach((site, index) => {
+                const item = this.createResultListItem(site, startIndex + index);
+                listView.appendChild(item);
+            });
+        } else if (this.currentView === 'compact') {
+            gridView.style.display = 'none';
+            listView.style.display = 'none';
+            compactView.style.display = 'block';
+            pageItems.forEach((site, index) => {
+                const item = this.createResultCompactItem(site, startIndex + index);
+                compactView.appendChild(item);
+            });
+        }
+
+        this.updatePagination();
+    }
+
+    // Create Result Card for Grid View
+    createResultCard(site, index) {
+        const card = document.createElement('div');
+        card.className = 'result-card animate-fade-in';
+        card.style.animationDelay = `${index * 0.03}s`;
+        card.innerHTML = `
+            <div class="result-card-header">
+                <div class="result-card-icon">${site.icon}</div>
+                <div class="result-card-title">${this.highlightMatch(site.name, this.currentQuery)}</div>
+            </div>
+            <div class="result-card-path">${site.path}</div>
+            <div class="result-card-category">${site.category}</div>
+            <div class="result-card-match">
+                <span class="match-highlight">Cocok: ${this.getMatchType(site)}</span>
+            </div>
+        `;
+        card.addEventListener('click', () => this.openTab(site));
+        return card;
+    }
+
+    // Create Result List Item for List View
+    createResultListItem(site, index) {
+        const item = document.createElement('div');
+        item.className = 'result-list-item animate-fade-in';
+        item.style.animationDelay = `${index * 0.02}s`;
+        item.innerHTML = `
+            <div class="result-list-icon">${site.icon}</div>
+            <div class="result-list-content">
+                <div class="result-list-title">${this.highlightMatch(site.name, this.currentQuery)}</div>
+                <div class="result-list-path">${site.path}</div>
+            </div>
+            <div class="result-list-meta">
+                <span class="result-list-category">${site.category}</span>
+            </div>
+        `;
+        item.addEventListener('click', () => this.openTab(site));
+        return item;
+    }
+
+    // Create Result Compact Item for Compact View
+    createResultCompactItem(site, index) {
+        const item = document.createElement('div');
+        item.className = 'result-compact-item animate-fade-in';
+        item.style.animationDelay = `${index * 0.01}s`;
+        item.innerHTML = `
+            <div class="result-compact-icon">${site.icon}</div>
+            <div class="result-compact-name">${this.highlightMatch(site.name, this.currentQuery)}</div>
+            <div class="result-compact-category">${site.category}</div>
+        `;
+        item.addEventListener('click', () => this.openTab(site));
+        return item;
+    }
+
+    // Highlight Match in Text
+    highlightMatch(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<mark class="match-highlight">$1</mark>');
+    }
+
+    // Get Match Type
+    getMatchType(site) {
+        const query = this.currentQuery.toLowerCase();
+        if (site.name.toLowerCase().includes(query)) return 'Nama';
+        if (site.path.toLowerCase().includes(query)) return 'Path';
+        if (site.category.toLowerCase().includes(query)) return 'Kategori';
+        return 'Umum';
+    }
+
+    // Show Placeholder
+    showPlaceholder() {
+        const placeholder = document.getElementById('resultsPlaceholder');
+        const gridView = document.getElementById('resultsGridView');
+        const listView = document.getElementById('resultsListView');
+        const compactView = document.getElementById('resultsCompactView');
+        const paginationControls = document.getElementById('paginationControls');
+
+        placeholder.style.display = 'flex';
+        gridView.style.display = 'none';
+        listView.style.display = 'none';
+        compactView.style.display = 'none';
+        paginationControls.style.display = 'none';
+    }
+
+    // Set View Mode
+    setViewMode(mode) {
+        this.currentView = mode;
+        
+        // Update button states
+        document.querySelectorAll('.activity-control-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-view="${mode}"]`)?.classList.add('active');
+        
+        this.renderResults();
+    }
+
+    // Get Total Pages
+    getTotalPages() {
+        return Math.ceil(this.currentResults.length / this.itemsPerPage) || 1;
+    }
+
+    // Go to Page
+    goToPage(page) {
+        const totalPages = this.getTotalPages();
+        if (page < 1 || page > totalPages) return;
+        
+        this.currentPage = page;
+        this.renderResults();
+    }
+
+    // Update Pagination Controls
+    updatePagination() {
+        const totalPages = this.getTotalPages();
+        document.getElementById('pageInfo').textContent = `Halaman ${this.currentPage} dari ${totalPages}`;
+        
+        document.getElementById('btnFirstPage').disabled = this.currentPage === 1;
+        document.getElementById('btnPrevPage').disabled = this.currentPage === 1;
+        document.getElementById('btnNextPage').disabled = this.currentPage === totalPages;
+        document.getElementById('btnLastPage').disabled = this.currentPage === totalPages;
+    }
+
+    // Clear Query
+    clearQuery() {
+        document.getElementById('urlInput').value = '';
+        this.currentQuery = '';
+        this.currentResults = [];
+        this.currentPage = 1;
+        this.updateSearchEngineStats();
+        this.showPlaceholder();
+        this.renderSites(this.allSites);
+    }
+
+    // Export Results
+    exportResults() {
+        if (this.currentResults.length === 0) {
+            alert('Tidak ada hasil untuk diekspor');
+            return;
+        }
+        
+        const data = JSON.stringify(this.currentResults, null, 2);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `hasil_pencarian_${this.currentQuery || 'semua'}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    // Refresh Index
+    refreshIndex() {
+        this.isIndexing = true;
+        this.updateIndexProgress(0, 'Mengindeks...');
+        
+        // Simulate indexing progress
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 10;
+            this.updateIndexProgress(progress, 'Mengindeks...');
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                this.isIndexing = false;
+                this.updateIndexProgress(100, 'Siap');
+                
+                // Re-render results
+                if (this.currentQuery) {
+                    this.renderResults();
+                }
+                
+                alert('Indeks berhasil disegarkan!');
+            }
+        }, 100);
+    }
+
+    // Update Index Progress
+    updateIndexProgress(percentage, status) {
+        document.getElementById('indexProgressFill').style.width = `${percentage}%`;
+        document.getElementById('indexStatus').textContent = status;
+        document.getElementById('indexPercentage').textContent = `${percentage}%`;
     }
 
     // Navigate
@@ -554,6 +852,7 @@ class ReberPencarian {
             case 'home': 
                 this.tabs = [];
                 this.activeTabId = null;
+                this.hideSearchEngineView();
                 this.renderTabs();
                 document.getElementById('tabContentOverlay').classList.remove('active');
                 break;
