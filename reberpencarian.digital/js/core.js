@@ -2,133 +2,95 @@
 
 class ReberPencarian {
     constructor() {
-        this.currentMode = 'all';
-        this.currentCategory = 'all';
+        this.tabs = [];
+        this.activeTabId = null;
+        this.history = [];
+        this.bookmarks = [];
+        this.settings = { gridColumns: 7 };
         this.allSites = [];
-        this.filteredSites = [];
-        
-        // Mapping kategori ke folder parent
-        this.categoryMapping = {
-            'ai_machinelearning': ['ai_machinelearning'],
-            'media': ['mediakonten', 'media.digital'],
-            'business': ['bisnisstartup', 'ecommerceretail'],
-            'education': ['pendidikanpelatihan'],
-            'tech': ['infrastrukturcloud', 'jaringanaktuaris', 'manajemendata'],
-            'health': ['kesehatandigital'],
-            'finance': ['keuanganperbankan', 'blockchaincrypto'],
-            'infrastructure': ['dns_domain', 'configprotokol', 'pengaturansistem'],
-            'config': ['configphpgit', 'configselectortrue', 'configsimbolakar', 'manajemenfile']
-        };
         
         this.init();
     }
 
     async init() {
         await this.scanDigitalFolders();
+        this.loadFromStorage();
         this.bindEvents();
-        this.animateStats();
         this.renderSites(this.allSites);
+        this.renderTabs();
+        this.updateSettingsUI();
     }
 
     async scanDigitalFolders() {
-        // Simulasi scanning folder .digital dari workspace
-        // Dalam implementasi nyata, ini akan menggunakan API atau fetch
+        // Daftar semua folder .digital dari workspace (tanpa pengungsisuaka.digital)
         const digitalFolders = [
-            // AI & Machine Learning
-            { name: 'ai_machinelearning.digital', path: '/workspace/ai_machinelearning.digital', category: 'ai_machinelearning', icon: '🤖' },
-            { name: 'nexchat-ai.digital', path: '/workspace/ai_machinelearning.digital/nexchat-ai.digital', category: 'ai_machinelearning', icon: '💬' },
-            { name: 'aichatreber.digital', path: '/workspace/ai_machinelearning.digital/aichatreber.digital', category: 'ai_machinelearning', icon: '🤖' },
-            { name: 'ragreber.digital', path: '/workspace/ai_machinelearning.digital/ragreber.digital', category: 'ai_machinelearning', icon: '🔍' },
-            
-            // Media & Konten
-            { name: 'mediakonten.digital', path: '/workspace/mediakonten.digital', category: 'media', icon: '📺' },
-            { name: 'medsos.digital', path: '/workspace/mediakonten.digital/medsos.digital', category: 'media', icon: '📱' },
-            { name: 'newsdigital.digital', path: '/workspace/mediakonten.digital/newsdigital.digital', category: 'media', icon: '📰' },
-            { name: 'videolife.digital', path: '/workspace/mediakonten.digital/videolife.digital', category: 'media', icon: '🎬' },
-            { name: 'vidastream.digital', path: '/workspace/mediakonten.digital/vidastream.digital', category: 'media', icon: '▶️' },
-            
-            // Bisnis & Startup
-            { name: 'bisnisstartup.digital', path: '/workspace/bisnisstartup.digital', category: 'business', icon: '💼' },
-            { name: 'ecommerceretail.digital', path: '/workspace/ecommerceretail.digital', category: 'business', icon: '🛒' },
-            { name: 'ModelFreemium.digital', path: '/workspace/bisnisstartup.digital/ModelFreemium.digital', category: 'business', icon: '💰' },
-            { name: 'RencanaBisnis.digital', path: '/workspace/bisnisstartup.digital/RencanaBisnis.digital', category: 'business', icon: '📊' },
-            
-            // Pendidikan
-            { name: 'pendidikanpelatihan.digital', path: '/workspace/pendidikanpelatihan.digital', category: 'education', icon: '📚' },
-            { name: 'MateriKursus.digital', path: '/workspace/pendidikanpelatihan.digital/MateriKursus.digital', category: 'education', icon: '📖' },
-            { name: 'SertifikasiProfesi.digital', path: '/workspace/pendidikanpelatihan.digital/SertifikasiProfesi.digital', category: 'education', icon: '🎓' },
-            { name: 'PembelajaranDaring.digital', path: '/workspace/pendidikanpelatihan.digital/PembelajaranDaring.digital', category: 'education', icon: '💻' },
-            
-            // Teknologi
-            { name: 'infrastrukturcloud.digital', path: '/workspace/infrastrukturcloud.digital', category: 'tech', icon: '☁️' },
-            { name: 'jaringanaktuaris.digital', path: '/workspace/jaringanaktuaris.digital', category: 'tech', icon: '🌐' },
-            { name: 'manajemendata.digital', path: '/workspace/manajemendata.digital', category: 'tech', icon: '🗄️' },
-            { name: 'pengembangansoftware.digital', path: '/workspace/pengembangansoftware.digital', category: 'tech', icon: '⌨️' },
-            
-            // Kesehatan
-            { name: 'kesehatandigital.digital', path: '/workspace/kesehatandigital.digital', category: 'health', icon: '🏥' },
-            
-            // Keuangan
-            { name: 'keuanganperbankan.digital', path: '/workspace/keuanganperbankan.digital', category: 'finance', icon: '💰' },
-            { name: 'blockchaincrypto.digital', path: '/workspace/blockchaincrypto.digital', category: 'finance', icon: '₿' },
-            
-            // Infrastruktur
-            { name: 'dns_domain.digital', path: '/workspace/dns_domain.digital', category: 'infrastructure', icon: '🌐' },
-            { name: 'configprotokol.digital', path: '/workspace/configprotokol.digital', category: 'infrastructure', icon: '⚙️' },
-            
-            // Config
-            { name: 'configphpgit.digital', path: '/workspace/configphpgit.digital', category: 'config', icon: '🐘' },
-            { name: 'configselectortrue.digital', path: '/workspace/configselectortrue.digital', category: 'config', icon: '✓' },
-            { name: 'configsimbolakar.digital', path: '/workspace/configsimbolakar.digital', category: 'config', icon: '√' },
-            
-            // Lainnya
-            { name: 'reberpencarian.digital', path: '/workspace/reberpencarian.digital', category: 'tech', icon: '🔍' },
-            { name: 'media.digital', path: '/workspace/media.digital', category: 'media', icon: '📺' },
-            { name: 'pusatdigital.digital', path: '/workspace/pusatdigital.digital', category: 'tech', icon: '🎯' },
-            { name: 'bantuansupport.digital', path: '/workspace/bantuansupport.digital', category: 'tech', icon: '❓' },
-            { name: 'identitasakses.digital', path: '/workspace/identitasakses.digital', category: 'tech', icon: '🔐' },
-            { name: 'keamanansiber.digital', path: '/workspace/keamanansiber.digital', category: 'tech', icon: '🛡️' },
-            { name: 'transportasilogistik.digital', path: '/workspace/transportasilogistik.digital', category: 'business', icon: '🚚' },
-            { name: 'pertanianakuakultur.digital', path: '/workspace/pertanianakuakultur.digital', category: 'business', icon: '🌾' },
-            { name: 'energilingkungan.digital', path: '/workspace/energilingkungan.digital', category: 'tech', icon: '⚡' },
-            { name: 'konstruksigedung.digital', path: '/workspace/konstruksigedung.digital', category: 'business', icon: '🏗️' },
-            { name: 'desainkreatif.digital', path: '/workspace/desainkreatif.digital', category: 'tech', icon: '🎨' },
-            { name: 'gameentertainment.digital', path: '/workspace/gameentertainment.digital', category: 'media', icon: '🎮' },
-            { name: 'komunikasi.digital', path: '/workspace/komunikasi.digital', category: 'tech', icon: '📞' },
-            { name: 'hukumkepatuhan.digital', path: '/workspace/hukumkepatuhan.digital', category: 'business', icon: '⚖️' },
-            { name: 'manajemenproyek.digital', path: '/workspace/manajemenproyek.digital', category: 'business', icon: '📋' },
-            { name: 'visualisasireporting.digital', path: '/workspace/visualisasireporting.digital', category: 'tech', icon: '📊' },
-            { name: 'tanggapdarurat.digital', path: '/workspace/tanggapdarurat.digital', category: 'health', icon: '🚨' },
-            { name: 'tiketevent.digital', path: '/workspace/tiketevent.digital', category: 'media', icon: '🎫' },
+            { name: 'ai_machinelearning.digital', path: '/workspace/ai_machinelearning.digital', category: 'ai', icon: '🤖' },
             { name: 'analisisdata.digital', path: '/workspace/analisisdata.digital', category: 'tech', icon: '📈' },
             { name: 'arsipversi.digital', path: '/workspace/arsipversi.digital', category: 'tech', icon: '🗃️' },
+            { name: 'bantuansupport.digital', path: '/workspace/bantuansupport.digital', category: 'support', icon: '❓' },
+            { name: 'bisnisstartup.digital', path: '/workspace/bisnisstartup.digital', category: 'business', icon: '💼' },
+            { name: 'blockchaincrypto.digital', path: '/workspace/blockchaincrypto.digital', category: 'finance', icon: '₿' },
+            { name: 'configphpgit.digital', path: '/workspace/configphpgit.digital', category: 'config', icon: '🐘' },
+            { name: 'configprotokol.digital', path: '/workspace/configprotokol.digital', category: 'config', icon: '⚙️' },
+            { name: 'configselectortrue.digital', path: '/workspace/configselectortrue.digital', category: 'config', icon: '✓' },
+            { name: 'configsimbolakar.digital', path: '/workspace/configsimbolakar.digital', category: 'config', icon: '√' },
+            { name: 'desainkreatif.digital', path: '/workspace/desainkreatif.digital', category: 'creative', icon: '🎨' },
+            { name: 'dns_domain.digital', path: '/workspace/dns_domain.digital', category: 'infra', icon: '🌐' },
+            { name: 'ecommerceretail.digital', path: '/workspace/ecommerceretail.digital', category: 'business', icon: '🛒' },
+            { name: 'energilingkungan.digital', path: '/workspace/energilingkungan.digital', category: 'energy', icon: '⚡' },
+            { name: 'gameentertainment.digital', path: '/workspace/gameentertainment.digital', category: 'media', icon: '🎮' },
+            { name: 'hukumkepatuhan.digital', path: '/workspace/hukumkepatuhan.digital', category: 'legal', icon: '⚖️' },
+            { name: 'identitasakses.digital', path: '/workspace/identitasakses.digital', category: 'security', icon: '🔐' },
+            { name: 'infrastrukturcloud.digital', path: '/workspace/infrastrukturcloud.digital', category: 'infra', icon: '☁️' },
             { name: 'iot_perangkat.digital', path: '/workspace/iot_perangkat.digital', category: 'tech', icon: '📱' },
-            { name: 'pengungsisuaka.digital', path: '/workspace/pengungsisuaka.digital', category: 'health', icon: '🏠' }
+            { name: 'jaringanaktuaris.digital', path: '/workspace/jaringanaktuaris.digital', category: 'tech', icon: '🌐' },
+            { name: 'keamanansiber.digital', path: '/workspace/keamanansiber.digital', category: 'security', icon: '🛡️' },
+            { name: 'kesehatandigital.digital', path: '/workspace/kesehatandigital.digital', category: 'health', icon: '🏥' },
+            { name: 'keuanganperbankan.digital', path: '/workspace/keuanganperbankan.digital', category: 'finance', icon: '💰' },
+            { name: 'klaimpenyesuaian.digital', path: '/workspace/klaimpenyesuaian.digital', category: 'business', icon: '📋' },
+            { name: 'komunikasi.digital', path: '/workspace/komunikasi.digital', category: 'comm', icon: '📞' },
+            { name: 'konstruksigedung.digital', path: '/workspace/konstruksigedung.digital', category: 'construction', icon: '🏗️' },
+            { name: 'manajemendata.digital', path: '/workspace/manajemendata.digital', category: 'tech', icon: '🗄️' },
+            { name: 'manajemenfile.digital', path: '/workspace/manajemenfile.digital', category: 'config', icon: '📁' },
+            { name: 'manajemenproyek.digital', path: '/workspace/manajemenproyek.digital', category: 'business', icon: '📊' },
+            { name: 'media.digital', path: '/workspace/media.digital', category: 'media', icon: '📺' },
+            { name: 'mediakonten.digital', path: '/workspace/mediakonten.digital', category: 'media', icon: '📱' },
+            { name: 'pendidikanpelatihan.digital', path: '/workspace/pendidikanpelatihan.digital', category: 'education', icon: '📚' },
+            { name: 'pengaturansistem.digital', path: '/workspace/pengaturansistem.digital', category: 'config', icon: '⚙️' },
+            { name: 'pengembangansoftware.digital', path: '/workspace/pengembangansoftware.digital', category: 'tech', icon: '⌨️' },
+            { name: 'pertanianakuakultur.digital', path: '/workspace/pertanianakuakultur.digital', category: 'agriculture', icon: '🌾' },
+            { name: 'pusatdigital.digital', path: '/workspace/pusatdigital.digital', category: 'tech', icon: '🎯' },
+            { name: 'ragreber.digital', path: '/workspace/ragreber.digital', category: 'ai', icon: '🔍' },
+            { name: 'reberpencarian.digital', path: '/workspace/reberpencarian.digital', category: 'search', icon: '🔎' },
+            { name: 'tanggapdarurat.digital', path: '/workspace/tanggapdarurat.digital', category: 'emergency', icon: '🚨' },
+            { name: 'tiketevent.digital', path: '/workspace/tiketevent.digital', category: 'media', icon: '🎫' },
+            { name: 'transportasilogistik.digital', path: '/workspace/transportasilogistik.digital', category: 'logistics', icon: '🚚' },
+            { name: 'visualisasireporting.digital', path: '/workspace/visualisasireporting.digital', category: 'tech', icon: '📊' }
         ];
         
         this.allSites = digitalFolders;
-        this.filteredSites = [...this.allSites];
+    }
+
+    loadFromStorage() {
+        const savedTabs = localStorage.getItem('reber_tabs');
+        const savedHistory = localStorage.getItem('reber_history');
+        const savedBookmarks = localStorage.getItem('reber_bookmarks');
+        const savedSettings = localStorage.getItem('reber_settings');
+        
+        if (savedTabs) this.tabs = JSON.parse(savedTabs);
+        if (savedHistory) this.history = JSON.parse(savedHistory);
+        if (savedBookmarks) this.bookmarks = JSON.parse(savedBookmarks);
+        if (savedSettings) this.settings = { ...this.settings, ...JSON.parse(savedSettings) };
+    }
+
+    saveToStorage() {
+        localStorage.setItem('reber_tabs', JSON.stringify(this.tabs));
+        localStorage.setItem('reber_history', JSON.stringify(this.history));
+        localStorage.setItem('reber_bookmarks', JSON.stringify(this.bookmarks));
+        localStorage.setItem('reber_settings', JSON.stringify(this.settings));
     }
 
     bindEvents() {
-        // Mode Selector
-        document.querySelectorAll('.mode-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                const mode = e.currentTarget.dataset.mode;
-                this.setMode(mode);
-            });
-        });
-
-        // Category Tabs
-        document.querySelectorAll('.category-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                const category = e.target.dataset.category;
-                this.filterByCategory(category);
-            });
-        });
-
         // Navigation Buttons
         document.getElementById('btnBack')?.addEventListener('click', () => this.navigate('back'));
         document.getElementById('btnForward')?.addEventListener('click', () => this.navigate('forward'));
@@ -140,81 +102,35 @@ class ReberPencarian {
         
         // URL Input Enter Key
         document.getElementById('urlInput')?.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                this.performSearch();
-            }
+            if (e.key === 'Enter') this.performSearch();
         });
+
+        // Menu Buttons
+        document.getElementById('btnHistory')?.addEventListener('click', () => this.showMenu('history'));
+        document.getElementById('btnBookmarks')?.addEventListener('click', () => this.showMenu('bookmarks'));
+        document.getElementById('btnDownloads')?.addEventListener('click', () => this.showMenu('downloads'));
+        document.getElementById('btnSettings')?.addEventListener('click', () => this.showMenu('settings'));
+        document.getElementById('btnMoreOptions')?.addEventListener('click', () => this.showMenu('more'));
+
+        // Close All Tabs
+        document.getElementById('closeAllTabs')?.addEventListener('click', () => this.closeAllTabs());
+
+        // Close Tab Content Overlay
+        document.getElementById('closeTabBtn')?.addEventListener('click', () => this.closeActiveTabContent());
     }
 
-    setMode(mode) {
-        this.currentMode = mode;
-        
-        // Update UI
-        document.querySelectorAll('.mode-card').forEach(card => {
-            card.classList.remove('active');
-        });
-        
-        document.querySelector(`.mode-card[data-mode="${mode}"]`)?.classList.add('active');
-        
-        // Filter berdasarkan mode
-        if (mode === 'all') {
-            this.filteredSites = [...this.allSites];
-        } else {
-            const categoryMap = {
-                'ai': 'ai_machinelearning',
-                'media': 'media',
-                'business': 'business',
-                'education': 'education',
-                'tech': 'tech'
-            };
-            const category = categoryMap[mode];
-            if (category) {
-                this.filterByCategory(category);
-            }
-        }
-        
-        this.renderSites(this.filteredSites);
-    }
-
-    filterByCategory(category) {
-        this.currentCategory = category;
-        
-        if (category === 'all') {
-            this.filteredSites = [...this.allSites];
-            document.getElementById('resultsTitle').textContent = 'Semua Situs .digital';
-        } else {
-            this.filteredSites = this.allSites.filter(site => site.category === category);
-            const categoryNames = {
-                'ai_machinelearning': 'AI & Machine Learning',
-                'media': 'Media & Konten',
-                'business': 'Bisnis & Startup',
-                'education': 'Pendidikan',
-                'tech': 'Teknologi',
-                'health': 'Kesehatan',
-                'finance': 'Keuangan',
-                'infrastructure': 'Infrastruktur',
-                'config': 'Config'
-            };
-            document.getElementById('resultsTitle').textContent = categoryNames[category] || category;
-        }
-        
-        this.renderSites(this.filteredSites);
-    }
-
-    renderSites(sites) {
-        const grid = document.getElementById('sitesGrid');
-        const countElement = document.getElementById('resultsCount');
+    // Render Sites Grid
+    renderSites(sites = this.allSites) {
+        const grid = document.getElementById('sitesGridMain');
         
         if (!grid) return;
-        
-        countElement.textContent = `${sites.length} situs ditemukan`;
         
         if (sites.length === 0) {
             grid.innerHTML = `
                 <div class="empty-state" style="grid-column: 1 / -1;">
                     <div class="empty-state-icon">🔍</div>
                     <h3>Tidak ada situs ditemukan</h3>
-                    <p>Coba pilih kategori lain atau gunakan kata kunci pencarian</p>
+                    <p>Coba gunakan kata kunci pencarian lain</p>
                 </div>
             `;
             return;
@@ -224,7 +140,7 @@ class ReberPencarian {
         sites.forEach((site, index) => {
             const card = document.createElement('div');
             card.className = 'site-card animate-fade-in';
-            card.style.animationDelay = `${index * 0.05}s`;
+            card.style.animationDelay = `${index * 0.03}s`;
             card.innerHTML = `
                 <div class="site-card-icon">${site.icon}</div>
                 <div class="site-card-name">${site.name}</div>
@@ -233,164 +149,415 @@ class ReberPencarian {
             `;
             
             card.addEventListener('click', () => {
-                this.openSite(site);
+                this.openTab(site);
             });
             
             grid.appendChild(card);
         });
     }
 
-    openSite(site) {
-        // Membuka halaman index.html dari folder .digital
-        const indexPath = `${site.path}/index.html`;
+    // Open Tab for Site
+    openTab(site) {
+        const tabId = Date.now();
+        const newTab = {
+            id: tabId,
+            site: site,
+            title: site.name,
+            timestamp: new Date().toISOString()
+        };
         
-        // Dalam implementasi nyata, ini akan membuka konten di viewer
-        // Untuk saat ini, kita tampilkan alert
-        console.log('Membuka situs:', indexPath);
+        this.tabs.push(newTab);
+        this.activeTabId = tabId;
         
-        // Membuat modal atau overlay untuk menampilkan konten
-        this.showSiteViewer(site, indexPath);
+        // Add to history
+        this.history.unshift({
+            site: site,
+            timestamp: new Date().toISOString()
+        });
+        
+        // Keep history max 50 items
+        if (this.history.length > 50) this.history = this.history.slice(0, 50);
+        
+        this.saveToStorage();
+        this.renderTabs();
+        this.showTabContent(tabId);
     }
 
-    showSiteViewer(site, path) {
-        // Membuat viewer overlay
-        const viewer = document.createElement('div');
-        viewer.className = 'site-viewer-overlay';
-        viewer.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: fadeInUp 0.3s ease-out;
-        `;
+    // Render Tabs
+    renderTabs() {
+        const tabList = document.getElementById('tabList');
+        const tabBarSection = document.getElementById('tabBarSection');
         
-        viewer.innerHTML = `
-            <div style="
-                background: white;
-                border-radius: 16px;
-                width: 90%;
-                max-width: 1200px;
-                height: 90%;
-                display: flex;
-                flex-direction: column;
-                overflow: hidden;
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            ">
-                <div style="
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 16px 24px;
-                    background: linear-gradient(135deg, #0047b3 0%, #0066ff 100%);
-                    color: white;
-                ">
-                    <h3 style="font-size: 18px; font-weight: 700;">${site.name}</h3>
-                    <button onclick="this.closest('.site-viewer-overlay').remove()" style="
-                        background: rgba(255, 255, 255, 0.2);
-                        border: none;
-                        color: white;
-                        width: 36px;
-                        height: 36px;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        font-size: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        transition: all 0.3s;
-                    " onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">×</button>
+        if (!tabList) return;
+        
+        if (this.tabs.length === 0) {
+            tabBarSection.classList.remove('active');
+            tabList.innerHTML = '';
+            return;
+        }
+        
+        tabBarSection.classList.add('active');
+        tabList.innerHTML = '';
+        
+        this.tabs.forEach(tab => {
+            const tabItem = document.createElement('div');
+            tabItem.className = `tab-item ${tab.id === this.activeTabId ? 'active' : ''}`;
+            tabItem.innerHTML = `
+                <span>${tab.site.icon} ${tab.title}</span>
+                <button class="tab-item-close" data-tab-id="${tab.id}">×</button>
+            `;
+            
+            tabItem.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('tab-item-close')) {
+                    this.activeTabId = tab.id;
+                    this.renderTabs();
+                    this.showTabContent(tab.id);
+                }
+            });
+            
+            const closeBtn = tabItem.querySelector('.tab-item-close');
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.closeTab(tab.id);
+            });
+            
+            tabList.appendChild(tabItem);
+        });
+    }
+
+    // Show Tab Content
+    showTabContent(tabId) {
+        const tab = this.tabs.find(t => t.id === tabId);
+        if (!tab) return;
+        
+        const overlay = document.getElementById('tabContentOverlay');
+        const titleEl = document.getElementById('tabContentTitle');
+        const bodyEl = document.getElementById('tabContentBody');
+        
+        if (!overlay || !titleEl || !bodyEl) return;
+        
+        titleEl.textContent = `${tab.site.icon} ${tab.title}`;
+        bodyEl.innerHTML = `
+            <div class="site-detail-view">
+                <div class="site-detail-header">
+                    <div class="site-detail-icon">${tab.site.icon}</div>
+                    <div class="site-detail-info">
+                        <h2>${tab.site.name}</h2>
+                        <div class="site-detail-path">${tab.site.path}</div>
+                        <div class="site-detail-category">${tab.site.category}</div>
+                    </div>
                 </div>
-                <div style="
-                    flex: 1;
-                    background: #f0f4ff;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    flex-direction: column;
-                    gap: 20px;
-                    padding: 40px;
-                ">
-                    <div style="font-size: 80px;">${site.icon}</div>
-                    <h2 style="color: #1a1a2e; font-size: 24px;">${site.name}</h2>
-                    <p style="color: #718096; text-align: center;">Path: ${site.path}</p>
-                    <p style="color: #718096; text-align: center;">Kategori: ${site.category}</p>
-                    <div style="
-                        background: white;
-                        padding: 20px 40px;
-                        border-radius: 50px;
-                        box-shadow: 0 4px 15px rgba(0, 71, 179, 0.1);
-                        margin-top: 20px;
-                    ">
-                        <p style="color: #0047b3; font-weight: 600;">Halaman utama akan ditampilkan di sini</p>
-                        <p style="color: #718096; font-size: 14px; margin-top: 8px;">index.html dari folder .digital</p>
+                
+                <div class="site-detail-content">
+                    <div class="site-action-buttons">
+                        <button class="action-btn primary" onclick="window.reberPencarian.openIndexHtml('${tab.site.path}')">
+                            📄 Buka index.html
+                        </button>
+                        <button class="action-btn secondary" onclick="window.reberPencarian.toggleBookmark('${tab.site.name}')">
+                            ⭐ ${this.isBookmarked(tab.site.name) ? 'Hapus Bookmark' : 'Tambah Bookmark'}
+                        </button>
+                        <button class="action-btn secondary" onclick="window.reberPencarian.copyPath('${tab.site.path}')">
+                            📋 Salin Path
+                        </button>
+                    </div>
+                    
+                    <div class="site-info-section">
+                        <h3>Informasi Situs</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Nama Domain</label>
+                                <span>${tab.site.name}</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Path Lengkap</label>
+                                <span>${tab.site.path}</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Kategori</label>
+                                <span>${tab.site.category}</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Status</label>
+                                <span class="status-active">● Aktif</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Protokol</label>
+                                <span>FILE://</span>
+                            </div>
+                            <div class="info-item">
+                                <label>Port</label>
+                                <span>8080</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="site-info-section">
+                        <h3>Preview Konten</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.8;">
+                            Halaman utama <strong>${tab.site.name}</strong> akan ditampilkan di sini. 
+                            File <code>index.html</code> dari folder ini berisi konten utama situs yang dapat diakses langsung.
+                        </p>
                     </div>
                 </div>
             </div>
         `;
         
-        document.body.appendChild(viewer);
+        overlay.classList.add('active');
+    }
+
+    // Close Tab
+    closeTab(tabId) {
+        this.tabs = this.tabs.filter(t => t.id !== tabId);
         
-        // Close on outside click
-        viewer.addEventListener('click', (e) => {
-            if (e.target === viewer) {
-                viewer.remove();
+        if (this.tabs.length === 0) {
+            this.activeTabId = null;
+            document.getElementById('tabContentOverlay').classList.remove('active');
+        } else if (this.activeTabId === tabId) {
+            this.activeTabId = this.tabs[this.tabs.length - 1].id;
+            this.showTabContent(this.activeTabId);
+        }
+        
+        this.saveToStorage();
+        this.renderTabs();
+    }
+
+    // Close All Tabs
+    closeAllTabs() {
+        this.tabs = [];
+        this.activeTabId = null;
+        document.getElementById('tabContentOverlay').classList.remove('active');
+        this.saveToStorage();
+        this.renderTabs();
+    }
+
+    // Close Active Tab Content
+    closeActiveTabContent() {
+        document.getElementById('tabContentOverlay').classList.remove('active');
+    }
+
+    // Open Index HTML
+    openIndexHtml(path) {
+        const indexPath = `${path}/index.html`;
+        console.log('Membuka:', indexPath);
+        alert(`Membuka file: ${indexPath}\n\n(Dalam implementasi nyata, file ini akan dibuka di viewer)`);
+    }
+
+    // Toggle Bookmark
+    toggleBookmark(siteName) {
+        const index = this.bookmarks.findIndex(b => b.name === siteName);
+        
+        if (index >= 0) {
+            this.bookmarks.splice(index, 1);
+        } else {
+            const site = this.allSites.find(s => s.name === siteName);
+            if (site) {
+                this.bookmarks.push({
+                    ...site,
+                    bookmarkedAt: new Date().toISOString()
+                });
             }
+        }
+        
+        this.saveToStorage();
+        this.renderTabs(); // Re-render to update button text
+        if (this.activeTabId) this.showTabContent(this.activeTabId);
+    }
+
+    // Check if Bookmarked
+    isBookmarked(siteName) {
+        return this.bookmarks.some(b => b.name === siteName);
+    }
+
+    // Copy Path
+    copyPath(path) {
+        navigator.clipboard.writeText(path).then(() => {
+            alert('Path disalin ke clipboard: ' + path);
+        }).catch(err => {
+            console.error('Gagal menyalin:', err);
         });
     }
 
-    navigate(action) {
-        console.log('Navigate:', action);
-        // Implementasi navigasi browser
+    // Show Menu
+    showMenu(menuType) {
+        const overlay = document.getElementById('tabContentOverlay');
+        const titleEl = document.getElementById('tabContentTitle');
+        const bodyEl = document.getElementById('tabContentBody');
+        
+        if (!overlay || !titleEl || !bodyEl) return;
+        
+        let content = '';
+        
+        switch(menuType) {
+            case 'history':
+                titleEl.textContent = '🕐 Riwayat';
+                if (this.history.length === 0) {
+                    content = '<div class="empty-state"><p>Belum ada riwayat</p></div>';
+                } else {
+                    content = `<ul class="history-list">
+                        ${this.history.map(h => `
+                            <li onclick="window.reberPencarian.openTab(${JSON.stringify(h.site).replace(/"/g, '&quot;')})">
+                                <span>${h.site.icon} ${h.site.name}</span>
+                                <small>${new Date(h.timestamp).toLocaleString('id-ID')}</small>
+                            </li>
+                        `).join('')}
+                    </ul>`;
+                }
+                break;
+                
+            case 'bookmarks':
+                titleEl.textContent = '⭐ Bookmark';
+                if (this.bookmarks.length === 0) {
+                    content = '<div class="empty-state"><p>Belum ada bookmark</p></div>';
+                } else {
+                    content = `<ul class="bookmarks-list">
+                        ${this.bookmarks.map(b => `
+                            <li onclick="window.reberPencarian.openTab(${JSON.stringify(b).replace(/"/g, '&quot;')})">
+                                <span>${b.icon} ${b.name}</span>
+                                <button class="action-btn secondary" onclick="event.stopPropagation(); window.reberPencarian.toggleBookmark('${b.name}')">Hapus</button>
+                            </li>
+                        `).join('')}
+                    </ul>`;
+                }
+                break;
+                
+            case 'downloads':
+                titleEl.textContent = '⬇️ Unduhan';
+                content = '<div class="empty-state"><p>Belum ada unduhan</p></div>';
+                break;
+                
+            case 'settings':
+                titleEl.textContent = '⚙ Pengaturan';
+                content = `
+                    <div class="settings-panel">
+                        <div class="setting-item">
+                            <label>Jumlah Kolom Grid</label>
+                            <div class="grid-selector">
+                                ${[1,2,3,4,5,6,7,8,9,10].map(n => `
+                                    <button class="grid-btn ${this.settings.gridColumns === n ? 'active' : ''}" 
+                                            onclick="window.reberPencarian.setGridColumns(${n})">${n}</button>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <label>Tema</label>
+                            <select class="theme-selector">
+                                <option value="light">Terang (Default)</option>
+                                <option value="dark">Gelap</option>
+                                <option value="auto">Otomatis</option>
+                            </select>
+                        </div>
+                    </div>
+                `;
+                break;
+                
+            case 'more':
+                titleEl.textContent = '⋮ Opsi Lainnya';
+                content = `
+                    <div class="more-options">
+                        <button class="action-btn secondary" onclick="window.reberPencarian.clearHistory()">
+                            🗑️ Hapus Riwayat
+                        </button>
+                        <button class="action-btn secondary" onclick="window.reberPencarian.exportBookmarks()">
+                            📤 Export Bookmarks
+                        </button>
+                        <button class="action-btn secondary" onclick="window.reberPencarian.importBookmarks()">
+                            📥 Import Bookmarks
+                        </button>
+                        <button class="action-btn secondary" onclick="window.reberPencarian.resetSettings()">
+                            🔄 Reset Pengaturan
+                        </button>
+                    </div>
+                `;
+                break;
+        }
+        
+        bodyEl.innerHTML = content;
+        overlay.classList.add('active');
     }
 
+    // Set Grid Columns
+    setGridColumns(columns) {
+        this.settings.gridColumns = columns;
+        this.saveToStorage();
+        this.updateSettingsUI();
+        this.showMenu('settings');
+    }
+
+    // Update Settings UI
+    updateSettingsUI() {
+        const grid = document.getElementById('sitesGridMain');
+        if (grid) {
+            grid.style.gridTemplateColumns = `repeat(${this.settings.gridColumns}, 1fr)`;
+        }
+    }
+
+    // Clear History
+    clearHistory() {
+        if (confirm('Yakin ingin menghapus semua riwayat?')) {
+            this.history = [];
+            this.saveToStorage();
+            this.showMenu('history');
+        }
+    }
+
+    // Export Bookmarks
+    exportBookmarks() {
+        const data = JSON.stringify(this.bookmarks, null, 2);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'bookmarks.json';
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    // Import Bookmarks
+    importBookmarks() {
+        alert('Fitur import bookmarks akan tersedia segera.');
+    }
+
+    // Reset Settings
+    resetSettings() {
+        if (confirm('Yakin ingin mereset semua pengaturan?')) {
+            this.settings = { gridColumns: 7 };
+            this.saveToStorage();
+            this.updateSettingsUI();
+            this.showMenu('settings');
+        }
+    }
+
+    // Perform Search
     performSearch() {
         const urlInput = document.getElementById('urlInput');
         const query = urlInput.value.trim().toLowerCase();
         
         if (!query) {
-            this.filteredSites = [...this.allSites];
+            this.renderSites(this.allSites);
         } else {
-            this.filteredSites = this.allSites.filter(site => 
+            const filtered = this.allSites.filter(site => 
                 site.name.toLowerCase().includes(query) ||
                 site.path.toLowerCase().includes(query) ||
                 site.category.toLowerCase().includes(query)
             );
+            this.renderSites(filtered);
         }
-        
-        this.renderSites(this.filteredSites);
-        document.getElementById('resultsTitle').textContent = query ? `Hasil pencarian: "${query}"` : 'Semua Situs .digital';
     }
 
-    animateStats() {
-        // Animate statistics in hero section
-        const statNumbers = document.querySelectorAll('.stat-number');
-        
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.getAttribute('data-target')) || 0;
-            this.countUp(stat, target);
-        });
-    }
-
-    countUp(element, target) {
-        let current = 0;
-        const increment = target / 50;
-        const duration = 2000;
-        const stepTime = duration / 50;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = Math.floor(current).toLocaleString();
-        }, stepTime);
+    // Navigate
+    navigate(action) {
+        console.log('Navigate:', action);
+        switch(action) {
+            case 'back': /* Implement back */ break;
+            case 'forward': /* Implement forward */ break;
+            case 'refresh': location.reload(); break;
+            case 'home': 
+                this.tabs = [];
+                this.activeTabId = null;
+                this.renderTabs();
+                document.getElementById('tabContentOverlay').classList.remove('active');
+                break;
+        }
     }
 }
 
