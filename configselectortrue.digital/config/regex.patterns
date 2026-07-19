@@ -1,0 +1,50 @@
+# Regex Patterns for Selector True Secure System
+# Pattern definitions for symbol validation and matching
+
+# Core Symbol Patterns
+SYMBOL_PATTERN=/^[A-Z_][A-Z0-9_]*$/
+BINARY_PATTERN=/^[01]{4,}$/
+HEX_PATTERN=/^0x[0-9A-F]+$/
+
+# Configuration File Patterns
+CONFIG_FILE=/^config\.[a-z]{2,4}$/
+CONF_EXTENSION=/\.conf$/
+PATTERN_EXTENSION=/\.patterns$/
+
+# Selector Validation Patterns
+SELECTOR_ID=/^#[a-zA-Z][a-zA-Z0-9_-]*$/
+SELECTOR_CLASS=/^\.[a-zA-Z][a-zA-Z0-9_-]*$/
+SELECTOR_ATTR=/^\[[a-zA-Z][a-zA-Z0-9_-]*(=.*]?)?$/
+
+# Security Patterns
+SECURE_TOKEN=/^[A-Za-z0-9]{32,64}$/
+HASH_MD5=/^[a-f0-9]{32}$/
+HASH_SHA256=/^[a-f0-9]{64}$/
+
+# Browser Detection Patterns
+BROWSER_CHROME=/Chrome\/[\d.]+/
+BROWSER_FIREFOX=/Firefox\/[\d.]+/
+BROWSER_SAFARI=/Safari\/[\d.]+/
+BROWSER_EDGE=/Edg\/[\d.]+/
+
+# Activation Sequence Patterns
+ACTIVATION_START=/BEGIN_ACTIVATION/
+ACTIVATION_END=/END_ACTIVATION/
+STEP_MARKER=/^STEP_\d+=/
+
+# Formula Expression Patterns
+FORMULA_VAR=/\$[a-zA-Z_][a-zA-Z0-9_]*/
+FORMULA_OP=/[+\-*/%=]/
+FORMULA_FUNC=/[a-zA-Z_][a-zA-Z0-9_]*\(/
+
+# Core System Patterns
+CORE_SELECTOR=/SELECTOR_TRUE/
+CORE_SECURE=/SECURE_MODE/
+CORE_BINARY=/BINARY_FLAGS/
+
+# Validation Rules
+RULE_NOT_EMPTY=/.+/
+RULE_NO_SPECIAL=/^[a-zA-Z0-9_]+$/
+RULE_ALPHANUMERIC=/^[a-zA-Z0-9]+$/
+
+# End of patterns
