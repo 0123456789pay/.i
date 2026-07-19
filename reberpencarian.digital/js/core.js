@@ -78,7 +78,8 @@ class ReberPencarian {
             { name: 'tanggapdarurat.digital', path: '/workspace/tanggapdarurat.digital', category: 'emergency', icon: '🚨' },
             { name: 'tiketevent.digital', path: '/workspace/tiketevent.digital', category: 'media', icon: '🎫' },
             { name: 'transportasilogistik.digital', path: '/workspace/transportasilogistik.digital', category: 'logistics', icon: '🚚' },
-            { name: 'visualisasireporting.digital', path: '/workspace/visualisasireporting.digital', category: 'tech', icon: '📊' }
+            { name: 'visualisasireporting.digital', path: '/workspace/visualisasireporting.digital', category: 'tech', icon: '📊' },
+            { name: 'Coder Qwen AI', path: 'https://coder.qwen.ai/', category: 'ai', icon: '🤖', isExternal: true, url: 'https://coder.qwen.ai/' }
         ];
         
         this.allSites = digitalFolders;
@@ -476,8 +477,22 @@ class ReberPencarian {
     loadSearchTab(tabId) {
         const tab = this.searchTabs.find(t => t.id === tabId);
         if (!tab) return;
-        
-        if (tab.isFileView && tab.filePath) {
+
+        if (tab.isExternalView && tab.externalUrl) {
+            // Tampilkan URL eksternal dalam iframe
+            const frame = document.getElementById('searchContentFrame');
+            if (frame) {
+                frame.innerHTML = `
+                    <div class="external-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="external-viewer-header" style="background: var(--gradient-blue); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+                            <h3 style="margin: 0; font-size: 16px;">🔗 ${this.escapeHtml(tab.site.name)} - External URL</h3>
+                            <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">${this.escapeHtml(tab.externalUrl)}</p>
+                        </div>
+                        <iframe src="${this.escapeHtml(tab.externalUrl)}" style="flex: 1; width: 100%; border: none; background: white;" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+                    </div>
+                `;
+            }
+        } else if (tab.isFileView && tab.filePath) {
             // Tampilkan file index.html dalam frame
             const frame = document.getElementById('searchContentFrame');
             if (frame) {
@@ -498,11 +513,6 @@ class ReberPencarian {
         } else {
             this.clearSearchFrame();
         }
-    }
-    
-    // Show File in Tab (legacy - tidak digunakan lagi)
-    showFileInTab(tabId, filePath, site) {
-        console.log('showFileInTab deprecated');
     }
         const titleEl = document.getElementById('tabContentTitle');
         const bodyEl = document.getElementById('tabContentBody');
@@ -1442,6 +1452,43 @@ class ReberPencarian {
         
         // Buka tab baru dengan judul situs
         this.openNewSearchTab(site);
+    }
+
+    // Open External URL - Membuka URL eksternal (seperti coder.qwen.ai) dalam iframe
+    openExternalUrl(url) {
+        const site = this.allSites.find(s => s.url === url);
+        if (site) {
+            const newTabId = Date.now();
+            this.searchTabs.push({
+                id: newTabId,
+                title: `🔗 ${site.name}`,
+                query: '',
+                results: [],
+                isExternalView: true,
+                externalUrl: url,
+                site: site,
+                isHome: false
+            });
+            this.activeSearchTabId = newTabId;
+            this.renderSearchTabs();
+            this.loadSearchTab(newTabId);
+        } else {
+            // Fallback untuk URL yang tidak ada di allSites
+            const newTabId = Date.now();
+            this.searchTabs.push({
+                id: newTabId,
+                title: `🔗 External URL`,
+                query: '',
+                results: [],
+                isExternalView: true,
+                externalUrl: url,
+                site: { name: 'External Site', icon: '🌐' },
+                isHome: false
+            });
+            this.activeSearchTabId = newTabId;
+            this.renderSearchTabs();
+            this.loadSearchTab(newTabId);
+        }
     }
 }
 
