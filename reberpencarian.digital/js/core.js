@@ -17,6 +17,10 @@ class ReberPencarian {
         this.itemsPerPage = 12;
         this.isIndexing = false;
         
+        // Tab System State - Full Width Tab System
+        this.searchTabs = [{ id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true }];
+        this.activeSearchTabId = 1;
+        
         this.init();
     }
 
@@ -24,9 +28,9 @@ class ReberPencarian {
         await this.scanDigitalFolders();
         this.loadFromStorage();
         this.bindEvents();
-        // Render langsung ke main content frame (WebView)
-        this.renderToMainContentFrame(this.allSites);
-        this.renderTabs();
+        // Render langsung ke search content frame (WebView) dengan tab system
+        this.renderWebViewContent();
+        this.renderSearchTabs();
         this.updateSettingsUI();
     }
 
@@ -457,9 +461,10 @@ class ReberPencarian {
                 results: [],
                 isFileView: true,
                 filePath: indexPath,
-                site: site
+                site: site,
+                isHome: false
             });
-            this.activeSearchTab = newTabId;
+            this.activeSearchTabId = newTabId;
             this.renderSearchTabs();
             this.loadSearchTab(newTabId);
         } else {
@@ -1196,99 +1201,111 @@ class ReberPencarian {
         document.getElementById('indexPercentage').textContent = `${percentage}%`;
     }
 
-    // ===== Search Tabs Management (seperti appbrowser.html) =====
+    // ===== Search Tabs Management (Full Width Tab System) =====
     
-    // Search tabs state
-    searchTabs = [{ id: 1, title: 'Hasil Pencarian', query: '', results: [] }];
-    activeSearchTab = 1;
-
-    // Open new search tab
-    openNewSearchTab() {
+    // Open new search tab with site parameter - Opens in new tab
+    openNewSearchTab(site = null) {
         const newId = Date.now();
+        let title = '🏠 Beranda - Situs Digital';
+        let isHome = true;
+        
+        if (site) {
+            title = `📄 ${site.name}`;
+            isHome = false;
+        }
+        
         this.searchTabs.push({
             id: newId,
-            title: 'Tab Baru',
+            title: title,
             query: '',
-            results: []
+            results: [],
+            isHome: isHome,
+            site: site || null
         });
+        this.activeSearchTabId = newId;
         this.renderSearchTabs();
-        this.switchSearchTab(newId);
+        this.loadSearchTab(newId);
     }
 
     // Close search tab
     closeSearchTab(event, tabId) {
         event.stopPropagation();
         if (this.searchTabs.length === 1) {
-            // Reset last tab instead of closing
-            this.searchTabs[0] = { id: 1, title: 'Hasil Pencarian', query: '', results: [] };
-            this.activeSearchTab = 1;
-            this.clearSearchFrame();
+            // Reset last tab to home instead of closing
+            this.searchTabs[0] = { id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true };
+            this.activeSearchTabId = 1;
+            this.renderWebViewContent();
         } else {
             const index = this.searchTabs.findIndex(t => t.id === tabId);
             if (index > -1) {
                 this.searchTabs.splice(index, 1);
                 // If closing active tab, switch to previous or first tab
-                if (this.activeSearchTab === tabId) {
+                if (this.activeSearchTabId === tabId) {
                     const newIndex = Math.max(0, index - 1);
-                    this.activeSearchTab = this.searchTabs[newIndex].id;
+                    this.activeSearchTabId = this.searchTabs[newIndex].id;
                 }
             }
         }
         this.renderSearchTabs();
-        this.loadSearchTab(this.activeSearchTab);
+        this.loadSearchTab(this.activeSearchTabId);
     }
 
     // Switch search tab
     switchSearchTab(tabId) {
-        this.activeSearchTab = tabId;
+        this.activeSearchTabId = tabId;
         this.renderSearchTabs();
         this.loadSearchTab(tabId);
     }
 
-    // Render search tabs
+    // Render search tabs with proper active state
     renderSearchTabs() {
         const container = document.getElementById('searchTabsContainer');
         if (!container) return;
         
         let html = '';
         this.searchTabs.forEach(tab => {
-            const isActive = tab.id === this.activeSearchTab ? 'active' : '';
+            const isActive = tab.id === this.activeSearchTabId ? 'active' : '';
             html += `
-                <div class="tab ${isActive}" data-id="${tab.id}" onclick="reberPencarian.switchSearchTab(${tab.id})">
+                <div class="tab ${isActive}" data-id="${tab.id}" onclick="window.reberPencarian.switchSearchTab(${tab.id})">
                     <span class="tab-title">${this.escapeHtml(tab.title)}</span>
-                    <span class="tab-close" onclick="reberPencarian.closeSearchTab(event, ${tab.id})">&times;</span>
+                    <span class="tab-close" onclick="window.reberPencarian.closeSearchTab(event, ${tab.id})">&times;</span>
                 </div>
             `;
         });
-        html += '<button class="new-tab-btn" onclick="reberPencarian.openNewSearchTab()">+</button>';
+        html += '<button class="new-tab-btn" onclick="window.reberPencarian.openNewSearchTab()" title="Tab Baru">+</button>';
         container.innerHTML = html;
     }
 
-    // Load search tab content (replace existing function)
+    // Load search tab content - Support home view, file view, and search results
     loadSearchTab(tabId) {
         const tab = this.searchTabs.find(t => t.id === tabId);
         if (!tab) return;
         
+        const frame = document.getElementById('searchContentFrame');
+        if (!frame) return;
+        
         if (tab.isFileView && tab.filePath) {
             // Tampilkan file index.html dalam frame
-            const frame = document.getElementById('searchContentFrame');
-            if (frame) {
-                frame.innerHTML = `
-                    <div class="file-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
-                        <div class="file-viewer-header" style="background: var(--gradient-blue); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
-                            <h3 style="margin: 0; font-size: 16px;">📄 ${this.escapeHtml(tab.site.name)} - index.html</h3>
-                            <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">${this.escapeHtml(tab.filePath)}</p>
-                        </div>
-                        <iframe src="${this.escapeHtml(tab.filePath)}" style="flex: 1; width: 100%; border: none; background: white;" onload="console.log('File loaded:', this.src)"></iframe>
+            frame.innerHTML = `
+                <div class="file-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
+                    <div class="file-viewer-header" style="background: var(--gradient-blue); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+                        <h3 style="margin: 0; font-size: 16px;">📄 ${this.escapeHtml(tab.site.name)} - index.html</h3>
+                        <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">${this.escapeHtml(tab.filePath)}</p>
                     </div>
-                `;
-            }
+                    <iframe src="${this.escapeHtml(tab.filePath)}" style="flex: 1; width: 100%; border: none; background: white;" onload="console.log('File loaded:', this.src)"></iframe>
+                </div>
+            `;
+        } else if (tab.isHome) {
+            // Render home view with site cards grid
+            this.renderWebViewContent();
         } else if (tab.query && tab.results.length > 0) {
+            // Render search results
             this.currentQuery = tab.query;
             this.currentResults = tab.results;
             this.renderResults();
         } else {
-            this.clearSearchFrame();
+            // Default to home view
+            this.renderWebViewContent();
         }
     }
 
@@ -1311,17 +1328,18 @@ class ReberPencarian {
 
     // Update search tab title with query
     updateSearchTabTitle(query) {
-        const tab = this.searchTabs.find(t => t.id === this.activeSearchTab);
+        const tab = this.searchTabs.find(t => t.id === this.activeSearchTabId);
         if (tab) {
             tab.title = query.length > 20 ? query.substring(0, 20) + '...' : query;
             tab.query = query;
+            tab.isHome = false;
             this.renderSearchTabs();
         }
     }
 
     // Save results to current tab
     saveResultsToTab(results) {
-        const tab = this.searchTabs.find(t => t.id === this.activeSearchTab);
+        const tab = this.searchTabs.find(t => t.id === this.activeSearchTabId);
         if (tab) {
             tab.results = results;
         }
@@ -1334,38 +1352,49 @@ class ReberPencarian {
         return div.innerHTML;
     }
 
-    // Render WebView Content (menampilkan hasil dalam frame seperti browser)
+    // Render WebView Content - Menampilkan grid kartu situs di dalam tab (Home View)
     renderWebViewContent() {
         const frame = document.getElementById('searchContentFrame');
-        if (!frame || this.currentResults.length === 0) return;
+        if (!frame) return;
         
-        let html = '<div style="padding: 20px;">';
-        html += '<div style="background: #f0f4ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">';
-        html += `<h3 style="margin: 0; color: var(--primary-blue);">🔍 Hasil untuk: "${this.escapeHtml(this.currentQuery)}"</h3>`;
-        html += `<p style="margin: 5px 0 0 0; color: var(--text-secondary);">${this.currentResults.length} hasil ditemukan</p>`;
-        html += '</div>';
+        // Render home view with all sites grid
+        let html = '<div class="main-sites-grid">';
         
-        html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">';
-        
-        this.currentResults.forEach((site, index) => {
+        this.allSites.forEach((site, index) => {
+            const delay = index * 0.03;
             html += `
-                <div class="result-card" style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.3s ease;" 
-                     onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,71,179,0.15)';"
-                     onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)';">
-                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-                        <span style="font-size: 32px;">${site.icon}</span>
-                        <div style="flex: 1; min-width: 0;">
-                            <h4 style="margin: 0; font-size: 14px; font-weight: 700; color: var(--text-primary); word-break: break-word;">${this.escapeHtml(site.name)}</h4>
-                        </div>
+                <div class="main-site-card animate-fade-in" style="animation-delay: ${delay}s" data-name="${this.escapeHtml(site.name)}" data-path="${this.escapeHtml(site.path)}">
+                    <div class="main-site-card-icon">${site.icon}</div>
+                    <div class="main-site-card-name">${this.escapeHtml(site.name)}</div>
+                    <div class="main-site-card-path">${this.escapeHtml(site.path)}</div>
+                    <div class="main-site-card-category">${this.escapeHtml(site.category)}</div>
+                    <div class="main-site-card-actions">
+                        <button class="main-site-btn primary" onclick="window.reberPencarian.openIndexHtml('${this.escapeHtml(site.path)}')" title="Buka index.html">📄</button>
+                        <button class="main-site-btn secondary" onclick="window.reberPencarian.showSiteDetailInTab('${this.escapeHtml(site.name)}')" title="Lihat Detail">👁️</button>
                     </div>
-                    <div style="font-size: 11px; color: var(--text-light); font-family: monospace; background: #f0f4ff; padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; word-break: break-all;">${this.escapeHtml(site.path)}</div>
-                    <span style="font-size: 10px; font-weight: 700; color: var(--secondary-blue); text-transform: uppercase; letter-spacing: 0.5px; background: rgba(0, 102, 255, 0.1); padding: 3px 10px; border-radius: 50px; display: inline-block;">${site.category}</span>
                 </div>
             `;
         });
         
-        html += '</div></div>';
+        html += '</div>';
         frame.innerHTML = html;
+        
+        // Bind click events untuk kartu - Buka tab baru dengan judul situs
+        setTimeout(() => {
+            frame.querySelectorAll('.main-site-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Jangan trigger jika klik tombol aksi
+                    if (e.target.closest('.main-site-btn')) return;
+                    
+                    const siteName = card.dataset.name;
+                    const site = this.allSites.find(s => s.name === siteName);
+                    if (site) {
+                        // Buka tab baru dengan judul otomatis dari nama situs
+                        window.reberPencarian.openNewSearchTab(site);
+                    }
+                });
+            });
+        }, 100);
     }
 
     // Navigate
@@ -1390,17 +1419,29 @@ class ReberPencarian {
         const frame = document.getElementById('searchContentFrame');
         if (!frame) return;
         
-        // Reset ke tampilan beranda dengan semua situs
-        this.renderToMainContentFrame(this.allSites);
+        // Reset ke tampilan beranda dengan semua situs menggunakan renderWebViewContent
+        this.renderWebViewContent();
         
-        // Update tab title
-        const activeTab = document.querySelector('.tab.active .tab-title');
+        // Update tab title untuk tab aktif
+        const activeTab = this.searchTabs.find(t => t.id === this.activeSearchTabId);
         if (activeTab) {
-            activeTab.textContent = '🏠 Beranda - Situs Digital';
+            activeTab.title = '🏠 Beranda - Situs Digital';
+            activeTab.isHome = true;
+            activeTab.site = null;
+            this.renderSearchTabs();
         }
         
         // Scroll to top
         frame.scrollTop = 0;
+    }
+    
+    // Show Site Detail in Tab - Buka detail situs di tab baru
+    showSiteDetailInTab(siteName) {
+        const site = this.allSites.find(s => s.name === siteName);
+        if (!site) return;
+        
+        // Buka tab baru dengan judul situs
+        this.openNewSearchTab(site);
     }
 }
 
