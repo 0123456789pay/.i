@@ -36,108 +36,32 @@
             </div>
         </div>
         
-        <div class="nav-buttons">
-            <button class="nav-btn" id="btnSettings" title="Pengaturan">⚙</button>
-            <button class="nav-btn" id="btnMenu" title="Menu">☰</button>
+        <!-- Menu Pencarian di Kanan -->
+        <div class="search-menu">
+            <button class="menu-btn" id="btnHistory" title="Riwayat">🕐</button>
+            <button class="menu-btn" id="btnBookmarks" title="Bookmark">⭐</button>
+            <button class="menu-btn" id="btnDownloads" title="Unduhan">⬇️</button>
+            <button class="menu-btn" id="btnSettings" title="Pengaturan">⚙</button>
+            <button class="menu-btn" id="btnMoreOptions" title="Opsi Lainnya">⋮</button>
         </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Tab Bar Section (di bawah kolom pencarian) -->
+    <section class="tab-bar-section" id="tabBarSection">
+        <div class="tab-bar-container">
+            <div class="tab-list" id="tabList">
+                <!-- Tab akan ditambahkan di sini secara dinamis -->
+            </div>
+            <button class="close-all-tabs" id="closeAllTabs" title="Tutup Semua Tab">×</button>
+        </div>
+    </section>
+
+    <!-- Main Container - Hanya Kartu-kartu Situs -->
     <div class="main-container">
-        <!-- Search Interface / Hero Section -->
-        <section class="search-interface">
-            <div class="logo-area">
-                <h1 class="logo-text">ReberPencarian.digital</h1>
-                <p class="logo-subtitle">Mesin Pencari Universal dengan Inti Selector TRUE & RootAkar√</p>
-            </div>
-
-            <!-- Input Modes -->
-            <div class="input-modes" id="inputModes">
-                <div class="mode-card active" data-mode="all">
-                    <div class="data-type-icon icon-all">🌐</div>
-                    <div class="mode-title">Semua ✓</div>
-                    <div class="mode-desc">Semua kategori situs</div>
-                </div>
-                <div class="mode-card" data-mode="ai">
-                    <div class="data-type-icon icon-ai">🤖</div>
-                    <div class="mode-title">AI & ML √</div>
-                    <div class="mode-desc">Artificial Intelligence</div>
-                </div>
-                <div class="mode-card" data-mode="media">
-                    <div class="data-type-icon icon-media">📺</div>
-                    <div class="mode-title">Media √</div>
-                    <div class="mode-desc">Media & Konten Digital</div>
-                </div>
-                <div class="mode-card" data-mode="business">
-                    <div class="data-type-icon icon-business">💼</div>
-                    <div class="mode-title">Bisnis √</div>
-                    <div class="mode-desc">Startup & E-commerce</div>
-                </div>
-                <div class="mode-card" data-mode="education">
-                    <div class="data-type-icon icon-education">📚</div>
-                    <div class="mode-title">Pendidikan √</div>
-                    <div class="mode-desc">Pelatihan & Kursus</div>
-                </div>
-                <div class="mode-card" data-mode="tech">
-                    <div class="data-type-icon icon-tech">⚙️</div>
-                    <div class="mode-title">Teknologi √</div>
-                    <div class="mode-desc">Infrastruktur & Cloud</div>
-                </div>
-            </div>
-
-            <!-- Statistik Animasi -->
-            <div class="stats-section">
-                <div class="stat-card">
-                    <div class="stat-number" data-target="1250000">0</div>
-                    <div class="stat-label">URL Terindeks</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="45000">0</div>
-                    <div class="stat-label">Domain Terdeteksi</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="8500">0</div>
-                    <div class="stat-label">Port Aktif</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="25">0</div>
-                    <div class="stat-label">Folder Config</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Category Tabs -->
-        <section class="category-tabs-section">
-            <div class="category-tabs">
-                <button class="category-tab active" data-category="all">🌐 Semua Situs</button>
-                <button class="category-tab" data-category="ai_machinelearning">🤖 AI & Machine Learning</button>
-                <button class="category-tab" data-category="media">📺 Media & Konten</button>
-                <button class="category-tab" data-category="business">💼 Bisnis & Startup</button>
-                <button class="category-tab" data-category="education">📚 Pendidikan</button>
-                <button class="category-tab" data-category="tech">⚙️ Teknologi</button>
-                <button class="category-tab" data-category="health">🏥 Kesehatan</button>
-                <button class="category-tab" data-category="finance">💰 Keuangan</button>
-                <button class="category-tab" data-category="infrastructure">🌐 Infrastruktur</button>
-                <button class="category-tab" data-category="config">⚙️ Config</button>
-            </div>
-        </section>
-
-        <!-- Results Display Section - Kartu-kartu Situs .digital -->
-        <section class="results-display-section">
-            <div class="results-header">
-                <h2 class="section-title">
-                    <span class="root-symbol">✓</span>
-                    <span id="resultsTitle">Semua Situs .digital</span>
-                </h2>
-                <div class="results-info">
-                    <span id="resultsCount">0 situs ditemukan</span>
-                </div>
-            </div>
-            
-            <div class="sites-grid" id="sitesGrid">
-                <!-- Kartu-kartu situs akan di-generate oleh JavaScript -->
-            </div>
-        </section>
+        <!-- Sites Grid - 7 Kolom -->
+        <div class="sites-grid-main" id="sitesGridMain">
+            <!-- Kartu-kartu situs akan di-generate oleh JavaScript -->
+        </div>
     </div>
 
     <!-- Footer -->
@@ -151,6 +75,19 @@
         </div>
         <p class="footer-text">&copy; 2024 ReberPencarian.digital - Mesin Pencari Universal. All rights reserved.</p>
     </footer>
+
+    <!-- Tab Content Overlay -->
+    <div class="tab-content-overlay" id="tabContentOverlay">
+        <div class="tab-content-panel">
+            <div class="tab-content-header">
+                <h3 id="tabContentTitle">Judul Tab</h3>
+                <button class="close-tab-btn" id="closeTabBtn">×</button>
+            </div>
+            <div class="tab-content-body" id="tabContentBody">
+                <!-- Konten tab akan ditampilkan di sini -->
+            </div>
+        </div>
+    </div>
 
     <script src="js/core.js"></script>
 </body>
