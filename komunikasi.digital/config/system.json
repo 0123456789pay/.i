@@ -1,0 +1,80 @@
+{
+    "system": {
+        "name": "Komunikasi.Digital",
+        "version": "1.0.0",
+        "description": "Platform komunikasi digital terintegrasi dengan desain Media.Digital",
+        "theme": {
+            "primary": "#0066cc",
+            "secondary": "#0099ff",
+            "light": "#e6f2ff",
+            "dark": "#003366",
+            "white": "#ffffff"
+        }
+    },
+    "modules": [
+        {
+            "id": "alatkolaborasi",
+            "name": "Alat Kolaborasi",
+            "path": "AlatKolaborasi.digital/",
+            "enabled": true,
+            "icon": "fa-users"
+        },
+        {
+            "id": "komunikasiinternal",
+            "name": "Komunikasi Internal",
+            "path": "KomunikasiInternal.digital/",
+            "enabled": true,
+            "icon": "fa-building"
+        },
+        {
+            "id": "komunikasikorporat",
+            "name": "Komunikasi Korporat",
+            "path": "KomunikasiKorporat.digital/",
+            "enabled": true,
+            "icon": "fa-briefcase"
+        },
+        {
+            "id": "komunikasikrisis",
+            "name": "Komunikasi Krisis",
+            "path": "KomunikasiKrisis.digital/",
+            "enabled": true,
+            "icon": "fa-exclamation-triangle"
+        },
+        {
+            "id": "konferensivirtual",
+            "name": "Konferensi Virtual",
+            "path": "KonferensiVirtual.digital/",
+            "enabled": true,
+            "icon": "fa-video"
+        },
+        {
+            "id": "pertemuanhibrida",
+            "name": "Pertemuan Hibrida",
+            "path": "PertemuanHibrida.digital/",
+            "enabled": true,
+            "icon": "fa-mix"
+        },
+        {
+            "id": "syncmate",
+            "name": "SyncMate",
+            "path": "syncmate.digital/",
+            "enabled": true,
+            "icon": "fa-sync"
+        }
+    ],
+    "features": {
+        "authentication": {
+            "login": true,
+            "register": true,
+            "rememberMe": true,
+            "emailVerification": false
+        },
+        "moduledetail": true,
+        "configuration": true,
+        "responsiveDesign": true
+    },
+    "footer": {
+        "showSocialLinks": false,
+        "copyright": "© 2024 Komunikasi.Digital. Semua hak dilindungi."
+    }
+}

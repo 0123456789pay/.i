@@ -1,0 +1,134 @@
+# KOMUNIKASI.DIGITAL - Dokumentasi Sistem
+
+## Gambaran Umum
+Platform komunikasi digital terintegrasi dengan desain UI putih-biru seperti Media.Digital. Sistem ini merekonstruksi folder dan file berekstensi `.digital` menjadi menu-menu fungsional dengan konfigurasi lengkap.
+
+## Struktur Folder
+```
+komunikasi.digital/
+├── index.html              # Halaman utama dengan UI Media.Digital
+├── assets/
+│   ├── css/
+│   │   └── main.css        # Stylesheet utama (tema putih-biru)
+│   ├── js/
+│   │   └── main.js         # JavaScript untuk interaksi UI
+│   └── images/             # Aset gambar
+├── components/             # Komponen UI reusable
+├── config/
+│   └── system.json         # Konfigurasi sistem JSON
+├── system/
+│   └── config.php          # Konfigurasi PHP backend
+├── auth/
+│   └── handler.php         # Handler autentikasi (login/register)
+├── pages/                  # Halaman tambahan
+├── details/                # Template detail modul
+└── [modul].digital/        # Modul-modul komunikasi
+    ├── AlatKolaborasi.digital/
+    ├── KomunikasiInternal.digital/
+    ├── KomunikasiKorporat.digital/
+    ├── KomunikasiKrisis.digital/
+    ├── KonferensiVirtual.digital/
+    ├── PertemuanHibrida.digital/
+    └── syncmate.digital/
+```
+
+## Fitur Utama
+
+### 1. Autentikasi (Login/Register)
+- **Modal Login**: Form login dengan email dan kata sandi
+- **Modal Register**: Form pendaftaran dengan validasi
+- **Remember Me**: Opsi mengingat pengguna
+- **Session Management**: Pengelolaan sesi otomatis
+
+### 2. Modul Digital
+Setiap folder `.digital` direkonstruksi menjadi:
+- **Kartu Modul**: Ditampilkan dalam grid dengan ikon
+- **Detail Modal**: Informasi lengkap modul saat diklik
+- **Status Indikator**: Aktif/Nonaktif modul
+- **Akses Langsung**: Navigasi ke modul terkait
+
+### 3. Konfigurasi Sistem
+- **Pengaturan Umum**: Nama platform, bahasa, zona waktu
+- **Manajemen Pengguna**: Registrasi, verifikasi, password
+- **Database & Backup**: Auto backup, retensi data
+- **Jaringan & API**: Endpoint, rate limit, CORS
+
+### 4. UI/UX (Tema Putih-Biru)
+- **Warna Primer**: #0066cc (Biru)
+- **Warna Sekunder**: #0099ff (Biru terang)
+- **Background**: #f8fbff (Putih kebiruan)
+- **Shadow Effects**: Bayangan halus untuk kedalaman
+- **Animasi**: Transisi smooth pada hover dan klik
+
+### 5. Detail Modul
+Fitur detail menampilkan:
+- Deskripsi lengkap modul
+- Daftar fitur utama
+- Lokasi path modul
+- Status sistem
+- Tombol akses modul
+
+## Cara Penggunaan
+
+### Menjalankan Aplikasi
+1. Pastikan server web (Apache/Nginx) aktif
+2. Buka browser dan akses `http://localhost/komunikasi.digital/`
+3. Login atau daftar akun baru
+4. Klik modul untuk melihat detail atau mengaksesnya
+
+### Menambah Modul Baru
+1. Buat folder baru dengan ekstensi `.digital` di dalam `komunikasi.digital/`
+2. Tambahkan konfigurasi di `config/system.json`:
+```json
+{
+    "id": "modulbaru",
+    "name": "Nama Modul",
+    "path": "ModulBaru.digital/",
+    "enabled": true,
+    "icon": "fa-icon-name"
+}
+```
+3. Update array `modulesData` di `assets/js/main.js`
+
+### Kustomisasi Tema
+Edit variabel CSS di `assets/css/main.css`:
+```css
+:root {
+    --primary-blue: #0066cc;
+    --secondary-blue: #0099ff;
+    --light-blue: #e6f2ff;
+    /* ... */
+}
+```
+
+## API Endpoints
+
+### Autentikasi
+- `POST auth/handler.php?action=login` - Login pengguna
+- `POST auth/handler.php?action=register` - Pendaftaran pengguna
+- `GET auth/handler.php?action=logout` - Logout pengguna
+- `GET auth/handler.php?action=check` - Cek status autentikasi
+
+## Keamanan
+- CSRF Protection
+- XSS Protection
+- Password hashing (untuk production)
+- Session timeout
+- Input sanitization
+
+## Footer
+Footer telah dikonfigurasi **tanpa link sosial media** sesuai permintaan, hanya menampilkan:
+- Informasi platform
+- Navigasi utama
+- Link dukungan
+- Link legal (privasi & syarat)
+
+## Browser Support
+- Chrome (terbaru)
+- Firefox (terbaru)
+- Safari (terbaru)
+- Edge (terbaru)
+- Mobile browsers (responsive)
+
+## Lisensi
+© 2024 Komunikasi.Digital - Semua hak dilindungi.
