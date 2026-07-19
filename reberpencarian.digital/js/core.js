@@ -141,8 +141,8 @@ class ReberPencarian {
             });
         });
 
-        // Close All Tabs
-        document.getElementById('closeAllTabs')?.addEventListener('click', () => this.closeAllTabs());
+        // Close All Tabs - Dinonaktifkan karena tab bar section telah dihapus
+        // document.getElementById('closeAllTabs')?.addEventListener('click', () => this.closeAllTabs());
 
         // Close Tab Content Overlay
         document.getElementById('closeTabBtn')?.addEventListener('click', () => this.closeActiveTabContent());
@@ -720,6 +720,7 @@ class ReberPencarian {
             this.renderSites(this.allSites);
             this.updateSearchEngineStats();
             this.showPlaceholder();
+            this.clearSearchFrame();
         } else {
             this.currentQuery = query;
             this.currentResults = this.allSites.filter(site => 
@@ -730,7 +731,10 @@ class ReberPencarian {
             
             this.renderSites(this.currentResults);
             this.updateSearchEngineStats();
+            this.updateSearchTabTitle(query);
+            this.saveResultsToTab(this.currentResults);
             this.renderResults();
+            this.renderWebViewContent();
         }
     }
 
@@ -995,6 +999,164 @@ class ReberPencarian {
         document.getElementById('indexProgressFill').style.width = `${percentage}%`;
         document.getElementById('indexStatus').textContent = status;
         document.getElementById('indexPercentage').textContent = `${percentage}%`;
+    }
+
+    // ===== Search Tabs Management (seperti appbrowser.html) =====
+    
+    // Search tabs state
+    searchTabs = [{ id: 1, title: 'Hasil Pencarian', query: '', results: [] }];
+    activeSearchTab = 1;
+
+    // Open new search tab
+    openNewSearchTab() {
+        const newId = Date.now();
+        this.searchTabs.push({
+            id: newId,
+            title: 'Tab Baru',
+            query: '',
+            results: []
+        });
+        this.renderSearchTabs();
+        this.switchSearchTab(newId);
+    }
+
+    // Close search tab
+    closeSearchTab(event, tabId) {
+        event.stopPropagation();
+        if (this.searchTabs.length === 1) {
+            // Reset last tab instead of closing
+            this.searchTabs[0] = { id: 1, title: 'Hasil Pencarian', query: '', results: [] };
+            this.activeSearchTab = 1;
+            this.clearSearchFrame();
+        } else {
+            const index = this.searchTabs.findIndex(t => t.id === tabId);
+            if (index > -1) {
+                this.searchTabs.splice(index, 1);
+                // If closing active tab, switch to previous or first tab
+                if (this.activeSearchTab === tabId) {
+                    const newIndex = Math.max(0, index - 1);
+                    this.activeSearchTab = this.searchTabs[newIndex].id;
+                }
+            }
+        }
+        this.renderSearchTabs();
+        this.loadSearchTab(this.activeSearchTab);
+    }
+
+    // Switch search tab
+    switchSearchTab(tabId) {
+        this.activeSearchTab = tabId;
+        this.renderSearchTabs();
+        this.loadSearchTab(tabId);
+    }
+
+    // Render search tabs
+    renderSearchTabs() {
+        const container = document.getElementById('searchTabsContainer');
+        if (!container) return;
+        
+        let html = '';
+        this.searchTabs.forEach(tab => {
+            const isActive = tab.id === this.activeSearchTab ? 'active' : '';
+            html += `
+                <div class="tab ${isActive}" data-id="${tab.id}" onclick="reberPencarian.switchSearchTab(${tab.id})">
+                    <span class="tab-title">${this.escapeHtml(tab.title)}</span>
+                    <span class="tab-close" onclick="reberPencarian.closeSearchTab(event, ${tab.id})">&times;</span>
+                </div>
+            `;
+        });
+        html += '<button class="new-tab-btn" onclick="reberPencarian.openNewSearchTab()">+</button>';
+        container.innerHTML = html;
+    }
+
+    // Load search tab content
+    loadSearchTab(tabId) {
+        const tab = this.searchTabs.find(t => t.id === tabId);
+        if (!tab) return;
+        
+        if (tab.query && tab.results.length > 0) {
+            this.currentQuery = tab.query;
+            this.currentResults = tab.results;
+            this.renderResults();
+        } else {
+            this.clearSearchFrame();
+        }
+    }
+
+    // Clear search frame
+    clearSearchFrame() {
+        const frame = document.getElementById('searchContentFrame');
+        if (frame) {
+            frame.innerHTML = `
+                <div class="iframe-placeholder">
+                    <i class="fas fa-search">🔎</i>
+                    <h3>Hasil Pencarian</h3>
+                    <p>Masukkan kata kunci untuk melihat hasil indeks</p>
+                </div>
+            `;
+        }
+        this.currentQuery = '';
+        this.currentResults = [];
+        this.updateQueryDisplay();
+    }
+
+    // Update search tab title with query
+    updateSearchTabTitle(query) {
+        const tab = this.searchTabs.find(t => t.id === this.activeSearchTab);
+        if (tab) {
+            tab.title = query.length > 20 ? query.substring(0, 20) + '...' : query;
+            tab.query = query;
+            this.renderSearchTabs();
+        }
+    }
+
+    // Save results to current tab
+    saveResultsToTab(results) {
+        const tab = this.searchTabs.find(t => t.id === this.activeSearchTab);
+        if (tab) {
+            tab.results = results;
+        }
+    }
+
+    // Escape HTML
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    // Render WebView Content (menampilkan hasil dalam frame seperti browser)
+    renderWebViewContent() {
+        const frame = document.getElementById('searchContentFrame');
+        if (!frame || this.currentResults.length === 0) return;
+        
+        let html = '<div style="padding: 20px;">';
+        html += '<div style="background: #f0f4ff; padding: 15px; border-radius: 8px; margin-bottom: 20px;">';
+        html += `<h3 style="margin: 0; color: var(--primary-blue);">🔍 Hasil untuk: "${this.escapeHtml(this.currentQuery)}"</h3>`;
+        html += `<p style="margin: 5px 0 0 0; color: var(--text-secondary);">${this.currentResults.length} hasil ditemukan</p>`;
+        html += '</div>';
+        
+        html += '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">';
+        
+        this.currentResults.forEach((site, index) => {
+            html += `
+                <div class="result-card" style="background: white; border-radius: 8px; padding: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; cursor: pointer; transition: all 0.3s ease;" 
+                     onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 16px rgba(0,71,179,0.15)';"
+                     onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,0,0,0.1)';">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                        <span style="font-size: 32px;">${site.icon}</span>
+                        <div style="flex: 1; min-width: 0;">
+                            <h4 style="margin: 0; font-size: 14px; font-weight: 700; color: var(--text-primary); word-break: break-word;">${this.escapeHtml(site.name)}</h4>
+                        </div>
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-light); font-family: monospace; background: #f0f4ff; padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; word-break: break-all;">${this.escapeHtml(site.path)}</div>
+                    <span style="font-size: 10px; font-weight: 700; color: var(--secondary-blue); text-transform: uppercase; letter-spacing: 0.5px; background: rgba(0, 102, 255, 0.1); padding: 3px 10px; border-radius: 50px; display: inline-block;">${site.category}</span>
+                </div>
+            `;
+        });
+        
+        html += '</div></div>';
+        frame.innerHTML = html;
     }
 
     // Navigate

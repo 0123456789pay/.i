@@ -88,19 +88,18 @@
         </div>
     </header>
 
-    <!-- Tab Bar Section (di bawah kolom pencarian) -->
-    <section class="tab-bar-section" id="tabBarSection">
-        <div class="tab-bar-container">
-            <div class="tab-list" id="tabList">
-                <!-- Tab akan ditambahkan di sini secara dinamis -->
-            </div>
-            <button class="close-all-tabs" id="closeAllTabs" title="Tutup Semua Tab">×</button>
-        </div>
-    </section>
-
-    <!-- Search Engine View Section - Penampil URL/Domain dengan List Hasil Query -->
+    <!-- Search Engine View Section - WebView dengan Tab seperti AppBrowser -->
     <section class="search-engine-view" id="searchEngineView">
         <div class="search-engine-container">
+            <!-- Tabs Container (seperti appbrowser.html) -->
+            <div class="tabs-container" id="searchTabsContainer">
+                <div class="tab active" data-id="1">
+                    <span class="tab-title">Hasil Pencarian</span>
+                    <span class="tab-close" onclick="closeSearchTab(event, 1)">&times;</span>
+                </div>
+                <button class="new-tab-btn" onclick="openNewSearchTab()">+</button>
+            </div>
+
             <!-- Domain/URL Display Panel -->
             <div class="domain-display-panel">
                 <div class="domain-header">
@@ -126,7 +125,7 @@
                 </div>
             </div>
 
-            <!-- Index Activity Panel -->
+            <!-- Index Activity Panel dengan WebView Frame -->
             <div class="index-activity-panel">
                 <div class="activity-header">
                     <h4>📊 Aktivitas Indeks</h4>
@@ -148,8 +147,17 @@
                     </div>
                 </div>
 
-                <!-- Results Container -->
-                <div class="results-container" id="resultsContainer">
+                <!-- Content Frame (WebView) untuk menampilkan hasil -->
+                <div class="content-frame" id="searchContentFrame">
+                    <div class="iframe-placeholder">
+                        <i class="fas fa-search"></i>
+                        <h3>Hasil Pencarian</h3>
+                        <p>Masukkan kata kunci untuk melihat hasil indeks</p>
+                    </div>
+                </div>
+
+                <!-- Results Container (sebagai alternatif view) -->
+                <div class="results-container" id="resultsContainer" style="display: none;">
                     <!-- Hasil query akan ditampilkan di sini -->
                     <div class="results-placeholder" id="resultsPlaceholder">
                         <div class="placeholder-icon">🔎</div>
