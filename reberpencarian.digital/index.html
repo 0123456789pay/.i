@@ -7,17 +7,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <!-- Browser-like Header -->
     <header class="browser-header">
         <div class="nav-buttons">
-            <button class="nav-btn" id="btnBack" title="Kembali">←</button>
-            <button class="nav-btn" id="btnForward" title="Maju">→</button>
-            <button class="nav-btn" id="btnRefresh" title="Segarkan">↻</button>
+            <button class="nav-btn" id="btnBack" title="Kembali"><i class="fas fa-arrow-left"></i></button>
+            <button class="nav-btn" id="btnForward" title="Maju"><i class="fas fa-arrow-right"></i></button>
+            <button class="nav-btn" id="btnRefresh" title="Segarkan"><i class="fas fa-redo"></i></button>
             <!-- Tombol Rumah/Beranda di samping kolom pencarian -->
-            <button class="nav-btn btn-home-active" id="btnHomeActive" title="Tampilkan Beranda - Situs Digital">🏠</button>
+            <button class="nav-btn btn-home-active" id="btnHomeActive" title="Tampilkan Beranda - Situs Digital"><i class="fas fa-home"></i></button>
         </div>
         
         <div class="url-bar-container">
@@ -32,18 +33,18 @@
                 </select>
                 <input type="text" id="urlInput" placeholder="Masukkan URL atau kata kunci pencarian..." autocomplete="off">
                 <button class="search-btn" id="searchBtn">
-                    <span>✓</span> Cari
+                    <i class="fas fa-search"></i> Cari
                 </button>
             </div>
         </div>
         
         <!-- Menu Pencarian di Kanan -->
         <div class="search-menu">
-            <button class="menu-btn" id="btnHistory" title="Riwayat">🕐</button>
-            <button class="menu-btn" id="btnBookmarks" title="Bookmark">⭐</button>
-            <button class="menu-btn" id="btnDownloads" title="Unduhan">⬇️</button>
-            <button class="menu-btn" id="btnSettings" title="Pengaturan">⚙</button>
-            <button class="menu-btn" id="btnMoreOptions" title="Opsi Lainnya">⋮</button>
+            <button class="menu-btn" id="btnHistory" title="Riwayat"><i class="fas fa-history"></i></button>
+            <button class="menu-btn" id="btnBookmarks" title="Bookmark"><i class="fas fa-star"></i></button>
+            <button class="menu-btn" id="btnDownloads" title="Unduhan"><i class="fas fa-download"></i></button>
+            <button class="menu-btn" id="btnSettings" title="Pengaturan"><i class="fas fa-cog"></i></button>
+            <button class="menu-btn" id="btnMoreOptions" title="Opsi Lainnya"><i class="fas fa-ellipsis-v"></i></button>
             
             <!-- Modal Menu List Kecil -->
             <div class="menu-dropdown" id="menuDropdown">
@@ -53,35 +54,35 @@
                 </div>
                 <ul class="menu-dropdown-list">
                     <li class="menu-dropdown-item" data-action="history">
-                        <span class="menu-icon">🕐</span>
+                        <span class="menu-icon"><i class="fas fa-history"></i></span>
                         <span class="menu-label">Riwayat Pencarian</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="bookmarks">
-                        <span class="menu-icon">⭐</span>
+                        <span class="menu-icon"><i class="fas fa-star"></i></span>
                         <span class="menu-label">Bookmark</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="downloads">
-                        <span class="menu-icon">⬇️</span>
+                        <span class="menu-icon"><i class="fas fa-download"></i></span>
                         <span class="menu-label">Unduhan</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="settings">
-                        <span class="menu-icon">⚙</span>
+                        <span class="menu-icon"><i class="fas fa-cog"></i></span>
                         <span class="menu-label">Pengaturan</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="export">
-                        <span class="menu-icon">📤</span>
+                        <span class="menu-icon"><i class="fas fa-upload"></i></span>
                         <span class="menu-label">Export Data</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="import">
-                        <span class="menu-icon">📥</span>
+                        <span class="menu-icon"><i class="fas fa-download"></i></span>
                         <span class="menu-label">Import Data</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="help">
-                        <span class="menu-icon">❓</span>
+                        <span class="menu-icon"><i class="fas fa-question-circle"></i></span>
                         <span class="menu-label">Bantuan</span>
                     </li>
                     <li class="menu-dropdown-item" data-action="about">
-                        <span class="menu-icon">ℹ️</span>
+                        <span class="menu-icon"><i class="fas fa-info-circle"></i></span>
                         <span class="menu-label">Tentang</span>
                     </li>
                 </ul>
