@@ -2,8 +2,6 @@
 # Compiled and build artifacts
 *.pyc
 __pycache__/
-*.o
-*.obj
 
 # Dependencies
 .venv/
@@ -24,13 +22,13 @@ node_modules/
 .vscode/
 .idea/
 
-# Coverage
-.coverage
+# Coverage reports
 coverage/
 htmlcov/
+.coverage
 
-# Distribution / packaging
+# Distribution files
 dist/
 build/
-*.egg-info/
+target/
 ```
