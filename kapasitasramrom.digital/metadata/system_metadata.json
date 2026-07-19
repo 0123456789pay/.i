@@ -1,0 +1,15 @@
+{
+  "system_name": "KapasitasRAMROM_Digital",
+  "version": "1.0.0",
+  "target_capacity_yb": 1500,
+  "formula_type": "TEKS_ANGKA_SIMBOL_KOMPONEN",
+  "initialized_at": "2026-07-19T19:35:01+00:00",
+  "total_nodes": 100,
+  "status": "ACTIVE",
+  "storage_mode": "DISTRIBUTED_LOGICAL",
+  "compression": "ZSTD-QUANTUM-LEVEL-25",
+  "encryption": "AES-512-GCM-POST-QUANTUM",
+  "error_correction": "LDPC-TURBO-CODE-RATE-0.95",
+  "replication_factor": 15,
+  "sharding_algorithm": "CONSISTENT-HASHING-RING-512"
+}
