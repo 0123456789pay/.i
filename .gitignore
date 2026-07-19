@@ -1,11 +1,19 @@
 ```
-# Configuration management files
-.digital/
-.media/
-.pers/
-
-# Environment-specific config files
-*.config
-*.conf
-*.json
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.bin.py
+# Dependencies
+.venv/
+venv/
+node_modules/
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+# Editors
+.vscode/
+.idea/
 ```
