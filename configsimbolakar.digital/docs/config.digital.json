@@ -1,0 +1,80 @@
+{
+  "system": {
+    "name": "Simbol Akar Digital",
+    "version": "1.0.0",
+    "description": "Sistem konfigurasi simbol akar dengan biner dan regex",
+    "root_symbol": "√",
+    "unicode": "U+221A"
+  },
+  "binary_config": {
+    "activation_code": "10101000 01010101 00101010",
+    "secure_mode": true,
+    "encryption": "AES-256"
+  },
+  "regex_patterns": {
+    "root_symbol": "/^\\u221A|sqrt|akar|root$/i",
+    "decimal_number": "/[0-9]+\\.[0-9]+/g",
+    "math_symbols": "/[√∛∜∑∏∫]/g",
+    "alphanumeric": "/^[a-zA-Z0-9]+$/",
+    "special_chars": "/[^a-zA-Z0-9]/g"
+  },
+  "formulas": [
+    {
+      "name": "square_root_sum",
+      "expression": "√(x² + y²)",
+      "type": "geometry"
+    },
+    {
+      "name": "cube_root_sum",
+      "expression": "∛(a³ + b³)",
+      "type": "algebra"
+    },
+    {
+      "name": "limit_infinity",
+      "expression": "lim(x→∞) √x",
+      "type": "calculus"
+    }
+  ],
+  "symbols": {
+    "primary": "√",
+    "variants": ["∛", "∜"],
+    "related": ["∑", "∏", "∫"]
+  },
+  "security": {
+    "hash_algorithm": "SHA-256",
+    "token_length": 64,
+    "session_timeout": 3600,
+    "secure_headers": true
+  },
+  "database": {
+    "driver": "sqlite",
+    "file": "db/simbol_akar.digital.db",
+    "tables": ["symbols", "configs", "logs"]
+  },
+  "paths": {
+    "core": "core/",
+    "symbols": "symbols/",
+    "regex": "regex/",
+    "formulas": "formulas/",
+    "secure": "secure/",
+    "assets": "assets/",
+    "docs": "docs/",
+    "config": "config/"
+  },
+  "extensions": {
+    "html": ".digital.html",
+    "css": ".digital.css",
+    "js": ".digital.js",
+    "php": ".digital.php",
+    "json": ".digital.json",
+    "md": ".digital.md",
+    "txt": ".digital.txt",
+    "db": ".digital.db"
+  },
+  "metadata": {
+    "created": "2025-01-01",
+    "author": "Simbol Akar System",
+    "license": "MIT",
+    "repository": "configsimbolakar.digital"
+  }
+}

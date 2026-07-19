@@ -1,0 +1,148 @@
+# FORMULAS - Simbol Akar Digital
+# ================================
+
+# MATHEMATICAL FORMULAS WITH ROOT SYMBOLS
+# ----------------------------------------
+
+# 1. SQUARE ROOT (Pythagorean Theorem)
+# Formula: √(x² + y²)
+# Type: Geometry
+# Usage: Calculate hypotenuse of right triangle
+# Variables: x, y
+# Example: √(3² + 4²) = √(9 + 16) = √25 = 5
+
+Formula: sqrt(x^2 + y^2)
+Notation: √(x² + y²)
+Domain: x ∈ ℝ, y ∈ ℝ
+Range: [0, ∞)
+
+# 2. CUBE ROOT SUM
+# Formula: ∛(a³ + b³)
+# Type: Algebra
+# Usage: Sum of cubes root
+# Variables: a, b
+# Example: ∛(8 + 27) = ∛35 ≈ 3.27
+
+Formula: cbrt(a^3 + b^3)
+Notation: ∛(a³ + b³)
+Domain: a ∈ ℝ, b ∈ ℝ
+Range: ℝ
+
+# 3. LIMIT AT INFINITY
+# Formula: lim(x→∞) √x
+# Type: Calculus
+# Usage: Limit of square root at infinity
+# Variables: x
+# Result: ∞
+
+Formula: limit(sqrt(x), x, oo)
+Notation: lim(x→∞) √x
+Domain: x > 0
+Result: ∞
+
+# 4. QUADRATIC FORMULA (with discriminant root)
+# Formula: x = (-b ± √(b² - 4ac)) / 2a
+# Type: Algebra
+# Usage: Solve quadratic equations
+# Variables: a, b, c
+# Discriminant: Δ = b² - 4ac
+
+Formula: (-b ± sqrt(b^2 - 4*a*c)) / (2*a)
+Notation: x = (-b ± √(b² - 4ac)) / 2a
+Condition: a ≠ 0
+
+# 5. DISTANCE FORMULA
+# Formula: d = √[(x₂ - x₁)² + (y₂ - y₁)²]
+# Type: Geometry
+# Usage: Calculate distance between two points
+# Variables: x₁, y₁, x₂, y₂
+
+Formula: sqrt((x2-x1)^2 + (y2-y1)^2)
+Notation: d = √[(x₂ - x₁)² + (y₂ - y₁)²]
+Dimension: 2D Euclidean space
+
+# 6. STANDARD DEVIATION
+# Formula: σ = √[Σ(xi - μ)² / N]
+# Type: Statistics
+# Usage: Calculate population standard deviation
+# Variables: xi, μ, N
+
+Formula: sqrt(sum((xi - mu)^2) / N)
+Notation: σ = √[Σ(xi - μ)² / N]
+Application: Statistics, probability
+
+# 7. HERON'S FORMULA (Triangle Area)
+# Formula: A = √[s(s-a)(s-b)(s-c)]
+# Type: Geometry
+# Usage: Calculate triangle area from sides
+# Variables: a, b, c (sides), s (semi-perimeter)
+# Semi-perimeter: s = (a + b + c) / 2
+
+Formula: sqrt(s * (s-a) * (s-b) * (s-c))
+Notation: A = √[s(s-a)(s-b)(s-c)]
+Condition: Triangle inequality must hold
+
+# 8. GOLDEN RATIO
+# Formula: φ = (1 + √5) / 2
+# Type: Number Theory
+# Usage: Golden ratio calculation
+# Value: ≈ 1.618033988749895
+
+Formula: (1 + sqrt(5)) / 2
+Notation: φ = (1 + √5) / 2
+Value: 1.618033988749895...
+
+# 9. EULER'S IDENTITY (with complex roots)
+# Formula: e^(iπ) + 1 = 0
+# Related: √(-1) = i
+# Type: Complex Analysis
+
+Formula: exp(i * pi) + 1 = 0
+Root: √(-1) = i
+Significance: Connects 5 fundamental constants
+
+# 10. NTH ROOT GENERALIZATION
+# Formula: ⁿ√x = x^(1/n)
+# Type: Algebra
+# Usage: General root calculation
+# Variables: n (degree), x (radicand)
+
+Formula: x^(1/n)
+Notation: ⁿ√x
+Domain: x ≥ 0 (for even n), x ∈ ℝ (for odd n)
+
+# BINARY OPERATIONS WITH ROOTS
+# ----------------------------
+
+# Binary Square Root
+Pattern: √(binary_value)
+Example: √(100100₂) = √(36) = 6
+
+# Hexadecimal Root
+Pattern: √(0xHEX)
+Example: √(0x100) = √(256) = 16
+
+# REGEX FOR FORMULA PARSING
+# -------------------------
+
+# Match square root expressions
+Pattern: /sqrt\\([^)]+\\)|√[^+\\-*/]/g
+
+# Match exponent notation
+Pattern: /[a-z]\\^\\{?[0-9]+\\}?/gi
+
+# Match fraction format
+Pattern: /\\frac\\{[^}]+\\}\\{[^}]+\\}/g
+
+# COMPUTATIONAL RULES
+# -------------------
+
+Rule 1: √(a × b) = √a × √b
+Rule 2: √(a / b) = √a / √b (b ≠ 0)
+Rule 3: √(a²) = |a|
+Rule 4: √a × √b = √(ab)
+Rule 5: (√a)² = a (a ≥ 0)
+
+# STATUS: ACTIVE
+# VERSION: 1.0.0
+# SYMBOL: √

@@ -1,0 +1,111 @@
+/^\\u221A|sqrt|akar|root$/i
+/[0-9]+\\.[0-9]+/g
+/[√∛∜∑∏∫]/g
+/^[a-zA-Z0-9]+$/
+/[^a-zA-Z0-9]/g
+
+# REGEX PATTERNS - Simbol Akar Digital
+# =====================================
+
+# ROOT SYMBOL PATTERNS
+# --------------------
+
+# Pattern 1: Root Symbol Unicode
+# Matches: √, \u221A, sqrt, akar, root
+Pattern: /^\\u221A|sqrt|akar|root$/i
+Flags: i (case insensitive)
+Description: Matches root symbol in various formats
+
+# Pattern 2: Decimal Numbers
+# Matches: 3.14, 2.718, 1.414
+Pattern: /[0-9]+\\.[0-9]+/g
+Flags: g (global)
+Description: Matches decimal number format
+
+# Pattern 3: Mathematical Symbols
+# Matches: √, ∛, ∜, ∑, ∏, ∫
+Pattern: /[√∛∜∑∏∫]/g
+Flags: g (global)
+Description: Matches all mathematical symbols
+
+# Pattern 4: Alphanumeric Only
+# Matches: abc123, ABC, 123
+Pattern: /^[a-zA-Z0-9]+$/
+Flags: none
+Description: Validates alphanumeric strings only
+
+# Pattern 5: Special Characters
+# Matches: @, #, $, %, &, etc.
+Pattern: /[^a-zA-Z0-9]/g
+Flags: g (global)
+Description: Matches non-alphanumeric characters
+
+# VALIDATION PATTERNS
+# -------------------
+
+# Email Validation
+Pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/
+Description: Standard email format validation
+
+# URL Validation
+Pattern: /^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$/
+Description: HTTP/HTTPS URL validation
+
+# Password Strength (minimum 8 chars, 1 uppercase, 1 lowercase, 1 number)
+Pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$/
+Description: Strong password validation
+
+# NUMBER FORMATS
+# --------------
+
+# Integer
+Pattern: /^-?\\d+$/
+Description: Matches positive or negative integers
+
+# Floating Point
+Pattern: /^-?\\d+\\.\\d+$/
+Description: Matches floating point numbers
+
+# Scientific Notation
+Pattern: /^-?\\d+(\\.\\d+)?[eE][+-]?\\d+$/
+Description: Matches scientific notation (e.g., 1.23e-4)
+
+# SPECIAL USE CASES
+# -----------------
+
+# File Extension .digital
+Pattern: /\\.digital\\.[a-z]+$/i
+Description: Matches .digital file extensions
+
+# Binary Code (8-bit groups)
+Pattern: /^([01]{8}\\s*)+$/
+Description: Validates binary code format
+
+# Hexadecimal Color
+Pattern: /^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+Description: Matches hex color codes
+
+# IMPLEMENTATION EXAMPLES
+# -----------------------
+
+# JavaScript
+const rootPattern = /^\\u221A|sqrt|akar|root$/i;
+if (rootPattern.test(input)) {
+    console.log('Root symbol detected!');
+}
+
+# PHP
+$pattern = '/^\\\\u221A|sqrt|akar|root$/i';
+if (preg_match($pattern, $input)) {
+    echo 'Root symbol detected!';
+}
+
+# Python
+import re
+pattern = r'^\\u221A|sqrt|akar|root$'
+if re.match(pattern, input, re.IGNORECASE):
+    print('Root symbol detected!')
+
+# STATUS: ACTIVE
+# LAST UPDATED: 2025
+# VERSION: 1.0.0
