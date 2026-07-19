@@ -1,22 +1,23 @@
 ```
+# Compiled and build artifacts
+*.bin
+*.sql
+*.cfg
+*.regex
+
 # Dependencies
-vendor/
+node_modules/
+
+# Logs and temp files
+*.log
+*.tmp
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Logs
-*.log
-
-# Temporary files
-*.tmp
-*.temp
-Thumbs.db
-.DS_Store
-
-# PHP specific
-*.php~
-*.php.bak
+# Editors
+.vscode/
+.idea/
 ```
