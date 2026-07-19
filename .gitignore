@@ -1,28 +1,7 @@
-# Examples 1:
-(empty)
+```
+# Logs
+*.log
 
-# Example 2:
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
-target/
-# Dependencies
-.venv/
-venv/
-.env
-.env.local
-.env.*
-node_modules/
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-# Editors
-.vscode/
-.idea/
-# Original rules preserved
-*.log
+# Write ahead log
+.write_ahead_log.json
+```
