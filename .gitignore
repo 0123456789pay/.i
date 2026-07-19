@@ -1,45 +1,29 @@
 ```
-# Configuration backups/exports
-reberpencarian.digital/config/
-
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-*.class
-*.exe
-*.dll
-*.so
-*.a
-*.out
-
-# Dependencies
-.venv/
-venv/
-node_modules/
-target/
-.gradle/
-.mypy_cache/
-.pytest_cache/
-coverage/
-htmlcov/
-*.egg-info/
-
-# Logs and temp files
+# Log files
 *.log
+
+# Configuration and system files that might contain sensitive data
+*.env
+*.env.local
+*.env.*
+
+# Temporary files
 *.tmp
 *.swp
-*.swo
-*.bak
-*.~*
 
-# Environment
-.env
-.env.local
-.env.*
+# Build artifacts and generated files
+build/
+dist/
+target/
 
-# Editors and IDEs
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.egg-info/
+
+# Editor/IDE files
 .vscode/
 .idea/
 *.swp
@@ -48,6 +32,18 @@ htmlcov/
 # System files
 .DS_Store
 Thumbs.db
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
 
 # Compressed files
 *.zip
