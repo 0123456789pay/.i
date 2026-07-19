@@ -69,7 +69,7 @@
             <div class="footer-bottom">
                 <p>&copy; <?php echo date('Y'); ?> newsnia.digital. All Rights Reserved.</p>
                 <p style="margin-top: 10px; font-size: 13px;">
-                    Member of Digital Media Network | ISSN: XXXX-XXXX
+                Media Digital
                 </p>
             </div>
         </div>
