@@ -43,6 +43,7 @@ class ReberPencarian {
             { name: 'bantuansupport.digital', path: '/workspace/bantuansupport.digital', category: 'support', icon: '❓' },
             { name: 'bisnisstartup.digital', path: '/workspace/bisnisstartup.digital', category: 'business', icon: '💼' },
             { name: 'blockchaincrypto.digital', path: '/workspace/blockchaincrypto.digital', category: 'finance', icon: '₿' },
+            { name: 'coder.qwen.ai', path: 'https://coder.qwen.ai/', category: 'tech', icon: '💻' },
             { name: 'configphpgit.digital', path: '/workspace/configphpgit.digital', category: 'config', icon: '🐘' },
             { name: 'configprotokol.digital', path: '/workspace/configprotokol.digital', category: 'config', icon: '⚙️' },
             { name: 'configselectortrue.digital', path: '/workspace/configselectortrue.digital', category: 'config', icon: '✓' },
