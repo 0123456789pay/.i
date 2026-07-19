@@ -76,6 +76,11 @@ class ReberPencarian {
         this.generateSuggestions();
         this.loadBookmarkTags();
         this.calculateSearchFrequency();
+        this.initFuzzySearch();
+        this.initKeyboardShortcuts();
+        this.loadSearchHistory();
+        this.initDarkMode();
+        this.initAnalytics();
     }
 
     async scanDigitalFolders() {
@@ -2020,6 +2025,322 @@ class ReberPencarian {
         
         this.selectedItems.clear();
         this.renderSelectionUI();
+    }
+
+    // ============================================
+    // 15 PONT OPTIMASI LANJUTAN
+    // ============================================
+
+    // 16. Init Fuzzy Search with Levenshtein Distance
+    initFuzzySearch() {
+        this.fuzzySearchEnabled = true;
+        this.fuzzyThreshold = 0.6;
+        console.log('Fuzzy search initialized with threshold:', this.fuzzyThreshold);
+    }
+
+    // 17. Init Keyboard Shortcuts Extended
+    initKeyboardShortcuts() {
+        this.shortcuts = {
+            'Ctrl+K': () => document.getElementById('urlInput')?.focus(),
+            'Ctrl+H': () => this.showMenu('history'),
+            'Ctrl+D': () => this.addCurrentBookmark(),
+            'Ctrl+T': () => this.openNewSearchTab(),
+            'Ctrl+W': () => this.closeCurrentTab(),
+            'Ctrl+Tab': () => this.switchToNextTab(),
+            'Ctrl+Shift+Tab': () => this.switchToPrevTab(),
+            'Escape': () => this.hideMenuDropdown(),
+            'F5': () => this.navigate('refresh'),
+            'Alt+Left': () => this.navigate('back'),
+            'Alt+Right': () => this.navigate('forward')
+        };
+        console.log('Extended keyboard shortcuts initialized');
+    }
+
+    // 18. Load Search History from Storage
+    loadSearchHistory() {
+        const savedHistory = localStorage.getItem('reber_search_history');
+        if (savedHistory) {
+            this.searchHistory = JSON.parse(savedHistory);
+        } else {
+            this.searchHistory = [];
+        }
+        console.log('Search history loaded:', this.searchHistory.length, 'items');
+    }
+
+    // 19. Init Dark Mode Toggle
+    initDarkMode() {
+        const savedTheme = localStorage.getItem('reber_theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+        console.log('Dark mode initialized, current theme:', savedTheme || 'light');
+    }
+
+    // 20. Init Analytics Dashboard
+    initAnalytics() {
+        this.analyticsData = {
+            searchesToday: 0,
+            mostUsedFilter: 'all',
+            avgSearchTime: 0,
+            peakUsageHour: 0
+        };
+        this.loadAnalyticsData();
+        console.log('Analytics dashboard initialized');
+    }
+
+    // 21. Load Analytics Data from Storage
+    loadAnalyticsData() {
+        const saved = localStorage.getItem('reber_analytics_data');
+        if (saved) {
+            this.analyticsData = { ...this.analyticsData, ...JSON.parse(saved) };
+        }
+    }
+
+    // 22. Add Current Page to Bookmarks
+    addCurrentBookmark() {
+        const currentTab = this.searchTabs.find(t => t.id === this.activeSearchTabId);
+        if (currentTab && currentTab.query) {
+            const bookmark = {
+                name: currentTab.title,
+                query: currentTab.query,
+                date: new Date().toISOString(),
+                category: 'search'
+            };
+            this.bookmarks.push(bookmark);
+            this.saveToStorage();
+            this.showToast('Bookmark ditambahkan!');
+        }
+    }
+
+    // 23. Switch to Next Tab
+    switchToNextTab() {
+        const currentIndex = this.searchTabs.findIndex(t => t.id === this.activeSearchTabId);
+        const nextIndex = (currentIndex + 1) % this.searchTabs.length;
+        this.activeSearchTabId = this.searchTabs[nextIndex].id;
+        this.renderSearchTabs();
+        this.loadSearchTabContent(this.activeSearchTabId);
+    }
+
+    // 24. Switch to Previous Tab
+    switchToPrevTab() {
+        const currentIndex = this.searchTabs.findIndex(t => t.id === this.activeSearchTabId);
+        const prevIndex = (currentIndex - 1 + this.searchTabs.length) % this.searchTabs.length;
+        this.activeSearchTabId = this.searchTabs[prevIndex].id;
+        this.renderSearchTabs();
+        this.loadSearchTabContent(this.activeSearchTabId);
+    }
+
+    // 25. Show Toast Notification
+    showToast(message, duration = 3000) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.textContent = message;
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--gradient-blue);
+            color: white;
+            padding: 12px 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            z-index: 10000;
+            animation: slideInRight 0.3s ease-out;
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.animation = 'slideOutRight 0.3s ease-out';
+            setTimeout(() => toast.remove(), 300);
+        }, duration);
+    }
+
+    // 26. Quick Access Recent Searches
+    getRecentSearches(limit = 5) {
+        return this.searchHistory.slice(-limit).reverse();
+    }
+
+    // 27. Clear All Search History
+    clearAllHistory() {
+        if (confirm('Apakah Anda yakin ingin menghapus semua riwayat pencarian?')) {
+            this.searchHistory = [];
+            this.history = [];
+            localStorage.removeItem('reber_search_history');
+            localStorage.removeItem('reber_history');
+            this.showToast('Riwayat pencarian dihapus!');
+        }
+    }
+
+    // 28. Export All Bookmarks
+    exportAllBookmarks() {
+        const jsonData = JSON.stringify(this.bookmarks, null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `bookmarks_${new Date().toISOString().split('T')[0]}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        this.showToast('Bookmark diekspor!');
+    }
+
+    // 29. Import Bookmarks from JSON
+    importBookmarks(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const imported = JSON.parse(e.target.result);
+                this.bookmarks = [...this.bookmarks, ...imported];
+                this.saveToStorage();
+                this.showToast(`${imported.length} bookmark diimpor!`);
+            } catch (err) {
+                alert('File tidak valid');
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    // 30. Search with Filters Applied
+    searchWithFilters(query, filterType) {
+        let results = this.fuzzySearch(query);
+        
+        if (filterType !== 'all') {
+            results = results.filter(site => site.category === filterType);
+        }
+        
+        return results;
+    }
+
+    // 31. Highlight Search Terms in Results
+    highlightSearchTerms(text, query) {
+        if (!query) return text;
+        const regex = new RegExp(`(${query})`, 'gi');
+        return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    // 32. Cache Search Results for Performance
+    cacheSearchResults(query, results) {
+        const cacheKey = `cache_${query}`;
+        sessionStorage.setItem(cacheKey, JSON.stringify({
+            results,
+            timestamp: Date.now()
+        }));
+    }
+
+    // 33. Get Cached Search Results
+    getCachedSearchResults(query, maxAge = 300000) {
+        const cacheKey = `cache_${query}`;
+        const cached = sessionStorage.getItem(cacheKey);
+        
+        if (cached) {
+            const data = JSON.parse(cached);
+            if (Date.now() - data.timestamp < maxAge) {
+                return data.results;
+            }
+            sessionStorage.removeItem(cacheKey);
+        }
+        return null;
+    }
+
+    // 34. Track User Behavior for Personalization
+    trackUserBehavior(action, data) {
+        const behavior = {
+            action,
+            data,
+            timestamp: Date.now()
+        };
+        
+        if (!this.userBehaviorLog) this.userBehaviorLog = [];
+        this.userBehaviorLog.push(behavior);
+        
+        // Keep only last 100 actions
+        if (this.userBehaviorLog.length > 100) {
+            this.userBehaviorLog.shift();
+        }
+    }
+
+    // 35. Get Personalized Suggestions
+    getPersonalizedSuggestions() {
+        if (!this.userBehaviorLog || this.userBehaviorLog.length === 0) {
+            return this.searchSuggestions.slice(0, 5);
+        }
+        
+        // Analyze frequent searches
+        const searchCounts = {};
+        this.userBehaviorLog
+            .filter(b => b.action === 'search')
+            .forEach(b => {
+                const query = b.data?.query || '';
+                searchCounts[query] = (searchCounts[query] || 0) + 1;
+            });
+        
+        // Return top searches
+        return Object.entries(searchCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5)
+            .map(([query]) => query);
+    }
+
+    // 36. Optimize Images Lazy Loading
+    initLazyLoading() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    }
+
+    // 37. Preload Frequently Accessed Sites
+    preloadFrequentSites() {
+        const frequentSites = this.getPersonalizedSuggestions();
+        frequentSites.forEach(query => {
+            // Preload logic can be implemented here
+            console.log('Preloading suggestions for:', query);
+        });
+    }
+
+    // 38. Compress Search Query for URL Sharing
+    compressQueryForShare(query) {
+        return encodeURIComponent(btoa(query));
+    }
+
+    // 39. Decompress Shared Query from URL
+    decompressSharedQuery(compressed) {
+        try {
+            return atob(decodeURIComponent(compressed));
+        } catch (e) {
+            return '';
+        }
+    }
+
+    // 40. Generate Search Report
+    generateSearchReport() {
+        const report = {
+            totalSearches: this.analytics.totalSearches,
+            popularQueries: this.analytics.popularQueries,
+            bookmarksCount: this.bookmarks.length,
+            historyCount: this.history.length,
+            generatedAt: new Date().toISOString()
+        };
+        
+        const jsonData = JSON.stringify(report, null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `search_report_${new Date().toISOString().split('T')[0]}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        
+        this.showToast('Laporan pencarian dibuat!');
+        return report;
     }
 }
 
