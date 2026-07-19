@@ -6,7 +6,7 @@ class ReberPencarian {
         this.activeTabId = null;
         this.history = [];
         this.bookmarks = [];
-        this.settings = { gridColumns: 7 };
+        this.settings = { gridColumns: 7, itemsPerPage: 20 };
         this.allSites = [];
         
         // Search Engine View Properties
@@ -14,8 +14,11 @@ class ReberPencarian {
         this.currentResults = [];
         this.currentView = 'grid';
         this.currentPage = 1;
-        this.itemsPerPage = 12;
+        this.itemsPerPage = 20;
         this.isIndexing = false;
+        this.currentFilter = 'all';
+        this.navigationStack = [];
+        this.navigationIndex = -1;
         
         // Tab System State - Full Width Tab System
         this.searchTabs = [{ id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true }];
@@ -169,6 +172,14 @@ class ReberPencarian {
         document.getElementById('btnPrevPage')?.addEventListener('click', () => this.goToPage(this.currentPage - 1));
         document.getElementById('btnNextPage')?.addEventListener('click', () => this.goToPage(this.currentPage + 1));
         document.getElementById('btnLastPage')?.addEventListener('click', () => this.goToPage(this.getTotalPages()));
+
+        // Filter Buttons - Jenis Domain
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filterType = e.currentTarget.dataset.filter;
+                this.setFilter(filterType);
+            });
+        });
     }
 
     // Render Sites Grid (untuk fallback)
@@ -694,6 +705,15 @@ class ReberPencarian {
                             </div>
                         </div>
                         <div class="setting-item">
+                            <label>Jumlah Hasil Pencarian per Halaman</label>
+                            <div class="grid-selector">
+                                ${[20, 50, 100].map(n => `
+                                    <button class="grid-btn ${this.itemsPerPage === n ? 'active' : ''}" 
+                                            onclick="window.reberPencarian.setItemsPerPage(${n})">${n}</button>
+                                `).join('')}
+                            </div>
+                        </div>
+                        <div class="setting-item">
                             <label>Tema</label>
                             <select class="theme-selector">
                                 <option value="light">Terang (Default)</option>
@@ -878,6 +898,21 @@ class ReberPencarian {
         if (grid) {
             grid.style.gridTemplateColumns = `repeat(${this.settings.gridColumns}, 1fr)`;
         }
+        
+        // Update items per page selector jika ada
+        const itemsPerPageSelect = document.getElementById('itemsPerPageSelect');
+        if (itemsPerPageSelect) {
+            itemsPerPageSelect.value = this.itemsPerPage;
+        }
+    }
+
+    // Set Items Per Page
+    setItemsPerPage(value) {
+        this.itemsPerPage = parseInt(value);
+        this.currentPage = 1;
+        this.settings.itemsPerPage = this.itemsPerPage;
+        this.saveToStorage();
+        this.renderWebViewContent();
     }
 
     // Clear History
@@ -910,8 +945,12 @@ class ReberPencarian {
     resetSettings() {
         if (confirm('Yakin ingin mereset semua pengaturan?')) {
             this.settings = { gridColumns: 7 };
+            this.itemsPerPage = 20;
+            this.currentFilter = 'all';
+            this.currentPage = 1;
             this.saveToStorage();
             this.updateSettingsUI();
+            this.renderWebViewContent();
             this.showMenu('settings');
         }
     }
@@ -1362,32 +1401,74 @@ class ReberPencarian {
         return div.innerHTML;
     }
 
-    // Render WebView Content - Menampilkan grid kartu situs di dalam tab (Home View)
-    renderWebViewContent() {
+    // Render WebView Content - Menampilkan grid kartu situs di dalam tab (Home View) dengan filter dan pagination
+    renderWebViewContent(sites = null, isDetailView = false, detailData = null) {
         const frame = document.getElementById('searchContentFrame');
         if (!frame) return;
+        
+        // Jika ini tampilan detail (setelah klik "Lihat Detail")
+        if (isDetailView && detailData) {
+            this.navigationStack.push({ type: 'home', sites: sites || this.allSites });
+            this.navigationIndex++;
+            
+            let html = `
+                <div class="site-detail-view" style="padding: 30px;">
+                    <div class="site-detail-header">
+                        <button class="back-btn" onclick="window.reberPencarian.navigateBack()" style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; background: var(--gradient-blue); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: 600;">
+                            <i class="fas fa-arrow-left"></i> Kembali
+                        </button>
+                    </div>
+                    <div class="site-detail-content">
+                        <div class="site-detail-icon">${detailData.icon}</div>
+                        <h2 class="site-detail-name">${this.escapeHtml(detailData.name)}</h2>
+                        <p class="site-detail-path">${this.escapeHtml(detailData.path)}</p>
+                        <span class="site-detail-category">${this.escapeHtml(detailData.category)}</span>
+                        <div class="site-detail-description">
+                            <h4>Deskripsi Singkat:</h4>
+                            <p>${detailData.description || 'Tidak ada deskripsi tersedia.'}</p>
+                        </div>
+                        <div class="site-detail-actions">
+                            <button class="detail-action-btn primary" onclick="window.reberPencarian.openIndexHtml('${this.escapeHtml(detailData.path)}')">
+                                <i class="fas fa-external-link-alt"></i> Buka Situs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            frame.innerHTML = html;
+            this.updateResultsInfo(1);
+            return;
+        }
+        
+        // Filter situs berdasarkan tipe domain
+        let displaySites = sites || this.allSites;
+        if (this.currentFilter !== 'all') {
+            displaySites = this.filterSitesByType(displaySites);
+        }
+        
+        // Pagination
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = startIndex + this.itemsPerPage;
+        const paginatedSites = displaySites.slice(startIndex, endIndex);
         
         // Render home view with all sites grid
         let html = '<div class="main-sites-grid">';
         
-        this.allSites.forEach((site, index) => {
+        paginatedSites.forEach((site, index) => {
             const delay = index * 0.03;
-            html += `
-                <div class="main-site-card animate-fade-in" style="animation-delay: ${delay}s" data-name="${this.escapeHtml(site.name)}" data-path="${this.escapeHtml(site.path)}">
-                    <div class="main-site-card-icon">${site.icon}</div>
-                    <div class="main-site-card-name">${this.escapeHtml(site.name)}</div>
-                    <div class="main-site-card-path">${this.escapeHtml(site.path)}</div>
-                    <div class="main-site-card-category">${this.escapeHtml(site.category)}</div>
-                    <div class="main-site-card-actions">
-                        <button class="main-site-btn primary" onclick="window.reberPencarian.openIndexHtml('${this.escapeHtml(site.path)}')" title="Buka index.html">📄</button>
-                        <button class="main-site-btn secondary" onclick="window.reberPencarian.showSiteDetailInTab('${this.escapeHtml(site.name)}')" title="Lihat Detail">👁️</button>
-                    </div>
-                </div>
-            `;
+            html += `\n                <div class="main-site-card animate-fade-in" style="animation-delay: ${delay}s" data-name="${this.escapeHtml(site.name)}" data-path="${this.escapeHtml(site.path)}">\n                    <div class="main-site-card-icon">${site.icon}</div>\n                    <div class="main-site-card-name">${this.escapeHtml(site.name)}</div>\n                    <div class="main-site-card-path">${this.escapeHtml(site.path)}</div>\n                    <div class="main-site-card-category">${this.escapeHtml(site.category)}</div>\n                    <div class="main-site-card-actions">\n                        <button class="main-site-btn primary" onclick="window.reberPencarian.openIndexHtml('${this.escapeHtml(site.path)}')" title="Buka index.html"><i class="fas fa-external-link-alt"></i></button>\n                        <button class="main-site-btn secondary" onclick="window.reberPencarian.showSiteDetailInTab('${this.escapeHtml(site.name)}')" title="Lihat Detail"><i class="fas fa-eye"></i></button>\n                    </div>\n                </div>\n            `;
         });
         
         html += '</div>';
+        
+        // Tambahkan pagination controls jika lebih dari 1 halaman
+        const totalPages = Math.ceil(displaySites.length / this.itemsPerPage);
+        if (totalPages > 1) {
+            html += `\n                <div class="pagination-controls" style="display: flex; justify-content: center; gap: 8px; padding: 20px; align-items: center;">\n                    <button class="filter-btn" onclick="window.reberPencarian.goToPage(1)" ${this.currentPage === 1 ? 'disabled' : ''}><i class="fas fa-angle-double-left"></i></button>\n                    <button class="filter-btn" onclick="window.reberPencarian.goToPage(${this.currentPage - 1})" ${this.currentPage === 1 ? 'disabled' : ''}><i class="fas fa-angle-left"></i></button>\n                    <span style="font-weight: 600; color: var(--text-primary);">Halaman ${this.currentPage} dari ${totalPages}</span>\n                    <button class="filter-btn" onclick="window.reberPencarian.goToPage(${this.currentPage + 1})" ${this.currentPage === totalPages ? 'disabled' : ''}><i class="fas fa-angle-right"></i></button>\n                    <button class="filter-btn" onclick="window.reberPencarian.goToPage(${totalPages})" ${this.currentPage === totalPages ? 'disabled' : ''}><i class="fas fa-angle-double-right"></i></button>\n                </div>\n            `;
+        }
+        
         frame.innerHTML = html;
+        this.updateResultsInfo(displaySites.length);
         
         // Bind click events untuk kartu - Buka tab baru dengan judul situs
         setTimeout(() => {
@@ -1405,6 +1486,64 @@ class ReberPencarian {
                 });
             });
         }, 100);
+    }
+
+    // Filter situs berdasarkan tipe domain
+    filterSitesByType(sites) {
+        return sites.filter(site => {
+            const category = site.category.toLowerCase();
+            const name = site.name.toLowerCase();
+            
+            switch(this.currentFilter) {
+                case 'text':
+                    return category === 'tech' || category === 'config' || category === 'education';
+                case 'image':
+                    return category === 'creative' || category === 'media' || category === 'desain';
+                case 'video':
+                    return category === 'media' || name.includes('video') || name.includes('stream');
+                case 'movie':
+                    return name.includes('film') || name.includes('movie') || category === 'entertainment';
+                case 'shopping':
+                    return category === 'business' || category === 'ecommerce' || name.includes('shop') || name.includes('store');
+                default:
+                    return true;
+            }
+        });
+    }
+
+    // Set filter dan reset ke halaman pertama
+    setFilter(filterType) {
+        this.currentFilter = filterType;
+        this.currentPage = 1;
+        
+        // Update UI tombol filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.filter === filterType) {
+                btn.classList.add('active');
+            }
+        });
+        
+        this.renderWebViewContent();
+    }
+
+    // Update info jumlah hasil
+    updateResultsInfo(count) {
+        const infoEl = document.getElementById('resultsCountInfo');
+        if (infoEl) {
+            infoEl.textContent = `Menampilkan ${count} hasil`;
+        }
+    }
+
+    // Navigate Back - Kembali ke tampilan sebelumnya
+    navigateBack() {
+        if (this.navigationStack.length > 0) {
+            const prevState = this.navigationStack.pop();
+            this.navigationIndex--;
+            this.renderWebViewContent(prevState.sites, false, null);
+        } else {
+            this.renderWebViewContent();
+        }
     }
 
     // Navigate
@@ -1445,13 +1584,32 @@ class ReberPencarian {
         frame.scrollTop = 0;
     }
     
-    // Show Site Detail in Tab - Buka detail situs di tab baru
+    // Show Site Detail in Tab - Tampilkan detail situs dengan deskripsi singkat
     showSiteDetailInTab(siteName) {
         const site = this.allSites.find(s => s.name === siteName);
         if (!site) return;
         
-        // Buka tab baru dengan judul situs
-        this.openNewSearchTab(site);
+        // Tambahkan deskripsi singkat berdasarkan kategori
+        const descriptions = {
+            'ai': 'Platform kecerdasan buatan dan pembelajaran mesin untuk otomatisasi cerdas.',
+            'tech': 'Teknologi dan solusi digital untuk kebutuhan modern.',
+            'business': 'Solusi bisnis dan startup untuk pertumbuhan perusahaan.',
+            'media': 'Konten media dan hiburan digital berkualitas tinggi.',
+            'education': 'Sumber daya pendidikan dan pelatihan online.',
+            'health': 'Layanan kesehatan digital dan telemedisin.',
+            'finance': 'Layanan keuangan dan perbankan digital.',
+            'security': 'Keamanan siber dan perlindungan data.',
+            'config': 'Konfigurasi sistem dan pengaturan teknis.',
+            'creative': 'Desain kreatif dan konten visual.',
+            'infrastructure': 'Infrastruktur cloud dan jaringan.',
+            'default': 'Situs digital terpercaya dengan berbagai layanan unggulan.'
+        };
+        
+        const description = descriptions[site.category] || descriptions['default'];
+        site.description = description;
+        
+        // Render tampilan detail
+        this.renderWebViewContent(null, true, site);
     }
 
     // Open External URL - Membuka URL eksternal (seperti coder.qwen.ai) dalam iframe
