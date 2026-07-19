@@ -1,37 +1,38 @@
-```
-# Configuration and temporary files
-*.config.json
-config.json
+# Examples 1:
+(empty)
 
-# Environment and cache files
-.env
-.env.local
-.env.*
-*.tmp
-*.temp
-
-# Logs
-*.log
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Editor/IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Build artifacts and dependencies (if any generated)
-build/
-dist/
-target/
-node_modules/
-__pycache__/
+# Example 2 (Project with artifacts):
+# Compiled and build artifacts
 *.pyc
-*.class
+__pycache__/
 *.o
 *.obj
-*.out
-```
+dist/
+build/
+target/
+# Dependencies
+.venv/
+venv/
+node_modules/
+.mypy_cache/
+.pytest_cache/
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+# Environment
+.env
+.env.local
+*.env.*
+# Editors
+.vscode/
+.idea/
+# OS
+.DS_Store
+Thumbs.db
+# Coverage
+coverage/
+htmlcov/
+.coverage
+# Original rules preserved
+*.log
