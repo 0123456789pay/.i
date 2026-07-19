@@ -1,23 +1,47 @@
 ```
-# Compiled and build artifacts
-*.bin
-*.sql
-*.cfg
-*.regex
+# Configuration files
+config/binary.conf
+config/core.formula
+config/regex.patterns
 
-# Dependencies
-node_modules/
-
-# Logs and temp files
-*.log
-*.tmp
+# Database
+db/schema.sql
 
 # Environment
 .env
 .env.local
-*.env.*
+.env.*
 
-# Editors
-.vscode/
-.idea/
+# Logs
+*.log
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+dist/
+build/
+target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py.class
+
+# PHP
+*.php~
+
+# Temporary files
+*.tmp
+*.temp
+*~
+.swp
+.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
 ```

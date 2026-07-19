@@ -1,0 +1,39 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log Files
+*.log
+logs/
+
+# Database Files (Production)
+*.db
+*.sqlite
+!db/schema.sql
+
+# Environment Files
+.env
+.env.local
+.env.production
+
+# Cache
+.cache/
+__pycache__/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Build Output
+dist/
+build/
+
+# Temporary Files
+tmp/
+temp/
