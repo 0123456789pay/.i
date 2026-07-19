@@ -82,6 +82,28 @@ body {
     box-shadow: var(--shadow-md);
 }
 
+/* Tombol Home Active - Highlight khusus untuk tombol beranda */
+.btn-home-active {
+    background: rgba(255, 255, 255, 0.3);
+    font-size: 20px;
+    animation: pulse-home 2s infinite;
+}
+
+.btn-home-active:hover {
+    background: rgba(255, 255, 255, 0.45);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes pulse-home {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+}
+
 /* Search Menu di Kanan - Icon diperbaiki */
 .search-menu {
     display: flex;
@@ -1004,20 +1026,26 @@ body {
 /* Search Engine View Section - Penampil URL/Domain dengan List Hasil Query */
 .search-engine-view {
     position: fixed;
-    top: 118px;
+    top: 70px;
     left: 0;
     right: 0;
+    bottom: 0;
     background: #f8fafc;
     z-index: 997;
-    padding: 16px 24px;
-    display: none;
-    border-bottom: 2px solid var(--border-color);
-    box-shadow: var(--shadow-md);
+    padding: 0;
+    display: block;
+    border-bottom: none;
+    box-shadow: none;
 }
 
 .search-engine-view.active {
     display: block;
     animation: slideDown 0.3s ease-out;
+}
+
+.main-tab-view {
+    display: flex !important;
+    flex-direction: column;
 }
 
 .search-engine-container {

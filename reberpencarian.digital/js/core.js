@@ -104,7 +104,8 @@ class ReberPencarian {
         document.getElementById('btnBack')?.addEventListener('click', () => this.navigate('back'));
         document.getElementById('btnForward')?.addEventListener('click', () => this.navigate('forward'));
         document.getElementById('btnRefresh')?.addEventListener('click', () => this.navigate('refresh'));
-        document.getElementById('btnHome')?.addEventListener('click', () => this.navigate('home'));
+        // Tombol Home Active - Tampilkan Beranda Situs Digital
+        document.getElementById('btnHomeActive')?.addEventListener('click', () => this.showHomeView());
 
         // Search Button
         document.getElementById('searchBtn')?.addEventListener('click', () => this.performSearch());
@@ -1341,6 +1342,24 @@ class ReberPencarian {
                 document.getElementById('tabContentOverlay').classList.remove('active');
                 break;
         }
+    }
+
+    // Show Home View - Tampilkan Beranda dengan kartu-kartu situs .digital
+    showHomeView() {
+        const frame = document.getElementById('searchContentFrame');
+        if (!frame) return;
+        
+        // Reset ke tampilan beranda dengan semua situs
+        this.renderToMainContentFrame(this.allSites);
+        
+        // Update tab title
+        const activeTab = document.querySelector('.tab.active .tab-title');
+        if (activeTab) {
+            activeTab.textContent = '🏠 Beranda - Situs Digital';
+        }
+        
+        // Scroll to top
+        frame.scrollTop = 0;
     }
 }
 
