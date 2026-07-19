@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNS_DOMAIN.DIGITAL - Pusat Sistem DNS & Domain Terintegrasi</title>
+    <meta name="description" content="DNS_DOMAIN.DIGITAL - Platform pusat untuk sistem DNS dan domain terintegrasi dengan ratusan folder .digital">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Brand Navbar -->
+    <nav class="brand-navbar">
+        <div class="navbar-menu">
+            <a href="/" class="brand-logo">
+                <i class="fas fa-globe"></i>
+                DNS_DOMAIN.DIGITAL
+            </a>
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#fitur">Fitur</a></li>
+                <li><a href="#sistem">Sistem</a></li>
+                <li><a href="#dns">DNS</a></li>
+                <li><a href="#domain">Domain</a></li>
+                <li><a href="#bantuan">Bantuan</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="#" class="btn-login" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="#" class="btn-register" id="registerBtn"><i class="fas fa-user-plus"></i> Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="beranda">
+        <div class="hero-content">
+            <h1 class="hero-title">DNS_DOMAIN.DIGITAL</h1>
+            <p class="hero-subtitle">Pusat Sistem DNS & Domain Terintegrasi - Mengelola Infrastruktur Digital Anda dengan Teknologi Terbaru</p>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="613">0</span>
+                    <span class="stat-label">Folder .digital</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="462">0</span>
+                    <span class="stat-label">File Konfigurasi</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="52">0</span>
+                    <span class="stat-label">Domain Utama</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">% Uptime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Container -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari sistem DNS, domain, atau fitur...">
+            <button id="searchButton"><i class="fas fa-search"></i> Cari</button>
+        </div>
+        <div id="searchResults" style="display: none; text-align: center; margin-top: 1rem; color: #666;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Fitur Utama Section -->
+        <section id="fitur" class="section-title">
+            <h2><i class="fas fa-star"></i> Fitur Utama</h2>
+            <p>Sistem lengkap untuk manajemen DNS dan domain digital Anda</p>
+        </section>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="feature-name">Manajemen DNS</h3>
+                <span class="feature-path">/dns_domain.digital/ManajemenDNS.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 15 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 45 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3 class="feature-name">Konfigurasi Domain</h3>
+                <span class="feature-path">/dns_domain.digital/KonfigurasiDomain.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 12 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 38 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="feature-name">Monitoring DNS</h3>
+                <span class="feature-path">/dns_domain.digital/MonitoringDNS.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 10 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 32 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="feature-name">Keamanan DNS</h3>
+                <span class="feature-path">/dns_domain.digital/KeamananDNS.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 18 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 56 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3 class="feature-name">API Gateway</h3>
+                <span class="feature-path">/dns_domain.digital/APIGateway.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 8 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 24 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3 class="feature-name">Analytics & Reporting</h3>
+                <span class="feature-path">/dns_domain.digital/Analytics.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 14 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 42 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3 class="feature-name">Backup & Restore</h3>
+                <span class="feature-path">/dns_domain.digital/BackupRestore.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 6 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 18 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3 class="feature-name">Load Balancer</h3>
+                <span class="feature-path">/dns_domain.digital/LoadBalancer.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 9 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 27 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="feature-name">SSL Manager</h3>
+                <span class="feature-path">/dns_domain.digital/SSLManager.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 7 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 21 file</span>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3 class="feature-name">CDN Control</h3>
+                <span class="feature-path">/dns_domain.digital/CDNControl.digital</span>
+                <div class="feature-stats">
+                    <span class="feature-stat"><i class="fas fa-folder"></i> 11 sub-fitur</span>
+                    <span class="feature-stat"><i class="fas fa-file"></i> 33 file</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sistem DNS & Domain Section -->
+        <section id="sistem" class="box-system">
+            <div class="box-header">
+                <h2 class="box-title"><i class="fas fa-server"></i> Sistem DNS & Domain</h2>
+                <span style="color: #666;">613 Folder .digital Tersedia</span>
+            </div>
+            <div class="box-grid" id="systemsGrid">
+                <!-- Dynamic content will be loaded here by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Menu Navigasi Folder .digital -->
+        <section id="dns" class="box-system">
+            <div class="box-header">
+                <h2 class="box-title"><i class="fas fa-folder-open"></i> Direktori Domain .digital</h2>
+                <span style="color: #666;">Akses Cepat ke Semua Folder</span>
+            </div>
+            <div class="box-grid" id="digitalDirectory">
+                <!-- Will be populated dynamically -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="bantuan">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-globe"></i> DNS_DOMAIN.DIGITAL
+            </div>
+            <p class="footer-description">
+                Platform terintegrasi untuk manajemen DNS dan domain digital dengan teknologi terkini.
+                Mendukung ratusan sistem dan ribuan konfigurasi untuk infrastruktur digital Anda.
+            </p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+            </div>
+
+            <!-- Footer Directory Menu (No Duplicate Links) -->
+            <div class="footer-directory-menu">
+                <h3 style="margin-bottom: 1rem;">Direktori Sistem</h3>
+                <div class="directory-grid" id="footerDirectory">
+                    <!-- Unique directory links will be populated here -->
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 DNS_DOMAIN.DIGITAL. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">
+                    Sistem ini merupakan bagian dari ekosistem media.digital
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+                <button class="modal-close" id="loginClose">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Masukkan password">
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+                <p style="text-align: center; margin-top: 1rem; color: #666;">
+                    Belum punya akun? <a href="#" onclick="document.getElementById('loginModal').classList.remove('active'); document.getElementById('registerModal').classList.add('active');" style="color: var(--primary-blue);">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-user-plus"></i> Register</h2>
+                <button class="modal-close" id="registerClose">&times;</button>
+            </div>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Nama Lengkap</label>
+                    <input type="text" id="registerName" required placeholder="Nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required placeholder="nama@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required placeholder="Buat password kuat">
+                </div>
+                <button type="submit" class="btn-submit">Daftar Sekarang</button>
+                <p style="text-align: center; margin-top: 1rem; color: #666;">
+                    Sudah punya akun? <a href="#" onclick="document.getElementById('registerModal').classList.remove('active'); document.getElementById('loginModal').classList.add('active');" style="color: var(--primary-blue);">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
