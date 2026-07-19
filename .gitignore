@@ -1,9 +1,1 @@
-```
-# Build artifacts
-reberpencarian.digital/css/components.css
-reberpencarian.digital/css/style.css
-reberpencarian.digital/js/core.js
-reberpencarian.digital/js/crawler.js
-reberpencarian.digital/js/renderer.js
-reberpencarian.digital/js/ui-controller.js
-```
+Nothing should be ignored based on the provided file changes. The only modified file is `reberpencarian.digital/index.html`, which is a source file and should not be added to .gitignore.

@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReberPencarian.digital - Mesin Pencari Universal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
     <!-- Browser-like Header -->
@@ -42,7 +44,7 @@
 
     <!-- Main Container -->
     <div class="main-container">
-        <!-- Search Interface -->
+        <!-- Search Interface / Hero Section -->
         <section class="search-interface">
             <div class="logo-area">
                 <h1 class="logo-text">ReberPencarian.digital</h1>
@@ -80,6 +82,26 @@
                     <div class="data-type-icon icon-binary">⚙️</div>
                     <div class="mode-title">Biner √</div>
                     <div class="mode-desc">Data biner dan konfigurasi</div>
+                </div>
+            </div>
+
+            <!-- Statistik Animasi -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="1250000">0</div>
+                    <div class="stat-label">URL Terindeks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="45000">0</div>
+                    <div class="stat-label">Domain Terdeteksi</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="8500">0</div>
+                    <div class="stat-label">Port Aktif</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Folder Config</div>
                 </div>
             </div>
         </section>
@@ -196,9 +218,18 @@
         </section>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link">Tentang Kami</a>
+            <a href="#" class="footer-link">Privasi</a>
+            <a href="#" class="footer-link">Syarat Layanan</a>
+            <a href="#" class="footer-link">Kontak</a>
+            <a href="#" class="footer-link">API</a>
+        </div>
+        <p class="footer-text">&copy; 2024 ReberPencarian.digital - Mesin Pencari Universal. All rights reserved.</p>
+    </footer>
+
     <script src="js/core.js"></script>
-    <script src="js/crawler.js"></script>
-    <script src="js/renderer.js"></script>
-    <script src="js/ui-controller.js"></script>
 </body>
 </html>
