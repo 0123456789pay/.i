@@ -20,6 +20,8 @@
     --radius-md: 12px;
     --radius-sm: 8px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --success-color: #28a745;
+    --danger-color: #dc3545;
 }
 
 * {
@@ -1572,13 +1574,14 @@ body {
 
 /* Tabs Container (seperti appbrowser.html) */
 .tabs-container {
-    background: var(--dark-bg);
-    padding: 10px 20px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f4ff 50%, #e0e8ff 100%);
+    padding: 12px 24px 0;
     display: flex;
-    gap: 5px;
+    gap: 8px;
     overflow-x: auto;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-radius: 0;
     margin-bottom: 0;
+    border-bottom: 2px solid var(--secondary-blue);
 }
 
 /* Main Tabs Header - Gradasi Putih-Biru untuk tampilan utama */
@@ -1608,8 +1611,8 @@ body {
 }
 
 .tab {
-    background: rgba(255,255,255,0.1);
-    color: white;
+    background: rgba(0, 71, 179, 0.1);
+    color: var(--text-primary);
     padding: 10px 20px;
     border-radius: 8px 8px 0 0;
     cursor: pointer;
@@ -1618,11 +1621,15 @@ body {
     gap: 10px;
     max-width: 200px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(0, 71, 179, 0.2);
+    border-bottom: none;
 }
 
 .tab.active {
     background: white;
     color: var(--text-primary);
+    border-color: var(--secondary-blue);
+    box-shadow: 0 -2px 8px rgba(0, 71, 179, 0.15);
 }
 
 .tab-title {
@@ -1644,10 +1651,11 @@ body {
     font-size: 12px;
     opacity: 0.7;
     transition: all 0.2s ease;
+    background: rgba(0, 71, 179, 0.1);
 }
 
 .tab-close:hover {
-    background: var(--danger-color);
+    background: #ff4444;
     color: white;
     opacity: 1;
 }
@@ -1656,7 +1664,7 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
+    background: var(--gradient-blue);
     color: white;
     border: none;
     cursor: pointer;
@@ -1665,10 +1673,13 @@ body {
     justify-content: center;
     font-size: 18px;
     transition: all 0.3s ease;
+    box-shadow: var(--shadow-md);
 }
 
 .new-tab-btn:hover {
-    background: var(--success-color);
+    background: var(--secondary-blue);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Full Height Container untuk tampilan utama layar penuh */
