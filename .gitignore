@@ -1,11 +1,33 @@
 ```
-# Log files
+# Build artifacts
+dist/
+build/
+*.pyc
+__pycache__/
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+.env
+.env.local
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
 *.log
 
-# Generated data files
-datamerge_branch.digital/barisinput/*.log
-datamerge_branch.digital/barisoutput/*.log
-datamerge_branch.digital/datainput/*.log
-datamerge_branch.digital/dataoutput/*.log
-datamerge_branch.digital/sub_commit/*.log
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
 ```
