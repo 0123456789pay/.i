@@ -1,137 +1,109 @@
-# ManajemenFile.Digital
+# manajemenfile.digital - Centralized Database & Management System
 
-Sistem manajemen file digital dengan tampilan UI modern berwarna putih dan biru, terinspirasi dari Media Digital.
+Sistem database terpusat dan manajemen untuk semua situs .digital (newsnia.digital, dll).
+
+## Struktur Database
+
+Database: `manajemenfile_digital`
+
+### Tabel Utama:
+1. **users** - User authentication (admin, editor, user)
+2. **sites** - Tracking semua situs .digital
+3. **menus** - Menu bertingkat (parent-child relationship)
+4. **categories** - Kategori konten
+5. **posts** - Artikel/berita
+6. **media** - File media yang diupload
+7. **settings** - Konfigurasi situs
+8. **activity_logs** - Log aktivitas user
+
+## Default Login Admin
+
+- **Username:** `admin`
+- **Password:** `admin123`
+
+## Instalasi
+
+### 1. Import Database Schema
+
+```bash
+mysql -u root -p < /workspace/manajemenfile.digital/config/schema.sql
+```
+
+Atau via phpMyAdmin:
+1. Buka phpMyAdmin
+2. Import file `config/schema.sql`
+
+### 2. Konfigurasi Database
+
+Edit `/workspace/manajemenfile.digital/config/database.php`:
+
+```php
+private $host = "localhost";
+private $db_name = "manajemenfile_digital";
+private $username = "root";
+private $password = ""; // Sesuaikan dengan password MySQL Anda
+```
+
+### 3. Akses Situs
+
+- Newsnia Digital: `http://localhost/newsnia.digital/`
+- Login: `http://localhost/newsnia.digital/login.php`
+
+## API Endpoints
+
+### Authentication API
+GET/POST /manajemenfile.digital/api/auth.php?action=login
+POST /manajemenfile.digital/api/auth.php?action=logout
+GET /manajemenfile.digital/api/auth.php?action=check
+
+### Menus API
+GET /manajemenfile.digital/api/menus.php?action=all
+GET /manajemenfile.digital/api/menus.php?action=children&parent_id=X
+GET /manajemenfile.digital/api/menus.php?action=breadcrumb&slug=X
+
+### Posts API
+GET /manajemenfile.digital/api/posts.php?action=list
+GET /manajemenfile.digital/api/posts.php?action=detail&slug=X
+GET /manajemenfile.digital/api/posts.php?action=categories
 
 ## Fitur Utama
 
-### 🔐 Sistem Autentikasi
-- **Login Page** - Halaman masuk dengan validasi
-- **Register Page** - Pendaftaran akun baru
-- **Forgot Password** - Reset password via email
-- Session management dengan localStorage
+✅ Single Sign-On (SSO) - Login sekali untuk semua situs .digital
+✅ Menu Bertingkat - Support 3 level menu (Main → Sub → Sub-Sub)
+✅ Dynamic Content - Konten dimuat dari database terpusat
+✅ Responsive Design - UI putih-biru seperti media.digital
+✅ Secure Authentication - Password hashing dengan bcrypt
+✅ Activity Logging - Track semua aktivitas user
+✅ Multi-site Support - Satu database untuk banyak situs
 
-### 📁 Manajemen File & Folder
-- Upload file dengan drag & drop
-- Buat folder baru
-- Navigasi breadcrumb
-- View mode (Grid/List)
-- Filter berdasarkan tipe file
-- Detail file dengan informasi lengkap
+## Koneksi ke File PHP
 
-### 🎯 Menu Digital (.digital)
-- Integrasi dengan file konfigurasi .digital
-- Menu dinamis dari struktur folder .digital
-- Konfigurasi menu melalui file config.digital
+Semua file .php di situs .digital terhubung ke manajemenfile.digital melalui:
 
-### 📊 Dashboard
-- Statistik penyimpanan
-- File terbaru
-- Aksi cepat
-- Widget analitik
+require_once __DIR__ . '/../../manajemenfile.digital/includes/functions.php';
 
-### ⚙️ Pengaturan
-- Profil akun
-- Tema (Terang/Gelap/Biru)
-- Ukuran font
-- Keamanan (2FA, Auto Lock)
-- Manajemen penyimpanan
-
-### ❓ Bantuan
-- FAQ interaktif
-- Live chat support
-- Email support
-
-## Struktur Folder
-
-```
-manajemenfile.digital/
-├── index.html          # Main HTML file
-├── styles.css          # Styling (White & Blue theme)
-├── app.js              # Application logic
-├── config.digital      # Configuration file
-└── README.md           # Documentation
-```
-
-## Cara Menggunakan
-
-### Login Default
-- Email: `admin@digital.com`
-- Password: `admin123`
-
-### Menambahkan Menu Digital Baru
-
-1. Buat folder dengan ekstensi `.digital`:
-   ```
-   NamaMenu_MenuUtama.digital/
-   ```
-
-2. Tambahkan file `config.digital`:
-   ```
-   MENU_UTAMA=NamaMenu
-   SUB_MENU=menuutama
-   BAHASA=id
-   STATUS=aktif
-   ```
-
-3. Menu akan otomatis muncul di sidebar
-
-### Kustomisasi Tema
-
-Edit variabel CSS di `styles.css`:
-```css
-:root {
-    --primary-blue: #2563eb;
-    --primary-blue-dark: #1e40af;
-    --secondary-blue: #60a5fa;
-}
-```
+Fungsi yang tersedia:
+- getDB() - Get database connection
+- isLoggedIn() - Check login status
+- getCurrentUser() - Get current user data
+- requireLogin() - Require authentication
+- requireAdmin() - Require admin role
+- getSiteSettings() - Get site configuration
+- getMenus() - Get menu items
+- getAllMenusHierarchical() - Get full menu tree
+- getPosts() - Get posts with pagination
+- getPostBySlug() - Get single post
+- getRelatedPosts() - Get related posts
+- getCategories() - Get categories
+- sanitize() - Sanitize input
+- generateCSRFToken() - Generate CSRF token
+- verifyCSRFToken() - Verify CSRF token
+- formatDateIndonesian() - Format tanggal Indonesia
+- timeAgo() - Time ago format
 
 ## Teknologi
 
-- **HTML5** - Struktur halaman
-- **CSS3** - Styling dengan CSS Variables
-- **JavaScript (Vanilla)** - Logika aplikasi
-- **Font Awesome 6** - Icon library
-- **LocalStorage** - Penyimpanan session & data
-
-## Fitur UI
-
-- ✅ Responsive design (Mobile-friendly)
-- ✅ Animasi smooth
-- ✅ Toast notifications
-- ✅ Modal dialogs
-- ✅ Sidebar collapsible
-- ✅ Search functionality
-- ✅ Breadcrumb navigation
-
-## Footer
-
-Footer dirancang tanpa link duplikat, hanya menampilkan:
-- Copyright information
-- Credit single line
-
-## Ekstensi .digital
-
-Sistem mendukung rekonstruksi folder/file berekstensi `.digital` menjadi menu-menu fungsional:
-
-1. **Konfigurasi**: File `config.digital` berisi parameter menu
-2. **Dokumentasi**: File `README.digital` berisi deskripsi modul
-3. **Struktur**: Folder `.digital` dapat berisi sub-folder untuk organisasi
-
-## Sistem Kode
-
-Ketika perlu menambahkan folder/file tambahan:
-
-1. Buat folder baru dengan pola: `NamaModul_FiturV1.digital/`
-2. Tambahkan `config.digital` untuk konfigurasi
-3. Tambahkan `README.digital` untuk dokumentasi
-4. Menu akan otomatis tergenerate di sidebar
-
-## Lisensi
-
-Digital Management System © 2024
-
-## Kontak Support
-
-- Email: support@manajemenfile.digital
-- Live Chat: Tersedia 24/7 dalam aplikasi
+- Backend: PHP 7.4+ dengan PDO
+- Database: MySQL/MariaDB
+- Frontend: HTML5, CSS3, Vanilla JavaScript
+- Security: Password hashing, CSRF protection, Input sanitization
