@@ -1,3 +1,11 @@
-Nothing should be ignored in this case, as the changes only include source code files (.py) and a markdown document (.md), which are not build artifacts, dependencies, or temporary files.
+```
+# Log files
+*.log
 
-Output: (empty)
+# Generated data files
+datamerge_branch.digital/barisinput/*.log
+datamerge_branch.digital/barisoutput/*.log
+datamerge_branch.digital/datainput/*.log
+datamerge_branch.digital/dataoutput/*.log
+datamerge_branch.digital/sub_commit/*.log
+```
