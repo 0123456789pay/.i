@@ -2,21 +2,112 @@
 
 class ReberPencarian {
     constructor() {
-        this.currentMode = 'text';
-        this.crawlerActive = false;
-        this.stats = {
-            urlIndexed: 0,
-            domainsDetected: 0,
-            activePorts: 0
+        this.currentMode = 'all';
+        this.currentCategory = 'all';
+        this.allSites = [];
+        this.filteredSites = [];
+        
+        // Mapping kategori ke folder parent
+        this.categoryMapping = {
+            'ai_machinelearning': ['ai_machinelearning'],
+            'media': ['mediakonten', 'media.digital'],
+            'business': ['bisnisstartup', 'ecommerceretail'],
+            'education': ['pendidikanpelatihan'],
+            'tech': ['infrastrukturcloud', 'jaringanaktuaris', 'manajemendata'],
+            'health': ['kesehatandigital'],
+            'finance': ['keuanganperbankan', 'blockchaincrypto'],
+            'infrastructure': ['dns_domain', 'configprotokol', 'pengaturansistem'],
+            'config': ['configphpgit', 'configselectortrue', 'configsimbolakar', 'manajemenfile']
         };
         
         this.init();
     }
 
-    init() {
+    async init() {
+        await this.scanDigitalFolders();
         this.bindEvents();
         this.animateStats();
-        this.setupFileUpload();
+        this.renderSites(this.allSites);
+    }
+
+    async scanDigitalFolders() {
+        // Simulasi scanning folder .digital dari workspace
+        // Dalam implementasi nyata, ini akan menggunakan API atau fetch
+        const digitalFolders = [
+            // AI & Machine Learning
+            { name: 'ai_machinelearning.digital', path: '/workspace/ai_machinelearning.digital', category: 'ai_machinelearning', icon: '🤖' },
+            { name: 'nexchat-ai.digital', path: '/workspace/ai_machinelearning.digital/nexchat-ai.digital', category: 'ai_machinelearning', icon: '💬' },
+            { name: 'aichatreber.digital', path: '/workspace/ai_machinelearning.digital/aichatreber.digital', category: 'ai_machinelearning', icon: '🤖' },
+            { name: 'ragreber.digital', path: '/workspace/ai_machinelearning.digital/ragreber.digital', category: 'ai_machinelearning', icon: '🔍' },
+            
+            // Media & Konten
+            { name: 'mediakonten.digital', path: '/workspace/mediakonten.digital', category: 'media', icon: '📺' },
+            { name: 'medsos.digital', path: '/workspace/mediakonten.digital/medsos.digital', category: 'media', icon: '📱' },
+            { name: 'newsdigital.digital', path: '/workspace/mediakonten.digital/newsdigital.digital', category: 'media', icon: '📰' },
+            { name: 'videolife.digital', path: '/workspace/mediakonten.digital/videolife.digital', category: 'media', icon: '🎬' },
+            { name: 'vidastream.digital', path: '/workspace/mediakonten.digital/vidastream.digital', category: 'media', icon: '▶️' },
+            
+            // Bisnis & Startup
+            { name: 'bisnisstartup.digital', path: '/workspace/bisnisstartup.digital', category: 'business', icon: '💼' },
+            { name: 'ecommerceretail.digital', path: '/workspace/ecommerceretail.digital', category: 'business', icon: '🛒' },
+            { name: 'ModelFreemium.digital', path: '/workspace/bisnisstartup.digital/ModelFreemium.digital', category: 'business', icon: '💰' },
+            { name: 'RencanaBisnis.digital', path: '/workspace/bisnisstartup.digital/RencanaBisnis.digital', category: 'business', icon: '📊' },
+            
+            // Pendidikan
+            { name: 'pendidikanpelatihan.digital', path: '/workspace/pendidikanpelatihan.digital', category: 'education', icon: '📚' },
+            { name: 'MateriKursus.digital', path: '/workspace/pendidikanpelatihan.digital/MateriKursus.digital', category: 'education', icon: '📖' },
+            { name: 'SertifikasiProfesi.digital', path: '/workspace/pendidikanpelatihan.digital/SertifikasiProfesi.digital', category: 'education', icon: '🎓' },
+            { name: 'PembelajaranDaring.digital', path: '/workspace/pendidikanpelatihan.digital/PembelajaranDaring.digital', category: 'education', icon: '💻' },
+            
+            // Teknologi
+            { name: 'infrastrukturcloud.digital', path: '/workspace/infrastrukturcloud.digital', category: 'tech', icon: '☁️' },
+            { name: 'jaringanaktuaris.digital', path: '/workspace/jaringanaktuaris.digital', category: 'tech', icon: '🌐' },
+            { name: 'manajemendata.digital', path: '/workspace/manajemendata.digital', category: 'tech', icon: '🗄️' },
+            { name: 'pengembangansoftware.digital', path: '/workspace/pengembangansoftware.digital', category: 'tech', icon: '⌨️' },
+            
+            // Kesehatan
+            { name: 'kesehatandigital.digital', path: '/workspace/kesehatandigital.digital', category: 'health', icon: '🏥' },
+            
+            // Keuangan
+            { name: 'keuanganperbankan.digital', path: '/workspace/keuanganperbankan.digital', category: 'finance', icon: '💰' },
+            { name: 'blockchaincrypto.digital', path: '/workspace/blockchaincrypto.digital', category: 'finance', icon: '₿' },
+            
+            // Infrastruktur
+            { name: 'dns_domain.digital', path: '/workspace/dns_domain.digital', category: 'infrastructure', icon: '🌐' },
+            { name: 'configprotokol.digital', path: '/workspace/configprotokol.digital', category: 'infrastructure', icon: '⚙️' },
+            
+            // Config
+            { name: 'configphpgit.digital', path: '/workspace/configphpgit.digital', category: 'config', icon: '🐘' },
+            { name: 'configselectortrue.digital', path: '/workspace/configselectortrue.digital', category: 'config', icon: '✓' },
+            { name: 'configsimbolakar.digital', path: '/workspace/configsimbolakar.digital', category: 'config', icon: '√' },
+            
+            // Lainnya
+            { name: 'reberpencarian.digital', path: '/workspace/reberpencarian.digital', category: 'tech', icon: '🔍' },
+            { name: 'media.digital', path: '/workspace/media.digital', category: 'media', icon: '📺' },
+            { name: 'pusatdigital.digital', path: '/workspace/pusatdigital.digital', category: 'tech', icon: '🎯' },
+            { name: 'bantuansupport.digital', path: '/workspace/bantuansupport.digital', category: 'tech', icon: '❓' },
+            { name: 'identitasakses.digital', path: '/workspace/identitasakses.digital', category: 'tech', icon: '🔐' },
+            { name: 'keamanansiber.digital', path: '/workspace/keamanansiber.digital', category: 'tech', icon: '🛡️' },
+            { name: 'transportasilogistik.digital', path: '/workspace/transportasilogistik.digital', category: 'business', icon: '🚚' },
+            { name: 'pertanianakuakultur.digital', path: '/workspace/pertanianakuakultur.digital', category: 'business', icon: '🌾' },
+            { name: 'energilingkungan.digital', path: '/workspace/energilingkungan.digital', category: 'tech', icon: '⚡' },
+            { name: 'konstruksigedung.digital', path: '/workspace/konstruksigedung.digital', category: 'business', icon: '🏗️' },
+            { name: 'desainkreatif.digital', path: '/workspace/desainkreatif.digital', category: 'tech', icon: '🎨' },
+            { name: 'gameentertainment.digital', path: '/workspace/gameentertainment.digital', category: 'media', icon: '🎮' },
+            { name: 'komunikasi.digital', path: '/workspace/komunikasi.digital', category: 'tech', icon: '📞' },
+            { name: 'hukumkepatuhan.digital', path: '/workspace/hukumkepatuhan.digital', category: 'business', icon: '⚖️' },
+            { name: 'manajemenproyek.digital', path: '/workspace/manajemenproyek.digital', category: 'business', icon: '📋' },
+            { name: 'visualisasireporting.digital', path: '/workspace/visualisasireporting.digital', category: 'tech', icon: '📊' },
+            { name: 'tanggapdarurat.digital', path: '/workspace/tanggapdarurat.digital', category: 'health', icon: '🚨' },
+            { name: 'tiketevent.digital', path: '/workspace/tiketevent.digital', category: 'media', icon: '🎫' },
+            { name: 'analisisdata.digital', path: '/workspace/analisisdata.digital', category: 'tech', icon: '📈' },
+            { name: 'arsipversi.digital', path: '/workspace/arsipversi.digital', category: 'tech', icon: '🗃️' },
+            { name: 'iot_perangkat.digital', path: '/workspace/iot_perangkat.digital', category: 'tech', icon: '📱' },
+            { name: 'pengungsisuaka.digital', path: '/workspace/pengungsisuaka.digital', category: 'health', icon: '🏠' }
+        ];
+        
+        this.allSites = digitalFolders;
+        this.filteredSites = [...this.allSites];
     }
 
     bindEvents() {
@@ -25,6 +116,16 @@ class ReberPencarian {
             card.addEventListener('click', (e) => {
                 const mode = e.currentTarget.dataset.mode;
                 this.setMode(mode);
+            });
+        });
+
+        // Category Tabs
+        document.querySelectorAll('.category-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                e.target.classList.add('active');
+                const category = e.target.dataset.category;
+                this.filterByCategory(category);
             });
         });
 
@@ -43,26 +144,6 @@ class ReberPencarian {
                 this.performSearch();
             }
         });
-
-        // Action Buttons
-        document.getElementById('btnCrawl')?.addEventListener('click', () => this.startCrawler());
-        document.getElementById('btnRender')?.addEventListener('click', () => this.renderContent());
-        document.getElementById('btnClear')?.addEventListener('click', () => this.clearAll());
-        document.getElementById('btnExport')?.addEventListener('click', () => this.exportResults());
-
-        // Content Type Tabs
-        document.querySelectorAll('.content-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                this.filterContent(e.target.dataset.content);
-            });
-        });
-
-        // Protocol Selector
-        document.getElementById('protocolSelector')?.addEventListener('change', (e) => {
-            console.log('Protocol changed to:', e.target.value);
-        });
     }
 
     setMode(mode) {
@@ -75,285 +156,215 @@ class ReberPencarian {
         
         document.querySelector(`.mode-card[data-mode="${mode}"]`)?.classList.add('active');
         
-        // Update placeholder based on mode
-        const placeholders = {
-            text: 'Masukkan kata kunci pencarian teks...',
-            image: 'Masukkan URL atau kata kunci untuk gambar...',
-            video: 'Masukkan URL video atau kata kunci...',
-            film: 'Masukkan judul film atau URL...',
-            document: 'Masukkan nama dokumen atau kata kunci...',
-            binary: 'Masukkan data biner atau upload file...'
-        };
+        // Filter berdasarkan mode
+        if (mode === 'all') {
+            this.filteredSites = [...this.allSites];
+        } else {
+            const categoryMap = {
+                'ai': 'ai_machinelearning',
+                'media': 'media',
+                'business': 'business',
+                'education': 'education',
+                'tech': 'tech'
+            };
+            const category = categoryMap[mode];
+            if (category) {
+                this.filterByCategory(category);
+            }
+        }
         
-        document.getElementById('searchQuery').placeholder = placeholders[mode] || placeholders.text;
+        this.renderSites(this.filteredSites);
+    }
+
+    filterByCategory(category) {
+        this.currentCategory = category;
         
-        console.log('Mode set to:', mode);
+        if (category === 'all') {
+            this.filteredSites = [...this.allSites];
+            document.getElementById('resultsTitle').textContent = 'Semua Situs .digital';
+        } else {
+            this.filteredSites = this.allSites.filter(site => site.category === category);
+            const categoryNames = {
+                'ai_machinelearning': 'AI & Machine Learning',
+                'media': 'Media & Konten',
+                'business': 'Bisnis & Startup',
+                'education': 'Pendidikan',
+                'tech': 'Teknologi',
+                'health': 'Kesehatan',
+                'finance': 'Keuangan',
+                'infrastructure': 'Infrastruktur',
+                'config': 'Config'
+            };
+            document.getElementById('resultsTitle').textContent = categoryNames[category] || category;
+        }
+        
+        this.renderSites(this.filteredSites);
+    }
+
+    renderSites(sites) {
+        const grid = document.getElementById('sitesGrid');
+        const countElement = document.getElementById('resultsCount');
+        
+        if (!grid) return;
+        
+        countElement.textContent = `${sites.length} situs ditemukan`;
+        
+        if (sites.length === 0) {
+            grid.innerHTML = `
+                <div class="empty-state" style="grid-column: 1 / -1;">
+                    <div class="empty-state-icon">🔍</div>
+                    <h3>Tidak ada situs ditemukan</h3>
+                    <p>Coba pilih kategori lain atau gunakan kata kunci pencarian</p>
+                </div>
+            `;
+            return;
+        }
+        
+        grid.innerHTML = '';
+        sites.forEach((site, index) => {
+            const card = document.createElement('div');
+            card.className = 'site-card animate-fade-in';
+            card.style.animationDelay = `${index * 0.05}s`;
+            card.innerHTML = `
+                <div class="site-card-icon">${site.icon}</div>
+                <div class="site-card-name">${site.name}</div>
+                <div class="site-card-path">${site.path}</div>
+                <div class="site-card-category">${site.category}</div>
+            `;
+            
+            card.addEventListener('click', () => {
+                this.openSite(site);
+            });
+            
+            grid.appendChild(card);
+        });
+    }
+
+    openSite(site) {
+        // Membuka halaman index.html dari folder .digital
+        const indexPath = `${site.path}/index.html`;
+        
+        // Dalam implementasi nyata, ini akan membuka konten di viewer
+        // Untuk saat ini, kita tampilkan alert
+        console.log('Membuka situs:', indexPath);
+        
+        // Membuat modal atau overlay untuk menampilkan konten
+        this.showSiteViewer(site, indexPath);
+    }
+
+    showSiteViewer(site, path) {
+        // Membuat viewer overlay
+        const viewer = document.createElement('div');
+        viewer.className = 'site-viewer-overlay';
+        viewer.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 0.3s ease-out;
+        `;
+        
+        viewer.innerHTML = `
+            <div style="
+                background: white;
+                border-radius: 16px;
+                width: 90%;
+                max-width: 1200px;
+                height: 90%;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            ">
+                <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 16px 24px;
+                    background: linear-gradient(135deg, #0047b3 0%, #0066ff 100%);
+                    color: white;
+                ">
+                    <h3 style="font-size: 18px; font-weight: 700;">${site.name}</h3>
+                    <button onclick="this.closest('.site-viewer-overlay').remove()" style="
+                        background: rgba(255, 255, 255, 0.2);
+                        border: none;
+                        color: white;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        font-size: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.3s;
+                    " onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">×</button>
+                </div>
+                <div style="
+                    flex: 1;
+                    background: #f0f4ff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    gap: 20px;
+                    padding: 40px;
+                ">
+                    <div style="font-size: 80px;">${site.icon}</div>
+                    <h2 style="color: #1a1a2e; font-size: 24px;">${site.name}</h2>
+                    <p style="color: #718096; text-align: center;">Path: ${site.path}</p>
+                    <p style="color: #718096; text-align: center;">Kategori: ${site.category}</p>
+                    <div style="
+                        background: white;
+                        padding: 20px 40px;
+                        border-radius: 50px;
+                        box-shadow: 0 4px 15px rgba(0, 71, 179, 0.1);
+                        margin-top: 20px;
+                    ">
+                        <p style="color: #0047b3; font-weight: 600;">Halaman utama akan ditampilkan di sini</p>
+                        <p style="color: #718096; font-size: 14px; margin-top: 8px;">index.html dari folder .digital</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(viewer);
+        
+        // Close on outside click
+        viewer.addEventListener('click', (e) => {
+            if (e.target === viewer) {
+                viewer.remove();
+            }
+        });
     }
 
     navigate(action) {
-        const iframe = document.getElementById('urlContentFrame');
-        
-        switch(action) {
-            case 'back':
-                if (iframe) iframe.contentWindow?.history.back();
-                break;
-            case 'forward':
-                if (iframe) iframe.contentWindow?.history.forward();
-                break;
-            case 'refresh':
-                if (iframe) iframe.contentWindow?.location.reload();
-                break;
-            case 'home':
-                this.clearDisplay();
-                break;
-        }
+        console.log('Navigate:', action);
+        // Implementasi navigasi browser
     }
 
     performSearch() {
         const urlInput = document.getElementById('urlInput');
-        const query = urlInput.value.trim();
+        const query = urlInput.value.trim().toLowerCase();
         
         if (!query) {
-            alert('Masukkan URL atau kata kunci pencarian');
-            return;
-        }
-
-        // Detect if it's a URL or search query
-        const isURL = this.isValidURL(query);
-        
-        if (isURL) {
-            this.loadURL(query);
+            this.filteredSites = [...this.allSites];
         } else {
-            this.searchNetwork(query);
-        }
-    }
-
-    isValidURL(string) {
-        try {
-            new URL(string);
-            return true;
-        } catch (_) {
-            return false;
-        }
-    }
-
-    loadURL(url) {
-        const protocol = document.getElementById('protocolSelector').value;
-        const fullURL = url.startsWith('http') ? url : protocol + url;
-        
-        const iframe = document.getElementById('urlContentFrame');
-        const placeholder = document.getElementById('contentPlaceholder');
-        
-        if (iframe && placeholder) {
-            placeholder.style.display = 'none';
-            iframe.style.display = 'block';
-            iframe.src = fullURL;
-            
-            // Update URL input
-            document.getElementById('urlInput').value = fullURL;
-        }
-    }
-
-    searchNetwork(query) {
-        // Simulate network crawling
-        console.log('Searching network for:', query);
-        this.showCrawlerStatus();
-        
-        // Simulate finding results
-        setTimeout(() => {
-            this.displayResults(query);
-        }, 2000);
-    }
-
-    showCrawlerStatus() {
-        const statusPanel = document.getElementById('crawlerStatus');
-        if (statusPanel) {
-            statusPanel.style.display = 'block';
-            this.crawlerActive = true;
-            this.simulateCrawlerProgress();
-        }
-    }
-
-    simulateCrawlerProgress() {
-        const progressBar = document.getElementById('crawlerProgress');
-        const statsElement = document.getElementById('crawlStats');
-        const timeElement = document.getElementById('crawlTime');
-        
-        let progress = 0;
-        let time = 0;
-        
-        const interval = setInterval(() => {
-            if (!this.crawlerActive) {
-                clearInterval(interval);
-                return;
-            }
-            
-            progress += Math.random() * 15;
-            time++;
-            
-            if (progress >= 100) {
-                progress = 100;
-                this.crawlerActive = false;
-                clearInterval(interval);
-                
-                setTimeout(() => {
-                    document.getElementById('crawlerStatus').style.display = 'none';
-                }, 2000);
-            }
-            
-            if (progressBar) progressBar.style.width = progress + '%';
-            
-            if (statsElement) {
-                this.stats.urlIndexed = Math.floor(progress * 12.5);
-                this.stats.domainsDetected = Math.floor(progress * 0.8);
-                this.stats.activePorts = Math.floor(progress * 1.5);
-                
-                statsElement.textContent = 
-                    `URL Terindeks: ${this.stats.urlIndexed} | Domain: ${this.stats.domainsDetected} | Port Terdeteksi: ${this.stats.activePorts}`;
-            }
-            
-            if (timeElement) {
-                timeElement.textContent = `Waktu: ${time}s`;
-            }
-        }, 200);
-    }
-
-    displayResults(query) {
-        const resultsGrid = document.getElementById('resultsGrid');
-        const contentArea = document.getElementById('urlContentArea');
-        
-        if (!resultsGrid) return;
-        
-        // Generate sample results
-        const results = [
-            { title: `${query} - Hasil 1`, url: `https://example.com/${query}-1`, type: 'Teks' },
-            { title: `${query} - Hasil 2`, url: `https://example.com/${query}-2`, type: 'Media' },
-            { title: `${query} - Hasil 3`, url: `https://example.com/${query}-3`, type: 'Dokumen' },
-            { title: `${query} - Hasil 4`, url: `https://example.com/${query}-4`, type: 'Biner' }
-        ];
-        
-        resultsGrid.innerHTML = '';
-        results.forEach(result => {
-            const card = document.createElement('div');
-            card.className = 'result-card animate-fade-in';
-            card.innerHTML = `
-                <h4>${result.title}</h4>
-                <p>${result.url}</p>
-                <p style="font-size: 12px; color: #718096; margin-top: 8px;">Tipe: ${result.type}</p>
-            `;
-            card.addEventListener('click', () => {
-                this.loadURL(result.url);
-            });
-            resultsGrid.appendChild(card);
-        });
-        
-        resultsGrid.style.display = 'grid';
-    }
-
-    startCrawler() {
-        const searchQuery = document.getElementById('searchQuery').value;
-        const targetDomain = document.getElementById('targetDomain').value;
-        const portRange = document.getElementById('portRange').value;
-        
-        if (!searchQuery && !targetDomain) {
-            alert('Masukkan kata kunci atau domain target');
-            return;
+            this.filteredSites = this.allSites.filter(site => 
+                site.name.toLowerCase().includes(query) ||
+                site.path.toLowerCase().includes(query) ||
+                site.category.toLowerCase().includes(query)
+            );
         }
         
-        console.log('Starting crawler with:', { searchQuery, targetDomain, portRange });
-        this.showCrawlerStatus();
-    }
-
-    renderContent() {
-        const iframe = document.getElementById('urlContentFrame');
-        const currentSrc = iframe?.src;
-        
-        if (currentSrc && iframe) {
-            iframe.src = currentSrc; // Reload
-        } else {
-            alert('Tidak ada konten untuk dirender');
-        }
-    }
-
-    clearAll() {
-        document.getElementById('searchQuery').value = '';
-        document.getElementById('targetDomain').value = '';
-        document.getElementById('portRange').value = '';
-        document.getElementById('urlInput').value = '';
-        this.clearDisplay();
-    }
-
-    clearDisplay() {
-        const iframe = document.getElementById('urlContentFrame');
-        const placeholder = document.getElementById('contentPlaceholder');
-        const resultsGrid = document.getElementById('resultsGrid');
-        
-        if (iframe) {
-            iframe.src = '';
-            iframe.style.display = 'none';
-        }
-        
-        if (placeholder) placeholder.style.display = 'flex';
-        if (resultsGrid) resultsGrid.style.display = 'none';
-    }
-
-    exportResults() {
-        alert('Fitur export akan segera hadir!');
-    }
-
-    filterContent(type) {
-        console.log('Filtering content by type:', type);
-        // Implement filtering logic here
-    }
-
-    setupFileUpload() {
-        const uploadArea = document.getElementById('fileUploadArea');
-        const fileInput = document.getElementById('fileInput');
-        
-        if (!uploadArea || !fileInput) return;
-        
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-        
-        fileInput.addEventListener('change', (e) => {
-            const files = e.target.files;
-            if (files.length > 0) {
-                console.log('Files selected:', files);
-                this.handleFiles(files);
-            }
-        });
-        
-        // Drag and drop
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#0066ff';
-            uploadArea.style.background = '#f0f4ff';
-        });
-        
-        uploadArea.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#e2e8f0';
-            uploadArea.style.background = '#fafbff';
-        });
-        
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.borderColor = '#e2e8f0';
-            uploadArea.style.background = '#fafbff';
-            
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                console.log('Files dropped:', files);
-                this.handleFiles(files);
-            }
-        });
-    }
-
-    handleFiles(files) {
-        console.log('Handling files:', files);
-        // Implement file handling logic here
-        alert(`${files.length} file(s) siap diproses`);
+        this.renderSites(this.filteredSites);
+        document.getElementById('resultsTitle').textContent = query ? `Hasil pencarian: "${query}"` : 'Semua Situs .digital';
     }
 
     animateStats() {
