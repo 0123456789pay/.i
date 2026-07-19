@@ -102,6 +102,21 @@
                 <button class="new-tab-btn" onclick="window.reberPencarian.openNewSearchTab()" title="Tab Baru">+</button>
             </div>
 
+            <!-- Filter Bar - Jenis Domain -->
+            <div class="filter-bar-container" id="filterBarContainer">
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> Semua</button>
+                    <button class="filter-btn" data-filter="text"><i class="fas fa-file-alt"></i> Teks</button>
+                    <button class="filter-btn" data-filter="image"><i class="fas fa-image"></i> Gambar</button>
+                    <button class="filter-btn" data-filter="video"><i class="fas fa-video"></i> Video</button>
+                    <button class="filter-btn" data-filter="movie"><i class="fas fa-film"></i> Film</button>
+                    <button class="filter-btn" data-filter="shopping"><i class="fas fa-shopping-cart"></i> Belanja</button>
+                </div>
+                <div class="results-info">
+                    <span id="resultsCountInfo">Menampilkan 0 hasil</span>
+                </div>
+            </div>
+
             <!-- Content Frame (WebView) untuk menampilkan hasil - Full Screen -->
             <div class="content-frame main-content-frame" id="searchContentFrame">
                 <!-- Konten utama akan di-render oleh JavaScript -->
