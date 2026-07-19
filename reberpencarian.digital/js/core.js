@@ -255,7 +255,8 @@ class ReberPencarian {
                     const sitePath = card.dataset.path;
                     const site = sites.find(s => s.name === siteName);
                     if (site) {
-                        this.openTab(site);
+                        // Buka di tab baru dengan konten situs
+                        this.openNewSearchTab(site);
                     }
                 });
             });
@@ -1199,30 +1200,35 @@ class ReberPencarian {
     // ===== Search Tabs Management (seperti appbrowser.html) =====
     
     // Search tabs state
-    searchTabs = [{ id: 1, title: 'Hasil Pencarian', query: '', results: [] }];
+    searchTabs = [{ id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true }];
     activeSearchTab = 1;
 
-    // Open new search tab
-    openNewSearchTab() {
+    // Open new search tab with site content
+    openNewSearchTab(site = null) {
         const newId = Date.now();
+        const tabTitle = site ? `📄 ${site.name}` : '🏠 Beranda - Situs Digital';
+        
         this.searchTabs.push({
             id: newId,
-            title: 'Tab Baru',
+            title: tabTitle,
             query: '',
-            results: []
+            results: [],
+            isHome: !site,
+            site: site || null
         });
+        this.activeSearchTab = newId;
         this.renderSearchTabs();
-        this.switchSearchTab(newId);
+        this.loadSearchTab(newId);
     }
 
     // Close search tab
     closeSearchTab(event, tabId) {
         event.stopPropagation();
         if (this.searchTabs.length === 1) {
-            // Reset last tab instead of closing
-            this.searchTabs[0] = { id: 1, title: 'Hasil Pencarian', query: '', results: [] };
+            // Reset last tab instead of closing - return to home
+            this.searchTabs[0] = { id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true };
             this.activeSearchTab = 1;
-            this.clearSearchFrame();
+            this.renderToMainContentFrame(this.allSites);
         } else {
             const index = this.searchTabs.findIndex(t => t.id === tabId);
             if (index > -1) {
@@ -1254,13 +1260,13 @@ class ReberPencarian {
         this.searchTabs.forEach(tab => {
             const isActive = tab.id === this.activeSearchTab ? 'active' : '';
             html += `
-                <div class="tab ${isActive}" data-id="${tab.id}" onclick="reberPencarian.switchSearchTab(${tab.id})">
+                <div class="tab ${isActive}" data-id="${tab.id}" onclick="window.reberPencarian.switchSearchTab(${tab.id})">
                     <span class="tab-title">${this.escapeHtml(tab.title)}</span>
-                    <span class="tab-close" onclick="reberPencarian.closeSearchTab(event, ${tab.id})">&times;</span>
+                    <span class="tab-close" onclick="window.reberPencarian.closeSearchTab(event, ${tab.id})">&times;</span>
                 </div>
             `;
         });
-        html += '<button class="new-tab-btn" onclick="reberPencarian.openNewSearchTab()">+</button>';
+        html += '<button class="new-tab-btn" onclick="window.reberPencarian.openNewSearchTab()" title="Tab Baru">+</button>';
         container.innerHTML = html;
     }
 
@@ -1268,6 +1274,12 @@ class ReberPencarian {
     loadSearchTab(tabId) {
         const tab = this.searchTabs.find(t => t.id === tabId);
         if (!tab) return;
+        
+        // If this is a home tab or has a site, render the sites grid
+        if (tab.isHome || tab.site) {
+            this.renderToMainContentFrame(this.allSites);
+            return;
+        }
         
         if (tab.isFileView && tab.filePath) {
             // Tampilkan file index.html dalam frame

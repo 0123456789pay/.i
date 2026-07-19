@@ -76,25 +76,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Gradasi Putih-Biru untuk Icon Navigasi */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(0, 71, 179, 0.2) 100%);
 }
 
 .nav-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.65) 50%, rgba(0, 71, 179, 0.35) 100%);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
 /* Tombol Home Active - Highlight khusus untuk tombol beranda */
 .btn-home-active {
-    background: rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%);
     font-size: 20px;
     animation: pulse-home 2s infinite;
+    /* Gradasi Putih-Biru untuk Icon Rumah */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 1);
 }
 
 .btn-home-active:hover {
-    background: rgba(255, 255, 255, 0.45);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.75) 100%);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes pulse-home {
@@ -128,10 +133,13 @@ body {
     justify-content: center;
     text-decoration: none;
     padding: 0;
+    /* Gradasi Putih-Biru untuk Icon Menu Button */
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(0, 71, 179, 0.2) 100%);
 }
 
 .menu-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.65) 50%, rgba(0, 71, 179, 0.35) 100%);
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
@@ -236,6 +244,12 @@ body {
     width: 24px;
     text-align: center;
     flex-shrink: 0;
+    /* Gradasi Putih-Biru untuk Icon Menu */
+    background: linear-gradient(135deg, #ffffff 0%, #e0e8ff 30%, #0047b3 70%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 1px 2px rgba(0, 71, 179, 0.2));
 }
 
 .menu-label {
@@ -1265,6 +1279,12 @@ body {
     font-size: 64px;
     margin-bottom: 16px;
     opacity: 0.5;
+    /* Gradasi Putih-Biru untuk Icon Placeholder */
+    background: linear-gradient(135deg, #ffffff 0%, #e0e8ff 30%, #0047b3 70%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 71, 179, 0.3));
 }
 
 .placeholder-icon {
@@ -1639,6 +1659,11 @@ body {
     white-space: nowrap;
     font-size: 13px;
     font-weight: 600;
+    /* Gradasi Putih-Biru untuk Judul Tab */
+    background: linear-gradient(135deg, #ffffff 0%, #e0e8ff 30%, #0047b3 70%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .tab-close {
@@ -1651,11 +1676,12 @@ body {
     font-size: 12px;
     opacity: 0.7;
     transition: all 0.2s ease;
-    background: rgba(0, 71, 179, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(0, 71, 179, 0.2) 100%);
+    color: white;
 }
 
 .tab-close:hover {
-    background: #ff4444;
+    background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
     color: white;
     opacity: 1;
 }
@@ -1664,7 +1690,7 @@ body {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background: var(--gradient-blue);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 50%, var(--secondary-blue) 100%);
     color: white;
     border: none;
     cursor: pointer;
@@ -1677,7 +1703,7 @@ body {
 }
 
 .new-tab-btn:hover {
-    background: var(--secondary-blue);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.75) 50%, var(--primary-blue) 100%);
     transform: scale(1.1);
     box-shadow: var(--shadow-lg);
 }
@@ -2022,6 +2048,18 @@ body {
     font-size: 56px;
     text-align: center;
     margin-bottom: 8px;
+    /* Gradasi Putih-Biru untuk Icon */
+    background: linear-gradient(135deg, #ffffff 0%, #e0e8ff 30%, #0047b3 70%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 71, 179, 0.3));
+    transition: all 0.3s ease;
+}
+
+.main-site-card:hover .main-site-card-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 71, 179, 0.5));
 }
 
 .main-site-card-name {
@@ -2081,15 +2119,18 @@ body {
     font-size: 16px;
     transition: var(--transition);
     flex-shrink: 0;
+    /* Gradasi Putih-Biru untuk Icon Button */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(0, 71, 179, 0.2) 100%);
+    color: white;
 }
 
 .main-site-btn.primary {
-    background: var(--gradient-blue);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.6) 50%, var(--secondary-blue) 100%);
     color: white;
 }
 
 .main-site-btn.secondary {
-    background: #f0f4ff;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(240, 244, 255, 0.8) 50%, rgba(0, 71, 179, 0.15) 100%);
     color: var(--primary-blue);
     border: 1px solid var(--border-color);
 }
