@@ -88,113 +88,27 @@
         </div>
     </header>
 
-    <!-- Search Engine View Section - WebView dengan Tab seperti AppBrowser -->
-    <section class="search-engine-view" id="searchEngineView">
-        <div class="search-engine-container">
-            <!-- Tabs Container (seperti appbrowser.html) -->
-            <div class="tabs-container" id="searchTabsContainer">
+    <!-- Search Engine View Section - WebView dengan Tab (Tampilan Utama Layar Penuh) -->
+    <section class="search-engine-view main-tab-view" id="searchEngineView">
+        <div class="search-engine-container full-height-container">
+            <!-- Tabs Container dengan Gradasi Putih-Biru -->
+            <div class="tabs-container main-tabs-header" id="searchTabsContainer">
                 <div class="tab active" data-id="1">
-                    <span class="tab-title">Hasil Pencarian</span>
+                    <span class="tab-title">🏠 Beranda - Situs Digital</span>
                     <span class="tab-close" onclick="closeSearchTab(event, 1)">&times;</span>
                 </div>
-                <button class="new-tab-btn" onclick="openNewSearchTab()">+</button>
+                <button class="new-tab-btn" onclick="openNewSearchTab()" title="Tab Baru">+</button>
             </div>
 
-            <!-- Domain/URL Display Panel -->
-            <div class="domain-display-panel">
-                <div class="domain-header">
-                    <h3 class="domain-title">🔍 Mesin Pencarian - Tampilan Indeks</h3>
-                    <div class="domain-stats">
-                        <span class="stat-item"><strong id="totalIndexed">0</strong> Terindeks</span>
-                        <span class="stat-item"><strong id="totalResults">0</strong> Hasil</span>
-                        <span class="stat-item"><strong id="activeQuery">-</strong> Query Aktif</span>
-                    </div>
-                </div>
-                
-                <!-- Active Query Display -->
-                <div class="active-query-display" id="activeQueryDisplay">
-                    <div class="query-info">
-                        <span class="query-label">Query:</span>
-                        <span class="query-text" id="currentQueryText">Tidak ada query aktif</span>
-                    </div>
-                    <div class="query-actions">
-                        <button class="query-action-btn" id="btnClearQuery" title="Hapus Query">🗑️</button>
-                        <button class="query-action-btn" id="btnExportResults" title="Export Hasil">📤</button>
-                        <button class="query-action-btn" id="btnRefreshIndex" title="Segarkan Indeks">↻</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Index Activity Panel dengan WebView Frame -->
-            <div class="index-activity-panel">
-                <div class="activity-header">
-                    <h4>📊 Aktivitas Indeks</h4>
-                    <div class="activity-controls">
-                        <button class="activity-control-btn active" data-view="grid" id="viewGrid">▦ Grid</button>
-                        <button class="activity-control-btn" data-view="list" id="viewList">☰ List</button>
-                        <button class="activity-control-btn" data-view="compact" id="viewCompact">◫ Compact</button>
-                    </div>
-                </div>
-                
-                <!-- Index Progress Bar -->
-                <div class="index-progress">
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="indexProgressFill" style="width: 100%"></div>
-                    </div>
-                    <div class="progress-status">
-                        <span id="indexStatus">Siap</span>
-                        <span id="indexPercentage">100%</span>
-                    </div>
-                </div>
-
-                <!-- Content Frame (WebView) untuk menampilkan hasil -->
-                <div class="content-frame" id="searchContentFrame">
-                    <div class="iframe-placeholder">
-                        <i class="fas fa-search"></i>
-                        <h3>Hasil Pencarian</h3>
-                        <p>Masukkan kata kunci untuk melihat hasil indeks</p>
-                    </div>
-                </div>
-
-                <!-- Results Container (sebagai alternatif view) -->
-                <div class="results-container" id="resultsContainer" style="display: none;">
-                    <!-- Hasil query akan ditampilkan di sini -->
-                    <div class="results-placeholder" id="resultsPlaceholder">
-                        <div class="placeholder-icon">🔎</div>
-                        <h4>Mulai Pencarian</h4>
-                        <p>Masukkan kata kunci di kolom pencarian untuk melihat hasil indeks</p>
-                    </div>
-                    
-                    <!-- Results Grid View -->
-                    <div class="results-grid-view" id="resultsGridView" style="display: none;">
-                        <!-- Grid results will be injected here -->
-                    </div>
-                    
-                    <!-- Results List View -->
-                    <div class="results-list-view" id="resultsListView" style="display: none;">
-                        <!-- List results will be injected here -->
-                    </div>
-                    
-                    <!-- Results Compact View -->
-                    <div class="results-compact-view" id="resultsCompactView" style="display: none;">
-                        <!-- Compact results will be injected here -->
-                    </div>
-                </div>
-
-                <!-- Pagination Controls -->
-                <div class="pagination-controls" id="paginationControls" style="display: none;">
-                    <button class="pagination-btn" id="btnFirstPage">⏮ Pertama</button>
-                    <button class="pagination-btn" id="btnPrevPage">◀ Sebelumnya</button>
-                    <span class="page-info" id="pageInfo">Halaman 1 dari 1</span>
-                    <button class="pagination-btn" id="btnNextPage">Berikutnya ▶</button>
-                    <button class="pagination-btn" id="btnLastPage">Terakhir ⏭</button>
-                </div>
+            <!-- Content Frame (WebView) untuk menampilkan hasil - Full Screen -->
+            <div class="content-frame main-content-frame" id="searchContentFrame">
+                <!-- Konten utama akan di-render oleh JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Main Container - Hanya Kartu-kartu Situs -->
-    <div class="main-container">
+    <!-- Main Container - Kartu-kartu Situs (untuk fallback) -->
+    <div class="main-container" style="display: none;">
         <!-- Sites Grid - 7 Kolom (responsive) -->
         <div class="sites-grid-main" id="sitesGridMain">
             <!-- Kartu-kartu situs akan di-generate oleh JavaScript -->

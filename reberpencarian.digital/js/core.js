@@ -24,7 +24,8 @@ class ReberPencarian {
         await this.scanDigitalFolders();
         this.loadFromStorage();
         this.bindEvents();
-        this.renderSites(this.allSites);
+        // Render langsung ke main content frame (WebView)
+        this.renderToMainContentFrame(this.allSites);
         this.renderTabs();
         this.updateSettingsUI();
     }
@@ -164,7 +165,7 @@ class ReberPencarian {
         document.getElementById('btnLastPage')?.addEventListener('click', () => this.goToPage(this.getTotalPages()));
     }
 
-    // Render Sites Grid
+    // Render Sites Grid (untuk fallback)
     renderSites(sites = this.allSites) {
         const grid = document.getElementById('sitesGridMain');
         
@@ -199,6 +200,65 @@ class ReberPencarian {
             
             grid.appendChild(card);
         });
+    }
+
+    // Render ke Main Content Frame (WebView Full Screen)
+    renderToMainContentFrame(sites = this.allSites) {
+        const frame = document.getElementById('searchContentFrame');
+        
+        if (!frame) return;
+        
+        if (sites.length === 0) {
+            frame.innerHTML = `
+                <div class="iframe-placeholder">
+                    <div class="placeholder-icon">🔍</div>
+                    <h3>Tidak ada situs ditemukan</h3>
+                    <p>Coba gunakan kata kunci pencarian lain</p>
+                </div>
+            `;
+            return;
+        }
+        
+        // Buat grid layout untuk kartu-kartu situs
+        let html = `
+            <div class="main-sites-grid">
+        `;
+        
+        sites.forEach((site, index) => {
+            const delay = index * 0.03;
+            html += `
+                <div class="main-site-card animate-fade-in" style="animation-delay: ${delay}s" data-path="${this.escapeHtml(site.path)}" data-name="${this.escapeHtml(site.name)}">
+                    <div class="main-site-card-icon">${site.icon}</div>
+                    <div class="main-site-card-name">${this.escapeHtml(site.name)}</div>
+                    <div class="main-site-card-path">${this.escapeHtml(site.path)}</div>
+                    <div class="main-site-card-category">${this.escapeHtml(site.category)}</div>
+                    <div class="main-site-card-actions">
+                        <button class="main-site-btn primary" onclick="window.reberPencarian.openIndexHtml('${this.escapeHtml(site.path)}')" title="Buka index.html">📄</button>
+                        <button class="main-site-btn secondary" onclick="window.reberPencarian.showSiteDetail('${this.escapeHtml(site.name)}')" title="Lihat Detail">👁️</button>
+                    </div>
+                </div>
+            `;
+        });
+        
+        html += `</div>`;
+        frame.innerHTML = html;
+        
+        // Bind click events untuk kartu
+        setTimeout(() => {
+            frame.querySelectorAll('.main-site-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Jangan trigger jika klik tombol aksi
+                    if (e.target.closest('.main-site-btn')) return;
+                    
+                    const siteName = card.dataset.name;
+                    const sitePath = card.dataset.path;
+                    const site = sites.find(s => s.name === siteName);
+                    if (site) {
+                        this.openTab(site);
+                    }
+                });
+            });
+        }, 100);
     }
 
     // Open Tab for Site
@@ -384,7 +444,114 @@ class ReberPencarian {
     openIndexHtml(path) {
         const indexPath = `${path}/index.html`;
         console.log('Membuka:', indexPath);
-        alert(`Membuka file: ${indexPath}\n\n(Dalam implementasi nyata, file ini akan dibuka di viewer)`);
+        
+        // Buat tab baru untuk menampilkan index.html
+        const site = this.allSites.find(s => s.path === path);
+        if (site) {
+            const newTabId = Date.now();
+            const newTab = {
+                id: newTabId,
+                site: site,
+                title: `📄 ${site.name} - index.html`,
+                timestamp: new Date().toISOString(),
+                isFileView: true,
+                filePath: indexPath
+            };
+            
+            this.tabs.push(newTab);
+            this.activeTabId = newTabId;
+            this.saveToStorage();
+            this.renderTabs();
+            this.showFileInTab(newTabId, indexPath, site);
+        } else {
+            alert(`File tidak ditemukan: ${indexPath}`);
+        }
+    }
+    
+    // Show File in Tab
+    showFileInTab(tabId, filePath, site) {
+        const overlay = document.getElementById('tabContentOverlay');
+        const titleEl = document.getElementById('tabContentTitle');
+        const bodyEl = document.getElementById('tabContentBody');
+        
+        if (!overlay || !titleEl || !bodyEl) return;
+        
+        titleEl.textContent = `📄 ${site.name} - index.html`;
+        bodyEl.innerHTML = `
+            <div class="file-viewer">
+                <div class="file-viewer-header">
+                    <h3>${filePath}</h3>
+                    <p>Membuka file index.html dari folder ${site.name}</p>
+                </div>
+                <div class="file-viewer-content">
+                    <iframe src="${filePath}" style="width: 100%; height: 100%; border: none; min-height: 600px;" onload="this.style.minHeight='600px'"></iframe>
+                </div>
+            </div>
+        `;
+        overlay.classList.add('active');
+    }
+    
+    // Show Site Detail
+    showSiteDetail(siteName) {
+        const site = this.allSites.find(s => s.name === siteName);
+        if (!site) return;
+        
+        const overlay = document.getElementById('tabContentOverlay');
+        const titleEl = document.getElementById('tabContentTitle');
+        const bodyEl = document.getElementById('tabContentBody');
+        
+        if (!overlay || !titleEl || !bodyEl) return;
+        
+        titleEl.textContent = `${site.icon} ${site.name}`;
+        bodyEl.innerHTML = `
+            <div class="site-detail-view">
+                <div class="site-detail-header">
+                    <div class="site-detail-icon">${site.icon}</div>
+                    <div class="site-detail-info">
+                        <h2>${site.name}</h2>
+                        <div class="site-detail-path">${site.path}</div>
+                        <div class="site-detail-category">${site.category}</div>
+                    </div>
+                </div>
+                
+                <div class="site-detail-content">
+                    <div class="site-action-buttons">
+                        <button class="action-btn primary" onclick="window.reberPencarian.openIndexHtml('${site.path}')">
+                            📄 Buka index.html
+                        </button>
+                        <button class="action-btn secondary" onclick="window.reberPencarian.toggleBookmark('${site.name}')">
+                            ⭐ ${this.isBookmarked(site.name) ? 'Hapus Bookmark' : 'Tambah Bookmark'}
+                        </button>
+                        <button class="action-btn tertiary" onclick="window.reberPencarian.copyPath('${site.path}')">
+                            📋 Salin Path
+                        </button>
+                    </div>
+                    
+                    <div class="site-info-section">
+                        <h4>Informasi Situs</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Nama:</span>
+                                <span class="info-value">${site.name}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Kategori:</span>
+                                <span class="info-value">${site.category}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Path:</span>
+                                <span class="info-value">${site.path}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Status:</span>
+                                <span class="info-value ${this.isBookmarked(site.name) ? 'bookmarked' : ''}">${this.isBookmarked(site.name) ? '⭐ Dibookmark' : '○ Tidak dibookmark'}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        overlay.classList.add('active');
     }
 
     // Toggle Bookmark
