@@ -118,7 +118,28 @@ class ReberPencarian {
         document.getElementById('btnBookmarks')?.addEventListener('click', () => this.showMenu('bookmarks'));
         document.getElementById('btnDownloads')?.addEventListener('click', () => this.showMenu('downloads'));
         document.getElementById('btnSettings')?.addEventListener('click', () => this.showMenu('settings'));
-        document.getElementById('btnMoreOptions')?.addEventListener('click', () => this.showMenu('more'));
+        document.getElementById('btnMoreOptions')?.addEventListener('click', () => this.toggleMenuDropdown());
+
+        // Dropdown close button
+        document.getElementById('dropdownCloseBtn')?.addEventListener('click', () => this.hideMenuDropdown());
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('menuDropdown');
+            const moreBtn = document.getElementById('btnMoreOptions');
+            if (dropdown && moreBtn && !dropdown.contains(e.target) && e.target !== moreBtn) {
+                this.hideMenuDropdown();
+            }
+        });
+
+        // Menu dropdown item clicks
+        document.querySelectorAll('.menu-dropdown-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const action = item.dataset.action;
+                this.handleMenuAction(action);
+                this.hideMenuDropdown();
+            });
+        });
 
         // Close All Tabs
         document.getElementById('closeAllTabs')?.addEventListener('click', () => this.closeAllTabs());
@@ -496,6 +517,140 @@ class ReberPencarian {
         }
         
         bodyEl.innerHTML = content;
+        overlay.classList.add('active');
+    }
+
+    // Toggle Menu Dropdown (Small Modal)
+    toggleMenuDropdown() {
+        const dropdown = document.getElementById('menuDropdown');
+        if (dropdown) {
+            dropdown.classList.toggle('active');
+        }
+    }
+
+    // Hide Menu Dropdown
+    hideMenuDropdown() {
+        const dropdown = document.getElementById('menuDropdown');
+        if (dropdown) {
+            dropdown.classList.remove('active');
+        }
+    }
+
+    // Handle Menu Action from Dropdown
+    handleMenuAction(action) {
+        switch(action) {
+            case 'history':
+                this.showMenu('history');
+                break;
+            case 'bookmarks':
+                this.showMenu('bookmarks');
+                break;
+            case 'downloads':
+                this.showMenu('downloads');
+                break;
+            case 'settings':
+                this.showMenu('settings');
+                break;
+            case 'export':
+                this.exportAllData();
+                break;
+            case 'import':
+                this.importData();
+                break;
+            case 'help':
+                this.showHelp();
+                break;
+            case 'about':
+                this.showAbout();
+                break;
+        }
+    }
+
+    // Export All Data
+    exportAllData() {
+        const data = {
+            tabs: this.tabs,
+            history: this.history,
+            bookmarks: this.bookmarks,
+            settings: this.settings,
+            exportedAt: new Date().toISOString()
+        };
+        const jsonData = JSON.stringify(data, null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `reber_backup_${new Date().toISOString().split('T')[0]}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+    }
+
+    // Import Data
+    importData() {
+        alert('Fitur import data akan tersedia segera.');
+    }
+
+    // Show Help
+    showHelp() {
+        const overlay = document.getElementById('tabContentOverlay');
+        const titleEl = document.getElementById('tabContentTitle');
+        const bodyEl = document.getElementById('tabContentBody');
+        
+        if (!overlay || !titleEl || !bodyEl) return;
+        
+        titleEl.textContent = '❓ Bantuan';
+        bodyEl.innerHTML = `
+            <div class="help-content">
+                <h3>Panduan Penggunaan ReberPencarian.digital</h3>
+                <div class="help-section">
+                    <h4>🔍 Pencarian</h4>
+                    <p>Masukkan kata kunci di kolom pencarian untuk mencari situs dari daftar digital yang tersedia.</p>
+                </div>
+                <div class="help-section">
+                    <h4>📑 Tab</h4>
+                    <p>Klik pada kartu situs untuk membuka tab baru. Anda dapat membuka banyak tab sekaligus.</p>
+                </div>
+                <div class="help-section">
+                    <h4>⭐ Bookmark</h4>
+                    <p>Tambahkan situs ke bookmark untuk akses cepat.</p>
+                </div>
+                <div class="help-section">
+                    <h4>⚙ Pengaturan</h4>
+                    <p>Sesuaikan jumlah kolom grid dan preferensi lainnya.</p>
+                </div>
+            </div>
+        `;
+        overlay.classList.add('active');
+    }
+
+    // Show About
+    showAbout() {
+        const overlay = document.getElementById('tabContentOverlay');
+        const titleEl = document.getElementById('tabContentTitle');
+        const bodyEl = document.getElementById('tabContentBody');
+        
+        if (!overlay || !titleEl || !bodyEl) return;
+        
+        titleEl.textContent = 'ℹ️ Tentang';
+        bodyEl.innerHTML = `
+            <div class="about-content">
+                <h3>ReberPencarian.digital</h3>
+                <p class="version">Versi 1.0.0</p>
+                <p>Mesin pencari universal untuk menelusuri berbagai folder digital dalam workspace.</p>
+                <div class="about-features">
+                    <h4>Fitur Utama:</h4>
+                    <ul>
+                        <li>🔍 Pencarian cepat di semua folder digital</li>
+                        <li>📑 Manajemen tab multi-jendela</li>
+                        <li>⭐ Sistem bookmark</li>
+                        <li>📊 Tampilan hasil dalam 3 mode (Grid, List, Compact)</li>
+                        <li>📤 Export/Import data</li>
+                        <li>⚙ Pengaturan kustomisasi grid</li>
+                    </ul>
+                </div>
+                <p class="copyright">&copy; 2025 ReberPencarian.digital</p>
+            </div>
+        `;
         overlay.classList.add('active');
     }
 
