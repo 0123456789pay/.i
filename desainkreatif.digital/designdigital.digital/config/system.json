@@ -1,0 +1,74 @@
+{
+    "app": {
+        "name": "DesainKreatif.Digital",
+        "version": "1.0.0",
+        "description": "Platform Kreatif Digital Terintegrasi",
+        "theme": "white-blue",
+        "language": "id"
+    },
+    "database": {
+        "host": "localhost",
+        "port": 3306,
+        "name": "desainkreatif_db",
+        "user": "root",
+        "password": ""
+    },
+    "auth": {
+        "enabled": true,
+        "session_timeout": 3600,
+        "remember_me_duration": 604800,
+        "password_min_length": 8,
+        "social_login": {
+            "google": {
+                "enabled": true,
+                "client_id": ""
+            },
+            "facebook": {
+                "enabled": true,
+                "app_id": ""
+            },
+            "github": {
+                "enabled": true,
+                "client_id": ""
+            }
+        }
+    },
+    "modules": {
+        "scan_directory": "../",
+        "extension": ".digital",
+        "auto_load": true
+    },
+    "ui": {
+        "colors": {
+            "primary": "#0066cc",
+            "secondary": "#0099ff",
+            "dark": "#003366",
+            "light": "#e6f2ff",
+            "white": "#ffffff"
+        },
+        "fonts": {
+            "primary": "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+        },
+        "animations": {
+            "enabled": true,
+            "duration": 300
+        }
+    },
+    "features": {
+        "login_register": true,
+        "module_navigation": true,
+        "search": true,
+        "notifications": true,
+        "responsive": true,
+        "dark_mode": false
+    },
+    "security": {
+        "csrf_protection": true,
+        "xss_protection": true,
+        "rate_limiting": {
+            "enabled": true,
+            "max_requests": 100,
+            "window": 60
+        }
+    }
+}
