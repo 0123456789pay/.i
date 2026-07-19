@@ -305,8 +305,8 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-/* Tab Bar Section */
-.tab-bar-section {
+/* Tab Bar Section - Dinonaktifkan karena telah dipindahkan ke search-engine-view */
+/* .tab-bar-section {
     position: fixed;
     top: 70px;
     left: 0;
@@ -402,7 +402,7 @@ body {
     border-color: red;
     color: red;
     background: #fff0f0;
-}
+} */
 
 /* Main Container */
 .main-container {
@@ -601,10 +601,7 @@ body {
         padding: 16px;
     }
     
-    .tab-bar-section {
-        top: 60px;
-        padding: 6px 12px;
-    }
+    /* .tab-bar-section { top: 60px; padding: 6px 12px; } */
     
     .tab-content-overlay {
         top: 108px;
@@ -728,8 +725,8 @@ body {
     line-height: 1.6;
 }
 
-/* Scrollbar Styling */
-.tab-list::-webkit-scrollbar {
+/* Scrollbar Styling - Dinonaktifkan karena tab-list telah dihapus */
+/* .tab-list::-webkit-scrollbar {
     height: 6px;
 }
 
@@ -745,7 +742,7 @@ body {
 
 .tab-list::-webkit-scrollbar-thumb:hover {
     background: var(--primary-blue);
-}
+} */
 
 .tab-content-body::-webkit-scrollbar {
     width: 8px;
@@ -1543,6 +1540,130 @@ body {
     .results-grid-view {
         grid-template-columns: 1fr;
     }
+}
+
+/* Tabs Container (seperti appbrowser.html) */
+.tabs-container {
+    background: var(--dark-bg);
+    padding: 10px 20px 0;
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin-bottom: 0;
+}
+
+.tab {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.tab.active {
+    background: white;
+    color: var(--text-primary);
+}
+
+.tab-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tab-close {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.tab-close:hover {
+    background: var(--danger-color);
+    color: white;
+    opacity: 1;
+}
+
+.new-tab-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.new-tab-btn:hover {
+    background: var(--success-color);
+}
+
+/* Content Frame (WebView) */
+.content-frame {
+    flex: 1;
+    background: white;
+    border: none;
+    position: relative;
+    min-height: 400px;
+    max-height: 600px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.content-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.iframe-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+    color: var(--text-secondary);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.iframe-placeholder i {
+    font-size: 80px;
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.iframe-placeholder h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.iframe-placeholder p {
+    font-size: 16px;
+    color: var(--text-light);
 }
 
 /* Scrollbar styling for results container */
