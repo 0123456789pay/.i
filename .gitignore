@@ -1,14 +1,32 @@
 ```
-# Dependencies
-node_modules/
-
-# Build artifacts
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
 dist/
 build/
-target/
+*.class
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
-# Logs
+# Dependencies
+.venv/
+venv/
+node_modules/
+.mypy_cache/
+.pytest_cache/
+target/
+.gradle/
+
+# Logs and temp files
 *.log
+*.tmp
+*.swp
+*.swo
 
 # Environment
 .env
@@ -19,22 +37,7 @@ target/
 .vscode/
 .idea/
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Temporary files
-*.tmp
-*.temp
-*~
+# System files
 .DS_Store
 Thumbs.db
 
@@ -42,12 +45,6 @@ Thumbs.db
 coverage/
 htmlcov/
 .coverage
-
-# MyPy
-.mypy_cache/
-
-# PyTest
-.pytest_cache/
 
 # Compressed files
 *.zip
