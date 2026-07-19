@@ -455,47 +455,70 @@ function renderMenuHTML(menus, level = 0) {
     return html;
 }
 
-// Load latest posts
+// Load latest posts with professional news layout
 function loadLatestPosts() {
     const container = document.getElementById('latestPosts');
     if (!container) return;
     
-    // Simulate posts data
+    // Simulate posts data with realistic news content
     const posts = [
         {
-            title: 'Berita Terbaru 1',
-            excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...',
+            title: 'Pemerintah Luncurkan Strategi Baru Transformasi Digital Nasional',
+            excerpt: 'Pemerintah resmi meluncurkan roadmap transformasi digital 2024-2029 yang fokus pada peningkatan infrastruktur digital, pengembangan SDM, dan akselerasi adopsi teknologi di sektor publik...',
             category_name: 'Nasional',
             published_at: '2024-01-15',
-            views: 1234,
-            slug: 'berita-terbaru-1',
-            featured_image: 'assets/images/placeholder.jpg'
+            views: 12340,
+            slug: 'pemerintah-luncurkan-strategi-transformasi-digital'
         },
         {
-            title: 'Berita Terbaru 2',
-            excerpt: 'Sed do eiusmod tempor incididunt ut labore et dolore magna...',
+            title: 'Ekonomi Digital Indonesia Diproyeksikan Tumbuh 25% Tahun Ini',
+            excerpt: 'Bank Indonesia memproyeksikan ekonomi digital tanah air akan tumbuh signifikan didorong oleh peningkatan transaksi e-commerce, fintech, dan layanan digital lainnya...',
             category_name: 'Ekonomi',
             published_at: '2024-01-14',
-            views: 987,
-            slug: 'berita-terbaru-2',
-            featured_image: 'assets/images/placeholder.jpg'
+            views: 9876,
+            slug: 'ekonomi-digital-indonesia-tumbuh-25-persen'
         },
         {
-            title: 'Berita Terbaru 3',
-            excerpt: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco...',
+            title: 'Inovasi AI Terbaru Revolusioner untuk Industri Kreatif',
+            excerpt: 'Perkembangan kecerdasan buatan terus berlanjut dengan hadirnya tools AI generatif yang mampu membantu pekerja kreatif dalam menghasilkan konten berkualitas tinggi...',
             category_name: 'Teknologi',
             published_at: '2024-01-13',
-            views: 765,
-            slug: 'berita-terbaru-3',
-            featured_image: 'assets/images/placeholder.jpg'
+            views: 8765,
+            slug: 'inovasi-ai-terbaru-revolusioner'
+        },
+        {
+            title: 'Timnas Indonesia Siap Hadapi Turnamen Internasional',
+            excerpt: 'Pelatih kepala optimis dengan persiapan yang telah dilakukan, tim nasional sepak bola Indonesia siap bersaing di turnamen bergengsi tingkat Asia...',
+            category_name: 'Olahraga',
+            published_at: '2024-01-12',
+            views: 15432,
+            slug: 'timnas-indonesia-siap-turnamen-internasional'
+        },
+        {
+            title: 'Festival Budaya Digital 2024 Angkat Tema Kearifan Lokal',
+            excerpt: 'Event tahunan yang menggabungkan teknologi dan budaya tradisional ini akan menampilkan berbagai instalasi interaktif dan pertunjukan seni kontemporer...',
+            category_name: 'Budaya',
+            published_at: '2024-01-11',
+            views: 6543,
+            slug: 'festival-budaya-digital-2024'
+        },
+        {
+            title: 'Startup Lokal Raih Pendanaan Seri B Senilai USD 50 Juta',
+            excerpt: 'Perusahaan rintisan berbasis teknologi finansial ini berhasil menarik minat investor global berkat inovasi produk dan pertumbuhan pengguna yang pesat...',
+            category_name: 'Bisnis',
+            published_at: '2024-01-10',
+            views: 7654,
+            slug: 'startup-lokal-raih-pendanaan-seri-b'
         }
     ];
     
     let html = '';
-    posts.forEach(post => {
+    posts.forEach((post, index) => {
+        const isFeatured = index === 0;
+        const gradient = getRandomGradient();
         html += `
-        <article class="news-card">
-            <img src="${post.featured_image}" alt="${post.title}" class="news-card-image" onerror="this.src='assets/images/placeholder.jpg'">
+        <article class="news-card${isFeatured ? ' featured' : ''}">
+            <div class="news-card-image" style="background: linear-gradient(135deg, ${gradient});"></div>
             <div class="news-card-content">
                 <span class="news-card-category">${post.category_name}</span>
                 <h3 class="news-card-title">
@@ -503,8 +526,14 @@ function loadLatestPosts() {
                 </h3>
                 <p class="news-card-excerpt">${post.excerpt}</p>
                 <div class="news-card-meta">
-                    <span>${new Date(post.published_at).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year: 'numeric'})}</span>
-                    <span>${post.views.toLocaleString()} views</span>
+                    <span class="news-card-meta-item">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        ${formatDate(post.published_at)}
+                    </span>
+                    <span class="news-card-meta-item">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        ${formatNumber(post.views)} views
+                    </span>
                 </div>
             </div>
         </article>`;
@@ -513,28 +542,54 @@ function loadLatestPosts() {
     container.innerHTML = html;
 }
 
-// Load trending posts
+// Helper function for random gradient backgrounds
+function getRandomGradient() {
+    const gradients = [
+        '#1a56db, #1e40af',
+        '#0ea5e9, #0284c7',
+        '#3b82f6, #2563eb',
+        '#1e3a8a, #1e40af',
+        '#60a5fa, #3b82f6',
+        '#2563eb, #1d4ed8'
+    ];
+    return gradients[Math.floor(Math.random() * gradients.length)];
+}
+
+// Format number with K suffix
+function formatNumber(num) {
+    if (num >= 1000) {
+        return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
+}
+
+// Load trending posts with realistic news content
 function loadTrendingPosts() {
     const container = document.getElementById('trendingPosts');
     if (!container) return;
     
     const posts = [
-        { title: 'Berita Trending 1', slug: 'berita-trending-1' },
-        { title: 'Berita Trending 2', slug: 'berita-trending-2' },
-        { title: 'Berita Trending 3', slug: 'berita-trending-3' },
-        { title: 'Berita Trending 4', slug: 'berita-trending-4' },
-        { title: 'Berita Trending 5', slug: 'berita-trending-5' }
+        { title: 'Pemerintah Luncurkan Strategi Baru Transformasi Digital Nasional', slug: 'pemerintah-luncurkan-strategi-transformasi-digital' },
+        { title: 'Ekonomi Digital Indonesia Diproyeksikan Tumbuh 25% Tahun Ini', slug: 'ekonomi-digital-indonesia-tumbuh-25-persen' },
+        { title: 'Timnas Indonesia Siap Hadapi Turnamen Internasional', slug: 'timnas-indonesia-siap-turnamen-internasional' },
+        { title: 'Inovasi AI Terbaru Revolusioner untuk Industri Kreatif', slug: 'inovasi-ai-terbaru-revolusioner' },
+        { title: 'Startup Lokal Raih Pendanaan Seri B Senilai USD 50 Juta', slug: 'startup-lokal-raih-pendanaan-seri-b' }
     ];
     
     let html = '';
     posts.forEach((post, index) => {
         html += `
         <li>
-            <span style="display: inline-block; width: 25px; height: 25px; 
-                       background: var(--primary-blue); color: white; 
-                       border-radius: 50%; text-align: center; line-height: 25px; 
-                       font-size: 12px; margin-right: 10px;">${index + 1}</span>
-            <a href="detail.html?slug=${post.slug}">${post.title}</a>
+            <div class="trending-item">
+                <span class="trending-number">${index + 1}</span>
+                <div>
+                    <a href="detail.html?slug=${post.slug}">${post.title}</a>
+                    <div class="trending-meta">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        ${index + 1} jam yang lalu
+                    </div>
+                </div>
+            </div>
         </li>`;
     });
     
@@ -546,18 +601,23 @@ function loadCategories() {
     const container = document.getElementById('categoriesList');
     if (!container) return;
     
-    const categories = ['Nasional', 'Internasional', 'Ekonomi', 'Teknologi', 'Olahraga', 'Hiburan'];
+    const categories = [
+        { name: 'Nasional', count: 124 },
+        { name: 'Internasional', count: 89 },
+        { name: 'Ekonomi', count: 156 },
+        { name: 'Teknologi', count: 203 },
+        { name: 'Olahraga', count: 178 },
+        { name: 'Hiburan', count: 145 },
+        { name: 'Bisnis', count: 167 },
+        { name: 'Budaya', count: 92 }
+    ];
     
     let html = '';
     categories.forEach(cat => {
         html += `
-        <a href="kategori/${cat.toLowerCase()}.html" 
-           style="background: var(--light-blue); color: var(--primary-blue); 
-                  padding: 6px 12px; border-radius: 20px; font-size: 13px; 
-                  text-decoration: none; transition: all 0.3s ease;"
-           onmouseover="this.style.background='var(--primary-blue)'; this.style.color='white'"
-           onmouseout="this.style.background='var(--light-blue)'; this.style.color='var(--primary-blue)'">
-            ${cat}
+        <a href="kategori/${cat.name.toLowerCase()}.html" class="category-pill">
+            ${cat.name}
+            <span class="count">${cat.count}</span>
         </a>`;
     });
     
