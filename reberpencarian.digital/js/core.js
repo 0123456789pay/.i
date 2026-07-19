@@ -1,4 +1,4 @@
-// ReberPencarian.digital - Core JavaScript Functionality
+// ReberPencarian.digital - Core JavaScript Functionality (Optimized v2.0)
 
 class ReberPencarian {
     constructor() {
@@ -6,7 +6,14 @@ class ReberPencarian {
         this.activeTabId = null;
         this.history = [];
         this.bookmarks = [];
-        this.settings = { gridColumns: 7, itemsPerPage: 20 };
+        this.settings = { 
+            gridColumns: 7, 
+            itemsPerPage: 20,
+            theme: 'light',
+            enableFuzzySearch: true,
+            enableSuggestions: true,
+            maxHistoryItems: 100
+        };
         this.allSites = [];
         
         // Search Engine View Properties
@@ -24,6 +31,29 @@ class ReberPencarian {
         this.searchTabs = [{ id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true }];
         this.activeSearchTabId = 1;
         
+        // Advanced Search Features
+        this.searchSuggestions = [];
+        this.recentSearches = [];
+        this.searchFrequency = {};
+        this.bookmarkTags = {};
+        this.selectedItems = new Set();
+        this.keyboardShortcutsEnabled = true;
+        
+        // Analytics Data
+        this.analytics = {
+            totalSearches: 0,
+            popularQueries: [],
+            lastSearchTime: null,
+            averageResultsCount: 0
+        };
+        
+        // Virtual Scrolling
+        this.virtualScrollConfig = {
+            itemHeight: 200,
+            visibleItems: 20,
+            scrollTop: 0
+        };
+        
         this.init();
     }
 
@@ -31,10 +61,21 @@ class ReberPencarian {
         await this.scanDigitalFolders();
         this.loadFromStorage();
         this.bindEvents();
+        this.initAdvancedFeatures();
         // Render langsung ke search content frame (WebView) dengan tab system
         this.renderWebViewContent();
         this.renderSearchTabs();
         this.updateSettingsUI();
+        this.setupKeyboardShortcuts();
+        this.trackAnalytics('init');
+    }
+
+    // 1. Inisialisasi Fitur Lanjutan
+    initAdvancedFeatures() {
+        this.buildSearchIndex();
+        this.generateSuggestions();
+        this.loadBookmarkTags();
+        this.calculateSearchFrequency();
     }
 
     async scanDigitalFolders() {
@@ -86,6 +127,43 @@ class ReberPencarian {
         ];
         
         this.allSites = digitalFolders;
+        
+        // 2. Bangun indeks pencarian untuk performa lebih cepat
+        this.buildSearchIndex();
+    }
+
+    // 2. Build Search Index (Inverted Index)
+    buildSearchIndex() {
+        this.searchIndex = new Map();
+        
+        this.allSites.forEach((site, index) => {
+            // Index nama
+            const nameTokens = site.name.toLowerCase().split(/[\s_]+/);
+            nameTokens.forEach(token => {
+                if (!this.searchIndex.has(token)) {
+                    this.searchIndex.set(token, []);
+                }
+                this.searchIndex.get(token).push(index);
+            });
+            
+            // Index kategori
+            const categoryToken = site.category.toLowerCase();
+            if (!this.searchIndex.has(categoryToken)) {
+                this.searchIndex.set(categoryToken, []);
+            }
+            this.searchIndex.get(categoryToken).push(index);
+            
+            // Index path
+            const pathTokens = site.path.toLowerCase().split('/');
+            pathTokens.forEach(token => {
+                if (token && !this.searchIndex.has(token)) {
+                    this.searchIndex.set(token, []);
+                }
+                if (token) this.searchIndex.get(token).push(index);
+            });
+        });
+        
+        console.log('Indeks pencarian dibangun:', this.searchIndex.size, 'token');
     }
 
     loadFromStorage() {
@@ -98,6 +176,11 @@ class ReberPencarian {
         if (savedHistory) this.history = JSON.parse(savedHistory);
         if (savedBookmarks) this.bookmarks = JSON.parse(savedBookmarks);
         if (savedSettings) this.settings = { ...this.settings, ...JSON.parse(savedSettings) };
+        if (savedTags) this.bookmarkTags = JSON.parse(savedTags);
+        if (savedAnalytics) this.analytics = { ...this.analytics, ...JSON.parse(savedAnalytics) };
+        
+        // Load recent searches for suggestions
+        this.recentSearches = this.history.slice(0, 10).map(h => h.query || '').filter(q => q);
     }
 
     saveToStorage() {
@@ -105,6 +188,8 @@ class ReberPencarian {
         localStorage.setItem('reber_history', JSON.stringify(this.history));
         localStorage.setItem('reber_bookmarks', JSON.stringify(this.bookmarks));
         localStorage.setItem('reber_settings', JSON.stringify(this.settings));
+        localStorage.setItem('reber_bookmark_tags', JSON.stringify(this.bookmarkTags));
+        localStorage.setItem('reber_analytics', JSON.stringify(this.analytics));
     }
 
     bindEvents() {
@@ -1647,6 +1732,294 @@ class ReberPencarian {
             this.renderSearchTabs();
             this.loadSearchTab(newTabId);
         }
+    }
+
+    // 3. Generate Search Suggestions
+    generateSuggestions() {
+        this.searchSuggestions = [
+            ...new Set([
+                ...this.allSites.map(s => s.name.toLowerCase()),
+                ...this.allSites.map(s => s.category.toLowerCase()),
+                ...this.recentSearches
+            ])
+        ].slice(0, 50);
+    }
+
+    // 4. Load Bookmark Tags
+    loadBookmarkTags() {
+        this.bookmarks.forEach(bookmark => {
+            const tag = bookmark.category || 'general';
+            if (!this.bookmarkTags[tag]) {
+                this.bookmarkTags[tag] = [];
+            }
+            this.bookmarkTags[tag].push(bookmark.name);
+        });
+    }
+
+    // 5. Calculate Search Frequency
+    calculateSearchFrequency() {
+        this.history.forEach(item => {
+            const query = item.query || '';
+            if (query) {
+                this.searchFrequency[query] = (this.searchFrequency[query] || 0) + 1;
+            }
+        });
+    }
+
+    // 6. Setup Keyboard Shortcuts
+    setupKeyboardShortcuts() {
+        if (!this.keyboardShortcutsEnabled) return;
+
+        document.addEventListener('keydown', (e) => {
+            // Ctrl/Cmd + K: Focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                document.getElementById('urlInput')?.focus();
+            }
+            
+            // Ctrl + H: History
+            if (e.ctrlKey && e.key === 'h') {
+                e.preventDefault();
+                this.showMenu('history');
+            }
+            
+            // Ctrl + D: Add bookmark
+            if (e.ctrlKey && e.key === 'd') {
+                e.preventDefault();
+                // Add current site to bookmarks
+            }
+            
+            // Escape: Close overlays
+            if (e.key === 'Escape') {
+                document.getElementById('tabContentOverlay')?.classList.remove('active');
+                this.hideMenuDropdown();
+            }
+            
+            // F5: Refresh
+            if (e.key === 'F5') {
+                e.preventDefault();
+                this.navigate('refresh');
+            }
+        });
+    }
+
+    // 7. Track Analytics
+    trackAnalytics(event, data = {}) {
+        switch(event) {
+            case 'search':
+                this.analytics.totalSearches++;
+                this.analytics.lastSearchTime = new Date().toISOString();
+                this.updatePopularQueries(data.query);
+                break;
+            case 'init':
+                console.log('Analytics initialized');
+                break;
+        }
+        this.saveToStorage();
+    }
+
+    // Update Popular Queries
+    updatePopularQueries(query) {
+        const existingIndex = this.analytics.popularQueries.findIndex(pq => pq.query === query);
+        
+        if (existingIndex >= 0) {
+            this.analytics.popularQueries[existingIndex].count++;
+        } else {
+            this.analytics.popularQueries.push({ query, count: 1 });
+        }
+        
+        // Sort by count and keep top 10
+        this.analytics.popularQueries.sort((a, b) => b.count - a.count);
+        this.analytics.popularQueries = this.analytics.popularQueries.slice(0, 10);
+    }
+
+    // 8. Fuzzy Search Implementation
+    fuzzySearch(query) {
+        const results = [];
+        const lowerQuery = query.toLowerCase();
+        
+        this.allSites.forEach(site => {
+            let score = 0;
+            
+            // Exact match
+            if (site.name.toLowerCase() === lowerQuery) score += 100;
+            // Starts with
+            if (site.name.toLowerCase().startsWith(lowerQuery)) score += 50;
+            // Contains
+            if (site.name.toLowerCase().includes(lowerQuery)) score += 20;
+            // Category match
+            if (site.category.toLowerCase().includes(lowerQuery)) score += 15;
+            // Path contains
+            if (site.path.toLowerCase().includes(lowerQuery)) score += 10;
+            
+            // Levenshtein-like partial match scoring
+            const nameTokens = site.name.toLowerCase().split(/[\s_]+/);
+            nameTokens.forEach(token => {
+                if (token.startsWith(lowerQuery)) score += 5;
+                if (token.includes(lowerQuery)) score += 2;
+            });
+            
+            if (score > 0) {
+                results.push({ ...site, score });
+            }
+        });
+        
+        return results.sort((a, b) => b.score - a.score);
+    }
+
+    // 9. Advanced Search with Index
+    advancedSearch(query) {
+        const tokens = query.toLowerCase().split(/[\s_]+/).filter(t => t.length > 0);
+        const resultIndices = new Set();
+        
+        tokens.forEach(token => {
+            // Direct index lookup
+            for (const [key, indices] of this.searchIndex.entries()) {
+                if (key.includes(token) || token.includes(key)) {
+                    indices.forEach(idx => resultIndices.add(idx));
+                }
+            }
+        });
+        
+        // Convert indices to site objects
+        const results = Array.from(resultIndices).map(idx => this.allSites[idx]);
+        
+        // If no index results, fallback to fuzzy search
+        if (results.length === 0) {
+            return this.fuzzySearch(query);
+        }
+        
+        return results;
+    }
+
+    // 10. Virtual Scroll Rendering
+    renderVirtualScroll(container, items) {
+        const containerEl = document.getElementById(container);
+        if (!containerEl) return;
+        
+        const totalHeight = items.length * this.virtualScrollConfig.itemHeight;
+        containerEl.style.height = `${totalHeight}px`;
+        containerEl.style.position = 'relative';
+        containerEl.style.overflowY = 'auto';
+        
+        const renderVisibleItems = () => {
+            const scrollTop = containerEl.scrollTop;
+            const startIndex = Math.floor(scrollTop / this.virtualScrollConfig.itemHeight);
+            const endIndex = Math.min(
+                startIndex + this.virtualScrollConfig.visibleItems,
+                items.length
+            );
+            
+            // Render only visible items
+            let html = '';
+            for (let i = startIndex; i < endIndex; i++) {
+                const item = items[i];
+                const top = i * this.virtualScrollConfig.itemHeight;
+                html += `<div class=\"virtual-item\" style=\"position: absolute; top: ${top}px; height: ${this.virtualScrollConfig.itemHeight}px;\">
+                    ${item.name}
+                </div>`;
+            }
+            
+            containerEl.innerHTML = html;
+        };
+        
+        containerEl.addEventListener('scroll', renderVisibleItems);
+        renderVisibleItems();
+    }
+
+    // 11. Debounce Function for Search
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // 12. Show Search Suggestions Dropdown
+    showSearchSuggestions(query) {
+        const suggestions = this.searchSuggestions
+            .filter(s => s.includes(query.toLowerCase()))
+            .slice(0, 8);
+        
+        // Show suggestions UI (to be implemented in HTML)
+        console.log('Suggestions:', suggestions);
+        return suggestions;
+    }
+
+    // 13. Multi-Select Items
+    toggleItemSelection(index) {
+        if (this.selectedItems.has(index)) {
+            this.selectedItems.delete(index);
+        } else {
+            this.selectedItems.add(index);
+        }
+        this.renderSelectionUI();
+    }
+
+    // Render Selection UI
+    renderSelectionUI() {
+        const count = this.selectedItems.size;
+        const actionPanel = document.getElementById('selectionActionPanel');
+        if (actionPanel) {
+            actionPanel.style.display = count > 0 ? 'flex' : 'none';
+            actionPanel.querySelector('.selected-count').textContent = count;
+        }
+    }
+
+    // 14. Batch Operations
+    batchDeleteSelected() {
+        if (this.selectedItems.size === 0) return;
+        
+        if (confirm(`Hapus ${this.selectedItems.size} item yang dipilih?`)) {
+            // Implement batch delete logic
+            this.selectedItems.clear();
+            this.renderSelectionUI();
+        }
+    }
+
+    batchBookmarkSelected() {
+        if (this.selectedItems.size === 0) return;
+        
+        this.selectedItems.forEach(index => {
+            const site = this.currentResults[index] || this.allSites[index];
+            if (site && !this.isBookmarked(site.name)) {
+                this.bookmarks.push(site);
+            }
+        });
+        
+        this.saveToStorage();
+        this.selectedItems.clear();
+        this.renderSelectionUI();
+        alert(`${this.selectedItems.size} item ditambahkan ke bookmark`);
+    }
+
+    // 15. Export Selected Items
+    exportSelectedItems() {
+        if (this.selectedItems.size === 0) {
+            alert('Tidak ada item yang dipilih');
+            return;
+        }
+        
+        const selectedData = Array.from(this.selectedItems).map(index => {
+            return this.currentResults[index] || this.allSites[index];
+        }).filter(Boolean);
+        
+        const jsonData = JSON.stringify(selectedData, null, 2);
+        const blob = new Blob([jsonData], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `selected_items_${new Date().toISOString().split('T')[0]}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        
+        this.selectedItems.clear();
+        this.renderSelectionUI();
     }
 }
 
