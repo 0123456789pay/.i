@@ -1572,7 +1572,7 @@ body {
     }
 }
 
-/* Tabs Container (seperti appbrowser.html) */
+/* Tabs Container (seperti appbrowser.html) - Full Width */
 .tabs-container {
     background: linear-gradient(180deg, #ffffff 0%, #f0f4ff 50%, #e0e8ff 100%);
     padding: 12px 24px 0;
@@ -1582,6 +1582,7 @@ body {
     border-radius: 0;
     margin-bottom: 0;
     border-bottom: 2px solid var(--secondary-blue);
+    width: 100%;
 }
 
 /* Main Tabs Header - Gradasi Putih-Biru untuk tampilan utama */
@@ -1639,6 +1640,10 @@ body {
     white-space: nowrap;
     font-size: 13px;
     font-weight: 600;
+    background: linear-gradient(135deg, #ffffff 0%, #0066ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .tab-close {
@@ -1651,12 +1656,18 @@ body {
     font-size: 12px;
     opacity: 0.7;
     transition: all 0.2s ease;
-    background: rgba(0, 71, 179, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #0066ff 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    border: 1px solid var(--secondary-blue);
 }
 
 .tab-close:hover {
-    background: #ff4444;
+    background: linear-gradient(135deg, #ff4444 0%, #ff0000 100%);
     color: white;
+    -webkit-background-clip: unset;
+    background-clip: unset;
     opacity: 1;
 }
 
