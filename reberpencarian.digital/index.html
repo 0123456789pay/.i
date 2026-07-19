@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReberPencarian.digital - Mesin Pencari Universal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header dengan gaya browser modern */
+        header {
+            background: linear-gradient(90deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .url-bar {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .url-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .protocol-badge {
+            background: #10b981;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Menu lengkap */
+        nav {
+            background: white;
+            padding: 0.5rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .menu-items {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            color: #0284c7;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .menu-item:hover {
+            background: #e0f2fe;
+            transform: translateY(-2px);
+        }
+
+        .menu-item.active {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        /* Konten utama */
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .search-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 3rem;
+            background: linear-gradient(90deg, #0ea5e9, #0284c7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo p {
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        /* Input pencarian utama */
+        .search-box {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            background: #f8fafc;
+            border: 2px solid #e0f2fe;
+            border-radius: 30px;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-input-wrapper:focus-within {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+        }
+
+        .search-icon {
+            color: #0ea5e9;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        #searchInput {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            padding: 0.8rem 0;
+            outline: none;
+            color: #334155;
+        }
+
+        .search-btn {
+            background: linear-gradient(90deg, #0ea5e9, #0284c7);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Simbol Inti */
+        .core-symbols {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .symbol-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #bae6fd;
+            min-width: 200px;
+        }
+
+        .symbol-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .symbol-true {
+            color: #10b981;
+        }
+
+        .symbol-root {
+            color: #0ea5e9;
+        }
+
+        .symbol-label {
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .symbol-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        /* Input data multi-type */
+        .data-input-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .data-input-section h3 {
+            color: #0284c7;
+            margin-bottom: 1rem;
+        }
+
+        .input-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .input-type-btn {
+            background: #f0f9ff;
+            border: 2px solid #bae6fd;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .input-type-btn:hover {
+            background: #e0f2fe;
+            border-color: #0ea5e9;
+            transform: translateY(-3px);
+        }
+
+        .input-type-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-type-label {
+            font-size: 0.9rem;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        /* Hasil pencarian */
+        .results-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .result-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e0f2fe;
+            transition: all 0.3s;
+        }
+
+        .result-item:hover {
+            background: #f8fafc;
+            border-left: 4px solid #0ea5e9;
+        }
+
+        .result-title {
+            color: #0284c7;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+
+        .result-url {
+            color: #10b981;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-desc {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Status protokol */
+        .protocol-status {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .status-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .status-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .status-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #bae6fd;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .search-container {
+                padding: 2rem 1rem;
+            }
+
+            .logo h1 {
+                font-size: 2rem;
+            }
+
+            .menu-items {
+                gap: 0.5rem;
+            }
+
+            .menu-item {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dengan gaya browser -->
+    <header>
+        <div class="browser-bar">
+            <div class="nav-buttons">
+                <button class="nav-btn" title="Back">←</button>
+                <button class="nav-btn" title="Forward">→</button>
+                <button class="nav-btn" title="Refresh">↻</button>
+                <button class="nav-btn" title="Home">⌂</button>
+            </div>
+            <div class="url-bar">
+                <span class="protocol-badge">🔒 HTTPS</span>
+                <input type="text" value="reberpencarian.digital" readonly>
+                <span style="color: #10b981;">✓</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu lengkap mesin pencari -->
+    <nav>
+        <ul class="menu-items">
+            <li><a href="#" class="menu-item active">🏠 Beranda</a></li>
+            <li><a href="#" class="menu-item">📰 Berita</a></li>
+            <li><a href="#" class="menu-item">🖼️ Gambar</a></li>
+            <li><a href="#" class="menu-item">🎥 Video</a></li>
+            <li><a href="#" class="menu-item">🎬 Film</a></li>
+            <li><a href="#" class="menu-item">📄 Dokumen</a></li>
+            <li><a href="#" class="menu-item">🗺️ Peta</a></li>
+            <li><a href="#" class="menu-item">✈️ Penerbangan</a></li>
+            <li><a href="#" class="menu-item">💰 Keuangan</a></li>
+            <li><a href="#" class="menu-item">⚙️ Pengaturan</a></li>
+        </ul>
+    </nav>
+
+    <!-- Konten utama -->
+    <main>
+        <div class="search-container">
+            <div class="logo">
+                <h1>🔍 ReberPencarian.digital</h1>
+                <p>Mesin Pencari Universal - Semua Jaringan, Semua Perangkat</p>
+            </div>
+
+            <!-- Kotak pencarian utama -->
+            <div class="search-box">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Cari teks, gambar, video, film, dokumen, atau jenis data apapun...">
+                    <button class="search-btn" onclick="performSearch()">Telusuri</button>
+                </div>
+            </div>
+
+            <!-- Simbol Inti -->
+            <div class="core-symbols">
+                <div class="symbol-card">
+                    <div class="symbol-icon symbol-true">◉</div>
+                    <div class="symbol-label">Simbol Inti Selector TRUE</div>
+                    <div class="symbol-desc">Render krawler data presisi tinggi dengan seleksi akurat</div>
+                </div>
+                <div class="symbol-card">
+                    <div class="symbol-icon symbol-root">⌘</div>
+                    <div class="symbol-label">Simbol Inti ROOT</div>
+                    <div class="symbol-desc">Input universal untuk semua jenis data dan protokol</div>
+                </div>
+            </div>
+
+            <!-- Input multi-tipe data -->
+            <div class="data-input-section">
+                <h3>📥 Input Data Multi-Tipe</h3>
+                <p style="color: #64748b; margin-bottom: 1rem;">Pilih jenis data yang ingin dicari atau diinput:</p>
+                <div class="input-types">
+                    <div class="input-type-btn" onclick="selectType('teks')">
+                        <div class="input-type-icon">📝</div>
+                        <div class="input-type-label">Teks</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('gambar')">
+                        <div class="input-type-icon">🖼️</div>
+                        <div class="input-type-label">Gambar</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('video')">
+                        <div class="input-type-icon">🎥</div>
+                        <div class="input-type-label">Video</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('film')">
+                        <div class="input-type-icon">🎬</div>
+                        <div class="input-type-label">Film</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('dokumen')">
+                        <div class="input-type-icon">📄</div>
+                        <div class="input-type-label">Dokumen</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('audio')">
+                        <div class="input-type-icon">🎵</div>
+                        <div class="input-type-label">Audio</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('aplikasi')">
+                        <div class="input-type-icon">📱</div>
+                        <div class="input-type-label">Aplikasi</div>
+                    </div>
+                    <div class="input-type-btn" onclick="selectType('semua')">
+                        <div class="input-type-icon">🌐</div>
+                        <div class="input-type-label">Semua Jenis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hasil pencarian -->
+        <div class="results-section" id="resultsSection">
+            <h2 style="color: #0284c7; margin-bottom: 1.5rem;">📊 Hasil Pencarian</h2>
+            <div id="resultsContainer"></div>
+        </div>
+
+        <!-- Status protokol -->
+        <div class="protocol-status">
+            <h3>🔧 Identitas Protokol ReberPencarian.digital</h3>
+            <div class="status-grid">
+                <div class="status-item">
+                    <div class="status-label">IP Host</div>
+                    <div class="status-value">Semua IPv4/IPv6</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Protokol</div>
+                    <div class="status-value">HTTP/HTTPS/FTP/WebSocket</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Port</div>
+                    <div class="status-value">Semua Port (1-65535)</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Perangkat</div>
+                    <div class="status-value">Desktop/Mobile/Tablet/IoT</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Jaringan</div>
+                    <div class="status-value">LAN/WAN/Internet/Cloud</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">Biner Konfigurasi</div>
+                    <div class="status-value">Aktif ✓</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Tentang Kami</a>
+            <a href="#" class="footer-link">Privasi</a>
+            <a href="#" class="footer-link">Syarat Layanan</a>
+            <a href="#" class="footer-link">API Developer</a>
+            <a href="#" class="footer-link">Kontak</a>
+        </div>
+        <p>&copy; 2024 ReberPencarian.digital - Mesin Pencari Universal dengan Biner Konfigurasi Kuat</p>
+    </footer>
+
+    <script>
+        // Sistem pencarian aktif
+        let currentType = 'semua';
+
+        function selectType(type) {
+            currentType = type;
+            const typeNames = {
+                'teks': 'Teks',
+                'gambar': 'Gambar',
+                'video': 'Video',
+                'film': 'Film',
+                'dokumen': 'Dokumen',
+                'audio': 'Audio',
+                'aplikasi': 'Aplikasi',
+                'semua': 'Semua Jenis'
+            };
+            
+            document.getElementById('searchInput').placeholder = `Cari ${typeNames[type]} di semua jaringan dan perangkat...`;
+            
+            // Visual feedback
+            document.querySelectorAll('.input-type-btn').forEach(btn => {
+                btn.style.background = '#f0f9ff';
+                btn.style.borderColor = '#bae6fd';
+            });
+            event.currentTarget.style.background = '#e0f2fe';
+            event.currentTarget.style.borderColor = '#0ea5e9';
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            
+            if (!query) {
+                alert('Silakan masukkan kata kunci pencarian');
+                return;
+            }
+
+            // Simulasi proses krawler dengan simbol inti
+            const resultsSection = document.getElementById('resultsSection');
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            resultsSection.classList.add('active');
+            resultsContainer.innerHTML = `
+                <div style="text-align: center; padding: 3rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">◉ ⌘</div>
+                    <p style="color: #0284c7; font-size: 1.2rem;">Sedang merender krawler data...</p>
+                    <p style="color: #64748b; margin-top: 0.5rem;">Menggunakan Simbol Inti Selector TRUE dan Simbol Inti ROOT</p>
+                    <p style="color: #10b981; margin-top: 1rem;">Mencari "${query}" (${currentType}) di semua IP, host, protokol, dan port...</p>
+                </div>
+            `;
+
+            // Simulasi hasil setelah delay
+            setTimeout(() => {
+                const mockResults = [
+                    {
+                        title: `${query} - Hasil Utama`,
+                        url: `https://reberpencarian.digital/results/${encodeURIComponent(query)}`,
+                        desc: `Hasil pencarian untuk "${query}" menggunakan sistem krawler data dengan simbol inti selector true. Menampilkan data dari semua jaringan dan perangkat.`
+                    },
+                    {
+                        title: `${query} - Dokumen Terkait`,
+                        url: `https://reberpencarian.digital/docs/${encodeURIComponent(query)}`,
+                        desc: `Dokumen lengkap tentang "${query}" yang dapat diakses melalui berbagai protokol (HTTP, HTTPS, FTP) pada semua port.`
+                    },
+                    {
+                        title: `${query} - Media & Video`,
+                        url: `https://reberpencarian.digital/media/${encodeURIComponent(query)}`,
+                        desc: `Koleksi video, film, dan media terkait "${query}" dari seluruh jaringan global dengan konfigurasi biner kuat.`
+                    },
+                    {
+                        title: `${query} - Data Universal`,
+                        url: `https://reberpencarian.digital/universal/${encodeURIComponent(query)}`,
+                        desc: `Data universal untuk "${query}" yang kompatibel dengan semua jenis perangkat: desktop, mobile, tablet, dan IoT.`
+                    },
+                    {
+                        title: `${query} - Analisis Mendalam`,
+                        url: `https://reberpencarian.digital/analysis/${encodeURIComponent(query)}`,
+                        desc: `Analisis mendalam menggunakan render krawler dengan simbol inti root untuk input data teks, gambar, video, film, dan dokumen.`
+                    }
+                ];
+
+                let html = '';
+                mockResults.forEach((result, index) => {
+                    html += `
+                        <div class="result-item">
+                            <div class="result-title">${index + 1}. ${result.title}</div>
+                            <div class="result-url">${result.url}</div>
+                            <div class="result-desc">${result.desc}</div>
+                        </div>
+                    `;
+                });
+
+                resultsContainer.innerHTML = html;
+                
+                // Scroll ke hasil
+                resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }, 1500);
+        }
+
+        // Enter key untuk search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Aktifkan menu item saat diklik
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.menu-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Deteksi perangkat dan jaringan
+        window.addEventListener('load', () => {
+            console.log('ReberPencarian.digital aktif');
+            console.log('Simbol Inti Selector TRUE: ◉');
+            console.log('Simbol Inti ROOT: ⌘');
+            console.log('Biner konfigurasi kuat: AKTIF');
+            console.log('Mendukung semua IP, host, protokol, dan port');
+        });
+    </script>
+</body>
+</html>
