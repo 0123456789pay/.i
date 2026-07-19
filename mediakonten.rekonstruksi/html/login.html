@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Media.Digital</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .auth-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #e8f0fe 0%, #f8f9fa 100%);
+        }
+        
+        .auth-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            padding: 48px;
+            width: 100%;
+            max-width: 440px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .auth-logo-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 32px;
+            margin: 0 auto 16px;
+        }
+        
+        .auth-title {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        
+        .auth-subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            color: var(--gray-medium);
+            font-size: 13px;
+        }
+        
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+        }
+        
+        .auth-divider span {
+            padding: 0 16px;
+        }
+        
+        .social-login {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--white);
+            color: var(--text-primary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .social-btn:hover {
+            background: var(--off-white);
+            border-color: var(--gray-medium);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 24px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        .form-footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+        
+        .forgot-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+        
+        .checkbox-custom {
+            width: 18px;
+            height: 18px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">📱</div>
+                <span>Media.Digital</span>
+            </a>
+            <div class="header-nav">
+                <a href="register.html" class="header-btn header-btn-outline">Daftar</a>
+                <a href="login.html" class="header-btn header-btn-primary">Masuk</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <div class="auth-logo-icon">🔐</div>
+                <h1 class="auth-title">Selamat Datang</h1>
+                <p class="auth-subtitle">Masuk ke akun Media.Digital Anda</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="nama@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Kata Sandi</label>
+                    <input type="password" id="password" class="form-input" placeholder="Masukkan kata sandi" required>
+                </div>
+
+                <div class="remember-forgot">
+                    <label class="remember-me">
+                        <input type="checkbox" class="checkbox-custom">
+                        Ingat saya
+                    </label>
+                    <a href="forgot-password.html" class="forgot-link">Lupa kata sandi?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Masuk
+                </button>
+            </form>
+
+            <div class="auth-divider">
+                <span>atau masuk dengan</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-btn">
+                    <span>🔵</span> Google
+                </button>
+                <button class="social-btn">
+                    <span>📘</span> Facebook
+                </button>
+            </div>
+
+            <div class="form-footer">
+                Belum punya akun? <a href="register.html">Daftar sekarang</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-bottom">
+                <span>&copy; 2024 Media.Digital. Hak cipta dilindungi.</span>
+                <div class="flex gap-2">
+                    <a href="#">Kebijakan Privasi</a>
+                    <span>|</span>
+                    <a href="#">Syarat Layanan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>
