@@ -1,7 +1,1 @@
-```
-# Logs
-*.log
-
-# Write ahead log
-.write_ahead_log.json
-```
+Nothing should be ignored based on the provided file changes. The modified file 'reberpencarian.digital/js/core.js' is a source code file that should be tracked in version control.
