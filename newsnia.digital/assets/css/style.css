@@ -81,7 +81,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Typography */
+/* Typography System - Size Based on Position */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
     font-weight: 600;
@@ -90,16 +90,78 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
-p {
+/* H1 - Main Page Titles / Hero Headlines */
+h1 { 
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    font-weight: 700;
     margin-bottom: 1.5rem;
+}
+
+/* H2 - Section Titles / Major Headings */
+h2 { 
+    font-size: clamp(2rem, 4vw, 3rem); 
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+
+/* H3 - Subsection Titles / Card Group Headers */
+h3 { 
+    font-size: clamp(1.5rem, 3vw, 2rem); 
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* H4 - Widget Titles / Sidebar Headers */
+h4 { 
+    font-size: 1.5rem; 
+    font-weight: 600;
+    margin-bottom: 0.875rem;
+}
+
+/* H5 - Small Section Headers */
+h5 { 
+    font-size: 1.25rem; 
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* H6 - Meta Headers / Labels */
+h6 { 
+    font-size: 1rem; 
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraphs - Body Content */
+p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
     color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+
+/* Lead Paragraph - Intro Text */
+.lead {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+/* Small Text - Captions, Meta Info */
+.small, small {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+/* Tiny Text - Timestamps, Tags */
+.tiny {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 a {
@@ -189,7 +251,7 @@ a:hover {
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;        /* 14px - Button text */
     transition: all var(--transition-base);
     cursor: pointer;
     border: none;
@@ -198,6 +260,13 @@ a:hover {
     gap: 8px;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.01em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+    .btn {
+        font-size: 0.9375rem;   /* 15px - Desktop button text */
+    }
 }
 
 .btn-primary {
@@ -277,10 +346,18 @@ a:hover {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;        /* 14px - Navigation links */
     transition: all var(--transition-base);
     border-radius: 6px;
     margin: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+@media (min-width: 768px) {
+    .nav-link {
+        font-size: 0.9375rem;   /* 15px - Desktop nav links */
+    }
 }
 
 .nav-link:hover {
@@ -502,7 +579,7 @@ a:hover {
     color: var(--primary-blue);
     padding: 5px 12px;
     border-radius: 16px;
-    font-size: 11px;
+    font-size: 0.6875rem;      /* 11px - Tiny text for category badges */
     font-weight: 700;
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -518,7 +595,7 @@ a:hover {
 
 .news-card-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 18px;
+    font-size: 1.125rem;        /* 18px - Base card title */
     font-weight: 600;
     margin-bottom: 10px;
     color: var(--text-primary);
@@ -528,6 +605,12 @@ a:hover {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .news-card-title {
+        font-size: 1.25rem;     /* 20px - Desktop card title */
+    }
 }
 
 .news-card-title a {
@@ -542,7 +625,7 @@ a:hover {
 
 .news-card-excerpt {
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 0.875rem;        /* 14px - Small text for excerpt */
     margin-bottom: 16px;
     line-height: 1.65;
     display: -webkit-box;
@@ -556,7 +639,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
+    font-size: 0.75rem;         /* 12px - Meta information */
     color: var(--text-muted);
     border-top: 1px solid var(--border-light);
     padding-top: 14px;
@@ -590,18 +673,24 @@ a:hover {
 }
 
 .news-card.featured .news-card-category {
-    font-size: 12px;
+    font-size: 0.75rem;         /* 12px - Slightly larger for featured */
     padding: 6px 14px;
 }
 
 .news-card.featured .news-card-title {
-    font-size: 26px;
+    font-size: 1.625rem;        /* 26px - Featured card title */
     -webkit-line-clamp: 3;
     margin-bottom: 14px;
 }
 
+@media (min-width: 768px) {
+    .news-card.featured .news-card-title {
+        font-size: 1.875rem;    /* 30px - Desktop featured title */
+    }
+}
+
 .news-card.featured .news-card-excerpt {
-    font-size: 15px;
+    font-size: 0.9375rem;       /* 15px - Featured excerpt */
     -webkit-line-clamp: 4;
     margin-bottom: 20px;
 }
@@ -628,7 +717,7 @@ a:hover {
 
 .widget-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 20px;
+    font-size: 1.25rem;         /* 20px - Sidebar widget titles */
     color: var(--text-primary);
     margin-bottom: 24px;
     padding-bottom: 16px;
@@ -637,6 +726,7 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 12px;
+    font-weight: 700;
 }
 
 .widget-title::after {
@@ -679,7 +769,7 @@ a:hover {
     background: var(--gradient-primary);
     color: var(--white);
     border-radius: 50%;
-    font-size: 12px;
+    font-size: 0.75rem;         /* 12px - Number badge */
     font-weight: 700;
     margin-right: 12px;
     flex-shrink: 0;
@@ -695,10 +785,16 @@ a:hover {
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 0.9375rem;       /* 15px - Trending item title */
     line-height: 1.5;
     transition: color var(--transition-base);
     font-family: 'Playfair Display', Georgia, serif;
+}
+
+@media (min-width: 768px) {
+    .trending-item a {
+        font-size: 1rem;        /* 16px - Desktop trending title */
+    }
 }
 
 .trending-item a:hover {
@@ -706,7 +802,7 @@ a:hover {
 }
 
 .trending-meta {
-    font-size: 12px;
+    font-size: 0.75rem;         /* 12px - Trending meta info */
     color: var(--text-muted);
     margin-top: 6px;
     display: flex;
@@ -729,10 +825,16 @@ a:hover {
     background: var(--off-white);
     color: var(--text-secondary);
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 0.8125rem;       /* 13px - Category pill text */
     font-weight: 500;
     transition: all var(--transition-base);
     border: 1px solid transparent;
+}
+
+@media (min-width: 768px) {
+    .category-pill {
+        font-size: 0.875rem;    /* 14px - Desktop category pills */
+    }
 }
 
 .category-pill:hover {
@@ -746,7 +848,7 @@ a:hover {
     background: var(--gray-200);
     padding: 2px 8px;
     border-radius: 10px;
-    font-size: 11px;
+    font-size: 0.6875rem;       /* 11px - Count badge */
     font-weight: 600;
 }
 
@@ -767,11 +869,12 @@ a:hover {
 
 .detail-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(2rem, 4vw, 3rem);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);  /* Responsive detail title */
     color: var(--text-primary);
     margin-bottom: 20px;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    font-weight: 700;
 }
 
 .detail-meta {
@@ -779,7 +882,7 @@ a:hover {
     flex-wrap: wrap;
     gap: 24px;
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: 0.875rem;        /* 14px - Detail meta info */
     align-items: center;
 }
 
@@ -799,9 +902,15 @@ a:hover {
 }
 
 .detail-body {
-    font-size: 17px;
+    font-size: 1.0625rem;       /* 17px - Article body text */
     line-height: 1.9;
     color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+    .detail-body {
+        font-size: 1.125rem;    /* 18px - Desktop article body */
+    }
 }
 
 .detail-body p {
@@ -876,14 +985,15 @@ a:hover {
     color: var(--text-primary);
     margin-bottom: 12px;
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 32px;
+    font-size: 2rem;            /* 32px - Auth form title */
+    font-weight: 700;
 }
 
 .auth-form .subtitle {
     text-align: center;
     color: var(--text-secondary);
     margin-bottom: 32px;
-    font-size: 15px;
+    font-size: 0.9375rem;       /* 15px - Auth form subtitle */
 }
 
 .form-group {
@@ -895,7 +1005,7 @@ a:hover {
     margin-bottom: 10px;
     font-weight: 600;
     color: var(--text-primary);
-    font-size: 14px;
+    font-size: 0.875rem;        /* 14px - Form labels */
 }
 
 .form-control {
@@ -903,7 +1013,7 @@ a:hover {
     padding: 14px 18px;
     border: 2px solid var(--border-color);
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 1rem;            /* 16px - Form inputs */
     transition: all var(--transition-base);
     font-family: 'Inter', sans-serif;
     background: var(--off-white);
@@ -927,12 +1037,14 @@ a:hover {
     color: var(--white);
     border: none;
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 1rem;            /* 16px - Submit button */
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-blue);
     font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .form-submit:hover {
@@ -1044,24 +1156,13 @@ a:hover {
 
 .footer-section h3 {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: 20px;
+    font-size: 1.25rem;         /* 20px - Footer section titles */
     margin-bottom: 28px;
     color: var(--white);
     font-weight: 600;
     letter-spacing: -0.01em;
     position: relative;
     padding-bottom: 14px;
-}
-
-.footer-section h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
 }
 
 .footer-section ul {
@@ -1079,7 +1180,14 @@ a:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 15px;
+    font-size: 0.9375rem;       /* 15px - Footer links */
+    line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+    .footer-section a {
+        font-size: 1rem;        /* 16px - Desktop footer links */
+    }
 }
 
 .footer-section a:hover {
@@ -1105,7 +1213,7 @@ a:hover {
 .footer-about p {
     color: rgba(255, 255, 255, 0.75);
     line-height: 1.8;
-    font-size: 15px;
+    font-size: 0.9375rem;       /* 15px - Footer about text */
 }
 
 .footer-social {
