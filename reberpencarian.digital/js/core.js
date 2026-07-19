@@ -441,37 +441,64 @@ class ReberPencarian {
         document.getElementById('tabContentOverlay').classList.remove('active');
     }
 
-    // Open Index HTML
+    // Open Index HTML - Buka di Tab WebView
     openIndexHtml(path) {
         const indexPath = `${path}/index.html`;
         console.log('Membuka:', indexPath);
         
-        // Buat tab baru untuk menampilkan index.html
+        // Buat search tab baru untuk menampilkan index.html
         const site = this.allSites.find(s => s.path === path);
         if (site) {
             const newTabId = Date.now();
-            const newTab = {
+            this.searchTabs.push({
                 id: newTabId,
-                site: site,
-                title: `📄 ${site.name} - index.html`,
-                timestamp: new Date().toISOString(),
+                title: `📄 ${site.name}`,
+                query: '',
+                results: [],
                 isFileView: true,
-                filePath: indexPath
-            };
-            
-            this.tabs.push(newTab);
-            this.activeTabId = newTabId;
-            this.saveToStorage();
-            this.renderTabs();
-            this.showFileInTab(newTabId, indexPath, site);
+                filePath: indexPath,
+                site: site
+            });
+            this.activeSearchTab = newTabId;
+            this.renderSearchTabs();
+            this.loadSearchTab(newTabId);
         } else {
             alert(`File tidak ditemukan: ${indexPath}`);
         }
     }
     
-    // Show File in Tab
+    // Load Search Tab Content - Support File View
+    loadSearchTab(tabId) {
+        const tab = this.searchTabs.find(t => t.id === tabId);
+        if (!tab) return;
+        
+        if (tab.isFileView && tab.filePath) {
+            // Tampilkan file index.html dalam frame
+            const frame = document.getElementById('searchContentFrame');
+            if (frame) {
+                frame.innerHTML = `
+                    <div class="file-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="file-viewer-header" style="background: var(--gradient-blue); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+                            <h3 style="margin: 0; font-size: 16px;">📄 ${this.escapeHtml(tab.site.name)} - index.html</h3>
+                            <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">${this.escapeHtml(tab.filePath)}</p>
+                        </div>
+                        <iframe src="${this.escapeHtml(tab.filePath)}" style="flex: 1; width: 100%; border: none; background: white;" onload="console.log('File loaded:', this.src)"></iframe>
+                    </div>
+                `;
+            }
+        } else if (tab.query && tab.results.length > 0) {
+            this.currentQuery = tab.query;
+            this.currentResults = tab.results;
+            this.renderResults();
+        } else {
+            this.clearSearchFrame();
+        }
+    }
+    
+    // Show File in Tab (legacy - tidak digunakan lagi)
     showFileInTab(tabId, filePath, site) {
-        const overlay = document.getElementById('tabContentOverlay');
+        console.log('showFileInTab deprecated');
+    }
         const titleEl = document.getElementById('tabContentTitle');
         const bodyEl = document.getElementById('tabContentBody');
         
@@ -1237,12 +1264,26 @@ class ReberPencarian {
         container.innerHTML = html;
     }
 
-    // Load search tab content
+    // Load search tab content (replace existing function)
     loadSearchTab(tabId) {
         const tab = this.searchTabs.find(t => t.id === tabId);
         if (!tab) return;
         
-        if (tab.query && tab.results.length > 0) {
+        if (tab.isFileView && tab.filePath) {
+            // Tampilkan file index.html dalam frame
+            const frame = document.getElementById('searchContentFrame');
+            if (frame) {
+                frame.innerHTML = `
+                    <div class="file-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
+                        <div class="file-viewer-header" style="background: var(--gradient-blue); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+                            <h3 style="margin: 0; font-size: 16px;">📄 ${this.escapeHtml(tab.site.name)} - index.html</h3>
+                            <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">${this.escapeHtml(tab.filePath)}</p>
+                        </div>
+                        <iframe src="${this.escapeHtml(tab.filePath)}" style="flex: 1; width: 100%; border: none; background: white;" onload="console.log('File loaded:', this.src)"></iframe>
+                    </div>
+                `;
+            }
+        } else if (tab.query && tab.results.length > 0) {
             this.currentQuery = tab.query;
             this.currentResults = tab.results;
             this.renderResults();
