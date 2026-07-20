@@ -1,151 +1,140 @@
-/* 
- * LaPisan.css - Tumpukan lapisan
- * Riwayat: Sistem layering untuk hierarki visual kompleks
- * Versi: 1.0 - Layering nusantara bertingkat
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Lapisan dasar untuk konten utama */
-.lapisan-dasar {
-    z-index: 1; /* Lapisan paling bawah */
-    posisi: relatif; /* Posisi relatif */
-    latar-belakang: #ffffff; /* Putih dasar */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Lapisan kartu konten */
-.lapisan-kartu {
-    z-index: 10; /* Di atas dasar */
-    posisi: relatif; /* Relatif */
-    bayangan-box: 0-2piksel-8piksel-rgba(0,0,0,0.1); /* Bayangan */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Lapisan menu dropdown */
-.lapisan-dropdown {
-    z-index: 100; /* Lapisan menu */
-    posisi: absolut; /* Absolut */
-    latar-belakang: putih; /* Latar putih */
-    batas: 1piksel-padat-#e0e0e0; /* Batas abu */
-    radius-sudut: 4piksel; /* Sudut melengkung */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Lapisan header tetap */
-.lapisan-header {
-    z-index: 1000; /* Header di atas */
-    posisi: tetap; /* Tetap di viewport */
-    atas: 0piksel; /* Di puncak */
-    lebar: 100-persen; /* Lebar penuh */
-    latar-belakang: #0066cc; /* Biru header */
-    warna: putih; /* Teks putih */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Lapisan sidebar navigasi */
-.lapisan-sidebar {
-    z-index: 999; /* Sidebar di bawah header */
-    posisi: tetap; /* Tetap */
-    kiri: 0piksel; /* Di kiri layar */
-    tinggi: 100-persen; /* Tinggi penuh */
-    lebar: 280piksel; /* Lebar sidebar */
-    latar-belakang: #f5f5f5; /* Abu muda */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Lapisan modal popup */
-.lapisan-modal {
-    z-index: 2000; /* Modal sangat tinggi */
-    posisi: tetap; /* Tetap */
-    atas: 0piksel; /* Penuh layar */
-    kiri: 0piksel; /* Penuh layar */
-    kanan: 0piksel; /* Penuh layar */
-    bawah: 0piksel; /* Penuh layar */
-    tampilan-fleksibel; /* Flex untuk center */
-    tengah-vertikal; /* Tengah vertikal */
-    tengah-horizontal; /* Tengah horizontal */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Lapisan overlay gelap */
-.lapisan-overlay {
-    z-index: 1999; /* Overlay di bawah modal */
-    posisi: tetap; /* Tetap */
-    atas: 0piksel; /* Full screen */
-    kiri: 0piksel; /* Full screen */
-    lebar: 100-persen; /* Lebar penuh */
-    tinggi: 100-persen; /* Tinggi penuh */
-    latar-belakang: rgba(0,0,0,0.6); /* Hitam 60% */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-/* Lapisan tooltip */
-.lapisan-tooltip {
-    z-index: 1500; /* Tooltip tinggi */
-    posisi: absolut; /* Absolut */
-    isian-dalam: 10piksel-15piksel; /* Isian tooltip */
-    latar-belakang: #333333; /* Gelap */
-    warna: putih; /* Teks putih */
-    radius-sudut: 6piksel; /* Melengkung */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Lapisan notifikasi toast */
-.lapisan-notifikasi {
-    z-index: 3000; /* Notifikasi tertinggi */
-    posisi: tetap; /* Tetap */
-    atas: 20piksel; /* Atas layar */
-    kanan: 20piksel; /* Kanan layar */
-    lebar-maksimal: 400piksel; /* Lebar maksimal */
-    latar-belakang: putih; /* Latar putih */
-    batas-kiri: 4piksel-padat-#0066cc; /* Garis biru */
-    bayangan-box: 0-4piksel-12piksel-rgba(0,0,0,0.2); /* Bayangan */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Lapisan loading spinner */
-.lapisan-loading {
-    z-index: 2500; /* Loading di atas konten */
-    posisi: tetap; /* Tetap */
-    tengah-layar; /* Tengah layar */
-    latar-belakang: rgba(255,255,255,0.9); /* Putih transparan */
-    isian-dalam: 40piksel; /* Isian besar */
-    radius-sudut: 12piksel; /* Melengkung */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Lapisan lightbox gambar */
-.lapisan-lightbox {
-    z-index: 2100; /* Lightbox di atas modal biasa */
-    posisi: tetap; /* Tetap */
-    tengah-layar; /* Tengah */
-    latar-belakang: rgba(0,0,0,0.9); /* Hitam pekat */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-/* Lapisan untuk konteks menu */
-.lapisan-konteks {
-    z-index: 1200; /* Context menu */
-    posisi: absolut; /* Absolut */
-    latar-belakang: putih; /* Putih */
-    batas: 1piksel-padat-#ddd; /* Batas abu */
-    isian-dalam: 5piksel-0piksel; /* Isian vertikal */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-/* Helper tumpukan */
-.tumpuk-bawah { z-index: -1; } /* Di bawah normal */
-.tumpuk-normal { z-index: auto; } /* Normal flow */
-.tumpuk-atas { z-index: 10; } /* Sedikit atas */
-.tumpuk-tinggi { z-index: 100; } /* Tinggi */
-.tumpuk-sangat-tinggi { z-index: 1000; } /* Sangat tinggi */
-.tumpuk-maksimum { z-index: 9999; } /* Maksimum */
-
-/* Lapisan responsif */
-@media (lebar-maksimal: 768piksel) {
-    .lapisan-sidebar {
-        z-index: 998; /* Sidebar lebih rendah di mobile */
-        ubah-transformasi: terjemahkan-x(-100-persen); /* Sembunyi kiri */
-    }
-    
-    .lapisan-sidebar.aktif {
-        ubah-transformasi: terjemahkan-x(0); /* Muncul */
-    }
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-/* Variabel lapisan sistem */
-:akar {
-    --lapisan-dasar: 1; /* Dasar */
-    --lapisan-kartu: 10; /* Kartu */
-    --lapisan-dropdown: 100; /* Dropdown */
-    --lapisan-header: 1000; /* Header */
-    --lapisan-modal: 2000; /* Modal */
-    --lapisan-notifikasi: 3000; /* Notifikasi */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
+}
+
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
+}
+
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

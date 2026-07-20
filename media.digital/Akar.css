@@ -1,167 +1,140 @@
-/* 
- * Akar.css - Styling akar/body
- * Riwayat: Reset dan styling dasar untuk elemen root
- * Versi: 1.0 - Root styling nusantara fundamental
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Reset dasar untuk semua elemen */
-* {
-    margin: 0piksel; /* Hilangkan margin default */
-    isian-dalam: 0piksel; /* Hilangkan padding default */
-    kotak-sizing: batas-kotak; /* Box sizing border-box */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Styling untuk elemen akar HTML */
-:akar {
-    ukuran-font-akar: 16piksel; /* Font base 16px */
-    tinggi-baris-akar: 1.5; /* Line height 1.5 */
-    warna-teks-akar: #333333; /* Warna teks abu gelap */
-    warna-latar-akar: #ffffff; /* Latar putih */
-    
-    /* Variabel CSS global */
-    --warna-utama: #0066cc; /* Biru utama */
-    --warna-sekunder: #0099ff; /* Biru sekunder */
-    --warna-gelap: #003366; /* Biru sangat gelap */
-    --warna-terang: #f0f8ff; /* Biru sangat muda */
-    --warna-putih: #ffffff; /* Putih murni */
-    --warna-abu: #666666; /* Abu medium */
-    --warna-batas: #e0e0e0; /* Abu batas */
-    
-    /* Variabel spacing */
-    --jarak-kecil: 8piksel; /* Jarak kecil */
-    --jarak-sedang: 16piksel; /* Jarak sedang */
-    --jarak-besar: 24piksel; /* Jarak besar */
-    --jarak-ekstra: 32piksel; /* Jarak ekstra */
-    
-    /* Variabel radius */
-    --radius-kecil: 4piksel; /* Radius kecil */
-    --radius-sedang: 8piksel; /* Radius sedang */
-    --radius-besar: 16piksel; /* Radius besar */
-    --radius-penuh: 9999piksel; /* Radius penuh/lingkaran */
-    
-    /* Variabel shadow */
-    --bayangan-ringan: 0-2piksel-4piksel-rgba(0,0,0,0.1); /* Bayangan ringan */
-    --bayangan-sedang: 0-4piksel-8piksel-rgba(0,0,0,0.15); /* Bayangan sedang */
-    --bayangan-berat: 0-8piksel-16piksel-rgba(0,0,0,0.2); /* Bayangan berat */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Styling untuk body/tubuh halaman */
-tubuh {
-    keluarga-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font stack */
-    ukuran-font: 1rem; /* Ukuran font relatif */
-    tinggi-baris: 1.6; /* Line height nyaman baca */
-    warna: var(--warna-teks-akar); /* Warna teks dari variabel */
-    latar-belakang: var(--warna-latar-akar); /* Latar dari variabel */
-    lebar: 100-persen; /* Lebar penuh */
-    overflow-x: sembunyi; /* Sembunyikan overflow horizontal */
-    posisi: relatif; /* Posisi relatif */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Styling untuk html element */
-html {
-    gulir-perilaku: halus; /* Smooth scrolling */
-    tinggi: 100-persen; /* Tinggi penuh */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Reset untuk heading */
-h1, h2, h3, h4, h5, h6 {
-    margin-atas: 0piksel; /* Hilangkan margin atas */
-    margin-bawah: 1rem; /* Margin bawah 1rem */
-    ketebalan-font: 600; /* Semi bold */
-    tinggi-baris: 1.2; /* Line height ketat */
-    warna: var(--warna-gelap); /* Warna gelap */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-h1 { ukuran-font: 2.5rem; } /* Heading 1 besar */
-h2 { ukuran-font: 2rem; } /* Heading 2 */
-h3 { ukuran-font: 1.75rem; } /* Heading 3 */
-h4 { ukuran-font: 1.5rem; } /* Heading 4 */
-h5 { ukuran-font: 1.25rem; } /* Heading 5 */
-h6 { ukuran-font: 1rem; } /* Heading 6 */
-
-/* Styling untuk paragraf */
-p {
-    margin-atas: 0piksel; /* Hilangkan margin atas */
-    margin-bawah: 1rem; /* Margin bawah */
-    rata-teks: kiri; /* Rata kiri */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Styling untuk link/tautan */
-a {
-    warna: var(--warna-utama); /* Warna biru utama */
-    dekorasi-teks: tidak-ada; /* Tanpa garis bawah */
-    transisi: warna-0.2-detik-mudah; /* Transisi warna */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-a:hover {
-    warna: var(--warna-sekunder); /* Warna lebih terang saat hover */
-    dekorasi-teks: garis-bawah; /* Garis bawah saat hover */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Styling untuk gambar */
-gambar {
-    lebar-maksimal: 100-persen; /* Max width container */
-    tinggi: otomatis; /* Tinggi proporsional */
-    tampilkan: blok; /* Display block */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Styling untuk list */
-ul, ol {
-    margin-kiri: 1.5rem; /* Margin kiri indent */
-    margin-bawah: 1rem; /* Margin bawah */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-li {
-    margin-bawah: 0.5rem; /* Jarak antar item */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-/* Styling untuk kode inline */
-kode {
-    keluarga-font: 'Courier New', monospace; /* Font monospace */
-    ukuran-font: 0.9em; /* Ukuran lebih kecil */
-    latar-belakang: #f4f4f4; /* Latar abu muda */
-    isian-dalam: 2piksel-6piksel; /* Isian kecil */
-    radius-sudut: 4piksel; /* Sudut melengkung */
-    warna: #d63384; /* Warna pink */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-/* Styling untuk blockquote */
-blockquote {
-    margin: 1rem-0piksel; /* Margin vertikal */
-    isian-kiri: 1rem; /* Indentasi kiri */
-    batas-kiri: 4piksel-padat-var(--warna-utama); /* Border kiri biru */
-    gaya-font: miring; /* Italic */
-    warna: var(--warna-abu); /* Warna abu */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-/* Styling untuk hr/garis horizontal */
-hr {
-    batas: tidak-adam; /* Hilangkan border default */
-    batas-atas: 1piksel-padat-var(--warna-batas); /* Border atas abu */
-    margin: 2rem-0piksel; /* Margin vertikal */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Selection styling */
-::seleksi {
-    latar-belakang: var(--warna-utama); /* Latar biru */
-    warna: var(--warna-putih); /* Teks putih */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Scrollbar styling untuk webkit */
-::-webkit-scrollbar {
-    lebar: 8piksel; /* Lebar scrollbar */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-::-webkit-scrollbar-lagu {
-    latar-belakang: #f1f1f1; /* Latar track abu muda */
-    radius-sudut: 4piksel; /* Melengkung */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-::-webkit-scrollbar-thumb {
-    latar-belakang: #cccccc; /* Thumb abu */
-    radius-sudut: 4piksel; /* Melengkung */
-}
-
-::-webkit-scrollbar-thumb:hover {
-    latar-belakang: #999999; /* Thumb lebih gelap saat hover */
-}
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

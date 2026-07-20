@@ -1,151 +1,140 @@
-/* 
- * TrAnsIsi.css - Transisi halus
- * Riwayat: Sistem transisi untuk perubahan state yang smooth
- * Versi: 1.0 - Transisi nusantara lembut
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Transisi dasar untuk semua properti */
-.transisi-semua {
-    transisi: semua-0.3-detik-mudah; /* Semua properti 0.3s */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-.transisi-lambat {
-    transisi: semua-0.5-detik-mudah; /* Transisi lambat 0.5s */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-.transisi-cepat {
-    transisi: semua-0.15-detik-mudah; /* Transisi cepat 0.15s */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Transisi khusus warna */
-.transisi-warna {
-    transisi: warna-0.3-detik-mudah, latar-belakang-warna-0.3-detik-mudah; /* Warna dan background */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Transisi khusus transformasi */
-.transisi-transformasi {
-    transisi: ubah-transformasi-0.3-detik-mudah; /* Transformasi saja */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-.transisi-transformasi-lambat {
-    transisi: ubah-transformasi-0.6-detik-mudah; /* Transformasi lambat */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Transisi khusus opacity */
-.transisi-opacity {
-    transisi: opacity-0.3-detik-mudah; /* Opacity fade */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-.transisi-opacity-lambat {
-    transisi: opacity-0.6-detik-mudah; /* Opacity lambat */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Transisi khusus bayangan */
-.transisi-bayangan {
-    transisi: bayangan-box-0.3-detik-mudah; /* Bayangan box */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Transisi khusus border */
-.transisi-batas {
-    transisi: batas-warna-0.3-detik-mudah, batas-lebar-0.3-detik-mudah; /* Border properties */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Transisi dengan easing berbeda */
-.transisi-masuk {
-    transisi: semua-0.3-detik-masuk; /* Ease in - mulai lambat */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-.transisi-keluar {
-    transisi: semua-0.3-detik-keluar; /* Ease out - akhir lambat */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-.transisi-masuk-keluar {
-    transisi: semua-0.3-detik-masuk-keluar; /* Ease in out - smooth */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-/* Transisi cubic bezier custom */
-.transisi-elastis {
-    transisi: semua-0.5-detik-cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Elastic effect */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.transisi-memantul {
-    transisi: semua-0.6-detik-cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce effect */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Transisi untuk tombol */
-.transisi-tombol {
-    transisi: latar-belakang-warna-0.2-detik-mudah, ubah-transformasi-0.2-detik-mudah, bayangan-box-0.2-detik-mudah; /* Multi properti */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-.transisi-tombol:hover {
-    ubah-transformasi: skala(1.05); /* Sedikit membesar */
-    bayangan-box: 0-4piksel-12piksel-rgba(0,0,0,0.2); /* Bayangan lebih besar */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-/* Transisi untuk kartu */
-.transisi-kartu {
-    transisi: semua-0.3-detik-mudah; /* Semua properti */
-}
-
-.transisi-kartu:hover {
-    bayangan-box: 0-8piksel-20piksel-rgba(0,0,0,0.15); /* Bayangan hover */
-    ubah-transformasi: angkat(-5piksel); /* Angkat sedikit */
-}
-
-/* Transisi untuk link */
-.transisi-tautan {
-    transisi: warna-0.2-detik-mudah, batas-bawah-lebar-0.2-detik-mudah; /* Warna dan border */
-}
-
-.transisi-tautan:hover {
-    batas-bawah-lebar: 2piksel; /* Garis bawah muncul */
-}
-
-/* Transisi untuk input form */
-.transisi-input {
-    transisi: batas-warna-0.2-detik-mudah, bayangan-box-0.2-detik-mudah, isian-dalam-0.2-detik-mudah; /* Input properties */
-}
-
-.transisi-input:focus {
-    batas-warna: #0066cc; /* Biru saat fokus */
-    bayangan-box: 0-0-8piksel-rgba(0,102,204,0.3); /* Bayangan biru */
-    isian-dalam: 14piksel-18piksel; /* Isian lebih besar */
-}
-
-/* Transisi untuk menu dropdown */
-.transisi-dropdown {
-    transisi: opacity-0.2-detik-mudah, ubah-transformasi-0.2-detik-mudah, visibilitas-0.2-detik; /* Dropdown show/hide */
-    opacity: 0; /* Tersembunyi */
-    visibilitas: tersembunyi; /* Tidak terlihat */
-    ubah-transformasi: skala(0.95); /* Sedikit kecil */
-}
-
-.transisi-dropdown.aktif {
-    opacity: 1; /* Terlihat penuh */
-    visibilitas: terlihat; /* Terlihat */
-    ubah-transformasi: skala(1); /* Ukuran normal */
-}
-
-/* Transisi untuk accordion */
-.transisi-accordion {
-    transisi: tinggi-baris-grid-0.3-detik-mudah, opacity-0.3-detik-mudah; /* Accordion expand */
-}
-
-/* Transisi delay helper */
-.tunda-transisi-1 { tunda-transisi: 0.1-detik; } /* Delay 0.1s */
-.tunda-transisi-2 { tunda-transisi: 0.2-detik; } /* Delay 0.2s */
-.tunda-transisi-3 { tunda-transisi: 0.3-detik; } /* Delay 0.3s */
-.tunda-transisi-4 { tunda-transisi: 0.4-detik; } /* Delay 0.4s */
-
-/* Transisi duration helper */
-.durasi-cepat { durasi-transisi: 0.15-detik; } /* Cepat */
-.durasi-normal { durasi-transisi: 0.3-detik; } /* Normal */
-.durasi-lambat { durasi-transisi: 0.6-detik; } /* Lambat */
-.durasi-sangat-lambat { durasi-transisi: 1-detik; } /* Sangat lambat */
-
-/* Variabel transisi sistem */
-:akar {
-    --transisi-cepat: 0.15-detik-mudah; /* Cepat */
-    --transisi-normal: 0.3-detik-mudah; /* Normal */
-    --transisi-lambat: 0.6-detik-mudah; /* Lambat */
-}
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

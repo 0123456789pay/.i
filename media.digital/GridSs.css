@@ -1,172 +1,140 @@
-/* 
- * GridSs.css - Sistem grid responsif
- * Riwayat: Sistem grid CSS untuk layout adaptif semua perangkat
- * Versi: 1.0 - Grid nusantara responsif
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Grid container dasar */
-.grid-wadah {
-    tampilkan: grid; /* Aktifkan grid */
-    kolom-grid: ulangi(12, 1fr); /* 12 kolom fleksibel */
-    jarak-grid: 20piksel; /* Jarak antar sel */
-    lebar-maksimal: 1200piksel; /* Lebar maksimal */
-    margin-otomatis; /* Tengah horizontal */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Grid span 1 kolom */
-.grid-span-1 {
-    rentang-kolom-grid: span-1; /* 1 kolom */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Grid span 2 kolom */
-.grid-span-2 {
-    rentang-kolom-grid: span-2; /* 2 kolom */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Grid span 3 kolom */
-.grid-span-3 {
-    rentang-kolom-grid: span-3; /* 3 kolom */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Grid span 4 kolom */
-.grid-span-4 {
-    rentang-kolom-grid: span-4; /* 4 kolom */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Grid span 6 kolom (setengah) */
-.grid-span-6 {
-    rentang-kolom-grid: span-6; /* 6 kolom */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Grid span 8 kolom */
-.grid-span-8 {
-    rentang-kolom-grid: span-8; /* 8 kolom */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-/* Grid span 12 kolom (penuh) */
-.grid-span-12 {
-    rentang-kolom-grid: span-12; /* 12 kolom penuh */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Grid responsif desktop */
-@media (lebar-minimal: 1200piksel) {
-    .grid-wadah {
-        kolom-grid: ulangi(12, 1fr); /* 12 kolom desktop */
-        jarak-grid: 24piksel; /* Jarak besar */
-    }
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Grid responsif tablet landscape */
-@media (lebar-layar: 992piksel) {
-    .grid-wadah {
-        kolom-grid: ulangi(8, 1fr); /* 8 kolom tablet */
-        jarak-grid: 20piksel; /* Jarak medium */
-    }
-    
-    .grid-tablet-span-4 {
-        rentang-kolom-grid: span-4; /* 4 kolom tablet */
-    }
-    
-    .grid-tablet-span-8 {
-        rentang-kolom-grid: span-8; /* 8 kolom tablet */
-    }
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Grid responsif tablet portrait */
-@media (lebar-layar: 768piksel) {
-    .grid-wadah {
-        kolom-grid: ulangi(6, 1fr); /* 6 kolom tablet kecil */
-        jarak-grid: 16piksel; /* Jarak kecil */
-    }
-    
-    .grid-tablet-kecil-span-3 {
-        rentang-kolom-grid: span-3; /* 3 kolom */
-    }
-    
-    .grid-tablet-kecil-span-6 {
-        rentang-kolom-grid: span-6; /* 6 kolom penuh */
-    }
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-/* Grid responsif mobile landscape */
-@media (lebar-layar: 576piksel) {
-    .grid-wadah {
-        kolom-grid: ulangi(4, 1fr); /* 4 kolom mobile */
-        jarak-grid: 12piksel; /* Jarak minimal */
-    }
-    
-    .grid-mobile-span-2 {
-        rentang-kolom-grid: span-2; /* 2 kolom mobile */
-    }
-    
-    .grid-mobile-span-4 {
-        rentang-kolom-grid: span-4; /* 4 kolom penuh mobile */
-    }
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-/* Grid responsif mobile portrait */
-@media (lebar-maksimal: 480piksel) {
-    .grid-wadah {
-        kolom-grid: 1fr; /* 1 kolom mobile kecil */
-        jarak-grid: 10piksel; /* Jarak sangat kecil */
-    }
-    
-    .grid-mobile-kecil-penuh {
-        rentang-kolom-grid: 1 / span-1; /* Full width */
-    }
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-/* Grid auto-fit untuk kartu */
-.grid-auto-kartu {
-    tampilkan: grid; /* Grid */
-    kolom-grid: ulangi(auto-fit, minmax(250piksel, 1fr)); /* Otomatis */
-    jarak-grid: 20piksel; /* Jarak standar */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Grid auto-fill untuk galeri */
-.grid-auto-galeri {
-    tampilkan: grid; /* Grid */
-    kolom-grid: ulangi(auto-fill, minmax(200piksel, 1fr)); /* Isi otomatis */
-    jarak-grid: 15piksel; /* Jarak galeri */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Grid dengan area template */
-.grid-area-template {
-    tampilkan: grid; /* Grid */
-    area-grid: "header header header"
-                 "sidebar konten konten"
-                 "footer footer footer"; /* Definisi area */
-    kolom-grid: 200piksel-1fr-1fr; /* Kolom sidebar konten */
-    baris-grid: otomatis-1fr-otomatis; /* Baris header konten footer */
-    jarak-grid: 20piksel; /* Jarak */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-/* Helper grid gap */
-.grid-celah-kecil {
-    celah-grid: 10piksel; /* Celah kecil */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-.grid-celah-sedang {
-    celah-grid: 20piksel; /* Celah sedang */
-}
-
-.grid-celah-besar {
-    celah-grid: 30piksel; /* Celah besar */
-}
-
-/* Grid untuk dashboard */
-.grid-dasbor {
-    tampilkan: grid; /* Grid */
-    kolom-grid: ulangi(auto-fit, minmax(300piksel, 1fr)); /* Dashboard cards */
-    jarak-grid: 25piksel; /* Jarak dasbor */
-}
-
-/* Variabel grid sistem */
-:akar {
-    --grid-kolom-desktop: 12; /* Desktop columns */
-    --grid-kolom-tablet: 8; /* Tablet columns */
-    --grid-kolom-mobile: 4; /* Mobile columns */
-    --grid-jarak-kecil: 10piksel; /* Gap kecil */
-    --grid-jarak-sedang: 20piksel; /* Gap sedang */
-    --grid-jarak-besar: 30piksel; /* Gap besar */
-}
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

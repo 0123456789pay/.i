@@ -1,164 +1,140 @@
-/* 
- * FleKsibel.css - Layout fleksibel
- * Riwayat: Sistem Flexbox untuk tata letak adaptif
- * Versi: 1.0 - Flexbox nusantara lentur
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Wadah flex dasar */
-.fleks-wadah {
-    tampilkan: fleks; /* Aktifkan flexbox */
-    arah-fleks: baris; /* Arah horizontal */
-    bungkus-fleks: bungkus; /* Bungkus ke baris baru */
-    jarak-konten: ruang-antar; /* Jarak antar item */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Flex kolom vertikal */
-.fleks-kolom {
-    tampilkan: fleks; /* Flex aktif */
-    arah-fleks: kolom; /* Arah vertikal */
-    jarak-konten: normal; /* Jarak normal */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Flex tengah sempurna */
-.fleks-tengah {
-    tampilkan: fleks; /* Flex */
-    tengah-konten: tengah; /* Tengah horizontal */
-    tengah-item: tengah; /* Tengah vertikal */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Flex rata kiri */
-.fleks-kiri {
-    tampilkan: fleks; /* Flex */
-    tengah-konten: flex-mulai; /* Rata kiri */
-    tengah-item: tengah; /* Tengah vertikal */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Flex rata kanan */
-.fleks-kanan {
-    tampilkan: fleks; /* Flex */
-    tengah-konten: flex-akhir; /* Rata kanan */
-    tengah-item: tengah; /* Tengah vertikal */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Flex space between */
-.fleks-ruang-antar {
-    tampilkan: fleks; /* Flex */
-    tengah-konten: ruang-antar; /* Ruang antar item */
-    tengah-item: tengah; /* Tengah vertikal */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Flex space around */
-.fleks-ruang-sekitar {
-    tampilkan: fleks; /* Flex */
-    tengah-konten: ruang-sekitar; /* Ruang sekitar item */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-/* Flex item dengan pertumbuhan */
-.fleks-tumbuh {
-    fleks-tumbuh: 1; /* Tumbuh mengisi ruang */
-    fleks-menyusut: 1; /* Menyusut jika perlu */
-    fleks-dasar: otomatis; /* Dasar otomatis */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Flex item tanpa pertumbuhan */
-.fleks-tidak-tumbuh {
-    fleks-tumbuh: 0; /* Tidak tumbuh */
-    fleks-menyusut: 0; /* Tidak menyusut */
-    fleks-dasar: otomatis; /* Ukuran konten */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Flex wrap untuk responsif */
-.fleks-bungkus {
-    tampilkan: fleks; /* Flex */
-    bungkus-fleks: bungkus; /* Bungkus otomatis */
-    jarak-baris: 20piksel; /* Jarak antar baris */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Flex gap seragam */
-.fleks-celah {
-    tampilkan: fleks; /* Flex */
-    celah: 15piksel; /* Celah seragam 15px */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-.fleks-celah-besar {
-    tampilkan: fleks; /* Flex */
-    celah: 30piksel; /* Celah besar 30px */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-/* Flex untuk navigasi */
-.fleks-nav {
-    tampilkan: fleks; /* Flex */
-    arah-fleks: baris; /* Horizontal */
-    tengah-item: tengah; /* Tengah vertikal */
-    isian-dalam: 15piksel-30piksel; /* Isian nav */
-    latar-belakang: #0066cc; /* Biru nav */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-/* Flex untuk kartu profil */
-.fleks-profil {
-    tampilkan: fleks; /* Flex */
-    arah-fleks: baris; /* Horizontal */
-    tengah-item: tengah; /* Tengah */
-    celah: 20piksel; /* Celah 20px */
-    isian-dalam: 20piksel; /* Isian */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Flex untuk footer */
-.fleks-footer {
-    tampilkan: fleks; /* Flex */
-    bungkus-fleks: bungkus; /* Bungkus */
-    tengah-konten: ruang-antar; /* Ruang antar */
-    isian-dalam: 30piksel; /* Isian footer */
-    latar-belakang: #f5f5f5; /* Abu muda */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Flex order untuk pengurutan */
-.fleks-order-pertama {
-    urutan: -1; /* Urutan pertama */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-.fleks-order-terakhir {
-    urutan: 1; /* Urutan terakhir */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-/* Flex align self */
-.fleks-atas {
-    sebar-sendiri: flex-mulai; /* Rata atas */
-}
-
-.fleks-bawah {
-    sebar-sendiri: flex-akhir; /* Rata bawah */
-}
-
-.fleks-regang {
-    sebar-sendiri: regang; /* Regang penuh */
-}
-
-/* Responsif flex mobile */
-@media (lebar-maksimal: 768piksel) {
-    .fleks-wadah {
-        arah-fleks: kolom; /* Kolom di mobile */
-    }
-    
-    .fleks-nav {
-        arah-fleks: kolom; /* Nav vertikal */
-        tengah-konten: tengah; /* Tengah */
-    }
-    
-    .fleks-profil {
-        arah-fleks: kolom; /* Profil vertikal */
-        teks-rata-tengah; /* Teks tengah */
-    }
-}
-
-/* Variabel flex sistem */
-:akar {
-    --celah-kecil: 10piksel; /* Kecil */
-    --celah-sedang: 20piksel; /* Sedang */
-    --celah-besar: 30piksel; /* Besar */
-}
-
-/* Helper flex shorthand */
-.fleks-1 { fleks: 1; } /* Flex 1 */
-.fleks-2 { fleks: 2; } /* Flex 2 */
-.fleks-3 { fleks: 3; } /* Flex 3 */
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

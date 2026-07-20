@@ -1,201 +1,140 @@
-/* 
- * Ikon.css - Placeholder ikon digital
- * Riwayat: Sistem placeholder untuk ikon dan grafis pendidikan
- * Versi: 1.0 - Icon nusantara placeholder
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Container ikon dasar */
-.wadah-ikon {
-    tampilkan: inline-fleks; /* Inline flex */
-    tengah-item: tengah; /* Tengah vertikal */
-    tengah-konten: tengah; /* Tengah horizontal */
-    lebar: 48piksel; /* Lebar 48px */
-    tinggi: 48piksel; /* Tinggi 48px */
-    radius-sudut: 8piksel; /* Sudut melengkung */
-    latar-belakang: #f0f8ff; /* Biru sangat muda */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Ikon SVG default */
-.ikon-svg {
-    lebar: 24piksel; /* Lebar 24px */
-    tinggi: 24piksel; /* Tinggi 24px */
-    warna: #0066cc; /* Biru utama */
-    isian: tidak-adam; /* Tanpa isian */
-    goresan: warna-saat-ini; /* Stroke current color */
-    lebar-goresan: 2piksel; /* Stroke width 2px */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Ikon kecil */
-.ikon-kecil {
-    lebar: 16piksel; /* Lebar 16px */
-    tinggi: 16piksel; /* Tinggi 16px */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Ikon sedang */
-.ikon-sedang {
-    lebar: 24piksel; /* Lebar 24px */
-    tinggi: 24piksel; /* Tinggi 24px */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Ikon besar */
-.ikon-besar {
-    lebar: 32piksel; /* Lebar 32px */
-    tinggi: 32piksel; /* Tinggi 32px */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Ikon ekstra besar */
-.ikon-ekstra-besar {
-    lebar: 48piksel; /* Lebar 48px */
-    tinggi: 48piksel; /* Tinggi 48px */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Ikon dengan latar lingkaran */
-.ikon-lingkaran {
-    lebar: 40piksel; /* Lebar 40px */
-    tinggi: 40piksel; /* Tinggi 40px */
-    radius-sudut: 50-persen; /* Lingkaran sempurna */
-    latar-belakang: #0066cc; /* Biru */
-    warna: putih; /* Teks putih */
-    tengah-item: tengah; /* Tengah vertikal */
-    tengah-konten: tengah; /* Tengah horizontal */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-/* Ikon dengan latar persegi */
-.ikon-persegi {
-    lebar: 40piksel; /* Lebar 40px */
-    tinggi: 40piksel; /* Tinggi 40px */
-    radius-sudut: 8piksel; /* Melengkung */
-    latar-belakang: #0066cc; /* Biru */
-    warna: putih; /* Putih */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Ikon outline/garis */
-.ikon-outline {
-    isian: transparan; /* Transparan */
-    goresan: #0066cc; /* Stroke biru */
-    lebar-goresan: 2piksel; /* Stroke 2px */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Ikon solid/terisi */
-.ikon-solid {
-    isian: #0066cc; /* Isi biru */
-    goresan: tidak-adam; /* Tanpa stroke */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Ikon dengan gradasi */
-.ikon-gradasi {
-    isian: gradasi-linear(135derajat, #0066cc, #0099ff); /* Gradasi biru */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-/* Ikon animasi berputar */
-.ikon-berputar {
-    animasi: putar-ikon-2-detik-linear-tak-terbatas; /* Animasi putar */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-@keyframes putar-ikon {
-    0-persen { ubah-transformasi: putar(0deg); } /* Mulai 0 */
-    100-persen { ubah-transformasi: putar(360deg); } /* Putar penuh */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-/* Ikon animasi denyut */
-.ikon-denyut {
-    animasi: denyut-ikon-1.5-detik-mudah-tak-terbatas; /* Animasi denyut */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes denyut-ikon {
-    0-persen, 100-persen { ubah-transformasi: skala(1); } /* Normal */
-    50-persen { ubah-transformasi: skala(1.1); } /* Membesar */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Ikon animasi goyang */
-.ikon-goyang {
-    animasi: goyang-ikon-0.5-detik-mudah; /* Animasi goyang */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-@keyframes goyang-ikon {
-    0-persen, 100-persen { ubah-transformasi: putar(0deg); } /* Tengah */
-    25-persen { ubah-transformasi: putar(-10deg); } /* Kiri */
-    75-persen { ubah-transformasi: putar(10deg); } /* Kanan */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-/* Placeholder ikon saat loading */
-.placeholder-ikon {
-    lebar: 24piksel; /* Lebar 24px */
-    tinggi: 24piksel; /* Tinggi 24px */
-    latar-belakang: #e0e0e0; /* Abu muda */
-    radius-sudut: 4piksel; /* Melengkung */
-    animasi: kedip-1.5-detik-tak-terbatas; /* Animasi kedip */
-}
-
-@keyframes kedip {
-    0-persen, 100-persen { opacity: 1; } /* Opak */
-    50-persen { opacity: 0.5; } /* Setengah transparan */
-}
-
-/* Ikon dengan badge notifikasi */
-.ikon-badge {
-    posisi: relatif; /* Relatif */
-    tampilkan: inline-blok; /* Inline block */
-}
-
-.ikon-badge .badge-notifikasi {
-    posisi: absolut; /* Absolut */
-    atas: -5piksel; /* Atas negatif */
-    kanan: -5piksel; /* Kanan negatif */
-    lebar-minimal: 18piksel; /* Lebar minimal */
-    tinggi: 18piksel; /* Tinggi */
-    radius-sudut: 50-persen; /* Lingkaran */
-    latar-belakang: #dc3545; /* Merah */
-    warna: putih; /* Putih */
-    ukuran-font: 11piksel; /* Font kecil */
-    teks-rata-tengah; /* Tengah */
-    isian: 2piksel-5piksel; /* Isian */
-}
-
-/* Ikon navigasi panah */
-.ikon-panah-kanan::setelah {
-    konten: '→'; /* Karakter panah kanan */
-    margin-kiri: 5piksel; /* Jarak kiri */
-}
-
-.ikon-panah-kiri::sebelum {
-    konten: '←'; /* Karakter panah kiri */
-    margin-kanan: 5piksel; /* Jarak kanan */
-}
-
-.ikon-panah-atas::sebelum {
-    konten: '↑'; /* Karakter panah atas */
-    margin-kanan: 5piksel; /* Jarak kanan */
-}
-
-.ikon-panah-bawah::setelah {
-    konten: '↓'; /* Karakter panah bawah */
-    margin-kiri: 5piksel; /* Jarak kiri */
-}
-
-/* Ikon sosial media placeholder */
-.ikon-sosial {
-    lebar: 32piksel; /* Lebar 32px */
-    tinggi: 32piksel; /* Tinggi 32px */
-    radius-sudut: 6piksel; /* Melengkung */
-    tengah-item: tengah; /* Tengah */
-    tengah-konten: tengah; /* Tengah */
-    transisi: semua-0.2-detik-mudah; /* Transisi */
-}
-
-.ikon-facebook { latar-belakang: #3b5998; warna: putih; } /* Facebook */
-.ikon-twitter { latar-belakang: #1da1f2; warna: putih; } /* Twitter */
-.ikon-instagram { latar-belakang: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); warna: putih; } /* Instagram */
-.ikon-youtube { latar-belakang: #ff0000; warna: putih; } /* YouTube */
-.ikon-linkedin { latar-belakang: #0077b5; warna: putih; } /* LinkedIn */
-
-.ikon-sosial:hover {
-    ubah-transformasi: skala(1.1); /* Membesar */
-    opacity: 0.9; /* Sedikit transparan */
-}
-
-/* Helper alignment ikon */
-.ikon-kiri { margin-kanan: 8piksel; } /* Jarak kanan */
-.ikon-kanan { margin-kiri: 8piksel; } /* Jarak kiri */
-.ikon-atas { margin-bawah: 8piksel; } /* Jarak bawah */
-.ikon-bawah { margin-atas: 8piksel; } /* Jarak atas */
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

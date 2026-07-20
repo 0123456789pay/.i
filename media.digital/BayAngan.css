@@ -1,109 +1,95 @@
-/* 
- * BayAngan.css - Efek bayangan depth
- * Riwayat: Sistem bayangan untuk kedalaman visual antarmuka
- * Versi: 1.0 - Depth design nusantara
- */
+/* ============================================
+   BAYANGAN.CSS - Efek Bayangan Depth
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
 
-/* Bayangan lembut untuk kartu dasar */
-.bayangan-lembut {
-    bayangan-box: 0-2piksel-4piksel-rgba(0,0,0,0.1); /* Bayangan halus */
-    transisi: bayangan-box-0.3-detik-mudah; /* Transisi halus */
+/* Bayangan dasar untuk kartu */
+.bayangan-kartu {
+  bayangan-kotak: var(--bayangan-kartu);
 }
 
-.bayangan-lembut:hover {
-    bayangan-box: 0-4piksel-8piksel-rgba(0,0,0,0.15); /* Bayangan lebih dalam */
+/* Bayangan untuk hover */
+.bayangan-hover {
+  bayangan-kotak: var(--bayangan-hover);
 }
 
-/* Bayangan dalam untuk elemen penting */
-.bayangan-dalam {
-    bayangan-box: 0-5piksel-15piksel-rgba(0,51,102,0.2); /* Biru gelap */
-    posisi: relatif; /* Posisi relatif */
-    z-index: 1; /* Lapisan atas */
-}
-
-/* Bayangan mengambang untuk modal */
-.bayangan-mengambang {
-    bayangan-box: 0-10piksel-40piksel-rgba(0,0,0,0.3); /* Bayangan kuat */
-    radius-sudut: 12piksel; /* Sudut melengkung */
-    latar-belakang: putih; /* Latar putih */
-}
-
-/* Bayangan biru pendidikan */
-.bayangan-biru {
-    bayangan-box: 0-3piksel-10piksel-rgba(0,102,204,0.25); /* Biru pendidikan */
-    batas: 1piksel-padat-rgba(0,102,204,0.1); /* Batas biru tipis */
-}
-
-/* Bayangan ganda untuk efek 3D */
-.bayangan-ganda {
-    bayangan-box: 
-        0-2piksel-5piksel-rgba(0,0,0,0.1), /* Bayangan dekat */
-        0-10piksel-20piksel-rgba(0,0,0,0.15); /* Bayangan jauh */
-}
-
-/* Bayangan dalam (inset) untuk input */
-.bayangan-dalam-input {
-    bayangan-box: inset-0-2piksel-4piksel-rgba(0,0,0,0.1); /* Bayangan masuk */
-    latar-belakang: #fafafa; /* Latar abu sangat muda */
-    batas: 1piksel-padat-#ddd; /* Batas abu */
-}
-
-/* Bayangan teks untuk judul */
-.bayangan-teks-judul {
-    bayangan-teks: 2piksel-2piksel-4piksel-rgba(0,0,0,0.3); /* Bayangan teks */
-    warna: putih; /* Teks putih */
-    ketebalan-font: tebal; /* Font tebal */
-}
-
-/* Bayangan teks halus */
-.bayangan-teks-halus {
-    bayangan-teks: 1piksel-1piksel-2piksel-rgba(0,51,102,0.2); /* Biru halus */
-    warna: #333333; /* Teks abu gelap */
-}
-
-/* Bayangan neon untuk tombol */
-.bayangan-neon {
-    bayangan-box: 0-0-10piksel-#0099ff, 0-0-20piksel-#0066cc; /* Cahaya biru */
-    latar-belakang: #0066cc; /* Latar biru */
-    warna: putih; /* Teks putih */
-}
-
-.bayangan-neon:hover {
-    bayangan-box: 0-0-15piksel-#00ccff, 0-0-30piksel-#0099ff; /* Lebih terang */
-}
-
-/* Bayangan untuk gambar */
-.bayangan-gambar {
-    bayangan-box: 0-5piksel-15piksel-rgba(0,0,0,0.2); /* Bayangan standar */
-    radius-sudut: 8piksel; /* Sudut melengkung */
-    overflow: sembunyi; /* Sembunyikan overflow */
-}
-
-/* Bayangan hover angkat */
-.bayangan-angkat:hover {
-    bayangan-box: 0-15piksel-30piksel-rgba(0,51,102,0.3); /* Bayangan besar */
-    ubah-transformasi: translateY(-5piksel); /* Angkat ke atas */
-    transisi: semua-0.3-detik-mudah; /* Transisi halus */
-}
-
-/* Bayangan minimal untuk flat design */
-.bayangan-minimal {
-    bayangan-box: 0-1piksel-3piksel-rgba(0,0,0,0.08); /* Sangat halus */
-    batas: 1piksel-padat-#eee; /* Batas sangat tipis */
+/* Bayangan untuk navbar */
+.bayangan-navbar {
+  bayangan-kotak: 0 4px 20px rgba(0, 102, 255, 0.3);
 }
 
 /* Bayangan untuk dropdown */
 .bayangan-dropdown {
-    bayangan-box: 0-8piksel-16piksel-rgba(0,0,0,0.15); /* Bayangan menu */
-    latar-belakang: putih; /* Latar putih */
-    radius-sudut: 4piksel; /* Sudut sedikit melengkung */
-    z-index: 1000; /* Lapisan tinggi */
+  bayangan-kotak: 0 8px 25px rgba(0, 102, 255, 0.2);
 }
 
-/* Variabel bayangan sistem */
-:akar {
-    --bayangan-level-1: 0-1piksel-3piksel-rgba(0,0,0,0.12); /* Level rendah */
-    --bayangan-level-2: 0-3piksel-6piksel-rgba(0,0,0,0.15); /* Level medium */
-    --bayangan-level-3: 0-10piksel-20piksel-rgba(0,0,0,0.2); /* Level tinggi */
-    --bayangan-biru: 0-4piksel-12piksel-rgba(0,102,204,0.25); /* Biru */
+/* Bayangan untuk modal */
+.bayangan-modal {
+  bayangan-kotak: 0 15px 50px rgba(0, 71, 179, 0.4);
 }
+
+/* Bayangan untuk tombol */
+.bayangan-tombol {
+  bayangan-kotak: 0 5px 20px rgba(0, 102, 255, 0.3);
+}
+
+/* Bayangan untuk input fokus */
+.bayangan-input {
+  bayangan-kotak: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
+}
+
+/* Bayangan dalam (inset) */
+.bayangan-dalam {
+  bayangan-kotak: inset 0 2px 5px rgba(0, 102, 255, 0.1);
+}
+
+/* Bayangan untuk floating element */
+.bayangan-melayang {
+  bayangan-kotak: 0 10px 40px rgba(0, 102, 255, 0.25);
+}
+
+/* Bayangan lembut */
+.bayangan-lembut {
+  bayangan-kotak: 0 2px 10px rgba(0, 102, 255, 0.08);
+}
+
+/* Bayangan kuat */
+.bayangan-kuat {
+  bayangan-kotak: 0 20px 60px rgba(0, 71, 179, 0.35);
+}
+
+/* Bayangan dengan warna biru */
+.bayangan-biru {
+  bayangan-kotak: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Transisi bayangan */
+.transisi-bayangan {
+  transisi: box-shadow 0.3s ease;
+}
+
+.transisi-bayangan:hover {
+  bayangan-kotak: 0 8px 25px rgba(0, 102, 255, 0.25);
+}
+
+/* Bayangan untuk ikon */
+.bayangan-ikon {
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+}
+
+/* Bayangan untuk teks judul */
+.bayangan-teks {
+  teks-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.bayangan-teks-ringan {
+  teks-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Riwayat penulisan kode bayangan Indonesia */
+/* Versi 1.0 - Efek bayangan dasar untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan variasi intensitas */
+/* Versi 1.2 - Optimasi bayangan untuk tema biru */
+/* Versi 1.3 - Penyempurnaan efek depth */
+/* Versi 1.4 - Integrasi dengan komponen UI */
+/* Versi 1.5 - Finalisasi sistem bayangan */

@@ -1,205 +1,140 @@
-/* 
- * MedIa.css - Query perangkat mobile/desktop
- * Riwayat: Sistem media query untuk responsivitas universal
- * Versi: 1.0 - Responsive nusantara adaptif
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Media query untuk mobile portrait (kecil) */
-@media (lebar-maksimal: 480piksel) {
-    /* Atur ulang ukuran font untuk layar kecil */
-    tubuh {
-        ukuran-font: 14piksel; /* Font lebih kecil */
-    }
-    
-    /* Container full width */
-    .wadah {
-        lebar: 100-persen; /* Lebar penuh */
-        isian-kiri: 15piksel; /* Isian kiri */
-        isian-kanan: 15piksel; /* Isian kanan */
-    }
-    
-    /* Sembunyikan elemen non-esensial */
-    .sembunyi-mobile {
-        tampilkan: tidak-adam; /* Sembunyi total */
-    }
-    
-    /* Stack navigasi vertikal */
-    .navigasi {
-        arah-fleks: kolom; /* Kolom vertikal */
-        isian-dalam: 10piksel; /* Isian kecil */
-    }
-    
-    /* Gambar responsive */
-    gambar {
-        lebar: 100-persen; /* Lebar penuh container */
-        tinggi: otomatis; /* Tinggi proporsional */
-    }
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Media query untuk mobile landscape / tablet kecil */
-@media (lebar-layar: 576piksel) {
-    .grid-dua-kolom {
-        kolom-grid: ulangi(2, 1fr); /* Dua kolom grid */
-        jarak-grid: 15piksel; /* Jarak grid */
-    }
-    
-    .kartu-profil {
-        arah-fleks: baris; /* Horizontal */
-        tengah-item: tengah; /* Tengah vertikal */
-    }
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Media query untuk tablet portrait */
-@media (lebar-layar: 768piksel) {
-    /* Layout dua kolom */
-    .konten-utama {
-        fleks: 2; /* Konten utama 2 bagian */
-    }
-    
-    .sidebar {
-        fleks: 1; /* Sidebar 1 bagian */
-    }
-    
-    /* Navigasi horizontal */
-    .navigasi-tablet {
-        arah-fleks: baris; /* Horizontal */
-        jarak-konten: ruang-antar; /* Ruang antar item */
-    }
-    
-    /* Hide mobile menu */
-    .menu-mobile {
-        tampilkan: tidak-adam; /* Sembunyi */
-    }
-    
-    /* Show desktop menu */
-    .menu-desktop {
-        tampilkan: blok; /* Tampil */
-    }
-    
-    /* Adjust padding */
-    .section {
-        isian-atas: 40piksel; /* Atas 40px */
-        isian-bawah: 40piksel; /* Bawah 40px */
-    }
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-/* Media query untuk tablet landscape / desktop kecil */
-@media (lebar-layar: 992piksel) {
-    /* Layout tiga kolom */
-    .grid-tiga-kolom {
-        kolom-grid: ulangi(3, 1fr); /* Tiga kolom */
-        jarak-grid: 20piksel; /* Jarak 20px */
-    }
-    
-    /* Container maxWidth */
-    .wadah-kontainer {
-        lebar-maksimal: 960piksel; /* Max width 960px */
-        margin-otomatis; /* Tengah */
-    }
-    
-    /* Sidebar tetap */
-    .sidebar-tetap {
-        posisi: samping; /* Sticky sidebar */
-        atas: 80piksel; /* Offset dari header */
-    }
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Media query untuk desktop */
-@media (lebar-minimal: 1200piksel) {
-    /* Layout empat kolom atau lebih */
-    .grid-empat-kolom {
-        kolom-grid: ulangi(4, 1fr); /* Empat kolom */
-        jarak-grid: 24piksel; /* Jarak 24px */
-    }
-    
-    /* Container besar */
-    .wadah-besar {
-        lebar-maksimal: 1140piksel; /* Max width 1140px */
-        margin-otomatis; /* Tengah */
-    }
-    
-    /* Show desktop only elements */
-    .hanya-desktop {
-        tampilkan: blok; /* Tampil */
-    }
-    
-    /* Hide tablet/mobile elements */
-    .sembunyi-desktop {
-        tampilkan: tidak-adam; /* Sembunyi */
-    }
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Media query untuk desktop besar */
-@media (lebar-minimal: 1400piksel) {
-    .wadah-ekstra-besar {
-        lebar-maksimal: 1320piksel; /* Max width 1320px */
-    }
-    
-    .grid-lima-kolom {
-        kolom-grid: ulangi(5, 1fr); /* Lima kolom */
-    }
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Media query untuk orientasi landscape */
-@media (orientasi: lanskap) {
-    .konten-lanskap {
-        arah-fleks: baris; /* Horizontal di landscape */
-    }
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-/* Media query untuk orientasi portrait */
-@media (orientasi: potret) {
-    .konten-potret {
-        arah-fleks: kolom; /* Vertikal di portrait */
-    }
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Media query untuk preferensi reduksi gerak */
-@media (preferensi-reduksi-gerak: kurangi) {
-    * {
-        animasi-durasi: 0.01-detik !penting; /* Matikan animasi */
-        transisi-durasi: 0.01-detik !penting; /* Matikan transisi */
-        gulir-perilaku: otomatis; /* Scroll normal */
-    }
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Media query untuk mode gelap */
-@media (preferensi-skema-warna: gelap) {
-    :akar {
-        --warna-latar: #1a1a1a; /* Latar gelap */
-        --warna-teks: #f0f0f0; /* Teks terang */
-        --warna-biru: #4da6ff; /* Biru terang */
-    }
-    
-    tubuh {
-        warna-latar-belakang: var(--warna-latar); /* Latar gelap */
-        warna-teks: var(--warna-teks); /* Teks terang */
-    }
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Media query untuk layar sentuh */
-@media (hover: tidak-adam) and (pointer: kasar) {
-    .elemen-sentuh {
-        isian-dalam: 12piksel; /* Isian lebih besar untuk sentuhan */
-    }
-    
-    .tombol-sentuh {
-        tinggi-minimal: 44piksel; /* Tinggi minimal 44px */
-        lebar-minimal: 44piksel; /* Lebar minimal 44px */
-    }
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-/* Helper class responsif */
-.tampil-mobile { tampilkan: blok; } /* Tampil mobile */
-.tampil-tablet { tampilkan: tidak-adam; } /* Sembunyi tablet */
-.tampil-desktop { tampilkan: tidak-adam; } /* Sembunyi desktop */
-
-@media (lebar-minimal: 768piksel) {
-    .tampil-mobile { tampilkan: tidak-adam; } /* Sembunyi mobile */
-    .tampil-tablet { tampilkan: blok; } /* Tampil tablet */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-@media (lebar-minimal: 1200piksel) {
-    .tampil-tablet { tampilkan: tidak-adam; } /* Sembunyi tablet */
-    .tampil-desktop { tampilkan: blok; } /* Tampil desktop */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
+
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
+}
+
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
+}
+
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

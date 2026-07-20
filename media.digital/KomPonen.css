@@ -1,172 +1,140 @@
-/* 
- * KomPonen.css - Gaya komponen kartu
- * Riwayat: Sistem komponen UI untuk antarmuka pendidikan digital
- * Versi: 1.0 - Komponen nusantara modular
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Kartu dasar untuk konten */
-.kartu-dasar {
-    latar-belakang: putih; /* Latar putih bersih */
-    batas: 1piksel-padat-#e0e0e0; /* Batas abu muda */
-    radius-sudut: 8piksel; /* Sudut melengkung */
-    isian-dalam: 20piksel; /* Ruang dalam 20px */
-    bayangan-box: 0-2piksel-8piksel-rgba(0,0,0,0.1); /* Bayangan halus */
-    transisi: semua-0.3-detik-mudah; /* Transisi halus */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-.kartu-dasar:hover {
-    bayangan-box: 0-4piksel-16piksel-rgba(0,0,0,0.15); /* Bayangan lebih besar */
-    ubah-transformasi: angkat(-2piksel); /* Angkat sedikit */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Kartu materi pembelajaran */
-.kartu-materi {
-    latar-belakang: putih; /* Putih */
-    batas-kiri: 4piksel-padat-#0066cc; /* Garis biru di kiri */
-    radius-sudut: 8piksel; /* Melengkung */
-    isian-dalam: 24piksel; /* Isian 24px */
-    margin-bawah: 20piksel; /* Jarak bawah */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-.kartu-materi-judul {
-    ukuran-font: 18piksel; /* Judul 18px */
-    ketebalan-font: 600; /* Semi bold */
-    warna: #003366; /* Biru gelap */
-    margin-bawah: 12piksel; /* Jarak bawah judul */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-.kartu-materi-isi {
-    ukuran-font: 15piksel; /* Isi 15px */
-    tinggi-baris: 1.7; /* Line height nyaman */
-    warna: #555555; /* Abu gelap */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Kartu profil pengguna */
-.kartu-profil {
-    teks-rata-tengah; /* Teks tengah */
-    isian-dalam: 30piksel; /* Isian 30px */
-    latar-belakang: gradasi-linear(135derajat, #f0f8ff, #ffffff); /* Gradasi biru muda */
-    radius-sudut: 12piksel; /* Melengkung 12px */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-.profil-avatar {
-    lebar: 100piksel; /* Lebar avatar */
-    tinggi: 100piksel; /* Tinggi avatar */
-    radius-sudut: 50-persen; /* Lingkaran */
-    batas: 3piksel-padat-#0066cc; /* Batas biru */
-    margin-bawah: 15piksel; /* Jarak bawah */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-.profil-nama {
-    ukuran-font: 20piksel; /* Nama 20px */
-    ketebalan-font: tebal; /* Bold */
-    warna: #003366; /* Biru gelap */
-    margin-bawah: 5piksel; /* Jarak kecil */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-.profil-jabatan {
-    ukuran-font: 14piksel; /* Jabatan 14px */
-    warna: #666666; /* Abu */
-    gaya-font: miring; /* Italic */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-/* Kartu statistik/dashboard */
-.kartu-statistik {
-    isian-dalam: 20piksel; /* Isian 20px */
-    radius-sudut: 10piksel; /* Melengkung */
-    latar-belakang: putih; /* Putih */
-    batas: 1piksel-padat-#f0f0f0; /* Batas abu sangat muda */
-    teks-rata-tengah; /* Tengah */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-.statistik-angka {
-    ukuran-font: 36piksel; /* Angka besar 36px */
-    ketebalan-font: 700; /* Bold */
-    warna: #0066cc; /* Biru */
-    margin-bawah: 5piksel; /* Jarak kecil */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-.statistik-label {
-    ukuran-font: 14piksel; /* Label 14px */
-    warna: #888888; /* Abu terang */
-    transformasi-teks: huruf-besar; /* Kapital */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-/* Kartu dengan gambar header */
-.kartu-gambar-header {
-    overflow: sembunyi; /* Sembunyikan overflow */
-    radius-sudut: 10piksel; /* Melengkung */
-    latar-belakang: putih; /* Putih */
-    bayangan-box: 0-3piksel-10piksel-rgba(0,0,0,0.12); /* Bayangan */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-.kartu-gambar {
-    lebar: 100-persen; /* Lebar penuh */
-    tinggi: 200piksel; /* Tinggi 200px */
-    objek-pas: tutup; /* Cover fit */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.kartu-gambar-isi {
-    isian-dalam: 20piksel; /* Isian 20px */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Kartu notifikasi/alert */
-.kartu-notifikasi {
-    isian-dalam: 16piksel-20piksel; /* Isian vertikal horizontal */
-    radius-sudut: 6piksel; /* Melengkung */
-    batas-kiri: 4piksel-padat; /* Batas kiri berwarna */
-    margin-bawah: 15piksel; /* Jarak bawah */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-.notifikasi-sukses {
-    latar-belakang: #d4edda; /* Hijau muda */
-    warna: #155724; /* Hijau gelap */
-    batas-warna: #28a745; /* Hijau border */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-.notifikasi-peringatan {
-    latar-belakang: #fff3cd; /* Kuning muda */
-    warna: #856404; /* Coklat gelap */
-    batas-warna: #ffc107; /* Kuning border */
-}
-
-.notifikasi-error {
-    latar-belakang: #f8d7da; /* Merah muda */
-    warna: #721c24; /* Merah gelap */
-    batas-warna: #dc3545; /* Merah border */
-}
-
-.notifikasi-info {
-    latar-belakang: #d1ecf1; /* Cyan muda */
-    warna: #0c5460; /* Cyan gelap */
-    batas-warna: #17a2b8; /* Cyan border */
-}
-
-/* Kartu harga/pricing */
-.kartu-harga {
-    teks-rata-tengah; /* Tengah */
-    isian-dalam: 30piksel; /* Isian 30px */
-    batas: 2piksel-padat-#e0e0e0; /* Batas abu */
-    radius-sudut: 12piksel; /* Melengkung */
-    transisi: semua-0.3-detik-mudah; /* Transisi */
-}
-
-.kartu-harga.aktif {
-    batas-warna: #0066cc; /* Biru saat aktif */
-    bayangan-box: 0-5piksel-20piksel-rgba(0,102,204,0.2); /* Bayangan biru */
-}
-
-.harga-angka {
-    ukuran-font: 48piksel; /* Harga besar 48px */
-    ketebalan-font: 700; /* Bold */
-    warna: #0066cc; /* Biru */
-}
-
-.harga-periode {
-    ukuran-font: 14piksel; /* Periode 14px */
-    warna: #888888; /* Abu */
-}
-
-/* Helper kartu */
-.kartu-kecil { isian-dalam: 15piksel; } /* Isian kecil */
-.kartu-besar { isian-dalam: 40piksel; } /* Isian besar */
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

@@ -1,201 +1,140 @@
-/* 
- * Skrol.css - Kustomisasi scrollbar
- * Riwayat: Sistem styling scrollbar untuk pengalaman gulir premium
- * Versi: 1.0 - Scrollbar nusantara kustom
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Scrollbar dasar untuk webkit (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-    lebar: 10piksel; /* Lebar scrollbar vertikal */
-    tinggi: 10piksel; /* Tinggi scrollbar horizontal */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Track scrollbar (jalur) */
-::-webkit-scrollbar-lagu {
-    latar-belakang: #f1f1f1; /* Latar abu muda */
-    radius-sudut: 5piksel; /* Melengkung */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Thumb scrollbar (penggeser) */
-::-webkit-scrollbar-thumb {
-    latar-belakang: #cccccc; /* Abu medium */
-    radius-sudut: 5piksel; /* Melengkung */
-    batas: 2piksel-padat-#f1f1f1; /* Batas tipis */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-::-webkit-scrollbar-thumb:hover {
-    latar-belakang: #999999; /* Abu gelap saat hover */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-::-webkit-scrollbar-thumb:aktif {
-    latar-belakang: #666666; /* Abu sangat gelap saat aktif */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Corner scrollbar (sudut pertemuan) */
-::-webkit-scrollbar-corner {
-    latar-belakang: #f1f1f1; /* Latar abu muda */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Scrollbar biru pendidikan */
-.scrollbar-biru ::-webkit-scrollbar {
-    lebar: 12piksel; /* Lebar lebih besar */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-.scrollbar-biru ::-webkit-scrollbar-lagu {
-    latar-belakang: #e6f3ff; /* Biru sangat muda */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-.scrollbar-biru ::-webkit-scrollbar-thumb {
-    latar-belakang: #0066cc; /* Biru utama */
-    radius-sudut: 6piksel; /* Melengkung */
-    batas: 2piksel-padat-#e6f3ff; /* Batas biru muda */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-.scrollbar-biru ::-webkit-scrollbar-thumb:hover {
-    latar-belakang: #0052a3; /* Biru lebih gelap */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Scrollbar tipis/minimal */
-.scrollbar-tipis ::-webkit-scrollbar {
-    lebar: 6piksel; /* Lebar kecil */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-.scrollbar-tipis ::-webkit-scrollbar-lagu {
-    latar-belakang: transparan; /* Transparan */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-.scrollbar-tipis ::-webkit-scrollbar-thumb {
-    latar-belakang: #dddddd; /* Abu terang */
-    radius-sudut: 3piksel; /* Melengkung kecil */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-.scrollbar-tipis ::-webkit-scrollbar-thumb:hover {
-    latar-belakang: #bbbbbb; /* Abu medium */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Scrollbar tebal/besar */
-.scrollbar-tebal ::-webkit-scrollbar {
-    lebar: 16piksel; /* Lebar besar */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.scrollbar-tebal ::-webkit-scrollbar-lagu {
-    latar-belakang: #e0e0e0; /* Abu */
-    radius-sudut: 8piksel; /* Melengkung besar */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-.scrollbar-tebal ::-webkit-scrollbar-thumb {
-    latar-belakang: #888888; /* Abu gelap */
-    radius-sudut: 8piksel; /* Melengkung besar */
-    batas: 3piksel-padat-#e0e0e0; /* Batas tebal */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-/* Scrollbar dengan gradasi */
-.scrollbar-gradasi ::-webkit-scrollbar-thumb {
-    latar-belakang: gradasi-linear(180derajat, #0066cc, #0099ff); /* Gradasi biru */
-    radius-sudut: 5piksel; /* Melengkung */
-}
-
-.scrollbar-gradasi ::-webkit-scrollbar-thumb:hover {
-    latar-belakang: gradasi-linear(180derajat, #0052a3, #0088ee); /* Gradasi lebih gelap */
-}
-
-/* Scrollbar untuk elemen tertentu */
-.konten-gulir {
-    overflow-y: gulir; /* Scroll vertikal */
-    overflow-x: sembunyi; /* Sembunyikan horizontal */
-    tinggi-maksimal: 400piksel; /* Tinggi maksimal */
-}
-
-.konten-gulir::-webkit-scrollbar {
-    lebar: 8piksel; /* Lebar 8px */
-}
-
-.konten-gulir::-webkit-scrollbar-lagu {
-    latar-belakang: #f5f5f5; /* Abu sangat muda */
-    radius-sudut-kiri: 4piksel; /* Radius kiri */
-    radius-sudut-kanan: 4piksel; /* Radius kanan */
-}
-
-.konten-gulir::-webkit-scrollbar-thumb {
-    latar-belakang: #c1c1c1; /* Abu */
-    radius-sudut: 4piksel; /* Melengkung */
-}
-
-.konten-gulir::-webkit-scrollbar-thumb:hover {
-    latar-belakang: #a8a8a8; /* Abu lebih gelap */
-}
-
-/* Scrollbar horizontal kustom */
-.gulir-horizontal {
-    overflow-x: gulir; /* Scroll horizontal */
-    overflow-y: sembunyi; /* Sembunyikan vertikal */
-    putih-ruang: tidak-membungkus; /* No wrap */
-}
-
-.gulir-horizontal::-webkit-scrollbar {
-    tinggi: 10piksel; /* Tinggi scrollbar horizontal */
-}
-
-.gulir-horizontal::-webkit-scrollbar-lagu {
-    latar-belakang: #f1f1f1; /* Latar abu muda */
-    radius-sudut: 5piksel; /* Melengkung */
-}
-
-.gulir-horizontal::-webkit-scrollbar-thumb {
-    latar-belakang: #cccccc; /* Abu */
-    radius-sudut: 5piksel; /* Melengkung */
-}
-
-/* Scrollbar untuk mode gelap */
-@media (preferensi-skema-warna: gelap) {
-    ::-webkit-scrollbar-lagu {
-        latar-belakang: #2a2a2a; /* Latar gelap */
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        latar-belakang: #555555; /* Thumb abu */
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        latar-belakang: #777777; /* Thumb lebih terang */
-    }
-}
-
-/* Firefox scrollbar styling */
-* {
-    warna-scrollbar: #cccccc #f1f1f1; /* thumb track */
-    warna-scrollbar: tipis; /* tipis, tebal, normal */
-}
-
-.scrollbar-biru * {
-    warna-scrollbar: #0066cc #e6f3ff; /* Biru thumb track */
-}
-
-.scrollbar-tipis * {
-    warna-scrollbar: #dddddd transparan; /* Tipis transparan */
-}
-
-/* Helper class untuk auto hide scrollbar */
-.scrollbar-semunyi {
-    overflow-y: gulir; /* Scroll tetap aktif */
-    -ms-overflow-style: tidak-adam; /* IE/Edge hide */
-    scrollbar-lebar: tidak-adam; /* Firefox hide */
-}
-
-.scrollbar-semunyi::-webkit-scrollbar {
-    tampilkan: tidak-adam; /* Webkit hide */
-}
-
-.scrollbar-semunyi:hover::-webkit-scrollbar {
-    tampilkan: blok; /* Muncul saat hover */
-}
-
-/* Smooth scrolling untuk seluruh halaman */
-html {
-    gulir-perilaku: halus; /* Smooth scroll */
-}
-
-/* Scroll padding untuk anchor links */
-html {
-    isian-gulir-atas: 80piksel; /* Offset untuk fixed header */
-}
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

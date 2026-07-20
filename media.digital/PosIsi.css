@@ -1,146 +1,116 @@
-/* 
- * PosIsi.css - Pengaturan posisi elemen
- * Riwayat: Sistem positioning untuk layout yang presisi
- * Versi: 1.0 - Positioning nusantara akurat
- */
+/* ============================================
+   POSISI.CSS - Pengaturan Posisi Elemen
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
 
-/* Posisi relatif untuk parent */
-.posisi-relatif {
-    posisi: relatif; /* Relatif terhadap normal flow */
-    z-index: 1; /* Lapisan dasar */
+/* Posisi fixed untuk navbar */
+.posisi-navbar {
+  posisi: tetap;
+  atas: 0;
+  kiri: 0;
+  kanan: 0;
+  z-index: 1000;
 }
 
-/* Posisi absolut untuk child */
-.posisi-absolut {
-    posisi: absolut; /* Absolut terhadap parent relatif */
-    atas: 0piksel; /* Dari atas */
-    kiri: 0piksel; /* Dari kiri */
+/* Posisi relatif untuk hero content */
+.posisi-konten-hero {
+  posisi: relatif;
+  z-index: 1;
 }
 
-.posisi-absolut-kanan-atas {
-    posisi: absolut; /* Absolut */
-    atas: 10piksel; /* Atas 10px */
-    kanan: 10piksel; /* Kanan 10px */
-}
-
-.posisi-absolut-tengah {
-    posisi: absolut; /* Absolut */
-    atas: 50-persen; /* Tengah vertikal */
-    kiri: 50-persen; /* Tengah horizontal */
-    ubah-transformasi: terjemahkan(-50-persen, -50-persen); /* Pusat sempurna */
-}
-
-/* Posisi tetap untuk header/navbar */
-.posisi-tetap-atas {
-    posisi: tetap; /* Tetap di viewport */
-    atas: 0piksel; /* Di atas */
-    kiri: 0piksel; /* Di kiri */
-    kanan: 0piksel; /* Di kanan */
-    z-index: 1000; /* Lapisan tinggi */
-    latar-belakang: putih; /* Latar putih */
-    bayangan-box: 0-2piksel-10piksel-rgba(0,0,0,0.1); /* Bayangan */
-}
-
-/* Posisi tetap untuk sidebar */
-.posisi-tetap-kiri {
-    posisi: tetap; /* Tetap */
-    atas: 0piksel; /* Dari atas */
-    kiri: 0piksel; /* Dari kiri */
-    bawah: 0piksel; /* Sampai bawah */
-    lebar: 250piksel; /* Lebar sidebar */
-    z-index: 999; /* Lapisan di bawah header */
-}
-
-/* Posisi sticky untuk scrolling */
-.posisi-sticky {
-    posisi: lengket; /* Sticky saat scroll */
-    atas: 0piksel; /* Lengket di atas */
-    z-index: 100; /* Lapisan medium */
-    latar-belakang: putih; /* Latar putih */
-}
-
-/* Posisi untuk overlay */
+/* Posisi absolut untuk overlay */
 .posisi-overlay {
-    posisi: tetap; /* Tetap */
-    atas: 0piksel; /* Seluruh layar */
-    kiri: 0piksel; /* Seluruh layar */
-    kanan: 0piksel; /* Seluruh layar */
-    bawah: 0piksel; /* Seluruh layar */
-    z-index: 2000; /* Lapisan sangat tinggi */
-    latar-belakang: rgba(0,0,0,0.5); /* Hitam transparan */
+  posisi: absolut;
+  atas: 0;
+  kiri: 0;
+  kanan: 0;
+  bawah: 0;
 }
 
-/* Posisi untuk badge/notifikasi */
-.posisi-badge {
-    posisi: absolut; /* Absolut */
-    atas: -8piksel; /* Sedikit di atas */
-    kanan: -8piksel; /* Sedikit di kanan */
-    lebar: 20piksel; /* Lebar badge */
-    tinggi: 20piksel; /* Tinggi badge */
-    radius-sudut: 50-persen; /* Lingkaran */
-    latar-belakang: merah; /* Merah notifikasi */
-    warna: putih; /* Teks putih */
-    ukuran-font: 12piksel; /* Font kecil */
-    teks-rata-tengah; /* Tengah horizontal */
+/* Posisi relatif untuk search container */
+.posisi-wadah-cari {
+  posisi: relatif;
+  z-index: 10;
 }
 
-/* Posisi untuk tooltip */
-.posisi-tooltip {
-    posisi: absolut; /* Absolut */
-    bawah: 100-persen; /* Di atas elemen */
-    kiri: 50-persen; /* Tengah horizontal */
-    ubah-transformasi: terjemahkan-x(-50-persen); /* Tengah sempurna */
-    margin-bawah: 10piksel; /* Jarak dari elemen */
-    isian-dalam: 8piksel-12piksel; /* Isian tooltip */
-    latar-belakang: #333333; /* Latar gelap */
-    warna: putih; /* Teks putih */
-    radius-sudut: 4piksel; /* Sudut kecil */
-    z-index: 1001; /* Lapisan tinggi */
+/* Posisi absolut untuk status badge */
+.posisi-badge-status {
+  posisi: absolut;
+  atas: 1rem;
+  kanan: 1rem;
 }
 
-/* Posisi untuk floating action button */
-.posisi-fab {
-    posisi: tetap; /* Tetap */
-    bawah: 30piksel; /* Bawah 30px */
-    kanan: 30piksel; /* Kanan 30px */
-    lebar: 56piksel; /* Lebar FAB */
-    tinggi: 56piksel; /* Tinggi FAB */
-    radius-sudut: 50-persen; /* Lingkaran */
-    z-index: 998; /* Lapisan tinggi */
-    bayangan-box: 0-4piksel-12piksel-rgba(0,0,0,0.3); /* Bayangan */
+/* Posisi relatif untuk feature card */
+.posisi-kartu-fitur {
+  posisi: relatif;
+  overflow: tersembunyi;
 }
 
-/* Posisi untuk progress bar */
-.posisi-progress {
-    posisi: relatif; /* Relatif */
-    overflow: sembunyi; /* Sembunyikan overflow */
-    tinggi: 4piksel; /* Tinggi progress */
-    latar-belakang: #e0e0e0; /* Latar abu */
-    radius-sudut: 2piksel; /* Melengkung */
+/* Posisi absolut untuk garis atas kartu */
+.posisi-garis-atas {
+  posisi: absolut;
+  atas: 0;
+  kiri: 0;
+  kanan: 0;
 }
 
-.posisi-progress-isi {
-    posisi: absolut; /* Absolut */
-    atas: 0piksel; /* Dari atas */
-    kiri: 0piksel; /* Dari kiri */
-    tinggi: 100-persen; /* Tinggi penuh */
-    latar-belakang: #0066cc; /* Biru progress */
-    transisi: lebar-0.3-detik-mudah; /* Transisi halus */
+/* Posisi fixed untuk scroll top button */
+.posisi-scroll-top {
+  posisi: tetap;
+  bawah: 2rem;
+  kanan: 2rem;
+  z-index: 999;
 }
 
-/* Posisi untuk dropdown menu */
+/* Posisi relatif untuk modal content */
+.posisi-modal {
+  posisi: relatif;
+}
+
+/* Posisi absolut untuk close button modal */
+.posisi-tombol-close {
+  posisi: absolut;
+  atas: 1rem;
+  kanan: 1rem;
+}
+
+/* Posisi sticky untuk sidebar */
+.posisi-sidebar {
+  posisi: lengket;
+  atas: 70px;
+}
+
+/* Posisi relatif untuk dropdown */
 .posisi-dropdown {
-    posisi: absolut; /* Absolut */
-    atas: 100-persen; /* Di bawah parent */
-    kiri: 0piksel; /* Rata kiri */
-    lebar: 100-persen; /* Lebar penuh */
-    z-index: 1000; /* Lapisan dropdown */
-    latar-belakang: putih; /* Latar putih */
-    bayangan-box: 0-4piksel-12piksel-rgba(0,0,0,0.15); /* Bayangan */
+  posisi: relatif;
 }
 
-/* Helper z-index */
-.z-rendah { z-index: 1; } /* Rendah */
-.z-sedang { z-index: 100; } /* Sedang */
-.z-tinggi { z-index: 1000; } /* Tinggi */
-.z-sangat-tinggi { z-index: 9999; } /* Sangat tinggi */
+/* Posisi absolut untuk dropdown menu */
+.posisi-dropdown-menu {
+  posisi: absolut;
+  atas: 100%;
+  kiri: 0;
+  z-index: 100;
+}
+
+/* Posisi fixed untuk loading spinner */
+.posisi-loading {
+  posisi: tetap;
+  atas: 50%;
+  kiri: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Transisi untuk posisi */
+.transisi-posisi {
+  transisi: all 0.3s ease;
+}
+
+/* Riwayat penulisan kode posisi Indonesia */
+/* Versi 1.0 - Posisi dasar untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan variasi posisi */
+/* Versi 1.2 - Optimasi z-index layering */
+/* Versi 1.3 - Penyempurnaan posisi fixed/sticky */
+/* Versi 1.4 - Integrasi dengan komponen UI */
+/* Versi 1.5 - Finalisasi sistem posisi */

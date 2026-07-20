@@ -1,188 +1,140 @@
-/* 
- * JudUl.css - Header judul section
- * Riwayat: Sistem tipografi judul untuk hierarki konten pendidikan
- * Versi: 1.0 - Heading nusantara berjenjang
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Judul utama halaman (H1) */
-.judul-utama {
-    ukuran-font: 42piksel; /* Ukuran besar 42px */
-    ketebalan-font: 700; /* Bold tebal */
-    warna: #003366; /* Biru sangat gelap */
-    margin-bawah: 24piksel; /* Jarak bawah */
-    tinggi-baris: 1.2; /* Line height ketat */
-    huruf-jarak: -0.5piksel; /* Letter spacing negatif */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-.judul-utama::setelah {
-    konten: ''; /* Konten kosong */
-    tampilkan: blok; /* Display block */
-    lebar: 80piksel; /* Lebar garis 80px */
-    tinggi: 4piksel; /* Tinggi garis 4px */
-    latar-belakang: #0066cc; /* Garis biru */
-    margin-atas: 16piksel; /* Jarak atas dari teks */
-    radius-sudut: 2piksel; /* Melengkung sedikit */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-/* Sub judul section (H2) */
-.sub-judul-section {
-    ukuran-font: 32piksel; /* Ukuran 32px */
-    ketebalan-font: 600; /* Semi bold */
-    warna: #004080; /* Biru gelap */
-    margin-bawah: 20piksel; /* Jarak bawah */
-    margin-atas: 40piksel; /* Jarak atas */
-    tinggi-baris: 1.3; /* Line height */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-.sub-judul-section::sebelum {
-    konten: '#'; /* Karakter pagar */
-    warna: #0066cc; /* Biru */
-    margin-kanan: 10piksel; /* Jarak kanan */
-    opacity: 0.5; /* Transparansi */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Judul level 3 (H3) */
-.judul-level-tiga {
-    ukuran-font: 26piksel; /* Ukuran 26px */
-    ketebalan-font: 600; /* Semi bold */
-    warna: #0059b3; /* Biru medium */
-    margin-bawah: 16piksel; /* Jarak bawah */
-    margin-atas: 32piksel; /* Jarak atas */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-/* Judul level 4 (H4) */
-.judul-level-empat {
-    ukuran-font: 22piksel; /* Ukuran 22px */
-    ketebalan-font: 600; /* Semi bold */
-    warna: #0066cc; /* Biru utama */
-    margin-bawah: 14piksel; /* Jarak bawah */
-    margin-atas: 28piksel; /* Jarak atas */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Judul level 5 (H5) */
-.judul-level-lima {
-    ukuran-font: 18piksel; /* Ukuran 18px */
-    ketebalan-font: 600; /* Semi bold */
-    warna: #0073e6; /* Biru terang */
-    margin-bawah: 12piksel; /* Jarak bawah */
-    margin-atas: 24piksel; /* Jarak atas */
-    gaya-font: miring; /* Italic */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-/* Judul level 6 (H6) */
-.judul-level-enam {
-    ukuran-font: 16piksel; /* Ukuran 16px */
-    ketebalan-font: 600; /* Semi bold */
-    warna: #0080ff; /* Biru lebih terang */
-    margin-bawah: 10piksel; /* Jarak bawah */
-    margin-atas: 20piksel; /* Jarak atas */
-    transformasi-teks: huruf-besar; /* Kapital semua */
-    huruf-jarak: 1piksel; /* Letter spacing */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Judul dengan ikon */
-.judul-ikon {
-    tampilkan: fleks; /* Flex layout */
-    tengah-item: tengah; /* Tengah vertikal */
-    celah: 12piksel; /* Jarak ikon-teks */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-.judul-ikon svg, .judul-ikon img {
-    lebar: 28piksel; /* Lebar ikon */
-    tinggi: 28piksel; /* Tinggi ikon */
-    warna: #0066cc; /* Warna biru */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Judul bertingkat dengan breadcrumb */
-.judul-breadcrumb {
-    ukuran-font: 14piksel; /* Font kecil */
-    warna: #666666; /* Abu */
-    margin-bawah: 8piksel; /* Jarak bawah */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-.judul-breadcrumb a {
-    warna: #0066cc; /* Biru link */
-    dekorasi-teks: tidak-ada; /* Tanpa garis bawah */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-.judul-breadcrumb a:hover {
-    dekorasi-teks: garis-bawah; /* Garis bawah saat hover */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-.judul-breadcrumb-pemisah::sebelum {
-    konten: '/'; /* Karakter pemisah */
-    margin-kiri: 8piksel; /* Jarak kiri */
-    margin-kanan: 8piksel; /* Jarak kanan */
-    warna: #999999; /* Abu */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Judul dengan badge/notifikasi */
-.judul-badge {
-    tampilkan: inline-fleks; /* Inline flex */
-    tengah-item: tengah; /* Tengah vertikal */
-    celah: 10piksel; /* Jarak */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.badge-baru {
-    isian-dalam: 4piksel-10piksel; /* Isian kecil */
-    latar-belakang: #dc3545; /* Merah */
-    warna: putih; /* Teks putih */
-    radius-sudut: 12piksel; /* Pill shape */
-    ukuran-font: 12piksel; /* Font kecil */
-    ketebalan-font: 600; /* Semi bold */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-/* Judul centered/tengah */
-.judul-tengah {
-    teks-rata-tengah; /* Teks tengah */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-.judul-tengah::setelah {
-    margin-kiri: otomatis; /* Margin kiri auto */
-    margin-kanan: otomatis; /* Margin kanan auto */
-}
-
-/* Judul dengan gradasi warna */
-.judul-gradasi {
-    latar-asal: teks; /* Background clip text */
-    -webkit-latar-asal: teks; /* Webkit prefix */
-    warna: transparan; /* Teks transparan */
-    latar-belakang: gradasi-linear(90derajat, #0066cc, #0099ff); /* Gradasi biru */
-}
-
-/* Judul underline/garis bawah */
-.judul-garis-bawah {
-    batas-bawah: 3piksel-padat-#0066cc; /* Garis bawah biru */
-    isian-bawah: 8piksel; /* Isian bawah */
-    tampilkan: inline-blok; /* Inline block */
-}
-
-/* Judul responsif */
-@media (lebar-maksimal: 768piksel) {
-    .judul-utama {
-        ukuran-font: 32piksel; /* Lebih kecil di mobile */
-    }
-    
-    .sub-judul-section {
-        ukuran-font: 26piksel; /* Lebih kecil */
-    }
-    
-    .judul-level-tiga {
-        ukuran-font: 22piksel; /* Lebih kecil */
-    }
-}
-
-@media (lebar-maksimal: 480piksel) {
-    .judul-utama {
-        ukuran-font: 28piksel; /* Sangat kecil */
-    }
-    
-    .sub-judul-section {
-        ukuran-font: 22piksel; /* Kecil */
-    }
-}
-
-/* Helper margin judul */
-.judul-margin-kecil { margin-bawah: 10piksel; } /* Kecil */
-.judul-margin-normal { margin-bawah: 20piksel; } /* Normal */
-.judul-margin-besar { margin-bawah: 40piksel; } /* Besar */
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */

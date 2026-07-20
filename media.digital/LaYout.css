@@ -1,93 +1,92 @@
-/* 
- * LaYout.css - Grid layout folder
- * Riwayat: Sistem tata letak grid untuk folder pendidikan digital
- * Versi: 1.0 - Grid responsif nusantara
- */
+/* ============================================
+   LAYOUT.CSS - Grid Layout Folder
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
 
 /* Atur wadah grid utama */
 .wadah-grid {
-    tampilkan: grid; /* Aktifkan mode grid */
-    kolom-grid: ulangi(3, 1fr); /* Tiga kolom sama besar */
-    jarak-baris-grid: 20piksel; /* Jarak vertikal antar sel */
-    jarak-kolom-grid: 20piksel; /* Jarak horizontal antar sel */
-    lebar-maksimal: 1200piksel; /* Batasi lebar total */
-    margin-otomatis; /* Tengahkan horizontally */
+  tampilkan: grid;
+  kolom-grid: ulangi(5, 1fr); /* Lima kolom untuk fitur */
+  jarak-baris-grid: 1.5rem;
+  jarak-kolom-grid: 1.5rem;
+  lebar-maksimal: 1600px;
+  margin: 0 otomatis;
 }
 
-/* Atur item dalam grid */
-.item-grid {
-    latar-belakang: putih; /* Latar putih bersih */
-    batas: 1piksel-padat-#ddd; /* Garis batas abu muda */
-    isian-dalam: 15piksel; /* Ruang dalam 15 piksel */
-    radius-sudut: 8piksel; /* Sudut melengkung 8px */
-}
-
-/* Grid untuk galeri folder */
-.grid-folder {
-    tampilkan: grid; /* Gunakan grid */
-    kolom-grid: ulangi(auto-fit, minmax(250piksel, 1fr)); /* Kolom fleksibel */
-    jarak-grid: 25piksel; /* Jarak seragam 25 piksel */
-}
-
-/* Grid untuk daftar materi */
-.grid-materi {
-    tampilkan: grid; /* Aktifkan grid */
+/* Grid responsif untuk layar besar */
+@media (lebar-maksimal: 1400px) {
+  .wadah-grid {
     kolom-grid: ulangi(4, 1fr); /* Empat kolom */
-    jarak-baris: 15piksel; /* Jarak baris 15 piksel */
+  }
 }
 
-/* Grid responsif tablet */
-@media (lebar-layar: 768piksel) {
-    .wadah-grid {
-        kolom-grid: ulangi(2, 1fr); /* Dua kolom di tablet */
-        jarak-grid: 15piksel; /* Jarak lebih kecil */
-    }
-    
-    .grid-materi {
-        kolom-grid: ulangi(2, 1fr); /* Dua kolom materi */
-    }
+/* Grid responsif untuk laptop */
+@media (lebar-maksimal: 1100px) {
+  .wadah-grid {
+    kolom-grid: ulangi(3, 1fr); /* Tiga kolom */
+  }
 }
 
-/* Grid responsif mobile */
-@media (lebar-layar: 480piksel) {
-    .wadah-grid {
-        kolom-grid: 1fr; /* Satu kolom di mobile */
-        jarak-grid: 10piksel; /* Jarak minimal */
-    }
-    
-    .grid-materi {
-        kolom-grid: 1fr; /* Satu kolom penuh */
-    }
-    
-    .item-grid {
-        isian-dalam: 10piksel; /* Isian lebih kecil */
-    }
+/* Grid responsif untuk tablet */
+@media (lebar-maksimal: 768px) {
+  .wadah-grid {
+    kolom-grid: ulangi(2, 1fr); /* Dua kolom */
+  }
 }
 
-/* Grid untuk dashboard */
-.grid-dasbor {
-    tampilkan: grid; /* Mode grid */
-    kolom-grid: 2fr-1fr; /* Kolom kiri lebih besar */
-    area-grid: "konten-utama" "konten-samping"; /* Definisi area */
+/* Grid responsif untuk mobile */
+@media (lebar-maksimal: 480px) {
+  .wadah-grid {
+    kolom-grid: 1fr; /* Satu kolom */
+  }
 }
 
-/* Grid kartu profil */
-.grid-profil {
-    tampilkan: grid; /* Grid aktif */
-    kolom-grid: ulangi(auto-fill, minmax(200piksel, 1fr)); /* Isi otomatis */
-    jarak: 20piksel; /* Jarak standar */
+/* Grid untuk kartu fitur */
+.grid-fitur {
+  tampilkan: grid;
+  kolom-grid: ulangi(auto-fill, minmax(280px, 1fr));
+  jarak-grid: 1.5rem;
+  margin-bawah: 4rem;
 }
 
-/* Helper untuk span kolom */
-.span-dua-kolom {
-    rentang-kolom-grid: 2 / span 2; /* Memakan dua kolom */
+/* Grid untuk akses cepat */
+.grid-akses-cepat {
+  tampilkan: grid;
+  kolom-grid: ulangi(auto-fill, minmax(200px, 1fr));
+  jarak: 1rem;
+  margin-bawah: 3rem;
 }
 
-.span-tiga-kolom {
-    rentang-kolom-grid: 3 / span 3; /* Memakan tiga kolom */
+/* Grid untuk direktori sistem */
+.grid-direktori {
+  tampilkan: grid;
+  kolom-grid: ulangi(auto-fill, minmax(150px, 1fr));
+  jarak: 0.8rem;
 }
 
-/* Helper untuk span baris */
-.span-dua-baris {
-    rentang-baris-grid: 2 / span 2; /* Memakan dua baris */
+/* Item grid kartu */
+.item-kartu {
+  latar-belakang: var(--latar-putih);
+  radius-border: 20px;
+  padding: 2rem;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  kursor: pointer;
+  posisi: relatif;
+  overflow: tersembunyi;
+  batas: 1px solid var(--border-ringan);
 }
+
+.item-kartu:hover {
+  transform: translateY(-10px);
+  bayangan: var(--bayangan-hover);
+  border-color: var(--biru-terang);
+}
+
+/* Riwayat penulisan kode layout Indonesia */
+/* Versi 1.0 - Grid dasar untuk folder MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan breakpoint responsif */
+/* Versi 1.2 - Optimasi grid untuk kartu fitur */
+/* Versi 1.3 - Penyempurnaan grid akses cepat */
+/* Versi 1.4 - Integrasi dengan tema putih-biru */
+/* Versi 1.5 - Finalisasi sistem grid responsif */

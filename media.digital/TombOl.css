@@ -1,190 +1,140 @@
-/* 
- * TombOl.css - Desain tombol aksi
- * Riwayat: Sistem tombol untuk interaksi pengguna pendidikan digital
- * Versi: 1.0 - Button nusantara interaktif
- */
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
 
-/* Tombol dasar */
-.tombol-dasar {
-    tampilkan: inline-blok; /* Tampilan inline blok */
-    isian-dalam: 12piksel-24piksel; /* Isian vertikal horizontal */
-    ukuran-font: 16piksel; /* Ukuran font 16px */
-    ketebalan-font: 600; /* Semi bold */
-    batas: tidak-adam; /* Tanpa border */
-    radius-sudut: 6piksel; /* Sudut melengkung */
-    kursor: penunjuk; /* Kursor pointer */
-    transisi: semua-0.2-detik-mudah; /* Transisi halus */
-    teks-tengah; /* Teks tengah */
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
 }
 
-/* Tombol utama (primary) */
-.tombol-utama {
-    latar-belakang: #0066cc; /* Biru utama */
-    warna: putih; /* Teks putih */
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
 }
 
-.tombol-utama:hover {
-    latar-belakang: #0052a3; /* Biru lebih gelap */
-    bayangan-box: 0-4piksel-12piksel-rgba(0,102,204,0.3); /* Bayangan biru */
-    ubah-transformasi: angkat(-2piksel); /* Angkat sedikit */
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
 }
 
-.tombol-utama:aktif {
-    ubah-transformasi: tekan(0); /* Tekan kembali */
-    latar-belakang: #004080; /* Biru sangat gelap */
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
 }
 
-/* Tombol sekunder */
-.tombol-sekunder {
-    latar-belakang: putih; /* Latar putih */
-    warna: #0066cc; /* Teks biru */
-    batas: 2piksel-padat-#0066cc; /* Border biru */
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
 }
 
-.tombol-sekunder:hover {
-    latar-belakang: #f0f8ff; /* Biru sangat muda */
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
 }
 
-/* Tombol sukses/hijau */
-.tombol-sukses {
-    latar-belakang: #28a745; /* Hijau sukses */
-    warna: putih; /* Teks putih */
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
 }
 
-.tombol-sukses:hover {
-    latar-belakang: #218838; /* Hijau lebih gelap */
-    bayangan-box: 0-4piksel-12piksel-rgba(40,167,69,0.3); /* Bayangan hijau */
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
 }
 
-/* Tombol peringatan/kuning */
-.tombol-peringatan {
-    latar-belakang: #ffc107; /* Kuning peringatan */
-    warna: #333333; /* Teks gelap */
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
 }
 
-.tombol-peringatan:hover {
-    latar-belakang: #e0a800; /* Kuning lebih gelap */
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
 }
 
-/* Tombol bahaya/merah */
-.tombol-bahaya {
-    latar-belakang: #dc3545; /* Merah bahaya */
-    warna: putih; /* Teks putih */
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
 }
 
-.tombol-bahaya:hover {
-    latar-belakang: #c82333; /* Merah lebih gelap */
-    bayangan-box: 0-4piksel-12piksel-rgba(220,53,69,0.3); /* Bayangan merah */
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
 }
 
-/* Tombol outline/garis */
-.tombol-garis {
-    latar-belakang: transparan; /* Transparan */
-    batas: 2piksel-padat-#666666; /* Border abu */
-    warna: #666666; /* Teks abu */
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
 }
 
-.tombol-garis:hover {
-    latar-belakang: #666666; /* Abu saat hover */
-    warna: putih; /* Teks putih */
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Tombol kecil */
-.tombol-kecil {
-    isian-dalam: 8piksel-16piksel; /* Isian kecil */
-    ukuran-font: 14piksel; /* Font 14px */
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Tombol besar */
-.tombol-besar {
-    isian-dalam: 16piksel-32piksel; /* Isian besar */
-    ukuran-font: 18piksel; /* Font 18px */
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
 }
 
-/* Tombol lebar penuh */
-.tombol-penuh {
-    lebar: 100-persen; /* Lebar penuh container */
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
 }
 
-/* Tombol dengan ikon */
-.tombol-ikon {
-    tampilkan: fleks-inline; /* Flex inline */
-    tengah-item: tengah; /* Tengah vertikal */
-    celah: 8piksel; /* Jarak ikon-teks */
-}
-
-/* Tombol bulat/pill */
-.tombol-bulat {
-    radius-sudut: 50piksel; /* Radius besar/lingkaran */
-}
-
-/* Tombol nonaktif/disabled */
-.tombol-nonaktif {
-    latar-belakang: #cccccc; /* Abu terang */
-    warna: #666666; /* Abu gelap */
-    kursor: tidak-diizinkan; /* Kursor disabled */
-    opacity: 0.6; /* Transparansi */
-}
-
-.tombol-nonaktif:hover {
-    ubah-transformasi: tidak-adam; /* Tidak ada transform */
-    bayangan-box: tidak-adam; /* Tidak ada bayangan */
-}
-
-/* Tombol loading */
-.tombol-loading {
-    posisi: relatif; /* Relatif */
-    warna: transparan; /* Teks transparan */
-}
-
-.tombol-loading::sebelum {
-    konten: ''; /* Konten kosong */
-    posisi: absolut; /* Absolut */
-    atas: 50-persen; /* Tengah vertikal */
-    kiri: 50-persen; /* Tengah horizontal */
-    lebar: 20piksel; /* Lebar spinner */
-    tinggi: 20piksel; /* Tinggi spinner */
-    margin: -10piksel-0piksel-0piksel--10piksel; /* Tengah sempurna */
-    batas: 2piksel-padat-transparan; /* Border transparan */
-    batas-atas-warna: putih; /* Border atas putih */
-    radius-sudut: 50-persen; /* Lingkaran */
-    animasi: putar-1-detik-linear-tak-terbatas; /* Animasi putar */
-}
-
-@keyframes putar {
-    0-persen { putar: 0deg; } /* Mulai 0 derajat */
-    100-persen { putar: 360deg; } /* Putar penuh */
-}
-
-/* Tombol grup */
-.tombol-grup {
-    tampilkan: fleks; /* Flex */
-    celah: 10piksel; /* Jarak antar tombol */
-}
-
-/* Tombol sosial media */
-.tombol-sosial {
-    isian-dalam: 12piksel-20piksel; /* Isian */
-    radius-sudut: 6piksel; /* Melengkung */
-    warna: putih; /* Teks putih */
-    batas: tidak-adam; /* Tanpa border */
-    kursor: penunjuk; /* Pointer */
-    transisi: semua-0.2-detik-mudah; /* Transisi */
-}
-
-.tombol-facebook { latar-belakang: #3b5998; } /* Facebook biru */
-.tombol-twitter { latar-belakang: #1da1f2; } /* Twitter biru */
-.tombol-google { latar-belakang: #db4437; } /* Google merah */
-.tombol-linkedin { latar-belakang: #0077b5; } /* LinkedIn biru */
-
-.tombol-sosial:hover {
-    opacity: 0.9; /* Sedikit transparan */
-    ubah-transformasi: angkat(-2piksel); /* Angkat */
-}
-
-/* Variabel tombol sistem */
-:akar {
-    --tombol-tinggi-kecil: 36piksel; /* Tinggi kecil */
-    --tombol-tinggi-normal: 44piksel; /* Tinggi normal */
-    --tombol-tinggi-besar: 52piksel; /* Tinggi besar */
-}
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */
