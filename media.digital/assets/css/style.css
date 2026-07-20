@@ -296,13 +296,13 @@ body {
 }
 
 .feature-icon {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
     background: linear-gradient(135deg, #ffffff 0%, #e6f2ff 100%);
@@ -314,7 +314,7 @@ body {
 }
 
 .feature-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--dark-blue);
     margin-bottom: 0.5rem;
@@ -322,7 +322,7 @@ body {
 }
 
 .feature-path {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--primary-blue);
     font-family: 'Courier New', monospace;
     background: #e6f2ff;
@@ -335,7 +335,7 @@ body {
 .feature-stats {
     display: flex;
     gap: 0.8rem;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: var(--dark-blue);
 }
 
@@ -369,7 +369,7 @@ body {
 }
 
 .box-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
     color: var(--dark-blue);
     display: flex;
@@ -408,7 +408,7 @@ body {
 }
 
 .box-item i {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #ffffff;
     text-shadow: 0 2px 8px rgba(0, 102, 204, 0.4);
     margin-bottom: 0.5rem;
@@ -417,7 +417,7 @@ body {
 
 .box-item span {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: #ffffff;
     text-shadow: 0 1px 4px rgba(0,0,0,0.3);
