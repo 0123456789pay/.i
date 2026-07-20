@@ -1,0 +1,36 @@
+/* Boxicons 2.1.4 - Local Component */
+@font-face { font-family: 'boxicons'; src: url('../fonts/boxicons.woff2') format('woff2'); }
+[class^='bx'], [class*=' bx'] { font-family: 'boxicons' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; display: inline-block; -webkit-font-smoothing: antialiased; }
+.bx::before { content: "\e000"; }
+.bx-home::before { content: "\e001"; }
+.bx-user::before { content: "\e002"; }
+.bx-cog::before { content: "\e003"; }
+.bx-search::before { content: "\e004"; }
+.bx-menu::before { content: "\e005"; }
+.bx-x::before { content: "\e006"; }
+.bx-plus::before { content: "\e007"; }
+.bx-minus::before { content: "\e008"; }
+.bx-check::before { content: "\e009"; }
+.bx-heart::before { content: "\e00a"; }
+.bx-star::before { content: "\e00b"; }
+.bx-bell::before { content: "\e00c"; }
+.bx-envelope::before { content: "\e00d"; }
+.bx-download::before { content: "\e00e"; }
+.bx-upload::before { content: "\e00f"; }
+.bx-trash::before { content: "\e010"; }
+.bx-edit::before { content: "\e011"; }
+.bx-info-circle::before { content: "\e012"; }
+.bx-error::before { content: "\e013"; }
+.bx-question-mark::before { content: "\e014"; }
+.bx-chevron-down::before { content: "\e015"; }
+.bx-chevron-up::before { content: "\e016"; }
+.bx-chevron-left::before { content: "\e017"; }
+.bx-chevron-right::before { content: "\e018"; }
+.bx-folder::before { content: "\e019"; }
+.bx-file::before { content: "\e01a"; }
+.bx-image::before { content: "\e01b"; }
+.bx-video::before { content: "\e01c"; }
+.bx-music::before { content: "\e01d"; }
+.bx-link::before { content: "\e01e"; }
+.bx-share::before { content: "\e01f"; }
+.bx-log-out::before { content: "\e020"; }
