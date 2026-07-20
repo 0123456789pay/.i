@@ -5,52 +5,23 @@ node_modules/
 # Build artifacts
 dist/
 build/
-*.min.js
-*.min.css
-*.bundle.js
+target/
 
-# Environment
-.env
-.env.local
-*.env.*
-
-# Logs
-*.log
-
-# Editor/IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Python
+# Python specific
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-*.so
-
-# Virtual environments
+env/
 venv/
 .venv/
-.env/
-
-# MyPy
-.mypy_cache/
-
-# PyTest
+.ENV
+.python-version
 .pytest_cache/
+.mypy_cache/
+.coverage
+coverage/
 
 # Compressed files
 *.zip
@@ -75,4 +46,35 @@ venv/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+
+# System files
+*.out
+*.dll
+*.so
+*.a
+*.class
+
 ```
