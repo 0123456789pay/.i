@@ -11,6 +11,38 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Hero Section - Kolom Pencarian di Tengah -->
+    <section class="hero-section" id="heroSection">
+        <div class="hero-content">
+            <h1 class="hero-title">ReberPencarian.digital</h1>
+            <p class="hero-subtitle">Mesin Pencari Universal</p>
+            
+            <div class="search-box-centered">
+                <div class="search-input-wrapper">
+                    <select class="protocol-selector-centered" id="protocolSelectorCentered">
+                        <option value="https://">HTTPS</option>
+                        <option value="http://">HTTP</option>
+                        <option value="ftp://">FTP</option>
+                        <option value="file://">FILE</option>
+                        <option value="data:">DATA</option>
+                        <option value="reber://">REBER</option>
+                    </select>
+                    <input type="text" id="searchInputCentered" placeholder="Masukkan kata kunci pencarian..." autocomplete="off">
+                    <button class="search-btn-centered" id="searchBtnCentered">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="quick-links">
+                <a href="#" class="quick-link" data-category="all"><i class="fas fa-th"></i> Semua</a>
+                <a href="#" class="quick-link" data-category="image"><i class="fas fa-image"></i> Gambar</a>
+                <a href="#" class="quick-link" data-category="video"><i class="fas fa-video"></i> Video</a>
+                <a href="#" class="quick-link" data-category="shopping"><i class="fas fa-shopping-cart"></i> Belanja</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Browser-like Header -->
     <header class="browser-header">
         <div class="nav-buttons">
