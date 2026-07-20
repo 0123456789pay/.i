@@ -219,16 +219,26 @@ class ReberPencarian {
         document.getElementById('btnDownloads')?.addEventListener('click', () => this.showMenu('downloads'));
         document.getElementById('btnSettings')?.addEventListener('click', () => this.showMenu('settings'));
         document.getElementById('btnMoreOptions')?.addEventListener('click', () => this.toggleMenuDropdown());
+        
+        // Browser Menu Button
+        document.getElementById('btnBrowserMenu')?.addEventListener('click', () => this.toggleBrowserMenu());
 
-        // Dropdown close button
+        // Dropdown close buttons
         document.getElementById('dropdownCloseBtn')?.addEventListener('click', () => this.hideMenuDropdown());
+        document.getElementById('browserMenuCloseBtn')?.addEventListener('click', () => this.hideBrowserMenu());
 
-        // Close dropdown when clicking outside
+        // Close dropdowns when clicking outside
         document.addEventListener('click', (e) => {
-            const dropdown = document.getElementById('menuDropdown');
+            const menuDropdown = document.getElementById('menuDropdown');
             const moreBtn = document.getElementById('btnMoreOptions');
-            if (dropdown && moreBtn && !dropdown.contains(e.target) && e.target !== moreBtn) {
+            const browserMenuContent = document.getElementById('browserMenuContent');
+            const browserMenuBtn = document.getElementById('btnBrowserMenu');
+            
+            if (menuDropdown && moreBtn && !menuDropdown.contains(e.target) && e.target !== moreBtn) {
                 this.hideMenuDropdown();
+            }
+            if (browserMenuContent && browserMenuBtn && !browserMenuContent.contains(e.target) && e.target !== browserMenuBtn) {
+                this.hideBrowserMenu();
             }
         });
 
@@ -238,6 +248,15 @@ class ReberPencarian {
                 const action = item.dataset.action;
                 this.handleMenuAction(action);
                 this.hideMenuDropdown();
+            });
+        });
+        
+        // Browser menu dropdown item clicks
+        document.querySelectorAll('#browserMenuContent .menu-dropdown-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const action = item.dataset.action;
+                this.handleBrowserMenuAction(action);
+                this.hideBrowserMenu();
             });
         });
 
@@ -853,6 +872,73 @@ class ReberPencarian {
         const dropdown = document.getElementById('menuDropdown');
         if (dropdown) {
             dropdown.classList.remove('active');
+        }
+    }
+    
+    // Toggle Browser Menu Dropdown
+    toggleBrowserMenu() {
+        const menuContent = document.getElementById('browserMenuContent');
+        if (menuContent) {
+            menuContent.classList.toggle('active');
+        }
+    }
+    
+    // Hide Browser Menu Dropdown
+    hideBrowserMenu() {
+        const menuContent = document.getElementById('browserMenuContent');
+        if (menuContent) {
+            menuContent.classList.remove('active');
+        }
+    }
+
+    // Handle Browser Menu Action
+    handleBrowserMenuAction(action) {
+        switch(action) {
+            case 'new-tab':
+                console.log('Tab Baru - Ctrl+T');
+                break;
+            case 'new-window':
+                console.log('Jendela Baru - Ctrl+N');
+                break;
+            case 'incognito':
+                console.log('Mode Penyamaran - Ctrl+Shift+N');
+                break;
+            case 'history':
+                this.showMenu('history');
+                break;
+            case 'downloads':
+                this.showMenu('downloads');
+                break;
+            case 'bookmarks':
+                this.showMenu('bookmarks');
+                break;
+            case 'bookmark-manager':
+                console.log('Pengelola Bookmark');
+                break;
+            case 'find':
+                console.log('Cari di Halaman - Ctrl+F');
+                break;
+            case 'print':
+                console.log('Cetak - Ctrl+P');
+                window.print();
+                break;
+            case 'settings':
+                this.showMenu('settings');
+                break;
+            case 'extensions':
+                console.log('Ekstensi');
+                break;
+            case 'developer':
+                console.log('Developer Tools - F12');
+                break;
+            case 'help':
+                console.log('Bantuan');
+                break;
+            case 'about':
+                console.log('Tentang ReberPencarian');
+                break;
+            default:
+                console.log('Aksi tidak dikenal:', action);
         }
     }
 
@@ -2048,7 +2134,7 @@ class ReberPencarian {
             // 'Ctrl+W': () => this.closeCurrentTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
             // 'Ctrl+Tab': () => this.switchToNextTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
             // 'Ctrl+Shift+Tab': () => this.switchToPrevTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
-            'Escape': () => this.hideMenuDropdown(),
+            'Escape': () => { this.hideMenuDropdown(); this.hideBrowserMenu(); },
             'F5': () => this.navigate('refresh'),
             'Alt+Left': () => this.navigate('back'),
             'Alt+Right': () => this.navigate('forward')

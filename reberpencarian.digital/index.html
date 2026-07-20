@@ -72,6 +72,90 @@
         
         <!-- Menu Pencarian di Kanan -->
         <div class="search-menu">
+            <!-- Menu Dropdown Utama Browser -->
+            <div class="browser-menu-dropdown">
+                <button class="menu-btn btn-browser-menu" id="btnBrowserMenu" title="Menu Browser"><i class="fas fa-bars"></i></button>
+                <div class="menu-dropdown-content" id="browserMenuContent">
+                    <div class="menu-dropdown-header">
+                        <h4>Menu Browser</h4>
+                        <button class="dropdown-close-btn" id="browserMenuCloseBtn">×</button>
+                    </div>
+                    <ul class="menu-dropdown-list">
+                        <li class="menu-dropdown-item" data-action="new-tab">
+                            <span class="menu-icon"><i class="fas fa-plus"></i></span>
+                            <span class="menu-label">Tab Baru</span>
+                            <span class="menu-shortcut">Ctrl+T</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="new-window">
+                            <span class="menu-icon"><i class="fas fa-window-restore"></i></span>
+                            <span class="menu-label">Jendela Baru</span>
+                            <span class="menu-shortcut">Ctrl+N</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="incognito">
+                            <span class="menu-icon"><i class="fas fa-user-secret"></i></span>
+                            <span class="menu-label">Mode Penyamaran</span>
+                            <span class="menu-shortcut">Ctrl+Shift+N</span>
+                        </li>
+                        <li class="menu-dropdown-divider"></li>
+                        <li class="menu-dropdown-item" data-action="history">
+                            <span class="menu-icon"><i class="fas fa-history"></i></span>
+                            <span class="menu-label">Riwayat</span>
+                            <span class="menu-shortcut">Ctrl+H</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="downloads">
+                            <span class="menu-icon"><i class="fas fa-download"></i></span>
+                            <span class="menu-label">Unduhan</span>
+                            <span class="menu-shortcut">Ctrl+J</span>
+                        </li>
+                        <li class="menu-dropdown-divider"></li>
+                        <li class="menu-dropdown-item" data-action="bookmarks">
+                            <span class="menu-icon"><i class="fas fa-star"></i></span>
+                            <span class="menu-label">Bookmark</span>
+                            <span class="menu-shortcut">Ctrl+D</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="bookmark-manager">
+                            <span class="menu-icon"><i class="fas fa-book"></i></span>
+                            <span class="menu-label">Pengelola Bookmark</span>
+                            <span class="menu-shortcut">Ctrl+Shift+O</span>
+                        </li>
+                        <li class="menu-dropdown-divider"></li>
+                        <li class="menu-dropdown-item" data-action="find">
+                            <span class="menu-icon"><i class="fas fa-search"></i></span>
+                            <span class="menu-label">Cari di Halaman</span>
+                            <span class="menu-shortcut">Ctrl+F</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="print">
+                            <span class="menu-icon"><i class="fas fa-print"></i></span>
+                            <span class="menu-label">Cetak</span>
+                            <span class="menu-shortcut">Ctrl+P</span>
+                        </li>
+                        <li class="menu-dropdown-divider"></li>
+                        <li class="menu-dropdown-item" data-action="settings">
+                            <span class="menu-icon"><i class="fas fa-cog"></i></span>
+                            <span class="menu-label">Pengaturan</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="extensions">
+                            <span class="menu-icon"><i class="fas fa-puzzle-piece"></i></span>
+                            <span class="menu-label">Ekstensi</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="developer">
+                            <span class="menu-icon"><i class="fas fa-code"></i></span>
+                            <span class="menu-label">Developer Tools</span>
+                            <span class="menu-shortcut">F12</span>
+                        </li>
+                        <li class="menu-dropdown-divider"></li>
+                        <li class="menu-dropdown-item" data-action="help">
+                            <span class="menu-icon"><i class="fas fa-question-circle"></i></span>
+                            <span class="menu-label">Bantuan</span>
+                        </li>
+                        <li class="menu-dropdown-item" data-action="about">
+                            <span class="menu-icon"><i class="fas fa-info-circle"></i></span>
+                            <span class="menu-label">Tentang ReberPencarian</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
             <button class="menu-btn" id="btnHistory" title="Riwayat"><i class="fas fa-history"></i></button>
             <button class="menu-btn" id="btnBookmarks" title="Bookmark"><i class="fas fa-star"></i></button>
             <button class="menu-btn" id="btnDownloads" title="Unduhan"><i class="fas fa-download"></i></button>
