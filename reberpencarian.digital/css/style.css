@@ -285,6 +285,7 @@ body {
     display: flex;
     gap: 0;
     align-items: center;
+    position: relative;
 }
 
 .menu-btn {
@@ -325,6 +326,55 @@ body {
 
 .menu-btn:active {
     transform: translateY(0);
+}
+
+/* Browser Menu Dropdown - Menu Utama Browser */
+.browser-menu-dropdown {
+    position: relative;
+}
+
+.menu-dropdown-content {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px) scale(0.95);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1002;
+    overflow: hidden;
+    border: 1px solid rgba(0, 71, 179, 0.1);
+}
+
+.menu-dropdown-content.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.menu-dropdown-divider {
+    height: 1px;
+    background: rgba(0, 71, 179, 0.1);
+    margin: 8px 0;
+}
+
+.menu-shortcut {
+    font-size: 11px;
+    color: var(--text-light);
+    background: #f0f4ff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.menu-dropdown-item:hover .menu-shortcut {
+    background: rgba(0, 71, 179, 0.1);
+    color: var(--primary-blue);
 }
 
 /* Menu Dropdown Modal Kecil */
@@ -2006,7 +2056,7 @@ body {
 .filter-bar-container {
     background: var(--gradient-blue);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 20px;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2023,7 +2073,7 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 16px;
+    padding: 10px 16px;
     background: transparent;
     border: none;
     border-radius: 0;
@@ -2065,6 +2115,8 @@ body {
     font-size: 13px;
     color: white;
     font-weight: 500;
+    padding: 0 16px;
+    white-space: nowrap;
 }
 
 .content-frame iframe {
