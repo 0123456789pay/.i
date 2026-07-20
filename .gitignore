@@ -1,26 +1,15 @@
 ```
-# Environment and config files
-.env
-.env.local
-*.env.*
+# Dependencies
+vendor/
 
-# Logs and temporary files
+# Logs and temp files
 *.log
 *.tmp
 
-# Database files
-*.db
-*.db.php
-
-# Build artifacts
-dist/
-build/
-*.min.js
-*.min.css
-
-# Dependencies
-node_modules/
-vendor/
+# Environment
+.env
+.env.local
+*.env.*
 
 # Editor/IDE files
 .vscode/
@@ -28,25 +17,9 @@ vendor/
 *.swp
 *.swo
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# Cache directories
-.cache/
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# Distribution / packaging
-*.tar.gz
-*.whl
-*.egg
-*.egg-info/
+# Build artifacts
+dist/
+build/
+*.min.js
+*.min.css
 ```
