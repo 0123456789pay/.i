@@ -281,14 +281,6 @@ class ReberPencarian {
         document.getElementById('btnPrevPage')?.addEventListener('click', () => this.goToPage(this.currentPage - 1));
         document.getElementById('btnNextPage')?.addEventListener('click', () => this.goToPage(this.currentPage + 1));
         document.getElementById('btnLastPage')?.addEventListener('click', () => this.goToPage(this.getTotalPages()));
-
-        // Filter Buttons - Jenis Domain
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const filterType = e.currentTarget.dataset.filter;
-                this.setFilter(filterType);
-            });
-        });
     }
 
     // Render Sites Grid (untuk fallback)
@@ -330,7 +322,7 @@ class ReberPencarian {
 
     // Render ke Main Content Frame (WebView Full Screen)
     renderToMainContentFrame(sites = this.allSites) {
-        const frame = document.getElementById('searchContentFrame');
+        const frame = document.getElementById('searchResultsContainer');
         
         if (!frame) return;
         
@@ -600,7 +592,7 @@ class ReberPencarian {
 
         if (tab.isExternalView && tab.externalUrl) {
             // Tampilkan URL eksternal dalam iframe
-            const frame = document.getElementById('searchContentFrame');
+            const frame = document.getElementById('searchResultsContainer');
             if (frame) {
                 frame.innerHTML = `
                     <div class="external-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
@@ -614,7 +606,7 @@ class ReberPencarian {
             }
         } else if (tab.isFileView && tab.filePath) {
             // Tampilkan file index.html dalam frame
-            const frame = document.getElementById('searchContentFrame');
+            const frame = document.getElementById('searchResultsContainer');
             if (frame) {
                 frame.innerHTML = `
                     <div class="file-viewer-container" style="height: 100%; display: flex; flex-direction: column;">
@@ -1506,7 +1498,7 @@ class ReberPencarian {
         const tab = this.searchTabs.find(t => t.id === tabId);
         if (!tab) return;
         
-        const frame = document.getElementById('searchContentFrame');
+        const frame = document.getElementById('searchResultsContainer');
         if (!frame) return;
         
         if (tab.isFileView && tab.filePath) {
@@ -1536,7 +1528,7 @@ class ReberPencarian {
 
     // Clear search frame
     clearSearchFrame() {
-        const frame = document.getElementById('searchContentFrame');
+        const frame = document.getElementById('searchResultsContainer');
         if (frame) {
             frame.innerHTML = `
                 <div class="iframe-placeholder">
@@ -1577,9 +1569,9 @@ class ReberPencarian {
         return div.innerHTML;
     }
 
-    // Render WebView Content - Menampilkan grid kartu situs di dalam tab (Home View) dengan filter dan pagination
+    // Render WebView Content - Menampilkan grid kartu situs di dalam tab (Home View) dengan pagination
     renderWebViewContent(sites = null, isDetailView = false, detailData = null) {
-        const frame = document.getElementById('searchContentFrame');
+        const frame = document.getElementById('searchResultsContainer');
         if (!frame) return;
         
         // Jika ini tampilan detail (setelah klik "Lihat Detail")
@@ -1616,11 +1608,11 @@ class ReberPencarian {
             return;
         }
         
-        // Filter situs berdasarkan tipe domain
+        // Filter situs berdasarkan tipe domain (DINONAKTIFKAN - semua ditampilkan)
         let displaySites = sites || this.allSites;
-        if (this.currentFilter !== 'all') {
-            displaySites = this.filterSitesByType(displaySites);
-        }
+        // if (this.currentFilter !== 'all') {
+        //     displaySites = this.filterSitesByType(displaySites);
+        // }
         
         // Pagination
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -1664,8 +1656,12 @@ class ReberPencarian {
         }, 100);
     }
 
-    // Filter situs berdasarkan tipe domain
+    // Filter situs berdasarkan tipe domain (DINONAKTIFKAN - tidak digunakan lagi)
     filterSitesByType(sites) {
+        // Fungsi ini tidak lagi digunakan karena filter bar telah dihapus
+        // Semua situs ditampilkan tanpa filter
+        return sites;
+        /*
         return sites.filter(site => {
             const category = site.category.toLowerCase();
             const name = site.name.toLowerCase();
@@ -1685,30 +1681,35 @@ class ReberPencarian {
                     return true;
             }
         });
+        */
     }
 
-    // Set filter dan reset ke halaman pertama
+
+    // Set filter dan reset ke halaman pertama (DINONAKTIFKAN)
     setFilter(filterType) {
-        this.currentFilter = filterType;
-        this.currentPage = 1;
-        
-        // Update UI tombol filter
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.dataset.filter === filterType) {
-                btn.classList.add('active');
-            }
-        });
-        
-        this.renderWebViewContent();
+        // Fungsi dinonaktifkan karena filter bar telah dihapus
+        console.log('Filter functionality disabled');
+        // this.currentFilter = filterType;
+        // this.currentPage = 1;
+        // 
+        // // Update UI tombol filter
+        // document.querySelectorAll('.filter-btn').forEach(btn => {
+        //     btn.classList.remove('active');
+        //     if (btn.dataset.filter === filterType) {
+        //         btn.classList.add('active');
+        //     }
+        // });
+        // 
+        // this.renderWebViewContent();
     }
 
-    // Update info jumlah hasil
+    // Update info jumlah hasil (DINONAKTIFKAN - tidak ada filter bar)
     updateResultsInfo(count) {
-        const infoEl = document.getElementById('resultsCountInfo');
-        if (infoEl) {
-            infoEl.textContent = `Menampilkan ${count} hasil`;
-        }
+        // Fungsi dinonaktifkan karena resultsCountInfo telah dihapus dari HTML
+        // const infoEl = document.getElementById('resultsCountInfo');
+        // if (infoEl) {
+        //     infoEl.textContent = `Menampilkan ${count} hasil`;
+        // }
     }
 
     // Navigate Back - Kembali ke tampilan sebelumnya
@@ -1741,7 +1742,7 @@ class ReberPencarian {
 
     // Show Home View - Tampilkan Beranda dengan kartu-kartu situs .digital
     showHomeView() {
-        const frame = document.getElementById('searchContentFrame');
+        const frame = document.getElementById('searchResultsContainer');
         if (!frame) return;
         
         // Reset ke tampilan beranda dengan semua situs menggunakan renderWebViewContent
@@ -2600,7 +2601,7 @@ class ReberPencarian {
         this.scrollThreshold = 200;
         this.isLoadingMore = false;
         
-        const contentFrame = document.getElementById('searchContentFrame');
+        const contentFrame = document.getElementById('searchResultsContainer');
         if (contentFrame) {
             contentFrame.addEventListener('scroll', () => {
                 const { scrollTop, scrollHeight, clientHeight } = contentFrame;
