@@ -1,259 +1,334 @@
-// ========================================
-// MEDIA.DIGITAL - Main JavaScript
-// ========================================
+// DNS_DOMAIN.DIGITAL - Main JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initSearch();
-    initCategoryFilter();
+    initModals();
     initFeatureCards();
-    initScrollToTop();
-    initSmoothScroll();
-    loadStatistics();
+    initNavigation();
+    loadDigitalFolders();
 });
 
-// Search Functionality
+// Search functionality
 function initSearch() {
     const searchInput = document.getElementById('searchInput');
-    if (!searchInput) return;
-
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        filterFeatures(searchTerm);
-    });
+    const searchButton = document.getElementById('searchButton');
+    
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    }
 }
 
-function filterFeatures(searchTerm) {
-    const cards = document.querySelectorAll('.feature-card');
+function performSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput.value.toLowerCase().trim();
     
-    cards.forEach(card => {
-        const title = card.querySelector('.feature-title').textContent.toLowerCase();
+    if (!query) return;
+    
+    const featureCards = document.querySelectorAll('.feature-card');
+    let foundCount = 0;
+    
+    featureCards.forEach(card => {
+        const name = card.querySelector('.feature-name').textContent.toLowerCase();
         const path = card.querySelector('.feature-path').textContent.toLowerCase();
-        const category = card.dataset.category || '';
         
-        if (title.includes(searchTerm) || path.includes(searchTerm) || category.includes(searchTerm)) {
+        if (name.includes(query) || path.includes(query)) {
             card.style.display = 'block';
-            card.style.animation = 'fadeIn 0.3s ease-in';
+            card.style.animation = 'fadeInUp 0.4s ease-out';
+            foundCount++;
         } else {
             card.style.display = 'none';
         }
     });
+    
+    // Show message if no results
+    const resultsMessage = document.getElementById('searchResults');
+    if (resultsMessage) {
+        if (foundCount === 0) {
+            resultsMessage.textContent = `Tidak ditemukan hasil untuk "${query}"`;
+            resultsMessage.style.display = 'block';
+        } else {
+            resultsMessage.textContent = `Ditemukan ${foundCount} hasil`;
+            resultsMessage.style.display = 'block';
+            setTimeout(() => {
+                resultsMessage.style.display = 'none';
+            }, 3000);
+        }
+    }
 }
 
-// Category Filter
-function initCategoryFilter() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
+// Modal functionality
+function initModals() {
+    // Login modal
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const loginClose = document.getElementById('loginClose');
     
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(b => b.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Filter features
-            const category = this.dataset.category;
-            filterByCategory(category);
+    if (loginBtn && loginModal) {
+        loginBtn.addEventListener('click', () => {
+            loginModal.classList.add('active');
         });
-    });
-}
-
-function filterByCategory(category) {
-    const cards = document.querySelectorAll('.feature-card');
+    }
     
-    cards.forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
+    if (loginClose && loginModal) {
+        loginClose.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+        });
+    }
+    
+    // Register modal
+    const registerBtn = document.getElementById('registerBtn');
+    const registerModal = document.getElementById('registerModal');
+    const registerClose = document.getElementById('registerClose');
+    
+    if (registerBtn && registerModal) {
+        registerBtn.addEventListener('click', () => {
+            registerModal.classList.add('active');
+        });
+    }
+    
+    if (registerClose && registerModal) {
+        registerClose.addEventListener('click', () => {
+            registerModal.classList.remove('active');
+        });
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target === loginModal) {
+            loginModal.classList.remove('active');
+        }
+        if (e.target === registerModal) {
+            registerModal.classList.remove('active');
         }
     });
+    
+    // Handle form submissions
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    }
+    
+    const registerForm = document.getElementById('registerForm');
+    if (registerForm) {
+        registerForm.addEventListener('submit', handleRegister);
+    }
 }
 
-// Feature Cards Interaction
+function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    
+    // Simulate login (in production, this would call an API)
+    console.log('Login attempt:', email);
+    alert('Login berhasil! Selamat datang di DNS_DOMAIN.DIGITAL');
+    document.getElementById('loginModal').classList.remove('active');
+}
+
+function handleRegister(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    
+    // Simulate registration (in production, this would call an API)
+    console.log('Register attempt:', name, email);
+    alert('Registrasi berhasil! Silakan login dengan akun Anda.');
+    document.getElementById('registerModal').classList.remove('active');
+    document.getElementById('loginModal').classList.add('active');
+}
+
+// Feature cards interaction
 function initFeatureCards() {
-    const cards = document.querySelectorAll('.feature-card');
+    const featureCards = document.querySelectorAll('.feature-card');
     
-    cards.forEach(card => {
+    featureCards.forEach(card => {
         card.addEventListener('click', function() {
-            const systemPath = this.dataset.path;
-            const systemName = this.querySelector('.feature-title').textContent;
+            const featureName = this.querySelector('.feature-name').textContent;
+            const featurePath = this.querySelector('.feature-path').textContent;
             
-            // Navigate to system page
-            if (systemPath) {
-                window.location.href = systemPath + '/index.html';
-            }
-        });
-        
-        // Add ripple effect
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
+            // Navigate to the feature page or show details
+            showFeatureDetail(featureName, featurePath);
         });
     });
 }
 
-// Scroll to Top Button
-function initScrollToTop() {
-    const scrollTopBtn = document.getElementById('scrollTop');
+function showFeatureDetail(name, path) {
+    // Create detail modal or navigate
+    console.log('Showing detail for:', name, path);
     
-    if (!scrollTopBtn) return;
-    
-    window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
-    });
-    
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    // In production, this would navigate to the actual page
+    // For now, show an alert with details
+    alert(`Membuka: ${name}\nPath: ${path}\n\nFitur detail akan ditampilkan di sini.`);
 }
 
-// Smooth Scroll for Anchor Links
-function initSmoothScroll() {
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+// Navigation functionality
+function initNavigation() {
+    const navLinks = document.querySelectorAll('.nav-links a');
     
-    anchorLinks.forEach(link => {
+    navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            const target = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            if (target.startsWith('#')) {
+                e.preventDefault();
+                const section = document.querySelector(target);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
 }
 
-// Load Statistics Dynamically
-function loadStatistics() {
-    // Simulate loading statistics from database
-    const stats = {
-        systems: 525,
-        folders: 8483,
-        files: 50000
-    };
+// Load digital folders dynamically
+function loadDigitalFolders() {
+    const systemsGrid = document.getElementById('systemsGrid');
+    const digitalDirectory = document.getElementById('digitalDirectory');
+    const footerDirectory = document.getElementById('footerDirectory');
     
-    animateNumber('totalSystems', stats.systems);
-    animateNumber('totalFolders', stats.folders);
-    animateNumber('totalFiles', stats.files);
+    // Sample digital folders data for DNS & Domain systems
+    const dnsSystems = [
+        { name: 'Manajemen DNS', path: '/dns_domain.digital/ManajemenDNS.digital', icon: 'fa-globe' },
+        { name: 'Konfigurasi Domain', path: '/dns_domain.digital/KonfigurasiDomain.digital', icon: 'fa-cog' },
+        { name: 'Monitoring DNS', path: '/dns_domain.digital/MonitoringDNS.digital', icon: 'fa-chart-line' },
+        { name: 'Keamanan DNS', path: '/dns_domain.digital/KeamananDNS.digital', icon: 'fa-shield-alt' },
+        { name: 'API Gateway', path: '/dns_domain.digital/APIGateway.digital', icon: 'fa-network-wired' },
+        { name: 'Analytics', path: '/dns_domain.digital/Analytics.digital', icon: 'fa-chart-bar' },
+        { name: 'Backup & Restore', path: '/dns_domain.digital/BackupRestore.digital', icon: 'fa-database' },
+        { name: 'Load Balancer', path: '/dns_domain.digital/LoadBalancer.digital', icon: 'fa-balance-scale' },
+        { name: 'SSL Manager', path: '/dns_domain.digital/SSLManager.digital', icon: 'fa-lock' },
+        { name: 'CDN Control', path: '/dns_domain.digital/CDNControl.digital', icon: 'fa-cloud' },
+        { name: 'Email DNS', path: '/dns_domain.digital/EmailDNS.digital', icon: 'fa-envelope' },
+        { name: 'Subdomain Manager', path: '/dns_domain.digital/SubdomainManager.digital', icon: 'fa-sitemap' }
+    ];
+    
+    // Populate systems grid
+    if (systemsGrid) {
+        dnsSystems.forEach(folder => {
+            const boxItem = document.createElement('a');
+            boxItem.className = 'box-item';
+            boxItem.href = folder.path;
+            boxItem.innerHTML = `
+                <i class="fas ${folder.icon}"></i>
+                <span>${folder.name}</span>
+            `;
+            systemsGrid.appendChild(boxItem);
+        });
+    }
+    
+    // Main domain categories (unique, no duplicates)
+    const mainDomains = [
+        { name: 'AI Machine Learning', path: '/ai_machinelearning.digital', icon: 'fa-brain' },
+        { name: 'Analisis Data', path: '/analisisdata.digital', icon: 'fa-chart-pie' },
+        { name: 'Bisnis Startup', path: '/bisnisstartup.digital', icon: 'fa-rocket' },
+        { name: 'Blockchain Crypto', path: '/blockchaincrypto.digital', icon: 'fa-bitcoin' },
+        { name: 'Desain Kreatif', path: '/desainkreatif.digital', icon: 'fa-paint-brush' },
+        { name: 'E-commerce Retail', path: '/ecommerceretail.digital', icon: 'fa-shopping-cart' },
+        { name: 'Energi Lingkungan', path: '/energilingkungan.digital', icon: 'fa-leaf' },
+        { name: 'Game Entertainment', path: '/gameentertainment.digital', icon: 'fa-gamepad' },
+        { name: 'Hukum Kepatuhan', path: '/hukumkepatuhan.digital', icon: 'fa-balance-scale-right' },
+        { name: 'Identitas Akses', path: '/identitasakses.digital', icon: 'fa-id-card' },
+        { name: 'Infrastruktur Cloud', path: '/infrastrukturcloud.digital', icon: 'fa-cloud' },
+        { name: 'IoT Perangkat', path: '/iot_perangkat.digital', icon: 'fa-microchip' },
+        { name: 'Keamanan Siber', path: '/keamanansiber.digital', icon: 'fa-user-shield' },
+        { name: 'Kesehatan Digital', path: '/kesehatandigital.digital', icon: 'fa-heartbeat' },
+        { name: 'Keuangan Perbankan', path: '/keuanganperbankan.digital', icon: 'fa-university' },
+        { name: 'Komunikasi', path: '/komunikasi.digital', icon: 'fa-comments' },
+        { name: 'Manajemen Data', path: '/manajemendata.digital', icon: 'fa-database' },
+        { name: 'Manajemen File', path: '/manajemenfile.digital', icon: 'fa-folder' },
+        { name: 'Manajemen Proyek', path: '/manajemenproyek.digital', icon: 'fa-tasks' },
+        { name: 'Media Konten', path: '/mediakonten.digital', icon: 'fa-photo-video' },
+        { name: 'Pendidikan Pelatihan', path: '/pendidikanpelatihan.digital', icon: 'fa-graduation-cap' },
+        { name: 'Pengembangan Software', path: '/pengembangansoftware.digital', icon: 'fa-code' },
+        { name: 'Jaringan Aktuaris', path: '/jaringanaktuaris.digital', icon: 'fa-network-wired' }
+    ];
+    
+    // Populate digital directory
+    if (digitalDirectory) {
+        mainDomains.forEach(domain => {
+            const boxItem = document.createElement('a');
+            boxItem.className = 'box-item';
+            boxItem.href = domain.path;
+            boxItem.style.background = 'linear-gradient(135deg, #0066cc 0%, #0099ff 100%)';
+            boxItem.innerHTML = `
+                <i class="fas ${domain.icon}"></i>
+                <span>${domain.name}</span>
+            `;
+            digitalDirectory.appendChild(boxItem);
+        });
+    }
+    
+    // Populate footer directory (unique links only - no duplicates)
+    if (footerDirectory) {
+        const uniqueDomains = new Set();
+        mainDomains.forEach(domain => {
+            if (!uniqueDomains.has(domain.path)) {
+                uniqueDomains.add(domain.path);
+                const link = document.createElement('a');
+                link.className = 'directory-link';
+                link.href = domain.path;
+                link.textContent = domain.name.replace(/ /g, '');
+                footerDirectory.appendChild(link);
+            }
+        });
+    }
 }
 
-// Animate Numbers
-function animateNumber(elementId, target) {
-    const element = document.getElementById(elementId);
-    if (!element) return;
-    
-    let current = 0;
-    const increment = target / 50;
-    const duration = 2000;
-    const stepTime = duration / 50;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        
-        if (target >= 1000) {
-            element.textContent = Math.floor(current).toLocaleString() + '+';
-        } else {
-            element.textContent = Math.floor(current);
-        }
-    }, stepTime);
-}
-
-// Utility Functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
+// Utility functions
 function formatDate(date) {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(date).toLocaleDateString('id-ID', options);
+    return new Intl.DateTimeFormat('id-ID', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    }).format(date);
 }
 
-// API Integration (Ready for backend)
-async function fetchSystemData(systemId) {
-    try {
-        const response = await fetch(`/api/systems/${systemId}`);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('Error fetching system data:', error);
-        return null;
-    }
+function formatNumber(num) {
+    return new Intl.NumberFormat('id-ID').format(num);
 }
 
-async function saveUserPreference(key, value) {
-    try {
-        localStorage.setItem(key, JSON.stringify(value));
-        return true;
-    } catch (error) {
-        console.error('Error saving preference:', error);
-        return false;
-    }
-}
-
-function getUserPreference(key) {
-    try {
-        const item = localStorage.getItem(key);
-        return item ? JSON.parse(item) : null;
-    } catch (error) {
-        console.error('Error getting preference:', error);
-        return null;
-    }
-}
-
-// Notification System
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
+// Animate stats on scroll
+function animateStats() {
+    const statNumbers = document.querySelectorAll('.stat-number');
     
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 1rem 2rem;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#2563eb'};
-        color: white;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 9999;
-        animation: slideIn 0.3s ease-out;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease-out';
-        setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    statNumbers.forEach(stat => {
+        const target = parseInt(stat.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                stat.textContent = formatNumber(target);
+                clearInterval(timer);
+            } else {
+                stat.textContent = formatNumber(Math.floor(current));
+            }
+        }, 16);
+    });
 }
 
-console.log('MEDIA.DIGITAL System Loaded Successfully! 🚀');
+// Initialize animations when page loads
+window.addEventListener('load', () => {
+    setTimeout(animateStats, 500);
+});
+
+// Export for use in other modules
+window.DNSDomainDigital = {
+    performSearch,
+    showFeatureDetail,
+    loadDigitalFolders,
+    formatDate,
+    formatNumber
+};
