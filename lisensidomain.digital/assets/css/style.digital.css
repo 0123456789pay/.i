@@ -1,0 +1,164 @@
+/* lisensidomain.digital - Main Stylesheet */
+/* Platform Registrar Domain Berlisensi */
+
+:root {
+    --primary: #0066ff;
+    --primary-dark: #0047b3;
+    --primary-light: #3385ff;
+    --primary-gradient: linear-gradient(135deg, #0047b3 0%, #0066ff 100%);
+    --secondary: #4d94ff;
+    --accent: #80b3ff;
+    --text: #1e293b;
+    --text-light: #64748b;
+    --bg: #ffffff;
+    --bg-alt: #f8fafc;
+    --border: #e2e8f0;
+    --shadow: rgba(0, 102, 255, 0.15);
+    --card-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
+    --hover-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Panel animations */
+.panel-section {
+    transition: all 0.3s ease-in-out;
+}
+
+.panel-section.active {
+    animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form styling enhancements */
+.form-control {
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    transform: scale(1.01);
+}
+
+/* Button hover effects */
+.btn-primary-custom {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary-custom:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Pricing card featured highlight */
+.pricing-card.featured {
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.pricing-card.featured:hover {
+    transform: scale(1.08) translateY(-5px);
+}
+
+/* Footer links scrollbar styling */
+.footer-links::-webkit-scrollbar {
+    width: 8px;
+}
+
+.footer-links::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.footer-links::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.footer-links::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pricing-card.featured {
+        transform: scale(1);
+    }
+    
+    .pricing-card.featured:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Loading spinner enhancement */
+.spinner {
+    border: 4px solid rgba(0, 102, 255, 0.1);
+    border-left-color: var(--primary);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Card hover lift effect */
+.feature-card, .box-item, .pricing-card {
+    will-change: transform;
+}
+
+.feature-card:hover, .box-item:hover, .pricing-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Status badge pulse animation */
+.status-active {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
