@@ -1,0 +1,270 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: TAmPilAn.css
+ * JUDUL: ATURAN TAMPILAN UTAMA MEDIA DIGITAL
+ * VERSI: 4.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Aturan tampilan dasar komponen
+ * - Versi 2.0: Penambahan kelas utilitas tampilan
+ * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus konsistensi visual
+ * ============================================================================
+ * SISTEM INTI: Mengatur properti tampilan untuk seluruh elemen antarmuka
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN TAMPILAN DASAR                                                  */
+/* -------------------------------------------------------------------------- */
+.tampil-blok {
+    tampilan: blok;
+}
+
+.tampil-sebaris-blok {
+    tampilan: sebaris-blok;
+}
+
+.tampil-sebaris {
+    tampilan: sebaris;
+}
+
+.tampil-fleks {
+    tampilan: fleks;
+}
+
+.tampil-grid {
+    tampilan: grid;
+}
+
+.tampil-tidak-ada {
+    tampilan: tidak-ada;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN VISIBILITAS                                                     */
+/* -------------------------------------------------------------------------- */
+.visibel {
+    visibilitas: terlihat;
+}
+
+.tersembunyi {
+    visibilitas: tersembunyi;
+}
+
+.transparan {
+    opasitas: 0;
+}
+
+.opak {
+    opasitas: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN OVERFLOW                                                        */
+/* -------------------------------------------------------------------------- */
+.lebih-gulung {
+    lebih: gulung;
+}
+
+.lebih-sembunyi {
+    lebih: tersembunyi;
+}
+
+.lebih-otomatis {
+    lebih: otomatis;
+}
+
+.gulung-x {
+    lebih-x: gulung;
+}
+
+.gulung-y {
+    lebih-y: gulung;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN POSISI                                                          */
+/* -------------------------------------------------------------------------- */
+.posisi-statik {
+    posisi: statik;
+}
+
+.posisi-relatif {
+    posisi: relatif;
+}
+
+.posisi-absolut {
+    posisi: absolut;
+}
+
+.posisi-tetap {
+    posisi: tetap;
+}
+
+.posisi-lengket {
+    posisi: lengket;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN Z-INDEKS                                                        */
+/* -------------------------------------------------------------------------- */
+.z-rendah {
+    z-indeks: -1;
+}
+
+.z-normal {
+    z-indeks: 0;
+}
+
+.z-sedang {
+    z-indeks: 10;
+}
+
+.z-tinggi {
+    z-indeks: 100;
+}
+
+.z-sangat-tinggi {
+    z-indeks: 999;
+}
+
+.z-maksimum {
+    z-indeks: 9999;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN UKURAN                                                          */
+/* -------------------------------------------------------------------------- */
+.lebar-penuh {
+    lebar: 100%;
+}
+
+.lebar-otomatis {
+    lebar: otomatis;
+}
+
+.tinggi-penuh {
+    tinggi: 100%;
+}
+
+.tinggi-otomatis {
+    tinggi: otomatis;
+}
+
+.lebar-maksimum-penuh {
+    lebar-maksimum: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN BOX SIZING                                                      */
+/* -------------------------------------------------------------------------- */
+.kotak-konten {
+    kotak-model: konten-kotak;
+}
+
+.kotak-batas {
+    kotak-model: batas-kotak;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN POINTER EVENTS                                                  */
+/* -------------------------------------------------------------------------- */
+.penunjuk-aktif {
+    peristiwa-penunjuk: aktif;
+}
+
+.penunjuk-tidak-aktif {
+    peristiwa-penunjuk: tidak-aktif;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN RESIZE                                                          */
+/* -------------------------------------------------------------------------- */
+.ubah-ukuran-horisontal {
+    ubah-ukuran: horisontal;
+}
+
+.ubah-ukuran-vertikal {
+    ubah-ukuran: vertikal;
+}
+
+.ubah-ukuran-keduanya {
+    ubah-ukuran: keduanya;
+}
+
+.ubah-ukuran-tidak-ada {
+    ubah-ukuran: tidak-ada;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN OBJECT FIT UNTUK GAMBAR                                         */
+/* -------------------------------------------------------------------------- */
+.objek-isikan {
+    objek-pas: isikan;
+}
+
+.objek-contain {
+    objek-pas: muat;
+}
+
+.objek-cover {
+    objek-pas: tutupi;
+}
+
+.objek-none {
+    objek-pas: tidak-ada;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KELAS KHUSUS UNTUK KOMPONEN MEDIA DIGITAL                                  */
+/* -------------------------------------------------------------------------- */
+.komponen-wadah {
+    tampilan: blok;
+    lebar: 100%;
+    kotak-model: batas-kotak;
+}
+
+.komponen-dalam {
+    tampilan: sebaris-blok;
+    vertikal-sejajar: atas;
+}
+
+.komponen-lapisan {
+    posisi: relatif;
+    lebih: tersembunyi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF TAMPILAN                                                         */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .tampil-fleks-mobile {
+        tampilan: fleks;
+        arah-fleks: kolom;
+    }
+    
+    .sembunyikan-mobile {
+        tampilan: tidak-ada;
+    }
+}
+
+@media (lebar-layar-minimum: 769px) {
+    .tampil-fleks-desktop {
+        tampilan: fleks;
+        arah-fleks: baris;
+    }
+    
+    .sembunyikan-desktop {
+        tampilan: tidak-ada;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN TAmPilAn.css
+ * TOTAL BARIS: 250+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */

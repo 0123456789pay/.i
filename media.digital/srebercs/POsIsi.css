@@ -1,0 +1,327 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: POsIsi.css
+ * JUDUL: PENGATURAN POSISI ELEMEN MEDIA DIGITAL
+ * VERSI: 4.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Posisi dasar elemen
+ * - Versi 2.0: Penambahan posisi tetap dan lengket
+ * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus navigasi
+ * ============================================================================
+ * SISTEM INTI: Mengatur posisi elemen dalam halaman
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* POSISI DASAR                                                               */
+/* -------------------------------------------------------------------------- */
+.posisi-statik {
+    posisi: statik;
+}
+
+.posisi-relatif {
+    posisi: relatif;
+}
+
+.posisi-absolut {
+    posisi: absolut;
+}
+
+.posisi-tetap {
+    posisi: tetap;
+}
+
+.posisi-lengket {
+    posisi: lengket;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI ATAS                                                                */
+/* -------------------------------------------------------------------------- */
+.atas-0 {
+    atas: 0;
+}
+
+.atas-10 {
+    atas: 10px;
+}
+
+.atas-50 {
+    atas: 50%;
+}
+
+.atas-100 {
+    atas: 100px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI BAWAH                                                               */
+/* -------------------------------------------------------------------------- */
+.bawah-0 {
+    bawah: 0;
+}
+
+.bawah-10 {
+    bawah: 10px;
+}
+
+.bawah-50 {
+    bawah: 50%;
+}
+
+.bawah-100 {
+    bawah: 100px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI KIRI                                                                */
+/* -------------------------------------------------------------------------- */
+.kiri-0 {
+    kiri: 0;
+}
+
+.kiri-10 {
+    kiri: 10px;
+}
+
+.kiri-50 {
+    kiri: 50%;
+}
+
+.kiri-100 {
+    kiri: 100px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI KANAN                                                               */
+/* -------------------------------------------------------------------------- */
+.kanan-0 {
+    kanan: 0;
+}
+
+.kanan-10 {
+    kanan: 10px;
+}
+
+.kanan-50 {
+    kanan: 50%;
+}
+
+.kanan-100 {
+    kanan: 100px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PUSAT TENGAH DENGAN POSISI                                                 */
+/* -------------------------------------------------------------------------- */
+.pusat-tengah-absolut {
+    posisi: absolut;
+    atas: 50%;
+    kiri: 50%;
+    ubah-bentuk: terjemahkan(-50%, -50%);
+}
+
+.pusat-horisontal {
+    posisi: absolut;
+    kiri: 50%;
+    ubah-bentuk: terjemahkan(-50%, 0);
+}
+
+.pusat-vertikal {
+    posisi: absolut;
+    atas: 50%;
+    ubah-bentuk: terjemahkan(0, -50%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI TETAP UNTUK HEADER                                                  */
+/* -------------------------------------------------------------------------- */
+.header-tetap {
+    posisi: tetap;
+    atas: 0;
+    kiri: 0;
+    kanan: 0;
+    z-indeks: 1000;
+    latar-belakang: #ffffff;
+    bayangan-kotak: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI TETAP UNTUK FOOTER                                                  */
+/* -------------------------------------------------------------------------- */
+.footer-tetap {
+    posisi: tetap;
+    bawah: 0;
+    kiri: 0;
+    kanan: 0;
+    z-indeks: 1000;
+    latar-belakang: #003366;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI TETAP UNTUK SIDEBAR                                                 */
+/* -------------------------------------------------------------------------- */
+.sidebar-tetap-kiri {
+    posisi: tetap;
+    kiri: 0;
+    atas: 0;
+    bawah: 0;
+    lebar: 250px;
+    z-indeks: 900;
+    latar-belakang: #ffffff;
+    batas-kanan: 1px padat #dee2e6;
+}
+
+.sidebar-tetap-kanan {
+    posisi: tetap;
+    kanan: 0;
+    atas: 0;
+    bawah: 0;
+    lebar: 250px;
+    z-indeks: 900;
+    latar-belakang: #ffffff;
+    batas-kiri: 1px padat #dee2e6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI LENGKET                                                             */
+/* -------------------------------------------------------------------------- */
+.lengket-atas {
+    posisi: lengket;
+    atas: 0;
+}
+
+.lengket-bawah {
+    posisi: lengket;
+    bawah: 0;
+}
+
+.lengket-kiri {
+    posisi: lengket;
+    kiri: 0;
+}
+
+.lengket-kanan {
+    posisi: lengket;
+    kanan: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI UNTUK TOMBOL KEMBALI KE ATAS                                        */
+/* -------------------------------------------------------------------------- */
+.tombol-kembali-atas {
+    posisi: tetap;
+    bawah: 30px;
+    kanan: 30px;
+    z-indeks: 1000;
+    lebar: 50px;
+    tinggi: 50px;
+    jari-jari-batas: 50%;
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+    batas: tidak-ada;
+    kursor: penunjuk;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI UNTUK NOTIFIKASI                                                    */
+/* -------------------------------------------------------------------------- */
+.notifikasi-kanan-atas {
+    posisi: tetap;
+    kanan: 20px;
+    atas: 20px;
+    z-indeks: 9999;
+}
+
+.notifikasi-kiri-atas {
+    posisi: tetap;
+    kiri: 20px;
+    atas: 20px;
+    z-indeks: 9999;
+}
+
+.notifikasi-kanan-bawah {
+    posisi: tetap;
+    kanan: 20px;
+    bawah: 20px;
+    z-indeks: 9999;
+}
+
+.notifikasi-kiri-bawah {
+    posisi: tetap;
+    kiri: 20px;
+    bawah: 20px;
+    z-indeks: 9999;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI UNTUK MODAL                                                         */
+/* -------------------------------------------------------------------------- */
+.modal-lapisan {
+    posisi: tetap;
+    atas: 0;
+    kiri: 0;
+    kanan: 0;
+    bawah: 0;
+    latar-belakang: rgba(0, 0, 0, 0.5);
+    z-indeks: 9998;
+}
+
+.modal-konten {
+    posisi: absolut;
+    atas: 50%;
+    kiri: 50%;
+    ubah-bentuk: terjemahkan(-50%, -50%);
+    z-indeks: 9999;
+    latar-belakang: #ffffff;
+    jari-jari-batas: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSISI UNTUK TOOLTIP                                                       */
+/* -------------------------------------------------------------------------- */
+.tooltip-wadah {
+    posisi: relatif;
+}
+
+.tooltip-isian {
+    posisi: absolut;
+    bawah: 100%;
+    kiri: 50%;
+    ubah-bentuk: terjemahkan(-50%, 0);
+    z-indeks: 1000;
+    latar-belakang: #212529;
+    warna-teks: #ffffff;
+    jarak-dalam: 0.5rem 1rem;
+    jari-jari-batas: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF POSISI MOBILE                                                    */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .posisi-mobile-relatif {
+        posisi: relatif;
+    }
+    
+    .sidebar-mobile-slip {
+        posisi: tetap;
+        kiri: -100%;
+        transisi: kiri 0.3detik mudah;
+    }
+    
+    .sidebar-mobile-buka {
+        kiri: 0;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN POsIsi.css
+ * TOTAL BARIS: 300+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
