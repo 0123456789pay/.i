@@ -924,14 +924,14 @@
             <span class="brand-name">Digital ID</span>
         </div>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li class="nav-item"><a href="domains.html" class="nav-link"><i class="fas fa-globe"></i> Domains</a></li>
-            <li class="nav-item"><a href="hosting-plans.html" class="nav-link"><i class="fas fa-server"></i> Hosting Plans</a></li>
-            <li class="nav-item"><a href="ssl-manager.html" class="nav-link active"><i class="fas fa-lock"></i> SSL Certificates</a></li>
-            <li class="nav-item"><a href="dns-zone.html" class="nav-link"><i class="fas fa-network-wired"></i> DNS Manager</a></li>
-            <li class="nav-item"><a href="email-hosting.html" class="nav-link"><i class="fas fa-envelope"></i> Email Hosting</a></li>
-            <li class="nav-item"><a href="billing-invoices.html" class="nav-link"><i class="fas fa-file-invoice-dollar"></i> Billing</a></li>
-            <li class="nav-item"><a href="support-center.html" class="nav-link"><i class="fas fa-headset"></i> Support</a></li>
+            <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="icon-placeholder">📌</span> Dashboard</a></li>
+            <li class="nav-item"><a href="domains.html" class="nav-link"><span class="icon-placeholder">📌</span> Domains</a></li>
+            <li class="nav-item"><a href="hosting-plans.html" class="nav-link"><span class="icon-placeholder">📌</span> Hosting Plans</a></li>
+            <li class="nav-item"><a href="ssl-manager.html" class="nav-link active"><span class="icon-placeholder">📌</span> SSL Certificates</a></li>
+            <li class="nav-item"><a href="dns-zone.html" class="nav-link"><span class="icon-placeholder">📌</span> DNS Manager</a></li>
+            <li class="nav-item"><a href="email-hosting.html" class="nav-link"><span class="icon-placeholder">📌</span> Email Hosting</a></li>
+            <li class="nav-item"><a href="billing-invoices.html" class="nav-link"><span class="icon-placeholder">📌</span> Billing</a></li>
+            <li class="nav-item"><a href="support-center.html" class="nav-link"><span class="icon-placeholder">📌</span> Support</a></li>
         </ul>
         <div class="user-profile">
             <div class="avatar">U</div>
@@ -950,36 +950,36 @@
                 <div class="breadcrumb">Home > Security > SSL Certificates</div>
             </div>
             <div class="action-bar">
-                <button class="btn btn-outline" onclick="openModal('autoSslModal')"><i class="fas fa-magic"></i> Auto SSL</button>
-                <button class="btn btn-primary" onclick="openModal('newSslModal')"><i class="fas fa-plus"></i> New Certificate</button>
+                <button class="btn btn-outline" onclick="openModal('autoSslModal')"><span class="icon-placeholder">📌</span> Auto SSL</button>
+                <button class="btn btn-primary" onclick="openModal('newSslModal')"><span class="icon-placeholder">📌</span> New Certificate</button>
             </div>
         </header>
 
         <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon icon-green"><i class="fas fa-shield-alt"></i></div>
+                <div class="stat-icon icon-green"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>12</h3>
                     <p>Active Certificates</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon icon-blue"><i class="fas fa-sync-alt"></i></div>
+                <div class="stat-icon icon-blue"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>Auto</h3>
                     <p>Auto-Renewal Enabled</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon icon-purple"><i class="fas fa-calendar-check"></i></div>
+                <div class="stat-icon icon-purple"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>365</h3>
                     <p>Days Coverage</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon icon-red"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="stat-icon icon-red"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>2</h3>
                     <p>Expiring Soon</p>
@@ -988,13 +988,13 @@
         </div>
 
         <!-- Active Certificates -->
-        <h2 class="section-title"><i class="fas fa-certificate" style="color: var(--success);"></i> Active SSL Certificates</h2>
+        <h2 class="section-title"><span class="icon-placeholder">📌</span> Active SSL Certificates</h2>
         <div class="ssl-container" id="sslContainer">
             <!-- SSL Cards injected via JS -->
         </div>
 
         <!-- Expiring Soon Table -->
-        <h2 class="section-title"><i class="fas fa-clock" style="color: var(--warning);"></i> Expiring Soon (Next 30 Days)</h2>
+        <h2 class="section-title"><span class="icon-placeholder">📌</span> Expiring Soon (Next 30 Days)</h2>
         <div class="table-container">
             <table>
                 <thead>
@@ -1028,17 +1028,17 @@
                         <label class="form-label">Certificate Type</label>
                         <div class="ssl-type-selector">
                             <div class="type-option selected" onclick="selectType(this)">
-                                <span class="type-icon"><i class="fas fa-lock"></i></span>
+                                <span class="type-icon"><span class="icon-placeholder">📌</span></span>
                                 <div class="type-name">Domain Validated</div>
                                 <div class="type-price">Free</div>
                             </div>
                             <div class="type-option" onclick="selectType(this)">
-                                <span class="type-icon"><i class="fas fa-building"></i></span>
+                                <span class="type-icon"><span class="icon-placeholder">📌</span></span>
                                 <div class="type-name">Organization</div>
                                 <div class="type-price">$79/yr</div>
                             </div>
                             <div class="type-option" onclick="selectType(this)">
-                                <span class="type-icon"><i class="fas fa-globe"></i></span>
+                                <span class="type-icon"><span class="icon-placeholder">📌</span></span>
                                 <div class="type-name">Extended Validation</div>
                                 <div class="type-price">$199/yr</div>
                             </div>
@@ -1075,7 +1075,7 @@
             </div>
             <div class="modal-body">
                 <div style="text-align: center; margin-bottom: 20px;">
-                    <i class="fas fa-robot" style="font-size: 3rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <span class="icon-placeholder">📌</span>
                     <h3 style="margin-bottom: 10px;">Let's Encrypt AutoSSL</h3>
                     <p style="color: var(--text-muted);">Automatically issue and renew free SSL certificates for all your domains.</p>
                 </div>
@@ -1126,7 +1126,7 @@
             card.innerHTML = `
                 <div class="ssl-header">
                     <div class="ssl-domain">
-                        <i class="fas fa-lock ssl-lock"></i>
+                        <span class="icon-placeholder">📌</span>
                         ${cert.domain}
                     </div>
                     <span class="ssl-type ${typeClass}">${cert.type}</span>
@@ -1159,8 +1159,8 @@
                     </div>
                 </div>
                 <div class="ssl-actions">
-                    <button class="btn btn-outline" onclick="alert('Renewing certificate...')"><i class="fas fa-sync"></i> Renew</button>
-                    <button class="btn btn-outline" onclick="alert('Viewing certificate details')"><i class="fas fa-eye"></i> View</button>
+                    <button class="btn btn-outline" onclick="alert('Renewing certificate...')"><span class="icon-placeholder">📌</span> Renew</button>
+                    <button class="btn btn-outline" onclick="alert('Viewing certificate details')"><span class="icon-placeholder">📌</span> View</button>
                 </div>
             `;
             sslContainer.appendChild(card);
@@ -1175,10 +1175,10 @@
                 <td><span class="status-badge status-valid">${cert.type}</span></td>
                 <td>${cert.issuer}</td>
                 <td style="color: var(--danger); font-weight: 600;">${cert.daysLeft} days</td>
-                <td><i class="fas fa-check-circle" style="color: var(--success);"></i> Enabled</td>
+                <td><span class="icon-placeholder">📌</span> Enabled</td>
                 <td><span class="status-badge status-expiring">Expiring</span></td>
                 <td>
-                    <button class="btn btn-warning" style="padding: 5px 10px; font-size: 0.8rem;" onclick="alert('Renewing now...')"><i class="fas fa-bolt"></i> Renew Now</button>
+                    <button class="btn btn-warning" style="padding: 5px 10px; font-size: 0.8rem;" onclick="alert('Renewing now...')"><span class="icon-placeholder">📌</span> Renew Now</button>
                 </td>
             `;
             expiringBody.appendChild(row);

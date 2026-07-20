@@ -4,14 +4,14 @@
  */
 
 <?php
-// Content Security Policy dengan GitHub CDN allowance
+// Content Security Policy - Internal Only (No External CDNs)
 $csp_policy = [
     'default-src' => "'self'",
-    'script-src' => "'self' 'unsafe-inline' https://raw.githubusercontent.com https://cdn.jsdelivr.net",
-    'style-src' => "'self' 'unsafe-inline' https://raw.githubusercontent.com https://cdn.jsdelivr.net https://fonts.googleapis.com",
+    'script-src' => "'self' 'unsafe-inline'",
+    'style-src' => "'self' 'unsafe-inline'",
     'img-src' => "'self' data: https: blob:",
-    'font-src' => "'self' https://fonts.gstatic.com",
-    'connect-src' => "'self' https://api.github.com",
+    'font-src' => "'self'",
+    'connect-src' => "'self'",
     'frame-src' => "'none'",
     'object-src' => "'none'",
     'base-uri' => "'self'",
@@ -59,11 +59,10 @@ $security_config = [
         'Pragma' => 'no-cache',
         'Expires' => '0'
     ],
-    'github_integration' => [
-        'allowed' => ALLOW_GITHUB_CDN,
-        'base_url' => 'https://raw.githubusercontent.com/',
-        'api_url' => 'https://api.github.com/',
-        'webhook_secret_pattern' => '/^sha256=[a-f0-9]{64}$/i'
+    'internal_only' => [
+        'allowed' => true,
+        'external_cdns' => false,
+        'note' => 'All CSS/JS internal - no external dependencies'
     ]
 ];
 
