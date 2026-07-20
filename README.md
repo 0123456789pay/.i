@@ -51,20 +51,14 @@ Repositori ini berisi kumpulan file digital untuk berbagai kebutuhan media, apli
 - Catatan
 - Dan banyak lagi...
 
-## Cara Penggunaan
-
 ### Menjalankan File HTML
 ```bash
-# Buka langsung di browser
 firefox appbrowser.html
-
-# Atau gunakan server lokal
 python3 -m http.server 8000
 ```
 
 ### Menjalankan File PHP
 ```bash
-# Pastikan PHP terinstall
 php -S localhost:8000
 ```
 
@@ -77,7 +71,6 @@ php -S localhost:8000
 4. **Keamanan**: Mengurangi risiko serangan supply-chain dari library eksternal
 5. **Kontrol Penuh**: Semua kode dapat diaudit dan dimodifikasi sesuai kebutuhan
 
-### ⚙️ Implementasi
 - CSS ditulis langsung dalam tag `<style>` di bagian `<head>`
 - JavaScript ditulis langsung dalam tag `<script>` di bagian `<body>` atau `<head>`
 - Tidak ada file `.css` atau `.js` eksternal yang di-link
@@ -100,12 +93,6 @@ php -S localhost:8000
 ├── *.html                         # Aplikasi web standalone
 └── README.md                      # Dokumentasi ini
 ```
-
-## Kontribusi
-Silakan kontribusi dengan mengikuti prinsip utama repositori ini:
-- Gunakan hanya CSS dan JavaScript internal
-- Jangan tambahkan dependensi eksternal baru
-- Pastikan semua kode dapat berjalan offline
 
 ## Lisensi
 Lihat file [LICENSE.md](LICENSE.md) untuk informasi lisensi.
