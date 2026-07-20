@@ -923,14 +923,14 @@
             <span class="brand-name">Digital ID</span>
         </div>
         <ul class="nav-menu">
-            <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li class="nav-item"><a href="domains.html" class="nav-link"><i class="fas fa-globe"></i> Domains</a></li>
-            <li class="nav-item"><a href="hosting-plans.html" class="nav-link active"><i class="fas fa-server"></i> Hosting Plans</a></li>
-            <li class="nav-item"><a href="ssl-manager.html" class="nav-link"><i class="fas fa-lock"></i> SSL Certificates</a></li>
-            <li class="nav-item"><a href="dns-zone.html" class="nav-link"><i class="fas fa-network-wired"></i> DNS Manager</a></li>
-            <li class="nav-item"><a href="email-hosting.html" class="nav-link"><i class="fas fa-envelope"></i> Email Hosting</a></li>
-            <li class="nav-item"><a href="billing-invoices.html" class="nav-link"><i class="fas fa-file-invoice-dollar"></i> Billing</a></li>
-            <li class="nav-item"><a href="support-center.html" class="nav-link"><i class="fas fa-headset"></i> Support</a></li>
+            <li class="nav-item"><a href="dashboard.html" class="nav-link"><span class="icon-placeholder">📌</span> Dashboard</a></li>
+            <li class="nav-item"><a href="domains.html" class="nav-link"><span class="icon-placeholder">📌</span> Domains</a></li>
+            <li class="nav-item"><a href="hosting-plans.html" class="nav-link active"><span class="icon-placeholder">📌</span> Hosting Plans</a></li>
+            <li class="nav-item"><a href="ssl-manager.html" class="nav-link"><span class="icon-placeholder">📌</span> SSL Certificates</a></li>
+            <li class="nav-item"><a href="dns-zone.html" class="nav-link"><span class="icon-placeholder">📌</span> DNS Manager</a></li>
+            <li class="nav-item"><a href="email-hosting.html" class="nav-link"><span class="icon-placeholder">📌</span> Email Hosting</a></li>
+            <li class="nav-item"><a href="billing-invoices.html" class="nav-link"><span class="icon-placeholder">📌</span> Billing</a></li>
+            <li class="nav-item"><a href="support-center.html" class="nav-link"><span class="icon-placeholder">📌</span> Support</a></li>
         </ul>
         <div class="user-profile">
             <div class="avatar">U</div>
@@ -949,36 +949,36 @@
                 <div class="breadcrumb">Home > Hosting > Plans & Management</div>
             </div>
             <div class="action-bar">
-                <button class="btn btn-outline" onclick="openModal('compareModal')"><i class="fas fa-table"></i> Compare</button>
-                <button class="btn btn-primary" onclick="openModal('orderModal')"><i class="fas fa-plus"></i> Order New</button>
+                <button class="btn btn-outline" onclick="openModal('compareModal')"><span class="icon-placeholder">📌</span> Compare</button>
+                <button class="btn btn-primary" onclick="openModal('orderModal')"><span class="icon-placeholder">📌</span> Order New</button>
             </div>
         </header>
 
         <!-- Stats -->
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-icon icon-blue"><i class="fas fa-hdd"></i></div>
+                <div class="stat-icon icon-blue"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>4</h3>
                     <p>Active Hostings</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon icon-green"><i class="fas fa-check-circle"></i></div>
+                <div class="stat-icon icon-green"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>99.9%</h3>
                     <p>Uptime Average</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon icon-purple"><i class="fas fa-database"></i></div>
+                <div class="stat-icon icon-purple"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>45 GB</h3>
                     <p>Total Storage Used</p>
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon icon-orange"><i class="fas fa-exchange-alt"></i></div>
+                <div class="stat-icon icon-orange"><span class="icon-placeholder">📌</span></div>
                 <div class="stat-info">
                     <h3>1.2 TB</h3>
                     <p>Bandwidth This Month</p>
@@ -987,13 +987,13 @@
         </div>
 
         <!-- Available Plans -->
-        <h2 class="section-title"><i class="fas fa-star" style="color: var(--warning);"></i> Available Hosting Plans</h2>
+        <h2 class="section-title"><span class="icon-placeholder">📌</span> Available Hosting Plans</h2>
         <div class="plans-container" id="plansContainer">
             <!-- Plans will be injected via JS -->
         </div>
 
         <!-- Active Services -->
-        <h2 class="section-title"><i class="fas fa-list"></i> Your Active Hosting Services</h2>
+        <h2 class="section-title"><span class="icon-placeholder">📌</span> Your Active Hosting Services</h2>
         <div class="table-container">
             <table>
                 <thead>
@@ -1109,8 +1109,8 @@
         // Render Plans
         const plansContainer = document.getElementById('plansContainer');
         plans.forEach(plan => {
-            const featuresHtml = plan.features.map(f => `<li><i class="fas fa-check"></i> ${f}</li>`).join('') + 
-                                 plan.disabled.map(f => `<li class="disabled"><i class="fas fa-times"></i> ${f}</li>`).join('');
+            const featuresHtml = plan.features.map(f => `<li><span class="icon-placeholder">📌</span> ${f}</li>`).join('') + 
+                                 plan.disabled.map(f => `<li class="disabled"><span class="icon-placeholder">📌</span> ${f}</li>`).join('');
             
             const card = document.createElement('div');
             card.className = `plan-card ${plan.popular ? 'popular' : ''}`;
@@ -1152,7 +1152,7 @@
                 </td>
                 <td><span class="status-badge status-${service.status}">${service.status.toUpperCase()}</span></td>
                 <td>
-                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;"><i class="fas fa-cog"></i></button>
+                    <button class="btn btn-outline" style="padding: 5px 10px; font-size: 0.8rem;"><span class="icon-placeholder">📌</span></button>
                 </td>
             `;
             servicesBody.appendChild(row);

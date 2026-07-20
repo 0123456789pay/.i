@@ -1,50 +1,43 @@
 ```
-# Dependencies
-node_modules/
-
-# Build artifacts
+# Build artifacts and generated files
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.out
 dist/
 build/
 target/
+coverage/
+htmlcov/
+*.log
+*.tmp
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
+# Dependencies
+node_modules/
 venv/
 .venv/
-pip-log.txt
-pip-delete-this-directory.txt
-.pytest_cache/
-.coverage
-htmlcov/
-.mypy_cache/
+.julia/
+zig-cache/
+.dep/
+.venv*/
 
-# Logs
-*.log
-
-# Environment specific
+# Environment and secrets
 .env
 .env.local
-.env.*
+*.env.*
 
-# IDE
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# OS
+# OS and system files
 .DS_Store
 Thumbs.db
 
-# Coverage
-coverage/
-
-# Compressed
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -67,5 +60,125 @@ coverage/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Python specific
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
+
+# Node.js specific
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+.gradle/
+build/
+
+# C/C++ specific
+*.a
+*.dll
+*.so
+*.dylib
+
+# Go specific
+*.exe
+
+# Ruby specific
+*.gem
+.bundle/
+
+# Web specific
+.sass-cache/
+*.min.js
+*.min.css
+
+# Backup and swap files
+*~
+*.bak
+*.orig
+*.rej
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation
+docs/_build/
+
+# Temporary files
+tmp/
+temp/
+
+# Cache directories
+.cache/
+.cargo/
+.npm/
+.yarn/
+
+# Configuration and state
+.config/
+.state/
+
+# Processed data
+processed/
+output/
+
+# Archive versions
+*.bak
+*.old
+*.orig
+
+# Sensitive files
+config.php
+private.key
+*.pem
+*.p12
+
+# Logs
+log/
+logs/
+
+# User-specific settings
+.user.ini
+
+# Package manager specific
+Pods/
+Carthage/
+vendor/bundle/
+
+# Testing
+.coverage
+coverage.xml
+
+# Mobile
+*.ipa
+*.apk
+*.aab
+
+# Virtual environments
+.envs/
+.tox/
+
+# Docker
+.docker/
+
+# Git-related (but not .gitignore itself)
+.gitattributes
+.gitmodules
+
+# Project-specific generated files
+*.html  # Since many HTML files appear to be generated in this project structure
+*.css
+*.js
 
 ```
