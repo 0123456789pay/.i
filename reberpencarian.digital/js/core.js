@@ -27,9 +27,9 @@ class ReberPencarian {
         this.navigationStack = [];
         this.navigationIndex = -1;
         
-        // Tab System State - Full Width Tab System
-        this.searchTabs = [{ id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true }];
-        this.activeSearchTabId = 1;
+        // Tab System State - Full Width Tab System (DINONAKTIFKAN karena menggunakan embedded appbrowser)
+        // this.searchTabs = [{ id: 1, title: '🏠 Beranda - Situs Digital', query: '', results: [], isHome: true }];
+        // this.activeSearchTabId = 1;
         
         // Advanced Search Features
         this.searchSuggestions = [];
@@ -62,9 +62,9 @@ class ReberPencarian {
         this.loadFromStorage();
         this.bindEvents();
         this.initAdvancedFeatures();
-        // Render langsung ke search content frame (WebView) dengan tab system
+        // Render langsung ke search content frame (WebView) dengan embedded appbrowser
         this.renderWebViewContent();
-        this.renderSearchTabs();
+        // this.renderSearchTabs(); // Dinonaktifkan karena menggunakan embedded appbrowser
         this.updateSettingsUI();
         this.setupKeyboardShortcuts();
         this.trackAnalytics('init');
@@ -2044,10 +2044,10 @@ class ReberPencarian {
             'Ctrl+K': () => document.getElementById('urlInput')?.focus(),
             'Ctrl+H': () => this.showMenu('history'),
             'Ctrl+D': () => this.addCurrentBookmark(),
-            'Ctrl+T': () => this.openNewSearchTab(),
-            'Ctrl+W': () => this.closeCurrentTab(),
-            'Ctrl+Tab': () => this.switchToNextTab(),
-            'Ctrl+Shift+Tab': () => this.switchToPrevTab(),
+            // 'Ctrl+T': () => this.openNewSearchTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
+            // 'Ctrl+W': () => this.closeCurrentTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
+            // 'Ctrl+Tab': () => this.switchToNextTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
+            // 'Ctrl+Shift+Tab': () => this.switchToPrevTab(), // Dinonaktifkan karena menggunakan embedded appbrowser
             'Escape': () => this.hideMenuDropdown(),
             'F5': () => this.navigate('refresh'),
             'Alt+Left': () => this.navigate('back'),

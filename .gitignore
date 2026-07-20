@@ -1,47 +1,39 @@
 ```gitignore
-# Compiled and build artifacts
-*.pyc
-__pycache__/
-*.o
-*.obj
-dist/
-build/
-target/
-
 # Dependencies
-.venv/
-venv/
 node_modules/
-.julia/
-zig-cache/
-.gradle/
 
 # Logs and temp files
 *.log
 *.tmp
 *.swp
-*.swo
-*.out
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
 # Coverage
 coverage/
 htmlcov/
 .coverage
 
-# OS
-.DS_Store
-Thumbs.db
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.eggs/
+eggs/
+*.egg-info/
+dist/
+build/
+*.egg
 
 # Compressed files
 *.zip
