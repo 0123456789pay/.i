@@ -14,7 +14,7 @@ Repositori ini berisi kumpulan file digital untuk berbagai kebutuhan media, apli
 ### 📁 Struktur File
 - **File HTML**: Menggunakan tag `<style>` untuk CSS internal dan `<script>` untuk JavaScript internal
 - **File PHP**: Mengintegrasikan CSS dan JS langsung dalam dokumen
-- **Atribut Custom**: Menggunakan atribut `srebercs` atau `jrebercs` pada tag `<link>` dan `<script>` untuk identifikasi resource internal
+- **Atribut Custom**: Menggunakan atribut `srebercs` atau `jrebers` pada tag `<link>` dan `<script>` untuk identifikasi resource internal
 
 ### 🔧 Konvensi Penamaan Atribut
 ```html
@@ -22,7 +22,7 @@ Repositori ini berisi kumpulan file digital untuk berbagai kebutuhan media, apli
 <link rel="srebercs" href="data:text/css,...">
 
 <!-- Untuk JavaScript Internal -->
-<script jrebercs>
+<script jrebers>
   // Kode JavaScript inline
 </script>
 ```
@@ -113,4 +113,4 @@ Lihat file [LICENSE.md](LICENSE.md) untuk informasi lisensi.
 ## Catatan Teknis
 - Total file HTML/PHP: ~4700+ file
 - Semua file telah dikonversi ke format internal
-- Atribut custom `srebercs` dan `jrebercs` digunakan untuk identifikasi resource
+- Atribut custom `srebercs` dan `jrebers` digunakan untuk identifikasi resource
