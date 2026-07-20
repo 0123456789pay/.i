@@ -121,16 +121,6 @@ require_once 'includes/header.php';
         <div class="auth-links">
             <p>Belum punya akun? <a href="register.php">Daftar sekarang</a></p>
         </div>
-        
-        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color);">
-            <p style="text-align: center; color: var(--gray); font-size: 13px; margin-bottom: 10px;">
-                Demo Login:
-            </p>
-            <div style="background: var(--light-blue); padding: 10px; border-radius: 5px; font-size: 13px;">
-                <strong>Username:</strong> admin<br>
-                <strong>Password:</strong> admin123
-            </div>
-        </div>
     </div>
 </div>
 
