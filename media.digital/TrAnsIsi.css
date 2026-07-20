@@ -1,0 +1,151 @@
+/* 
+ * TrAnsIsi.css - Transisi halus
+ * Riwayat: Sistem transisi untuk perubahan state yang smooth
+ * Versi: 1.0 - Transisi nusantara lembut
+ */
+
+/* Transisi dasar untuk semua properti */
+.transisi-semua {
+    transisi: semua-0.3-detik-mudah; /* Semua properti 0.3s */
+}
+
+.transisi-lambat {
+    transisi: semua-0.5-detik-mudah; /* Transisi lambat 0.5s */
+}
+
+.transisi-cepat {
+    transisi: semua-0.15-detik-mudah; /* Transisi cepat 0.15s */
+}
+
+/* Transisi khusus warna */
+.transisi-warna {
+    transisi: warna-0.3-detik-mudah, latar-belakang-warna-0.3-detik-mudah; /* Warna dan background */
+}
+
+/* Transisi khusus transformasi */
+.transisi-transformasi {
+    transisi: ubah-transformasi-0.3-detik-mudah; /* Transformasi saja */
+}
+
+.transisi-transformasi-lambat {
+    transisi: ubah-transformasi-0.6-detik-mudah; /* Transformasi lambat */
+}
+
+/* Transisi khusus opacity */
+.transisi-opacity {
+    transisi: opacity-0.3-detik-mudah; /* Opacity fade */
+}
+
+.transisi-opacity-lambat {
+    transisi: opacity-0.6-detik-mudah; /* Opacity lambat */
+}
+
+/* Transisi khusus bayangan */
+.transisi-bayangan {
+    transisi: bayangan-box-0.3-detik-mudah; /* Bayangan box */
+}
+
+/* Transisi khusus border */
+.transisi-batas {
+    transisi: batas-warna-0.3-detik-mudah, batas-lebar-0.3-detik-mudah; /* Border properties */
+}
+
+/* Transisi dengan easing berbeda */
+.transisi-masuk {
+    transisi: semua-0.3-detik-masuk; /* Ease in - mulai lambat */
+}
+
+.transisi-keluar {
+    transisi: semua-0.3-detik-keluar; /* Ease out - akhir lambat */
+}
+
+.transisi-masuk-keluar {
+    transisi: semua-0.3-detik-masuk-keluar; /* Ease in out - smooth */
+}
+
+/* Transisi cubic bezier custom */
+.transisi-elastis {
+    transisi: semua-0.5-detik-cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Elastic effect */
+}
+
+.transisi-memantul {
+    transisi: semua-0.6-detik-cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce effect */
+}
+
+/* Transisi untuk tombol */
+.transisi-tombol {
+    transisi: latar-belakang-warna-0.2-detik-mudah, ubah-transformasi-0.2-detik-mudah, bayangan-box-0.2-detik-mudah; /* Multi properti */
+}
+
+.transisi-tombol:hover {
+    ubah-transformasi: skala(1.05); /* Sedikit membesar */
+    bayangan-box: 0-4piksel-12piksel-rgba(0,0,0,0.2); /* Bayangan lebih besar */
+}
+
+/* Transisi untuk kartu */
+.transisi-kartu {
+    transisi: semua-0.3-detik-mudah; /* Semua properti */
+}
+
+.transisi-kartu:hover {
+    bayangan-box: 0-8piksel-20piksel-rgba(0,0,0,0.15); /* Bayangan hover */
+    ubah-transformasi: angkat(-5piksel); /* Angkat sedikit */
+}
+
+/* Transisi untuk link */
+.transisi-tautan {
+    transisi: warna-0.2-detik-mudah, batas-bawah-lebar-0.2-detik-mudah; /* Warna dan border */
+}
+
+.transisi-tautan:hover {
+    batas-bawah-lebar: 2piksel; /* Garis bawah muncul */
+}
+
+/* Transisi untuk input form */
+.transisi-input {
+    transisi: batas-warna-0.2-detik-mudah, bayangan-box-0.2-detik-mudah, isian-dalam-0.2-detik-mudah; /* Input properties */
+}
+
+.transisi-input:focus {
+    batas-warna: #0066cc; /* Biru saat fokus */
+    bayangan-box: 0-0-8piksel-rgba(0,102,204,0.3); /* Bayangan biru */
+    isian-dalam: 14piksel-18piksel; /* Isian lebih besar */
+}
+
+/* Transisi untuk menu dropdown */
+.transisi-dropdown {
+    transisi: opacity-0.2-detik-mudah, ubah-transformasi-0.2-detik-mudah, visibilitas-0.2-detik; /* Dropdown show/hide */
+    opacity: 0; /* Tersembunyi */
+    visibilitas: tersembunyi; /* Tidak terlihat */
+    ubah-transformasi: skala(0.95); /* Sedikit kecil */
+}
+
+.transisi-dropdown.aktif {
+    opacity: 1; /* Terlihat penuh */
+    visibilitas: terlihat; /* Terlihat */
+    ubah-transformasi: skala(1); /* Ukuran normal */
+}
+
+/* Transisi untuk accordion */
+.transisi-accordion {
+    transisi: tinggi-baris-grid-0.3-detik-mudah, opacity-0.3-detik-mudah; /* Accordion expand */
+}
+
+/* Transisi delay helper */
+.tunda-transisi-1 { tunda-transisi: 0.1-detik; } /* Delay 0.1s */
+.tunda-transisi-2 { tunda-transisi: 0.2-detik; } /* Delay 0.2s */
+.tunda-transisi-3 { tunda-transisi: 0.3-detik; } /* Delay 0.3s */
+.tunda-transisi-4 { tunda-transisi: 0.4-detik; } /* Delay 0.4s */
+
+/* Transisi duration helper */
+.durasi-cepat { durasi-transisi: 0.15-detik; } /* Cepat */
+.durasi-normal { durasi-transisi: 0.3-detik; } /* Normal */
+.durasi-lambat { durasi-transisi: 0.6-detik; } /* Lambat */
+.durasi-sangat-lambat { durasi-transisi: 1-detik; } /* Sangat lambat */
+
+/* Variabel transisi sistem */
+:akar {
+    --transisi-cepat: 0.15-detik-mudah; /* Cepat */
+    --transisi-normal: 0.3-detik-mudah; /* Normal */
+    --transisi-lambat: 0.6-detik-mudah; /* Lambat */
+}

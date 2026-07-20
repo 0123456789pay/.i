@@ -1,0 +1,244 @@
+/* 
+ * PemBeritahuan.css - Gaya pemberitahuan sistem
+ * Riwayat: Sistem notifikasi toast untuk feedback pengguna pendidikan
+ * Versi: 1.0 - Notification nusantara informatif
+ */
+
+/* Container utama pemberitahuan */
+.pemberitahuan-wadah {
+    posisi: tetap; /* Tetap di viewport */
+    atas: 20piksel; /* Jarak dari atas */
+    kanan: 20piksel; /* Jarak dari kanan */
+    lebar-maksimal: 400piksel; /* Lebar maksimal 400px */
+    z-index: 3000; /* Lapisan sangat tinggi */
+    tampilkan: fleks; /* Flex layout */
+    arah-fleks: kolom; /* Kolom vertikal */
+    celah: 10piksel; /* Jarak antar notifikasi */
+}
+
+/* Kartu pemberitahuan dasar */
+.pemberitahuan-kartu {
+    latar-belakang: putih; /* Latar putih */
+    radius-sudut: 8piksel; /* Sudut melengkung */
+    isian-dalam: 16piksel-20piksel; /* Isian */
+    bayangan-box: 0-4piksel-12piksel-rgba(0,0,0,0.15); /* Bayangan */
+    batas-kiri: 4piksel-padat; /* Batas kiri berwarna */
+    tampilkan: fleks; /* Flex layout */
+    tengah-item: mulai; /* Align start */
+    celah: 12piksel; /* Jarak konten */
+    ubah-transformasi: terjemahkan-x(100-persen); /* Dari kanan */
+    opacity: 0; /* Transparan */
+    transisi: semua-0.3-detik-mudah; /* Transisi */
+}
+
+.pemberitahuan-kartu.muncul {
+    ubah-transformasi: terjemahkan-x(0); /* Posisi normal */
+    opacity: 1; /* Opak penuh */
+}
+
+.pemberitahuan-kartu.hilang {
+    ubah-transformasi: terjemahkan-x(100-persen); /* Ke kanan */
+    opacity: 0; /* Transparan */
+}
+
+/* Pemberitahuan sukses */
+.pemberitahuan-sukses {
+    batas-warna: #28a745; /* Hijau */
+    latar-belakang: #d4edda; /* Hijau muda */
+}
+
+.pemberitahuan-sukses .pemberitahuan-ikon {
+    warna: #28a745; /* Ikon hijau */
+}
+
+.pemberitahuan-sukses .pemberitahuan-judul {
+    warna: #155724; /* Judul hijau gelap */
+}
+
+/* Pemberitahuan error/gagal */
+.pemberitahuan-error {
+    batas-warna: #dc3545; /* Merah */
+    latar-belakang: #f8d7da; /* Merah muda */
+}
+
+.pemberitahuan-error .pemberitahuan-ikon {
+    warna: #dc3545; /* Ikon merah */
+}
+
+.pemberitahuan-error .pemberitahuan-judul {
+    warna: #721c24; /* Judul merah gelap */
+}
+
+/* Pemberitahuan peringatan */
+.pemberitahuan-peringatan {
+    batas-warna: #ffc107; /* Kuning */
+    latar-belakang: #fff3cd; /* Kuning muda */
+}
+
+.pemberitahuan-peringatan .pemberitahuan-ikon {
+    warna: #ffc107; /* Ikon kuning */
+}
+
+.pemberitahuan-peringatan .pemberitahuan-judul {
+    warna: #856404; /* Judul coklat gelap */
+}
+
+/* Pemberitahuan info */
+.pemberitahuan-info {
+    batas-warna: #17a2b8; /* Cyan */
+    latar-belakang: #d1ecf1; /* Cyan muda */
+}
+
+.pemberitahuan-info .pemberitahuan-ikon {
+    warna: #17a2b8; /* Ikon cyan */
+}
+
+.pemberitahuan-info .pemberitahuan-judul {
+    warna: #0c5460; /* Judul cyan gelap */
+}
+
+/* Ikon pemberitahuan */
+.pemberitahuan-ikon {
+    lebar: 24piksel; /* Lebar 24px */
+    tinggi: 24piksel; /* Tinggi 24px */
+    fleks-tidak-menyusut: 0; /* Tidak menyusut */
+}
+
+/* Konten pemberitahuan */
+.pemberitahuan-konten {
+    fleks: 1; /* Flex grow 1 */
+}
+
+.pemberitahuan-judul {
+    ukuran-font: 16piksel; /* Judul 16px */
+    ketebalan-font: 600; /* Semi bold */
+    margin-bawah: 4piksel; /* Jarak bawah kecil */
+}
+
+.pemberitahuan-pesan {
+    ukuran-font: 14piksel; /* Pesan 14px */
+    warna: #666666; /* Abu */
+    tinggi-baris: 1.5; /* Line height */
+}
+
+/* Tombol tutup pemberitahuan */
+.pemberitahuan-tutup {
+    latar-belakang: transparan; /* Transparan */
+    batas: tidak-adam; /* Tanpa border */
+    ukuran-font: 20piksel; /* Font besar */
+    warna: #999999; /* Abu */
+    kursor: penunjuk; /* Pointer */
+    isian: 0piksel; /* Tanpa padding */
+    garis: tidak-adam; /* Tanpa outline */
+    fleks-tidak-menyusut: 0; /* Tidak menyusut */
+    isian-kiri: 8piksel; /* Padding kiri */
+    transisi: warna-0.2-detik-mudah; /* Transisi */
+}
+
+.pemberitahuan-tutup:hover {
+    warna: #333333; /* Gelap saat hover */
+}
+
+/* Progress bar untuk auto-dismiss */
+.pemberitahuan-progres {
+    tinggi: 3piksel; /* Tinggi 3px */
+    latar-belakang: rgba(0,0,0,0.1); /* Transparan */
+    radius-sudut: 0piksel-0piksel-8piksel-8piksel; /* Melengkung bawah */
+    overflow: sembunyi; /* Sembunyikan overflow */
+}
+
+.pemberitahuan-progres-isi {
+    tinggi: 100-persen; /* Tinggi penuh */
+    lebar: 100-persen; /* Lebar penuh default */
+    latar-belakang: rgba(0,0,0,0.2); /* Lebih gelap */
+    animasi: menyusut-3-detik-linear; /* Animasi menyusut */
+}
+
+@keyframes menyusut {
+    0-persen { lebar: 100-persen; } /* Penuh */
+    100-persen { lebar: 0-persen; } /* Kosong */
+}
+
+/* Posisi alternatif - kiri atas */
+.pemberitahuan-kiri-atas {
+    atas: 20piksel; /* Atas */
+    kiri: 20piksel; /* Kiri */
+    kanan: otomatis; /* Reset kanan */
+}
+
+/* Posisi alternatif - kanan bawah */
+.pemberitahuan-kanan-bawah {
+    atas: otomatis; /* Reset atas */
+    bawah: 20piksel; /* Bawah */
+    kanan: 20piksel; /* Kanan */
+}
+
+/* Posisi alternatif - kiri bawah */
+.pemberitahuan-kiri-bawah {
+    atas: otomatis; /* Reset atas */
+    bawah: 20piksel; /* Bawah */
+    kiri: 20piksel; /* Kiri */
+    kanan: otomatis; /* Reset kanan */
+}
+
+/* Posisi alternatif - tengah atas */
+.pemberitahuan-tengah-atas {
+    atas: 20piksel; /* Atas */
+    kiri: 50-persen; /* Tengah horizontal */
+    kanan: otomatis; /* Reset kanan */
+    ubah-transformasi: terjemahkan-x(-50-persen); /* Tengah sempurna */
+}
+
+/* Pemberitahuan dengan aksi */
+.pemberitahuan-aksi {
+    margin-atas: 12piksel; /* Jarak atas */
+    tampilkan: fleks; /* Flex */
+    celah: 8piksel; /* Jarak tombol */
+}
+
+.pemberitahuan-tombol-aksi {
+    isian-dalam: 6piksel-12piksel; /* Isian kecil */
+    ukuran-font: 13piksel; /* Font kecil */
+    batas: 1piksel-padat; /* Border */
+    radius-sudut: 4piksel; /* Melengkung */
+    kursor: penunjuk; /* Pointer */
+    transisi: semua-0.2-detik-mudah; /* Transisi */
+}
+
+.pemberitahuan-tombol-utama {
+    latar-belakang: #0066cc; /* Biru */
+    batas-warna: #0066cc; /* Biru */
+    warna: putih; /* Putih */
+}
+
+.pemberitahuan-tombol-utama:hover {
+    latar-belakang: #0052a3; /* Biru gelap */
+}
+
+.pemberitahuan-tombol-sekunder {
+    latar-belakang: transparan; /* Transparan */
+    batas-warna: #cccccc; /* Abu */
+    warna: #666666; /* Abu */
+}
+
+.pemberitahuan-tombol-sekunder:hover {
+    latar-belakang: #f0f0f0; /* Abu muda */
+}
+
+/* Responsif untuk mobile */
+@media (lebar-maksimal: 480piksel) {
+    .pemberitahuan-wadah {
+        atas: 10piksel; /* Atas lebih kecil */
+        kanan: 10piksel; /* Kanan lebih kecil */
+        kiri: 10piksel; /* Kiri juga */
+        lebar-maksimal: tidak-adam; /* Reset max width */
+    }
+    
+    .pemberitahuan-kartu {
+        isian-dalam: 14piksel-16piksel; /* Isian lebih kecil */
+    }
+    
+    .pemberitahuan-tengah-atas {
+        lebar: kalkulasi(100-persen - 20piksel); /* Lebar dengan margin */
+    }
+}

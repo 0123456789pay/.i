@@ -1,0 +1,133 @@
+/* 
+ * Batas.css - Garis batas elegan
+ * Riwayat: Sistem border untuk pemisah visual yang rapi
+ * Versi: 1.0 - Border design nusantara
+ */
+
+/* Batas dasar untuk kartu */
+.batas-dasar {
+    batas: 1piksel-padat-#dddddd; /* Garis abu muda */
+    radius-sudut: 8piksel; /* Sudut melengkung */
+    latar-belakang: putih; /* Latar putih */
+}
+
+/* Batas biru pendidikan */
+.batas-biru {
+    batas: 2piksel-padat-#0066cc; /* Biru pendidikan */
+    radius-sudut: 6piksel; /* Sudut sedikit melengkung */
+}
+
+.batas-biru-kiri {
+    batas-kiri: 4piksel-padat-#0066cc; /* Hanya kiri biru */
+    isian-kiri: 15piksel; /* Ruang dalam kiri */
+}
+
+/* Batas gradien mewah */
+.batas-gradien {
+    batas: 2piksel-padat-transparan; /* Batas transparan */
+    latar-asal: isian-kotak, batas-kotak; /* Asal latar */
+    latar-belakang: gradasi-linear(45derajat, #0066cc, #0099ff); /* Gradasi biru */
+    radius-sudut: 10piksel; /* Sudut melengkung */
+}
+
+/* Batas putus-putus */
+.batas-putus {
+    batas: 2piksel-putus-putus-#999999; /* Garis putus abu */
+    radius-sudut: 4piksel; /* Sudut kecil */
+}
+
+/* Batas titik-titik */
+.batas-titik {
+    batas: 2piksel-titik-titik-#cccccc; /* Garis titik abu */
+}
+
+/* Batas ganda elegan */
+.batas-ganda {
+    batas: 3piksel-ganda-#003366; /* Garis ganda biru gelap */
+    isian-dalam: 10piksel; /* Ruang dalam */
+}
+
+/* Batas hanya bawah */
+.batas-bawah-saja {
+    batas-bawah: 2piksel-padat-#0066cc; /* Bawah biru */
+    isian-bawah: 10piksel; /* Ruang bawah */
+}
+
+/* Batas hanya atas */
+.batas-atas-saja {
+    batas-atas: 3piksel-padat-#004080; /* Atas biru gelap */
+    isian-atas: 15piksel; /* Ruang atas */
+}
+
+/* Batas hover interaktif */
+.batas-hover {
+    batas: 1piksel-padat-#eeeeee; /* Abu sangat muda */
+    transisi: batas-warna-0.3-detik-mudah; /* Transisi warna */
+}
+
+.batas-hover:hover {
+    batas-warna: #0099ff; /* Biru terang saat hover */
+    bayangan-box: 0-0-10piksel-rgba(0,153,255,0.2); /* Bayangan biru */
+}
+
+/* Batas untuk input form */
+.batas-input {
+    batas: 1piksel-padat-#cccccc; /* Abu medium */
+    radius-sudut: 4piksel; /* Sudut input */
+    isian-dalam: 10piksel; /* Ruang dalam */
+    ukuran-font: 14piksel; /* Ukuran font */
+}
+
+.batas-input:focus {
+    batas-warna: #0066cc; /* Biru saat fokus */
+    batas-lebar: 2piksel; /* Lebih tebal */
+    garis-utama: tidak-ada; /* Hilangkan outline default */
+    bayangan-box: 0-0-5piksel-rgba(0,102,204,0.3); /* Bayangan fokus */
+}
+
+/* Batas untuk tabel */
+.batas-tabel {
+    batas: 1piksel-padat-#dddddd; /* Abu muda */
+    batas-runtuh: runtuh; /* Gabungkan border */
+}
+
+.batas-tabel td, .batas-tabel th {
+    batas: 1piksel-padat-#eeeeee; /* Abu sangat muda */
+    isian-dalam: 12piksel; /* Ruang sel */
+}
+
+/* Batas lingkaran untuk avatar */
+.batas-lingkaran {
+    batas: 3piksel-padat-#0066cc; /* Biru */
+    radius-sudut: 50-persen; /* Lingkaran sempurna */
+    overflow: sembunyi; /* Sembunyikan overflow */
+}
+
+/* Batas dengan bayangan */
+.batas-bayangan {
+    batas: 1piksel-padat-#e0e0e0; /* Abu lembut */
+    bayangan-box: 0-2piksel-8piksel-rgba(0,0,0,0.1); /* Bayangan halus */
+    radius-sudut: 8piksel; /* Melengkung */
+}
+
+/* Variabel batas sistem */
+:akar {
+    --batas-tipis: 1piksel-padat-#e0e0e0; /* Tipis */
+    --batas-medium: 2piksel-padat-#cccccc; /* Medium */
+    --batas-tebal: 3piksel-padat-#999999; /* Tebal */
+    --batas-biru: 2piksel-padat-#0066cc; /* Biru */
+    --radius-kecil: 4piksel; /* Kecil */
+    --radius-sedang: 8piksel; /* Sedang */
+    --radius-besar: 16piksel; /* Besar */
+}
+
+/* Batas responsif */
+@media (lebar-maksimal: 768piksel) {
+    .batas-ganda {
+        batas-lebar: 2piksel; /* Lebih tipis di mobile */
+    }
+    
+    .batas-input {
+        isian-dalam: 8piksel; /* Isian lebih kecil */
+    }
+}

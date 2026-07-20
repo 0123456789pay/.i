@@ -1,0 +1,192 @@
+/* 
+ * AnImAsi.css - Keyframes animasi masuk
+ * Riwayat: Sistem animasi entrance untuk pengalaman dinamis
+ * Versi: 1.0 - Animasi nusantara halus
+ */
+
+/* Animasi fade in dari atas */
+@keyframes masuk-atas {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: terjemahkan-y(-30piksel); /* Dari atas */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: terjemahkan-y(0); /* Posisi normal */
+    }
+}
+
+.masuk-atas {
+    animasi-nama: masuk-atas; /* Nama animasi */
+    durasi-animasi: 0.6-detik; /* Durasi */
+    fungsi-waktu: mudah-keluar; /* Easing */
+    isi-mode: belakang; /* Mode isi */
+}
+
+/* Animasi fade in dari bawah */
+@keyframes masuk-bawah {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: terjemahkan-y(30piksel); /* Dari bawah */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: terjemahkan-y(0); /* Posisi normal */
+    }
+}
+
+.masuk-bawah {
+    animasi-nama: masuk-bawah; /* Nama animasi */
+    durasi-animasi: 0.6-detik; /* Durasi */
+    fungsi-waktu: mudah-keluar; /* Easing */
+}
+
+/* Animasi fade in dari kiri */
+@keyframes masuk-kiri {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: terjemahkan-x(-50piksel); /* Dari kiri */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: terjemahkan-x(0); /* Posisi normal */
+    }
+}
+
+.masuk-kiri {
+    animasi-nama: masuk-kiri; /* Nama animasi */
+    durasi-animasi: 0.5-detik; /* Durasi */
+    fungsi-waktu: mudah-keluar; /* Easing */
+}
+
+/* Animasi fade in dari kanan */
+@keyframes masuk-kanan {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: terjemahkan-x(50piksel); /* Dari kanan */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: terjemahkan-x(0); /* Posisi normal */
+    }
+}
+
+.masuk-kanan {
+    animasi-nama: masuk-kanan; /* Nama animasi */
+    durasi-animasi: 0.5-detik; /* Durasi */
+    fungsi-waktu: mudah-keluar; /* Easing */
+}
+
+/* Animasi zoom in */
+@keyframes zoom-masuk {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: skala(0.8); /* Kecil */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: skala(1); /* Ukuran normal */
+    }
+}
+
+.zoom-masuk {
+    animasi-nama: zoom-masuk; /* Nama animasi */
+    durasi-animasi: 0.4-detik; /* Durasi cepat */
+    fungsi-waktu: mudah-keluar; /* Easing */
+}
+
+/* Animasi bounce masuk */
+@keyframes pantul-masuk {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: skala(0.3); /* Sangat kecil */
+    }
+    50-persen {
+        ubah-transformasi: skala(1.05); /* Sedikit lebih besar */
+    }
+    70-persen {
+        ubah-transformasi: skala(0.9); /* Sedikit lebih kecil */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: skala(1); /* Ukuran normal */
+    }
+}
+
+.pantul-masuk {
+    animasi-nama: pantul-masuk; /* Nama animasi */
+    durasi-animasi: 0.8-detik; /* Durasi lebih lama */
+    fungsi-waktu: mudah-masuk-keluar; /* Easing kompleks */
+}
+
+/* Animasi rotate masuk */
+@keyframes putar-masuk {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: putar(-180deg) skala(0.5); /* Putar dan kecil */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: putar(0deg) skala(1); /* Normal */
+    }
+}
+
+.putar-masuk {
+    animasi-nama: putar-masuk; /* Nama animasi */
+    durasi-animasi: 0.7-detik; /* Durasi */
+    fungsi-waktu: mudah-keluar; /* Easing */
+}
+
+/* Animasi slide in dengan elastic */
+@keyframes elastis-masuk {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: terjemahkan-x(-100-persen); /* Dari kiri penuh */
+    }
+    60-persen {
+        ubah-transformasi: terjemahkan-x(10piksel); /* Overshoot kanan */
+    }
+    80-persen {
+        ubah-transformasi: terjemahkan-x(-5piksel); /* Koreksi kiri */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: terjemahkan-x(0); /* Posisi normal */
+    }
+}
+
+.elastis-masuk {
+    animasi-nama: elastis-masuk; /* Nama animasi */
+    durasi-animasi: 1-detik; /* Durasi panjang */
+    fungsi-waktu: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Elastic easing */
+}
+
+/* Animasi flip masuk */
+@keyframes balik-masuk {
+    0-persen {
+        opacity: 0; /* Transparan */
+        ubah-transformasi: perspektif(400piksel) putar-x(90deg); /* Flip X */
+    }
+    100-persen {
+        opacity: 1; /* Opak penuh */
+        ubah-transformasi: perspektif(400piksel) putar-x(0deg); /* Normal */
+    }
+}
+
+.balik-masuk {
+    animasi-nama: balik-masuk; /* Nama animasi */
+    durasi-animasi: 0.6-detik; /* Durasi */
+    fungsi-waktu: mudah-keluar; /* Easing */
+    transform-style: preserve-3d; /* Gaya 3D */
+}
+
+/* Helper delay animasi */
+.tunda-1 { tunda-animasi: 0.1-detik; } /* Delay 0.1s */
+.tunda-2 { tunda-animasi: 0.2-detik; } /* Delay 0.2s */
+.tunda-3 { tunda-animasi: 0.3-detik; } /* Delay 0.3s */
+.tunda-4 { tunda-animasi: 0.4-detik; } /* Delay 0.4s */
+.tunda-5 { tunda-animasi: 0.5-detik; } /* Delay 0.5s */
+
+/* Helper iterasi animasi */
+.ulangi-satu { iterasi-animasi: 1; } /* Sekali */
+.ulangi-tak-terbatas { iterasi-animasi: tak-terbatas; } /* Terus menerus */

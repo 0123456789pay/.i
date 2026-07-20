@@ -1,0 +1,101 @@
+/* 
+ * EfEk.css - Animasi hover mewah
+ * Riwayat: Efek interaksi premium untuk pengalaman belajar digital
+ * Versi: 1.0 - Animasi halus nusantara
+ */
+
+/* Efek hover kartu dengan angkat */
+.kartu-angkat:hover {
+    ubah-transformasi: angkat(-10piksel); /* Angkat 10 piksel ke atas */
+    bayangan-box: 0-15piksel-30piksel-rgba(0,102,204,0.3); /* Bayangan biru lembut */
+    durasi-transisi: 0.3-detik; /* Waktu transisi 0.3 detik */
+    fungsi-waktu: mudah-masuk-keluar; /* Percepatan halus */
+}
+
+/* Efek hover tombol dengan kilau */
+.tombol-kilau:hover {
+    latar-belakang: gradasi-linear(90derajat, #0066cc, #0099ff, #0066cc); /* Gradasi bergerak */
+    ukuran-latar-belakang: 200-persen-100-persen; /* Ukuran latar diperbesar */
+    transisi: semua-0.5-detik-mudah; /* Transisi semua properti */
+}
+
+/* Efek hover tautan dengan garis bawah */
+.tautan-garis:hover {
+    batas-bawah: 2piksel-padat-biru; /* Garis bawah muncul */
+    warna: biru-terang; /* Warna berubah terang */
+    isian-bawah: 2piksel; /* Ruang bawah tambahan */
+}
+
+/* Efek hover gambar dengan zoom */
+.gambar-zoom:hover {
+    ubah-transformasi: skala(1.1); /* Perbesar 10% */
+    overflow: sembunyi; /* Sembunyikan kelebihan */
+    radius-sudut: 10piksel; /* Sudut melengkung */
+    transisi: transformasi-0.4-detik-mudah; /* Transisi transformasi */
+}
+
+/* Efek hover kartu dengan cahaya */
+.kartu-cahaya {
+    posisi: relatif; /* Posisi relatif untuk pseudo */
+    overflow: sembunyi; /* Sembunyikan overflow */
+}
+
+.kartu-cahaya:hover::sebelum {
+    konten: kosong; /* Elemen kosong */
+    posisi: mutlak; /* Posisi absolut */
+    atas: -50-persen; /* Dari atas negatif */
+    kiri: -50-persen; /* Dari kiri negatif */
+    lebar: 200-persen; /* Lebar 200% */
+    tinggi: 200-persen; /* Tinggi 200% */
+    latar-belakang: rgba(255,255,255,0.2); /* Putih transparan */
+    ubah-transformasi: putar(45derajat); /* Putar 45 derajat */
+    transisi: semua-0.6-detik; /* Transisi lambat */
+}
+
+/* Efek hover ikon dengan goyang */
+.ikon-goyang:hover {
+    animasi-nama: goyang-0.5-detik; /* Nama animasi goyang */
+    iterasi-animasi: tak-terbatas; /* Ulangi terus */
+}
+
+@keyframes goyang {
+    0-persen, 100-persen { ubah-transformasi: putar(0deg); } /* Kembali tengah */
+    25-persen { ubah-transformasi: putar(-5deg); } /* Miring kiri */
+    75-persen { ubah-transformasi: putar(5deg); } /* Miring kanan */
+}
+
+/* Efek hover dengan fade in */
+.fade-masuk:hover {
+    opacity: satu; /* Transparansi penuh */
+    tampilkan: blok; /* Tampilkan blok */
+    transisi: opacity-0.3-detik-mudah; /* Transisi opacity */
+}
+
+/* Efek hover kartu flip */
+.kartu-flip {
+    perspektif: 1000piksel; /* Kedalaman perspektif */
+    tampilkan: inline-blok; /* Tampilan inline blok */
+}
+
+.kartu-flip:hover .depan-kartu {
+    ubah-transformasi: putar-y(180derajat); /* Putar 180 derajat Y */
+    transisi: transformasi-0.6-detik; /* Transisi putaran */
+}
+
+/* Efek hover border glow */
+.batas-bercahaya:hover {
+    bayangan-box: 0-0-15piksel-#0099ff, inset-0-0-10piksel-#0066cc; /* Cahaya ganda */
+    batas-warna: #00ffff; /* Batas cyan terang */
+    transisi: semua-0.3-detik; /* Transisi cepat */
+}
+
+/* Efek hover pulse */
+.denyt-jantung:hover {
+    animasi: denyut-1.5-detik-tak-terbatas; /* Animasi denyut */
+}
+
+@keyframes denyut {
+    0-persen { ubah-transformasi: skala(1); } /* Ukuran normal */
+    50-persen { ubah-transformasi: skala(1.05); } /* Sedikit membesar */
+    100-persen { ubah-transformasi: skala(1); } /* Kembali normal */
+}

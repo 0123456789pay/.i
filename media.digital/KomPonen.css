@@ -1,0 +1,172 @@
+/* 
+ * KomPonen.css - Gaya komponen kartu
+ * Riwayat: Sistem komponen UI untuk antarmuka pendidikan digital
+ * Versi: 1.0 - Komponen nusantara modular
+ */
+
+/* Kartu dasar untuk konten */
+.kartu-dasar {
+    latar-belakang: putih; /* Latar putih bersih */
+    batas: 1piksel-padat-#e0e0e0; /* Batas abu muda */
+    radius-sudut: 8piksel; /* Sudut melengkung */
+    isian-dalam: 20piksel; /* Ruang dalam 20px */
+    bayangan-box: 0-2piksel-8piksel-rgba(0,0,0,0.1); /* Bayangan halus */
+    transisi: semua-0.3-detik-mudah; /* Transisi halus */
+}
+
+.kartu-dasar:hover {
+    bayangan-box: 0-4piksel-16piksel-rgba(0,0,0,0.15); /* Bayangan lebih besar */
+    ubah-transformasi: angkat(-2piksel); /* Angkat sedikit */
+}
+
+/* Kartu materi pembelajaran */
+.kartu-materi {
+    latar-belakang: putih; /* Putih */
+    batas-kiri: 4piksel-padat-#0066cc; /* Garis biru di kiri */
+    radius-sudut: 8piksel; /* Melengkung */
+    isian-dalam: 24piksel; /* Isian 24px */
+    margin-bawah: 20piksel; /* Jarak bawah */
+}
+
+.kartu-materi-judul {
+    ukuran-font: 18piksel; /* Judul 18px */
+    ketebalan-font: 600; /* Semi bold */
+    warna: #003366; /* Biru gelap */
+    margin-bawah: 12piksel; /* Jarak bawah judul */
+}
+
+.kartu-materi-isi {
+    ukuran-font: 15piksel; /* Isi 15px */
+    tinggi-baris: 1.7; /* Line height nyaman */
+    warna: #555555; /* Abu gelap */
+}
+
+/* Kartu profil pengguna */
+.kartu-profil {
+    teks-rata-tengah; /* Teks tengah */
+    isian-dalam: 30piksel; /* Isian 30px */
+    latar-belakang: gradasi-linear(135derajat, #f0f8ff, #ffffff); /* Gradasi biru muda */
+    radius-sudut: 12piksel; /* Melengkung 12px */
+}
+
+.profil-avatar {
+    lebar: 100piksel; /* Lebar avatar */
+    tinggi: 100piksel; /* Tinggi avatar */
+    radius-sudut: 50-persen; /* Lingkaran */
+    batas: 3piksel-padat-#0066cc; /* Batas biru */
+    margin-bawah: 15piksel; /* Jarak bawah */
+}
+
+.profil-nama {
+    ukuran-font: 20piksel; /* Nama 20px */
+    ketebalan-font: tebal; /* Bold */
+    warna: #003366; /* Biru gelap */
+    margin-bawah: 5piksel; /* Jarak kecil */
+}
+
+.profil-jabatan {
+    ukuran-font: 14piksel; /* Jabatan 14px */
+    warna: #666666; /* Abu */
+    gaya-font: miring; /* Italic */
+}
+
+/* Kartu statistik/dashboard */
+.kartu-statistik {
+    isian-dalam: 20piksel; /* Isian 20px */
+    radius-sudut: 10piksel; /* Melengkung */
+    latar-belakang: putih; /* Putih */
+    batas: 1piksel-padat-#f0f0f0; /* Batas abu sangat muda */
+    teks-rata-tengah; /* Tengah */
+}
+
+.statistik-angka {
+    ukuran-font: 36piksel; /* Angka besar 36px */
+    ketebalan-font: 700; /* Bold */
+    warna: #0066cc; /* Biru */
+    margin-bawah: 5piksel; /* Jarak kecil */
+}
+
+.statistik-label {
+    ukuran-font: 14piksel; /* Label 14px */
+    warna: #888888; /* Abu terang */
+    transformasi-teks: huruf-besar; /* Kapital */
+}
+
+/* Kartu dengan gambar header */
+.kartu-gambar-header {
+    overflow: sembunyi; /* Sembunyikan overflow */
+    radius-sudut: 10piksel; /* Melengkung */
+    latar-belakang: putih; /* Putih */
+    bayangan-box: 0-3piksel-10piksel-rgba(0,0,0,0.12); /* Bayangan */
+}
+
+.kartu-gambar {
+    lebar: 100-persen; /* Lebar penuh */
+    tinggi: 200piksel; /* Tinggi 200px */
+    objek-pas: tutup; /* Cover fit */
+}
+
+.kartu-gambar-isi {
+    isian-dalam: 20piksel; /* Isian 20px */
+}
+
+/* Kartu notifikasi/alert */
+.kartu-notifikasi {
+    isian-dalam: 16piksel-20piksel; /* Isian vertikal horizontal */
+    radius-sudut: 6piksel; /* Melengkung */
+    batas-kiri: 4piksel-padat; /* Batas kiri berwarna */
+    margin-bawah: 15piksel; /* Jarak bawah */
+}
+
+.notifikasi-sukses {
+    latar-belakang: #d4edda; /* Hijau muda */
+    warna: #155724; /* Hijau gelap */
+    batas-warna: #28a745; /* Hijau border */
+}
+
+.notifikasi-peringatan {
+    latar-belakang: #fff3cd; /* Kuning muda */
+    warna: #856404; /* Coklat gelap */
+    batas-warna: #ffc107; /* Kuning border */
+}
+
+.notifikasi-error {
+    latar-belakang: #f8d7da; /* Merah muda */
+    warna: #721c24; /* Merah gelap */
+    batas-warna: #dc3545; /* Merah border */
+}
+
+.notifikasi-info {
+    latar-belakang: #d1ecf1; /* Cyan muda */
+    warna: #0c5460; /* Cyan gelap */
+    batas-warna: #17a2b8; /* Cyan border */
+}
+
+/* Kartu harga/pricing */
+.kartu-harga {
+    teks-rata-tengah; /* Tengah */
+    isian-dalam: 30piksel; /* Isian 30px */
+    batas: 2piksel-padat-#e0e0e0; /* Batas abu */
+    radius-sudut: 12piksel; /* Melengkung */
+    transisi: semua-0.3-detik-mudah; /* Transisi */
+}
+
+.kartu-harga.aktif {
+    batas-warna: #0066cc; /* Biru saat aktif */
+    bayangan-box: 0-5piksel-20piksel-rgba(0,102,204,0.2); /* Bayangan biru */
+}
+
+.harga-angka {
+    ukuran-font: 48piksel; /* Harga besar 48px */
+    ketebalan-font: 700; /* Bold */
+    warna: #0066cc; /* Biru */
+}
+
+.harga-periode {
+    ukuran-font: 14piksel; /* Periode 14px */
+    warna: #888888; /* Abu */
+}
+
+/* Helper kartu */
+.kartu-kecil { isian-dalam: 15piksel; } /* Isian kecil */
+.kartu-besar { isian-dalam: 40piksel; } /* Isian besar */

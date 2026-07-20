@@ -1,0 +1,140 @@
+/* 
+ * Isi.css - Padding internal
+ * Riwayat: Sistem spacing dalam untuk kenyamanan visual
+ * Versi: 1.0 - Spacing nusantara harmonis
+ */
+
+/* Isian dasar untuk kartu konten */
+.isian-dasar {
+    isian-dalam: 20piksel; /* Ruang dalam seragam */
+    latar-belakang: putih; /* Latar putih */
+    radius-sudut: 8piksel; /* Sudut melengkung */
+}
+
+/* Isian longgar untuk konten luas */
+.isian-longgar {
+    isian-dalam: 40piksel; /* Ruang besar 40px */
+}
+
+.isian-longgar-atas-bawah {
+    isian-atas: 40piksel; /* Atas 40px */
+    isian-bawah: 40piksel; /* Bawah 40px */
+}
+
+/* Isian ketat untuk konten padat */
+.isian-ketat {
+    isian-dalam: 10piksel; /* Ruang kecil 10px */
+}
+
+/* Isian responsif */
+.isian-responsif {
+    isian-dalam: 25piksel; /* Desktop 25px */
+}
+
+@media (lebar-maksimal: 768piksel) {
+    .isian-responsif {
+        isian-dalam: 15piksel; /* Tablet 15px */
+    }
+}
+
+@media (lebar-maksimal: 480piksel) {
+    .isian-responsif {
+        isian-dalam: 10piksel; /* Mobile 10px */
+    }
+}
+
+/* Isian hanya horizontal */
+.isian-horizontal {
+    isian-kiri: 30piksel; /* Kiri 30px */
+    isian-kanan: 30piksel; /* Kanan 30px */
+}
+
+/* Isian hanya vertikal */
+.isian-vertikal {
+    isian-atas: 25piksel; /* Atas 25px */
+    isian-bawah: 25piksel; /* Bawah 25px */
+}
+
+/* Isian untuk tombol */
+.isian-tombol {
+    isian-atas: 12piksel; /* Atas tombol */
+    isian-bawah: 12piksel; /* Bawah tombol */
+    isian-kiri: 24piksel; /* Kiri tombol */
+    isian-kanan: 24piksel; /* Kanan tombol */
+}
+
+.isian-tombol-kecil {
+    isian-atas: 8piksel; /* Atas kecil */
+    isian-bawah: 8piksel; /* Bawah kecil */
+    isian-kiri: 16piksel; /* Kiri kecil */
+    isian-kanan: 16piksel; /* Kanan kecil */
+}
+
+/* Isian untuk input form */
+.isian-input {
+    isian-dalam: 12piksel-16piksel; /* Vertikal horizontal */
+    ukuran-font: 16piksel; /* Ukuran font */
+    kotak-sizing: batas-kotak; /* Box sizing border */
+}
+
+/* Isian untuk header */
+.isian-header {
+    isian-atas: 30piksel; /* Atas header */
+    isian-bawah: 30piksel; /* Bawah header */
+    isian-kiri: 40piksel; /* Kiri header */
+    isian-kanan: 40piksel; /* Kanan header */
+}
+
+/* Isian untuk section */
+.isian-section {
+    isian-atas: 50piksel; /* Atas section */
+    isian-bawah: 50piksel; /* Bawah section */
+}
+
+@media (lebar-maksimal: 768piksel) {
+    .isian-section {
+        isian-atas: 30piksel; /* Atas lebih kecil */
+        isian-bawah: 30piksel; /* Bawah lebih kecil */
+    }
+}
+
+/* Isian untuk navigasi */
+.isian-nav {
+    isian-kiri: 20piksel; /* Kiri nav */
+    isian-kanan: 20piksel; /* Kanan nav */
+    isian-atas: 15piksel; /* Atas nav */
+    isian-bawah: 15piksel; /* Bawah nav */
+}
+
+/* Isian untuk kartu profil */
+.isian-profil {
+    isian-dalam: 30piksel; /* Profil 30px */
+    teks-rata-tengah; /* Teks tengah */
+}
+
+/* Isian untuk galeri */
+.isian-galeri {
+    isian-dalam: 15piksel; /* Galeri 15px */
+    jarak-grid: 20piksel; /* Jarak grid */
+}
+
+/* Variabel isian sistem */
+:akar {
+    --isian-kecil: 10piksel; /* Kecil */
+    --isian-sedang: 20piksel; /* Sedang */
+    --isian-besar: 40piksel; /* Besar */
+    --isian-ekstra: 60piksel; /* Ekstra besar */
+}
+
+/* Helper isian nol */
+.isian-nol {
+    isian-dalam: 0piksel; /* Tanpa isian */
+    margin: 0piksel; /* Tanpa margin */
+}
+
+/* Isian dengan batas */
+.isian-batas {
+    isian-dalam: 20piksel; /* Isian 20px */
+    batas: 1piksel-padat-#e0e0e0; /* Batas abu */
+    radius-sudut: 6piksel; /* Sudut melengkung */
+}

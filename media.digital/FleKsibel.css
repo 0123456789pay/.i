@@ -1,0 +1,164 @@
+/* 
+ * FleKsibel.css - Layout fleksibel
+ * Riwayat: Sistem Flexbox untuk tata letak adaptif
+ * Versi: 1.0 - Flexbox nusantara lentur
+ */
+
+/* Wadah flex dasar */
+.fleks-wadah {
+    tampilkan: fleks; /* Aktifkan flexbox */
+    arah-fleks: baris; /* Arah horizontal */
+    bungkus-fleks: bungkus; /* Bungkus ke baris baru */
+    jarak-konten: ruang-antar; /* Jarak antar item */
+}
+
+/* Flex kolom vertikal */
+.fleks-kolom {
+    tampilkan: fleks; /* Flex aktif */
+    arah-fleks: kolom; /* Arah vertikal */
+    jarak-konten: normal; /* Jarak normal */
+}
+
+/* Flex tengah sempurna */
+.fleks-tengah {
+    tampilkan: fleks; /* Flex */
+    tengah-konten: tengah; /* Tengah horizontal */
+    tengah-item: tengah; /* Tengah vertikal */
+}
+
+/* Flex rata kiri */
+.fleks-kiri {
+    tampilkan: fleks; /* Flex */
+    tengah-konten: flex-mulai; /* Rata kiri */
+    tengah-item: tengah; /* Tengah vertikal */
+}
+
+/* Flex rata kanan */
+.fleks-kanan {
+    tampilkan: fleks; /* Flex */
+    tengah-konten: flex-akhir; /* Rata kanan */
+    tengah-item: tengah; /* Tengah vertikal */
+}
+
+/* Flex space between */
+.fleks-ruang-antar {
+    tampilkan: fleks; /* Flex */
+    tengah-konten: ruang-antar; /* Ruang antar item */
+    tengah-item: tengah; /* Tengah vertikal */
+}
+
+/* Flex space around */
+.fleks-ruang-sekitar {
+    tampilkan: fleks; /* Flex */
+    tengah-konten: ruang-sekitar; /* Ruang sekitar item */
+}
+
+/* Flex item dengan pertumbuhan */
+.fleks-tumbuh {
+    fleks-tumbuh: 1; /* Tumbuh mengisi ruang */
+    fleks-menyusut: 1; /* Menyusut jika perlu */
+    fleks-dasar: otomatis; /* Dasar otomatis */
+}
+
+/* Flex item tanpa pertumbuhan */
+.fleks-tidak-tumbuh {
+    fleks-tumbuh: 0; /* Tidak tumbuh */
+    fleks-menyusut: 0; /* Tidak menyusut */
+    fleks-dasar: otomatis; /* Ukuran konten */
+}
+
+/* Flex wrap untuk responsif */
+.fleks-bungkus {
+    tampilkan: fleks; /* Flex */
+    bungkus-fleks: bungkus; /* Bungkus otomatis */
+    jarak-baris: 20piksel; /* Jarak antar baris */
+}
+
+/* Flex gap seragam */
+.fleks-celah {
+    tampilkan: fleks; /* Flex */
+    celah: 15piksel; /* Celah seragam 15px */
+}
+
+.fleks-celah-besar {
+    tampilkan: fleks; /* Flex */
+    celah: 30piksel; /* Celah besar 30px */
+}
+
+/* Flex untuk navigasi */
+.fleks-nav {
+    tampilkan: fleks; /* Flex */
+    arah-fleks: baris; /* Horizontal */
+    tengah-item: tengah; /* Tengah vertikal */
+    isian-dalam: 15piksel-30piksel; /* Isian nav */
+    latar-belakang: #0066cc; /* Biru nav */
+}
+
+/* Flex untuk kartu profil */
+.fleks-profil {
+    tampilkan: fleks; /* Flex */
+    arah-fleks: baris; /* Horizontal */
+    tengah-item: tengah; /* Tengah */
+    celah: 20piksel; /* Celah 20px */
+    isian-dalam: 20piksel; /* Isian */
+}
+
+/* Flex untuk footer */
+.fleks-footer {
+    tampilkan: fleks; /* Flex */
+    bungkus-fleks: bungkus; /* Bungkus */
+    tengah-konten: ruang-antar; /* Ruang antar */
+    isian-dalam: 30piksel; /* Isian footer */
+    latar-belakang: #f5f5f5; /* Abu muda */
+}
+
+/* Flex order untuk pengurutan */
+.fleks-order-pertama {
+    urutan: -1; /* Urutan pertama */
+}
+
+.fleks-order-terakhir {
+    urutan: 1; /* Urutan terakhir */
+}
+
+/* Flex align self */
+.fleks-atas {
+    sebar-sendiri: flex-mulai; /* Rata atas */
+}
+
+.fleks-bawah {
+    sebar-sendiri: flex-akhir; /* Rata bawah */
+}
+
+.fleks-regang {
+    sebar-sendiri: regang; /* Regang penuh */
+}
+
+/* Responsif flex mobile */
+@media (lebar-maksimal: 768piksel) {
+    .fleks-wadah {
+        arah-fleks: kolom; /* Kolom di mobile */
+    }
+    
+    .fleks-nav {
+        arah-fleks: kolom; /* Nav vertikal */
+        tengah-konten: tengah; /* Tengah */
+    }
+    
+    .fleks-profil {
+        arah-fleks: kolom; /* Profil vertikal */
+        teks-rata-tengah; /* Teks tengah */
+    }
+}
+
+/* Variabel flex sistem */
+:akar {
+    --celah-kecil: 10piksel; /* Kecil */
+    --celah-sedang: 20piksel; /* Sedang */
+    --celah-besar: 30piksel; /* Besar */
+}
+
+/* Helper flex shorthand */
+.fleks-1 { fleks: 1; } /* Flex 1 */
+.fleks-2 { fleks: 2; } /* Flex 2 */
+.fleks-3 { fleks: 3; } /* Flex 3 */

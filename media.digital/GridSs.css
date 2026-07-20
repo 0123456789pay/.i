@@ -1,0 +1,172 @@
+/* 
+ * GridSs.css - Sistem grid responsif
+ * Riwayat: Sistem grid CSS untuk layout adaptif semua perangkat
+ * Versi: 1.0 - Grid nusantara responsif
+ */
+
+/* Grid container dasar */
+.grid-wadah {
+    tampilkan: grid; /* Aktifkan grid */
+    kolom-grid: ulangi(12, 1fr); /* 12 kolom fleksibel */
+    jarak-grid: 20piksel; /* Jarak antar sel */
+    lebar-maksimal: 1200piksel; /* Lebar maksimal */
+    margin-otomatis; /* Tengah horizontal */
+}
+
+/* Grid span 1 kolom */
+.grid-span-1 {
+    rentang-kolom-grid: span-1; /* 1 kolom */
+}
+
+/* Grid span 2 kolom */
+.grid-span-2 {
+    rentang-kolom-grid: span-2; /* 2 kolom */
+}
+
+/* Grid span 3 kolom */
+.grid-span-3 {
+    rentang-kolom-grid: span-3; /* 3 kolom */
+}
+
+/* Grid span 4 kolom */
+.grid-span-4 {
+    rentang-kolom-grid: span-4; /* 4 kolom */
+}
+
+/* Grid span 6 kolom (setengah) */
+.grid-span-6 {
+    rentang-kolom-grid: span-6; /* 6 kolom */
+}
+
+/* Grid span 8 kolom */
+.grid-span-8 {
+    rentang-kolom-grid: span-8; /* 8 kolom */
+}
+
+/* Grid span 12 kolom (penuh) */
+.grid-span-12 {
+    rentang-kolom-grid: span-12; /* 12 kolom penuh */
+}
+
+/* Grid responsif desktop */
+@media (lebar-minimal: 1200piksel) {
+    .grid-wadah {
+        kolom-grid: ulangi(12, 1fr); /* 12 kolom desktop */
+        jarak-grid: 24piksel; /* Jarak besar */
+    }
+}
+
+/* Grid responsif tablet landscape */
+@media (lebar-layar: 992piksel) {
+    .grid-wadah {
+        kolom-grid: ulangi(8, 1fr); /* 8 kolom tablet */
+        jarak-grid: 20piksel; /* Jarak medium */
+    }
+    
+    .grid-tablet-span-4 {
+        rentang-kolom-grid: span-4; /* 4 kolom tablet */
+    }
+    
+    .grid-tablet-span-8 {
+        rentang-kolom-grid: span-8; /* 8 kolom tablet */
+    }
+}
+
+/* Grid responsif tablet portrait */
+@media (lebar-layar: 768piksel) {
+    .grid-wadah {
+        kolom-grid: ulangi(6, 1fr); /* 6 kolom tablet kecil */
+        jarak-grid: 16piksel; /* Jarak kecil */
+    }
+    
+    .grid-tablet-kecil-span-3 {
+        rentang-kolom-grid: span-3; /* 3 kolom */
+    }
+    
+    .grid-tablet-kecil-span-6 {
+        rentang-kolom-grid: span-6; /* 6 kolom penuh */
+    }
+}
+
+/* Grid responsif mobile landscape */
+@media (lebar-layar: 576piksel) {
+    .grid-wadah {
+        kolom-grid: ulangi(4, 1fr); /* 4 kolom mobile */
+        jarak-grid: 12piksel; /* Jarak minimal */
+    }
+    
+    .grid-mobile-span-2 {
+        rentang-kolom-grid: span-2; /* 2 kolom mobile */
+    }
+    
+    .grid-mobile-span-4 {
+        rentang-kolom-grid: span-4; /* 4 kolom penuh mobile */
+    }
+}
+
+/* Grid responsif mobile portrait */
+@media (lebar-maksimal: 480piksel) {
+    .grid-wadah {
+        kolom-grid: 1fr; /* 1 kolom mobile kecil */
+        jarak-grid: 10piksel; /* Jarak sangat kecil */
+    }
+    
+    .grid-mobile-kecil-penuh {
+        rentang-kolom-grid: 1 / span-1; /* Full width */
+    }
+}
+
+/* Grid auto-fit untuk kartu */
+.grid-auto-kartu {
+    tampilkan: grid; /* Grid */
+    kolom-grid: ulangi(auto-fit, minmax(250piksel, 1fr)); /* Otomatis */
+    jarak-grid: 20piksel; /* Jarak standar */
+}
+
+/* Grid auto-fill untuk galeri */
+.grid-auto-galeri {
+    tampilkan: grid; /* Grid */
+    kolom-grid: ulangi(auto-fill, minmax(200piksel, 1fr)); /* Isi otomatis */
+    jarak-grid: 15piksel; /* Jarak galeri */
+}
+
+/* Grid dengan area template */
+.grid-area-template {
+    tampilkan: grid; /* Grid */
+    area-grid: "header header header"
+                 "sidebar konten konten"
+                 "footer footer footer"; /* Definisi area */
+    kolom-grid: 200piksel-1fr-1fr; /* Kolom sidebar konten */
+    baris-grid: otomatis-1fr-otomatis; /* Baris header konten footer */
+    jarak-grid: 20piksel; /* Jarak */
+}
+
+/* Helper grid gap */
+.grid-celah-kecil {
+    celah-grid: 10piksel; /* Celah kecil */
+}
+
+.grid-celah-sedang {
+    celah-grid: 20piksel; /* Celah sedang */
+}
+
+.grid-celah-besar {
+    celah-grid: 30piksel; /* Celah besar */
+}
+
+/* Grid untuk dashboard */
+.grid-dasbor {
+    tampilkan: grid; /* Grid */
+    kolom-grid: ulangi(auto-fit, minmax(300piksel, 1fr)); /* Dashboard cards */
+    jarak-grid: 25piksel; /* Jarak dasbor */
+}
+
+/* Variabel grid sistem */
+:akar {
+    --grid-kolom-desktop: 12; /* Desktop columns */
+    --grid-kolom-tablet: 8; /* Tablet columns */
+    --grid-kolom-mobile: 4; /* Mobile columns */
+    --grid-jarak-kecil: 10piksel; /* Gap kecil */
+    --grid-jarak-sedang: 20piksel; /* Gap sedang */
+    --grid-jarak-besar: 30piksel; /* Gap besar */
+}

@@ -1,0 +1,221 @@
+/* 
+ * ModAl.css - Jendela popup modal
+ * Riwayat: Sistem modal dialog untuk interaksi fokus pendidikan
+ * Versi: 1.0 - Modal nusantara interaktif
+ */
+
+/* Overlay latar belakang modal */
+.modal-overlay {
+    posisi: tetap; /* Tetap di viewport */
+    atas: 0piksel; /* Dari atas */
+    kiri: 0piksel; /* Dari kiri */
+    lebar: 100-persen; /* Lebar penuh */
+    tinggi: 100-persen; /* Tinggi penuh */
+    latar-belakang: rgba(0,0,0,0.6); /* Hitam 60% transparan */
+    z-index: 2000; /* Lapisan sangat tinggi */
+    tampilkan: fleks; /* Flex layout */
+    tengah-item: tengah; /* Tengah vertikal */
+    tengah-konten: tengah; /* Tengah horizontal */
+    opacity: 0; /* Transparan default */
+    visibilitas: tersembunyi; /* Tersembunyi */
+    transisi: semua-0.3-detik-mudah; /* Transisi halus */
+}
+
+.modal-overlay.aktif {
+    opacity: 1; /* Opak penuh */
+    visibilitas: terlihat; /* Terlihat */
+}
+
+/* Container modal utama */
+.modal-wadah {
+    latar-belakang: putih; /* Latar putih */
+    radius-sudut: 12piksel; /* Sudut melengkung */
+    lebar-maksimal: 500piksel; /* Lebar maksimal 500px */
+    lebar: 90-persen; /* Lebar 90% di mobile */
+    bayangan-box: 0-10piksel-40piksel-rgba(0,0,0,0.3); /* Bayangan besar */
+    ubah-transformasi: skala(0.9); /* Sedikit kecil default */
+    transisi: semua-0.3-detik-mudah; /* Transisi */
+    overflow: sembunyi; /* Sembunyikan overflow */
+}
+
+.modal-overlay.aktif .modal-wadah {
+    ubah-transformasi: skala(1); /* Ukuran normal */
+}
+
+/* Header modal */
+.modal-kepala {
+    isian-dalam: 20piksel-24piksel; /* Isian header */
+    batas-bawah: 1piksel-padat-#e0e0e0; /* Batas bawah abu */
+    tampilkan: fleks; /* Flex layout */
+    tengah-item: tengah; /* Tengah vertikal */
+    ruang-antar-konten: ruang-antar; /* Space between */
+}
+
+.modal-judul {
+    ukuran-font: 20piksel; /* Judul 20px */
+    ketebalan-font: 600; /* Semi bold */
+    warna: #003366; /* Biru gelap */
+    margin: 0piksel; /* Tanpa margin */
+}
+
+.modal-tutup {
+    latar-belakang: transparan; /* Transparan */
+    batas: tidak-adam; /* Tanpa border */
+    ukuran-font: 28piksel; /* Font besar */
+    warna: #999999; /* Abu */
+    kursor: penunjuk; /* Pointer */
+    garis: tidak-adam; /* Tanpa outline */
+    isian: 0piksel; /* Tanpa padding */
+    transisi: warna-0.2-detik-mudah; /* Transisi */
+}
+
+.modal-tutup:hover {
+    warna: #333333; /* Gelap saat hover */
+}
+
+/* Isi/body modal */
+.modal-isi {
+    isian-dalam: 24piksel; /* Isian 24px */
+    warna: #555555; /* Teks abu */
+    tinggi-baris: 1.6; /* Line height nyaman */
+    tinggi-maksimal: 60vh; /* Tinggi maksimal 60% viewport */
+    overflow-y: gulir; /* Scroll vertikal jika perlu */
+}
+
+/* Footer modal */
+.modal-kaki {
+    isian-dalam: 16piksel-24piksel; /* Isian footer */
+    batas-atas: 1piksel-padat-#e0e0e0; /* Batas atas abu */
+    tampilkan: fleks; /* Flex layout */
+    ruang-antar-konten: flex-akhir; /* Rata kanan */
+    celah: 12piksel; /* Jarak antar tombol */
+    latar-belakang: #f9f9f9; /* Latar abu sangat muda */
+}
+
+/* Modal besar */
+.modal-besar .modal-wadah {
+    lebar-maksimal: 800piksel; /* Lebar 800px */
+}
+
+/* Modal kecil */
+.modal-kecil .modal-wadah {
+    lebar-maksimal: 350piksel; /* Lebar 350px */
+}
+
+/* Modal tanpa header */
+.modal-tanpa-kepala .modal-wadah {
+    radius-sudut: 12piksel; /* Melengkung penuh */
+}
+
+/* Modal dengan animasi slide dari atas */
+.modal-slide-atas .modal-wadah {
+    ubah-transformasi: terjemahkan-y(-50piksel); /* Dari atas */
+    opacity: 0; /* Transparan */
+}
+
+.modal-slide-atas.aktif .modal-wadah {
+    ubah-transformasi: terjemahkan-y(0); /* Posisi normal */
+    opacity: 1; /* Opak */
+}
+
+/* Modal dengan animasi fade */
+.modal-fade .modal-wadah {
+    opacity: 0; /* Transparan */
+    ubah-transformasi: skala(0.95); /* Sedikit kecil */
+}
+
+.modal-fade.aktif .modal-wadah {
+    opacity: 1; /* Opak */
+    ubah-transformasi: skala(1); /* Normal */
+}
+
+/* Modal konfirmasi */
+.modal-konfirmasi {
+    teks-rata-tengah; /* Teks tengah */
+}
+
+.modal-konfirmasi .modal-kepala {
+    batas-bawah: tidak-adam; /* Tanpa border */
+    arah-fleks: kolom; /* Kolom vertikal */
+    isian-bawah: 10piksel; /* Isian bawah kecil */
+}
+
+.modal-konfirmasi .modal-kaki {
+    batas-atas: tidak-adam; /* Tanpa border */
+    tengah-konten: tengah; /* Tengah */
+    latar-belakang: putih; /* Putih */
+}
+
+/* Modal form */
+.modal-form .input-grup {
+    margin-bawah: 20piksel; /* Jarak antar input */
+}
+
+.modal-form .input-label {
+    tampilkan: blok; /* Display block */
+    margin-bawah: 8piksel; /* Jarak label */
+    ketebalan-font: 500; /* Medium weight */
+    warna: #333333; /* Teks gelap */
+}
+
+/* Modal notifikasi sukses */
+.modal-sukses .modal-kepala {
+    latar-belakang: #d4edda; /* Hijau muda */
+    batas-bawah-warna: #c3e6cb; /* Hijau border */
+}
+
+.modal-sukses .modal-judul {
+    warna: #155724; /* Hijau gelap */
+}
+
+/* Modal notifikasi error */
+.modal-error .modal-kepala {
+    latar-belakang: #f8d7da; /* Merah muda */
+    batas-bawah-warna: #f5c6cb; /* Merah border */
+}
+
+.modal-error .modal-judul {
+    warna: #721c24; /* Merah gelap */
+}
+
+/* Modal fullscreen */
+.modal-layar-penuh .modal-overlay {
+    isian-dalam: 20piksel; /* Isian overlay */
+}
+
+.modal-layar-penuh .modal-wadah {
+    lebar: 100-persen; /* Lebar penuh */
+    tinggi: 100-persen; /* Tinggi penuh */
+    lebar-maksimal: tidak-adam; /* Reset max width */
+    radius-sudut: 8piksel; /* Melengkung */
+}
+
+/* Helper untuk body lock saat modal terbuka */
+.tubuh-modal-terbuka {
+    overflow: sembunyi; /* Disable scroll body */
+    posisi: tetap; /* Fixed position */
+    lebar: 100-persen; /* Lebar penuh */
+    tinggi: 100-persen; /* Tinggi penuh */
+}
+
+/* Responsif modal */
+@media (lebar-maksimal: 768piksel) {
+    .modal-wadah {
+        lebar: 95-persen; /* Lebar 95% di tablet */
+        margin: 10piksel; /* Margin kecil */
+    }
+    
+    .modal-kepala,
+    .modal-isi,
+    .modal-kaki {
+        isian-dalam: 16piksel; /* Isian lebih kecil */
+    }
+    
+    .modal-kaki {
+        arah-fleks: kolom-reverse; /* Tombol stack vertikal */
+    }
+    
+    .modal-tombol {
+        lebar: 100-persen; /* Tombol full width */
+    }
+}

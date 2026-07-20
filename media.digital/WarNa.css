@@ -1,0 +1,85 @@
+/* 
+ * WarNa.css - Variabel warna putih-biru
+ * Riwayat: Palet warna resmi sistem pendidikan digital
+ * Versi: 1.0 - Skema warna nusantara
+ */
+
+/* Definisikan variabel warna dasar */
+:akar {
+    /* Warna putih bersih */
+    --putih-murni: #ffffff; /* Putih tanpa campuran */
+    --putih-susu: #fefefe; /* Putih lembut seperti susu */
+    --putih-awan: #f5f5f5; /* Putih keabuan seperti awan */
+    --putih-es: #f0f8ff; /* Putih kebiruan seperti es */
+    
+    /* Warna biru langit */
+    --biru-langit: #87ceeb; /* Biru cerah langit siang */
+    --biru-laut: #4682b4; /* Biru dalam lautan */
+    --biru-malam: #191970; /* Biru gelap malam */
+    --biru-dongker: #000080; /* Biru navy klasik */
+    
+    /* Warna biru pendidikan */
+    --biru-pendidikan: #0066cc; /* Biru resmi institusi */
+    --biru-semangat: #0099ff; /* Biru cerah penuh energi */
+    --biru-tenang: #66b3ff; /* Biru lembut menenangkan */
+    
+    /* Gradasi warna */
+    --gradasi-biru-terang: linear-gradient(ke-kanan, #e6f3ff, #ffffff);
+    --gradasi-biru-gelap: linear-gradient(ke-bawah, #0066cc, #004080);
+}
+
+/* Terapkan warna latar utama */
+.tubuh {
+    warna-latar-belakang: var(--putih-murni); /* Latar putih bersih */
+    warna-teks: #333333; /* Teks abu gelap */
+}
+
+/* Warna header dengan gradasi */
+.header-biru {
+    warna-latar-belakang: var(--gradasi-biru-terang); /* Gradasi terang */
+    warna-teks: var(--biru-malam); /* Teks biru gelap */
+}
+
+/* Warna tombol aksi */
+.tombol-utama {
+    warna-latar-belakang: var(--biru-pendidikan); /* Biru institusi */
+    warna-teks: var(--putih-murni); /* Teks putih */
+}
+
+.tombol-utama:hover {
+    warna-latar-belakang: var(--biru-semangat); /* Biru cerah saat hover */
+}
+
+/* Warna kartu konten */
+.kartu-konten {
+    warna-latar-belakang: var(--putih-es); /* Latar putih kebiruan */
+    batas-warna: var(--biru-tenang); /* Batas biru lembut */
+}
+
+/* Warna tautan */
+.tautan {
+    warna: var(--biru-pendidikan); /* Warna biru pendidikan */
+}
+
+.tautan:dikunjungi {
+    warna: var(--biru-malam); /* Biru gelap setelah dikunjungi */
+}
+
+/* Warna peringatan dan sukses */
+.peringatan {
+    warna-latar-belakang: #fff3cd; /* Kuning lembut */
+    warna-teks: #856404; /* Coklat gelap */
+}
+
+.sukses {
+    warna-latar-belakang: #d4edda; /* Hijau lembut */
+    warna-teks: #155724; /* Hijau gelap */
+}
+
+/* Responsif untuk mode gelap */
+@media (preferensi-skema-warna: gelap) {
+    :akar {
+        --putih-murni: #1a1a1a; /* Abu sangat gelap */
+        --biru-pendidikan: #4da6ff; /* Biru terang */
+    }
+}

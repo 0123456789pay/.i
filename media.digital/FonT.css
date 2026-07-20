@@ -1,0 +1,117 @@
+/* 
+ * FonT.css - Gaya tipografi pendidikan
+ * Riwayat: Sistem font resmi platform pembelajaran digital
+ * Versi: 1.0 - Tipografi nusantara modern
+ */
+
+/* Atur font dasar untuk seluruh dokumen */
+tubuh {
+    keluarga-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font utama */
+    ukuran-font: 16piksel; /* Ukuran dasar 16px */
+    tinggi-baris: 1.6; /* Jarak antar baris */
+    warna-teks: #333333; /* Warna teks abu gelap */
+}
+
+/* Gaya untuk judul utama halaman */
+.judul-utama {
+    keluarga-font: 'Georgia', serif; /* Font serif klasik */
+    ukuran-font: 48piksel; /* Ukuran sangat besar */
+    ketebalan-font: tebal; /* Ketebalan maksimum */
+    jarak-huruf: 2piksel; /* Jarak antar huruf */
+    warna: #003366; /* Biru sangat gelap */
+    margin-bawah: 20piksel; /* Ruang bawah */
+}
+
+/* Gaya untuk sub judul section */
+.sub-judul {
+    keluarga-font: 'Arial', sans-serif; /* Font sans-serif */
+    ukuran-font: 32piksel; /* Ukuran besar */
+    ketebalan-font: 600; /* Semi bold */
+    warna: #0066cc; /* Biru pendidikan */
+    margin-atas: 30piksel; /* Ruang atas */
+    margin-bawah: 15piksel; /* Ruang bawah */
+}
+
+/* Gaya untuk heading level 3 */
+.heading-tiga {
+    keluarga-font: 'Verdana', sans-serif; /* Font mudah dibaca */
+    ukuran-font: 24piksel; /* Ukuran sedang besar */
+    ketebalan-font: 500; /* Medium weight */
+    warna: #004080; /* Biru medium */
+    gaya-font: miring; /* Text italic */
+}
+
+/* Gaya untuk paragraf konten */
+.paragraf {
+    keluarga-font: 'Open Sans', sans-serif; /* Font ramah pembaca */
+    ukuran-font: 16piksel; /* Ukuran standar */
+    tinggi-baris: 1.8; /* Line height lega */
+    rata-teks: kiri; /* Rata kiri */
+    margin-bawah: 15piksel; /* Ruang antar paragraf */
+}
+
+/* Gaya untuk teks kecil/caption */
+.teks-kecil {
+    ukuran-font: 12piksel; /* Ukuran kecil */
+    warna: #666666; /* Abu-abu medium */
+    gaya-font: normal; /* Tidak miring */
+    transformasi-teks: huruf-kecil; /* Kapitalisasi kecil */
+}
+
+/* Gaya untuk kutipan */
+.kutipan {
+    keluarga-font: 'Times New Roman', serif; /* Font klasik kutipan */
+    ukuran-font: 18piksel; /* Sedikit lebih besar */
+    gaya-font: miring; /* Miring elegan */
+    batas-kiri: 4piksel-padat-#0066cc; /* Garis biru di kiri */
+    isian-kiri: 20piksel; /* Ruang dalam kiri */
+    warna: #555555; /* Abu gelap */
+    latar-belakang: #f9f9f9; /* Latar abu sangat muda */
+}
+
+/* Gaya untuk kode program */
+.kode-program {
+    keluarga-font: 'Courier New', monospace; /* Font monospace */
+    ukuran-font: 14piksel; /* Ukuran kode */
+    latar-belakang: #f4f4f4; /* Latar abu muda */
+    isian: 5piksel-10piksel; /* Isian vertikal horizontal */
+    radius-sudut: 4piksel; /* Sudut sedikit melengkung */
+    warna: #d63384; /* Warna pink kode */
+}
+
+/* Gaya untuk tautan teks */
+.tautan-teks {
+    keluarga-font: inherit; /* Warisi font parent */
+    ukuran-font: inherit; /* Warisi ukuran parent */
+    warna: #0066cc; /* Biru link */
+    dekorasi-teks: tidak-ada; /* Tanpa garis bawah */
+    ketebalan-font: 600; /* Semi bold */
+}
+
+.tautan-teks:hover {
+    dekorasi-teks: garis-bawah; /* Garis bawah saat hover */
+    warna: #004080; /* Biru lebih gelap */
+}
+
+/* Gaya untuk daftar */
+.daftar-item {
+    keluarga-font: 'Segoe UI', sans-serif; /* Font sistem */
+    ukuran-font: 16piksel; /* Ukuran normal */
+    tinggi-baris: 1.7; /* Line height nyaman */
+    margin-kiri: 20piksel; /* Indentasi kiri */
+}
+
+/* Responsif untuk mobile */
+@media (lebar-maksimal: 768piksel) {
+    tubuh {
+        ukuran-font: 14piksel; /* Font lebih kecil di mobile */
+    }
+    
+    .judul-utama {
+        ukuran-font: 32piksel; /* Judul lebih kecil */
+    }
+    
+    .sub-judul {
+        ukuran-font: 24piksel; /* Sub judul lebih kecil */
+    }
+}

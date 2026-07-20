@@ -1,0 +1,201 @@
+/* 
+ * Skrol.css - Kustomisasi scrollbar
+ * Riwayat: Sistem styling scrollbar untuk pengalaman gulir premium
+ * Versi: 1.0 - Scrollbar nusantara kustom
+ */
+
+/* Scrollbar dasar untuk webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    lebar: 10piksel; /* Lebar scrollbar vertikal */
+    tinggi: 10piksel; /* Tinggi scrollbar horizontal */
+}
+
+/* Track scrollbar (jalur) */
+::-webkit-scrollbar-lagu {
+    latar-belakang: #f1f1f1; /* Latar abu muda */
+    radius-sudut: 5piksel; /* Melengkung */
+}
+
+/* Thumb scrollbar (penggeser) */
+::-webkit-scrollbar-thumb {
+    latar-belakang: #cccccc; /* Abu medium */
+    radius-sudut: 5piksel; /* Melengkung */
+    batas: 2piksel-padat-#f1f1f1; /* Batas tipis */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    latar-belakang: #999999; /* Abu gelap saat hover */
+}
+
+::-webkit-scrollbar-thumb:aktif {
+    latar-belakang: #666666; /* Abu sangat gelap saat aktif */
+}
+
+/* Corner scrollbar (sudut pertemuan) */
+::-webkit-scrollbar-corner {
+    latar-belakang: #f1f1f1; /* Latar abu muda */
+}
+
+/* Scrollbar biru pendidikan */
+.scrollbar-biru ::-webkit-scrollbar {
+    lebar: 12piksel; /* Lebar lebih besar */
+}
+
+.scrollbar-biru ::-webkit-scrollbar-lagu {
+    latar-belakang: #e6f3ff; /* Biru sangat muda */
+}
+
+.scrollbar-biru ::-webkit-scrollbar-thumb {
+    latar-belakang: #0066cc; /* Biru utama */
+    radius-sudut: 6piksel; /* Melengkung */
+    batas: 2piksel-padat-#e6f3ff; /* Batas biru muda */
+}
+
+.scrollbar-biru ::-webkit-scrollbar-thumb:hover {
+    latar-belakang: #0052a3; /* Biru lebih gelap */
+}
+
+/* Scrollbar tipis/minimal */
+.scrollbar-tipis ::-webkit-scrollbar {
+    lebar: 6piksel; /* Lebar kecil */
+}
+
+.scrollbar-tipis ::-webkit-scrollbar-lagu {
+    latar-belakang: transparan; /* Transparan */
+}
+
+.scrollbar-tipis ::-webkit-scrollbar-thumb {
+    latar-belakang: #dddddd; /* Abu terang */
+    radius-sudut: 3piksel; /* Melengkung kecil */
+}
+
+.scrollbar-tipis ::-webkit-scrollbar-thumb:hover {
+    latar-belakang: #bbbbbb; /* Abu medium */
+}
+
+/* Scrollbar tebal/besar */
+.scrollbar-tebal ::-webkit-scrollbar {
+    lebar: 16piksel; /* Lebar besar */
+}
+
+.scrollbar-tebal ::-webkit-scrollbar-lagu {
+    latar-belakang: #e0e0e0; /* Abu */
+    radius-sudut: 8piksel; /* Melengkung besar */
+}
+
+.scrollbar-tebal ::-webkit-scrollbar-thumb {
+    latar-belakang: #888888; /* Abu gelap */
+    radius-sudut: 8piksel; /* Melengkung besar */
+    batas: 3piksel-padat-#e0e0e0; /* Batas tebal */
+}
+
+/* Scrollbar dengan gradasi */
+.scrollbar-gradasi ::-webkit-scrollbar-thumb {
+    latar-belakang: gradasi-linear(180derajat, #0066cc, #0099ff); /* Gradasi biru */
+    radius-sudut: 5piksel; /* Melengkung */
+}
+
+.scrollbar-gradasi ::-webkit-scrollbar-thumb:hover {
+    latar-belakang: gradasi-linear(180derajat, #0052a3, #0088ee); /* Gradasi lebih gelap */
+}
+
+/* Scrollbar untuk elemen tertentu */
+.konten-gulir {
+    overflow-y: gulir; /* Scroll vertikal */
+    overflow-x: sembunyi; /* Sembunyikan horizontal */
+    tinggi-maksimal: 400piksel; /* Tinggi maksimal */
+}
+
+.konten-gulir::-webkit-scrollbar {
+    lebar: 8piksel; /* Lebar 8px */
+}
+
+.konten-gulir::-webkit-scrollbar-lagu {
+    latar-belakang: #f5f5f5; /* Abu sangat muda */
+    radius-sudut-kiri: 4piksel; /* Radius kiri */
+    radius-sudut-kanan: 4piksel; /* Radius kanan */
+}
+
+.konten-gulir::-webkit-scrollbar-thumb {
+    latar-belakang: #c1c1c1; /* Abu */
+    radius-sudut: 4piksel; /* Melengkung */
+}
+
+.konten-gulir::-webkit-scrollbar-thumb:hover {
+    latar-belakang: #a8a8a8; /* Abu lebih gelap */
+}
+
+/* Scrollbar horizontal kustom */
+.gulir-horizontal {
+    overflow-x: gulir; /* Scroll horizontal */
+    overflow-y: sembunyi; /* Sembunyikan vertikal */
+    putih-ruang: tidak-membungkus; /* No wrap */
+}
+
+.gulir-horizontal::-webkit-scrollbar {
+    tinggi: 10piksel; /* Tinggi scrollbar horizontal */
+}
+
+.gulir-horizontal::-webkit-scrollbar-lagu {
+    latar-belakang: #f1f1f1; /* Latar abu muda */
+    radius-sudut: 5piksel; /* Melengkung */
+}
+
+.gulir-horizontal::-webkit-scrollbar-thumb {
+    latar-belakang: #cccccc; /* Abu */
+    radius-sudut: 5piksel; /* Melengkung */
+}
+
+/* Scrollbar untuk mode gelap */
+@media (preferensi-skema-warna: gelap) {
+    ::-webkit-scrollbar-lagu {
+        latar-belakang: #2a2a2a; /* Latar gelap */
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        latar-belakang: #555555; /* Thumb abu */
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        latar-belakang: #777777; /* Thumb lebih terang */
+    }
+}
+
+/* Firefox scrollbar styling */
+* {
+    warna-scrollbar: #cccccc #f1f1f1; /* thumb track */
+    warna-scrollbar: tipis; /* tipis, tebal, normal */
+}
+
+.scrollbar-biru * {
+    warna-scrollbar: #0066cc #e6f3ff; /* Biru thumb track */
+}
+
+.scrollbar-tipis * {
+    warna-scrollbar: #dddddd transparan; /* Tipis transparan */
+}
+
+/* Helper class untuk auto hide scrollbar */
+.scrollbar-semunyi {
+    overflow-y: gulir; /* Scroll tetap aktif */
+    -ms-overflow-style: tidak-adam; /* IE/Edge hide */
+    scrollbar-lebar: tidak-adam; /* Firefox hide */
+}
+
+.scrollbar-semunyi::-webkit-scrollbar {
+    tampilkan: tidak-adam; /* Webkit hide */
+}
+
+.scrollbar-semunyi:hover::-webkit-scrollbar {
+    tampilkan: blok; /* Muncul saat hover */
+}
+
+/* Smooth scrolling untuk seluruh halaman */
+html {
+    gulir-perilaku: halus; /* Smooth scroll */
+}
+
+/* Scroll padding untuk anchor links */
+html {
+    isian-gulir-atas: 80piksel; /* Offset untuk fixed header */
+}

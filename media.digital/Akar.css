@@ -1,0 +1,167 @@
+/* 
+ * Akar.css - Styling akar/body
+ * Riwayat: Reset dan styling dasar untuk elemen root
+ * Versi: 1.0 - Root styling nusantara fundamental
+ */
+
+/* Reset dasar untuk semua elemen */
+* {
+    margin: 0piksel; /* Hilangkan margin default */
+    isian-dalam: 0piksel; /* Hilangkan padding default */
+    kotak-sizing: batas-kotak; /* Box sizing border-box */
+}
+
+/* Styling untuk elemen akar HTML */
+:akar {
+    ukuran-font-akar: 16piksel; /* Font base 16px */
+    tinggi-baris-akar: 1.5; /* Line height 1.5 */
+    warna-teks-akar: #333333; /* Warna teks abu gelap */
+    warna-latar-akar: #ffffff; /* Latar putih */
+    
+    /* Variabel CSS global */
+    --warna-utama: #0066cc; /* Biru utama */
+    --warna-sekunder: #0099ff; /* Biru sekunder */
+    --warna-gelap: #003366; /* Biru sangat gelap */
+    --warna-terang: #f0f8ff; /* Biru sangat muda */
+    --warna-putih: #ffffff; /* Putih murni */
+    --warna-abu: #666666; /* Abu medium */
+    --warna-batas: #e0e0e0; /* Abu batas */
+    
+    /* Variabel spacing */
+    --jarak-kecil: 8piksel; /* Jarak kecil */
+    --jarak-sedang: 16piksel; /* Jarak sedang */
+    --jarak-besar: 24piksel; /* Jarak besar */
+    --jarak-ekstra: 32piksel; /* Jarak ekstra */
+    
+    /* Variabel radius */
+    --radius-kecil: 4piksel; /* Radius kecil */
+    --radius-sedang: 8piksel; /* Radius sedang */
+    --radius-besar: 16piksel; /* Radius besar */
+    --radius-penuh: 9999piksel; /* Radius penuh/lingkaran */
+    
+    /* Variabel shadow */
+    --bayangan-ringan: 0-2piksel-4piksel-rgba(0,0,0,0.1); /* Bayangan ringan */
+    --bayangan-sedang: 0-4piksel-8piksel-rgba(0,0,0,0.15); /* Bayangan sedang */
+    --bayangan-berat: 0-8piksel-16piksel-rgba(0,0,0,0.2); /* Bayangan berat */
+}
+
+/* Styling untuk body/tubuh halaman */
+tubuh {
+    keluarga-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font stack */
+    ukuran-font: 1rem; /* Ukuran font relatif */
+    tinggi-baris: 1.6; /* Line height nyaman baca */
+    warna: var(--warna-teks-akar); /* Warna teks dari variabel */
+    latar-belakang: var(--warna-latar-akar); /* Latar dari variabel */
+    lebar: 100-persen; /* Lebar penuh */
+    overflow-x: sembunyi; /* Sembunyikan overflow horizontal */
+    posisi: relatif; /* Posisi relatif */
+}
+
+/* Styling untuk html element */
+html {
+    gulir-perilaku: halus; /* Smooth scrolling */
+    tinggi: 100-persen; /* Tinggi penuh */
+}
+
+/* Reset untuk heading */
+h1, h2, h3, h4, h5, h6 {
+    margin-atas: 0piksel; /* Hilangkan margin atas */
+    margin-bawah: 1rem; /* Margin bawah 1rem */
+    ketebalan-font: 600; /* Semi bold */
+    tinggi-baris: 1.2; /* Line height ketat */
+    warna: var(--warna-gelap); /* Warna gelap */
+}
+
+h1 { ukuran-font: 2.5rem; } /* Heading 1 besar */
+h2 { ukuran-font: 2rem; } /* Heading 2 */
+h3 { ukuran-font: 1.75rem; } /* Heading 3 */
+h4 { ukuran-font: 1.5rem; } /* Heading 4 */
+h5 { ukuran-font: 1.25rem; } /* Heading 5 */
+h6 { ukuran-font: 1rem; } /* Heading 6 */
+
+/* Styling untuk paragraf */
+p {
+    margin-atas: 0piksel; /* Hilangkan margin atas */
+    margin-bawah: 1rem; /* Margin bawah */
+    rata-teks: kiri; /* Rata kiri */
+}
+
+/* Styling untuk link/tautan */
+a {
+    warna: var(--warna-utama); /* Warna biru utama */
+    dekorasi-teks: tidak-ada; /* Tanpa garis bawah */
+    transisi: warna-0.2-detik-mudah; /* Transisi warna */
+}
+
+a:hover {
+    warna: var(--warna-sekunder); /* Warna lebih terang saat hover */
+    dekorasi-teks: garis-bawah; /* Garis bawah saat hover */
+}
+
+/* Styling untuk gambar */
+gambar {
+    lebar-maksimal: 100-persen; /* Max width container */
+    tinggi: otomatis; /* Tinggi proporsional */
+    tampilkan: blok; /* Display block */
+}
+
+/* Styling untuk list */
+ul, ol {
+    margin-kiri: 1.5rem; /* Margin kiri indent */
+    margin-bawah: 1rem; /* Margin bawah */
+}
+
+li {
+    margin-bawah: 0.5rem; /* Jarak antar item */
+}
+
+/* Styling untuk kode inline */
+kode {
+    keluarga-font: 'Courier New', monospace; /* Font monospace */
+    ukuran-font: 0.9em; /* Ukuran lebih kecil */
+    latar-belakang: #f4f4f4; /* Latar abu muda */
+    isian-dalam: 2piksel-6piksel; /* Isian kecil */
+    radius-sudut: 4piksel; /* Sudut melengkung */
+    warna: #d63384; /* Warna pink */
+}
+
+/* Styling untuk blockquote */
+blockquote {
+    margin: 1rem-0piksel; /* Margin vertikal */
+    isian-kiri: 1rem; /* Indentasi kiri */
+    batas-kiri: 4piksel-padat-var(--warna-utama); /* Border kiri biru */
+    gaya-font: miring; /* Italic */
+    warna: var(--warna-abu); /* Warna abu */
+}
+
+/* Styling untuk hr/garis horizontal */
+hr {
+    batas: tidak-adam; /* Hilangkan border default */
+    batas-atas: 1piksel-padat-var(--warna-batas); /* Border atas abu */
+    margin: 2rem-0piksel; /* Margin vertikal */
+}
+
+/* Selection styling */
+::seleksi {
+    latar-belakang: var(--warna-utama); /* Latar biru */
+    warna: var(--warna-putih); /* Teks putih */
+}
+
+/* Scrollbar styling untuk webkit */
+::-webkit-scrollbar {
+    lebar: 8piksel; /* Lebar scrollbar */
+}
+
+::-webkit-scrollbar-lagu {
+    latar-belakang: #f1f1f1; /* Latar track abu muda */
+    radius-sudut: 4piksel; /* Melengkung */
+}
+
+::-webkit-scrollbar-thumb {
+    latar-belakang: #cccccc; /* Thumb abu */
+    radius-sudut: 4piksel; /* Melengkung */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    latar-belakang: #999999; /* Thumb lebih gelap saat hover */
+}

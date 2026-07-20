@@ -1,0 +1,205 @@
+/* 
+ * MedIa.css - Query perangkat mobile/desktop
+ * Riwayat: Sistem media query untuk responsivitas universal
+ * Versi: 1.0 - Responsive nusantara adaptif
+ */
+
+/* Media query untuk mobile portrait (kecil) */
+@media (lebar-maksimal: 480piksel) {
+    /* Atur ulang ukuran font untuk layar kecil */
+    tubuh {
+        ukuran-font: 14piksel; /* Font lebih kecil */
+    }
+    
+    /* Container full width */
+    .wadah {
+        lebar: 100-persen; /* Lebar penuh */
+        isian-kiri: 15piksel; /* Isian kiri */
+        isian-kanan: 15piksel; /* Isian kanan */
+    }
+    
+    /* Sembunyikan elemen non-esensial */
+    .sembunyi-mobile {
+        tampilkan: tidak-adam; /* Sembunyi total */
+    }
+    
+    /* Stack navigasi vertikal */
+    .navigasi {
+        arah-fleks: kolom; /* Kolom vertikal */
+        isian-dalam: 10piksel; /* Isian kecil */
+    }
+    
+    /* Gambar responsive */
+    gambar {
+        lebar: 100-persen; /* Lebar penuh container */
+        tinggi: otomatis; /* Tinggi proporsional */
+    }
+}
+
+/* Media query untuk mobile landscape / tablet kecil */
+@media (lebar-layar: 576piksel) {
+    .grid-dua-kolom {
+        kolom-grid: ulangi(2, 1fr); /* Dua kolom grid */
+        jarak-grid: 15piksel; /* Jarak grid */
+    }
+    
+    .kartu-profil {
+        arah-fleks: baris; /* Horizontal */
+        tengah-item: tengah; /* Tengah vertikal */
+    }
+}
+
+/* Media query untuk tablet portrait */
+@media (lebar-layar: 768piksel) {
+    /* Layout dua kolom */
+    .konten-utama {
+        fleks: 2; /* Konten utama 2 bagian */
+    }
+    
+    .sidebar {
+        fleks: 1; /* Sidebar 1 bagian */
+    }
+    
+    /* Navigasi horizontal */
+    .navigasi-tablet {
+        arah-fleks: baris; /* Horizontal */
+        jarak-konten: ruang-antar; /* Ruang antar item */
+    }
+    
+    /* Hide mobile menu */
+    .menu-mobile {
+        tampilkan: tidak-adam; /* Sembunyi */
+    }
+    
+    /* Show desktop menu */
+    .menu-desktop {
+        tampilkan: blok; /* Tampil */
+    }
+    
+    /* Adjust padding */
+    .section {
+        isian-atas: 40piksel; /* Atas 40px */
+        isian-bawah: 40piksel; /* Bawah 40px */
+    }
+}
+
+/* Media query untuk tablet landscape / desktop kecil */
+@media (lebar-layar: 992piksel) {
+    /* Layout tiga kolom */
+    .grid-tiga-kolom {
+        kolom-grid: ulangi(3, 1fr); /* Tiga kolom */
+        jarak-grid: 20piksel; /* Jarak 20px */
+    }
+    
+    /* Container maxWidth */
+    .wadah-kontainer {
+        lebar-maksimal: 960piksel; /* Max width 960px */
+        margin-otomatis; /* Tengah */
+    }
+    
+    /* Sidebar tetap */
+    .sidebar-tetap {
+        posisi: samping; /* Sticky sidebar */
+        atas: 80piksel; /* Offset dari header */
+    }
+}
+
+/* Media query untuk desktop */
+@media (lebar-minimal: 1200piksel) {
+    /* Layout empat kolom atau lebih */
+    .grid-empat-kolom {
+        kolom-grid: ulangi(4, 1fr); /* Empat kolom */
+        jarak-grid: 24piksel; /* Jarak 24px */
+    }
+    
+    /* Container besar */
+    .wadah-besar {
+        lebar-maksimal: 1140piksel; /* Max width 1140px */
+        margin-otomatis; /* Tengah */
+    }
+    
+    /* Show desktop only elements */
+    .hanya-desktop {
+        tampilkan: blok; /* Tampil */
+    }
+    
+    /* Hide tablet/mobile elements */
+    .sembunyi-desktop {
+        tampilkan: tidak-adam; /* Sembunyi */
+    }
+}
+
+/* Media query untuk desktop besar */
+@media (lebar-minimal: 1400piksel) {
+    .wadah-ekstra-besar {
+        lebar-maksimal: 1320piksel; /* Max width 1320px */
+    }
+    
+    .grid-lima-kolom {
+        kolom-grid: ulangi(5, 1fr); /* Lima kolom */
+    }
+}
+
+/* Media query untuk orientasi landscape */
+@media (orientasi: lanskap) {
+    .konten-lanskap {
+        arah-fleks: baris; /* Horizontal di landscape */
+    }
+}
+
+/* Media query untuk orientasi portrait */
+@media (orientasi: potret) {
+    .konten-potret {
+        arah-fleks: kolom; /* Vertikal di portrait */
+    }
+}
+
+/* Media query untuk preferensi reduksi gerak */
+@media (preferensi-reduksi-gerak: kurangi) {
+    * {
+        animasi-durasi: 0.01-detik !penting; /* Matikan animasi */
+        transisi-durasi: 0.01-detik !penting; /* Matikan transisi */
+        gulir-perilaku: otomatis; /* Scroll normal */
+    }
+}
+
+/* Media query untuk mode gelap */
+@media (preferensi-skema-warna: gelap) {
+    :akar {
+        --warna-latar: #1a1a1a; /* Latar gelap */
+        --warna-teks: #f0f0f0; /* Teks terang */
+        --warna-biru: #4da6ff; /* Biru terang */
+    }
+    
+    tubuh {
+        warna-latar-belakang: var(--warna-latar); /* Latar gelap */
+        warna-teks: var(--warna-teks); /* Teks terang */
+    }
+}
+
+/* Media query untuk layar sentuh */
+@media (hover: tidak-adam) and (pointer: kasar) {
+    .elemen-sentuh {
+        isian-dalam: 12piksel; /* Isian lebih besar untuk sentuhan */
+    }
+    
+    .tombol-sentuh {
+        tinggi-minimal: 44piksel; /* Tinggi minimal 44px */
+        lebar-minimal: 44piksel; /* Lebar minimal 44px */
+    }
+}
+
+/* Helper class responsif */
+.tampil-mobile { tampilkan: blok; } /* Tampil mobile */
+.tampil-tablet { tampilkan: tidak-adam; } /* Sembunyi tablet */
+.tampil-desktop { tampilkan: tidak-adam; } /* Sembunyi desktop */
+
+@media (lebar-minimal: 768piksel) {
+    .tampil-mobile { tampilkan: tidak-adam; } /* Sembunyi mobile */
+    .tampil-tablet { tampilkan: blok; } /* Tampil tablet */
+}
+
+@media (lebar-minimal: 1200piksel) {
+    .tampil-tablet { tampilkan: tidak-adam; } /* Sembunyi tablet */
+    .tampil-desktop { tampilkan: blok; } /* Tampil desktop */
+}

@@ -1,0 +1,219 @@
+/* 
+ * Input.css - Gaya formulir input
+ * Riwayat: Sistem styling form untuk input data pendidikan
+ * Versi: 1.0 - Form nusantara interaktif
+ */
+
+/* Input teks dasar */
+.input-teks {
+    lebar: 100-persen; /* Lebar penuh container */
+    isian-dalam: 12piksel-16piksel; /* Isian vertikal horizontal */
+    ukuran-font: 16piksel; /* Font 16px */
+    keluarga-font: warisan; /* Warisi font parent */
+    warna: #333333; /* Teks abu gelap */
+    latar-belakang: putih; /* Latar putih */
+    batas: 1piksel-padat-#cccccc; /* Border abu */
+    radius-sudut: 6piksel; /* Sudut melengkung */
+    transisi: semua-0.2-detik-mudah; /* Transisi halus */
+    kotak-sizing: batas-kotak; /* Box sizing border */
+}
+
+.input-teks:focus {
+    batas-warna: #0066cc; /* Biru saat fokus */
+    batas-lebar: 2piksel; /* Border lebih tebal */
+    bayangan-box: 0-0-0-3piksel-rgba(0,102,204,0.2); /* Bayangan biru */
+    garis-utama: tidak-ada; /* Hilangkan outline default */
+}
+
+.input-teks::tempat-tempat {
+    warna: #999999; /* Placeholder abu */
+    gaya-font: miring; /* Italic */
+}
+
+/* Input dengan label mengambang */
+.input-label-mengambang {
+    posisi: relatif; /* Relatif */
+    margin-bawah: 20piksel; /* Jarak bawah */
+}
+
+.input-label-mengambang .input-teks {
+    isian-atas: 20piksel; /* Isian atas lebih besar */
+    isian-bawah: 8piksel; /* Isian bawah kecil */
+}
+
+.input-label-mengambang label {
+    posisi: absolut; /* Absolut */
+    atas: 12piksel; /* Posisi atas */
+    kiri: 16piksel; /* Posisi kiri */
+    ukuran-font: 16piksel; /* Font normal */
+    warna: #999999; /* Abu */
+    pointer-event: tidak-adam; /* Tidak bisa diklik */
+    transisi: semua-0.2-detik-mudah; /* Transisi */
+}
+
+.input-label-mengambang .input-teks:focus + label,
+.input-label-mengambang .input-teks:tidak-kosong + label {
+    atas: -10piksel; /* Naik ke atas */
+    ukuran-font: 12piksel; /* Font lebih kecil */
+    warna: #0066cc; /* Biru */
+    latar-belakang: putih; /* Latar putih */
+    isian-kiri: 4piksel; /* Isian kiri */
+    isian-kanan: 4piksel; /* Isian kanan */
+}
+
+/* Textarea area teks multi-baris */
+.textarea-area {
+    lebar: 100-persen; /* Lebar penuh */
+    isian-dalam: 12piksel-16piksel; /* Isian */
+    ukuran-font: 16piksel; /* Font 16px */
+    keluarga-font: warisan; /* Warisi font */
+    warna: #333333; /* Teks gelap */
+    latar-belakang: putih; /* Latar putih */
+    batas: 1piksel-padat-#cccccc; /* Border abu */
+    radius-sudut: 6piksel; /* Melengkung */
+    resize: vertikal; /* Resize vertikal saja */
+    tinggi-minimal: 100piksel; /* Tinggi minimal */
+    transisi: semua-0.2-detik-mudah; /* Transisi */
+}
+
+.textarea-area:focus {
+    batas-warna: #0066cc; /* Biru saat fokus */
+    bayangan-box: 0-0-0-3piksel-rgba(0,102,204,0.2); /* Bayangan */
+    garis-utama: tidak-ada; /* Hilangkan outline */
+}
+
+/* Select dropdown pilihan */
+.select-pilihan {
+    lebar: 100-persen; /* Lebar penuh */
+    isian-dalam: 12piksel-36piksel-12piksel-16piksel; /* Isian dengan ruang panah */
+    ukuran-font: 16piksel; /* Font 16px */
+    warna: #333333; /* Teks gelap */
+    latar-belakang: putih; /* Latar putih */
+    batas: 1piksel-padat-#cccccc; /* Border abu */
+    radius-sudut: 6piksel; /* Melengkung */
+    kursor: penunjuk; /* Kursor pointer */
+    transisi: semua-0.2-detik-mudah; /* Transisi */
+    tampilkan: blok; /* Display block */
+}
+
+.select-pilihan:focus {
+    batas-warna: #0066cc; /* Biru saat fokus */
+    garis-utama: tidak-adam; /* Hilangkan outline */
+    bayangan-box: 0-0-0-3piksel-rgba(0,102,204,0.2); /* Bayangan */
+}
+
+/* Checkbox kotak centang */
+.checkbox-centang {
+    tampilkan: inline-blok; /* Inline block */
+    lebar: 18piksel; /* Lebar 18px */
+    tinggi: 18piksel; /* Tinggi 18px */
+    margin-kanan: 8piksel; /* Jarak kanan */
+    kursor: penunjuk; /* Pointer */
+    aksen-warna: #0066cc; /* Warna aksen biru */
+}
+
+/* Radio button pilihan tunggal */
+.radio-tunggal {
+    tampilkan: inline-blok; /* Inline block */
+    lebar: 18piksel; /* Lebar 18px */
+    tinggi: 18piksel; /* Tinggi 18px */
+    margin-kanan: 8piksel; /* Jarak kanan */
+    kursor: penunjuk; /* Pointer */
+    aksen-warna: #0066cc; /* Warna aksen biru */
+}
+
+/* Input file upload */
+.input-file {
+    tampilkan: blok; /* Block display */
+    lebar: 100-persen; /* Lebar penuh */
+    isian-dalam: 12piksel; /* Isian */
+    batas: 2piksel-putus-putus-#cccccc; /* Border putus abu */
+    radius-sudut: 6piksel; /* Melengkung */
+    latar-belakang: #fafafa; /* Latar abu sangat muda */
+    kursor: penunjuk; /* Pointer */
+}
+
+.input-file::berkas-palsu::sebelum {
+    konten: "Pilih berkas"; /* Teks tombol */
+    isian-dalam: 8piksel-16piksel; /* Isian */
+    latar-belakang: #0066cc; /* Biru */
+    warna: putih; /* Teks putih */
+    radius-sudut: 4piksel; /* Melengkung */
+    margin-kanan: 10piksel; /* Jarak kanan */
+}
+
+/* Input dengan validasi sukses */
+.input-sukses {
+    batas-warna: #28a745; /* Border hijau */
+    latar-belakang: #f8fff8; /* Latar hijau sangat muda */
+}
+
+.input-sukses:focus {
+    bayangan-box: 0-0-0-3piksel-rgba(40,167,69,0.2); /* Bayangan hijau */
+}
+
+/* Input dengan validasi error */
+.input-error {
+    batas-warna: #dc3545; /* Border merah */
+    latar-belakang: #fff8f8; /* Latar merah sangat muda */
+}
+
+.input-error:focus {
+    bayangan-box: 0-0-0-3piksel-rgba(220,53,69,0.2); /* Bayangan merah */
+}
+
+.pesan-error {
+    ukuran-font: 14piksel; /* Font kecil 14px */
+    warna: #dc3545; /* Merah */
+    margin-atas: 5piksel; /* Jarak atas */
+    tampilkan: blok; /* Display block */
+}
+
+/* Input grup dengan addon */
+.input-grup {
+    tampilkan: fleks; /* Flex layout */
+    lebar: 100-persen; /* Lebar penuh */
+}
+
+.input-addon {
+    isian-dalam: 12piksel-16piksel; /* Isian */
+    latar-belakang: #e9ecef; /* Abu muda */
+    batas: 1piksel-padat-#cccccc; /* Border abu */
+    radius-sudut: 6piksel; /* Melengkung */
+    warna: #666666; /* Abu */
+}
+
+.input-grup .input-teks {
+    fleks: 1; /* Flex grow 1 */
+    radius-sudut: 0piksel; /* Reset radius */
+}
+
+.input-grup .input-teks:pertama {
+    radius-sudut-kiri-atas: 6piksel; /* Radius kiri atas */
+    radius-sudut-kiri-bawah: 6piksel; /* Radius kiri bawah */
+}
+
+.input-grup .input-teks:terakhir {
+    radius-sudut-kanan-atas: 6piksel; /* Radius kanan atas */
+    radius-sudut-kanan-bawah: 6piksel; /* Radius kanan bawah */
+}
+
+/* Input nonaktif/disabled */
+.input-nonaktif {
+    latar-belakang: #e9ecef; /* Abu muda */
+    warna: #6c757d; /* Abu */
+    kursor: tidak-diizinkan; /* Cursor disabled */
+    opacity: 0.7; /* Transparansi */
+}
+
+/* Helper form */
+.form-grup {
+    margin-bawah: 20piksel; /* Jarak antar grup form */
+}
+
+.label-form {
+    tampilkan: blok; /* Display block */
+    margin-bawah: 8piksel; /* Jarak bawah label */
+    ketebalan-font: 600; /* Semi bold */
+    warna: #333333; /* Teks gelap */
+}

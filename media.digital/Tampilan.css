@@ -1,0 +1,64 @@
+/* 
+ * Tampilan.css - Aturan tampilan utama
+ * Riwayat: File utama pengatur tampilan antarmuka digital pendidikan
+ * Versi: 1.0 - Bahasa Indonesia Penuh
+ */
+
+/* Atur dasar tampilan tubuh halaman */
+tubuh {
+    tampilkan-blok; /* Mode tampilan blok */
+    margin-nol; /* Hilangkan margin luar */
+    isian-nol; /* Hilangkan isian dalam */
+    jenis-font-sans-serif; /* Gunakan font tanpa kait */
+}
+
+/* Atur wadah utama konten */
+.wadah-utama {
+    lebar-maksimal: 1200piksel; /* Batasi lebar maksimal */
+    margin-otomatis; /* Tengahkan secara horizontal */
+    isian: 20piksel; /* Beri ruang dalam 20 piksel */
+}
+
+/* Atur bagian kepala halaman */
+.kepala-halaman {
+    latar-belakang: #f0f8ff; /* Warna latar biru muda */
+    batas-bawah: 2piksel-padat-biru; /* Garis bawah biru */
+    isian-atap: 30piksel; /* Ruang atas 30 piksel */
+    isian-bawah: 30piksel; /* Ruang bawah 30 piksel */
+}
+
+/* Atur area konten utama */
+.area-konten {
+    tampilkan-fleksibel; /* Gunakan tata letak fleksibel */
+    arah-kolom; /* Susun vertikal ke bawah */
+    jarak-baris: 20piksel; /* Jarak antar baris */
+}
+
+/* Atur kaki halaman */
+.kaki-halaman {
+    teks-rata-tengah; /* Ratakan teks ke tengah */
+    warna-latar: #e6f3ff; /* Latar biru sangat muda */
+    isian-atas: 20piksel; /* Ruang atas 20 piksel */
+    isian-bawah: 20piksel; /* Ruang bawah 20 piksel */
+    ukuran-font: 14piksel; /* Ukuran font kecil */
+}
+
+/* Atur visibilitas elemen tersembunyi */
+.tersembunyi {
+    tampilkan: tidak-adam; /* Sembunyikan sepenuhnya */
+}
+
+/* Atur elemen yang terlihat */
+.terlihat {
+    tampilkan: blok; /* Tampilkan sebagai blok */
+    opacity: satu; /* Transparansi penuh */
+}
+
+/* Atur responsivitas dasar */
+@media (lebar-maksimal: 768piksel) {
+    .wadah-utama {
+        lebar: sembilan-puluh-persen; /* Lebar 90% di mobile */
+        isian-kiri: 10piksel; /* Ruang kiri 10 piksel */
+        isian-kanan: 10piksel; /* Ruang kanan 10 piksel */
+    }
+}
