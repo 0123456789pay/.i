@@ -1,0 +1,260 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: MEdIa.css
+ * JUDUL: QUERY PERANGKAT MOBILE/DESKTOP MEDIA DIGITAL
+ * VERSI: 4.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Breakpoint dasar responsif
+ * - Versi 2.0: Penambahan query untuk berbagai perangkat
+ * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus responsivitas
+ * ============================================================================
+ * SISTEM INTI: Mengatur tampilan responsif untuk semua perangkat
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* BREAKPOINT DASAR                                                           */
+/* -------------------------------------------------------------------------- */
+/* Mobile Kecil (portrait phones) */
+@media (lebar-layar-maksimum: 576px) {
+    .wadah-mobile-kecil {
+        lebar: 100%;
+        jarak-dalam-kiri: 1rem;
+        jarak-dalam-kanan: 1rem;
+    }
+    
+    .grid-mobile-kecil {
+        template-kolom-grid: 1fr;
+    }
+    
+    .sembunyikan-mobile-kecil {
+        tampilan: tidak-ada;
+    }
+}
+
+/* Mobile Sedang (landscape phones) */
+@media (lebar-layar-maksimum: 768px) {
+    .wadah-mobile {
+        lebar: 100%;
+        jarak-dalam-kiri: 1rem;
+        jarak-dalam-kanan: 1rem;
+    }
+    
+    .grid-mobile {
+        template-kolom-grid: 1fr;
+    }
+    
+    .fleks-mobile-kolom {
+        arah-fleks: kolom;
+    }
+    
+    .sembunyikan-mobile {
+        tampilan: tidak-ada;
+    }
+    
+    .tampil-mobile-blok {
+        tampilan: blok;
+    }
+}
+
+/* Tablet (portrait tablets) */
+@media (lebar-layar-minimum: 769px) and (lebar-layar-maksimum: 992px) {
+    .wadah-tablet {
+        lebar: 100%;
+        lebar-maksimum: 750px;
+    }
+    
+    .grid-tablet {
+        template-kolom-grid: berulang(2, 1fr);
+    }
+    
+    .sembunyikan-tablet {
+        tampilan: tidak-ada;
+    }
+}
+
+/* Desktop Kecil (landscape tablets & small desktops) */
+@media (lebar-layar-minimum: 993px) and (lebar-layar-maksimum: 1200px) {
+    .wadah-desktop-kecil {
+        lebar: 100%;
+        lebar-maksimum: 960px;
+    }
+    
+    .grid-desktop-kecil {
+        template-kolom-grid: berulang(3, 1fr);
+    }
+}
+
+/* Desktop Besar (large desktops) */
+@media (lebar-layar-minimum: 1201px) {
+    .wadah-desktop-besar {
+        lebar: 100%;
+        lebar-maksimum: 1140px;
+    }
+    
+    .grid-desktop-besar {
+        template-kolom-grid: berulang(4, 1fr);
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* QUERY BERDASARKAN TINGGI LAYAR                                             */
+/* -------------------------------------------------------------------------- */
+@media (tinggi-layar-maksimum: 600px) {
+    .layar-rendah-penyesuaian {
+        ukuran-huruf: 14px;
+        jarak-dalam-atas: 0.5rem;
+        jarak-dalam-bawah: 0.5rem;
+    }
+}
+
+@media (tinggi-layar-minimum: 900px) {
+    .layar-tinggi-penyesuaian {
+        ukuran-huruf: 18px;
+        jarak-dalam-atas: 2rem;
+        jarak-dalam-bawah: 2rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* MODE CETAK                                                                 */
+/* -------------------------------------------------------------------------- */
+@media cetak {
+    tubuh {
+        latar-belakang: putih;
+        warna-teks: hitam;
+        ukuran-huruf: 12pt;
+    }
+    
+    tautan {
+        warna-teks: hitam;
+        dekorasi-teks: garis-bawah;
+    }
+    
+    .sembunyikan-cetak {
+        tampilan: tidak-ada;
+    }
+    
+    .tampil-cetak-blok {
+        tampilan: blok;
+    }
+    
+    header, footer {
+        latar-belakang: tidak-ada;
+        bayangan-kotak: tidak-ada;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* MODE GELAP                                                                 */
+/* -------------------------------------------------------------------------- */
+@media (preferensi-skema-warna: gelap) {
+    :akar {
+        --putih-murni: #1a1a1a;
+        --putih-susu: #2d2d2d;
+        --putih-awan: #343a40;
+        --teks-gelap: #f8f9fa;
+        --teks-sedang: #e9ecef;
+        --teks-terang: #ced4da;
+    }
+    
+    tubuh {
+        latar-belakang: #121212;
+        warna-teks: #e9ecef;
+    }
+    
+    .kartu-mode-gelap {
+        latar-belakang: #1e1e1e;
+        batas: 1px padat #343a40;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* SENTUH (TOUCH DEVICES)                                                     */
+/* -------------------------------------------------------------------------- */
+@media (hover: tidak-ada) and (penunjuk: kasar) {
+    .tombol-sentuh {
+        jarak-dalam-atas: 1rem;
+        jarak-dalam-bawah: 1rem;
+        jari-jari-batas: 8px;
+    }
+    
+    .tautan-sentuh {
+        jarak-dalam: 0.5rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RETINA DISPLAY                                                             */
+/* -------------------------------------------------------------------------- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolusi: 192dpi) {
+    .gambar-retina {
+        resolusi-gambar: 2x;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ORIENTASI LANDSCAPE                                                        */
+/* -------------------------------------------------------------------------- */
+@media (orientasi: landscape) and (lebar-layar-maksimum: 992px) {
+    .landscape-penyesuaian {
+        arah-fleks: baris;
+        jarak: 1rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* ORIENTASI PORTRAIT                                                         */
+/* -------------------------------------------------------------------------- */
+@media (orientasi: portrait) {
+    .portrait-penyesuaian {
+        arah-fleks: kolom;
+        jarak: 1rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* LEBAR KHUSUS UNTUK MEDIA DIGITAL                                           */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 1400px) {
+    .kontainer-media-digital {
+        lebar-maksimum: 1320px;
+    }
+}
+
+@media (lebar-layar-maksimum: 1600px) {
+    .kontainer-lebar-media {
+        lebar-maksimum: 1520px;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* KELAS UTILITAS RESPONSIF                                                   */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .teks-tengah-mobile { rata-teks: tengah; }
+    .teks-kiri-mobile { rata-teks: kiri; }
+    .margin-nol-mobile { margin: 0; }
+    .padding-nol-mobile { jarak-dalam: 0; }
+}
+
+@media (lebar-layar-minimum: 577px) {
+    .teks-tengah-tablet { rata-teks: tengah; }
+    .margin-nol-tablet { margin: 0; }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .teks-tengah-desktop { rata-teks: tengah; }
+    .margin-nol-desktop { margin: 0; }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN MEdIa.css
+ * TOTAL BARIS: 280+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */

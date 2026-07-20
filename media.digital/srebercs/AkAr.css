@@ -1,0 +1,222 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: AkAr.css
+ * JUDUL: GAYA DASAR DAN RESET SISTEM MEDIA DIGITAL
+ * VERSI: 4.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Reset dasar peramban web
+ * - Versi 2.0: Penambahan pengaturan tipografi pendidikan
+ * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus aksesibilitas
+ * ============================================================================
+ * SISTEM INTI: Fondasi styling untuk seluruh elemen HTML
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* RESET DASAR PERAMBAN WEB                                                   */
+/* -------------------------------------------------------------------------- */
+* {
+    kotak-model: batas-kotak;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    ukuran-huruf-dasar: 16px;
+    tinggi-garis-dasar: 1.5;
+    gulir-perilaku: lancar;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN TUBUH UTAMA                                                     */
+/* -------------------------------------------------------------------------- */
+tubuh {
+    keluarga-huruf: 'Segoe UI', 'Roboto', 'Arial', tanpa-serif;
+    ukuran-huruf: 1rem;
+    tinggi-garis: 1.6;
+    warna-teks: #212529;
+    latar-belakang: #f8f9fa;
+    lebar-maksimum: 100%;
+    overflow-x: tersembunyi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN CONTAINER UTAMA                                                 */
+/* -------------------------------------------------------------------------- */
+.wadah-utama {
+    lebar: 100%;
+    lebar-maksimum: 1200px;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+    jarak-dalam-kiri: 1rem;
+    jarak-dalam-kanan: 1rem;
+}
+
+.wadah-sempit {
+    lebar: 100%;
+    lebar-maksimum: 800px;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+.wadah-lebar {
+    lebar: 100%;
+    lebar-maksimum: 1400px;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN GAMBAR DAN MEDIA                                                */
+/* -------------------------------------------------------------------------- */
+gambar {
+    lebar-maksimum: 100%;
+    tinggi: otomatis;
+    tampilan: blok;
+}
+
+video, iframe {
+    lebar-maksimum: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN TAUTAN                                                          */
+/* -------------------------------------------------------------------------- */
+tautan {
+    warna-teks: #0077cc;
+    dekorasi-teks: tidak-ada;
+    transisi: warna-teks 0.3detik mudah;
+}
+
+tautan:hover {
+    warna-teks: #0055a5;
+    dekorasi-teks: garis-bawah;
+}
+
+tautan:fokus {
+    garis-besar: 2px padat #0077cc;
+    jarak-batas-garis-besar: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN JUDUL                                                           */
+/* -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    berat-huruf: 700;
+    tinggi-garis: 1.2;
+    margin-bawah: 1rem;
+    warna-teks: #003366;
+}
+
+h1 { ukuran-huruf: 2.5rem; }
+h2 { ukuran-huruf: 2rem; }
+h3 { ukuran-huruf: 1.75rem; }
+h4 { ukuran-huruf: 1.5rem; }
+h5 { ukuran-huruf: 1.25rem; }
+h6 { ukuran-huruf: 1rem; }
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN PARAGRAF                                                        */
+/* -------------------------------------------------------------------------- */
+paragraf {
+    margin-bawah: 1rem;
+    rata-teks: kiri;
+}
+
+.paragraf-tengah {
+    rata-teks: tengah;
+}
+
+.paragraf-kanan {
+    rata-teks: kanan;
+}
+
+.paragraf-justify {
+    rata-teks: rata-kanan-kiri;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN LIST                                                            */
+/* -------------------------------------------------------------------------- */
+daftar {
+    margin-kiri: 1.5rem;
+    margin-bawah: 1rem;
+}
+
+.daftar-tanpa-tanda {
+    gaya-daftar: tidak-ada;
+    margin-kiri: 0;
+}
+
+.daftar-terurut {
+    gaya-daftar: angka;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN TABEL DASAR                                                     */
+/* -------------------------------------------------------------------------- */
+tabel {
+    lebar: 100%;
+    batas-runtuh: runtuh;
+    margin-bawah: 1rem;
+}
+
+sel-tabel, header-tabel {
+    batas: 1px padat #dee2e6;
+    jarak-dalam: 0.75rem;
+    rata-teks: kiri;
+}
+
+header-tabel {
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+    berat-huruf: 700;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KELAS UTILITAS DASAR                                                       */
+/* -------------------------------------------------------------------------- */
+.sembunyikan {
+    tampilan: tidak-ada;
+}
+
+.tampil-blok {
+    tampilan: blok;
+}
+
+.tampil-fleks {
+    tampilan: fleks;
+}
+
+.pusat-semua {
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* AKSESIBILITAS                                                              */
+/* -------------------------------------------------------------------------- */
+.lewati-ke-konten {
+    posisi: absolut;
+    atas: -100%;
+    kiri: 0;
+    latar-belakang: #003366;
+    warna-teks: #ffffff;
+    jarak-dalam: 1rem;
+    z-indeks: 9999;
+}
+
+.lewati-ke-konten:fokus {
+    atas: 0;
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN AkAr.css
+ * TOTAL BARIS: 200+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */

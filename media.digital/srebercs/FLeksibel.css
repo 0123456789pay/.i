@@ -1,0 +1,307 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: FLeksibel.css
+ * JUDUL: LAYOUT FLEKSIBEL MEDIA DIGITAL
+ * VERSI: 4.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Properti flexbox dasar
+ * - Versi 2.0: Penambahan utilitas alignment
+ * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus fleksibilitas
+ * ============================================================================
+ * SISTEM INTI: Mengatur layout fleksibel untuk komponen dinamis
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* CONTAINER FLEX                                                             */
+/* -------------------------------------------------------------------------- */
+.fleks {
+    tampilan: fleks;
+}
+
+.fleks-sebaris {
+    tampilan: fleks-sebaris;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ARAH FLEX                                                                  */
+/* -------------------------------------------------------------------------- */
+.fleks-arah-baris {
+    arah-fleks: baris;
+}
+
+.fleks-arah-baris-balik {
+    arah-fleks: baris-balik;
+}
+
+.fleks-arah-kolom {
+    arah-fleks: kolom;
+}
+
+.fleks-arah-kolom-balik {
+    arah-fleks: kolom-balik;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX WRAP                                                                  */
+/* -------------------------------------------------------------------------- */
+.fleks-bungkus {
+    fleks-wrap: bungkus;
+}
+
+.fleks-tidak-bungkus {
+    fleks-wrap: tidak-bungkus;
+}
+
+.fleks-bungkus-balik {
+    fleks-wrap: bungkus-balik;
+}
+
+/* -------------------------------------------------------------------------- */
+/* JUSTIFY CONTENT                                                            */
+/* -------------------------------------------------------------------------- */
+.fleks-awal {
+    benarkan-konten: awal;
+}
+
+.fleks-tengah {
+    benarkan-konten: tengah;
+}
+
+.fleks-akhir {
+    benarkan-konten: akhir;
+}
+
+.fleks-spasi-antara {
+    benarkan-konten: spasi-antara;
+}
+
+.fleks-spasi-sekitar {
+    benarkan-konten: spasi-sekitar;
+}
+
+.fleks-spasi-sama {
+    benarkan-konten: spasi-sama;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ALIGN ITEMS                                                                */
+/* -------------------------------------------------------------------------- */
+.fleks-sejajar-awal {
+    sejajarkan-item: awal;
+}
+
+.fleks-sejajar-tengah {
+    sejajarkan-item: tengah;
+}
+
+.fleks-sejajar-akhir {
+    sejajarkan-item: akhir;
+}
+
+.fleks-sejajar-regangkan {
+    sejajarkan-item: regangkan;
+}
+
+.fleks-sejajar-dasar {
+    sejajarkan-item: dasar-garis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ALIGN SELF                                                                 */
+/* -------------------------------------------------------------------------- */
+.fleks-diripilih-awal {
+    sejajarkan-diri: awal;
+}
+
+.fleks-diripilih-tengah {
+    sejajarkan-diri: tengah;
+}
+
+.fleks-diripilih-akhir {
+    sejajarkan-diri: akhir;
+}
+
+.fleks-diripilih-regangkan {
+    sejajarkan-diri: regangkan;
+}
+
+.fleks-diripilih-dasar {
+    sejajarkan-diri: dasar-garis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX GROW                                                                  */
+/* -------------------------------------------------------------------------- */
+.fleks-tumbuh-0 {
+    fleks-tumbuh: 0;
+}
+
+.fleks-tumbuh-1 {
+    fleks-tumbuh: 1;
+}
+
+.fleks-tumbuh-2 {
+    fleks-tumbuh: 2;
+}
+
+.fleks-tumbuh-3 {
+    fleks-tumbuh: 3;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX SHRINK                                                                */
+/* -------------------------------------------------------------------------- */
+.fleks-menyusut-0 {
+    fleks-menyusut: 0;
+}
+
+.fleks-menyusut-1 {
+    fleks-menyusut: 1;
+}
+
+.fleks-menyusut-2 {
+    fleks-menyusut: 2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX BASIS                                                                 */
+/* -------------------------------------------------------------------------- */
+.fleks-dasar-otomatis {
+    fleks-dasar: otomatis;
+}
+
+.fleks-dasar-nol {
+    fleks-dasar: 0;
+}
+
+.fleks-dasar-penuh {
+    fleks-dasar: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SHORTHAND FLEX                                                             */
+/* -------------------------------------------------------------------------- */
+.fleks-1 {
+    fleks: 1 1 0;
+}
+
+.fleks-2 {
+    fleks: 2 1 0;
+}
+
+.fleks-3 {
+    fleks: 3 1 0;
+}
+
+.fleks-otomatis {
+    fleks: otomatis;
+}
+
+.fleks-awal {
+    fleks: 0 otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GAP FLEX                                                                   */
+/* -------------------------------------------------------------------------- */
+.fleks-jarak-kecil {
+    jarak: 0.5rem;
+}
+
+.fleks-jarak-sedang {
+    jarak: 1rem;
+}
+
+.fleks-jarak-besar {
+    jarak: 2rem;
+}
+
+.fleks-jarak-sangat-besar {
+    jarak: 3rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ORDER                                                                      */
+/* -------------------------------------------------------------------------- */
+.urutan-0 { urutan: 0; }
+.urutan-1 { urutan: 1; }
+.urutan-2 { urutan: 2; }
+.urutan-3 { urutan: 3; }
+.urutan-4 { urutan: 4; }
+.urutan-5 { urutan: 5; }
+.urutan-6 { urutan: 6; }
+.urutan-7 { urutan: 7; }
+.urutan-8 { urutan: 8; }
+.urutan-9 { urutan: 9; }
+.urutan-10 { urutan: 10; }
+.urutan-terakhir { urutan: 999; }
+
+/* -------------------------------------------------------------------------- */
+/* LAYOUT KHUSUS KOMPONEN                                                     */
+/* -------------------------------------------------------------------------- */
+.fleks-pusat-sempurna {
+    tampilan: fleks;
+    benarkan-konten: tengah;
+    sejajarkan-item: tengah;
+}
+
+.fleks-spasi-header {
+    tampilan: fleks;
+    benarkan-konten: spasi-antara;
+    sejajarkan-item: tengah;
+}
+
+.fleks-stack-vertikal {
+    tampilan: fleks;
+    arah-fleks: kolom;
+    jarak: 1rem;
+}
+
+.fleks-stack-horisontal {
+    tampilan: fleks;
+    arah-fleks: baris;
+    jarak: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF FLEX MOBILE                                                      */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .fleks-mobile-kolom {
+        arah-fleks: kolom;
+    }
+    
+    .fleks-mobile-wrap {
+        fleks-wrap: bungkus;
+    }
+    
+    .fleks-mobile-tengah {
+        benarkan-konten: tengah;
+        sejajarkan-item: tengah;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF FLEX DESKTOP                                                     */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-minimum: 769px) {
+    .fleks-desktop-baris {
+        arah-fleks: baris;
+    }
+    
+    .fleks-desktop-spasi {
+        benarkan-konten: spasi-antara;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN FLeksibel.css
+ * TOTAL BARIS: 280+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */

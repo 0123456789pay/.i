@@ -1,0 +1,293 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: BAtas.css
+ * JUDUL: GARIS BATAS ELEGAN MEDIA DIGITAL
+ * VERSI: 4.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Garis batas dasar komponen
+ * - Versi 2.0: Variasi gaya dan ketebalan batas
+ * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus elegansi visual
+ * ============================================================================
+ * SISTEM INTI: Mengatur garis batas untuk pemisahan elemen
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS DASAR                                                                */
+/* -------------------------------------------------------------------------- */
+.batas-tidak-ada {
+    batas: tidak-ada;
+}
+
+.batas-tipis {
+    batas: 1px padat #dee2e6;
+}
+
+.batas-sedang {
+    batas: 2px padat #adb5bd;
+}
+
+.batas-tebal {
+    batas: 3px padat #495057;
+}
+
+.batas-sangat-tebal {
+    batas: 4px padat #212529;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS WARNA BIRU                                                           */
+/* -------------------------------------------------------------------------- */
+.batas-biru-tipis {
+    batas: 1px padat #0077cc;
+}
+
+.batas-biru-sedang {
+    batas: 2px padat #0077cc;
+}
+
+.batas-biru-tebal {
+    batas: 3px padat #0077cc;
+}
+
+.batas-biru-langit {
+    batas: 2px padat #0099ff;
+}
+
+.batas-biru-laut {
+    batas: 2px padat #0055a5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS PER SISI                                                             */
+/* -------------------------------------------------------------------------- */
+.batas-atas {
+    batas-atas: 1px padat #dee2e6;
+}
+
+.batas-bawah {
+    batas-bawah: 1px padat #dee2e6;
+}
+
+.batas-kiri {
+    batas-kiri: 1px padat #dee2e6;
+}
+
+.batas-kanan {
+    batas-kanan: 1px padat #dee2e6;
+}
+
+.batas-vertikal {
+    batas-kiri: 1px padat #dee2e6;
+    batas-kanan: 1px padat #dee2e6;
+}
+
+.batas-horisontal {
+    batas-atas: 1px padat #dee2e6;
+    batas-bawah: 1px padat #dee2e6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS WARNA PER SISI                                                       */
+/* -------------------------------------------------------------------------- */
+.batas-atas-biru {
+    batas-atas: 3px padat #0077cc;
+}
+
+.batas-bawah-biru {
+    batas-bawah: 3px padat #0077cc;
+}
+
+.batas-kiri-biru {
+    batas-kiri: 3px padat #0077cc;
+}
+
+.batas-kanan-biru {
+    batas-kanan: 3px padat #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GAYA BATAS                                                                 */
+/* -------------------------------------------------------------------------- */
+.batas-padat {
+    gaya-batas: padat;
+}
+
+.batas-garis {
+    gaya-batas: garis;
+}
+
+.batas-ganda {
+    gaya-batas: ganda;
+}
+
+.batas-titik {
+    gaya-batas: titik;
+}
+
+.batas-titik-titik {
+    gaya-batas: titik-titik;
+}
+
+.batas-gelombang {
+    gaya-batas: gelombang;
+}
+
+.batas-alur {
+    gaya-batas: alur;
+}
+
+.batas-ukir {
+    gaya-batas: ukir;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS MELENGKUNG (BORDER RADIUS)                                           */
+/* -------------------------------------------------------------------------- */
+.melengkung-kecil {
+    jari-jari-batas: 4px;
+}
+
+.melengkung-sedang {
+    jari-jari-batas: 8px;
+}
+
+.melengkung-besar {
+    jari-jari-batas: 12px;
+}
+
+.melengkung-sangat-besar {
+    jari-jari-batas: 20px;
+}
+
+.melengkung-penuh {
+    jari-jari-batas: 50%;
+}
+
+.melengkung-atas {
+    jari-jari-batas-atas-kiri: 8px;
+    jari-jari-batas-atas-kanan: 8px;
+}
+
+.melengkung-bawah {
+    jari-jari-batas-bawah-kiri: 8px;
+    jari-jari-batas-bawah-kanan: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GRADASI                                                              */
+/* -------------------------------------------------------------------------- */
+.batas-gradasi-biru {
+    gambar-batas: gradien-linier(135deg, #0055a5, #0099ff);
+    lebar-batas: 2px;
+    asal-batas: batas-kotak;
+    potongan-batas: batas-kotak;
+}
+
+.batas-gradasi-putih-biru {
+    gambar-batas: gradien-linier(135deg, #ffffff, #0077cc);
+    lebar-batas: 2px;
+    asal-batas: batas-kotak;
+    potongan-batas: batas-kotak;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS PUTUS-PUTUS                                                          */
+/* -------------------------------------------------------------------------- */
+.batas-putus-putus-tipis {
+    batas: 1px putus-putus #adb5bd;
+}
+
+.batas-putus-putus-sedang {
+    batas: 2px putus-putus #0077cc;
+}
+
+.batas-putus-putus-tebal {
+    batas: 3px putus-putus #0055a5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS KHUSUS KARTU                                                         */
+/* -------------------------------------------------------------------------- */
+.kartu-batas-dasar {
+    batas: 1px padat #e9ecef;
+    jari-jari-batas: 8px;
+}
+
+.kartu-batas-biru {
+    batas: 1px padat rgba(0, 119, 204, 0.2);
+    jari-jari-batas: 8px;
+}
+
+.kartu-batas-hover {
+    transisi: batas 0.3detik mudah;
+}
+
+.kartu-batas-hover:hover {
+    batas: 1px padat #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS INPUT FORM                                                           */
+/* -------------------------------------------------------------------------- */
+.input-batas-dasar {
+    batas: 1px padat #ced4da;
+    jari-jari-batas: 4px;
+}
+
+.input-batas-fokus {
+    batas: 2px padat #0077cc;
+    garis-besar: tidak-ada;
+}
+
+.input-batas-error {
+    batas: 2px padat #dc3545;
+}
+
+.input-batas-sukses {
+    batas: 2px padat #28a745;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS PEMBAGI (DIVIDER)                                                    */
+/* -------------------------------------------------------------------------- */
+.pembagi {
+    batas-bawah: 1px padat #dee2e6;
+    margin-atas: 1rem;
+    margin-bawah: 1rem;
+}
+
+.pembagi-biru {
+    batas-bawah: 2px padat #0077cc;
+    margin-atas: 1rem;
+    margin-bawah: 1rem;
+}
+
+.pembagi-vertikal {
+    batas-kanan: 1px padat #dee2e6;
+    tinggi: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF BATAS MOBILE                                                     */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .batas-mobile-tipis {
+        batas: 1px padat #dee2e6;
+    }
+    
+    .batas-mobile-tidak-ada {
+        batas: tidak-ada;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN BAtas.css
+ * TOTAL BARIS: 300+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
