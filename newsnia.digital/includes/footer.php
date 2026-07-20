@@ -1,7 +1,7 @@
 <?php
 /**
  * newsnia.digital - Footer Include
- * Footer dengan berbagai section tanpa link duplikat seperti media.digital
+ * Footer dengan berbagai section tanpa link duplikat seperti newsnia.digital
  */
 ?>
     </main>
