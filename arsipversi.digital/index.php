@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArsipVersi.Digital - Platform Manajemen Konten Digital</title>
-    <link rel="stylesheet" href="system/assets/css/style.css">
+    
 </head>
 <body>
     <!-- Header -->
@@ -206,7 +206,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="system/assets/js/main.js"></script>
+    
     <script>
         // Load modules on page load
         document.addEventListener('DOMContentLoaded', function() {

@@ -42,7 +42,7 @@ foreach ($menuItems as $index => $menuItem) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>$title - AI Chat Reber</title>
-    <link rel="stylesheet" href="css/style.css">
+    
     <style>
         .back-btn {
             display: inline-block;
@@ -83,8 +83,7 @@ foreach ($menuItems as $index => $menuItem) {
             <button onclick="sendMessage()">Kirim</button>
         </div>
     </div>
-    
-    <script src="js/chat.js"></script>
+
     <script>
         const currentPage = "$title";
     </script>

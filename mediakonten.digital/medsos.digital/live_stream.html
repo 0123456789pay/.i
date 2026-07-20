@@ -20,7 +20,6 @@
         label { display: block; margin-bottom: 5px; font-weight: bold; }
         .data-display { background: #f8f9fa; padding: 15px; border-radius: 6px; margin-top: 20px; }
     </style>
-    <link rel="stylesheet" href="../digital/digital-system.css">
 
 </head>
 <body>
@@ -119,9 +118,7 @@
         DB.save("page_visits", { page: "live_stream", user: localStorage.getItem("current_user") || "guest" });
         updateDataCount();
     </script>
-    <script src="../digital/digital-system.js"></script>
 
-    
     <!-- Settings Panel Overlay -->
     <div id="settings-overlay-medsos_live_stream" class="settings-overlay" style="display: none;">
         <div class="settings-panel">
@@ -395,11 +392,7 @@
     <button id="fab-settings-medsos_live_stream" class="fab-settings" onclick="toggleSettings('medsos_live_stream')">
         <span class="fab-icon">⚙️</span>
     </button>
-        <script src="../../config.js"></script>
-    <script src="../../All.js"></script>
-    <script src="../../components/Button.js"></script>
-    <script src="../../live_stream.js" id="page-specific-js"></script>
-    
+
     <script>
     // ========================================
     // SYSTEM CONFIGURATION FOR LIVE_STREAM

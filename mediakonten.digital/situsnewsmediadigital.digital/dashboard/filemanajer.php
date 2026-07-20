@@ -75,7 +75,7 @@ $files = listFiles($baseDir, $baseDir);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Manager - Dashboard Situs News Media Digital</title>
-    <link rel="stylesheet" href="/situsnewsmediadigital/assets/css/style.css">
+    
     <style>
         .file-manager-actions {
             display: flex;
@@ -187,6 +187,5 @@ $files = listFiles($baseDir, $baseDir);
         </main>
     </div>
 
-    <script src="/situsnewsmediadigital/assets/js/main.js"></script>
 </body>
 </html>

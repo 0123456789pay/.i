@@ -74,7 +74,7 @@ function renderMenu($pdo, $parentId = null, $level = 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo isset($pageTitle) ? $pageTitle . ' - ' : ''; ?>newsnia.digital</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    
     <meta name="description" content="Portal Berita Digital Terkini">
 </head>
 <body>

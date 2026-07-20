@@ -87,13 +87,9 @@ $cards = [
     <title>ConfigPHP Git Digital - Secure Display System</title>
     
     <!-- Fonts dari Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    
+
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <!-- Inline critical CSS untuk performance -->
     <style>
         .critical-loaded { opacity: 1 !important; }
@@ -195,8 +191,7 @@ $cards = [
     </main>
 
     <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
-    
+
     <!-- Inline script untuk initialization -->
     <script>
         // Log system info
