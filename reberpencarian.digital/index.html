@@ -33,13 +33,6 @@
                     </button>
                 </div>
             </div>
-            
-            <div class="quick-links">
-                <a href="#" class="quick-link" data-category="all"><i class="fas fa-th"></i> Semua</a>
-                <a href="#" class="quick-link" data-category="image"><i class="fas fa-image"></i> Gambar</a>
-                <a href="#" class="quick-link" data-category="video"><i class="fas fa-video"></i> Video</a>
-                <a href="#" class="quick-link" data-category="shopping"><i class="fas fa-shopping-cart"></i> Belanja</a>
-            </div>
         </div>
     </section>
 
@@ -206,27 +199,12 @@
         </div>
     </header>
 
-    <!-- Search Engine View Section - WebView dengan AppBrowser Embedded (Tampilan Utama Layar Penuh) -->
+    <!-- Search Engine View Section - WebView dengan Hasil Pencarian (Tampilan Utama Layar Penuh) -->
     <section class="search-engine-view main-tab-view" id="searchEngineView">
         <div class="search-engine-container full-height-container">
-            <!-- Filter Bar - Jenis Domain (Tetap Dipertahankan) -->
-            <div class="filter-bar-container" id="filterBarContainer">
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> Semua</button>
-                    <button class="filter-btn" data-filter="text"><i class="fas fa-file-alt"></i> Teks</button>
-                    <button class="filter-btn" data-filter="image"><i class="fas fa-image"></i> Gambar</button>
-                    <button class="filter-btn" data-filter="video"><i class="fas fa-video"></i> Video</button>
-                    <button class="filter-btn" data-filter="movie"><i class="fas fa-film"></i> Film</button>
-                    <button class="filter-btn" data-filter="shopping"><i class="fas fa-shopping-cart"></i> Belanja</button>
-                </div>
-                <div class="results-info">
-                    <span id="resultsCountInfo">Menampilkan 0 hasil</span>
-                </div>
-            </div>
-
-            <!-- AppBrowser Embedded Container -->
-            <div class="content-frame main-content-frame" id="appBrowserContainer">
-                <iframe src="../appbrowser.html" style="width: 100%; height: 100%; border: none;"></iframe>
+            <!-- Content Frame untuk Hasil Pencarian -->
+            <div class="content-frame main-content-frame" id="searchResultsContainer">
+                <!-- Hasil pencarian akan di-render di sini oleh JavaScript -->
             </div>
         </div>
     </section>

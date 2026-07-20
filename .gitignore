@@ -1,46 +1,42 @@
-```
-# Configuration and system files
-*.conf
-*.config
+```gitignore
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+dist/
+build/
+target/
 
-# Logs and temporary files
+# Dependencies
+.venv/
+venv/
+node_modules/
+.mypy_cache/
+.pytest_cache/
+.gradle/
+
+# Logs and temp files
 *.log
 *.tmp
+*.swp
+*.swo
 
-# Environment files
+# Environment
 .env
 .env.local
 *.env.*
 
-# Editor/IDE files
+# Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Build artifacts
-build/
-dist/
-*.o
-*.obj
-*.out
-
-# Dependencies
-node_modules/
-__pycache__/
-*.pyc
-*.class
-target/
-.gradle/
-
-# Coverage and testing
+# Coverage
 coverage/
 htmlcov/
 .coverage
-.mypy_cache/
-.pytest_cache/
 
-# System files
+# OS
 .DS_Store
 Thumbs.db
 
@@ -63,4 +59,8 @@ Thumbs.db
 *.Z
 *.lz
 *.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 ```

@@ -169,39 +169,8 @@ body {
     box-shadow: var(--shadow-md);
 }
 
-.quick-links {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.quick-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: white;
-    border-radius: var(--radius-50);
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 500;
-    font-size: 14px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    border: 1px solid rgba(0, 71, 179, 0.1);
-}
-
-.quick-link:hover {
-    background: var(--gradient-blue);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.quick-link i {
-    font-size: 14px;
-}
+/* Quick Links (DINONAKTIFKAN - tidak digunakan lagi) */
+/* Styles ini tidak lagi digunakan karena quick links telah dihapus dari HTML */
 
 /* Fixed Navbar dengan Biru Gradient */
 .browser-header {
@@ -2052,72 +2021,8 @@ body {
     height: 100%;
 }
 
-/* Filter Bar Container - Jenis Domain */
-.filter-bar-container {
-    background: var(--gradient-blue);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.filter-bar {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 16px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    font-size: 13px;
-    font-weight: 600;
-    color: white;
-    cursor: pointer;
-    transition: var(--transition);
-    margin: 0;
-}
-
-.filter-btn i {
-    font-size: 12px;
-}
-
-.filter-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: none;
-    box-shadow: none;
-}
-
-.filter-btn:first-child {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-.filter-btn:last-child {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.filter-btn.active {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: transparent;
-    box-shadow: none;
-}
-
-.results-info {
-    font-size: 13px;
-    color: white;
-    font-weight: 500;
-    padding: 0 16px;
-    white-space: nowrap;
-}
+/* Filter Bar Container - Jenis Domain (DINONAKTIFKAN) */
+/* Styles ini tidak lagi digunakan karena filter bar telah dihapus dari HTML */
 
 .content-frame iframe {
     width: 100%;
