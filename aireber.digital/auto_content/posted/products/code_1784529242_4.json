@@ -1,0 +1,25 @@
+{
+  "content": {
+    "id": "code_1784529242_4",
+    "type": "code",
+    "category": "css_styles",
+    "title": "White Blue Theme #7576",
+    "content": ".white-blue-theme { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #ffffff; }",
+    "theme": {
+      "primary_color": "#2563eb",
+      "secondary_color": "#3b82f6",
+      "accent_color": "#dbeafe",
+      "dark_color": "#1e40af",
+      "white": "#ffffff",
+      "light_gray": "#f8fafc"
+    },
+    "created_at": "2026-07-20 06:34:02",
+    "tags": [
+      "css_styles",
+      "auto-generated",
+      "aireber"
+    ]
+  },
+  "posted_at": "2026-07-20 06:34:02",
+  "section": "products"
+}
