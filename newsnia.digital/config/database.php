@@ -2,7 +2,7 @@
 /**
  * Konfigurasi Database newsnia.digital
  * TERHUBUNG KE manajemenfile.digital - Centralized Database
- * Aksen: Putih Biru seperti media.digital
+ * Aksen: Putih Biru seperti newsnia.digital
  */
 
 // Connect to centralized manajemenfile.digital database

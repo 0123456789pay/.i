@@ -1,6 +1,6 @@
 # newsnia.digital
 
-Portal Berita Digital dengan UI Putih-Biru seperti media.digital
+Portal Berita Digital dengan UI Putih-Biru seperti newsnia.digital
 
 ## Struktur Folder
 
@@ -37,7 +37,7 @@ newsnia.digital/
 ## Fitur Utama
 
 ### 1. UI/UX
-- Tema putih-biru seperti media.digital
+- Tema putih-biru seperti newsnia.digital
 - Responsive design (mobile-friendly)
 - Menu bertingkat (Main Menu → Sub Menu → Sub-Sub Menu)
 - Card-based news layout
