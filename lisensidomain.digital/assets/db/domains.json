@@ -1,0 +1,69 @@
+{
+  "name": "lisensidomain.digital",
+  "version": "1.0.0",
+  "description": "Pusat Domain Ekstensi .digital .media .pers Berbayar Dan Berlisensi",
+  "registrar": {
+    "extensions": [".digital", ".media", ".pers"],
+    "pricing": {
+      ".digital": {"price": 450000, "currency": "IDR", "period": "year"},
+      ".media": {"price": 550000, "currency": "IDR", "period": "year"},
+      ".pers": {"price": 400000, "currency": "IDR", "period": "year"}
+    },
+    "features": [
+      "Lisensi Resmi",
+      "SSL Gratis",
+      "DNS Management",
+      "Email Forwarding",
+      "WHOIS Privacy",
+      "CDN Integration"
+    ]
+  },
+  "systems": [
+    {
+      "name": "Registrar Domain",
+      "path": "registrar.digital",
+      "category": "registrar",
+      "icon": "fa-shopping-cart",
+      "files": 8,
+      "folders": 4
+    },
+    {
+      "name": "Manajemen Domain",
+      "path": "manajemen.digital",
+      "category": "management",
+      "icon": "fa-cogs",
+      "files": 12,
+      "folders": 6
+    },
+    {
+      "name": "Lisensi & Sertifikat",
+      "path": "lisensi.digital",
+      "category": "license",
+      "icon": "fa-certificate",
+      "files": 10,
+      "folders": 5
+    },
+    {
+      "name": "Dashboard Keuangan",
+      "path": "keuangan.digital",
+      "category": "management",
+      "icon": "fa-chart-line",
+      "files": 15,
+      "folders": 7
+    },
+    {
+      "name": "Dukungan Pelanggan",
+      "path": "dukungan.digital",
+      "category": "support",
+      "icon": "fa-headset",
+      "files": 9,
+      "folders": 4
+    }
+  ],
+  "stats": {
+    "totalDomains": 1250,
+    "totalExtensions": 3,
+    "totalLicenses": 980,
+    "uptime": "99.9%"
+  }
+}
