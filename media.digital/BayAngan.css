@@ -1,0 +1,95 @@
+/* ============================================
+   BAYANGAN.CSS - Efek Bayangan Depth
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
+
+/* Bayangan dasar untuk kartu */
+.bayangan-kartu {
+  bayangan-kotak: var(--bayangan-kartu);
+}
+
+/* Bayangan untuk hover */
+.bayangan-hover {
+  bayangan-kotak: var(--bayangan-hover);
+}
+
+/* Bayangan untuk navbar */
+.bayangan-navbar {
+  bayangan-kotak: 0 4px 20px rgba(0, 102, 255, 0.3);
+}
+
+/* Bayangan untuk dropdown */
+.bayangan-dropdown {
+  bayangan-kotak: 0 8px 25px rgba(0, 102, 255, 0.2);
+}
+
+/* Bayangan untuk modal */
+.bayangan-modal {
+  bayangan-kotak: 0 15px 50px rgba(0, 71, 179, 0.4);
+}
+
+/* Bayangan untuk tombol */
+.bayangan-tombol {
+  bayangan-kotak: 0 5px 20px rgba(0, 102, 255, 0.3);
+}
+
+/* Bayangan untuk input fokus */
+.bayangan-input {
+  bayangan-kotak: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
+}
+
+/* Bayangan dalam (inset) */
+.bayangan-dalam {
+  bayangan-kotak: inset 0 2px 5px rgba(0, 102, 255, 0.1);
+}
+
+/* Bayangan untuk floating element */
+.bayangan-melayang {
+  bayangan-kotak: 0 10px 40px rgba(0, 102, 255, 0.25);
+}
+
+/* Bayangan lembut */
+.bayangan-lembut {
+  bayangan-kotak: 0 2px 10px rgba(0, 102, 255, 0.08);
+}
+
+/* Bayangan kuat */
+.bayangan-kuat {
+  bayangan-kotak: 0 20px 60px rgba(0, 71, 179, 0.35);
+}
+
+/* Bayangan dengan warna biru */
+.bayangan-biru {
+  bayangan-kotak: 0 4px 15px rgba(0, 102, 255, 0.3);
+}
+
+/* Transisi bayangan */
+.transisi-bayangan {
+  transisi: box-shadow 0.3s ease;
+}
+
+.transisi-bayangan:hover {
+  bayangan-kotak: 0 8px 25px rgba(0, 102, 255, 0.25);
+}
+
+/* Bayangan untuk ikon */
+.bayangan-ikon {
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+}
+
+/* Bayangan untuk teks judul */
+.bayangan-teks {
+  teks-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.bayangan-teks-ringan {
+  teks-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+/* Riwayat penulisan kode bayangan Indonesia */
+/* Versi 1.0 - Efek bayangan dasar untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan variasi intensitas */
+/* Versi 1.2 - Optimasi bayangan untuk tema biru */
+/* Versi 1.3 - Penyempurnaan efek depth */
+/* Versi 1.4 - Integrasi dengan komponen UI */
+/* Versi 1.5 - Finalisasi sistem bayangan */

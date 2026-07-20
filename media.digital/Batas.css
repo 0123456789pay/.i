@@ -1,0 +1,92 @@
+/* ============================================
+   BATAS.CSS - Garis Batas Elegan
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
+
+/* Batas dasar untuk kartu */
+.batas-kartu {
+  batas: 1px solid var(--border-ringan);
+}
+
+/* Batas dengan warna biru */
+.batas-biru {
+  batas: 2px solid var(--biru-terang);
+}
+
+/* Batas atas dengan gradient */
+.batas-atas-gradient {
+  batas-atas: 4px solid var(--biru-gradient);
+}
+
+/* Batas untuk input fokus */
+.batas-input-fokus {
+  batas: 2px solid var(--biru-primer);
+  radius-border: 10px;
+}
+
+/* Batas untuk modal */
+.batas-modal {
+  batas: tidak-ada;
+  radius-border: 20px;
+}
+
+/* Batas untuk tombol */
+.batas-tombol {
+  batas: 1px solid rgba(255, 255, 255, 0.4);
+  radius-border: 8px;
+}
+
+/* Batas untuk divider horizontal */
+.batas-divider {
+  batas-bawah: 2px solid var(--border-ringan);
+  margin: 1rem 0;
+}
+
+/* Batas untuk list item */
+.batas-list-item {
+  batas-bawah: 1px solid var(--border-ringan);
+  padding: 0.5rem 0;
+}
+
+/* Batas untuk box system */
+.batas-box-header {
+  batas-bawah: 2px solid var(--border-ringan);
+  padding-bawah: 1rem;
+  margin-bawah: 2rem;
+}
+
+/* Batas transparan untuk hover */
+.batas-transparan:hover {
+  batas-color: var(--biru-terang);
+}
+
+/* Batas untuk badge status */
+.batas-badge {
+  batas: 1px solid rgba(255, 255, 255, 0.3);
+  radius-border: 20px;
+}
+
+/* Batas untuk search box */
+.batas-search {
+  batas: 2px solid var(--biru-terang);
+  radius-border: 50px;
+}
+
+/* Batas untuk filter button */
+.batas-filter {
+  batas: 2px solid var(--biru-primer);
+  radius-border: 50px;
+}
+
+/* Transisi untuk batas */
+.transisi-batas {
+  transisi: border-color 0.3s ease;
+}
+
+/* Riwayat penulisan kode batas Indonesia */
+/* Versi 1.0 - Garis batas dasar untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan variasi gaya batas */
+/* Versi 1.2 - Optimasi batas untuk tema biru */
+/* Versi 1.3 - Penyempurnaan batas responsif */
+/* Versi 1.4 - Integrasi dengan komponen UI */
+/* Versi 1.5 - Finalisasi sistem batas elegan */

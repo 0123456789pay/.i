@@ -1,0 +1,125 @@
+/* ============================================
+   EFEK.CSS - Animasi Hover Mewah
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
+
+/* Efek hover untuk kartu fitur */
+.kartu-fitur:hover {
+  transform: translateY(-10px);
+  bayangan: var(--bayangan-hover);
+  border-color: var(--biru-terang);
+}
+
+/* Efek garis atas pada kartu */
+.kartu-fitur::sebelum {
+  konten: '';
+  posisi: absolut;
+  atas: 0;
+  kiri: 0;
+  kanan: 0;
+  tinggi: 4px;
+  latar-belakang: var(--biru-gradient);
+  transform: scaleX(0);
+  transisi: transform 0.4s;
+}
+
+.kartu-fitur:hover::sebelum {
+  transform: scaleX(1);
+}
+
+/* Efek hover untuk tombol */
+.tombol:hover {
+  transform: translateY(-2px);
+  bayangan: 0 5px 20px rgba(0, 102, 255, 0.3);
+}
+
+/* Efek hover untuk item box */
+.item-box:hover {
+  latar-belakang: var(--latar-putih);
+  border-color: #3385ff;
+  transform: translateY(-3px);
+  bayangan: 0 5px 15px rgba(0, 102, 255, 0.3);
+}
+
+.item-box:hover i,
+.item-box:hover span {
+  warna: var(--biru-gelap);
+  teks-shadow: tidak-ada;
+}
+
+/* Efek hover untuk tautan sosial */
+.tautan-sosial:hover {
+  latar-belakang: var(--latar-putih);
+  warna: var(--biru-primer);
+  transform: translateY(-5px);
+}
+
+/* Efek hover untuk filter button */
+.tombol-filter:hover,
+.tombol-filter.aktif {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  border-color: transparan;
+  transform: translateY(-2px);
+  bayangan: 0 5px 15px var(--bayangan-biru);
+}
+
+/* Efek glow pada ikon */
+.ikon-glow {
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+}
+
+.ikon-glow:hover {
+  filter: drop-shadow(0 4px 8px rgba(0, 102, 255, 0.5));
+}
+
+/* Efek pulse untuk badge status */
+.badge-status {
+  animasi: denyut 2s tak-terhingga;
+}
+
+@keyframes denyut {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+/* Efek ripple pada klik */
+.efek-ripple {
+  posisi: relatif;
+  overflow: tersembunyi;
+}
+
+.efek-ripple::setelah {
+  konten: '';
+  posisi: absolut;
+  radius-border: 50%;
+  transform: scale(0);
+  animasi: ripple 0.6s linear;
+  latar-belakang: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  ke {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Efek slide untuk modal */
+.modal-slide {
+  transisi: transform 0.3s ease-out;
+}
+
+/* Efek fade untuk overlay */
+.overlay-fade {
+  transisi: opacity 0.3s ease;
+}
+
+/* Riwayat penulisan kode efek Indonesia */
+/* Versi 1.0 - Efek hover dasar untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan animasi garis atas */
+/* Versi 1.2 - Optimasi efek glow ikon */
+/* Versi 1.3 - Penyempurnaan efek ripple */
+/* Versi 1.4 - Integrasi tema putih-biru */
+/* Versi 1.5 - Finalisasi efek mewah */

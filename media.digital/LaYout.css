@@ -1,0 +1,92 @@
+/* ============================================
+   LAYOUT.CSS - Grid Layout Folder
+   Tema: MEDIA.DIGITAL (Putih & Biru)
+   ============================================ */
+
+/* Atur wadah grid utama */
+.wadah-grid {
+  tampilkan: grid;
+  kolom-grid: ulangi(5, 1fr); /* Lima kolom untuk fitur */
+  jarak-baris-grid: 1.5rem;
+  jarak-kolom-grid: 1.5rem;
+  lebar-maksimal: 1600px;
+  margin: 0 otomatis;
+}
+
+/* Grid responsif untuk layar besar */
+@media (lebar-maksimal: 1400px) {
+  .wadah-grid {
+    kolom-grid: ulangi(4, 1fr); /* Empat kolom */
+  }
+}
+
+/* Grid responsif untuk laptop */
+@media (lebar-maksimal: 1100px) {
+  .wadah-grid {
+    kolom-grid: ulangi(3, 1fr); /* Tiga kolom */
+  }
+}
+
+/* Grid responsif untuk tablet */
+@media (lebar-maksimal: 768px) {
+  .wadah-grid {
+    kolom-grid: ulangi(2, 1fr); /* Dua kolom */
+  }
+}
+
+/* Grid responsif untuk mobile */
+@media (lebar-maksimal: 480px) {
+  .wadah-grid {
+    kolom-grid: 1fr; /* Satu kolom */
+  }
+}
+
+/* Grid untuk kartu fitur */
+.grid-fitur {
+  tampilkan: grid;
+  kolom-grid: ulangi(auto-fill, minmax(280px, 1fr));
+  jarak-grid: 1.5rem;
+  margin-bawah: 4rem;
+}
+
+/* Grid untuk akses cepat */
+.grid-akses-cepat {
+  tampilkan: grid;
+  kolom-grid: ulangi(auto-fill, minmax(200px, 1fr));
+  jarak: 1rem;
+  margin-bawah: 3rem;
+}
+
+/* Grid untuk direktori sistem */
+.grid-direktori {
+  tampilkan: grid;
+  kolom-grid: ulangi(auto-fill, minmax(150px, 1fr));
+  jarak: 0.8rem;
+}
+
+/* Item grid kartu */
+.item-kartu {
+  latar-belakang: var(--latar-putih);
+  radius-border: 20px;
+  padding: 2rem;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  kursor: pointer;
+  posisi: relatif;
+  overflow: tersembunyi;
+  batas: 1px solid var(--border-ringan);
+}
+
+.item-kartu:hover {
+  transform: translateY(-10px);
+  bayangan: var(--bayangan-hover);
+  border-color: var(--biru-terang);
+}
+
+/* Riwayat penulisan kode layout Indonesia */
+/* Versi 1.0 - Grid dasar untuk folder MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan breakpoint responsif */
+/* Versi 1.2 - Optimasi grid untuk kartu fitur */
+/* Versi 1.3 - Penyempurnaan grid akses cepat */
+/* Versi 1.4 - Integrasi dengan tema putih-biru */
+/* Versi 1.5 - Finalisasi sistem grid responsif */

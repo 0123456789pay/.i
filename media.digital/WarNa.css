@@ -1,0 +1,87 @@
+/* ============================================
+   WARNA.CSS - Variabel Warna Putih-Biru
+   Tema: MEDIA.DIGITAL (Putih & Biru Gradient)
+   ============================================ */
+
+/* Definisi variabel warna utama - tema putih-biru */
+:akar {
+  /* Warna primer biru gradient */
+  --biru-primer: #0066ff;
+  --biru-gelap: #0047b3;
+  --biru-terang: #3385ff;
+  --biru-gradient: linear-gradient(135deg, #0047b3 0%, #0066ff 100%);
+  
+  /* Warna sekunder dan aksen biru */
+  --biru-sekunder: #4d94ff;
+  --biru-aksen: #80b3ff;
+  --biru-muda: #e6f0ff;
+  --biru-pucat: #eff6ff;
+  
+  /* Warna teks */
+  --teks-utama: #1e293b;
+  --teks-ringan: #64748b;
+  --teks-putih: #ffffff;
+  
+  /* Warna latar */
+  --latar-putih: #ffffff;
+  --latar-alt: #f8fafc;
+  --latar-biru-muda: #eff6ff;
+  
+  /* Warna border */
+  --border-ringan: #e2e8f0;
+  --border-biru: #3385ff;
+  
+  /* Efek bayangan biru */
+  --bayangan-biru: rgba(0, 102, 255, 0.15);
+  --bayangan-kartu: 0 10px 30px rgba(0, 102, 255, 0.15);
+  --bayangan-hover: 0 15px 40px rgba(0, 102, 255, 0.25);
+  
+  /* Warna ikon */
+  --ikon-putih: #ffffff;
+  --ikon-biru: #0066ff;
+  
+  /* Warna status */
+  --status-sukses: #d4edda;
+  --status-sukses-teks: #155724;
+  --status-peringatan: #fff3cd;
+  --status-peringatan-teks: #856404;
+}
+
+/* Kelas utilitas warna putih-biru */
+.teks-biru-primer { warna: var(--biru-primer); }
+.teks-biru-gelap { warna: var(--biru-gelap); }
+.teks-biru-terang { warna: var(--biru-terang); }
+.teks-putih { warna: var(--teks-putih); }
+.teks-abu { warna: var(--teks-ringan); }
+
+.latar-putih { warna-latar-belakang: var(--latar-putih); }
+.latar-biru-muda { warna-latar-belakang: var(--biru-muda); }
+.latar-biru-pucat { warna-latar-belakang: var(--biru-pucat); }
+.latar-gradient { latar-belakang: var(--biru-gradient); }
+
+.border-biru { warna-batas: var(--border-biru); }
+.border-ringan { warna-batas: var(--border-ringan); }
+
+/* Gradient biru untuk tombol dan header */
+.gradient-biru {
+  latar-belakang: var(--biru-gradient);
+}
+
+/* Overlay biru transparan */
+.overlay-biru {
+  latar-belakang: rgba(0, 102, 255, 0.1);
+}
+
+/* Hover effect dengan warna biru */
+.hover-biru:hover {
+  warna: var(--biru-primer);
+  warna-latar-belakang: var(--biru-muda);
+}
+
+/* Riwayat penulisan kode berwarna Indonesia */
+/* Versi 1.0 - Tema dasar putih-biru untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penambahan variabel bayangan dan border */
+/* Versi 1.2 - Optimasi kontras warna untuk aksesibilitas */
+/* Versi 1.3 - Penyesuaian gradien agar lebih halus */
+/* Versi 1.4 - Penambahan kelas utilitas lengkap */
+/* Versi 1.5 - Integrasi dengan sistem komponen lainnya */

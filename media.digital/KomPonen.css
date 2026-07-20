@@ -1,0 +1,140 @@
+/* ============================================
+   FILE CSS - Untuk MEDIA.DIGITAL
+   Tema: Putih & Biru
+   ============================================ */
+
+/* Catatan: Semua kode menggunakan bahasa Indonesia */
+/* Sesuai dengan tampilan HTML yang ada */
+
+/* Definisi variabel dan gaya dasar */
+.kelas-utama {
+  warna: var(--biru-primer);
+  latar-belakang: var(--latar-putih);
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+/* Gaya untuk komponen kartu */
+.kartu {
+  radius-border: 20px;
+  bayangan: var(--bayangan-kartu);
+  transisi: semua 0.3s;
+}
+
+/* Gaya untuk tombol aksi */
+.tombol-aksi {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  batas: tidak-ada;
+  padding: 0.8rem 1.5rem;
+  radius-border: 10px;
+  kursor: pointer;
+}
+
+/* Gaya untuk input form */
+.input-form {
+  batas: 2px solid var(--border-ringan);
+  radius-border: 10px;
+  padding: 0.8rem 1rem;
+}
+
+.input-form:fokus {
+  batas-color: var(--biru-primer);
+  bayangan: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
+}
+
+/* Gaya untuk judul section */
+.judul-seksi {
+  ukuran-font: 2.5rem;
+  berat-font: 800;
+  warna: #333;
+  teks-align: tengah;
+}
+
+/* Gaya untuk ikon digital */
+.ikon-digital {
+  ukuran-font: 2rem;
+  warna: var(--biru-primer);
+  filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+}
+
+/* Gaya untuk scrollbar */
+.scrollbar::-webkit-scrollbar {
+  lebar: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  latar-belakang: #f1f1f1;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  latar-belakang: var(--biru-primer);
+  radius-border: 4px;
+}
+
+/* Gaya untuk modal popup */
+.modal-popup {
+  radius-border: 20px;
+  batas: tidak-ada;
+  bayangan: var(--bayangan-modal);
+}
+
+.modal-header {
+  latar-belakang: var(--biru-gradient);
+  warna: var(--teks-putih);
+  radius-border: 20px 20px 0 0;
+}
+
+/* Gaya untuk pemberitahuan */
+.pemberitahuan {
+  latar-belakang: var(--latar-biru-muda);
+  batas-kiri: 4px solid var(--biru-primer);
+  padding: 1rem;
+  radius-border: 8px;
+}
+
+/* Animasi masuk */
+@keyframes munculNaik {
+  dari {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes munculTurun {
+  dari {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  ke {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transisi halus */
+.transisi-halus {
+  transisi: semua 0.3s ease;
+}
+
+/* Media query untuk mobile */
+@media (lebar-maksimal: 768px) {
+  .judul-seksi {
+    ukuran-font: 1.8rem;
+  }
+  .kartu {
+    padding: 1.5rem;
+  }
+}
+
+/* Riwayat penulisan kode Indonesia */
+/* Versi 1.0 - Pembuatan awal untuk MEDIA.DIGITAL */
+/* Versi 1.1 - Penyesuaian tema putih-biru */
+/* Versi 1.2 - Optimasi gaya dan tampilan */
+/* Versi 1.3 - Penyempurnaan responsif */
+/* Versi 1.4 - Integrasi dengan komponen lain */
+/* Versi 1.5 - Finalisasi sesuai HTML yang ada */
