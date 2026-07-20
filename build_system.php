@@ -59,7 +59,7 @@ foreach ($menus as $menuKey => $menuData) {
     createDigitalFolder($menuPath);
     
     // File Index Utama Menu
-    $htmlContent = "<!DOCTYPE html><html lang='id'><head><meta charset='UTF-8'><title>{$menuData['nama']}</title><link rel='stylesheet' href='css/style.css'></head><body><h1>{$menuData['nama']}</h1><div id='app'></div><script src='js/main.js'></script></body></html>";
+    $htmlContent = "<!DOCTYPE html><html lang='id'><head><meta charset='UTF-8'><title>{$menuData['nama']}</title></head><body><h1>{$menuData['nama']}</h1><div id='app'></div></body></html>";
     createFile($menuPath, 'html', 'index', $htmlContent);
     createFile($menuPath, 'css', 'style', "/* Style untuk {$menuData['nama']} */ body { font-family: sans-serif; background: #f4f4f4; }");
     createFile($menuPath, 'js', 'main', "// Logika utama untuk {$menuData['nama']}\nconsole.log('Modul {$menuData['nama']} dimuat');");
@@ -81,8 +81,7 @@ foreach ($menus as $menuKey => $menuData) {
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>{$featureName} - {$menuData['nama']}</title>
-    <link rel='stylesheet' href='../css/shared.css'>
-    <link rel='stylesheet' href='css/ui.css'>
+
 </head>
 <body>
     <header>
@@ -92,7 +91,7 @@ foreach ($menus as $menuKey => $menuData) {
     <main id='content-area'>
         <p>Memuat data untuk {$featureName}...</p>
     </main>
-    <script src='js/logic.js'></script>
+    
 </body>
 </html>";
         createFile($subPath, 'html', 'index', $subHtml);

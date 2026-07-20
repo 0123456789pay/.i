@@ -30,7 +30,6 @@ body{font-family:'Courier New',monospace;background:#0c0c0c;color:#00ff00;height
 .ai-active{color:#f0f}
 .qwen-badge{background:#6366f1;color:#fff;padding:2px 8px;border-radius:3px;font-size:11px}
 </style>
-    <link rel="stylesheet" href="../digital/digital-system.css">
 
 </head>
 <body>
@@ -2131,9 +2130,7 @@ install:function(a){if(!a[0])return'<span class="err">Usage: `install &lt;packag
 cmd.addEventListener('keydown',function(e){if(e.key==='Enter'){var c=cmd.value.trim();if(c){hist.push(c);hi=hist.length;var cn=c.split(' ')[0],ar=c.split(' ').slice(1);out.innerHTML+='<div><span class="prompt">user@filemanajer:~$</span><span>'+c+'</span></div>';if(c.startsWith('`')){var bc=c.substring(1).trim();var bcn=bc.split(' ')[0];if(bcn==='#!bash'){var bashCmd=bc.split(' ').slice(1).join(' ');if(cmds.bash){var r=cmds.bash([bashCmd]);if(r)out.innerHTML+='<div>'+r+'</div>'}}else if(cmds[bcn]){var r=cmds[bcn](bc.split(' ').slice(1));if(r)out.innerHTML+='<div>'+r+'</div>'}else{out.innerHTML+='<div class="err">Unknown: '+bcn+'. Type `help.</div>'}}else if(cmds[cn]){var r=cmds[cn](ar);if(r)out.innerHTML+='<div>'+r+'</div>'}else{out.innerHTML+='<div class="err">Unknown: '+cn+'. Type help.</div>'}out.innerHTML+='<br>';scroll()}cmd.value=''}else if(e.key==='ArrowUp'){e.preventDefault();if(hi>0){hi--;cmd.value=hist[hi]}}else if(e.key==='ArrowDown'){e.preventDefault();if(hi<hist.length-1){hi++;cmd.value=hist[hi]}else{hi=hist.length;cmd.value=''}}});
 document.getElementById('tree').innerHTML=tree('/filemanajer');
 </script>
-    <script src="../digital/digital-system.js"></script>
 
-    
     <!-- Settings Panel Overlay -->
     <div id="settings-overlay-filemanajer_digital" class="settings-overlay" style="display: none;">
         <div class="settings-panel">
@@ -2407,11 +2404,7 @@ document.getElementById('tree').innerHTML=tree('/filemanajer');
     <button id="fab-settings-filemanajer_digital" class="fab-settings" onclick="toggleSettings('filemanajer_digital')">
         <span class="fab-icon">⚙️</span>
     </button>
-        <script src="../../config.js"></script>
-    <script src="../../All.js"></script>
-    <script src="../../components/Button.js"></script>
-    <script src="../../digital.js" id="page-specific-js"></script>
-    
+
     <script>
     // ========================================
     // SYSTEM CONFIGURATION FOR DIGITAL

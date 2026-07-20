@@ -9,7 +9,7 @@ require_once __DIR__ . '/includes/db.php';
     <meta name="description" content="Situs News Media Digital - Portal Berita Terpercaya">
     <meta name="keywords" content="berita, news, indonesia, terkini, terbaru">
     <title>Beranda - Situs News Media Digital</title>
-    <link rel="stylesheet" href="/situsnewsmediadigital/assets/css/style.css">
+    
 </head>
 <body>
     <header>
@@ -104,6 +104,5 @@ require_once __DIR__ . '/includes/db.php';
         </div>
     </footer>
 
-    <script src="/situsnewsmediadigital/assets/js/main.js"></script>
 </body>
 </html>

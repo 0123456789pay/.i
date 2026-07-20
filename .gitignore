@@ -1,51 +1,50 @@
 ```
-# Build artifacts and compiled files
-*.pyc
-__pycache__/
-*.o
-*.obj
-*.out
+# Dependencies
+node_modules/
+
+# Build artifacts
 dist/
 build/
 target/
-*.class
 
-# Dependencies and packages
-node_modules/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
 venv/
 .venv/
-.julia/
-zig-cache/
-zig-out/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
 
-# Logs and temporary files
+# Logs
 *.log
-*.tmp
-*.swp
-*.swo
 
-# Environment and config files
+# Environment specific
 .env
 .env.local
 .env.*
-.config
 
-# Editor and IDE files
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# System files
+# OS
 .DS_Store
 Thumbs.db
 
-# Coverage reports
+# Coverage
 coverage/
-htmlcov/
-.coverage
 
-# Compressed files
+# Compressed
 *.zip
 *.gz
 *.tar
@@ -69,14 +68,4 @@ htmlcov/
 *.tar.xz
 *.tar.zst
 
-# Database files
-*.db
-*.sqlite
-*.sqlite3
-
-# OS generated files
-.DS_Store?
-ehthumbs.db
-Icon?
-Thumbs.db
 ```

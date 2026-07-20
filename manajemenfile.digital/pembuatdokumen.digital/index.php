@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Pembuat Dokumen</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #f5f5f5; }
@@ -213,7 +213,6 @@
         </main>
     </div>
 
-    <script src="assets/js/dashboard.js"></script>
     <script>
         // Load stats from database
         fetch('api.php?action=list')

@@ -55,7 +55,6 @@ body{font-family:'Segoe UI',sans-serif;background:#0a0a0f;min-height:100vh;color
 @media(max-width:1200px){.main-area{grid-template-columns:200px 1fr}.sidebar-right{display:none}}
 @media(max-width:768px){.main-area{grid-template-columns:1fr}.sidebar-left{display:none}}
 </style>
-    <link rel="stylesheet" href="../digital/digital-system.css">
 
 </head>
 <body>
@@ -187,9 +186,7 @@ function genActivity(){const acts=['Processing','Syncing','Updating','Checking',
 setInterval(genActivity,5000);
 addLine('','');addLine('Commands: start, stop, restart, deploy','terminal-info');
 </script>
-    <script src="../digital/digital-system.js"></script>
 
-    
     <!-- Settings Panel Overlay -->
     <div id="settings-overlay-view_appunitconverter" class="settings-overlay" style="display: none;">
         <div class="settings-panel">
@@ -463,12 +460,7 @@ addLine('','');addLine('Commands: start, stop, restart, deploy','terminal-info')
     <button id="fab-settings-view_appunitconverter" class="fab-settings" onclick="toggleSettings('view_appunitconverter')">
         <span class="fab-icon">⚙️</span>
     </button>
-        <script src="../../config.js"></script>
-    <script src="../../All.js"></script>
-    <script src="../../components/Button.js"></script>
-    <script src="../../appunitconverter.js" id="page-specific-js"></script>
-    <script src="../../js/appunitconverter.js"></script>
-    
+
     <script>
     // ========================================
     // SYSTEM CONFIGURATION FOR APPUNITCONVERTER

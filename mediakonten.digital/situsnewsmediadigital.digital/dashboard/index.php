@@ -14,7 +14,7 @@ $categoryCount = count($db['categories'] ?? []);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Situs News Media Digital</title>
-    <link rel="stylesheet" href="/situsnewsmediadigital/assets/css/style.css">
+    
 </head>
 <body>
     <div class="dashboard-container">
@@ -114,6 +114,5 @@ $categoryCount = count($db['categories'] ?? []);
         </main>
     </div>
 
-    <script src="/situsnewsmediadigital/assets/js/main.js"></script>
 </body>
 </html>

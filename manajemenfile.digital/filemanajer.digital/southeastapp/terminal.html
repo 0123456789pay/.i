@@ -39,7 +39,6 @@
         .io-panel h3 { font-size: 0.8rem; color: var(--accent-color); margin-bottom: 0.5rem; }
         .io-content { font-size: 0.8rem; max-height: 150px; overflow-y: auto; white-space: pre-wrap; }
     </style>
-    <link rel="stylesheet" href="../../digital/digital-system.css">
 
 </head>
 <body>
@@ -79,9 +78,7 @@
         function clearTerminal() { document.getElementById('terminalOutput').innerHTML = '<div class="output-line system">Terminal cleared</div><br>'; }
         function scrollToBottom() { const output = document.getElementById('terminalOutput'); output.scrollTop = output.scrollHeight; }
     </script>
-    <script src="../../digital/digital-system.js"></script>
 
-    
     <!-- Settings Panel Overlay -->
     <div id="settings-overlay-filemanajer_southeastapp_terminal" class="settings-overlay" style="display: none;">
         <div class="settings-panel">
@@ -355,11 +352,7 @@
     <button id="fab-settings-filemanajer_southeastapp_terminal" class="fab-settings" onclick="toggleSettings('filemanajer_southeastapp_terminal')">
         <span class="fab-icon">⚙️</span>
     </button>
-        <script src="../../../config.js"></script>
-    <script src="../../../All.js"></script>
-    <script src="../../../components/Button.js"></script>
-    <script src="../../../terminal.js" id="page-specific-js"></script>
-    
+
     <script>
     // ========================================
     // SYSTEM CONFIGURATION FOR TERMINAL
