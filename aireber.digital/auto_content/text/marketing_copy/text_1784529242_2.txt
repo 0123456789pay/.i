@@ -1,0 +1,14 @@
+{
+  "id": "text_1784529242_2",
+  "type": "text",
+  "category": "marketing_copy",
+  "title": "Mengapa Memilih Kami - 20/07/2026",
+  "content": "Tingkatkan produktivitas Anda dengan sistem otomatisasi konten Aireber.digital. Hemat waktu, hasilkan lebih banyak konten berkualitas!",
+  "excerpt": "Siap dipublikasikan ke berbagai section dashboard",
+  "created_at": "2026-07-20 06:34:02",
+  "tags": [
+    "marketing_copy",
+    "auto-generated",
+    "aireber"
+  ]
+}

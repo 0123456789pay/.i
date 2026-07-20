@@ -1,7 +1,0 @@
-[2026-07-19T19:35:01+00:00] INFO: System initialization started
-[2026-07-19T19:35:01+00:00] INFO: Loading master configuration
-[2026-07-19T19:35:01+00:00] INFO: Verified 100 node configurations
-[2026-07-19T19:35:01+00:00] INFO: Metadata system initialized
-[2026-07-19T19:35:01+00:00] INFO: Virtual volumes created
-[2026-07-19T19:35:01+00:00] INFO: Network topology configured
-[2026-07-19T19:35:01+00:00] INFO: Storage system ready for logical operations
