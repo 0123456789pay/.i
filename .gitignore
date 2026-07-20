@@ -1,1 +1,19 @@
-Nothing should be ignored based on the provided file changes. The only modified file is `media.digital/index.html`, which is a source file and should not be added to .gitignore.
+```
+# Database files
+*.db
+*.db.php
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Backup and temporary files
+*.bak
+*.tmp
+*.swp
+*~
+```
