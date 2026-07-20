@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Components - ReberPencarian.digital</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/menus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ============================================
+         MAIN NAVIGATION MENU COMPONENT
+         ============================================ -->
+    <nav class="main-navigation" id="mainNavigation">
+        <div class="nav-container">
+            <!-- Logo & Brand -->
+            <div class="nav-brand">
+                <a href="../index.html" class="brand-logo">
+                    <i class="fas fa-search"></i>
+                    <span>ReberPencarian</span>
+                </a>
+            </div>
+
+            <!-- Primary Menu Items -->
+            <ul class="nav-menu-primary" id="navMenuPrimary">
+                <li class="nav-item" data-menu="home">
+                    <a href="#" class="nav-link active">
+                        <i class="fas fa-home"></i>
+                        <span>Beranda</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-menu="search">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-search"></i>
+                        <span>Pencarian</span>
+                    </a>
+                </li>
+                <li class="nav-item has-submenu" data-menu="explore">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-compass"></i>
+                        <span>Jelajahi</span>
+                        <i class="fas fa-chevron-down submenu-arrow"></i>
+                    </a>
+                    <!-- Submenu Level 1 -->
+                    <ul class="submenu level-1">
+                        <li><a href="#" data-category="all"><i class="fas fa-th"></i> Semua Domain</a></li>
+                        <li><a href="#" data-category="tech"><i class="fas fa-laptop"></i> Teknologi</a></li>
+                        <li><a href="#" data-category="business"><i class="fas fa-briefcase"></i> Bisnis</a></li>
+                        <li><a href="#" data-category="media"><i class="fas fa-photo-video"></i> Media</a></li>
+                        <li><a href="#" data-category="education"><i class="fas fa-graduation-cap"></i> Pendidikan</a></li>
+                        <li><a href="#" data-category="health"><i class="fas fa-heartbeat"></i> Kesehatan</a></li>
+                        <li class="has-submenu">
+                            <a href="#"><i class="fas fa-folder"></i> Lainnya <i class="fas fa-chevron-right"></i></a>
+                            <!-- Submenu Level 2 -->
+                            <ul class="submenu level-2">
+                                <li><a href="#" data-category="finance"><i class="fas fa-coins"></i> Keuangan</a></li>
+                                <li><a href="#" data-category="security"><i class="fas fa-shield-alt"></i> Keamanan</a></li>
+                                <li><a href="#" data-category="infra"><i class="fas fa-server"></i> Infrastruktur</a></li>
+                                <li><a href="#" data-category="config"><i class="fas fa-cogs"></i> Konfigurasi</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-menu="bookmarks">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Bookmark</span>
+                        <span class="badge" id="bookmarkCount">0</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-menu="history">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-history"></i>
+                        <span>Riwayat</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Right Side Actions -->
+            <div class="nav-actions">
+                <!-- Quick Search -->
+                <div class="quick-search-nav">
+                    <input type="text" class="nav-search-input" placeholder="Cari cepat..." id="navQuickSearch">
+                    <button class="nav-search-btn"><i class="fas fa-search"></i></button>
+                </div>
+
+                <!-- Notifications -->
+                <button class="nav-action-btn" id="btnNotifications" title="Notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <!-- Settings Dropdown -->
+                <div class="dropdown-container">
+                    <button class="nav-action-btn dropdown-toggle" id="btnSettingsDropdown" title="Pengaturan">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <div class="dropdown-menu settings-dropdown" id="settingsDropdown">
+                        <div class="dropdown-header">
+                            <h4>Pengaturan</h4>
+                        </div>
+                        <ul class="dropdown-list">
+                            <li><a href="#" data-action="theme"><i class="fas fa-palette"></i> Tema</a></li>
+                            <li><a href="#" data-action="language"><i class="fas fa-language"></i> Bahasa</a></li>
+                            <li><a href="#" data-action="privacy"><i class="fas fa-user-shield"></i> Privasi</a></li>
+                            <li><a href="#" data-action="accessibility"><i class="fas fa-universal-access"></i> Aksesibilitas</a></li>
+                            <li class="divider"></li>
+                            <li><a href="config.html"><i class="fas fa-sliders-h"></i> Konfigurasi Lengkap</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- User Profile -->
+                <div class="user-profile">
+                    <button class="profile-btn dropdown-toggle" id="btnUserProfile">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230047b3'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M12 14c-6.1 0-8 4-8 4v2h16v-2s-1.9-4-8-4z'/%3E%3C/svg%3E" alt="User" class="profile-avatar">
+                        <span class="profile-name">Pengguna</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-header">
+                            <div class="profile-info">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230047b3'%3E%3Ccircle cx='12' cy='8' r='4'/%3E%3Cpath d='M12 14c-6.1 0-8 4-8 4v2h16v-2s-1.9-4-8-4z'/%3E%3C/svg%3E" alt="User" class="profile-avatar-large">
+                                <div>
+                                    <h5>Pengguna Digital</h5>
+                                    <p>user@reberpencarian.digital</p>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="dropdown-list">
+                            <li><a href="#" data-action="profile"><i class="fas fa-user"></i> Profil Saya</a></li>
+                            <li><a href="#" data-action="account"><i class="fas fa-user-cog"></i> Akun</a></li>
+                            <li><a href="#" data-action="activity"><i class="fas fa-chart-line"></i> Aktivitas</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#" data-action="logout"><i class="fas fa-sign-out-alt"></i> Keluar</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         CONTEXT MENU (RIGHT-CLICK)
+         ============================================ -->
+    <div class="context-menu" id="contextMenu">
+        <ul class="context-menu-list">
+            <li class="context-menu-item" data-action="open">
+                <i class="fas fa-external-link-alt"></i> Buka
+            </li>
+            <li class="context-menu-item" data-action="open-new-tab">
+                <i class="fas fa-window-restore"></i> Buka di Tab Baru
+            </li>
+            <li class="context-menu-item" data-action="open-new-window">
+                <i class="fas fa-expand"></i> Buka di Jendela Baru
+            </li>
+            <li class="context-menu-divider"></li>
+            <li class="context-menu-item" data-action="bookmark">
+                <i class="fas fa-star"></i> Tambahkan ke Bookmark
+            </li>
+            <li class="context-menu-item" data-action="copy-link">
+                <i class="fas fa-link"></i> Salin Tautan
+            </li>
+            <li class="context-menu-item" data-action="share">
+                <i class="fas fa-share-alt"></i> Bagikan
+            </li>
+            <li class="context-menu-divider"></li>
+            <li class="context-menu-item" data-action="inspect">
+                <i class="fas fa-code"></i> Inspeksi Elemen
+            </li>
+            <li class="context-menu-item" data-action="properties">
+                <i class="fas fa-info-circle"></i> Properti
+            </li>
+        </ul>
+    </div>
+
+    <!-- ============================================
+         SIDEBAR MENU (COLLAPSIBLE)
+         ============================================ -->
+    <aside class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-bars"></i> Menu</h3>
+            <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+        </div>
+
+        <div class="sidebar-content">
+            <!-- Search in Sidebar -->
+            <div class="sidebar-search">
+                <input type="text" placeholder="Cari menu..." id="sidebarSearch">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <!-- Main Categories -->
+            <div class="sidebar-section">
+                <h4 class="sidebar-section-title">Kategori Utama</h4>
+                <ul class="sidebar-menu-list">
+                    <li class="sidebar-menu-item active">
+                        <a href="#" data-page="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-page="search">
+                            <i class="fas fa-search"></i>
+                            <span>Pencarian</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-page="explore">
+                            <i class="fas fa-compass"></i>
+                            <span>Jelajahi</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-page="collections">
+                            <i class="fas fa-folder-open"></i>
+                            <span>Koleksi</span>
+                            <span class="sidebar-badge">25</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tools Section -->
+            <div class="sidebar-section">
+                <h4 class="sidebar-section-title">Alat</h4>
+                <ul class="sidebar-menu-list">
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-tool="analyzer">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analisis</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-tool="export">
+                            <i class="fas fa-file-export"></i>
+                            <span>Export Data</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-tool="import">
+                            <i class="fas fa-file-import"></i>
+                            <span>Import Data</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Configuration Section -->
+            <div class="sidebar-section">
+                <h4 class="sidebar-section-title">Konfigurasi</h4>
+                <ul class="sidebar-menu-list">
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-config="core">
+                            <i class="fas fa-microchip"></i>
+                            <span>Core Engine</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-config="protocol">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Protocol Handler</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-config="crawler">
+                            <i class="fas fa-spider"></i>
+                            <span>Crawler Selector</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" data-config="security">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security Validator</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- System Info -->
+            <div class="sidebar-footer">
+                <div class="system-status">
+                    <span class="status-indicator online"></span>
+                    <span>Sistem Online</span>
+                </div>
+                <p class="version-info">v1.0.0 - ReberCore-TRUE</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay for mobile/sidebar -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/menus.js"></script>
+</body>
+</html>
