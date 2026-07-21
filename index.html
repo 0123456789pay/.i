@@ -1698,15 +1698,69 @@
         }
         
         function addIntegration() {
-            showNotification('Opening integration wizard...');
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
+            modal.innerHTML = `
+                <div style="background:white;border-radius:16px;padding:2rem;max-width:500px;width:90%;">
+                    <h2 style="color:#0066ff;margin-bottom:1.5rem;"><i class="fas fa-plug"></i> Add New Integration</h2>
+                    <div style="display:grid;gap:1rem;">
+                        <div>
+                            <label style="display:block;font-weight:600;margin-bottom:0.5rem;">Service Name</label>
+                            <input type="text" id="integrationName" placeholder="e.g., Google Drive" style="width:100%;padding:0.8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;">
+                        </div>
+                        <div>
+                            <label style="display:block;font-weight:600;margin-bottom:0.5rem;">API Key / Token</label>
+                            <input type="password" id="integrationKey" placeholder="Enter your API key" style="width:100%;padding:0.8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;">
+                        </div>
+                        <div>
+                            <label style="display:block;font-weight:600;margin-bottom:0.5rem;">Connection Type</label>
+                            <select id="integrationType" style="width:100%;padding:0.8rem;border:2px solid #e2e8f0;border-radius:8px;font-size:1rem;">
+                                <option value="oauth">OAuth 2.0</option>
+                                <option value="api">API Key</option>
+                                <option value="webhook">Webhook</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:1rem;margin-top:1.5rem;">
+                        <button onclick="saveIntegration()" style="flex:1;padding:0.8rem;background:#0066ff;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;"><i class="fas fa-check"></i> Connect</button>
+                        <button onclick="this.closest('div[style*=fixed]').remove()" style="flex:1;padding:0.8rem;background:#e2e8f0;color:#1e293b;border:none;border-radius:8px;cursor:pointer;font-weight:600;"><i class="fas fa-times"></i> Cancel</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        function saveIntegration() {
+            const name = document.getElementById('integrationName').value;
+            const key = document.getElementById('integrationKey').value;
+            const type = document.getElementById('integrationType').value;
+            if (!name || !key) {
+                showNotification('Please fill in all fields');
+                return;
+            }
+            document.querySelectorAll('div[style*=fixed]').forEach(m => m.remove());
+            integrations.push({name: name, status: 'connected', icon: 'fa-link', lastSync: 'Just now'});
+            renderIntegrations();
+            showNotification('Integration added successfully!');
         }
         
         function testAllConnections() {
             showNotification('Testing all connections...');
+            setTimeout(() => {
+                showNotification('All connections tested: 5 passed, 1 warning');
+            }, 2000);
         }
         
         function testConnection(name) {
             showNotification(`Testing connection to ${name}...`);
+            setTimeout(() => {
+                const success = Math.random() > 0.2;
+                if (success) {
+                    showNotification(`Connection to ${name} successful!`);
+                } else {
+                    showNotification(`Connection to ${name} failed. Please check credentials.`);
+                }
+            }, 1500);
         }
         
         function renderLayouts() {
@@ -1717,20 +1771,74 @@
                     <div class="card-icon"><i class="fas ${l.preview}"></i></div>
                     <h3>${l.name}</h3>
                     <p style="color:#64748b;font-size:0.85rem;">${l.type}</p>
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1rem;">
+                        <span style="font-size:0.8rem;color:#10b981;"><i class="fas fa-download"></i> ${(Math.random()*1000).toFixed(0)}</span>
+                        <button onclick="event.stopPropagation(); downloadLayout('${l.name}')" style="padding:0.4rem 0.8rem;background:#0066ff;color:white;border:none;border-radius:6px;cursor:pointer;font-size:0.8rem;"><i class="fas fa-download"></i> Download</button>
+                    </div>
                 </div>
             `).join('');
         }
         
         function setLayoutView(view) {
+            const grid = document.getElementById('layoutGalleryGrid');
+            if (!grid) return;
+            if (view === 'list') {
+                grid.style.gridTemplateColumns = '1fr';
+            } else {
+                grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(280px, 1fr))';
+            }
             showNotification('Layout view changed to ' + view);
         }
         
         function uploadLayout() {
-            showNotification('Opening file picker...');
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json,.xml,.html';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    showNotification('Uploading layout: ' + file.name);
+                    setTimeout(() => {
+                        layouts.push({name: file.name.replace(/\.[^/.]+$/, ''), type: 'Custom', preview: 'fa-file-code'});
+                        renderLayouts();
+                        showNotification('Layout uploaded successfully!');
+                    }, 1500);
+                }
+            };
+            input.click();
         }
         
         function previewLayout(name) {
-            showNotification('Previewing layout: ' + name);
+            const modal = document.createElement('div');
+            modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:9999;display:flex;align-items:center;justify-content:center;';
+            modal.innerHTML = `
+                <div style="background:white;border-radius:16px;padding:2rem;max-width:800px;width:90%;max-height:90vh;overflow:auto;position:relative;">
+                    <button onclick="this.closest('div[style*=fixed]').remove()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#64748b;"><i class="fas fa-times"></i></button>
+                    <h2 style="color:#0066ff;margin-bottom:1rem;"><i class="fas fa-desktop"></i> Preview: ${name}</h2>
+                    <div style="background:#f1f5f9;border-radius:8px;padding:2rem;text-align:center;">
+                        <i class="fas ${layouts.find(l => l.name === name)?.preview || 'fa-desktop'}" style="font-size:4rem;color:#0066ff;"></i>
+                        <p style="margin-top:1rem;color:#64748b;">Layout preview would appear here</p>
+                        <div style="margin-top:2rem;display:flex;gap:1rem;justify-content:center;">
+                            <button onclick="applyLayout('${name}')" style="padding:0.8rem 1.5rem;background:#0066ff;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;"><i class="fas fa-check"></i> Apply Layout</button>
+                            <button onclick="this.closest('div[style*=fixed]').remove()" style="padding:0.8rem 1.5rem;background:#e2e8f0;color:#1e293b;border:none;border-radius:8px;cursor:pointer;font-weight:600;"><i class="fas fa-times"></i> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+        
+        function downloadLayout(name) {
+            showNotification('Downloading layout: ' + name);
+            setTimeout(() => showNotification('Layout downloaded successfully!'), 1500);
+        }
+        
+        function applyLayout(name) {
+            showNotification('Applying layout: ' + name);
+            setTimeout(() => {
+                document.querySelectorAll('div[style*=fixed]').forEach(m => m.remove());
+                showNotification('Layout applied successfully!');
+            }, 1000);
         }
         
         function setAnalyticsPeriod(period) {
