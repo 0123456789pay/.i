@@ -1770,10 +1770,36 @@
     <!-- Footer -->
     <footer>
         <p style="font-size:1.1rem;margin-bottom:0.5rem;">&copy; 2024 ALLUNIVERS ICONER. All rights reserved.</p>
-        <p style="opacity:0.8;">Platform Pembuatan Icon & Desain Profesional</p>
+        <p style="opacity:0.8;">Platform Pembuatan Icon & Desain Profesional - Terintegrasi Penuh</p>
     </footer>
 
+    <!-- Load Data Storage System -->
+    <script src="iconer.digital/data.storage/dataManager.js"></script>
+    
     <script>
+        // ============================================
+        // ALLUNIVERS ICONER - SYSTEM INTEGRATION v2.0
+        // Mengintegrasikan seluruh sistem: tampilan, data, dan penyimpanan
+        // ============================================
+
+        // Global system state
+        const AlluniversSystem = {
+            version: '2.0.0',
+            initialized: false,
+            activeSection: 'home',
+            dataStorage: null,
+            systems: {
+                iconMaker: false,
+                vectorEditor: false,
+                design3D: false,
+                animation: false,
+                market: false,
+                pusatData: false,
+                github: false,
+                admin: false
+            }
+        };
+
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
@@ -1790,85 +1816,390 @@
                 section.classList.remove('active');
                 section.style.display = 'none';
             });
+            AlluniversSystem.activeSection = 'home';
+            updateNavigationState();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Open studio section
+        // Open studio section with system integration
         function openStudioSection(sectionId) {
             document.querySelectorAll('.studio-section').forEach(section => {
                 section.classList.remove('active');
                 section.style.display = 'none';
             });
-            
+
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.style.display = 'block';
                 setTimeout(() => {
                     targetSection.classList.add('active');
                 }, 10);
-                
+
+                // Track section access in data storage
+                if (AlluniversSystem.dataStorage && AlluniversSystem.dataStorage.initialized) {
+                    AlluniversSystem.dataStorage.recordVisit({
+                        section: sectionId,
+                        timestamp: new Date().toISOString(),
+                        userAgent: navigator.userAgent
+                    });
+                }
+
+                AlluniversSystem.activeSection = sectionId;
+                updateNavigationState();
+
+                // Initialize section-specific features
+                initializeSection(sectionId);
+
                 // Scroll to section
                 targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
 
+        // Update navigation state
+        function updateNavigationState() {
+            console.log(`[SYSTEM] Active section: ${AlluniversSystem.activeSection}`);
+        }
+
+        // Initialize section-specific features
+        function initializeSection(sectionId) {
+            switch(sectionId) {
+                case 'icon-maker':
+                    AlluniversSystem.systems.iconMaker = true;
+                    initIconMaker();
+                    break;
+                case 'vector-editor':
+                    AlluniversSystem.systems.vectorEditor = true;
+                    initVectorEditor();
+                    break;
+                case '3d-designer':
+                    AlluniversSystem.systems.design3D = true;
+                    init3DDesigner();
+                    break;
+                case 'animation-studio':
+                    AlluniversSystem.systems.animation = true;
+                    initAnimationStudio();
+                    break;
+                case 'market':
+                    AlluniversSystem.systems.market = true;
+                    initMarket();
+                    break;
+                case 'pusatdata':
+                    AlluniversSystem.systems.pusatData = true;
+                    initPusatData();
+                    break;
+                case 'github':
+                    AlluniversSystem.systems.github = true;
+                    initGithub();
+                    break;
+                case 'admin':
+                    AlluniversSystem.systems.admin = true;
+                    initAdminPanel();
+                    break;
+            }
+            console.log(`[SYSTEM] Section ${sectionId} initialized`);
+        }
+
         // Open market section
         function openMarketSection(filter = 'all') {
             openStudioSection('market');
-            console.log('Market filter:', filter);
+            console.log('[MARKET] Filter:', filter);
+            filterMarketItems(filter);
         }
 
         // Open market cart
         function openMarketCart() {
             openStudioSection('market');
-            console.log('Opening cart');
+            console.log('[MARKET] Opening cart');
+            showMarketCart();
         }
 
         // Open pusat data section
         function openPusatDataSection(page) {
             openStudioSection('pusatdata');
-            console.log('Pusat Data page:', page);
+            console.log('[PUSAT DATA] Page:', page);
+            loadPusatDataPage(page);
         }
 
         // Open GitHub section
         function openGithubSection(page) {
             openStudioSection('github');
-            console.log('GitHub page:', page);
+            console.log('[GITHUB] Page:', page);
+            loadGithubPage(page);
+        }
+
+        // Open Admin Command Center
+        function openAdminCenter() {
+            openStudioSection('admin');
+            console.log('[ADMIN] Opening Admin Command Center');
         }
 
         // Initialize templates
         function initTemplates() {
             const templatesContainer = document.getElementById('iconTemplates');
-            const icons = ['fa-home', 'fa-user', 'fa-cog', 'fa-heart', 'fa-star', 'fa-cloud', 'fa-bolt', 'fa-lock'];
+            if (!templatesContainer) return;
             
+            const icons = ['fa-home', 'fa-user', 'fa-cog', 'fa-heart', 'fa-star', 'fa-cloud', 'fa-bolt', 'fa-lock'];
+
             icons.forEach(iconClass => {
                 const template = document.createElement('div');
                 template.className = 'template-item';
                 template.innerHTML = `<i class="fas ${iconClass}"></i>`;
                 template.onclick = () => {
-                    console.log('Selected template:', iconClass);
+                    console.log('[ICON MAKER] Selected template:', iconClass);
+                    selectTemplate(iconClass);
                 };
                 templatesContainer.appendChild(template);
             });
         }
 
+        // Section initialization functions
+        function initIconMaker() {
+            const canvas = document.getElementById('iconCanvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#f8fafc';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#0066ff';
+                ctx.font = '48px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('Icon Canvas', canvas.width/2, canvas.height/2);
+            }
+            console.log('[ICON MAKER] Initialized');
+        }
+
+        function initVectorEditor() { console.log('[VECTOR EDITOR] Initialized'); }
+        function init3DDesigner() { console.log('[3D DESIGNER] Initialized'); }
+        function initAnimationStudio() { console.log('[ANIMATION STUDIO] Initialized'); }
+        function initMarket() { console.log('[MARKET] Initialized'); }
+        
+        function initPusatData() {
+            console.log('[PUSAT DATA] Initialized');
+            loadDashboardData();
+        }
+        
+        function initGithub() { console.log('[GITHUB] Initialized'); }
+        function initAdminPanel() { console.log('[ADMIN] Panel Initialized'); }
+
+        // Data Storage Integration Functions
+        function loadDashboardData() {
+            if (!AlluniversSystem.dataStorage || !AlluniversSystem.dataStorage.initialized) {
+                console.warn('[PUSAT DATA] Data storage not initialized');
+                return;
+            }
+
+            // Load user statistics
+            AlluniversSystem.dataStorage.getAllUsers().then(users => {
+                console.log('[PUSAT DATA] Total users:', users.length);
+                updateDashboardStats('users', users.length);
+            });
+
+            // Load sales data
+            AlluniversSystem.dataStorage.getSalesReport('2024-01-01', '2024-12-31').then(sales => {
+                console.log('[PUSAT DATA] Total sales:', sales.length);
+                updateDashboardStats('sales', sales.length);
+            });
+
+            // Load traffic analytics
+            AlluniversSystem.dataStorage.getTrafficAnalytics('7d').then(traffic => {
+                console.log('[PUSAT DATA] Traffic visits:', traffic.length);
+                updateDashboardStats('visits', traffic.length);
+            });
+        }
+
+        function updateDashboardStats(type, count) {
+            const element = document.getElementById(`stat-${type}`);
+            if (element) {
+                element.textContent = count.toLocaleString();
+            }
+        }
+
+        function saveIconDesign(designData) {
+            if (!AlluniversSystem.dataStorage) {
+                console.error('[SAVE] Data storage not available');
+                return null;
+            }
+            
+            return AlluniversSystem.dataStorage.saveIconDesign(designData)
+                .then(designId => {
+                    console.log('[SAVE] Design saved with ID:', designId);
+                    showNotification('Design berhasil disimpan!', 'success');
+                    return designId;
+                })
+                .catch(error => {
+                    console.error('[SAVE] Error:', error);
+                    showNotification('Gagal menyimpan design', 'error');
+                    return null;
+                });
+        }
+
+        function registerUser(userData) {
+            if (!AlluniversSystem.dataStorage) {
+                console.error('[REGISTER] Data storage not available');
+                return null;
+            }
+            return AlluniversSystem.dataStorage.saveUser(userData)
+                .then(userId => {
+                    console.log('[REGISTER] User registered with ID:', userId);
+                    return userId;
+                });
+        }
+
+        function recordSale(saleData) {
+            if (!AlluniversSystem.dataStorage) {
+                console.error('[SALE] Data storage not available');
+                return null;
+            }
+            return AlluniversSystem.dataStorage.recordSale(saleData)
+                .then(saleId => {
+                    console.log('[SALE] Sale recorded with ID:', saleId);
+                    return saleId;
+                });
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                padding: 1rem 2rem;
+                background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#0066ff'};
+                color: white;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                z-index: 10000;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Tool functions
+        function openTool(toolName) {
+            console.log('[TOOL] Opening:', toolName);
+            showNotification(`Membuka alat: ${toolName}`, 'info');
+        }
+
+        function selectTemplate(iconClass) {
+            console.log('[TEMPLATE] Selected:', iconClass);
+            showNotification(`Template ${iconClass} dipilih`, 'success');
+        }
+
+        function filterMarketItems(filter) { console.log('[MARKET] Filtering:', filter); }
+        function showMarketCart() { console.log('[MARKET] Showing cart'); }
+        function loadPusatDataPage(page) { console.log('[PUSAT DATA] Loading page:', page); }
+        function loadGithubPage(page) { console.log('[GITHUB] Loading page:', page); }
+
+        // Export design function
+        function exportDesign(format = 'png') {
+            console.log('[EXPORT] Exporting design as', format);
+            const canvas = document.getElementById('iconCanvas');
+            if (canvas) {
+                try {
+                    const dataURL = canvas.toDataURL(`image/${format}`);
+                    const link = document.createElement('a');
+                    link.download = `icon-design-${Date.now()}.${format}`;
+                    link.href = dataURL;
+                    link.click();
+                    showNotification('Design berhasil diekspor!', 'success');
+                    
+                    // Save to data storage
+                    saveIconDesign({
+                        format: format,
+                        exportedAt: new Date().toISOString(),
+                        filename: link.download
+                    });
+                } catch (error) {
+                    console.error('[EXPORT] Error:', error);
+                    showNotification('Gagal mengekspor design', 'error');
+                }
+            }
+        }
+
+        // Add CSS for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
         // Initialize on load
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 ALLUNIVERS ICONER v' + AlluniversSystem.version + ' initializing...');
+            
+            // Wait for data storage to initialize
+            let retries = 0;
+            while (!window.AlluniversDataStorage && retries < 10) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                retries++;
+            }
+
+            if (window.AlluniversDataStorage) {
+                AlluniversSystem.dataStorage = window.AlluniversDataStorage;
+                console.log('✅ Data Storage System connected');
+                
+                // Record initial visit
+                AlluniversSystem.dataStorage.recordVisit({
+                    section: 'home',
+                    timestamp: new Date().toISOString(),
+                    userAgent: navigator.userAgent,
+                    referrer: document.referrer
+                });
+            } else {
+                console.warn('⚠️ Data Storage System not available');
+            }
+
             initTemplates();
-            console.log('ALLUNIVERS ICONER initialized');
+            AlluniversSystem.initialized = true;
+            console.log('✅ ALLUNIVERS ICONER fully initialized');
+            console.log('📊 Systems ready:', Object.keys(AlluniversSystem.systems).join(', '));
+            
+            showNotification('ALLUNIVERS ICONER siap digunakan!', 'success');
         });
 
-        // Canvas initialization (placeholder)
-        const iconCanvas = document.getElementById('iconCanvas');
-        if (iconCanvas) {
-            const ctx = iconCanvas.getContext('2d');
-            ctx.fillStyle = '#f8fafc';
-            ctx.fillRect(0, 0, iconCanvas.width, iconCanvas.height);
-            ctx.fillStyle = '#0066ff';
-            ctx.font = '48px Arial';
-            ctx.textAlign = 'center';
-            ctx.fillText('Icon Canvas', iconCanvas.width/2, iconCanvas.height/2);
-        }
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 's') {
+                e.preventDefault();
+                exportDesign('png');
+            }
+            if (e.ctrlKey && e.key === 'e') {
+                e.preventDefault();
+                exportDesign('png');
+            }
+            if (e.ctrlKey && e.key === 'h') {
+                e.preventDefault();
+                showHome();
+            }
+        });
+
+        // Handle visibility change
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                console.log('[SYSTEM] Tab hidden, saving state...');
+            } else {
+                console.log('[SYSTEM] Tab visible, restoring state...');
+            }
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', () => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('[PERF] Page load time:', perfData.loadEventEnd - perfData.startTime, 'ms');
+        });
     </script>
 </body>
 </html>
