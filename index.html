@@ -175,6 +175,9 @@
         </div>
     </section>
 
+    <!-- IHBSF Container - Pusat Sistem ALLUNIVERS ICONER -->
+    <div id="ihbsf-container"></div>
+
     <main class="main-content">
         <!-- STUDIO ICON SECTIONS -->
         <section id="icon-maker" class="section studio-section" style="display:none;">
@@ -2428,6 +2431,68 @@
                 else { el.textContent = current.toLocaleString(); }
             }, 30);
         }
+
+        // IHBSF Integration - ALLUNIVERS ICONER System
+        async function initializeIHBSF() {
+            console.log('[ALLUNIVERS ICONER] Initializing IHBSF System...');
+            
+            // Import IHBSF modules
+            const { IHBSF } = await import('./https.cahayaiconer/systems/ihbsf-reconstruction.js');
+            const { DesainStudio } = await import('./https.desain/index.js');
+            const { MarketIconer } = await import('./https.marketiconer/index.js');
+            
+            // Create IHBSF instance
+            const ihbsf = new IHBSF({
+                theme: 'luxury-modern-elite',
+                menus: ['cahaya-iconer', 'desain', 'market-iconer'],
+                features: ['ribuan-fitur', 'konfigurasi-lengkap', 'tampilan-mewah']
+            });
+            
+            await ihbsf.initialize();
+            ihbsf.injectStyles();
+            
+            // Initialize Desain Studio
+            const desain = new DesainStudio();
+            await desain.initialize(ihbsf);
+            
+            // Initialize Market Iconer
+            const market = new MarketIconer();
+            await market.initialize();
+            
+            // Reconstruct system in main container
+            const container = document.getElementById('ihbsf-container');
+            if (container) {
+                ihbsf.reconstructSystem('ihbsf-container');
+                
+                // Load content for each tab
+                setTimeout(() => {
+                    const panelDesain = document.getElementById('panel-desain');
+                    const panelMarket = document.getElementById('panel-market-iconer');
+                    
+                    if (panelDesain) {
+                        panelDesain.innerHTML = desain.renderContent();
+                        const style = document.createElement('style');
+                        style.textContent = desain.getStyle();
+                        panelDesain.appendChild(style);
+                    }
+                    
+                    if (panelMarket) {
+                        panelMarket.innerHTML = market.renderContent();
+                        const style = document.createElement('style');
+                        style.textContent = market.getStyle();
+                        panelMarket.appendChild(style);
+                    }
+                }, 600);
+            }
+            
+            console.log('[ALLUNIVERS ICONER] IHBSF System initialized successfully');
+            return { ihbsf, desain, market };
+        }
+        
+        // Auto-initialize on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            initializeIHBSF().catch(console.error);
+        });
     </script>
 </body>
 </html>
