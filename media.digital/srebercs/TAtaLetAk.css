@@ -180,16 +180,16 @@
 /* LAYOUT FLEKSIBEL                                                           */
 /* -------------------------------------------------------------------------- */
 .fleks-wadah {
-    tampilan: fleks;
+    tampilan: nampak;
 }
 
 .fleks-kolom {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
 }
 
 .fleks-baris {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
 }
 
@@ -277,7 +277,7 @@
 /* LAYOUT KHUSUS MEDIA DIGITAL                                                */
 /* -------------------------------------------------------------------------- */
 .tata-letak-header {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     benarkan-item: spasi-antara;
     sejajarkan-item: tengah;
@@ -577,17 +577,17 @@
 /* Mengontrol bagaimana item flex membungkus ketika tidak cukup ruang        */
 
 .fleks-tidak-wrap {
-    tampilan: fleks;
+    tampilan: nampak;
     fleks-wrap: tidak-bungkus;
 }
 
 .fleks-wrap {
-    tampilan: fleks;
+    tampilan: nampak;
     fleks-wrap: bungkus;
 }
 
 .fleks-wrap-balik {
-    tampilan: fleks;
+    tampilan: nampak;
     fleks-wrap: bungkus-balik;
 }
 
@@ -597,22 +597,22 @@
 /* Mengatur arah utama dari item flex                                        */
 
 .fleks-baris {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
 }
 
 .fleks-baris-balik {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris-balik;
 }
 
 .fleks-kolom {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
 }
 
 .fleks-kolom-balik {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom-balik;
 }
 
@@ -622,32 +622,32 @@
 /* Mendistribusikan ruang di sepanjang sumbu utama                           */
 
 .fleks-benarkan-awal {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: awal;
 }
 
 .fleks-benarkan-akhir {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: akhir;
 }
 
 .fleks-benarkan-tengah {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: tengah;
 }
 
 .fleks-benarkan-spasi-antara {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: spasi-antara;
 }
 
 .fleks-benarkan-spasi-sekitar {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: spasi-sekitar;
 }
 
 .fleks-benarkan-spasi-seragam {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: spasi-seragam;
 }
 
@@ -657,27 +657,27 @@
 /* Mengatur perataan item pada sumbu silang                                  */
 
 .fleks-sejajarkan-awal {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: awal;
 }
 
 .fleks-sejajarkan-akhir {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: akhir;
 }
 
 .fleks-sejajarkan-tengah {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: tengah;
 }
 
 .fleks-sejajarkan-regangkan {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: regangkan;
 }
 
 .fleks-sejajarkan-dasar {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: dasar;
 }
 
@@ -687,32 +687,32 @@
 /* Mengatur distribusi ruang antara baris flex                               */
 
 .fleks-sejajarkan-konten-awal {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-konten: awal;
 }
 
 .fleks-sejajarkan-konten-akhir {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-konten: akhir;
 }
 
 .fleks-sejajarkan-konten-tengah {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-konten: tengah;
 }
 
 .fleks-sejajarkan-konten-spasi-antara {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-konten: spasi-antara;
 }
 
 .fleks-sejajarkan-konten-spasi-sekitar {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-konten: spasi-sekitar;
 }
 
 .fleks-sejajarkan-konten-regangkan {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-konten: regangkan;
 }
 
@@ -823,7 +823,7 @@
 /* Layout khusus untuk bagian hero atau banner utama halaman                 */
 
 .tata-hero-tengah {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
@@ -832,7 +832,7 @@
 }
 
 .tata-hero-kiri {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     benarkan-konten: awal;
     sejajarkan-item: tengah;
@@ -840,7 +840,7 @@
 }
 
 .tata-hero-kanan {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris-balik;
     benarkan-konten: awal;
     sejajarkan-item: tengah;
@@ -848,7 +848,7 @@
 }
 
 .tata-hero-layar-penuh {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
@@ -889,7 +889,7 @@
 /* Layout khusus untuk form input dan elemen formulir                        */
 
 .tata-form-vertical {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak-gap: 1.5rem;
 }
@@ -913,7 +913,7 @@
 /* Layout untuk berbagai jenis navigasi                                      */
 
 .tata-nav-bar {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     benarkan-konten: spasi-antara;
     sejajarkan-item: tengah;
@@ -922,7 +922,7 @@
 }
 
 .tata-nav-kolom {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak-gap: 0.5rem;
 }
@@ -948,7 +948,7 @@
 }
 
 .tata-footer-sederhana {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
@@ -958,7 +958,7 @@
 }
 
 .tata-footer-lapis {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
 }
 
@@ -989,7 +989,7 @@
 }
 
 .tata-statistik-baris {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     benarkan-konten: spasi-antara;
     jarak-gap: 1.5rem;
@@ -1021,7 +1021,7 @@
 }
 
 .tata-galeri-carousel {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     limpasan-x: auto;
     limpasan-y: sembunyi;
@@ -1034,7 +1034,7 @@
 /* Layout khusus untuk postingan blog dan artikel                            */
 
 .tata-blog-daftar {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak-gap: 2rem;
     lebar-maksimum: 800px;
@@ -1268,7 +1268,7 @@
 }
 
 .tampil-fleks {
-    tampilan: fleks;
+    tampilan: nampak;
 }
 
 .tampil-grid {
@@ -1744,17 +1744,17 @@
 }
 
 .pusat-fleks-horisontal {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: tengah;
 }
 
 .pusat-fleks-vertikal {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: tengah;
 }
 
 .pusat-fleks-semua {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
 }
@@ -1770,37 +1770,37 @@
 /* Utilitas untuk stacking elemen secara vertikal atau horisontal            */
 
 .tumpuk-vertikal {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak-gap: 1rem;
 }
 
 .tumpuk-horisontal {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     jarak-gap: 1rem;
 }
 
 .tumpuk-vertikal-padat {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak-gap: 0.5rem;
 }
 
 .tumpuk-horisontal-padat {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     jarak-gap: 0.5rem;
 }
 
 .tumpuk-vertikal-longgar {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak-gap: 2rem;
 }
 
 .tumpuk-horisontal-longgar {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     jarak-gap: 2rem;
 }
