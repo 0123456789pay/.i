@@ -98,6 +98,8 @@
         
         footer { background: linear-gradient(135deg, #0047b3, #0066ff); color: white; padding: 3rem 1rem; text-align: center; }
     </style>
+    <!-- Icon Maker Menu System Styles -->
+    <link rel="stylesheet" href="./https.cahayaiconer/icon-maker/menus/menu-styles.css">
 </head>
 <body>
     <nav class="navbar">
@@ -182,8 +184,13 @@
         <!-- STUDIO ICON SECTIONS -->
         <section id="icon-maker" class="section studio-section" style="display:none;">
             <h2 class="section-title"><i class="fas fa-icons"></i> Icon Maker - Cahaya Iconer</h2>
-            <!-- Icon Maker Full Screen Container -->
-            <div id="icon-maker-container" style="width: 100%; height: calc(100vh - 200px); margin-top: 1rem;"></div>
+            <!-- Icon Maker Full Screen Container with 3500 Menu System -->
+            <div id="icon-maker-container" style="width: 100%; height: calc(100vh - 200px); margin-top: 1rem; display: flex; overflow: hidden;">
+                <!-- Sidebar Container for 3500 Menus -->
+                <div id="icon-maker-sidebar" style="flex-shrink: 0;"></div>
+                <!-- Main Canvas Area will be injected by icon-maker/index.js -->
+                <div id="icon-maker-main" style="flex: 1; overflow: auto;"></div>
+            </div>
             
             <!-- Legacy Icon Maker (hidden by default) -->
             <div id="legacy-icon-maker" style="display:none;">
@@ -1110,29 +1117,40 @@
             }
         }
         
-        // Initialize Full-Screen Icon Maker
+        // Initialize Full-Screen Icon Maker with 3500 Menu System
         function initIconMaker() {
             // Check if Icon Maker is already initialized
             if (window.iconMakerInitialized) {
                 return;
             }
             
-            // Load Icon Maker module
-            import('./https.cahayaiconer/icon-maker/index.js')
-                .then(module => {
-                    const IconMaker = module.default || module.IconMaker;
-                    if (IconMaker && document.getElementById('icon-maker-container')) {
-                        window.iconMaker = new IconMaker();
-                        window.iconMakerInitialized = true;
-                        console.log('✅ Icon Maker loaded successfully');
-                    }
-                })
-                .catch(err => {
-                    console.error('❌ Failed to load Icon Maker:', err);
-                    // Fallback to legacy icon maker
-                    document.getElementById('icon-maker-container').style.display = 'none';
-                    document.getElementById('legacy-icon-maker').style.display = 'block';
-                });
+            // Load menu system first, then Icon Maker
+            Promise.all([
+                import('./https.cahayaiconer/icon-maker/menus/menu-system-3500.js'),
+                import('./https.cahayaiconer/icon-maker/index.js')
+            ])
+            .then(([menuModule, makerModule]) => {
+                // Initialize menu system
+                const IconMakerMenuSystem = menuModule.default || menuModule.IconMakerMenuSystem;
+                if (IconMakerMenuSystem) {
+                    window.iconMakerMenus = new IconMakerMenuSystem();
+                    console.log('✅ 3500 Menu System loaded');
+                }
+                
+                // Initialize Icon Maker
+                const IconMaker = makerModule.default || makerModule.IconMaker;
+                if (IconMaker && document.getElementById('icon-maker-container')) {
+                    window.iconMaker = new IconMaker();
+                    window.iconMakerInitialized = true;
+                    console.log('✅ Icon Maker with 3500 menus loaded successfully');
+                }
+            })
+            .catch(err => {
+                console.error('❌ Failed to load Icon Maker:', err);
+                // Fallback to legacy icon maker
+                document.getElementById('icon-maker-container').style.display = 'none';
+                document.getElementById('legacy-icon-maker').style.display = 'block';
+            });
         }
 
         // Initialize Canvas for Icon Maker

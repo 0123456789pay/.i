@@ -742,6 +742,16 @@ class IconMaker {
     }
 
     renderSidebar() {
+        // Initialize the 3500 menu system in the sidebar container
+        const sidebarContainer = document.getElementById('icon-maker-sidebar');
+        if (sidebarContainer && window.IconMakerMenuSystem) {
+            this.menuSystem = new window.IconMakerMenuSystem();
+            this.menuSystem.renderSidebar('icon-maker-sidebar');
+            console.log(`✅ 3500 menus loaded in sidebar`);
+            return;
+        }
+
+        // Fallback to basic tools grid if menu system not available
         const toolsGrid = document.getElementById('tools-grid');
         if (!toolsGrid) return;
 
