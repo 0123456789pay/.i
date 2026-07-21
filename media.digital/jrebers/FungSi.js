@@ -1,14 +1,14 @@
 /**
  * FungSi.js - Kumpulan Fungsi Umum untuk Pengembangan Aplikasi JavaScript
  * 
- * File ini berisi berbagai fungsi utilitas yang sering digunakan dalam pengembangan
+ * Berkas ini berisi berbagai fungsi utilitas yang sering digunakan dalam pengembangan
  * aplikasi JavaScript modern. Fungsi-fungsi ini mencakup manipulasi string, array,
  * object, validasi data, format tanggal/waktu, operasi matematika, dan berbagai
- * utility lainnya yang dapat digunakan di berbagai proyek.
+ * utilitas lainnya yang dapat digunakan di berbagai proyek.
  * 
- * @author Developer Team
- * @version 1.0.0
- * @license MIT
+ * @penulis Tim Pengembang
+ * @versi 1.0.0
+ * @lisensi MIT
  */
 
 // ============================================================================
@@ -18,39 +18,39 @@
 /**
  * Konstanta untuk berbagai keperluan validasi dan format
  */
-const CONSTANTS = {
+const KONSTANTA = {
     // Format tanggal
-    DATE_FORMATS: {
+    FORMAT_TANGGAL: {
         ISO: 'YYYY-MM-DD',
-        US: 'MM/DD/YYYY',
-        EU: 'DD/MM/YYYY',
-        FULL: 'DD MMMM YYYY HH:mm:ss'
+        AS: 'MM/DD/YYYY',
+        EROPA: 'DD/MM/YYYY',
+        LENGKAP: 'DD MMMM YYYY HH:mm:ss'
     },
     
     // Pola regex untuk validasi
-    PATTERNS: {
+    POLA: {
         EMAIL: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-        PHONE: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
+        TELEPON: /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
         URL: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
-        IP_ADDRESS: /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
-        CREDIT_CARD: /^\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}$/,
-        ALPHA_NUMERIC: /^[a-zA-Z0-9]+$/,
-        SPECIAL_CHARS: /[!@#$%^&*(),.?":{}|<>]/
+        ALAMAT_IP: /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
+        KARTU_KREDIT: /^\d{4}[\s-]?\d{4}[\s-]?\d{4}[\s-]?\d{4}$/,
+        ALFA_NUMERIK: /^[a-zA-Z0-9]+$/,
+        KARAKTER_KHUSUS: /[!@#$%^&*(),.?":{}|<>]/
     },
     
     // Kode status HTTP
-    HTTP_STATUS: {
+    STATUS_HTTP: {
         OK: 200,
-        CREATED: 201,
-        BAD_REQUEST: 400,
-        UNAUTHORIZED: 401,
-        FORBIDDEN: 403,
-        NOT_FOUND: 404,
-        INTERNAL_ERROR: 500
+        DIBUAT: 201,
+        PERMINTAAN_SALAH: 400,
+        TIDAK_SAHA: 401,
+        DILARANG: 403,
+        TIDAK_DITEMUKAN: 404,
+        KESALAHAN_INTERNAL: 500
     },
     
     // Ukuran data
-    DATA_SIZES: {
+    UKURAN_DATA: {
         KB: 1024,
         MB: 1024 * 1024,
         GB: 1024 * 1024 * 1024,
@@ -63,83 +63,83 @@ const CONSTANTS = {
 // ============================================================================
 
 /**
- * Validasi apakah sebuah string adalah email yang valid
- * @param {string} email - Email yang akan divalidasi
- * @returns {boolean} True jika email valid, false sebaliknya
+ * Validasi apakah sebuah string adalah surel yang valid
+ * @param {string} email - Surel yang akan divalidasi
+ * @returns {boolean} Benar jika surel valid, salah sebaliknya
  */
 function isValidEmail(email) {
     if (!email || typeof email !== 'string') {
         return false;
     }
-    return CONSTANTS.PATTERNS.EMAIL.test(email.trim());
+    return KONSTANTA.POLA.EMAIL.test(email.trim());
 }
 
 /**
  * Validasi apakah sebuah string adalah nomor telepon yang valid
  * @param {string} phone - Nomor telepon yang akan divalidasi
- * @returns {boolean} True jika nomor telepon valid, false sebaliknya
+ * @returns {boolean} Benar jika nomor telepon valid, salah sebaliknya
  */
 function isValidPhone(phone) {
     if (!phone || typeof phone !== 'string') {
         return false;
     }
-    return CONSTANTS.PATTERNS.PHONE.test(phone.replace(/[\s\-\(\)]/g, ''));
+    return KONSTANTA.POLA.TELEPON.test(phone.replace(/[\s\-\(\)]/g, ''));
 }
 
 /**
  * Validasi apakah sebuah string adalah URL yang valid
  * @param {string} url - URL yang akan divalidasi
- * @returns {boolean} True jika URL valid, false sebaliknya
+ * @returns {boolean} Benar jika URL valid, salah sebaliknya
  */
 function isValidURL(url) {
     if (!url || typeof url !== 'string') {
         return false;
     }
-    return CONSTANTS.PATTERNS.URL.test(url.trim());
+    return KONSTANTA.POLA.URL.test(url.trim());
 }
 
 /**
  * Validasi apakah sebuah string adalah alamat IP yang valid
  * @param {string} ip - Alamat IP yang akan divalidasi
- * @returns {boolean} True jika IP valid, false sebaliknya
+ * @returns {boolean} Benar jika IP valid, salah sebaliknya
  */
 function isValidIP(ip) {
     if (!ip || typeof ip !== 'string') {
         return false;
     }
-    return CONSTANTS.PATTERNS.IP_ADDRESS.test(ip.trim());
+    return KONSTANTA.POLA.ALAMAT_IP.test(ip.trim());
 }
 
 /**
  * Validasi apakah sebuah string mengandung karakter khusus
  * @param {string} str - String yang akan diperiksa
- * @returns {boolean} True jika mengandung karakter khusus, false sebaliknya
+ * @returns {boolean} Benar jika mengandung karakter khusus, salah sebaliknya
  */
 function hasSpecialChars(str) {
     if (!str || typeof str !== 'string') {
         return false;
     }
-    return CONSTANTS.PATTERNS.SPECIAL_CHARS.test(str);
+    return KONSTANTA.POLA.KARAKTER_KHUSUS.test(str);
 }
 
 /**
- * Validasi apakah sebuah string hanya mengandung alphanumeric
+ * Validasi apakah sebuah string hanya mengandung alfanumerik
  * @param {string} str - String yang akan diperiksa
- * @returns {boolean} True jika hanya alphanumeric, false sebaliknya
+ * @returns {boolean} Benar jika hanya alfanumerik, salah sebaliknya
  */
 function isAlphaNumeric(str) {
     if (!str || typeof str !== 'string') {
         return false;
     }
-    return CONSTANTS.PATTERNS.ALPHA_NUMERIC.test(str);
+    return KONSTANTA.POLA.ALFA_NUMERIK.test(str);
 }
 
 /**
- * Validasi apakah nilai berada dalam range tertentu
+ * Validasi apakah nilai berada dalam rentang tertentu
  * @param {number} value - Nilai yang akan divalidasi
  * @param {number} min - Nilai minimum
  * @param {number} max - Nilai maksimum
- * @returns {boolean} True jika nilai dalam range, false sebaliknya
+ * @returns {boolean} Benar jika nilai dalam rentang, salah sebaliknya
  */
 function isInRange(value, min, max) {
     if (typeof value !== 'number' || typeof min !== 'number' || typeof max !== 'number') {
@@ -152,7 +152,7 @@ function isInRange(value, min, max) {
  * Validasi apakah sebuah object memiliki semua properti yang diperlukan
  * @param {object} obj - Object yang akan divalidasi
  * @param {array} requiredProps - Array nama properti yang diperlukan
- * @returns {boolean} True jika semua properti ada, false sebaliknya
+ * @returns {boolean} Benar jika semua properti ada, salah sebaliknya
  */
 function hasRequiredProps(obj, requiredProps) {
     if (!obj || typeof obj !== 'object' || !Array.isArray(requiredProps)) {
@@ -189,8 +189,8 @@ function toCamelCase(str) {
         return '';
     }
     return str.toLowerCase()
-        .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase())
-        .replace(/^[a-z]/, chr => chr.toLowerCase());
+        .replace(/[^a-zA-Z0-9]+(.)/g, (_, karakter) => karakter.toUpperCase())
+        .replace(/^[a-z]/, karakter => karakter.toLowerCase());
 }
 
 /**
@@ -203,7 +203,7 @@ function toSnakeCase(str) {
         return '';
     }
     return str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-        .map(x => x.toLowerCase())
+        .map(karakter => karakter.toLowerCase())
         .join('_');
 }
 
@@ -217,7 +217,7 @@ function toKebabCase(str) {
         return '';
     }
     return str.match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
-        .map(x => x.toLowerCase())
+        .map(karakter => karakter.toLowerCase())
         .join('-');
 }
 
@@ -225,7 +225,7 @@ function toKebabCase(str) {
  * Memotong string hingga panjang tertentu dan menambahkan elipsis
  * @param {string} str - String yang akan dipotong
  * @param {number} maxLength - Panjang maksimal string
- * @param {string} suffix - Suffix yang ditambahkan (default: '...')
+ * @param {string} suffix - Akhiran yang ditambahkan (baku: '...')
  * @returns {string} String yang telah dipotong
  */
 function truncateString(str, maxLength, suffix = '...') {
@@ -254,7 +254,7 @@ function removeExtraSpaces(str) {
  * Menghitung jumlah kemunculan substring dalam string
  * @param {string} str - String utama
  * @param {string} substring - Substring yang dicari
- * @param {boolean} caseSensitive - Apakah pencarian case sensitive (default: true)
+ * @param {boolean} caseSensitive - Apakah pencarian peka huruf besar/kecil (baku: true)
  * @returns {number} Jumlah kemunculan substring
  */
 function countSubstring(str, substring, caseSensitive = true) {
@@ -285,9 +285,9 @@ function reverseString(str) {
 }
 
 /**
- * Membuat slug dari string (untuk URL friendly)
+ * Membuat slug dari string (untuk URL ramah)
  * @param {string} str - String yang akan dijadikan slug
- * @returns {string} Slug yang URL friendly
+ * @returns {string} Slug yang URL ramah
  */
 function createSlug(str) {
     if (!str || typeof str !== 'string') {
@@ -317,7 +317,7 @@ function removeDuplicates(arr) {
 }
 
 /**
- * Mengacak urutan elemen dalam array (Fisher-Yates shuffle)
+ * Mengacak urutan elemen dalam array (pengacakan Fisher-Yates)
  * @param {array} arr - Array yang akan diacak
  * @returns {array} Array dengan urutan acak
  */
@@ -334,10 +334,10 @@ function shuffleArray(arr) {
 }
 
 /**
- * Membagi array menjadi chunk-chunk dengan ukuran tertentu
+ * Membagi array menjadi bagian-bagian dengan ukuran tertentu
  * @param {array} arr - Array yang akan dibagi
- * @param {number} size - Ukuran setiap chunk
- * @returns {array} Array of arrays (chunked array)
+ * @param {number} size - Ukuran setiap bagian
+ * @returns {array} Array dari array (array terbagi)
  */
 function chunkArray(arr, size) {
     if (!Array.isArray(arr) || size <= 0) {
@@ -364,7 +364,7 @@ function mergeUniqueArrays(...arrays) {
  * Mencari elemen dalam array berdasarkan kondisi
  * @param {array} arr - Array yang akan dicari
  * @param {function} predicate - Fungsi kondisi untuk pencarian
- * @returns {any} Elemen pertama yang memenuhi kondisi atau undefined
+ * @returns {any} Elemen pertama yang memenuhi kondisi atau tidak terdefinisi
  */
 function findByCondition(arr, predicate) {
     if (!Array.isArray(arr) || typeof predicate !== 'function') {
@@ -377,7 +377,7 @@ function findByCondition(arr, predicate) {
  * Mengelompokkan elemen array berdasarkan kunci tertentu
  * @param {array} arr - Array yang akan dikelompokkan
  * @param {string|function} key - Kunci atau fungsi untuk pengelompokan
- * @returns {object} Object dengan key-value pairs hasil pengelompokan
+ * @returns {object} Object dengan pasangan kunci-nilai hasil pengelompokan
  */
 function groupBy(arr, key) {
     if (!Array.isArray(arr)) {
@@ -397,18 +397,18 @@ function groupBy(arr, key) {
  * Mengurutkan array of objects berdasarkan properti tertentu
  * @param {array} arr - Array yang akan diurutkan
  * @param {string} prop - Properti untuk pengurutan
- * @param {string} order - Urutan: 'asc' atau 'desc' (default: 'asc')
+ * @param {string} order - Urutan: 'naik' (menaik) atau 'turun' (menurun) (baku: 'naik')
  * @returns {array} Array yang telah diurutkan
  */
-function sortByProperty(arr, prop, order = 'asc') {
+function sortByProperty(arr, prop, order = 'naik') {
     if (!Array.isArray(arr)) {
         return [];
     }
     return [...arr].sort((a, b) => {
         const aVal = a[prop];
         const bVal = b[prop];
-        if (aVal < bVal) return order === 'asc' ? -1 : 1;
-        if (aVal > bVal) return order === 'asc' ? 1 : -1;
+        if (aVal < bVal) return order === 'naik' ? -1 : 1;
+        if (aVal > bVal) return order === 'naik' ? 1 : -1;
         return 0;
     });
 }
@@ -426,11 +426,11 @@ function compactArray(arr) {
 }
 
 /**
- * Membuat array dengan range angka tertentu
+ * Membuat array dengan rentang angka tertentu
  * @param {number} start - Angka awal
  * @param {number} end - Angka akhir
- * @param {number} step - Langkah increment (default: 1)
- * @returns {array} Array dengan range angka
+ * @param {number} step - Langkah penambahan (baku: 1)
+ * @returns {array} Array dengan rentang angka
  */
 function rangeArray(start, end, step = 1) {
     if (typeof start !== 'number' || typeof end !== 'number') {
@@ -490,7 +490,7 @@ function getObjectSize(obj) {
 }
 
 /**
- * Menghapus properti tertentu dari object (immutable)
+ * Menghapus properti tertentu dari object (tidak berubah/immutable)
  * @param {object} obj - Object asal
  * @param  {...string} props - Properti yang akan dihapus
  * @returns {object} Object baru tanpa properti yang dihapus
@@ -505,7 +505,7 @@ function omitProperties(obj, ...props) {
 }
 
 /**
- * Mengambil hanya properti tertentu dari object (immutable)
+ * Mengambil hanya properti tertentu dari object (tidak berubah/immutable)
  * @param {object} obj - Object asal
  * @param  {...string} props - Properti yang akan diambil
  * @returns {object} Object baru hanya dengan properti yang ditentukan
@@ -524,9 +524,9 @@ function pickProperties(obj, ...props) {
 }
 
 /**
- * Deep clone sebuah object
- * @param {object} obj - Object yang akan di-clone
- * @returns {object} Clone dari object
+ * Kloning mendalam sebuah object
+ * @param {object} obj - Object yang akan dikloning
+ * @returns {object} Kloningan dari object
  */
 function deepClone(obj) {
     if (obj === null || typeof obj !== 'object') {
@@ -545,9 +545,9 @@ function deepClone(obj) {
 }
 
 /**
- * Merge beberapa object secara mendalam (deep merge)
- * @param  {...object} objects - Object-object yang akan di-merge
- * @returns {object} Object hasil merge
+ * Penggabungan mendalam beberapa object (deep merge)
+ * @param  {...object} objects - Object-object yang akan digabung
+ * @returns {object} Object hasil penggabungan
  */
 function deepMerge(...objects) {
     return objects.reduce((result, current) => {
@@ -568,10 +568,10 @@ function deepMerge(...objects) {
 }
 
 /**
- * Mem flattening object nested menjadi object satu level
- * @param {object} obj - Object yang akan di-flatten
- * @param {string} prefix - Prefix untuk keys (internal use)
- * @returns {object} Object flattened
+ * Meratakan object bersarang menjadi object satu tingkat
+ * @param {object} obj - Object yang akan diratakan
+ * @param {string} prefix - Awalan untuk keys (untuk penggunaan internal)
+ * @returns {object} Object yang telah diratakan
  */
 function flattenObject(obj, prefix = '') {
     if (!obj || typeof obj !== 'object') {
@@ -612,7 +612,7 @@ function invertObject(obj) {
 /**
  * Format tanggal ke format tertentu
  * @param {Date|string|number} date - Tanggal yang akan diformat
- * @param {string} format - Format output (default: 'YYYY-MM-DD')
+ * @param {string} format - Format keluaran (baku: 'YYYY-MM-DD')
  * @returns {string} Tanggal terformat
  */
 function formatDate(date, format = 'YYYY-MM-DD') {
@@ -649,7 +649,7 @@ function formatDate(date, format = 'YYYY-MM-DD') {
  * Menghitung selisih waktu antara dua tanggal
  * @param {Date|string|number} date1 - Tanggal pertama
  * @param {Date|string|number} date2 - Tanggal kedua
- * @param {string} unit - Unit waktu: 'ms', 's', 'm', 'h', 'd', 'w', 'y' (default: 'd')
+ * @param {string} unit - Satuan waktu: 'ms', 's', 'm', 'h', 'd', 'w', 'y' (baku: 'd')
  * @returns {number} Selisih waktu dalam unit yang ditentukan
  */
 function dateDiff(date1, date2, unit = 'd') {
@@ -702,7 +702,7 @@ function addToDate(date, amount, unit) {
 /**
  * Mengecek apakah tahun adalah kabisat
  * @param {number} year - Tahun yang dicek
- * @returns {boolean} True jika kabisat, false sebaliknya
+ * @returns {boolean} Benar jika kabisat, salah sebaliknya
  */
 function isLeapYear(year) {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
@@ -721,10 +721,10 @@ function getDaysInMonth(year, month) {
 /**
  * Format waktu relatif (contoh: "2 jam yang lalu")
  * @param {Date|string|number} date - Tanggal yang akan diformat
- * @param {string} locale - Locale bahasa (default: 'id')
+ * @param {string} bahasa - Bahasa untuk format (baku: 'indonesia')
  * @returns {string} Waktu relatif
  */
-function timeAgo(date, locale = 'id') {
+function timeAgo(date, bahasa = 'indonesia') {
     const d = new Date(date);
     if (isNaN(d.getTime())) {
         return '';
@@ -734,7 +734,7 @@ function timeAgo(date, locale = 'id') {
     const seconds = Math.floor((now - d) / 1000);
     
     const intervals = {
-        id: {
+        indonesia: {
             year: 'tahun',
             month: 'bulan',
             week: 'minggu',
@@ -744,7 +744,7 @@ function timeAgo(date, locale = 'id') {
             second: 'detik',
             ago: 'yang lalu'
         },
-        en: {
+        inggris: {
             year: 'year',
             month: 'month',
             week: 'week',
@@ -756,7 +756,7 @@ function timeAgo(date, locale = 'id') {
         }
     };
     
-    const lang = intervals[locale] || intervals.id;
+    const lang = intervals[bahasa] || intervals.indonesia;
     
     if (seconds < 60) {
         return `${seconds} ${lang.second} ${lang.ago}`;
@@ -893,29 +893,29 @@ function standardDeviation(numbers) {
 /**
  * Memformat angka dengan pemisah ribuan
  * @param {number} number - Angka yang akan diformat
- * @param {string} locale - Locale untuk format (default: 'id-ID')
+ * @param {string} bahasaFormat - Format bahasa untuk angka (baku: 'id-ID')
  * @param {object} options - Opsi format tambahan
  * @returns {string} Angka terformat
  */
-function formatNumber(number, locale = 'id-ID', options = {}) {
+function formatNumber(number, bahasaFormat = 'id-ID', options = {}) {
     if (typeof number !== 'number') {
         return '';
     }
-    return new Intl.NumberFormat(locale, options).format(number);
+    return new Intl.NumberFormat(bahasaFormat, options).format(number);
 }
 
 /**
  * Memformat angka sebagai mata uang
  * @param {number} amount - Jumlah uang
- * @param {string} currency - Kode mata uang (default: 'IDR')
- * @param {string} locale - Locale untuk format (default: 'id-ID')
+ * @param {string} currency - Kode mata uang (baku: 'IDR' - Rupiah)
+ * @param {string} bahasaFormat - Format bahasa untuk angka (baku: 'id-ID')
  * @returns {string} Jumlah uang terformat
  */
-function formatCurrency(amount, currency = 'IDR', locale = 'id-ID') {
+function formatCurrency(amount, currency = 'IDR', bahasaFormat = 'id-ID') {
     if (typeof amount !== 'number') {
         return '';
     }
-    return new Intl.NumberFormat(locale, {
+    return new Intl.NumberFormat(bahasaFormat, {
         style: 'currency',
         currency: currency
     }).format(amount);
@@ -939,7 +939,7 @@ function roundToDecimals(number, decimals = 2) {
  * Menghitung persentase
  * @param {number} part - Bagian
  * @param {number} total - Total
- * @param {number} decimals - Jumlah desimal (default: 2)
+ * @param {number} decimals - Jumlah desimal (baku: 2)
  * @returns {number} Persentase
  */
 function calculatePercentage(part, total, decimals = 2) {
@@ -1192,6 +1192,7 @@ function logger(level, message, data = null) {
             console.error(prefix, message, data || '');
             break;
         default:
+            // Untuk kasus lainnya
             console.log(prefix, message, data || '');
     }
 }
@@ -1207,7 +1208,7 @@ async function measureTime(label, fn) {
     const result = await fn();
     const end = performance.now();
     const duration = end - start;
-    logger('info', `${label} completed in ${duration.toFixed(2)}ms`);
+    logger('info', `${label} selesai dalam ${duration.toFixed(2)}ms`);
     return { result, duration };
 }
 
@@ -1219,7 +1220,7 @@ async function measureTime(label, fn) {
  * Menyimpan data ke localStorage
  * @param {string} key - Key penyimpanan
  * @param {any} value - Value yang akan disimpan
- * @returns {boolean} True jika berhasil, false sebaliknya
+ * @returns {boolean} Benar jika berhasil, salah sebaliknya
  */
 function saveToLocalStorage(key, value) {
     try {
@@ -1236,25 +1237,25 @@ function saveToLocalStorage(key, value) {
 /**
  * Membaca data dari localStorage
  * @param {string} key - Key penyimpanan
- * @param {any} defaultValue - Default value jika key tidak ditemukan
- * @returns {any} Value dari localStorage atau default value
+ * @param {any} nilaiBaku - Nilai baku jika key tidak ditemukan
+ * @returns {any} Value dari localStorage atau nilai baku
  */
-function getFromLocalStorage(key, defaultValue = null) {
+function getFromLocalStorage(key, nilaiBaku = null) {
     try {
         if (typeof localStorage !== 'undefined') {
             const item = localStorage.getItem(key);
-            return item ? JSON.parse(item) : defaultValue;
+            return item ? JSON.parse(item) : nilaiBaku;
         }
     } catch (error) {
         logger('error', 'Failed to read from localStorage', error);
     }
-    return defaultValue;
+    return nilaiBaku;
 }
 
 /**
  * Menghapus data dari localStorage
  * @param {string} key - Key yang akan dihapus
- * @returns {boolean} True jika berhasil, false sebaliknya
+ * @returns {boolean} Benar jika berhasil, salah sebaliknya
  */
 function removeFromLocalStorage(key) {
     try {
@@ -1271,7 +1272,7 @@ function removeFromLocalStorage(key) {
 /**
  * Mendapatkan parameter dari URL query string
  * @param {string} param - Nama parameter
- * @param {string} url - URL sumber (default: current URL)
+ * @param {string} url - URL sumber (baku: current URL)
  * @returns {string|null} Value parameter atau null
  */
 function getUrlParam(param, url = window.location.href) {
@@ -1285,7 +1286,7 @@ function getUrlParam(param, url = window.location.href) {
 
 /**
  * Mendapatkan semua parameter dari URL query string
- * @param {string} url - URL sumber (default: current URL)
+ * @param {string} url - URL sumber (baku: current URL)
  * @returns {object} Object berisi semua parameter
  */
 function getAllUrlParams(url = window.location.href) {
@@ -1300,7 +1301,7 @@ function getAllUrlParams(url = window.location.href) {
 /**
  * Copy text ke clipboard
  * @param {string} text - Text yang akan di-copy
- * @returns {Promise<boolean>} True jika berhasil, false sebaliknya
+ * @returns {Promise<boolean>} Benar jika berhasil, salah sebaliknya
  */
 async function copyToClipboard(text) {
     try {
@@ -1364,7 +1365,7 @@ function detectBrowser() {
 
 /**
  * Fullscreen toggle
- * @param {HTMLElement} element - Element yang akan fullscreen (default: document.documentElement)
+ * @param {HTMLElement} element - Elemen yang akan layar penuh (baku: document.documentElement)
  * @returns {Promise<void>}
  */
 async function toggleFullscreen(element = document.documentElement) {
@@ -1432,7 +1433,7 @@ function checkNetworkStatus() {
 
 /**
  * Page visibility checker
- * @returns {boolean} True jika halaman visible, false jika hidden
+ * @returns {boolean} Benar jika halaman visible, salah jika tersembunyi
  */
 function isPageVisible() {
     return !document.hidden;
@@ -1453,7 +1454,7 @@ function onVisibilityChange(callback) {
 /**
  * Read file asynchronously (Node.js only)
  * @param {string} filePath - Path file
- * @param {string} encoding - Encoding (default: 'utf-8')
+ * @param {string} encoding - Pengodean (baku: 'utf-8')
  * @returns {Promise<string>} Content file
  */
 async function readFileAsync(filePath, encoding = 'utf-8') {
@@ -1468,7 +1469,7 @@ async function readFileAsync(filePath, encoding = 'utf-8') {
  * Write file asynchronously (Node.js only)
  * @param {string} filePath - Path file
  * @param {string} content - Content yang akan ditulis
- * @param {string} encoding - Encoding (default: 'utf-8')
+ * @param {string} encoding - Pengodean (baku: 'utf-8')
  * @returns {Promise<void>}
  */
 async function writeFileAsync(filePath, content, encoding = 'utf-8') {
@@ -1482,7 +1483,7 @@ async function writeFileAsync(filePath, content, encoding = 'utf-8') {
 /**
  * Check if file exists (Node.js only)
  * @param {string} filePath - Path file
- * @returns {Promise<boolean>} True jika file exists
+ * @returns {Promise<boolean>} Benar jika file exists
  */
 async function fileExistsAsync(filePath) {
     if (typeof require === 'undefined') {
@@ -1500,14 +1501,14 @@ async function fileExistsAsync(filePath) {
 /**
  * Get environment variable (Node.js only)
  * @param {string} key - Environment variable name
- * @param {string} defaultValue - Default value if not found
+ * @param {string} nilaiBaku - Nilai baku jika tidak ditemukan
  * @returns {string} Environment variable value
  */
-function getEnvVar(key, defaultValue = '') {
+function getEnvVar(key, nilaiBaku = '') {
     if (typeof process !== 'undefined' && process.env) {
-        return process.env[key] || defaultValue;
+        return process.env[key] || nilaiBaku;
     }
-    return defaultValue;
+    return nilaiBaku;
 }
 
 /**
@@ -1541,7 +1542,7 @@ function parseCommandLineArgs() {
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         // Constants
-        CONSTANTS,
+        KONSTANTA,
         
         // Validation Functions
         isValidEmail,
@@ -1650,7 +1651,7 @@ if (typeof module !== 'undefined' && module.exports) {
 // Export untuk ES Modules
 if (typeof window !== 'undefined') {
     window.FungSi = {
-        CONSTANTS,
+        KONSTANTA,
         isValidEmail,
         isValidPhone,
         isValidURL,
