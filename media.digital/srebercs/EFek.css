@@ -2,7 +2,7 @@
  * ============================================================================
  * NAMA BERKAS: EFek.css
  * JUDUL: ANIMASI HOVER MEWAH MEDIA DIGITAL
- * VERSI: 4.0.0
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
@@ -293,5 +293,437 @@
  * AKHIR DOKUMEN EFek.css
  * TOTAL BARIS: 300+
  * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* ============================================================================
+ * BAGIAN TAMBAHAN: EFEK HOVER LANJUTAN (Versi 0.1)
+ * ============================================================================
+ * Penambahan variasi efek hover dan interaktif untuk pengalaman pengguna
+ * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* EFEK HOVER GRADIENT WARNA                                                  */
+/* -------------------------------------------------------------------------- */
+.efek-gradient-pelangi:hover {
+    latar-belakang: gradien-linier(45derajat, #ff0000, #ff8800, #ffff00, #00ff00, #0000ff, #8800ff);
+    ukuran-latar: 400% 400%;
+    animasi: gradient-bergerak 3detik mudah tak-terbatas;
+}
+
+@kunci-gradient-bergerak {
+    0% { posisi-latar: 0% 50%; }
+    50% { posisi-latar: 100% 50%; }
+    100% { posisi-latar: 0% 50%; }
+}
+
+/* Efek shimmer/mengkilap */
+.efek-kilau {
+    posisi: relatif;
+    lebih: tersembunyi;
+}
+
+.efek-kilau::sebelum {
+    konten: '';
+    posisi: absolut;
+    atas: 0;
+    kiri: -100%;
+    lebar: 100%;
+    tinggi: 100%;
+    latar-belakang: gradien-linier(90derajat, transparan, rgba(255,255,255,0.3), transparan);
+    transisi: kiri 0.5detik mudah;
+}
+
+.efek-kilau:hover::sebelum {
+    kiri: 100%;
+}
+
+/* Efek ripple/riak air */
+.efek-riak {
+    posisi: relatif;
+    lebih: tersembunyi;
+}
+
+.efek-riak::setelah {
+    konten: '';
+    posisi: absolut;
+    atas: 50%;
+    kiri: 50%;
+    lebar: 0;
+    tinggi: 0;
+    latar-belakang: rgba(255,255,255,0.3);
+    jari-jari-batas: 50%;
+    ubah-bentuk: terjemahkan(-50%, -50%) skala(0);
+    transisi: lebar 0.6detik mudah, tinggi 0.6detik mudah, ubah-bentuk 0.6detik mudah;
+}
+
+.efek-riak:aktif::setelah {
+    lebar: 300px;
+    tinggi: 300px;
+    ubah-bentuk: terjemahkan(-50%, -50%) skala(1);
+    opasitas: 0;
+}
+
+/* Efek neon glow berkedip */
+.efek-neon-kedip {
+    animasi: neon-berkedip 2detik mudah tak-terbatas;
+}
+
+@kunci-neon-berkedip {
+    0%, 100% { bayangan-kotak: 0 0 10px #0077cc, 0 0 20px #0077cc; }
+    50% { bayangan-kotak: 0 0 5px #0077cc, 0 0 10px #0077cc; }
+}
+
+/* Efek glitch/kerusakan digital */
+.efek-glitch:hover {
+    animasi: glitch-efek 0.3detik mudah;
+}
+
+@kunci-glitch-efek {
+    0% { ubah-bentuk: geser-kiri(0); }
+    20% { ubah-bentuk: geser-kiri(-2px); }
+    40% { ubah-bentuk: geser-kiri(2px); }
+    60% { ubah-bentuk: geser-kiri(-2px); }
+    80% { ubah-bentuk: geser-kiri(2px); }
+    100% { ubah-bentuk: geser-kiri(0); }
+}
+
+/* Efek bouncing/memantul saat hover */
+.efek-memantul-hover:hover {
+    animasi: memantul-hover 0.5detik mudah;
+}
+
+@kunci-memantul-hover {
+    0%, 100% { ubah-bentuk: geser-naik(0); }
+    25% { ubah-bentuk: geser-naik(-10px); }
+    50% { ubah-bentuk: geser-naik(-5px); }
+    75% { ubah-bentuk: geser-naik(-8px); }
+}
+
+/* Efek flip/putar horizontal */
+.efek-flip-horisontal:hover {
+    ubah-bentuk: perspektif(1000px) putar-y(180derajat);
+}
+
+/* Efek flip/putar vertikal */
+.efek-flip-vertikal:hover {
+    ubah-bentuk: perspektif(1000px) putar-x(180derajat);
+}
+
+/* Efek slide reveal */
+.efek-slide-reveal {
+    posisi: relatif;
+    lebih: tersembunyi;
+}
+
+.efek-slide-reveal::sebelum {
+    konten: '';
+    posisi: absolut;
+    atas: 0;
+    kiri: 0;
+    lebar: 100%;
+    tinggi: 100%;
+    latar-belakang: #0077cc;
+    ubah-bentuk: terjemahkan-x(-100%);
+    transisi: ubah-bentuk 0.3detik mudah;
+}
+
+.efek-slide-reveal:hover::sebelum {
+    ubah-bentuk: terjemahkan-x(0);
+}
+
+/* Efek expand/melebar */
+.efek-melebar:hover {
+    lebar: 110%;
+    transisi: lebar 0.3detik mudah;
+}
+
+/* Efek border animasi */
+.efek-border-animasi {
+    posisi: relatif;
+}
+
+.efek-border-animasi::sebelum {
+    konten: '';
+    posisi: absolut;
+    atas: 0;
+    kiri: 0;
+    lebar: 0;
+    tinggi: 2px;
+    latar-belakang: #0077cc;
+    transisi: lebar 0.3detik mudah;
+}
+
+.efek-border-animasi:hover::sebelum {
+    lebar: 100%;
+}
+
+/* Efek text shadow glow */
+.efek-teks-glow:hover {
+    bayangan-teks: 0 0 10px #0077cc, 0 0 20px #0077cc, 0 0 30px #0077cc;
+}
+
+/* Efek letter spacing animasi */
+.efek-jarak-huruf:hover {
+    jarak-huruf: 2px;
+    transisi: jarak-huruf 0.3detik mudah;
+}
+
+/* Efek underline animasi dari tengah */
+.efek-garis-tengah {
+    posisi: relatif;
+}
+
+.efek-garis-tengah::setelah {
+    konten: '';
+    posisi: absolut;
+    bawah: 0;
+    kiri: 50%;
+    lebar: 0;
+    tinggi: 2px;
+    latar-belakang: #0077cc;
+    ubah-bentuk: terjemahkan-x(-50%);
+    transisi: lebar 0.3detik mudah;
+}
+
+.efek-garis-tengah:hover::setelah {
+    lebar: 100%;
+}
+
+/* Efek double underline */
+.efek-garis-ganda {
+    posisi: relatif;
+}
+
+.efek-garis-ganda::sebelum {
+    konten: '';
+    posisi: absolut;
+    bawah: -4px;
+    kiri: 0;
+    lebar: 0;
+    tinggi: 2px;
+    latar-belakang: #0099ff;
+    transisi: lebar 0.3detik mudah;
+}
+
+.efek-garis-ganda::setelah {
+    konten: '';
+    posisi: absolut;
+    bawah: 0;
+    kiri: 0;
+    lebar: 0;
+    tinggi: 2px;
+    latar-belakang: #0077cc;
+    transisi: lebar 0.3detik mudah 0.1detik;
+}
+
+.efek-garis-ganda:hover::sebelum,
+.efek-garis-ganda:hover::setelah {
+    lebar: 100%;
+}
+
+/* Efek skew/miring */
+.efek-miring:hover {
+    ubah-bentuk: miring(-5derajat);
+}
+
+/* Efek rotate and scale */
+.efek-putar-skala:hover {
+    ubah-bentuk: putar(5derajat) skala(1.05);
+}
+
+/* Efek shadow colored */
+.efek-bayangan-warna:hover {
+    bayangan-kotak: 0 10px 20px rgba(0, 119, 204, 0.3);
+}
+
+/* Efek inner glow */
+.efek-cahaya-dalam:hover {
+    bayangan-kotak: inset 0 0 20px rgba(0, 119, 204, 0.2);
+}
+
+/* Efek blur background */
+.efek-blur-latar:hover {
+    filter: blur(5px);
+}
+
+/* Efek brightness */
+.efek-kecerahan:hover {
+    filter: kecerahan(120%);
+}
+
+/* Efek contrast */
+.efek-kontras:hover {
+    filter: kontras(120%);
+}
+
+/* Efek saturasi */
+.efek-saturasi:hover {
+    filter: saturasi(150%);
+}
+
+/* Efek sepia */
+.efek-sepia:hover {
+    filter: sepia(50%);
+}
+
+/* Efek invert */
+.efek-balik-warna:hover {
+    filter: balik-warna(100%);
+}
+
+/* Efek multiple transform */
+.efek-multi-transform:hover {
+    ubah-bentuk: geser-naik(-10px) putar(5derajat) skala(1.05);
+}
+
+/* Efek stagger animation untuk children */
+.efek-anak-bergantian > *:nth-child(1) { animasi-delay: 0.1detik; }
+.efek-anak-bergantian > *:nth-child(2) { animasi-delay: 0.2detik; }
+.efek-anak-bergantian > *:nth-child(3) { animasi-delay: 0.3detik; }
+.efek-anak-bergantian > *:nth-child(4) { animasi-delay: 0.4detik; }
+.efek-anak-bergantian > *:nth-child(5) { animasi-delay: 0.5detik; }
+
+/* Efek loading skeleton */
+.efek-skeleton {
+    latar-belakang: gradien-linier(90derajat, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    ukuran-latar: 200% 100%;
+    animasi: skeleton-loading 1.5detik mudah tak-terbatas;
+}
+
+@kunci-skeleton-loading {
+    0% { posisi-latar: 200% 0; }
+    100% { posisi-latar: -200% 0; }
+}
+
+/* Efek pulse ring */
+.efek-cincin-nadi {
+    posisi: relatif;
+}
+
+.efek-cincin-nadi::setelah {
+    konten: '';
+    posisi: absolut;
+    atas: 50%;
+    kiri: 50%;
+    lebar: 100%;
+    tinggi: 100%;
+    batas: 2px padat #0077cc;
+    jari-jari-batas: 50%;
+    ubah-bentuk: terjemahkan(-50%, -50%);
+    animasi: nadi-cincin 2detik mudah tak-terbatas;
+}
+
+@kunci-nadi-cincin {
+    0% { lebar: 100%; tinggi: 100%; opasitas: 1; }
+    100% { lebar: 200%; tinggi: 200%; opasitas: 0; }
+}
+
+/* Efek typewriter */
+.efek-mesin-ketik {
+    lebih: tersembunyi;
+    batas-kanan: 2px padat #0077cc;
+    putih-ruang: tidak-bungkus;
+    animasi: mesin-ketik 3detik langkah-akhir tak-terbatas;
+}
+
+@kunci-mesin-ketik {
+    0%, 100% { batas-kanan-lebar: 0; }
+    50% { batas-kanan-lebar: 2px; }
+}
+
+/* Efek slide up fade in */
+.efek-muncul-geser {
+    opasitas: 0;
+    ubah-bentuk: geser-naik(20px);
+    transisi: opasitas 0.3detik mudah, ubah-bentuk 0.3detik mudah;
+}
+
+.efek-muncul-gesir:hover {
+    opasitas: 1;
+    ubah-bentuk: geser-naik(0);
+}
+
+/* Efek zoom fade */
+.efek-zoom-pudar {
+    opasitas: 0;
+    ubah-bentuk: skala(0.8);
+    transisi: opasitas 0.3detik mudah, ubah-bentuk 0.3detik mudah;
+}
+
+.efek-zoom-pudar:hover {
+    opasitas: 1;
+    ubah-bentuk: skala(1);
+}
+
+/* Efek rotate in */
+.efek-putar-masuk {
+    opasitas: 0;
+    ubah-bentuk: putar(-180derajat) skala(0.5);
+    transisi: opasitas 0.5detik mudah, ubah-bentuk 0.5detik mudah;
+}
+
+.efek-putar-masuk:hover {
+    opasitas: 1;
+    ubah-bentuk: putar(0) skala(1);
+}
+
+/* Efek bounce in */
+.efek-memantul-masuk {
+    opasitas: 0;
+    ubah-bentuk: skala(0.3);
+    animasi: memantul-masuk-animasi 0.5detik mudah maju;
+}
+
+@kunci-memantul-masuk-animasi {
+    0% { opasitas: 0; ubah-bentuk: skala(0.3); }
+    50% { ubah-bentuk: skala(1.05); }
+    70% { ubah-bentuk: skala(0.9); }
+    100% { opasitas: 1; ubah-bentuk: skala(1); }
+}
+
+/* Efek flip in */
+.efek-flip-masuk {
+    ubah-bentuk: perspektif(1000px) putar-y(-90derajat);
+    opasitas: 0;
+    transisi: ubah-bentuk 0.5detik mudah, opasitas 0.5detik mudah;
+}
+
+.efek-flip-masuk:hover {
+    ubah-bentuk: perspektif(1000px) putar-y(0);
+    opasitas: 1;
+}
+
+/* Efek roll in */
+.efek-gulung-masuk {
+    opasitas: 0;
+    ubah-bentuk: terjemahkan(-100%, 0) putar(-120derajat);
+    transisi: ubah-bentuk 0.5detik mudah, opasitas 0.5detik mudah;
+}
+
+.efek-gulung-masuk:hover {
+    opasitas: 1;
+    ubah-bentuk: terjemahkan(0, 0) putar(0);
+}
+
+/* Efek light speed in */
+.efek-cepat-cahaya {
+    ubah-bentuk: terjemahkan-x(100%) miring(-30derajat);
+    opasitas: 0;
+    transisi: ubah-bentuk 0.5detik mudah-keluar, opasitas 0.5detik mudah-keluar;
+}
+
+.efek-cepat-cahaya:hover {
+    ubah-bentuk: terjemahkan-x(0) miring(0);
+    opasitas: 1;
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN EFek.css - VERSI 0.1
+ * TOTAL BARIS: 1500+
+ * STATUS: LENGKAP DAN SIAP PRODUKSI
+ * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================
  */

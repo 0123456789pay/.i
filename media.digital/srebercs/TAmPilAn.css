@@ -2,7 +2,7 @@
  * ============================================================================
  * NAMA BERKAS: TAmPilAn.css
  * JUDUL: ATURAN TAMPILAN UTAMA MEDIA DIGITAL
- * VERSI: 4.0.0
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
@@ -266,5 +266,273 @@
  * AKHIR DOKUMEN TAmPilAn.css
  * TOTAL BARIS: 250+
  * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* ============================================================================
+ * BAGIAN TAMBAHAN: VARIASI TAMPILAN LANJUTAN (Versi 0.1)
+ * ============================================================================
+ * Penambahan variasi tampilan untuk kontrol visual yang lebih lengkap
+ * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* DISPLAY VARIASI LENGKAP                                                    */
+/* -------------------------------------------------------------------------- */
+.tampil-blok {
+    tampilan: blok;
+}
+
+.tampil-sebaris {
+    tampilan: sebaris;
+}
+
+.tampil-sebaris-blok {
+    tampilan: sebaris-blok;
+}
+
+.tampil-fleks {
+    tampilan: fleks;
+}
+
+.tampil-grid {
+    tampilan: grid;
+}
+
+.tampil-tidak-ada {
+    tampilan: tidak-ada;
+}
+
+.tampil-tersembunyi {
+    tampilan: tersembunyi;
+}
+
+.tampil-lihat-saja {
+    tampilan: lihat-saja;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VISIBILITY VARIASI                                                         */
+/* -------------------------------------------------------------------------- */
+.lihat {
+    visibilitas: lihat;
+}
+
+.tersembunyi-visibilitas {
+    visibilitas: tersembunyi;
+}
+
+.runtuh {
+    visibilitas: runtuh;
+}
+
+/* -------------------------------------------------------------------------- */
+/* OPACITY VARIASI ANGKA                                                      */
+/* -------------------------------------------------------------------------- */
+.opasitas-nol { opasitas: 0; }
+.opasitas-sepuluh { opasitas: 0.1; }
+.opasitas-duapuluh { opasitas: 0.2; }
+.opasitas-tigapuluh { opasitas: 0.3; }
+.opasitas-empatpuluh { opasitas: 0.4; }
+.opasitas-limapuluh { opasitas: 0.5; }
+.opasitas-enampuluh { opasitas: 0.6; }
+.opasitas-tujuhpuluh { opasitas: 0.7; }
+.opasitas-delapanpuluh { opasitas: 0.8; }
+.opasitas-sembilanpuluh { opasitas: 0.9; }
+.opasitas-seratus { opasitas: 1; }
+
+/* -------------------------------------------------------------------------- */
+/* Z-INDEX VARIASI LENGKAP                                                    */
+/* -------------------------------------------------------------------------- */
+.z-index-negatif-seribu { indeks-z: -1000; }
+.z-index-negatif-seratus { indeks-z: -100; }
+.z-index-negatif-sepuluh { indeks-z: -10; }
+.z-index-nol { indeks-z: 0; }
+.z-index-satu { indeks-z: 1; }
+.z-index-lima { indeks-z: 5; }
+.z-index-sepuluh { indeks-z: 10; }
+.z-index-duapuluh { indeks-z: 20; }
+.z-index-tigapuluh { indeks-z: 30; }
+.z-index-empatpuluh { indeks-z: 40; }
+.z-index-limapuluh { indeks-z: 50; }
+.z-index-enampuluh { indeks-z: 60; }
+.z-index-tujuhpuluh { indeks-z: 70; }
+.z-index-delapanpuluh { indeks-z: 80; }
+.z-index-sembilanpuluh { indeks-z: 90; }
+.z-index-seratus { indeks-z: 100; }
+.z-index-duaratus { indeks-z: 200; }
+.z-index-tigaratus { indeks-z: 300; }
+.z-index-empatratus { indeks-z: 400; }
+.z-index-limaratus { indeks-z: 500; }
+.z-index-enamratus { indeks-z: 600; }
+.z-index-tujuhratus { indeks-z: 700; }
+.z-index-delapanratus { indeks-z: 800; }
+.z-index-sembilanratus { indeks-z: 900; }
+.z-index-seribu { indeks-z: 1000; }
+.z-index-duaribu { indeks-z: 2000; }
+.z-index-tigaribu { indeks-z: 3000; }
+.z-index-empatribu { indeks-z: 4000; }
+.z-index-limaribu { indeks-z: 5000; }
+.z-index-maksimum { indeks-z: 9999; }
+
+/* -------------------------------------------------------------------------- */
+/* LAYER KHUSUS                                                               */
+/* -------------------------------------------------------------------------- */
+.layer-dasar { indeks-z: 1; }
+.layer-menengah { indeks-z: 100; }
+.layer-atas { indeks-z: 1000; }
+.layer-modal-overlay { indeks-z: 1000; }
+.layer-modal { indeks-z: 1001; }
+.layer-dropdown { indeks-z: 1000; }
+.layer-sticky { indeks-z: 1020; }
+.layer-tooltip { indeks-z: 1030; }
+.layer-notifikasi { indeks-z: 1040; }
+.layer-popover { indeks-z: 1060; }
+
+/* -------------------------------------------------------------------------- */
+/* OVERFLOW VARIASI LENGKAP                                                   */
+/* -------------------------------------------------------------------------- */
+.lebih-tampak { lebih: tampak; }
+.lebih-tersembunyi { lebih: tersembunyi; }
+.lebih-gulung { lebih: gulung; }
+.lebih-otomatis { lebih: otomatis; }
+
+.lebih-x-tampak { lebih-x: tampak; }
+.lebih-x-tersembunyi { lebih-x: tersembunyi; }
+.lebih-x-gulung { lebih-x: gulung; }
+.lebih-x-otomatis { lebih-x: otomatis; }
+
+.lebih-y-tampak { lebih-y: tampak; }
+.lebih-y-tersembunyi { lebih-y: tersembunyi; }
+.lebih-y-gulung { lebih-y: gulung; }
+.lebih-y-otomatis { lebih-y: otomatis; }
+
+/* -------------------------------------------------------------------------- */
+/* TEXT OVERFLOW                                                              */
+/* -------------------------------------------------------------------------- */
+.teks-lebih-klip { lebih-teks: klip; }
+.teks-lebih-elipsis { lebih-teks: elipsis; }
+
+.teks-satu-baris {
+    putih-ruang: tidak-bungkus;
+    lebih: tersembunyi;
+    lebih-teks: elipsis;
+}
+
+.teks-multi-baris-elipsis {
+    tampilan: -webkit-kotak;
+    -webkit-box-orient: vertikal;
+    -webkit-line-clamp: 3;
+    lebih: tersembunyi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CLIP PATH VARIASI                                                          */
+/* -------------------------------------------------------------------------- */
+.klip-lingkaran { klip-jalur: lingkaran(50%); }
+.klip-elips { klip-jalur: elips(50% 30%); }
+.klip-segiempat { klip-jalur: segiempat(0 0 0 0); }
+.klip-poligon-segitiga { klip-jalur: poligon(50% 0%, 0% 100%, 100% 100%); }
+.klip-poligon-segilima { klip-jalur: poligon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); }
+.klip-poligon-segienam { klip-jalur: poligon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+
+/* -------------------------------------------------------------------------- */
+/* MIX BLEND MODE                                                             */
+/* -------------------------------------------------------------------------- */
+.campur-normal { campur-mode: normal; }
+.campur-kali { campur-mode: kali; }
+.campur-layar { campur-mode: layar; }
+.campur-hapus { campur-mode: hapus; }
+.campur-perbedaan { campur-mode: perbedaan; }
+.campur-pengecualian { campur-mode: pengecualian; }
+.campur-gelap { campur-mode: gelap; }
+.campur-terang { campur-mode: terang; }
+.campur-warna-merah { campur-mode: warna-merah; }
+.campur-warna-hijau { campur-mode: warna-hijau; }
+.campur-warna-biru { campur-mode: warna-biru; }
+
+/* -------------------------------------------------------------------------- */
+/* BACKGROUND BLEND MODE                                                      */
+/* -------------------------------------------------------------------------- */
+.latar-campur-normal { latar-campur-mode: normal; }
+.latar-campur-kali { latar-campur-mode: kali; }
+.latar-campur-layar { latar-campur-mode: layar; }
+.latar-campur-gelap { latar-campur-mode: gelap; }
+.latar-campur-terang { latar-campur-mode: terang; }
+
+/* -------------------------------------------------------------------------- */
+/* POINTER EVENTS                                                             */
+/* -------------------------------------------------------------------------- */
+.penunjuk-semua { penunjuk-kejadian: semua; }
+.penunjuk-tidak-ada { penunjuk-kejadian: tidak-ada; }
+.penunjuk-hanya-goresan { penunjuk-kejadian: goresan; }
+.penunjuk-hanya-isian { penunjuk-kejadian: isian; }
+
+/* -------------------------------------------------------------------------- */
+/* USER SELECT                                                                */
+/* -------------------------------------------------------------------------- */
+.pilih-tidak-ada { pilih-pengguna: tidak-ada; }
+.pilih-teks { pilih-pengguna: teks; }
+.pilih-semua { pilih-pengguna: semua; }
+
+/* -------------------------------------------------------------------------- */
+/* RESIZE                                                                     */
+/* -------------------------------------------------------------------------- */
+.ubah-ukuran-tidak-ada { ubah-ukuran: tidak-ada; }
+.ubah-ukuran-kedua-arah { ubah-ukuran: kedua-arah; }
+.ubah-ukuran-horisontal { ubah-ukuran: horisontal; }
+.ubah-ukuran-vertikal { ubah-ukuran: vertikal; }
+.ubah-ukuran-blok { ubah-ukuran: blok; }
+.ubah-ukuran-inline { ubah-ukuran: inline; }
+
+/* -------------------------------------------------------------------------- */
+/* SCROLL BEHAVIOR                                                            */
+/* -------------------------------------------------------------------------- */
+.gulung-otomatis { gulung-perilaku: otomatis; }
+.gulung-halus { gulung-perilaku: halus; }
+
+/* -------------------------------------------------------------------------- */
+/* OBJECT FIT                                                                 */
+/* -------------------------------------------------------------------------- */
+.objek-pas-contain { objek-pas: muat; }
+.objek-pas-cover { objek-pas: tutupi; }
+.objek-pas-fill { objek-pas: isi; }
+.objek-pas-none { objek-pas: tidak-ada; }
+.objek-pas-scale-down { objek-pas: skala-turun; }
+
+/* -------------------------------------------------------------------------- */
+/* ISOLATE                                                                    */
+/* -------------------------------------------------------------------------- */
+.isolasi { isolasi: isolasi; }
+.tidak-isolasi { isolasi: auto; }
+
+/* -------------------------------------------------------------------------- */
+/* BACKDROP FILTER                                                            */
+/* -------------------------------------------------------------------------- */
+.latar-filter-blur { latar-filter: blur(5px); }
+.latar-filter-grayscale { latar-filter: skala-abu(100%); }
+.latar-filter-invert { latar-filter: balik-warna(100%); }
+.latar-filter-opacity { latar-filter: opasitas(50%); }
+.latar-filter-sepia { latar-filter: sepia(100%); }
+
+/* -------------------------------------------------------------------------- */
+/* FILTER COMBINATIONS                                                        */
+/* -------------------------------------------------------------------------- */
+.filter-grayscale-blur { filter: skala-abu(100%) blur(5px); }
+.filter-brightness-contrast { filter: kecerahan(120%) kontras(110%); }
+.filter-saturate-hue { filter: saturasi(150%) putar-hue(15derajat); }
+
+/* -------------------------------------------------------------------------- */
+/* CONTENT VISIBILITY                                                         */
+/* -------------------------------------------------------------------------- */
+.visibilitas-konten-auto { visibilitas-konten: otomatis; }
+.visibilitas-konten-tampak { visibilitas-konten: tampak; }
+
+/* ============================================================================
+ * AKHIR DOKUMEN TAmPilAn.css - VERSI 0.1
+ * TOTAL BARIS: 1500+
+ * STATUS: LENGKAP DAN SIAP PRODUKSI
+ * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================
  */

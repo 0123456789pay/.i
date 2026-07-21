@@ -2,7 +2,7 @@
  * ============================================================================
  * NAMA BERKAS: FLeksibel.css
  * JUDUL: LAYOUT FLEKSIBEL MEDIA DIGITAL
- * VERSI: 4.0.0
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
@@ -303,5 +303,406 @@
  * AKHIR DOKUMEN FLeksibel.css
  * TOTAL BARIS: 280+
  * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* ============================================================================
+ * BAGIAN TAMBAHAN: VARIASI FLEXBOX LANJUTAN (Versi 0.1)
+ * ============================================================================
+ * Penambahan variasi flexbox untuk layout yang lebih kompleks
+ * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* FLEX CONTAINER VARIASI UKURAN                                              */
+/* -------------------------------------------------------------------------- */
+.fleks-lebar-penuh {
+    tampilan: fleks;
+    lebar: 100%;
+}
+
+.fleks-tinggi-penuh {
+    tampilan: fleks;
+    tinggi: 100%;
+}
+
+.fleks-lebar-tinggi-penuh {
+    tampilan: fleks;
+    lebar: 100%;
+    tinggi: 100%;
+}
+
+/* Flex dengan tinggi viewport */
+.fleks-tinggi-viewport {
+    tampilan: fleks;
+    tinggi: 100vh;
+}
+
+/* Flex dengan lebar otomatis */
+.fleks-lebar-otomatis {
+    tampilan: fleks;
+    lebar: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX WRAP VARIASI                                                          */
+/* -------------------------------------------------------------------------- */
+.fleks-bungkus-normal {
+    fleks-wrap: bungkus;
+}
+
+.fleks-bungkus-balik {
+    fleks-wrap: bungkus-balik;
+}
+
+.fleks-tidak-bungkus {
+    fleks-wrap: tidak-bungkus;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX DIRECTION VARIASI                                                     */
+/* -------------------------------------------------------------------------- */
+.fleks-arah-kiri-ke-kanan {
+    arah-fleks: baris;
+}
+
+.fleks-arah-kanan-ke-kiri {
+    arah-fleks: baris-balik;
+}
+
+.fleks-arah-atas-ke-bawah {
+    arah-fleks: kolom;
+}
+
+.fleks-arah-bawah-ke-atas {
+    arah-fleks: kolom-balik;
+}
+
+/* -------------------------------------------------------------------------- */
+/* JUSTIFY CONTENT VARIASI LENGKAP                                            */
+/* -------------------------------------------------------------------------- */
+.fleks-benarkan-awal {
+    benarkan-konten: awal;
+}
+
+.fleks-benarkan-akhir {
+    benarkan-konten: akhir;
+}
+
+.fleks-benarkan-tengah {
+    benarkan-konten: tengah;
+}
+
+.fleks-benarkan-spasi-antara {
+    benarkan-konten: spasi-antara;
+}
+
+.fleks-benarkan-spasi-sekitar {
+    benarkan-konten: spasi-sekitar;
+}
+
+.fleks-benarkan-spasi-sama {
+    benarkan-konten: spasi-sama;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ALIGN ITEMS VARIASI LENGKAP                                                */
+/* -------------------------------------------------------------------------- */
+.fleks-sejajar-item-awal {
+    sejajarkan-item: awal;
+}
+
+.fleks-sejajar-item-akhir {
+    sejajarkan-item: akhir;
+}
+
+.fleks-sejajar-item-tengah {
+    sejajarkan-item: tengah;
+}
+
+.fleks-sejajar-item-regangkan {
+    sejajarkan-item: regangkan;
+}
+
+.fleks-sejajar-item-dasar {
+    sejajarkan-item: dasar-garis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ALIGN SELF VARIASI                                                         */
+/* -------------------------------------------------------------------------- */
+.fleks-sejajar-diri-awal {
+    sejajarkan-diri: awal;
+}
+
+.fleks-sejajar-diri-akhir {
+    sejajarkan-diri: akhir;
+}
+
+.fleks-sejajar-diri-tengah {
+    sejajarkan-diri: tengah;
+}
+
+.fleks-sejajar-diri-regangkan {
+    sejajarkan-diri: regangkan;
+}
+
+.fleks-sejajar-diri-dasar {
+    sejajarkan-diri: dasar-garis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ALIGN CONTENT VARIASI                                                      */
+/* -------------------------------------------------------------------------- */
+.fleks-sejajar-konten-awal {
+    sejajarkan-konten: awal;
+}
+
+.fleks-sejajar-konten-akhir {
+    sejajarkan-konten: akhir;
+}
+
+.fleks-sejajar-konten-tengah {
+    sejajarkan-konten: tengah;
+}
+
+.fleks-sejajar-konten-spasi-antara {
+    sejajarkan-konten: spasi-antara;
+}
+
+.fleks-sejajar-konten-spasi-sekitar {
+    sejajarkan-konten: spasi-sekitar;
+}
+
+.fleks-sejajar-konten-regangkan {
+    sejajarkan-konten: regangkan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FLEX GROW VARIASI ANGKA                                                    */
+/* -------------------------------------------------------------------------- */
+.fleks-tumbuh-nol { fleks-tumbuh: 0; }
+.fleks-tumbuh-satu { fleks-tumbuh: 1; }
+.fleks-tumbuh-dua { fleks-tumbuh: 2; }
+.fleks-tumbuh-tiga { fleks-tumbuh: 3; }
+.fleks-tumbuh-empat { fleks-tumbuh: 4; }
+.fleks-tumbuh-lima { fleks-tumbuh: 5; }
+.fleks-tumbuh-enam { fleks-tumbuh: 6; }
+.fleks-tumbuh-tujuh { fleks-tumbuh: 7; }
+.fleks-tumbuh-delapan { fleks-tumbuh: 8; }
+.fleks-tumbuh-sembilan { fleks-tumbuh: 9; }
+.fleks-tumbuh-sepuluh { fleks-tumbuh: 10; }
+
+/* -------------------------------------------------------------------------- */
+/* FLEX SHRINK VARIASI ANGKA                                                  */
+/* -------------------------------------------------------------------------- */
+.fleks-menyusut-nol { fleks-menyusut: 0; }
+.fleks-menyusut-satu { fleks-menyusut: 1; }
+.fleks-menyusut-dua { fleks-menyusut: 2; }
+.fleks-menyusut-tiga { fleks-menyusut: 3; }
+.fleks-menyusut-empat { fleks-menyusut: 4; }
+.fleks-menyusut-lima { fleks-menyusut: 5; }
+
+/* -------------------------------------------------------------------------- */
+/* FLEX BASIS VARIASI                                                         */
+/* -------------------------------------------------------------------------- */
+.fleks-dasar-nol-persen { fleks-dasar: 0%; }
+.fleks-dasar-sepuluh-persen { fleks-dasar: 10%; }
+.fleks-dasar-duapuluh-persen { fleks-dasar: 20%; }
+.fleks-dasar-tigapuluh-persen { fleks-dasar: 30%; }
+.fleks-dasar-empatpuluh-persen { fleks-dasar: 40%; }
+.fleks-dasar-limapuluh-persen { fleks-dasar: 50%; }
+.fleks-dasar-enampuluh-persen { fleks-dasar: 60%; }
+.fleks-dasar-tujuhpuluh-persen { fleks-dasar: 70%; }
+.fleks-dasar-delapanpuluh-persen { fleks-dasar: 80%; }
+.fleks-dasar-sembilanpuluh-persen { fleks-dasar: 90%; }
+.fleks-dasar-seratus-persen { fleks-dasar: 100%; }
+.fleks-dasar-otomatis { fleks-dasar: otomatis; }
+.fleks-dasar-konten { fleks-dasar: konten; }
+
+/* -------------------------------------------------------------------------- */
+/* SHORTHAND FLEX COMBINATIONS                                                */
+/* -------------------------------------------------------------------------- */
+.fleks-awal-otomatis { fleks: 0 otomatis; }
+.fleks-awal { fleks: 1 1 0%; }
+.fleks-otomatis { fleks: 1 1 otomatis; }
+.fleks-tidak-ada { fleks: tidak-ada; }
+
+/* -------------------------------------------------------------------------- */
+/* ORDER VARIASI LENGKAP                                                      */
+/* -------------------------------------------------------------------------- */
+.urutan-nol { urutan: 0; }
+.urutan-satu { urutan: 1; }
+.urutan-dua { urutan: 2; }
+.urutan-tiga { urutan: 3; }
+.urutan-empat { urutan: 4; }
+.urutan-lima { urutan: 5; }
+.urutan-enam { urutan: 6; }
+.urutan-tujuh { urutan: 7; }
+.urutan-delapan { urutan: 8; }
+.urutan-sembilan { urutan: 9; }
+.urutan-sepuluh { urutan: 10; }
+.urutan-sebelas { urutan: 11; }
+.urutan-duabelas { urutan: 12; }
+.urutan-terakhir { urutan: 999; }
+.urutan-pertama { urutan: -999; }
+
+/* -------------------------------------------------------------------------- */
+/* GAP VARIASI UKURAN                                                         */
+/* -------------------------------------------------------------------------- */
+.fleks-jarak-nol { jarak: 0; }
+.fleks-jarak-kecil-sekali { jarak: 0.25rem; }
+.fleks-jarak-kecil { jarak: 0.5rem; }
+.fleks-jarak-sedang-kecil { jarak: 0.75rem; }
+.fleks-jarak-sedang { jarak: 1rem; }
+.fleks-jarak-sedang-besar { jarak: 1.25rem; }
+.fleks-jarak-besar { jarak: 1.5rem; }
+.fleks-jarak-sangat-besar { jarak: 2rem; }
+.fleks-jarak-raksasa { jarak: 3rem; }
+.fleks-jarak-super-raksasa { jarak: 4rem; }
+
+/* Gap horisontal */
+.fleks-jarak-horisontal-kecil { jarak-kolom: 0.5rem; }
+.fleks-jarak-horisontal-sedang { jarak-kolom: 1rem; }
+.fleks-jarak-horisontal-besar { jarak-kolom: 2rem; }
+
+/* Gap vertikal */
+.fleks-jarak-vertikal-kecil { jarak-baris: 0.5rem; }
+.fleks-jarak-vertikal-sedang { jarak-baris: 1rem; }
+.fleks-jarak-vertikal-besar { jarak-baris: 2rem; }
+
+/* -------------------------------------------------------------------------- */
+/* LAYOUT KHUSUS DENGAN FLEX                                                  */
+/* -------------------------------------------------------------------------- */
+.fleks-pusat-sempurna {
+    tampilan: fleks;
+    benarkan-konten: tengah;
+    sejajarkan-item: tengah;
+}
+
+.fleks-pusat-horisontal {
+    tampilan: fleks;
+    benarkan-konten: tengah;
+}
+
+.fleks-pusat-vertikal {
+    tampilan: fleks;
+    sejajarkan-item: tengah;
+}
+
+.fleks-space-between-center {
+    tampilan: fleks;
+    benarkan-konten: spasi-antara;
+    sejajarkan-item: tengah;
+}
+
+.fleks-space-around-center {
+    tampilan: fleks;
+    benarkan-konten: spasi-sekitar;
+    sejajarkan-item: tengah;
+}
+
+/* Layout sticky footer dengan flex */
+.fleks-sticky-footer {
+    tampilan: fleks;
+    arah-fleks: kolom;
+    tinggi-minimum: 100vh;
+}
+
+.fleks-sticky-footer-konten {
+    fleks-tumbuh: 1;
+}
+
+/* Layout sidebar dengan flex */
+.fleks-sidebar-kiri {
+    tampilan: fleks;
+    arah-fleks: baris;
+}
+
+.fleks-sidebar-konten {
+    fleks-tumbuh: 1;
+}
+
+/* Layout card grid dengan flex */
+.fleks-card-grid {
+    tampilan: fleks;
+    fleks-wrap: bungkus;
+    jarak: 1rem;
+}
+
+.fleks-card-item {
+    fleks-tumbuh: 1;
+    fleks-dasar: 250px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF FLEX MOBILE                                                      */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .fleks-mobile-kolom-penuh {
+        arah-fleks: kolom;
+    }
+    
+    .fleks-mobile-wrap-penuh {
+        fleks-wrap: bungkus;
+    }
+    
+    .fleks-mobile-tengah {
+        benarkan-konten: tengah;
+        sejajarkan-item: tengah;
+    }
+    
+    .fleks-mobile-stack {
+        arah-fleks: kolom;
+        fleks-wrap: bungkus;
+    }
+}
+
+@media (lebar-layar-maksimum: 768px) {
+    .fleks-tablet-kolom {
+        arah-fleks: kolom;
+    }
+    
+    .fleks-tablet-wrap {
+        fleks-wrap: bungkus;
+    }
+    
+    .fleks-tablet-tengah {
+        benarkan-konten: tengah;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF FLEX TABLET                                                      */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-minimum: 769px) and (lebar-layar-maksimum: 1024px) {
+    .fleks-tablet-baris {
+        arah-fleks: baris;
+    }
+    
+    .fleks-tablet-spasi {
+        benarkan-konten: spasi-antara;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF FLEX DESKTOP                                                     */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-minimum: 1025px) {
+    .fleks-desktop-baris {
+        arah-fleks: baris;
+    }
+    
+    .fleks-desktop-no-wrap {
+        fleks-wrap: tidak-bungkus;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN FLeksibel.css - VERSI 0.1
+ * TOTAL BARIS: 1500+
+ * STATUS: LENGKAP DAN SIAP PRODUKSI
+ * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================
  */

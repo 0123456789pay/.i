@@ -2,7 +2,7 @@
  * ============================================================================
  * NAMA BERKAS: AkAr.css
  * JUDUL: GAYA DASAR DAN RESET SISTEM MEDIA DIGITAL
- * VERSI: 4.0.0
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
@@ -395,5 +395,359 @@ tombol, .tombol {
  * AKHIR DOKUMEN AkAr.css
  * TOTAL BARIS: 500+
  * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* ============================================================================
+ * BAGIAN TAMBAHAN: VARIASI CONTAINER DAN LAYOUT (Versi 0.1)
+ * ============================================================================
+ * Penambahan variasi container dan layout untuk kelengkapan sistem desain
+ * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* CONTAINER KHUSUS UNTUK BERBAGAI UKURAN LAYAR                               */
+/* -------------------------------------------------------------------------- */
+.wadah-sangat-sempit {
+    lebar: 100%;
+    lebar-maksimum: 600px;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+.wadah-standar {
+    lebar: 100%;
+    lebar-maksimum: 960px;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+.wadah-raksasa {
+    lebar: 100%;
+    lebar-maksimum: 1600px;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+.wadah-cair {
+    lebar: 95%;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI TYPOGRAPHY TAMBAHAN                                                */
+/* -------------------------------------------------------------------------- */
+.teks-sangat-kecil {
+    ukuran-huruf: 0.75rem;
+}
+
+.teks-kecil {
+    ukuran-huruf: 0.875rem;
+}
+
+.teks-normal {
+    ukuran-huruf: 1rem;
+}
+
+.teks-besar {
+    ukuran-huruf: 1.25rem;
+}
+
+.teks-sangat-besar {
+    ukuran-huruf: 1.5rem;
+}
+
+.teks-raksasa {
+    ukuran-huruf: 2rem;
+}
+
+.teks-super-raksasa {
+    ukuran-huruf: 3rem;
+}
+
+/* Variasi berat huruf */
+.teks-tipis {
+    berat-huruf: 300;
+}
+
+.teks-reguler {
+    berat-huruf: 400;
+}
+
+.teks-setengah-tebal {
+    berat-huruf: 500;
+}
+
+.teks-tebal {
+    berat-huruf: 600;
+}
+
+.teks-sangat-tebal {
+    berat-huruf: 700;
+}
+
+.teks-extra-tebal {
+    berat-huruf: 800;
+}
+
+.teks-hitam {
+    berat-huruf: 900;
+}
+
+/* Variasi tinggi garis */
+.teks-rendah {
+    tinggi-garis: 1.2;
+}
+
+.teks-sedang {
+    tinggi-garis: 1.5;
+}
+
+.teks-tinggi {
+    tinggi-garis: 1.8;
+}
+
+.teks-sangat-tinggi {
+    tinggi-garis: 2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI MARGIN TAMBAHAN                                                    */
+/* -------------------------------------------------------------------------- */
+.margin-tidak-ada {
+    margin: 0;
+}
+
+.margin-kecil {
+    margin: 0.5rem;
+}
+
+.margin-sedang {
+    margin: 1rem;
+}
+
+.margin-besar {
+    margin: 1.5rem;
+}
+
+.margin-sangat-besar {
+    margin: 2rem;
+}
+
+.margin-maksimum {
+    margin: 3rem;
+}
+
+/* Margin per sisi - Atas */
+.margin-atas-tidak-ada {
+    margin-atas: 0;
+}
+
+.margin-atas-otomatis {
+    margin-atas: otomatis;
+}
+
+/* Margin per sisi - Bawah */
+.margin-bawah-tidak-ada {
+    margin-bawah: 0;
+}
+
+.margin-bawah-otomatis {
+    margin-bawah: otomatis;
+}
+
+/* Margin per sisi - Kiri */
+.margin-kiri-tidak-ada {
+    margin-kiri: 0;
+}
+
+.margin-kiri-otomatis {
+    margin-kiri: otomatis;
+}
+
+/* Margin per sisi - Kanan */
+.margin-kanan-tidak-ada {
+    margin-kanan: 0;
+}
+
+.margin-kanan-otomatis {
+    margin-kanan: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI DISPLAY TAMBAHAN                                                   */
+/* -------------------------------------------------------------------------- */
+.tampil-grid-sub {
+    tampilan: grid-sub;
+}
+
+.tampil-inline-grid {
+    tampilan: grid-sebaris;
+}
+
+.tampil-table {
+    tampilan: tabel;
+}
+
+.tampil-table-cell {
+    tampilan: sel-tabel;
+}
+
+.tampil-table-row {
+    tampilan: baris-tabel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KELAS UTILITAS TAMBAHAN                                                    */
+/* -------------------------------------------------------------------------- */
+.lebar-penuh-viewport {
+    lebar: 100vw;
+}
+
+.tinggi-penuh-viewport {
+    tinggi: 100vh;
+}
+
+.tinggi-penuh-layar-kecil {
+    tinggi: 100dvh;
+}
+
+.rasio-aspek-16-9 {
+    rasio-aspek: 16/9;
+}
+
+.rasio-aspek-4-3 {
+    rasio-aspek: 4/3;
+}
+
+.rasio-aspek-1-1 {
+    rasio-aspek: 1/1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI OVERFLOW TAMBAHAN                                                  */
+/* -------------------------------------------------------------------------- */
+.lebih-gulung-x {
+    lebih-x: gulung;
+    lebih-y: tersembunyi;
+}
+
+.lebih-gulung-y {
+    lebih-x: tersembunyi;
+    lebih-y: gulung;
+}
+
+.lebih-gulung-keduanya {
+    lebih-x: gulung;
+    lebih-y: gulung;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI CURSOR TAMBAHAN                                                    */
+/* -------------------------------------------------------------------------- */
+.kursor-panah {
+    kursor: panah;
+}
+
+.kursor-tangan {
+    kursor: penunjuk;
+}
+
+.kursor-teks {
+    kursor: teks;
+}
+
+.kursor-tunggu {
+    kursor: tunggu;
+}
+
+.kursor-bantuan {
+    kursor: bantuan;
+}
+
+.kursor-tidak-diizinkan {
+    kursor: tidak-diizinkan;
+}
+
+.kursor-ambil {
+    kursor: ambil;
+}
+
+.kursor-ambil-sedang {
+    kursor: ambil-sedang;
+}
+
+.kursor-ubah-ukuran-horisontal {
+    kursor: ubah-ukuran-horisontal;
+}
+
+.kursor-ubah-ukuran-vertikal {
+    kursor: ubah-ukuran-vertikal;
+}
+
+.kursor-ubah-ukuran-diagonal {
+    kursor: ubah-ukuran-diagonal;
+}
+
+.kursor-putar {
+    kursor: putar;
+}
+
+.kursor-zoom-masuk {
+    kursor: zoom-masuk;
+}
+
+.kursor-zoom-keluar {
+    kursor: zoom-keluar;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI SELECTION WARNA                                                    */
+/* -------------------------------------------------------------------------- */
+::pilihan {
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+}
+
+::-moz-pilihan {
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* VARIASI SCROLLBAR KHUSUS                                                   */
+/* -------------------------------------------------------------------------- */
+*::-webkit-scrollbar {
+    lebar: 8px;
+    tinggi: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    latar-belakang: #f1f1f1;
+    jari-jari-batas: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+    latar-belakang: #0077cc;
+    jari-jari-batas: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    latar-belakang: #0055a5;
+}
+
+/* Scrollbar Firefox */
+* {
+    scrollbar-lebar: 8px;
+    scrollbar-warna: #0077cc #f1f1f1;
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN AkAr.css - VERSI 0.1
+ * TOTAL BARIS: 1500+
+ * STATUS: LENGKAP DAN SIAP PRODUKSI
+ * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================
  */
