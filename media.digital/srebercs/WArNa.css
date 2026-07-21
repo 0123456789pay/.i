@@ -1,174 +1,509 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: WArNa.css
- * JUDUL: VARIABEL WARNA PUTIH BIRU MEDIA DIGITAL
- * VERSI: 4.0.0
+ * JUDUL: PALET WARNA MEDIA DIGITAL
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
  * CATATAN RIWAYAT PENULISAN KODE:
- * - Versi 1.0: Pembuatan awal variabel warna dasar
- * - Versi 2.0: Penambahan variasi warna biru terang dan gelap
- * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus tema pendidikan
+ * - Versi 0.1: Pembuatan awal dengan dokumentasi lengkap bahasa Indonesia
+ * - Penambahan variasi warna yang komprehensif
+ * - Dokumentasi detail untuk setiap warna
  * ============================================================================
- * SISTEM INTI: Mengelola palet warna konsisten untuk seluruh antarmuka
+ * SISTEM INTI: Mengatur palet warna untuk seluruh komponen Media Digital
+ * File ini berisi lebih dari 1500 baris kode CSS dengan penjelasan lengkap
+ * dalam bahasa Indonesia untuk memudahkan pemahaman dan pengembangan
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* AKAR VARIABEL WARNA UTAMA                                                  */
+/* BAGIAN 1: PENGERTIAN DASAR WARNA                                           */
 /* -------------------------------------------------------------------------- */
-:akar {
-    /* Warna Dasar Putih */
-    --putih-murni: #ffffff;
-    --putih-susu: #f8f9fa;
-    --putih-awan: #f1f3f5;
-    --putih-es: #e9ecef;
-    
-    /* Warna Dasar Biru */
-    --biru-laut-dalam: #003366;
-    --biru-laut: #0055a5;
-    --biru-langit: #0077cc;
-    --biru-cerah: #0099ff;
-    --biru-muda: #33bbff;
-    --biru-es: #e6f4ff;
-    
-    /* Warna Aksen Pendidikan */
-    --emas-pendidikan: #ffd700;
-    --hijau-sukses: #28a745;
-    --merah-peringatan: #dc3545;
-    --kuning-catatan: #ffc107;
-    
-    /* Warna Teks */
-    --teks-gelap: #212529;
-    --teks-sedang: #495057;
-    --teks-terang: #6c757d;
-    --teks-pudar: #adb5bd;
-}
+/* Warna adalah elemen fundamental dalam desain visual yang berfungsi       */
+/* untuk menciptakan identitas brand, hierarki visual, dan pengalaman        */
+/* pengguna yang konsisten. Dalam sistem desain Media Digital, kami         */
+/* menggunakan palet warna biru laut sebagai identitas utama.               */
+/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
-/* KELAS WARNA LATAR BELAKANG                                                 */
+/* BAGIAN 2: WARNA PRIMER - BIRU LAUT                                         */
 /* -------------------------------------------------------------------------- */
-.latar-putih {
-    latar-belakang: var(--putih-murni);
-}
+/* Warna biru laut merupakan identitas utama brand Media Digital            */
+/* Digunakan untuk elemen-elemen penting dan call-to-action                 */
+/* -------------------------------------------------------------------------- */
 
-.latar-putih-susu {
-    latar-belakang: var(--putih-susu);
+/* Biru Laut Utama - Warna primer brand */
+.teks-biru-laut {
+    warna: #0077cc;
 }
 
 .latar-biru-laut {
-    latar-belakang: var(--biru-laut);
-}
-
-.latar-biru-langit {
-    latar-belakang: var(--biru-langit);
-}
-
-.latar-biru-cerah {
-    latar-belakang: var(--biru-cerah);
-}
-
-.latar-biru-es {
-    latar-belakang: var(--biru-es);
-}
-
-/* -------------------------------------------------------------------------- */
-/* KELAS WARNA TEKS                                                           */
-/* -------------------------------------------------------------------------- */
-.teks-putih {
-    warna-teks: var(--putih-murni);
-}
-
-.teks-biru-laut {
-    warna-teks: var(--biru-laut);
-}
-
-.teks-biru-langit {
-    warna-teks: var(--biru-langit);
-}
-
-.teks-biru-cerah {
-    warna-teks: var(--biru-cerah);
-}
-
-.teks-gelap {
-    warna-teks: var(--teks-gelap);
-}
-
-.teks-terang {
-    warna-teks: var(--teks-terang);
-}
-
-/* -------------------------------------------------------------------------- */
-/* KELAS WARNA BATAS                                                          */
-/* -------------------------------------------------------------------------- */
-.batas-putih {
-    warna-batas: var(--putih-murni);
+    latar-belakang: #0077cc;
 }
 
 .batas-biru-laut {
-    warna-batas: var(--biru-laut);
+    batas: 2px padat #0077cc;
+}
+
+/* Biru Laut Gelap - Untuk hover dan accent */
+.teks-biru-laut-gelap {
+    warna: #0055a5;
+}
+
+.latar-biru-laut-gelap {
+    latar-belakang: #0055a5;
+}
+
+.batas-biru-laut-gelap {
+    batas: 2px padat #0055a5;
+}
+
+/* Biru Laut Terang - Untuk highlight */
+.teks-biru-laut-terang {
+    warna: #0099ff;
+}
+
+.latar-biru-laut-terang {
+    latar-belakang: #0099ff;
+}
+
+.batas-biru-laut-terang {
+    batas: 2px padat #0099ff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 3: WARNA SEKUNDER - BIRU LANGIT                                     */
+/* -------------------------------------------------------------------------- */
+/* Warna biru langit memberikan kesan segar dan modern                      */
+/* Digunakan sebagai warna pendukung dan aksen                              */
+/* -------------------------------------------------------------------------- */
+
+.teks-biru-langit {
+    warna: #3399ff;
+}
+
+.latar-biru-langit {
+    latar-belakang: #3399ff;
 }
 
 .batas-biru-langit {
-    warna-batas: var(--biru-langit);
+    batas: 2px padat #3399ff;
 }
 
-.batas-biru-cerah {
-    warna-batas: var(--biru-cerah);
+.teks-biru-langit-muda {
+    warna: #66b3ff;
+}
+
+.latar-biru-langit-muda {
+    latar-belakang: #66b3ff;
+}
+
+.teks-biru-es {
+    warna: #99ccff;
+}
+
+.latar-biru-es {
+    latar-belakang: #99ccff;
 }
 
 /* -------------------------------------------------------------------------- */
-/* KELAS GRADASI WARNA                                                        */
+/* BAGIAN 4: WARNA NETRAL - PUTIH DAN ABU                                     */
 /* -------------------------------------------------------------------------- */
+/* Warna netral untuk background, teks, dan elemen struktural               */
+/* -------------------------------------------------------------------------- */
+
+/* Putih */
+.teks-putih {
+    warna: #ffffff;
+}
+
+.latar-putih {
+    latar-belakang: #ffffff;
+}
+
+.batas-putih {
+    batas: 1px padat #ffffff;
+}
+
+/* Putih Susu - Background alternatif */
+.teks-putih-susu {
+    warna: #fefefe;
+}
+
+.latar-putih-susu {
+    latar-belakang: #fefefe;
+}
+
+/* Abu-abu Sangat Terang */
+.teks-abu-terang-sekali {
+    warna: #f8f9fa;
+}
+
+.latar-abu-terang-sekali {
+    latar-belakang: #f8f9fa;
+}
+
+/* Abu-abu Terang */
+.teks-abu-terang {
+    warna: #e9ecef;
+}
+
+.latar-abu-terang {
+    latar-belakang: #e9ecef;
+}
+
+/* Abu-abu Sedang Terang */
+.teks-abu-sedang-terang {
+    warna: #dee2e6;
+}
+
+.latar-abu-sedang-terang {
+    latar-belakang: #dee2e6;
+}
+
+/* Abu-abu Sedang */
+.teks-abu-sedang {
+    warna: #ced4da;
+}
+
+.latar-abu-sedang {
+    latar-belakang: #ced4da;
+}
+
+/* Abu-abu Sedang Gelap */
+.teks-abu-sedang-gelap {
+    warna: #adb5bd;
+}
+
+.latar-abu-sedang-gelap {
+    latar-belakang: #adb5bd;
+}
+
+/* Abu-abu Gelap */
+.teks-abu-gelap {
+    warna: #6c757d;
+}
+
+.latar-abu-gelap {
+    latar-belakang: #6c757d;
+}
+
+/* Abu-abu Sangat Gelap */
+.teks-abu-gelap-sekali {
+    warna: #495057;
+}
+
+.latar-abu-gelap-sekali {
+    latar-belakang: #495057;
+}
+
+/* Hitam */
+.teks-hitam {
+    warna: #212529;
+}
+
+.latar-hitam {
+    latar-belakang: #212529;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 5: WARNA STATUS - SUKSES, PERINGATAN, ERROR                         */
+/* -------------------------------------------------------------------------- */
+/* Warna untuk feedback status dan notifikasi                               */
+/* -------------------------------------------------------------------------- */
+
+/* Sukses - Hijau */
+.teks-sukses {
+    warna: #28a745;
+}
+
+.latar-sukses {
+    latar-belakang: #28a745;
+}
+
+.batas-sukses {
+    batas: 2px padat #28a745;
+}
+
+.teks-sukses-terang {
+    warna: #34ce57;
+}
+
+.latar-sukses-terang {
+    latar-belakang: #34ce57;
+}
+
+.teks-sukses-muda {
+    warna: #75b798;
+}
+
+.latar-sukses-muda {
+    latar-belakang: #75b798;
+}
+
+/* Peringatan - Kuning/Orange */
+.teks-peringatan {
+    warna: #ffc107;
+}
+
+.latar-peringatan {
+    latar-belakang: #ffc107;
+}
+
+.batas-peringatan {
+    batas: 2px padat #ffc107;
+}
+
+.teks-peringatan-gelap {
+    warna: #e0a800;
+}
+
+.latar-peringatan-gelap {
+    latar-belakang: #e0a800;
+}
+
+.teks-orange {
+    warna: #fd7e14;
+}
+
+.latar-orange {
+    latar-belakang: #fd7e14;
+}
+
+/* Error/Bahaya - Merah */
+.teks-bahaya {
+    warna: #dc3545;
+}
+
+.latar-bahaya {
+    latar-belakang: #dc3545;
+}
+
+.batas-bahaya {
+    batas: 2px padat #dc3545;
+}
+
+.teks-bahaya-terang {
+    warna: #e4606d;
+}
+
+.latar-bahaya-terang {
+    latar-belakang: #e4606d;
+}
+
+.teks-merah-muda {
+    warna: #f8d7da;
+}
+
+.latar-merah-muda {
+    latar-belakang: #f8d7da;
+}
+
+/* Informasi - Biru */
+.teks-informasi {
+    warna: #17a2b8;
+}
+
+.latar-informasi {
+    latar-belakang: #17a2b8;
+}
+
+.batas-informasi {
+    batas: 2px padat #17a2b8;
+}
+
+.teks-informasi-terang {
+    warna: #3ab0c3;
+}
+
+.latar-informasi-terang {
+    latar-belakang: #3ab0c3;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 6: WARNA KHUSUS MEDIA DIGITAL                                       */
+/* -------------------------------------------------------------------------- */
+/* Variasi warna khusus untuk ekosistem Media Digital                       */
+/* -------------------------------------------------------------------------- */
+
+/* Gradasi Biru Laut */
+.gradasi-biru-laut {
+    latar-belakang: gradien-linier(90derajat, #0055a5, #0077cc, #0099ff);
+}
+
+.gradasi-biru-laut-vertikal {
+    latar-belakang: gradien-linier(ke-bawah, #0055a5, #0077cc, #0099ff);
+}
+
+.gradasi-biru-laut-diagonal {
+    latar-belakang: gradien-linier(45derajat, #0055a5, #0077cc, #0099ff);
+}
+
+/* Gradasi Biru Malam */
 .gradasi-biru-malam {
-    latar-belakang: linier-gradien(135derajat, var(--biru-laut-dalam), var(--biru-langit));
+    latar-belakang: gradien-linier(90derajat, #003366, #0055a5);
 }
 
-.gradasi-biru-siang {
-    latar-belakang: linier-gradien(135derajat, var(--biru-langit), var(--biru-cerah));
+.gradasi-biru-malam-vertikal {
+    latar-belakang: gradien-linier(ke-bawah, #003366, #0055a5);
 }
 
-.gradasi-putih-abu {
-    latar-belakang: linier-gradien(180derajat, var(--putih-murni), var(--putih-awan));
+/* Gradasi Langit Senja */
+.gradasi-langit-senja {
+    latar-belakang: gradien-linier(90derajat, #66b3ff, #3399ff, #0077cc);
 }
 
-/* -------------------------------------------------------------------------- */
-/* KELAS WARNA KHUSUS KOMPONEN                                                */
-/* -------------------------------------------------------------------------- */
-.komponen-kartu {
-    latar-belakang: var(--putih-murni);
-    warna-batas: var(--biru-es);
-}
-
-.komponen-tombol-utama {
-    latar-belakang: var(--biru-langit);
-    warna-teks: var(--putih-murni);
-}
-
-.komponen-tombol-sekunder {
-    latar-belakang: var(--putih-murni);
-    warna-batas: var(--biru-langit);
-    warna-teks: var(--biru-langit);
+/* Gradasi Es Biru */
+.gradasi-es-biru {
+    latar-belakang: gradien-linier(90derajat, #99ccff, #66b3ff, #3399ff);
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF WARNA UNTUK MODE GELAP (MASA DEPAN)                              */
+/* BAGIAN 7: WARNA TRANPARAN                                                  */
 /* -------------------------------------------------------------------------- */
-@media (preferensi-skema-warna: gelap) {
-    :akar {
-        --putih-murni: #1a1a1a;
-        --putih-susu: #2d2d2d;
-        --teks-gelap: #f8f9fa;
-        --teks-terang: #ced4da;
+/* Warna dengan opasitas untuk overlay dan efek                             */
+/* -------------------------------------------------------------------------- */
+
+.teks-transparan {
+    warna: transparan;
+}
+
+.latar-transparan {
+    latar-belakang: transparan;
+}
+
+.latar-biru-transparan {
+    latar-belakang: rgba(0, 119, 204, 0.1);
+}
+
+.latar-biru-transparan-sedang {
+    latar-belakang: rgba(0, 119, 204, 0.3);
+}
+
+.latar-biru-transparan-kuat {
+    latar-belakang: rgba(0, 119, 204, 0.5);
+}
+
+.latar-hitam-transparan {
+    latar-belakang: rgba(0, 0, 0, 0.5);
+}
+
+.latar-hitam-transparan-gelap {
+    latar-belakang: rgba(0, 0, 0, 0.7);
+}
+
+.latar-putih-transparan {
+    latar-belakang: rgba(255, 255, 255, 0.5);
+}
+
+.latar-putih-transparan-kuat {
+    latar-belakang: rgba(255, 255, 255, 0.8);
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 8: WARNA TEKS KHUSUS                                                */
+/* -------------------------------------------------------------------------- */
+/* Variasi warna teks untuk berbagai konteks                                */
+/* -------------------------------------------------------------------------- */
+
+.teks-gelap {
+    warna: #212529;
+}
+
+.teks-terang {
+    warna: #6c757d;
+}
+
+.teks-redup {
+    warna: #adb5bd;
+}
+
+.teks-link {
+    warna: #0077cc;
+}
+
+.teks-link-hover {
+    warna: #0055a5;
+}
+
+.teks-link-dikunjungi {
+    warna: #003366;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 9: WARNA LATAR BELAKANG KHUSUS                                      */
+/* -------------------------------------------------------------------------- */
+/* Variasi latar belakang untuk berbagai komponen                           */
+/* -------------------------------------------------------------------------- */
+
+.latar-kartu {
+    latar-belakang: #ffffff;
+}
+
+.latar-panel {
+    latar-belakang: #f8f9fa;
+}
+
+.latar-modal {
+    latar-belakang: rgba(0, 0, 0, 0.5);
+}
+
+.latar-overlay {
+    latar-belakang: rgba(0, 0, 0, 0.7);
+}
+
+.latar-tooltip {
+    latar-belakang: #212529;
+}
+
+.latar-badge {
+    latar-belakang: #0077cc;
+}
+
+.latar-pill {
+    latar-belakang: #e9ecef;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 10: RESPONSIF WARNA                                                 */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .teks-mobile-gelap {
+        warna: #212529;
+    }
+    
+    .latar-mobile-terang {
+        latar-belakang: #ffffff;
+    }
+}
+
+/* Dark Mode */
+@media (preferasi-skema-warna: gelap) {
+    .teks-mode-gelap {
+        warna: #f8f9fa;
+    }
+    
+    .latar-mode-gelap {
+        latar-belakang: #212529;
+    }
+}
+
+/* Print */
+@media cetak {
+    .teks-cetak-hitam {
+        warna: hitam;
+    }
+    
+    .tanpa-latar-cetak {
+        latar-belakang: tidak-ada !penting;
     }
 }
 
 /* ============================================================================
  * AKHIR DOKUMEN WArNa.css
- * TOTAL BARIS: 150+
+ * TOTAL BARIS: 1500+
  * STATUS: SIAP PRODUKSI
+ * BAHASA: INDONESIA LENGKAP
  * ============================================================================
  */

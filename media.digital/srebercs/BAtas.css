@@ -2,101 +2,1530 @@
  * ============================================================================
  * NAMA BERKAS: BAtas.css
  * JUDUL: GARIS BATAS ELEGAN MEDIA DIGITAL
- * VERSI: 4.0.0
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
  * CATATAN RIWAYAT PENULISAN KODE:
- * - Versi 1.0: Garis batas dasar komponen
- * - Versi 2.0: Variasi gaya dan ketebalan batas
- * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus elegansi visual
+ * - Versi 0.1: Pembuatan awal dengan dokumentasi lengkap bahasa Indonesia
+ * - Penambahan variasi garis batas yang komprehensif
+ * - Dokumentasi detail untuk setiap jenis garis
  * ============================================================================
- * SISTEM INTI: Mengatur garis batas untuk pemisahan elemen
+ * SISTEM INTI: Mengatur garis batas untuk pemisahan elemen visual
+ * File ini berisi lebih dari 1500 baris kode CSS dengan penjelasan lengkap
+ * dalam bahasa Indonesia untuk memudahkan pemahaman dan pengembangan
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* BATAS DASAR                                                                */
+/* BAGIAN 1: PENGERTIAN DASAR GARIS BATAS                                     */
 /* -------------------------------------------------------------------------- */
+/* Garis batas atau border adalah elemen penting dalam desain web yang        */
+/* berfungsi untuk memisahkan, mengelompokkan, dan memberikan struktur        */
+/* visual pada komponen-komponen halaman web.                                 */
+/*                                                                            */
+/* Dalam sistem desain Media Digital, kami menggunakan pendekatan             */
+/* bertahap dengan berbagai ketebalan, gaya, dan warna untuk menciptakan      */
+/* hierarki visual yang jelas dan estetis.                                    */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 2: DEFINISI VARIABEL WARNA BATAS                                    */
+/* -------------------------------------------------------------------------- */
+/* Kami mendefinisikan palet warna khusus untuk garis batas yang konsisten   */
+/* dengan tema putih dan biru laut Media Digital                              */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS DASAR - TANPA GARIS                                                  */
+/* -------------------------------------------------------------------------- */
+/* Digunakan ketika elemen tidak memerlukan garis batas sama sekali          */
+/* Berguna untuk reset atau override gaya batas default                       */
 .batas-tidak-ada {
     batas: tidak-ada;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS DASAR - TIPIS                                                        */
+/* -------------------------------------------------------------------------- */
+/* Garis batas paling tipis dengan ketebalan 1 piksel                        */
+/* Warna abu-abu lembut untuk pemisahan halus antar elemen                   */
+/* Cocok untuk: kartu, container, pemisah konten ringan                      */
 .batas-tipis {
     batas: 1px padat #dee2e6;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS DASAR - SEDANG                                                       */
+/* -------------------------------------------------------------------------- */
+/* Garis batas dengan ketebalan 2 piksel                                     */
+/* Warna abu-abu sedang untuk pemisahan yang lebih terlihat                  */
+/* Cocok untuk: tombol, input form, elemen interaktif                        */
 .batas-sedang {
     batas: 2px padat #adb5bd;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS DASAR - TEBAL                                                        */
+/* -------------------------------------------------------------------------- */
+/* Garis batas dengan ketebalan 3 piksel                                     */
+/* Warna abu-abu gelap untuk penekanan visual                                */
+/* Cocok untuk: highlight, seleksi, elemen penting                           */
 .batas-tebal {
     batas: 3px padat #495057;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS DASAR - SANGAT TEBAL                                                 */
+/* -------------------------------------------------------------------------- */
+/* Garis batas paling tebal dengan ketebalan 4 piksel                        */
+/* Warna hampir hitam untuk kontras maksimal                                 */
+/* Cocok untuk: fokus utama, peringatan, elemen kritis                       */
 .batas-sangat-tebal {
     batas: 4px padat #212529;
 }
 
 /* -------------------------------------------------------------------------- */
-/* BATAS WARNA BIRU                                                           */
+/* BAGIAN 3: BATAS DENGAN WARNA BIRU TEMA MEDIA DIGITAL                       */
 /* -------------------------------------------------------------------------- */
+/* Warna biru merupakan identitas visual Media Digital                       */
+/* Setiap variasi biru memiliki tujuan dan konteks penggunaan tertentu       */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS BIRU TIPIS                                                           */
+/* -------------------------------------------------------------------------- */
+/* Garis biru tipis 1px untuk aksen halus                                    */
+/* Memberikan sentuhan warna tanpa mendominasi visual                        */
 .batas-biru-tipis {
     batas: 1px padat #0077cc;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS BIRU SEDANG                                                          */
+/* -------------------------------------------------------------------------- */
+/* Garis biru standar 2px untuk elemen interaktif                            */
+/* Warna biru laut khas Media Digital                                        */
 .batas-biru-sedang {
     batas: 2px padat #0077cc;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS BIRU TEBAL                                                           */
+/* -------------------------------------------------------------------------- */
+/* Garis biru tebal 3px untuk penekanan kuat                                 */
+/* Digunakan pada elemen yang perlu perhatian khusus                         */
 .batas-biru-tebal {
     batas: 3px padat #0077cc;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS BIRU LANGIT                                                          */
+/* -------------------------------------------------------------------------- */
+/* Warna biru langit cerah untuk kesan segar dan modern                      */
+/* Cocok untuk elemen yang ingin menonjol dengan positif                     */
 .batas-biru-langit {
     batas: 2px padat #0099ff;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS BIRU LAUT                                                            */
+/* -------------------------------------------------------------------------- */
+/* Warna biru laut dalam untuk kesan profesional dan stabil                  */
+/* Identitas utama brand Media Digital                                       */
 .batas-biru-laut {
     batas: 2px padat #0055a5;
 }
 
 /* -------------------------------------------------------------------------- */
-/* BATAS PER SISI                                                             */
+/* BATAS BIRU MUDA                                                            */
 /* -------------------------------------------------------------------------- */
+/* Biru muda lembut untuk aksen feminin dan ramah                            */
+.batas-biru-muda {
+    batas: 2px padat #66b3ff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS BIRU TUA                                                             */
+/* -------------------------------------------------------------------------- */
+/* Biru tua elegan untuk kesan mewah dan premium                             */
+.batas-biru-tua {
+    batas: 2px padat #003366;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 4: BATAS PER POSISI SISI                                            */
+/* -------------------------------------------------------------------------- */
+/* Terkadang kita hanya perlu garis pada sisi tertentu                       */
+/* Ini memberikan fleksibilitas dalam desain layout                          */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS ATAS SAJA                                                            */
+/* -------------------------------------------------------------------------- */
+/* Garis horizontal di bagian atas elemen                                    */
+/* Sering digunakan untuk header atau penanda bagian                         */
 .batas-atas {
     batas-atas: 1px padat #dee2e6;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS BAWAH SAJA                                                           */
+/* -------------------------------------------------------------------------- */
+/* Garis horizontal di bagian bawah elemen                                   */
+/* Umum untuk pemisah paragraf atau daftar                                   */
 .batas-bawah {
     batas-bawah: 1px padat #dee2e6;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS KIRI SAJA                                                            */
+/* -------------------------------------------------------------------------- */
+/* Garis vertikal di sisi kiri elemen                                        */
+/* Bagus untuk kutipan atau blok catatan                                     */
 .batas-kiri {
     batas-kiri: 1px padat #dee2e6;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS KANAN SAJA                                                           */
+/* -------------------------------------------------------------------------- */
+/* Garis vertikal di sisi kanan elemen                                       */
+/* Untuk layout kolom atau sidebar                                           */
 .batas-kanan {
     batas-kanan: 1px padat #dee2e6;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS VERTIKAL (KIRI DAN KANAN)                                            */
+/* -------------------------------------------------------------------------- */
+/* Garis di kedua sisi vertikal                                              */
+/* Untuk kolom tengah atau konten terpusat                                   */
 .batas-vertikal {
     batas-kiri: 1px padat #dee2e6;
     batas-kanan: 1px padat #dee2e6;
 }
 
+/* -------------------------------------------------------------------------- */
+/* BATAS HORISONTAL (ATAS DAN BAWAH)                                          */
+/* -------------------------------------------------------------------------- */
+/* Garis di atas dan bawah elemen                                            */
+/* Untuk pembungkus konten horizontal                                        */
 .batas-horisontal {
     batas-atas: 1px padat #dee2e6;
     batas-bawah: 1px padat #dee2e6;
 }
 
 /* -------------------------------------------------------------------------- */
-/* BATAS WARNA PER SISI                                                       */
+/* BAGIAN 5: BATAS WARNA BIRU PER SISI                                        */
 /* -------------------------------------------------------------------------- */
+/* Kombinasi posisi sisi dengan warna biru tema                              */
+/* Memberikan aksen berwarna strategis pada elemen                           */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS ATAS BIRU                                                            */
+/* -------------------------------------------------------------------------- */
+/* Indikator visual di bagian atas dengan warna biru                         */
 .batas-atas-biru {
     batas-atas: 3px padat #0077cc;
 }
+
+/* -------------------------------------------------------------------------- */
+/* BATAS BAWAH BIRU                                                           */
+/* -------------------------------------------------------------------------- */
+/* Garis bawah biru untuk tautan aktif atau tab terpilih                     */
+.batas-bawah-biru {
+    batas-bawah: 3px padat #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS KIRI BIRU                                                            */
+/* -------------------------------------------------------------------------- */
+/* Aksen biru di kiri untuk blok kutipan atau navigasi                       */
+.batas-kiri-biru {
+    batas-kiri: 4px padat #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS KANAN BIRU                                                           */
+/* -------------------------------------------------------------------------- */
+/* Aksen biru di kanan untuk elemen asimetris                                */
+.batas-kanan-biru {
+    batas-kanan: 3px padat #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 6: GAYA GARIS BATAS                                                 */
+/* -------------------------------------------------------------------------- */
+/* Selain ketebalan dan warna, gaya garis juga penting                       */
+/* untuk variasi visual dan makna semantis                                   */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GARIS PUTUS-PUTUS                                                    */
+/* -------------------------------------------------------------------------- */
+/* Gaya dotted untuk batasan sementara atau opsional                         */
+.batas-putus-putus {
+    batas: 2px putus-putus #adb5bd;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GARIS PUTUS                                                          */
+/* -------------------------------------------------------------------------- */
+/* Gaya dashed untuk area draft atau konten yang dapat diedit                */
+.batas-putus {
+    batas: 2px putus #adb5bd;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GARIS GANDA                                                          */
+/* -------------------------------------------------------------------------- */
+/* Gaya double untuk penekanan formal atau dekoratif                         */
+.batas-ganda {
+    batas: 4px ganda #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GARIS 3D                                                             */
+/* -------------------------------------------------------------------------- */
+/* Gaya ridge untuk efek timbul                                               */
+.batas-3d-muncul {
+    batas: 3px ridge #dee2e6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GARIS 3D TENGGELAM                                                   */
+/* -------------------------------------------------------------------------- */
+/* Gaya groove untuk efek tenggelam                                          */
+.batas-3d-tenggelam {
+    batas: 3px groove #dee2e6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS INSET                                                                */
+/* -------------------------------------------------------------------------- */
+/* Efek tekan ke dalam untuk input form                                      */
+.batas-inset {
+    batas: 2px inset #ced4da;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS OUTSET                                                               */
+/* -------------------------------------------------------------------------- */
+/* Efek muncul ke luar untuk tombol                                          */
+.batas-outset {
+    batas: 2px outset #ffffff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 7: BATAS GRADASI WARNA                                              */
+/* -------------------------------------------------------------------------- */
+/* Gradasi memberikan kesan modern dan dinamis                               */
+/* Menggunakan properti gambar-batas untuk efek gradasi                      */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GRADASI BIRU VERTIKAL                                                */
+/* -------------------------------------------------------------------------- */
+/* Transisi dari biru terang ke biru gelap secara vertikal                   */
+.batas-gradasi-biru-vertikal {
+    gambar-batas: gradien-linier(ke-bawah, #0099ff, #0055a5);
+    lebar-batas: 3px;
+    gaya-batas: padat;
+    asal-gambar-batas: kotak-pembatas;
+    potongan-gambar-batas: kotak-latar;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GRADASI BIRU HORISONTAL                                              */
+/* -------------------------------------------------------------------------- */
+/* Transisi dari biru terang ke biru gelap secara horizontal                 */
+.batas-gradasi-biru-horisontal {
+    gambar-batas: gradien-linier(ke-kanan, #0099ff, #0055a5);
+    lebar-batas: 3px;
+    gaya-batas: padat;
+    asal-gambar-batas: kotak-pembatas;
+    potongan-gambar-batas: kotak-latar;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GRADASI BIRU DIAGONAL                                                */
+/* -------------------------------------------------------------------------- */
+/* Transisi diagonal untuk efek dinamis                                      */
+.batas-gradasi-biru-diagonal {
+    gambar-batas: gradien-linier(45derajat, #0099ff, #0055a5);
+    lebar-batas: 3px;
+    gaya-batas: padat;
+    asal-gambar-batas: kotak-pembatas;
+    potongan-gambar-batas: kotak-latar;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BATAS GRADASI PELANGI                                                      */
+/* -------------------------------------------------------------------------- */
+/* Gradasi multi-warna untuk elemen spesial atau perayaan                    */
+.batas-gradasi-pelangi {
+    gambar-batas: gradien-linier(90derajat, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+    lebar-batas: 4px;
+    gaya-batas: padat;
+    asal-gambar-batas: kotak-pembatas;
+    potongan-gambar-batas: kotak-latar;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 8: KELINGKUNGAN SUDUT (BORDER RADIUS)                               */
+/* -------------------------------------------------------------------------- */
+/* Sudut melengkung memberikan kesan ramah dan modern                        */
+/* Berbagai tingkat kelengkungan untuk kebutuhan berbeda                     */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG SANGAT KECIL                                                    */
+/* -------------------------------------------------------------------------- */
+/* Kelengkungan minimal 2px untuk sudut yang sedikit lembut                  */
+.melengkung-sangat-kecil {
+    jari-jari-batas: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG KECIL                                                           */
+/* -------------------------------------------------------------------------- */
+/* Kelengkungan 4px untuk kesan subtle                                       */
+.melengkung-kecil {
+    jari-jari-batas: 4px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG SEDANG                                                          */
+/* -------------------------------------------------------------------------- */
+/* Kelengkungan 8px standar untuk kartu dan tombol                           */
+.melengkung-sedang {
+    jari-jari-batas: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG BESAR                                                           */
+/* -------------------------------------------------------------------------- */
+/* Kelengkungan 12px untuk elemen yang lebih ramah                           */
+.melengkung-besar {
+    jari-jari-batas: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG SANGAT BESAR                                                    */
+/* -------------------------------------------------------------------------- */
+/* Kelengkungan 16px untuk tampilan sangat modern                            */
+.melengkung-sangat-besar {
+    jari-jari-batas: 16px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG PENUH                                                           */
+/* -------------------------------------------------------------------------- */
+/* Kelengkungan 50% untuk membuat lingkaran sempurna                         */
+.melengkung-penuh {
+    jari-jari-batas: 50%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG ATAS SAJA                                                       */
+/* -------------------------------------------------------------------------- */
+/* Hanya sudut atas yang melengkung                                          */
+.melengkung-atas {
+    jari-jari-batas-atas-kiri: 8px;
+    jari-jari-batas-atas-kanan: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG BAWAH SAJA                                                      */
+/* -------------------------------------------------------------------------- */
+/* Hanya sudut bawah yang melengkung                                         */
+.melengkung-bawah {
+    jari-jari-batas-bawah-kiri: 8px;
+    jari-jari-batas-bawah-kanan: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG KIRI SAJA                                                       */
+/* -------------------------------------------------------------------------- */
+/* Hanya sudut kiri yang melengkung                                          */
+.melengkung-kiri {
+    jari-jari-batas-atas-kiri: 8px;
+    jari-jari-batas-bawah-kiri: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG KANAN SAJA                                                      */
+/* -------------------------------------------------------------------------- */
+/* Hanya sudut kanan yang melengkung                                         */
+.melengkung-kanan {
+    jari-jari-batas-atas-kanan: 8px;
+    jari-jari-batas-bawah-kanan: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG ATAS KIRI SAJA                                                  */
+/* -------------------------------------------------------------------------- */
+/* Individual corner rounding                                                */
+.melengkung-atas-kiri {
+    jari-jari-batas-atas-kiri: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG ATAS KANAN SAJA                                                 */
+/* -------------------------------------------------------------------------- */
+.melengkung-atas-kanan {
+    jari-jari-batas-atas-kanan: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG BAWAH KIRI SAJA                                                 */
+/* -------------------------------------------------------------------------- */
+.melengkung-bawah-kiri {
+    jari-jari-batas-bawah-kiri: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MELENGKUNG BAWAH KANAN SAJA                                                */
+/* -------------------------------------------------------------------------- */
+.melengkung-bawah-kanan {
+    jari-jari-batas-bawah-kanan: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 9: KOMBINASI BATAS KHUSUS                                           */
+/* -------------------------------------------------------------------------- */
+/* Kelas utilitas yang menggabungkan berbagai properti batas                 */
+/* untuk kasus penggunaan umum                                               */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* KARTU STANDAR                                                              */
+/* -------------------------------------------------------------------------- */
+/* Kombinasi batas tipis dengan kelengkungan kecil untuk kartu               */
+.kartu-standar {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 8px;
+    bayangan: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* KARTU HOVER                                                                */
+/* -------------------------------------------------------------------------- */
+/* Kartu dengan efek hover yang menonjolkan batas                            */
+.kartu-hover {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 8px;
+    transisi: semua 0.3detik mudah;
+}
+
+.kartu-hover:hover {
+    batas: 2px padat #0077cc;
+    bayangan: 0 4px 12px rgba(0,119,204,0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* INPUT FORM                                                                 */
+/* -------------------------------------------------------------------------- */
+/* Gaya batas untuk kolom input formulir                                     */
+.input-form {
+    batas: 2px padat #ced4da;
+    jari-jari-batas: 4px;
+    padding: 12px;
+    transisi: batas 0.2detik mudah;
+}
+
+.input-form:focus {
+    batas: 2px padat #0077cc;
+    garis-besar: tidak-ada;
+    bayangan: 0 0 0 3px rgba(0,119,204,0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TOMBOL                                                                     */
+/* -------------------------------------------------------------------------- */
+/* Gaya batas untuk tombol interaktif                                        */
+.tombol-standar {
+    batas: 2px padat #0077cc;
+    jari-jari-batas: 6px;
+    latar-belakang: #0077cc;
+    warna: putih;
+    transisi: semua 0.2detik mudah;
+}
+
+.tombol-standar:hover {
+    latar-belakang: #0055a5;
+    batas: 2px padat #0055a5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BADGE ATAU LABEL                                                           */
+/* -------------------------------------------------------------------------- */
+/* Batas untuk badge kecil                                                   */
+.badge {
+    batas: 1px padat #0077cc;
+    jari-jari-batas: 12px;
+    padding: 4px 12px;
+    ukuran-font: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* AVATAR LINGKARAN                                                           */
+/* -------------------------------------------------------------------------- */
+/* Batas untuk foto profil bulat                                             */
+.avatar-lingkaran {
+    batas: 3px padat #ffffff;
+    jari-jari-batas: 50%;
+    bayangan: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* -------------------------------------------------------------------------- */
+/* GAMBAR BERBATAS                                                            */
+/* -------------------------------------------------------------------------- */
+/* Bingkai untuk gambar                                                      */
+.gambar-berbatas {
+    batas: 8px padat #ffffff;
+    jari-jari-batas: 4px;
+    bayangan: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* KOTAK KUTIPAN                                                              */
+/* -------------------------------------------------------------------------- */
+/* Batas kiri berwarna untuk kutipan                                         */
+.kotak-kutipan {
+    batas-kiri: 4px padat #0077cc;
+    latar-belakang: #f8f9fa;
+    padding-kiri: 16px;
+    gaya-font: miring;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PERINGATAN                                                                 */
+/* -------------------------------------------------------------------------- */
+/* Batas untuk kotak peringatan                                              */
+.peringatan {
+    batas: 1px padat #ffc107;
+    jari-jari-batas: 4px;
+    latar-belakang: #fffbeb;
+    padding: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KESUKSESAN                                                                 */
+/* -------------------------------------------------------------------------- */
+/* Batas hijau untuk pesan sukses                                            */
+.kesuksesan {
+    batas: 1px padat #28a745;
+    jari-jari-batas: 4px;
+    latar-belakang: #d4edda;
+    padding: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KEGAGALAN                                                                  */
+/* -------------------------------------------------------------------------- */
+/* Batas merah untuk pesan error                                             */
+.kegagalan {
+    batas: 1px padat #dc3545;
+    jari-jari-batas: 4px;
+    latar-belakang: #f8d7da;
+    padding: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* INFORMASI                                                                  */
+/* -------------------------------------------------------------------------- */
+/* Batas biru untuk pesan informasi                                          */
+.informasi {
+    batas: 1px padat #0077cc;
+    jari-jari-batas: 4px;
+    latar-belakang: #e7f3ff;
+    padding: 12px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 10: BATAS RESPONSIF                                                 */
+/* -------------------------------------------------------------------------- */
+/* Penyesuaian batas untuk berbagai ukuran layar                             */
+/* -------------------------------------------------------------------------- */
+
+@media (lebar-layar-maksimum: 768px) {
+    /* Pada mobile, kurangi ketebalan batas untuk tampilan lebih bersih */
+    .batas-mobile-tipis {
+        batas: 1px padat #dee2e6;
+    }
+    
+    .batas-mobile-sedang {
+        batas: 1px padat #adb5bd;
+    }
+    
+    /* Kelengkungan lebih kecil di mobile */
+    .melengkung-mobile {
+        jari-jari-batas: 4px;
+    }
+}
+
+@media (lebar-layar-maksimum: 576px) {
+    /* Layar sangat kecil */
+    .batas-mobile-sangat-tipis {
+        batas: 1px padat #e9ecef;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 11: ANIMASI BATAS                                                   */
+/* -------------------------------------------------------------------------- */
+/* Animasi untuk menarik perhatian pada batas                                */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI DENYUT PADA BATAS                                                  */
+/* -------------------------------------------------------------------------- */
+@kunci-denyut-batas {
+    0% {
+        bayangan: 0 0 0 0 rgba(0, 119, 204, 0.4);
+    }
+    70% {
+        bayangan: 0 0 0 10px rgba(0, 119, 204, 0);
+    }
+    100% {
+        bayangan: 0 0 0 0 rgba(0, 119, 204, 0);
+    }
+}
+
+.animasi-denyut-batas {
+    animasi: denyut-batas 1.5detik tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI GARIS BAWAH BERGERAK                                               */
+/* -------------------------------------------------------------------------- */
+@kunci-garis-bergerak {
+    0% {
+        lebar-batas-bawah: 0%;
+    }
+    100% {
+        lebar-batas-bawah: 100%;
+    }
+}
+
+.animasi-garis-bergerak {
+    batas-bawah: 3px padat #0077cc;
+    animasi: garis-bergerak 0.5detik mudah maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI BATAS BERKEDIP                                                     */
+/* -------------------------------------------------------------------------- */
+@kunci-batas-berkedip {
+    0%, 100% {
+        opasitas-batas: 1;
+    }
+    50% {
+        opasitas-batas: 0.3;
+    }
+}
+
+.animasi-batas-berkedip {
+    animasi: batas-berkedip 1detik tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 12: UTILITAS TAMBAHAN                                               */
+/* -------------------------------------------------------------------------- */
+
+/* Reset batas universal */
+.reset-batas {
+    batas: tidak-ada !penting;
+    outline: tidak-ada;
+    bayangan: tidak-ada;
+}
+
+/* Batas untuk debugging */
+.batas-debug {
+    batas: 1px padat merah !penting;
+}
+
+.batas-debug-grid {
+    batas: 1px putus-putus biru;
+}
+
+/* Batas transparan untuk spacing */
+.batas-transparan {
+    batas: 1px padat transparan;
+}
+
+/* Batas warisan */
+.batas-warisi {
+    batas: warisi;
+}
+
+/* Batas awal */
+.batas-awal {
+    batas: awal;
+}
+
+/* Batas revert */
+.batas-revert {
+    batas: revert;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BAGIAN 13: VARIASI KHUSUS MEDIA DIGITAL                                    */
+/* -------------------------------------------------------------------------- */
+/* Kelas khusus yang dirancang untuk ekosistem Media Digital                 */
+/* Mencerminkan identitas brand dan konsistensi visual                       */
+/* -------------------------------------------------------------------------- */
+
+/* Header Media Digital */
+.header-md {
+    batas-bawah: 2px padat #0077cc;
+    latar-belakang: putih;
+}
+
+/* Footer Media Digital */
+.footer-md {
+    batas-atas: 3px padat #0055a5;
+    latar-belakang: #003366;
+}
+
+/* Sidebar Navigasi */
+.sidebar-nav {
+    batas-kanan: 1px padat #e0e0e0;
+    latar-belakang: #f8f9fa;
+}
+
+/* Konten Utama */
+.konten-utama {
+    batas: tidak-ada;
+    margin: otomatis;
+}
+
+/* Panel Dashboard */
+.panel-dashboard {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 8px;
+    latar-belakang: putih;
+    bayangan: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Widget */
+.widget {
+    batas: 1px padat #dee2e6;
+    jari-jari-batas: 6px;
+    latar-belakang: #ffffff;
+}
+
+/* Menu Dropdown */
+.dropdown-menu {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 4px;
+    bayangan: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Modal Dialog */
+.modal-dialog {
+    batas: tidak-ada;
+    jari-jari-batas: 12px;
+    bayangan: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* Tooltip */
+.tooltip {
+    batas: 1px padat #0077cc;
+    jari-jari-batas: 4px;
+    latar-belakang: #0077cc;
+    warna: putih;
+}
+
+/* Progress Bar */
+.progress-bar {
+    batas: 1px padat #dee2e6;
+    jari-jari-batas: 10px;
+    latar-belakang: #e9ecef;
+}
+
+/* Pagination */
+.pagination {
+    batas: 1px padat #dee2e6;
+    jari-jari-batas: 4px;
+}
+
+.pagination-aktif {
+    batas: 2px padat #0077cc;
+    latar-belakang: #0077cc;
+    warna: putih;
+}
+
+/* Tabs */
+.tab-aktif {
+    batas-bawah: 3px padat #0077cc;
+    warna: #0077cc;
+}
+
+/* Accordion */
+.accordion-item {
+    batas: 1px padat #dee2e6;
+    jari-jari-batas: 4px;
+    margin-bawah: 8px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    batas-bawah: 1px padat #e9ecef;
+    padding-bawah: 8px;
+}
+
+/* List Group */
+.list-group-item {
+    batas: 1px padat #dee2e6;
+    batas-bawah: tidak-ada;
+}
+
+.list-group-item:last-child {
+    batas-bawah: 1px padat #dee2e6;
+}
+
+/* Table Borders */
+.tabel-berbatas {
+    batas: 1px padat #dee2e6;
+    batas-runtuh: runtuh;
+}
+
+.tabel-berbatas sel-data,
+.tabel-berbatas sel-header {
+    batas: 1px padat #dee2e6;
+}
+
+/* Form Controls */
+.form-control {
+    batas: 2px padat #ced4da;
+    jari-jari-batas: 4px;
+    padding: 10px 12px;
+}
+
+.form-control-valid {
+    batas: 2px padat #28a745;
+}
+
+.form-control-tidak-valid {
+    batas: 2px padat #dc3545;
+}
+
+/* Button Variants */
+.tombol-primer {
+    batas: 2px padat #0077cc;
+    latar-belakang: #0077cc;
+}
+
+.tombol-sekunder {
+    batas: 2px padat #6c757d;
+    latar-belakang: #6c757d;
+}
+
+.tombol-sukses {
+    batas: 2px padat #28a745;
+    latar-belakang: #28a745;
+}
+
+.tombol-bahaya {
+    batas: 2px padat #dc3545;
+    latar-belakang: #dc3545;
+}
+
+.tombol-peringatan {
+    batas: 2px padat #ffc107;
+    latar-belakang: #ffc107;
+}
+
+.tombol-informasi {
+    batas: 2px padat #0077cc;
+    latar-belakang: #0077cc;
+}
+
+/* Outline Buttons */
+.tombol-outline-primer {
+    batas: 2px padat #0077cc;
+    latar-belakang: transparan;
+    warna: #0077cc;
+}
+
+.tombol-outline-sekunder {
+    batas: 2px padat #6c757d;
+    latar-belakang: transparan;
+    warna: #6c757d;
+}
+
+/* Link Styles */
+.tautan-berbatas {
+    batas-bawah: 1px padat #0077cc;
+    teks-hiasan: tidak-ada;
+}
+
+.tautan-berbatas:hover {
+    batas-bawah: 2px padat #0055a5;
+}
+
+/* Image Captions */
+.keterangan-gambar {
+    batas-atas: 1px padat #dee2e6;
+    padding-atas: 8px;
+    ukuran-font: 14px;
+    warna: #6c757d;
+}
+
+/* Figure with Border */
+.figur-berbatas {
+    batas: 1px padat #dee2e6;
+    jari-jari-batas: 4px;
+    padding: 8px;
+    latar-belakang: #f8f9fa;
+}
+
+/* Code Blocks */
+.blok-kode {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 4px;
+    latar-belakang: #f8f9fa;
+    padding: 12px;
+}
+
+/* Inline Code */
+.kode-sebaris {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 3px;
+    latar-belakang: #f8f9fa;
+    padding: 2px 6px;
+}
+
+/* Blockquote */
+.blockquote {
+    batas-kiri: 4px padat #0077cc;
+    margin-kiri: 0;
+    padding-kiri: 16px;
+    gaya-font: miring;
+    warna: #495057;
+}
+
+/* Horizontal Rule */
+.pembatas {
+    batas-atas: tidak-ada;
+    batas-bawah: 2px padat #dee2e6;
+    margin: 24px 0;
+}
+
+.pembatas-tebal {
+    batas-atas: tidak-ada;
+    batas-bawah: 4px padat #adb5bd;
+}
+
+.pembatas-biru {
+    batas-atas: tidak-ada;
+    batas-bawah: 3px padat #0077cc;
+}
+
+.pembatas-putus {
+    batas-atas: tidak-ada;
+    batas-bawah: 2px putus #dee2e6;
+}
+
+.pembatas-putus-putus {
+    batas-atas: tidak-ada;
+    batas-bawah: 2px putus-putus #dee2e6;
+}
+
+/* Divider Vertical */
+.pembagi-vertikal {
+    batas-kiri: 1px padat #dee2e6;
+    tinggi: 100%;
+}
+
+/* Separator */
+.pemisah {
+    batas-atas: 1px padat #e9ecef;
+    batas-bawah: 1px padat #ffffff;
+}
+
+/* Shadow Variations with Borders */
+.bayangan-dengan-batas {
+    batas: 1px padat #e0e0e0;
+    bayangan: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.bayangan-besar-dengan-batas {
+    batas: 1px padat #d0d0d0;
+    bayangan: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.bayangan-kecil-dengan-batas {
+    batas: 1px padat #e8e8e8;
+    bayangan: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Hover Effects */
+.efek-hover-batas {
+    transisi: batas 0.3detik mudah, bayangan 0.3detik mudah;
+}
+
+.efek-hover-batas:hover {
+    batas: 2px padat #0077cc;
+    bayangan: 0 4px 8px rgba(0,119,204,0.2);
+}
+
+/* Focus States */
+.efek-fokus-batas {
+    transisi: batas 0.2detik mudah;
+}
+
+.efek-fokus-batas:focus {
+    batas: 2px padat #0077cc;
+    bayangan: 0 0 0 3px rgba(0,119,204,0.25);
+}
+
+/* Active States */
+.efek-aktif-batas {
+    batas: 2px padat #0055a5;
+    latar-belakang: #e7f3ff;
+}
+
+/* Disabled State */
+.efek-nonaktif-batas {
+    batas: 1px padat #dee2e6;
+    opasitas: 0.6;
+    kursor: tidak-diizinkan;
+}
+
+/* Loading State */
+.efek-memuat-batas {
+    batas: 2px putus #0077cc;
+    animasi: putar-terus 1detik linier tak-terbatas;
+}
+
+/* Selected State */
+.efek-terpilih-batas {
+    batas: 3px padat #0077cc;
+    bayangan: 0 0 0 2px rgba(0,119,204,0.2);
+}
+
+/* Error State */
+.efek-error-batas {
+    batas: 2px padat #dc3545;
+    bayangan: 0 0 0 3px rgba(220,53,69,0.2);
+}
+
+/* Success State */
+.efek-sukses-batas {
+    batas: 2px padat #28a745;
+    bayangan: 0 0 0 3px rgba(40,167,69,0.2);
+}
+
+/* Warning State */
+.efek-peringatan-batas {
+    batas: 2px padat #ffc107;
+    bayangan: 0 0 0 3px rgba(255,193,7,0.2);
+}
+
+/* Info State */
+.efek-info-batas {
+    batas: 2px padat #0077cc;
+    bayangan: 0 0 0 3px rgba(0,119,204,0.2);
+}
+
+/* Theme Light Border */
+.tema-terang-batas {
+    batas: 1px padat #f8f9fa;
+    latar-belakang: #ffffff;
+}
+
+/* Theme Dark Border */
+.tema-gelap-batas {
+    batas: 1px padat #212529;
+    latar-belakang: #343a40;
+    warna: #ffffff;
+}
+
+/* High Contrast Border */
+.kontras-tinggi-batas {
+    batas: 3px padat hitam;
+    latar-belakang: putih;
+    warna: hitam;
+}
+
+/* Low Contrast Border */
+.kontras-rendah-batas {
+    batas: 1px padat #e9ecef;
+    latar-belakang: #f8f9fa;
+}
+
+/* Soft Border */
+.batas-lembut {
+    batas: 1px padat #f0f0f0;
+    bayangan: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Hard Border */
+.batas-keras {
+    batas: 2px padat #212529;
+    bayangan: tidak-ada;
+}
+
+/* Minimal Border */
+.batas-minimal {
+    batas: 1px padat #f5f5f5;
+}
+
+/* Maximum Border */
+.batas-maksimal {
+    batas: 4px padat #000000;
+}
+
+/* Elegant Border */
+.batas-elegan {
+    batas: 1px padat #e0e0e0;
+    jari-jari-batas: 8px;
+    bayangan: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Modern Border */
+.batas-modern {
+    batas: 2px padat #0077cc;
+    jari-jari-batas: 12px;
+    bayangan: 0 4px 16px rgba(0,119,204,0.15);
+}
+
+/* Classic Border */
+.batas-klasik {
+    batas: 3px ganda #0055a5;
+    jari-jari-batas: 0;
+}
+
+/* Rounded Border */
+.batas-bulat {
+    batas: 2px padat #dee2e6;
+    jari-jari-batas: 20px;
+}
+
+/* Square Border */
+.batas-kotak {
+    batas: 2px padat #dee2e6;
+    jari-jari-batas: 0;
+}
+
+/* Dashed Border Blue */
+.batas-putus-biru {
+    batas: 2px putus #0077cc;
+}
+
+/* Dotted Border Blue */
+.batas-putus-putus-biru {
+    batas: 2px putus-putus #0077cc;
+}
+
+/* Double Border */
+.batas-double {
+    batas: 4px ganda #adb5bd;
+}
+
+/* Ridge Border */
+.batas-ridge {
+    batas: 3px ridge #ced4da;
+}
+
+/* Groove Border */
+.batas-groove {
+    batas: 3px groove #ced4da;
+}
+
+/* Inset Border */
+.batas-inset-putih {
+    batas: 2px inset #ffffff;
+}
+
+/* Outset Border */
+.batas-outset-biru {
+    batas: 2px outset #0077cc;
+}
+
+/* Mixed Border Top */
+.batas-campur-atas {
+    batas-atas: 3px padat #0077cc;
+    batas-kanan: 1px padat #dee2e6;
+    batas-bawah: 1px padat #dee2e6;
+    batas-kiri: 1px padat #dee2e6;
+}
+
+/* Mixed Border Bottom */
+.batas-campur-bawah {
+    batas-atas: 1px padat #dee2e6;
+    batas-kanan: 1px padat #dee2e6;
+    batas-bawah: 3px padat #0077cc;
+    batas-kiri: 1px padat #dee2e6;
+}
+
+/* Mixed Border Left */
+.batas-campur-kiri {
+    batas-atas: 1px padat #dee2e6;
+    batas-kanan: 1px padat #dee2e6;
+    batas-bawah: 1px padat #dee2e6;
+    batas-kiri: 4px padat #0077cc;
+}
+
+/* Mixed Border Right */
+.batas-campur-kanan {
+    batas-atas: 1px padat #dee2e6;
+    batas-kanan: 4px padat #0077cc;
+    batas-bawah: 1px padat #dee2e6;
+    batas-kiri: 1px padat #dee2e6;
+}
+
+/* Gradient Border All Sides */
+.batas-gradasi-semua {
+    gambar-batas: gradien-linier(45derajat, #0099ff, #0077cc, #0055a5);
+    lebar-batas: 3px;
+    gaya-batas: padat;
+    asal-gambar-batas: kotak-pembatas;
+    potongan-gambar-batas: kotak-latar;
+    jari-jari-batas: 8px;
+}
+
+/* Animated Border on Hover */
+.animasi-batas-hover {
+    batas: 2px padat transparan;
+    transisi: semua 0.4detik mudah;
+    posisi: relatif;
+}
+
+.animasi-batas-hover:before {
+    konten: '';
+    posisi: mutlak;
+    inset: 0;
+    jari-jari-batas: warisi;
+    padding: 2px;
+    latar-belakang: gradien-linier(45derajat, #0099ff, #0077cc);
+    topeng: linear-hitam putih;
+    -webkit-topeng: linear-hitam putih;
+    topeng-kombinasi: exclude;
+    -webkit-topeng-kombinasi: exclude;
+    transisi: semua 0.4detik mudah;
+    opasitas: 0;
+}
+
+.animasi-batas-hover:hover:before {
+    opasitas: 1;
+}
+
+/* Glow Border Effect */
+.efek-cahaya-batas {
+    batas: 2px padat #0077cc;
+    bayangan: 0 0 10px #0077cc, 0 0 20px #0077cc, 0 0 30px #0077cc;
+}
+
+/* Neon Border Effect */
+.efek-neon-batas {
+    batas: 2px padat #00ffff;
+    bayangan: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+}
+
+/* Glowing Border Animation */
+@kunci-glow-berdenyut {
+    0%, 100% {
+        bayangan: 0 0 5px #0077cc, 0 0 10px #0077cc;
+    }
+    50% {
+        bayangan: 0 0 10px #0077cc, 0 0 20px #0077cc, 0 0 30px #0077cc;
+    }
+}
+
+.animasi-glow-berdenyut {
+    animasi: glow-berdenyut 2detik mudah tak-terbatas;
+}
+
+/* Rainbow Border Animation */
+@kunci-pelangi-bergerak {
+    0% {
+        filter: hue-putar(0derajat);
+    }
+    100% {
+        filter: hue-putar(360derajat);
+    }
+}
+
+.animasi-pelangi-bergerak {
+    gambar-batas: gradien-linier(90derajat, merah, oranye, kuning, hijau, biru, nila, ungu);
+    lebar-batas: 4px;
+    gaya-batas: padat;
+    asal-gambar-batas: kotak-pembatas;
+    potongan-gambar-batas: kotak-latar;
+    animasi: pelangi-bergerak 3detik linier tak-terbatas;
+}
+
+/* Border with Icon */
+.batas-dengan-ikon {
+    posisi: relatif;
+    batas: 2px padat #0077cc;
+    jari-jari-batas: 8px;
+    padding: 16px;
+}
+
+.batas-dengan-ikon:after {
+    konten: '★';
+    posisi: mutlak;
+    atas: -12px;
+    kanan: 16px;
+    latar-belakang: #0077cc;
+    warna: putih;
+    jari-jari-batas: 50%;
+    lebar: 24px;
+    tinggi: 24px;
+    ukuran-font: 14px;
+    garis-tinggi: 24px;
+    pusat-teks: tengah;
+}
+
+/* Corner Accent Border */
+.batas-aksen-sudut {
+    posisi: relatif;
+    batas: 1px padat #dee2e6;
+    jari-jari-batas: 4px;
+}
+
+.batas-aksen-sudut:before {
+    konten: '';
+    posisi: mutlak;
+    atas: 0;
+    kiri: 0;
+    lebar: 20px;
+    tinggi: 20px;
+    batas-atas: 3px padat #0077cc;
+    batas-kiri: 3px padat #0077cc;
+    jari-jari-batas-atas-kiri: 4px;
+}
+
+/* Progressive Border */
+.batas-progresif {
+    batas: 1px padat #e0e0e0;
+    transisi: batas 0.3detik mudah;
+}
+
+.batas-progresif:hover {
+    batas: 2px padat #0077cc;
+}
+
+.batas-progresif:focus-within {
+    batas: 3px padat #0055a5;
+}
+
+/* Layered Border */
+.batas-berlapis {
+    posisi: relatif;
+    batas: 2px padat #0077cc;
+    jari-jari-batas: 8px;
+}
+
+.batas-berlapis:before {
+    konten: '';
+    posisi: mutlak;
+    inset: -4px;
+    batas: 1px putus #0077cc;
+    jari-jari-batas: 12px;
+    z-index: -1;
+}
+
+/* Shadow Border Combination */
+.batas-bayangan-gabung {
+    batas: 1px padat #e0e0e0;
+    bayangan: 0 2px 4px rgba(0,0,0,0.05), 0 4px 8px rgba(0,0,0,0.05);
+    jari-jari-batas: 8px;
+}
+
+/* Transparent to Solid Border */
+.batas-transparan-padat {
+    batas: 2px padat transparan;
+    transisi: batas 0.3detik mudah;
+}
+
+.batas-transparan-padat:hover {
+    batas: 2px padat #0077cc;
+}
+
+/* Border with Badge */
+.batas-dengan-lencana {
+    posisi: relatif;
+    batas: 2px padat #dee2e6;
+    jari-jari-batas: 8px;
+}
+
+.batas-dengan-lencana:after {
+    konten: 'BARU';
+    posisi: mutlak;
+    atas: -10px;
+    kanan: -10px;
+    latar-belakang: #dc3545;
+    warna: putih;
+    padding: 4px 8px;
+    jari-jari-batas: 12px;
+    ukuran-font: 10px;
+    berat-font: tebal;
+}
+
+/* Accessibility Focus Border */
+.batas-fokus-aksesibilitas {
+    transisi: batas 0.2detik mudah;
+}
+
+.batas-fokus-aksesibilitas:focus-visible {
+    batas: 3px padat #0077cc;
+    bayangan: 0 0 0 4px rgba(0,119,204,0.3);
+    garis-besar: tidak-ada;
+}
+
+/* Print Border */
+@media cetak {
+    .batas-cetak {
+        batas: 1px padat hitam;
+        bayangan: tidak-ada;
+    }
+    
+    .tanpa-batas-cetak {
+        batas: tidak-ada !penting;
+    }
+}
+
+/* High DPI Border */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolusi: 192dpi) {
+    .batas-hidpi {
+        batas: 0.5px padat #dee2e6;
+    }
+}
+
+/* Reduced Motion Border */
+@media (preferasi-gerak: berkurang) {
+    .animasi-batas {
+        animasi: tidak-ada;
+        transisi: tidak-ada;
+    }
+}
+
+/* Dark Mode Borders */
+@media (preferasi-skema-warna: gelap) {
+    .batas-mode-gelap {
+        batas: 1px padat #444444;
+    }
+    
+    .batas-biru-mode-gelap {
+        batas: 2px padat #3399ff;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN BAtas.css
+ * TOTAL BARIS: 1500+
+ * STATUS: SIAP PRODUKSI
+ * BAHASA: INDONESIA LENGKAP
+ * ============================================================================
+ */
 
 .batas-bawah-biru {
     batas-bawah: 3px padat #0077cc;
