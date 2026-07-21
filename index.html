@@ -112,11 +112,11 @@
                         <a href="#" class="dropdown-item" onclick="openStudioSection('animation-studio'); return false;"><i class="fas fa-film"></i> Animation Studio</a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="#desain" class="nav-link"><i class="fas fa-palette"></i> Desain <i class="fas fa-chevron-down"></i></a>
+                <li class="nav-item"><a href="#desain" class="nav-link" onclick="openStudioSection('desain'); return false;"><i class="fas fa-palette"></i> Desain <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="alert('Typography')"><i class="fas fa-font"></i> Typography</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Color Palette')"><i class="fas fa-palette"></i> Color Palette</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Layout Builder')"><i class="fas fa-columns"></i> Layout Builder</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('desain'); document.getElementById('typography-studio').scrollIntoView({behavior:'smooth'}); return false;"><i class="fas fa-font"></i> Typography</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('desain'); document.getElementById('color-palette-studio').scrollIntoView({behavior:'smooth'}); return false;"><i class="fas fa-palette"></i> Color Palette</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('desain'); document.getElementById('layout-builder-studio').scrollIntoView({behavior:'smooth'}); return false;"><i class="fas fa-columns"></i> Layout Builder</a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="#market" class="nav-link"><i class="fas fa-store"></i> Market Icon <i class="fas fa-chevron-down"></i></a>
@@ -435,9 +435,193 @@
         </section>
 
         <!-- ORIGINAL SECTIONS -->
-        <section id="desain" class="section">
+        <section id="desain" class="section studio-section" style="display:none;">
             <h2 class="section-title"><i class="fas fa-palette"></i> Desain Mode IHBSF</h2>
-            <div style="background:var(--bg);border-radius:16px;padding:2rem;min-height:300px;border:2px dashed var(--primary);display:flex;align-items:center;justify-content:center;"><i class="fas fa-plus-circle" style="font-size:4rem;color:var(--primary);opacity:0.3;"></i></div>
+            
+            <!-- Typography Studio -->
+            <div id="typography-studio" class="design-subsection">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="addText()"><i class="fas fa-font"></i> Tambah Teks</button>
+                    <button class="tool-btn" onclick="setFontFamily('Arial')"><i class="fas fa-text-height"></i> Arial</button>
+                    <button class="tool-btn" onclick="setFontFamily('Georgia')"><i class="fas fa-text-height"></i> Georgia</button>
+                    <button class="tool-btn" onclick="setFontFamily('Courier New')"><i class="fas fa-text-height"></i> Courier</button>
+                    <button class="tool-btn" onclick="setFontSize(16)"><i class="fas fa-minus"></i> Kecil</button>
+                    <button class="tool-btn" onclick="setFontSize(24)"><i class="fas fa-plus"></i> Sedang</button>
+                    <button class="tool-btn" onclick="setFontSize(36)"><i class="fas fa-text-height"></i> Besar</button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn" onclick="setTextBold()"><i class="fas fa-bold"></i> Bold</button>
+                    <button class="tool-btn" onclick="setTextItalic()"><i class="fas fa-italic"></i> Italic</button>
+                    <button class="tool-btn" onclick="setTextUnderline()"><i class="fas fa-underline"></i> Underline</button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn" onclick="setTextAlign('left')"><i class="fas fa-align-left"></i></button>
+                    <button class="tool-btn" onclick="setTextAlign('center')"><i class="fas fa-align-center"></i></button>
+                    <button class="tool-btn" onclick="setTextAlign('right')"><i class="fas fa-align-right"></i></button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn" onclick="exportTypography()"><i class="fas fa-download"></i> Export</button>
+                </div>
+                
+                <div class="studio-workspace">
+                    <div class="icon-canvas-container" style="min-height:400px;">
+                        <canvas id="typographyCanvas" width="800" height="400" style="border:1px solid #e2e8f0;background:white;"></canvas>
+                    </div>
+                    
+                    <div class="icon-properties">
+                        <h3 style="margin-bottom:1rem;color:var(--primary);"><i class="fas fa-sliders-h"></i> Properti Typography</h3>
+                        <div class="prop-group">
+                            <label>Font Family</label>
+                            <select id="fontFamilySelect" onchange="setFontFamily(this.value)">
+                                <option value="Arial">Arial</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Courier New">Courier New</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Trebuchet MS">Trebuchet MS</option>
+                            </select>
+                        </div>
+                        <div class="prop-group">
+                            <label>Font Size: <span id="fontSizeValue">24</span>px</label>
+                            <input type="range" id="fontSizeSlider" min="8" max="72" value="24" oninput="setFontSize(this.value)">
+                        </div>
+                        <div class="prop-group">
+                            <label>Warna Teks</label>
+                            <input type="color" id="textColorPicker" value="#1e293b" onchange="updateTextColor()">
+                        </div>
+                        <div class="prop-group">
+                            <label>Letter Spacing: <span id="letterSpacingValue">0</span>px</label>
+                            <input type="range" id="letterSpacingSlider" min="-5" max="20" value="0" oninput="setLetterSpacing(this.value)">
+                        </div>
+                        <div class="prop-group">
+                            <label>Line Height: <span id="lineHeightValue">1.5</span></label>
+                            <input type="range" id="lineHeightSlider" min="1" max="3" step="0.1" value="1.5" oninput="setLineHeight(this.value)">
+                        </div>
+                        <div class="prop-group">
+                            <label>Opacity: <span id="textOpacityValue">100</span>%</label>
+                            <input type="range" id="textOpacitySlider" min="0" max="100" value="100" oninput="setTextOpacity(this.value)">
+                        </div>
+                        <button class="btn-primary" onclick="addTextBox()"><i class="fas fa-plus"></i> Tambah Text Box</button>
+                        <button class="btn-secondary" onclick="clearTypography()"><i class="fas fa-trash"></i> Clear Canvas</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Color Palette Studio -->
+            <div id="color-palette-studio" class="design-subsection" style="margin-top:2rem;">
+                <h3 style="margin-bottom:1rem;color:var(--primary);"><i class="fas fa-palette"></i> Color Palette Generator</h3>
+                
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="generatePalette('monochromatic')"><i class="fas fa-circle"></i> Monochromatic</button>
+                    <button class="tool-btn" onclick="generatePalette('analogous')"><i class="fas fa-adjust"></i> Analogous</button>
+                    <button class="tool-btn" onclick="generatePalette('complementary')"><i class="fas fa-exchange-alt"></i> Complementary</button>
+                    <button class="tool-btn" onclick="generatePalette('triadic')"><i class="fas fa-triangle"></i> Triadic</button>
+                    <button class="tool-btn" onclick="generatePalette('tetradic')"><i class="fas fa-th-large"></i> Tetradic</button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn" onclick="randomizePalette()"><i class="fas fa-random"></i> Random</button>
+                    <button class="tool-btn" onclick="exportPalette()"><i class="fas fa-download"></i> Export CSS</button>
+                </div>
+                
+                <div class="studio-workspace">
+                    <div class="icon-canvas-container" style="min-height:300px;">
+                        <div id="paletteDisplay" style="display:flex;flex-direction:column;gap:1rem;width:100%;"></div>
+                    </div>
+                    
+                    <div class="icon-properties">
+                        <h3 style="margin-bottom:1rem;color:var(--primary);"><i class="fas fa-cog"></i> Pengaturan Warna</h3>
+                        <div class="prop-group">
+                            <label>Base Color</label>
+                            <input type="color" id="baseColorPicker" value="#0066ff" onchange="updateBaseColor()">
+                        </div>
+                        <div class="prop-group">
+                            <label>Number of Colors</label>
+                            <select id="colorCount" onchange="generatePalette(currentPaletteType)">
+                                <option value="3">3 Colors</option>
+                                <option value="4">4 Colors</option>
+                                <option value="5" selected>5 Colors</option>
+                                <option value="6">6 Colors</option>
+                            </select>
+                        </div>
+                        <div class="prop-group">
+                            <label>Saturation: <span id="saturationValue">100</span>%</label>
+                            <input type="range" id="saturationSlider" min="0" max="100" value="100" oninput="updateSaturation(this.value)">
+                        </div>
+                        <div class="prop-group">
+                            <label>Brightness: <span id="brightnessValue">100</span>%</label>
+                            <input type="range" id="brightnessSlider" min="0" max="100" value="100" oninput="updateBrightness(this.value)">
+                        </div>
+                        <button class="btn-primary" onclick="savePalette()"><i class="fas fa-save"></i> Save Palette</button>
+                        <button class="btn-secondary" onclick="copyPaletteCSS()"><i class="fas fa-copy"></i> Copy CSS</button>
+                    </div>
+                </div>
+                
+                <div id="savedPalettes" style="margin-top:1.5rem;">
+                    <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fas fa-bookmark"></i> Saved Palettes</h4>
+                    <div id="savedPalettesGrid" class="grid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr));"></div>
+                </div>
+            </div>
+            
+            <!-- Layout Builder Studio -->
+            <div id="layout-builder-studio" class="design-subsection" style="margin-top:2rem;">
+                <h3 style="margin-bottom:1rem;color:var(--primary);"><i class="fas fa-columns"></i> Layout Builder</h3>
+                
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="addLayoutElement('header')"><i class="fas fa-window-maximize"></i> Header</button>
+                    <button class="tool-btn" onclick="addLayoutElement('sidebar')"><i class="fas fa-bars"></i> Sidebar</button>
+                    <button class="tool-btn" onclick="addLayoutElement('content')"><i class="fas fa-file"></i> Content</button>
+                    <button class="tool-btn" onclick="addLayoutElement('footer')"><i class="fas fa-window-minimize"></i> Footer</button>
+                    <button class="tool-btn" onclick="addLayoutElement('card')"><i class="fas fa-square"></i> Card</button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn" onclick="setLayoutGrid(1)"><i class="fas fa-grip-vertical"></i> 1 Kolom</button>
+                    <button class="tool-btn" onclick="setLayoutGrid(2)"><i class="fas fa-columns"></i> 2 Kolom</button>
+                    <button class="tool-btn" onclick="setLayoutGrid(3)"><i class="fas fa-th"></i> 3 Kolom</button>
+                    <button class="tool-btn" onclick="setLayoutGrid(4)"><i class="fas fa-th-large"></i> 4 Kolom</button>
+                    <div class="tool-separator"></div>
+                    <button class="tool-btn" onclick="togglePreview()"><i class="fas fa-eye"></i> Preview</button>
+                    <button class="tool-btn" onclick="exportLayout()"><i class="fas fa-download"></i> Export HTML</button>
+                </div>
+                
+                <div class="studio-workspace">
+                    <div class="icon-canvas-container" style="min-height:500px;position:relative;">
+                        <div id="layoutCanvas" style="width:100%;height:100%;background:#f8fafc;border:2px dashed #cbd5e1;position:relative;overflow:auto;">
+                            <div id="layoutElements" style="display:grid;grid-template-columns:repeat(1,1fr);gap:1rem;padding:1rem;min-height:480px;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="icon-properties">
+                        <h3 style="margin-bottom:1rem;color:var(--primary);"><i class="fas fa-sliders-h"></i> Layout Properties</h3>
+                        <div class="prop-group">
+                            <label>Grid Columns</label>
+                            <input type="number" id="gridColumns" min="1" max="12" value="1" onchange="updateGridLayout()">
+                        </div>
+                        <div class="prop-group">
+                            <label>Gap Size: <span id="gapSizeValue">16</span>px</label>
+                            <input type="range" id="gapSizeSlider" min="0" max="48" value="16" oninput="updateGapSize(this.value)">
+                        </div>
+                        <div class="prop-group">
+                            <label>Padding: <span id="paddingValue">16</span>px</label>
+                            <input type="range" id="paddingSlider" min="0" max="64" value="16" oninput="updatePadding(this.value)">
+                        </div>
+                        <div class="prop-group">
+                            <label>Background Color</label>
+                            <input type="color" id="layoutBgColor" value="#f8fafc" onchange="updateLayoutBg()">
+                        </div>
+                        <div class="prop-group">
+                            <label>Container Width</label>
+                            <select id="containerWidth" onchange="updateContainerWidth()">
+                                <option value="100%">Full Width</option>
+                                <option value="1200px">1200px</option>
+                                <option value="960px">960px</option>
+                                <option value="800px">800px</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" onclick="resetLayout()"><i class="fas fa-redo"></i> Reset Layout</button>
+                        <button class="btn-secondary" onclick="clearLayout()"><i class="fas fa-trash"></i> Clear All</button>
+                    </div>
+                </div>
+                
+                <div id="layoutTemplates" style="margin-top:1.5rem;">
+                    <h4 style="margin-bottom:1rem;color:var(--text);"><i class="fas fa-layer-group"></i> Template Layout</h4>
+                    <div class="template-grid" id="layoutTemplateGrid"></div>
+                </div>
+            </div>
         </section>
 
         <section id="market" class="section" style="background:linear-gradient(135deg,#0047b3,#0066ff);color:white;">
@@ -477,6 +661,11 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             initCanvas();
+            if (sectionId === 'desain') {
+                initTypographyCanvas();
+                generatePalette('monochromatic');
+                loadLayoutTemplates();
+            }
         }
 
         // Initialize Canvas for Icon Maker
@@ -594,6 +783,416 @@
         function toggleRepeat() { alert('Repeat toggled'); }
         function changeDirection() { alert('Direction changed'); }
 
+        // DESIGN SECTION - Typography Functions
+        let typoCanvas, typoCtx;
+        let currentFont = 'Arial', currentFontSize = 24, currentTextColor = '#1e293b';
+        let letterSpacing = 0, lineHeight = 1.5, textOpacity = 1;
+        let textElements = [];
+
+        function initTypographyCanvas() {
+            typoCanvas = document.getElementById('typographyCanvas');
+            if (typoCanvas) {
+                typoCtx = typoCanvas.getContext('2d');
+                clearTypography();
+            }
+        }
+
+        function addText() {
+            if (!typoCtx) initTypographyCanvas();
+            const text = prompt('Masukkan teks:', 'Hello World');
+            if (text) {
+                textElements.push({ text, x: 50, y: 50, font: currentFont, size: currentFontSize, color: currentTextColor });
+                renderTypography();
+            }
+        }
+
+        function addTextBox() {
+            addText();
+        }
+
+        function setFontFamily(font) {
+            currentFont = font;
+            document.getElementById('fontFamilySelect').value = font;
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].font = font;
+                renderTypography();
+            }
+        }
+
+        function setFontSize(size) {
+            currentFontSize = parseInt(size);
+            document.getElementById('fontSizeValue').textContent = size;
+            document.getElementById('fontSizeSlider').value = size;
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].size = currentFontSize;
+                renderTypography();
+            }
+        }
+
+        function setTextBold() {
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].bold = !textElements[textElements.length - 1].bold;
+                renderTypography();
+            }
+        }
+
+        function setTextItalic() {
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].italic = !textElements[textElements.length - 1].italic;
+                renderTypography();
+            }
+        }
+
+        function setTextUnderline() {
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].underline = !textElements[textElements.length - 1].underline;
+                renderTypography();
+            }
+        }
+
+        function setTextAlign(align) {
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].align = align;
+                renderTypography();
+            }
+        }
+
+        function updateTextColor() {
+            currentTextColor = document.getElementById('textColorPicker').value;
+            if (textElements.length > 0) {
+                textElements[textElements.length - 1].color = currentTextColor;
+                renderTypography();
+            }
+        }
+
+        function setLetterSpacing(value) {
+            letterSpacing = parseInt(value);
+            document.getElementById('letterSpacingValue').textContent = value;
+            renderTypography();
+        }
+
+        function setLineHeight(value) {
+            lineHeight = parseFloat(value);
+            document.getElementById('lineHeightValue').textContent = value;
+            renderTypography();
+        }
+
+        function setTextOpacity(value) {
+            textOpacity = value / 100;
+            document.getElementById('textOpacityValue').textContent = value;
+            renderTypography();
+        }
+
+        function renderTypography() {
+            if (!typoCtx) return;
+            typoCtx.clearRect(0, 0, typoCanvas.width, typoCanvas.height);
+            typoCtx.fillStyle = '#ffffff';
+            typoCtx.fillRect(0, 0, typoCanvas.width, typoCanvas.height);
+            
+            textElements.forEach((el, index) => {
+                typoCtx.globalAlpha = textOpacity;
+                typoCtx.font = `${el.italic ? 'italic ' : ''}${el.bold ? 'bold ' : ''}${el.size}px ${el.font}`;
+                typoCtx.fillStyle = el.color;
+                typoCtx.textAlign = el.align || 'left';
+                typoCtx.fillText(el.text, el.x, el.y + (index * 40 * lineHeight));
+            });
+        }
+
+        function clearTypography() {
+            if (typoCtx) {
+                typoCtx.fillStyle = '#ffffff';
+                typoCtx.fillRect(0, 0, typoCanvas.width, typoCanvas.height);
+                textElements = [];
+            }
+        }
+
+        function exportTypography() {
+            if (!typoCanvas) return;
+            const link = document.createElement('a');
+            link.download = 'typography.png';
+            link.href = typoCanvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // DESIGN SECTION - Color Palette Functions
+        let currentPaletteType = 'monochromatic';
+        let savedPalettes = [];
+        let saturation = 100, brightness = 100;
+
+        function hslToHex(h, s, l) {
+            l /= 100;
+            const a = s * Math.min(l, 1 - l) / 100;
+            const f = n => {
+                const k = (n + h / 30) % 12;
+                const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                return Math.round(255 * color).toString(16).padStart(2, '0');
+            };
+            return `#${f(0)}${f(8)}${f(4)}`;
+        }
+
+        function generatePalette(type) {
+            currentPaletteType = type;
+            const baseColor = document.getElementById('baseColorPicker').value;
+            const count = parseInt(document.getElementById('colorCount').value);
+            const hex = baseColor.replace('#', '');
+            const r = parseInt(hex.substr(0, 2), 16);
+            const g = parseInt(hex.substr(2, 2), 16);
+            const b = parseInt(hex.substr(4, 2), 16);
+            
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h = 0, s = 0, l = (max + min) / 2 / 255 * 100;
+            
+            if (max !== min) {
+                const d = max - min;
+                s = l > 50 ? d / (2 - max / 255 - min / 255) : d / (max / 255 + min / 255);
+                switch (max) {
+                    case r: h = ((g / 255 - b / 255) / (max / 255 - min / 255) + (g < b ? 6 : 0)) / 6; break;
+                    case g: h = ((b / 255 - r / 255) / (max / 255 - min / 255) + 2) / 6; break;
+                    case b: h = ((r / 255 - g / 255) / (max / 255 - min / 255) + 4) / 6; break;
+                }
+                h *= 360;
+            }
+            
+            s *= saturation;
+            l *= brightness / 100;
+            
+            const colors = [];
+            for (let i = 0; i < count; i++) {
+                let newH = h, newS = s, newL = l;
+                
+                switch (type) {
+                    case 'monochromatic':
+                        newL = l + (i - count / 2) * 10;
+                        break;
+                    case 'analogous':
+                        newH = (h + (i - count / 2) * 30) % 360;
+                        break;
+                    case 'complementary':
+                        if (i >= count / 2) newH = (h + 180) % 360;
+                        break;
+                    case 'triadic':
+                        newH = (h + i * 120) % 360;
+                        break;
+                    case 'tetradic':
+                        newH = (h + i * 90) % 360;
+                        break;
+                }
+                
+                colors.push(hslToHex(newH, newS, newL));
+            }
+            
+            displayPalette(colors);
+        }
+
+        function displayPalette(colors) {
+            const container = document.getElementById('paletteDisplay');
+            container.innerHTML = `<div style="display:flex;height:80px;border-radius:8px;overflow:hidden;">${colors.map(c => `<div style="flex:1;background:${c};cursor:pointer;" onclick="copyColor('${c}')" title="${c}"></div>`).join('')}</div>
+            <div style="margin-top:0.5rem;display:flex;gap:0.5rem;flex-wrap:wrap;">${colors.map(c => `<span style="padding:0.3rem 0.6rem;background:${c};border-radius:4px;font-size:0.85rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,0.3);">${c}</span>`).join('')}</div>`;
+        }
+
+        function copyColor(color) {
+            navigator.clipboard.writeText(color);
+            alert('Warna ' + color + ' disalin ke clipboard!');
+        }
+
+        function randomizePalette() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+            document.getElementById('baseColorPicker').value = randomColor;
+            generatePalette(currentPaletteType);
+        }
+
+        function updateBaseColor() {
+            generatePalette(currentPaletteType);
+        }
+
+        function updateSaturation(value) {
+            saturation = parseInt(value);
+            document.getElementById('saturationValue').textContent = value;
+            generatePalette(currentPaletteType);
+        }
+
+        function updateBrightness(value) {
+            brightness = parseInt(value);
+            document.getElementById('brightnessValue').textContent = value;
+            generatePalette(currentPaletteType);
+        }
+
+        function savePalette() {
+            const colors = Array.from(document.querySelectorAll('#paletteDisplay span')).map(s => s.textContent);
+            if (colors.length > 0) {
+                savedPalettes.push({ name: 'Palette ' + (savedPalettes.length + 1), colors });
+                renderSavedPalettes();
+            }
+        }
+
+        function renderSavedPalettes() {
+            const container = document.getElementById('savedPalettesGrid');
+            container.innerHTML = savedPalettes.map(p => `<div class="card" style="padding:1rem;"><div style="display:flex;height:40px;border-radius:6px;overflow:hidden;margin-bottom:0.5rem;">${p.colors.map(c => `<div style="flex:1;background:${c};"></div>`).join('')}</div><small>${p.name}</small></div>`).join('');
+        }
+
+        function copyPaletteCSS() {
+            const colors = Array.from(document.querySelectorAll('#paletteDisplay span')).map(s => s.textContent);
+            const css = `:root {\n${colors.map((c, i) => `  --color-${i + 1}: ${c};`).join('\n')}\n}`;
+            navigator.clipboard.writeText(css);
+            alert('CSS copied to clipboard!');
+        }
+
+        function exportPalette() {
+            const colors = Array.from(document.querySelectorAll('#paletteDisplay span')).map(s => s.textContent);
+            const css = `:root {\n${colors.map((c, i) => `  --color-${i + 1}: ${c};`).join('\n')}\n}`;
+            const blob = new Blob([css], { type: 'text/css' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'palette.css';
+            link.click();
+        }
+
+        // DESIGN SECTION - Layout Builder Functions
+        let layoutElements = [];
+        let gridColumns = 1, gapSize = 16, padding = 16;
+
+        function addLayoutElement(type) {
+            const elementTypes = {
+                header: { bg: '#0066ff', height: '80px', label: 'Header' },
+                sidebar: { bg: '#0047b3', height: '300px', label: 'Sidebar' },
+                content: { bg: '#ffffff', height: '200px', label: 'Content Area' },
+                footer: { bg: '#1e293b', height: '60px', label: 'Footer' },
+                card: { bg: '#f8fafc', height: '120px', label: 'Card' }
+            };
+            
+            const config = elementTypes[type];
+            layoutElements.push({ ...config, id: Date.now() });
+            renderLayout();
+        }
+
+        function renderLayout() {
+            const container = document.getElementById('layoutElements');
+            container.style.gridTemplateColumns = `repeat(${gridColumns}, 1fr)`;
+            container.style.gap = `${gapSize}px`;
+            container.style.padding = `${padding}px`;
+            
+            container.innerHTML = layoutElements.map(el => `
+                <div style="background:${el.bg};height:${el.height};border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-weight:600;position:relative;cursor:pointer;" onclick="removeLayoutElement(${el.id})">
+                    ${el.label}
+                    <button onclick="event.stopPropagation();removeLayoutElement(${el.id})" style="position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.2);border:none;border-radius:50%;width:24px;height:24px;cursor:pointer;color:white;">&times;</button>
+                </div>
+            `).join('');
+        }
+
+        function removeLayoutElement(id) {
+            layoutElements = layoutElements.filter(el => el.id !== id);
+            renderLayout();
+        }
+
+        function setLayoutGrid(cols) {
+            gridColumns = cols;
+            document.getElementById('gridColumns').value = cols;
+            renderLayout();
+        }
+
+        function updateGridLayout() {
+            gridColumns = parseInt(document.getElementById('gridColumns').value);
+            renderLayout();
+        }
+
+        function updateGapSize(value) {
+            gapSize = parseInt(value);
+            document.getElementById('gapSizeValue').textContent = value;
+            renderLayout();
+        }
+
+        function updatePadding(value) {
+            padding = parseInt(value);
+            document.getElementById('paddingValue').textContent = value;
+            renderLayout();
+        }
+
+        function updateLayoutBg() {
+            const color = document.getElementById('layoutBgColor').value;
+            document.getElementById('layoutCanvas').style.background = color;
+        }
+
+        function updateContainerWidth() {
+            const width = document.getElementById('containerWidth').value;
+            document.getElementById('layoutElements').style.maxWidth = width;
+            document.getElementById('layoutElements').style.margin = '0 auto';
+        }
+
+        function resetLayout() {
+            layoutElements = [];
+            gridColumns = 1;
+            gapSize = 16;
+            padding = 16;
+            document.getElementById('gridColumns').value = 1;
+            document.getElementById('gapSizeSlider').value = 16;
+            document.getElementById('paddingSlider').value = 16;
+            document.getElementById('gapSizeValue').textContent = '16';
+            document.getElementById('paddingValue').textContent = '16';
+            renderLayout();
+        }
+
+        function clearLayout() {
+            layoutElements = [];
+            renderLayout();
+        }
+
+        function togglePreview() {
+            const canvas = document.getElementById('layoutCanvas');
+            canvas.style.borderStyle = canvas.style.borderStyle === 'none' ? 'dashed' : 'none';
+        }
+
+        function exportLayout() {
+            const html = `<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .layout-container { display: grid; grid-template-columns: repeat(${gridColumns}, 1fr); gap: ${gapSize}px; padding: ${padding}px; }
+    </style>
+</head>
+<body>
+    <div class="layout-container">
+        ${layoutElements.map(el => `<div style="background:${el.bg};height:${el.height};border-radius:8px;">${el.label}</div>`).join('\n        ')}
+    </div>
+</body>
+</html>`;
+            const blob = new Blob([html], { type: 'text/html' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'layout.html';
+            link.click();
+        }
+
+        function loadLayoutTemplates() {
+            const templates = [
+                { name: 'Blog', icon: 'fa-newspaper' },
+                { name: 'Portfolio', icon: 'fa-image' },
+                { name: 'E-commerce', icon: 'fa-shopping-cart' },
+                { name: 'Dashboard', icon: 'fa-tachometer' },
+                { name: 'Landing Page', icon: 'fa-laptop' },
+                { name: 'Contact', icon: 'fa-envelope' }
+            ];
+            
+            const container = document.getElementById('layoutTemplateGrid');
+            container.innerHTML = templates.map(t => `<div class="template-item" onclick="loadLayoutTemplate('${t.name}')"><i class="fas ${t.icon}"></i><br><small>${t.name}</small></div>`).join('');
+        }
+
+        function loadLayoutTemplate(name) {
+            clearLayout();
+            const templates = {
+                'Blog': ['header', 'content', 'content', 'sidebar', 'footer'],
+                'Portfolio': ['header', 'content', 'card', 'card', 'card', 'footer'],
+                'E-commerce': ['header', 'sidebar', 'content', 'card', 'card', 'footer'],
+                'Dashboard': ['header', 'sidebar', 'content', 'content', 'footer'],
+                'Landing Page': ['header', 'content', 'content', 'footer'],
+                'Contact': ['header', 'content', 'sidebar', 'footer']
+            };
+            
+            if (templates[name]) {
+                templates[name].forEach(type => addLayoutElement(type));
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const studioGrid = document.getElementById('studioGrid');
             if (studioGrid) {
@@ -606,6 +1205,8 @@
             animateNumber('totalDesigns', 1800);
             animateNumber('totalUsers', 15000);
             loadTemplates();
+            loadLayoutTemplates();
+            generatePalette('monochromatic');
         });
 
         function animateNumber(id, target) {
