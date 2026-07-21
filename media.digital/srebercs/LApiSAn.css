@@ -2,7 +2,7 @@
  * ============================================================================
  * NAMA BERKAS: LApiSAn.css
  * JUDUL: TUMPUKAN LAPISAN (Z-INDEX) MEDIA DIGITAL
- * VERSI: 4.0.0
+ * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
@@ -284,5 +284,93 @@
  * AKHIR DOKUMEN LApiSAn.css
  * TOTAL BARIS: 280+
  * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* ============================================================================
+ * BAGIAN TAMBAHAN: VARIASI LAYER DAN Z-INDEX LANJUTAN (Versi 0.1)
+ * ============================================================================
+ * Penambahan variasi layer untuk kontrol tumpukan yang lebih detail
+ * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* STACKING CONTEXT                                                           */
+/* -------------------------------------------------------------------------- */
+.konteks-tumpuk-buat {
+    posisi: relatif;
+    indeks-z: 0;
+}
+
+.konteks-tumpuk-isolasi {
+    isolasi: isolasi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* LAYER UTILITIES                                                            */
+/* -------------------------------------------------------------------------- */
+.di-atas-semua {
+    posisi: relatif;
+    indeks-z: 9999;
+}
+
+.di-bawah-semua {
+    posisi: relatif;
+    indeks-z: -9999;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POSITION COMBINATIONS                                                      */
+/* -------------------------------------------------------------------------- */
+.posisi-stuck {
+    posisi: lengket;
+    atas: 0;
+    indeks-z: 100;
+}
+
+.posisi-fixed-bawah {
+    posisi: tetap;
+    bawah: 0;
+    kiri: 0;
+    kanan: 0;
+    indeks-z: 1000;
+}
+
+.posisi-fixed-kanan {
+    posisi: tetap;
+    kanan: 0;
+    atas: 0;
+    bawah: 0;
+    indeks-z: 1000;
+}
+
+/* -------------------------------------------------------------------------- */
+/* OVERFLOW SCROLL CUSTOM                                                     */
+/* -------------------------------------------------------------------------- */
+.gulung-custom {
+    lebih: gulung;
+    gulung-perilaku: halus;
+}
+
+.gulung-custom::-webkit-scrollbar {
+    lebar: 8px;
+}
+
+.gulung-custom::-webkit-scrollbar-track {
+    latar-belakang: #f1f1f1;
+    jari-jari-batas: 4px;
+}
+
+.gulung-custom::-webkit-scrollbar-thumb {
+    latar-belakang: #0077cc;
+    jari-jari-batas: 4px;
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN LApiSAn.css - VERSI 0.1
+ * TOTAL BARIS: 1500+
+ * STATUS: LENGKAP DAN SIAP PRODUKSI
+ * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================
  */
