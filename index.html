@@ -3,8 +3,1313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allunivers Market Icon Dan Desain - Studio Kreasi Digital | IHSFB Layout</title>
-    <meta name="description" content="Allunivers Market Icon Dan Desain - Platform marketplace dan studio pembuatan icon serta desain digital dengan layout IHSFB (Identifier, Header, Section, Footer, Body)">
+    <title>Allunivers Market Icon Dan Desain - Studio Kreasi Digital | LISENSIDOMAIN Layout</title>
+    <meta name="description" content="Allunivers Market Icon Dan Desain - Platform marketplace dan studio pembuatan icon serta desain digital dengan layout lisensidomain.digital">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0047b3;
+            --primary-light: #3385ff;
+            --primary-gradient: linear-gradient(135deg, #0047b3 0%, #0066ff 100%);
+            --secondary: #4d94ff;
+            --accent: #80b3ff;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 102, 255, 0.15);
+            --card-shadow: 0 10px 30px rgba(0, 102, 255, 0.15);
+            --hover-shadow: 0 15px 40px rgba(0, 102, 255, 0.25);
+            --icon-white: #ffffff;
+            --icon-blue: #0066ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text);
+        }
+
+        /* ============================================================================
+         * HEADER - Brand Navbar
+         * ============================================================================ */
+        .brand-navbar {
+            background: var(--primary-gradient);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        .brand-logo {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-logo i {
+            color: #ffffff;
+            filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-auth {
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-login {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-login:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .btn-register {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-register:hover {
+            background: #f0f0f0;
+            color: var(--primary-dark);
+        }
+
+        /* ============================================================================
+         * BODY - Hero Section
+         * ============================================================================ */
+        .hero-section {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 6rem 1rem 5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Search Container */
+        .search-container {
+            max-width: 800px;
+            margin: -3rem auto 3rem;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            border: 2px solid var(--primary-light);
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            outline: none;
+            border-radius: 50px;
+        }
+
+        .search-box button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-box button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ============================================================================
+         * SECTION - Main Content & Categories
+         * ============================================================================ */
+        .main-content {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 1400px) {
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary-light);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #e6f0ff 100%);
+        }
+
+        .feature-icon i {
+            color: var(--icon-blue);
+            filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+        }
+
+        .feature-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .feature-path {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-family: 'Courier New', monospace;
+            background: #eff6ff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-stats {
+            display: flex;
+            gap: 0.8rem;
+            font-size: 0.75rem;
+            color: var(--primary-dark);
+        }
+
+        .feature-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .feature-stat i {
+            color: var(--icon-blue);
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-updating {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        /* Box System */
+        .box-system {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .box-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .box-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .box-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .box-item {
+            background: var(--primary-gradient);
+            padding: 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .box-item:hover {
+            background: white;
+            border-color: #3385ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .box-item:hover i,
+        .box-item:hover span {
+            color: var(--primary-dark);
+            text-shadow: none;
+        }
+
+        .box-item i {
+            font-size: 1.5rem;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0, 102, 255, 0.4);
+            margin-bottom: 0.5rem;
+        }
+
+        .box-item span {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+        }
+
+        /* Panel Section */
+        .panel-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+            display: none;
+        }
+
+        .panel-section.active {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .panel-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .panel-close {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .panel-content {
+            padding: 1rem 0;
+        }
+
+        .registrar-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(0, 102, 255, 0.15);
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-gradient);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            font-weight: 600;
+            color: white;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 102, 255, 0.3);
+            color: white;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--bg-alt);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+        }
+
+        .pricing-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .pricing-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .pricing-card.featured li {
+            border-bottom-color: rgba(255,255,255,0.2);
+        }
+
+        /* ============================================================================
+         * IFRAME Section
+         * ============================================================================ */
+        .iframe-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ============================================================================
+         * FOOTER
+         * ============================================================================ */
+        footer {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.8rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            max-height: none;
+            overflow-y: visible;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .footer-links a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                gap: 1rem;
+            }
+
+            .stat-box {
+                padding: 1rem 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #f0f0f0;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-light);
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px var(--shadow);
+            z-index: 999;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER: Brand Navbar -->
+    <nav class="brand-navbar">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a href="#" class="brand-logo">
+                <i class="fas fa-thumbtack"></i>
+                <span>ALLUNIVERS.DIGITAL</span>
+            </a>
+            <div class="auth-buttons">
+                <button class="btn-auth btn-login" onclick="openPanel('loginPanel')">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <button class="btn-auth btn-register" onclick="openPanel('registerPanel')">
+                    <i class="fas fa-user-plus"></i> Register
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BODY: Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title"><i class="fas fa-palette"></i> ALLUNIVERS MARKET</h1>
+            <p class="hero-subtitle">Studio Kreasi Digital - Marketplace Icon dan Desain Profesional</p>
+            <div class="stats-container">
+                <div class="stat-box"><span class="stat-number" id="totalDesigns">0</span><span class="stat-label">Desain Tersedia</span></div>
+                <div class="stat-box"><span class="stat-number" id="totalIcons">0</span><span class="stat-label">Icon Pack</span></div>
+                <div class="stat-box"><span class="stat-number" id="totalUsers">0</span><span class="stat-label">Pengguna Aktif</span></div>
+                <div class="stat-box"><span class="stat-number">99.9%</span><span class="stat-label">Kepuasan</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari icon atau desain yang Anda butuhkan..." />
+            <button onclick="searchDesign()"><i class="fas fa-search"></i> Cari</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="icon">Icon</button>
+            <button class="filter-btn" data-filter="design">Desain</button>
+            <button class="filter-btn" data-filter="template">Template</button>
+            <button class="filter-btn" data-filter="illustration">Ilustrasi</button>
+        </div>
+
+        <!-- Section Title -->
+        <div class="section-title">
+            <h2><i class="fas fa-layer-group"></i> Koleksi Aset Digital</h2>
+            <p>Klik pada kartu untuk melihat detail dan mengunduh aset</p>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 1rem; color: #666;">Memuat koleksi...</p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid" id="featuresGrid"></div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>Tidak ditemukan</h3>
+            <p>Coba kata kunci pencarian lain atau pilih kategori berbeda</p>
+        </div>
+
+        <!-- Login Panel -->
+        <div id="loginPanel" class="panel-section">
+            <div class="panel-header">
+                <h3 class="panel-title"><i class="fas fa-sign-in-alt"></i> Login ke Akun Anda</h3>
+                <button class="panel-close" onclick="closePanel('loginPanel')"><i class="fas fa-times"></i> Tutup</button>
+            </div>
+            <div class="panel-content">
+                <form class="registrar-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="nama@email.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Masukkan password" required />
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe" />
+                        <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                    </div>
+                    <button type="submit" class="btn-primary-custom">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Register Panel -->
+        <div id="registerPanel" class="panel-section">
+            <div class="panel-header">
+                <h3 class="panel-title"><i class="fas fa-user-plus"></i> Buat Akun Baru</h3>
+                <button class="panel-close" onclick="closePanel('registerPanel')"><i class="fas fa-times"></i> Tutup</button>
+            </div>
+            <div class="panel-content">
+                <form class="registrar-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" placeholder="Nama lengkap anda" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="nama@email.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Minimal 8 karakter" required minlength="8" />
+                    </div>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="agreeTerms" required />
+                        <label class="form-check-label" for="agreeTerms">Saya setuju dengan Syarat & Ketentuan</label>
+                    </div>
+                    <button type="submit" class="btn-primary-custom">
+                        <i class="fas fa-user-plus"></i> Daftar Sekarang
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Quick Access Box System -->
+        <div class="box-system">
+            <div class="box-header">
+                <h3 class="box-title"><i class="fas fa-th-large"></i> Kategori Aset</h3>
+                <span class="badge bg-primary">4 Kategori</span>
+            </div>
+            <div class="box-grid" id="quickAccessBox"></div>
+        </div>
+
+        <!-- Pricing Section -->
+        <div class="box-system">
+            <div class="box-header">
+                <h3 class="box-title"><i class="fas fa-tags"></i> Harga Paket Premium</h3>
+                <span class="badge bg-success">Harga Terbaik</span>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h4>Starter</h4>
+                    <div class="price">Rp 99rb<span style="font-size: 1rem; font-weight: 400;">/bulan</span></div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 50 Download/bulan</li>
+                        <li><i class="fas fa-check-circle"></i> Akses Icon Pack</li>
+                        <li><i class="fas fa-check-circle"></i> License Komersial</li>
+                        <li><i class="fas fa-check-circle"></i> Support Email</li>
+                    </ul>
+                    <button class="btn-primary-custom" onclick="openPanel('registerPanel')">Pilih</button>
+                </div>
+                <div class="pricing-card featured">
+                    <h4>Professional</h4>
+                    <div class="price">Rp 199rb<span style="font-size: 1rem; font-weight: 400;">/bulan</span></div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Unlimited Download</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Aset Premium</li>
+                        <li><i class="fas fa-check-circle"></i> License Extended</li>
+                        <li><i class="fas fa-check-circle"></i> Priority Support</li>
+                    </ul>
+                    <button class="btn-primary-custom" style="background: white; color: var(--primary);" onclick="openPanel('registerPanel')">Pilih</button>
+                </div>
+                <div class="pricing-card">
+                    <h4>Enterprise</h4>
+                    <div class="price">Rp 499rb<span style="font-size: 1rem; font-weight: 400;">/bulan</span></div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Semua Fitur Pro</li>
+                        <li><i class="fas fa-check-circle"></i> Custom Design</li>
+                        <li><i class="fas fa-check-circle"></i> API Access</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated Support</li>
+                    </ul>
+                    <button class="btn-primary-custom" onclick="openPanel('registerPanel')">Pilih</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- IFRAME Section -->
+        <div class="iframe-section">
+            <div class="box-header">
+                <h3 class="box-title"><i class="fas fa-desktop"></i> Preview Studio</h3>
+                <span class="badge bg-info">Live Preview</span>
+            </div>
+            <div class="iframe-container">
+                <iframe src="https://example.com" title="Preview Studio"></iframe>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <h3 style="font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-palette"></i> ALLUNIVERS MARKET</h3>
+            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Platform marketplace dan studio kreasi digital untuk icon, desain, template, dan ilustrasi profesional</p>
+            <p style="opacity: 0.6; font-size: 0.9rem; margin-top: 1rem;">&copy; 2026 ALLUNIVERS MARKET. Semua hak dilindungi.</p>
+            <h4 style="margin-top: 2rem; margin-bottom: 1rem;"><i class="fas fa-folder"></i> Direktori Kategori</h4>
+            <div class="footer-links" id="categoryLinks"></div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-dribbble"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Design assets data
+        const designData = [
+            { name: "Icon Pack Modern", path: "icons/modern", category: "icon", icon: "fa-icons", files: 120, folders: 8, description: "Kumpulan icon modern untuk aplikasi dan website", features: ["SVG Format", "Multiple Sizes", "Customizable Colors", "Commercial License"] },
+            { name: "Template UI Kit", path: "templates/ui-kit", category: "template", icon: "fa-layer-group", files: 85, folders: 12, description: "Template UI kit lengkap untuk desain interface", features: ["Figma Compatible", "Responsive Design", "Dark Mode", "Components Library"] },
+            { name: "Ilustrasi Vektor", path: "illustrations/vector", category: "illustration", icon: "fa-paint-brush", files: 65, folders: 6, description: "Ilustrasi vektor berkualitas tinggi", features: ["Editable AI/EPS", "High Resolution", "Multiple Styles", "Regular Updates"] },
+            { name: "Desain Landing Page", path: "designs/landing", category: "design", icon: "fa-laptop-code", files: 45, folders: 10, description: "Template landing page siap pakai", features: ["HTML/CSS Included", "SEO Optimized", "Mobile Friendly", "Fast Loading"] },
+            { name: "Icon 3D Pack", path: "icons/3d", category: "icon", icon: "fa-cube", files: 95, folders: 5, description: "Icon 3D trendy untuk proyek modern", features: ["PNG & Blender", "4K Render", "Multiple Angles", "Animation Ready"] }
+        ];
+
+        let currentFilter = 'all';
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderFeatures(designData, true);
+            renderQuickAccess();
+            setupEventListeners();
+            updateStats();
+            loadCategoryLinks();
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+            }, 500);
+        });
+
+        function updateStats() {
+            const totalDesigns = 2500;
+            const totalIcons = 850;
+            const totalUsers = 15000;
+            animateNumber('totalDesigns', totalDesigns);
+            animateNumber('totalIcons', totalIcons);
+            animateNumber('totalUsers', totalUsers);
+        }
+
+        function animateNumber(id, target) {
+            const element = document.getElementById(id);
+            let current = 0;
+            const increment = Math.ceil(target / 50);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = current.toLocaleString();
+                }
+            }, 30);
+        }
+
+        function setupEventListeners() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    filterFeatures(currentFilter);
+                });
+            });
+
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                searchFeatures(e.target.value);
+            });
+        }
+
+        function openPanel(panelId) {
+            document.querySelectorAll('.panel-section').forEach(p => p.classList.remove('active'));
+            document.getElementById(panelId).classList.add('active');
+            document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closePanel(panelId) {
+            document.getElementById(panelId).classList.remove('active');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            alert('Login berhasil! Mengalihkan ke dashboard...');
+            closePanel('loginPanel');
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            alert('Registrasi akun berhasil! Silakan verifikasi email Anda.');
+            closePanel('registerPanel');
+        }
+
+        function searchDesign() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                alert(`Mencari: ${query}\nMenampilkan hasil pencarian...`);
+            }
+        }
+
+        function renderFeatures(data, limitToFive = true) {
+            const grid = document.getElementById('featuresGrid');
+            grid.innerHTML = '';
+
+            if (data.length === 0) {
+                document.getElementById('noResults').style.display = 'block';
+                return;
+            }
+
+            document.getElementById('noResults').style.display = 'none';
+            const displayData = limitToFive ? data.slice(0, 5) : data;
+
+            displayData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'feature-card';
+                card.style.animation = `fadeInUp 0.5s ease-out ${index * 0.02}s both`;
+                card.onclick = () => showDetail(item);
+                card.innerHTML = `
+                    <span class="status-badge status-active">Active</span>
+                    <div class="feature-icon"><i class="fas ${item.icon}"></i></div>
+                    <h3 class="feature-name">${item.name}</h3>
+                    <div class="feature-path">/assets/${item.path}</div>
+                    <div class="feature-stats">
+                        <span class="feature-stat"><i class="fas fa-folder"></i> ${item.folders} folder</span>
+                        <span class="feature-stat"><i class="fas fa-file"></i> ${item.files} file</span>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function showDetail(item) {
+            const detailPanel = document.createElement('div');
+            detailPanel.id = 'detailPanel';
+            detailPanel.className = 'panel-section active';
+            detailPanel.innerHTML = `
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-info-circle"></i> Detail Aset</h3>
+                    <button class="panel-close" onclick="this.parentElement.parentElement.remove()"><i class="fas fa-times"></i> Tutup</button>
+                </div>
+                <div class="panel-content">
+                    <div class="text-center mb-4">
+                        <div class="feature-icon mx-auto" style="width: 100px; height: 100px; font-size: 3rem;">
+                            <i class="fas ${item.icon}"></i>
+                        </div>
+                        <h3 class="mt-3" style="color: var(--primary-dark);">${item.name}</h3>
+                        <p class="text-muted">/assets/${item.path}</p>
+                    </div>
+                    <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; margin-bottom: 1rem;">
+                        <h6 style="color: var(--primary-dark); margin-bottom: 0.5rem;"><i class="fas fa-align-left"></i> Deskripsi</h6>
+                        <p style="color: var(--text-light);">${item.description}</p>
+                    </div>
+                    <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; margin-top: 1rem;">
+                        <h6 style="color: var(--primary-dark); margin-bottom: 0.5rem;"><i class="fas fa-star"></i> Fitur Utama</h6>
+                        <ul style="list-style: none; padding: 0;">
+                            ${item.features.map(f => `<li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border);"><i class="fas fa-check" style="color: var(--primary);"></i> ${f}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <button class="btn-primary-custom" style="width: auto;" onclick="alert('Mengunduh: ${item.name}')">
+                            <i class="fas fa-download"></i> Unduh Sekarang
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            const existingPanel = document.getElementById('detailPanel');
+            if (existingPanel) existingPanel.remove();
+
+            document.getElementById('featuresGrid').after(detailPanel);
+            detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function filterFeatures(category) {
+            if (category === 'all') renderFeatures(designData, true);
+            else renderFeatures(designData.filter(s => s.category === category), true);
+        }
+
+        function searchFeatures(query) {
+            if (!query) {
+                filterFeatures(currentFilter);
+                return;
+            }
+            const lowerQuery = query.toLowerCase();
+            renderFeatures(designData.filter(s => 
+                s.name.toLowerCase().includes(lowerQuery) || 
+                s.path.toLowerCase().includes(lowerQuery) || 
+                s.category.toLowerCase().includes(lowerQuery) || 
+                s.description.toLowerCase().includes(lowerQuery)
+            ), true);
+        }
+
+        function renderQuickAccess() {
+            const categories = [
+                { name: 'Icon', icon: 'fa-icons', count: 2, filter: 'icon' },
+                { name: 'Desain', icon: 'fa-paint-brush', count: 1, filter: 'design' },
+                { name: 'Template', icon: 'fa-layer-group', count: 1, filter: 'template' },
+                { name: 'Ilustrasi', icon: 'fa-image', count: 1, filter: 'illustration' }
+            ];
+
+            const container = document.getElementById('quickAccessBox');
+            container.innerHTML = '';
+
+            categories.forEach(cat => {
+                const item = document.createElement('div');
+                item.className = 'box-item';
+                item.onclick = () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelector(`[data-filter="${cat.filter}"]`)?.classList.add('active');
+                    filterFeatures(cat.filter);
+                    window.scrollTo({ top: 300, behavior: 'smooth' });
+                };
+                item.innerHTML = `<i class="fas ${cat.icon}"></i><span>${cat.name}</span><small style="color: #e6f0ff; font-size: 0.75rem;">${cat.count} aset</small>`;
+                container.appendChild(item);
+            });
+        }
+
+        function loadCategoryLinks() {
+            const categories = [
+                "icon-pack", "template-ui", "ilustrasi", "desain-web", 
+                "desain-mobile", "template-presentasi", "infografis", "mockup",
+                "typography", "pattern", "background", "texture"
+            ];
+
+            const container = document.getElementById('categoryLinks');
+            container.innerHTML = '';
+
+            categories.forEach(cat => {
+                const link = document.createElement('a');
+                link.href = `#category/${cat}`;
+                link.textContent = cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
+                container.appendChild(link);
+            });
+        }
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = document.querySelector('.scroll-top');
+            if (!scrollTop) {
+                const btn = document.createElement('div');
+                btn.className = 'scroll-top';
+                btn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+                btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+                document.body.appendChild(btn);
+                scrollTop = btn;
+            }
+            scrollTop.style.opacity = window.scrollY > 500 ? '1' : '0';
+            scrollTop.style.visibility = window.scrollY > 500 ? 'visible' : 'hidden';
+        });
+    </script>
+</body>
+</html>
     <style>
         /* ============================================================================
          * SISTEM INTI: Allunivers Market Icon Dan Desain
