@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllUnivers - Dashboard Administrasi Universal</title>
+    <title>AllUnivers - Dashboard Administrasi Universal | IHSFB Layout</title>
+    <meta name="description" content="AllUnivers IHSFB Container - Dashboard administrasi universal dengan layout IHSFB (Identifier, Header, Section, Footer, Body)">
     <style>
         /* ============================================================================
          * SISTEM INTI: AllUnivers IHSFB Container
+         * Layout: I-H-S-F-B (Identifier, Header, Section, Footer, Body)
          * Versi: 1.0.0
          * Bahasa: Indonesia
          * Tema: Putih dan Biru Laut
@@ -35,6 +37,10 @@
             --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.20);
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
@@ -43,8 +49,10 @@
         }
         
         /* ============================================================================
-         * KOMPONEN I - IDENTIFIKASI SISTEM
+         * LAYOUT IHSFB - STRUKTUR UTAMA
          * ============================================================================ */
+        
+        /* --- I = IDENTIFIER (Identitas Sistem) --- */
         .ihsfb-identifier {
             position: fixed;
             top: 0;
@@ -55,9 +63,7 @@
             z-index: 10000;
         }
         
-        /* ============================================================================
-         * KOMPONEN H - HEADER UTAMA
-         * ============================================================================ */
+        /* --- H = HEADER (Kepala Halaman) --- */
         .ihsfb-header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -66,6 +72,9 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 4px;
+            z-index: 9999;
         }
         
         .header-logo {
@@ -81,47 +90,17 @@
             gap: 12px;
         }
         
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: white;
-            color: var(--primary-color);
-        }
-        
-        .btn-primary:hover {
-            background: var(--light-bg);
-            transform: translateY(-2px);
-        }
-        
-        .btn-success {
-            background: var(--success-color);
-            color: white;
-        }
-        
-        .btn-danger {
-            background: var(--danger-color);
-            color: white;
-        }
-        
-        /* ============================================================================
-         * KOMPONEN BODY - KONTAINER UTAMA
-         * ============================================================================ */
+        /* --- B = BODY (Tubuh Utama Konten) --- */
         .ihsfb-body {
             flex: 1;
             display: grid;
             grid-template-columns: 280px 1fr;
             min-height: calc(100vh - 140px);
+            background: white;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
         }
         
         /* Sidebar Navigation */
@@ -180,6 +159,8 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
         }
         
         .page-title {
@@ -187,11 +168,13 @@
             color: var(--text-primary);
         }
         
-        /* ============================================================================
-         * KOMPONEN SECTION - BAGIAN DASHBOARD
-         * ============================================================================ */
+        /* --- S = SECTION (Bagian-bagian Konten) --- */
         .ihsfb-section {
             margin-bottom: 40px;
+            padding: 25px;
+            background: var(--light-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
         }
         
         .section-header {
@@ -209,7 +192,64 @@
             font-weight: 600;
         }
         
-        /* Dashboard Grid Cards */
+        /* --- F = FOOTER (Kaki Halaman) --- */
+        .ihsfb-footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 30px;
+            margin-top: auto;
+        }
+        
+        /* ============================================================================
+         * KOMPONEN UI - BUTTONS
+         * ============================================================================ */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background: var(--light-bg);
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: var(--success-color);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #0d9668;
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: var(--danger-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: var(--text-secondary);
+            color: white;
+        }
+        
+        /* ============================================================================
+         * KOMPONEN UI - CARDS & GRID
+         * ============================================================================ */
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -218,7 +258,7 @@
         }
         
         .card {
-            background: var(--light-bg);
+            background: white;
             border-radius: 12px;
             padding: 25px;
             box-shadow: var(--shadow-sm);
@@ -263,7 +303,7 @@
         
         /* Content Sections */
         .content-section {
-            background: var(--light-bg);
+            background: white;
             border-radius: 12px;
             padding: 25px;
             margin-bottom: 25px;
@@ -278,7 +318,9 @@
             border: 1px solid var(--border-color);
         }
         
-        /* Table Styles */
+        /* ============================================================================
+         * KOMPONEN UI - TABLES
+         * ============================================================================ */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -304,7 +346,9 @@
             background: var(--light-bg);
         }
         
-        /* Badge Styles */
+        /* ============================================================================
+         * KOMPONEN UI - BADGES
+         * ============================================================================ */
         .badge {
             display: inline-block;
             padding: 4px 12px;
@@ -334,15 +378,8 @@
         }
         
         /* ============================================================================
-         * KOMPONEN FOOTER - BAGIAN BAWAH
+         * KOMPONEN F - FOOTER DETAIL
          * ============================================================================ */
-        .ihsfb-footer {
-            background: var(--dark-bg);
-            color: white;
-            padding: 30px;
-            margin-top: auto;
-        }
-        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -424,10 +461,13 @@
             }
         }
         
-        /* Responsive Design */
+        /* ============================================================================
+         * RESPONSIVE DESIGN
+         * ============================================================================ */
         @media (max-width: 768px) {
             .ihsfb-body {
                 grid-template-columns: 1fr;
+                margin: 10px;
             }
             
             .ihsfb-sidebar {
@@ -442,44 +482,62 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+            
+            .header-actions {
+                gap: 8px;
+            }
+            
+            .btn {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- KOMPONEN I: IDENTIFIER -->
-    <div class="ihsfb-identifier"></div>
+    <!-- ==========================================================================
+         LAYOUT IHSFB - STRUKTUR LENGKAP
+         I = Identifier (Identitas)
+         H = Header (Kepala)
+         S = Section (Bagian)
+         F = Footer (Kaki)
+         B = Body (Tubuh/Konten Utama)
+         ========================================================================== -->
     
-    <!-- KOMPONEN H: HEADER -->
-    <header class="ihsfb-header">
+    <!-- KOMPONEN I: IDENTIFIER - Identitas Sistem -->
+    <div class="ihsfb-identifier" title="AllUnivers IHSFB Container"></div>
+    
+    <!-- KOMPONEN H: HEADER - Kepala Halaman -->
+    <header class="ihsfb-header" role="banner">
         <div class="header-logo">
             <span>🌐</span>
             <span>AllUnivers Dashboard</span>
         </div>
-        <div class="header-actions">
-            <button class="btn btn-primary" onclick="refreshDashboard()">
+        <nav class="header-actions" role="navigation">
+            <button class="btn btn-primary" onclick="refreshDashboard()" title="Refresh Dashboard">
                 <span>🔄</span> Refresh
             </button>
-            <button class="btn btn-primary" onclick="toggleSettings()">
+            <button class="btn btn-primary" onclick="toggleSettings()" title="Pengaturan">
                 <span>⚙️</span> Settings
             </button>
-            <button class="btn btn-success" onclick="exportData()">
+            <button class="btn btn-success" onclick="exportData()" title="Export Data">
                 <span>📥</span> Export
             </button>
-        </div>
+        </nav>
     </header>
     
-    <!-- KOMPONEN BODY: CONTAINER UTAMA -->
-    <div class="ihsfb-body">
+    <!-- KOMPONEN B: BODY - Tubuh Utama Konten -->
+    <div class="ihsfb-body" role="main">
         <!-- Sidebar Navigation -->
-        <aside class="ihsfb-sidebar">
+        <aside class="ihsfb-sidebar" role="complementary" aria-label="Menu Navigasi">
             <ul class="sidebar-menu">
                 <li>
-                    <a href="#" class="active" onclick="switchSection('overview')">
+                    <a href="#overview" class="active" onclick="switchSection('overview')" title="Halaman Utama">
                         <span>📊</span> Overview
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="toggleSubmenu('uireber-submenu')">
+                    <a href="#uireber" onclick="toggleSubmenu('uireber-submenu')" title="Sistem UIREBER">
                         <span>📁</span> UIREBER System
                         <span style="margin-left: auto;">▼</span>
                     </a>
@@ -496,43 +554,43 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#" onclick="switchSection('modules')">
+                    <a href="#modules" onclick="switchSection('modules')" title="Modul Sistem">
                         <span>🔧</span> Modules
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="switchSection('files')">
+                    <a href="#files" onclick="switchSection('files')" title="Pengelola Berkas">
                         <span>📄</span> File Manager
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="switchSection('users')">
+                    <a href="#users" onclick="switchSection('users')" title="Pengguna">
                         <span>👥</span> Users
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="switchSection('settings')">
+                    <a href="#settings" onclick="switchSection('settings')" title="Konfigurasi">
                         <span>⚙️</span> Configuration
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="switchSection('logs')">
+                    <a href="#logs" onclick="switchSection('logs')" title="Catatan Sistem">
                         <span>📋</span> System Logs
                     </a>
                 </li>
                 <li>
-                    <a href="#" onclick="switchSection('backup')">
+                    <a href="#backup" onclick="switchSection('backup')" title="Cadangan & Pulihkan">
                         <span>💾</span> Backup & Restore
                     </a>
                 </li>
             </ul>
         </aside>
         
-        <!-- Main Content -->
+        <!-- Main Content Area -->
         <main class="ihsfb-main-content">
             <div class="top-bar">
-                <h1 class="page-title">Dashboard Overview</h1>
-                <button class="btn btn-secondary" onclick="window.location.href='../index.html'">Back to Main</button>
+                <h1 class="page-title" id="pageTitle">Dashboard Overview</h1>
+                <a href="../index.html" class="btn btn-secondary" title="Kembali ke Halaman Utama">← Back to Main</a>
             </div>
             
             <!-- SECTION: Statistics Cards -->
@@ -769,27 +827,27 @@
         </main>
     </div>
     
-    <!-- KOMPONEN FOOTER -->
-    <footer class="ihsfb-footer">
+    <!-- KOMPONEN F: FOOTER - Kaki Halaman -->
+    <footer class="ihsfb-footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>About AllUnivers</h4>
-                <p>AllUnivers IHSFB Container is a universal dashboard administration system that integrates and reconstructs components from the UIREBER folder structure.</p>
-                <p>Version: 1.0.0</p>
+                <h4>Tentang AllUnivers</h4>
+                <p>AllUnivers IHSFB Container adalah sistem dashboard administrasi universal yang mengintegrasikan dan merekonstruksi komponen dari struktur folder UIREBER.</p>
+                <p>Versi: 1.0.0</p>
                 <p>Build: 2026.07.20</p>
             </div>
             
             <div class="footer-section">
-                <h4>Quick Links</h4>
-                <a href="#" onclick="switchSection('overview')">Dashboard</a>
-                <a href="#" onclick="switchSection('modules')">Modules</a>
-                <a href="#" onclick="switchSection('files')">File Manager</a>
-                <a href="#" onclick="switchSection('settings')">Settings</a>
-                <a href="#" onclick="switchSection('logs')">System Logs</a>
+                <h4>Tautan Cepat</h4>
+                <a href="#overview" onclick="switchSection('overview')">Dashboard</a>
+                <a href="#modules" onclick="switchSection('modules')">Modules</a>
+                <a href="#files" onclick="switchSection('files')">File Manager</a>
+                <a href="#settings" onclick="switchSection('settings')">Settings</a>
+                <a href="#logs" onclick="switchSection('logs')">System Logs</a>
             </div>
             
             <div class="footer-section">
-                <h4>UIREBER Integration</h4>
+                <h4>Integrasi UIREBER</h4>
                 <a href="#" onclick="openModule('ai_machinelearning.digital')">AI & Machine Learning</a>
                 <a href="#" onclick="openModule('analytics.digital')">Analytics</a>
                 <a href="#" onclick="openModule('automation.digital')">Automation</a>
@@ -798,20 +856,20 @@
             </div>
             
             <div class="footer-section">
-                <h4>Support</h4>
-                <a href="#">Documentation</a>
-                <a href="#">API Reference</a>
-                <a href="#">Community Forum</a>
-                <a href="#">Contact Support</a>
-                <a href="#">Report Issue</a>
+                <h4>Dukungan</h4>
+                <a href="#">Dokumentasi</a>
+                <a href="#">Referensi API</a>
+                <a href="#">Forum Komunitas</a>
+                <a href="#">Hubungi Support</a>
+                <a href="#">Laporkan Masalah</a>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 AllUnivers IHSFB Container. All rights reserved. | Powered by UIREBER System</p>
+            <p>&copy; 2026 AllUnivers IHSFB Container. Hak cipta dilindungi. | Digerakkan oleh Sistem UIREBER</p>
             <p style="margin-top: 10px; font-size: 12px;">
-                System Status: <span style="color: var(--success-color);">● Operational</span> | 
-                Last Sync: <span id="lastSync">Just now</span>
+                Status Sistem: <span style="color: var(--success-color);">● Operasional</span> | 
+                Sinkronisasi Terakhir: <span id="lastSync">Baru saja</span>
             </p>
         </div>
     </footer>
