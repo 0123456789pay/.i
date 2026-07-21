@@ -79,11 +79,6 @@
             white-space: nowrap;
         }
 
-        .brand-logo i {
-            color: #ffffff;
-            filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
-        }
-
         /* Navigation Menu */
         .nav-menu {
             display: flex;
@@ -609,6 +604,48 @@
             text-shadow: 0 1px 4px rgba(0,0,0,0.3);
         }
 
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content-custom {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         /* Panel Section */
         .panel-section {
             background: white;
@@ -1070,8 +1107,7 @@
         <div class="navbar-container">
             <div class="navbar-left">
                 <a href="#" class="brand-logo">
-                    <i class="fas fa-thumbtack"></i>
-                    <span>ALLUNIVERS.DIGITAL</span>
+                    <span>ALLUNIVERS ICONER</span>
                 </a>
                 <ul class="nav-menu">
                     <!-- Menu Market Icon -->
@@ -1136,11 +1172,11 @@
                 </ul>
             </div>
             <div class="auth-buttons">
-                <button class="btn-auth btn-login" onclick="openPanel('loginPanel')">
-                    <i class="fas fa-sign-in-alt"></i> Login
+                <button class="btn-auth btn-login" onclick="openAuthModal('login')">
+                    Login
                 </button>
-                <button class="btn-auth btn-register" onclick="openPanel('registerPanel')">
-                    <i class="fas fa-user-plus"></i> Register
+                <button class="btn-auth btn-register" onclick="openAuthModal('register')">
+                    Register
                 </button>
             </div>
         </div>
@@ -1201,8 +1237,70 @@
             <p>Coba kata kunci pencarian lain atau pilih kategori berbeda</p>
         </div>
 
-        <!-- Login Panel -->
-        <div id="loginPanel" class="panel-section">
+        <!-- Login/Register Modal -->
+        <div id="authModal" class="modal-overlay">
+            <div class="modal-content-custom">
+                <div class="panel-header" style="margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border);">
+                    <h3 class="panel-title" id="modalTitle"><i class="fas fa-sign-in-alt"></i> Login ke Akun Anda</h3>
+                    <button class="panel-close" onclick="closeAuthModal()"><i class="fas fa-times"></i></button>
+                </div>
+                
+                <!-- Login Form -->
+                <div id="loginFormContainer">
+                    <form class="registrar-form" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="nama@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="Masukkan password" required />
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe" />
+                            <label class="form-check-label" for="rememberMe">Ingat saya</label>
+                        </div>
+                        <button type="submit" class="btn-primary-custom" style="width: 100%;">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </form>
+                    <p style="text-align: center; margin-top: 1rem; color: var(--text-light);">
+                        Belum punya akun? <a href="#" onclick="showRegister(); return false;" style="color: var(--primary); font-weight: 600;">Daftar sekarang</a>
+                    </p>
+                </div>
+                
+                <!-- Register Form -->
+                <div id="registerFormContainer" style="display: none;">
+                    <form class="registrar-form" onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" placeholder="Nama lengkap anda" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="nama@email.com" required />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" placeholder="Minimal 8 karakter" required minlength="8" />
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required />
+                            <label class="form-check-label" for="agreeTerms">Saya setuju dengan Syarat & Ketentuan</label>
+                        </div>
+                        <button type="submit" class="btn-primary-custom" style="width: 100%;">
+                            <i class="fas fa-user-plus"></i> Daftar Sekarang
+                        </button>
+                    </form>
+                    <p style="text-align: center; margin-top: 1rem; color: var(--text-light);">
+                        Sudah punya akun? <a href="#" onclick="showLogin(); return false;" style="color: var(--primary); font-weight: 600;">Login di sini</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Panel (kept for backward compatibility, hidden by default) -->
+        <div id="loginPanel" class="panel-section" style="display: none;">
             <div class="panel-header">
                 <h3 class="panel-title"><i class="fas fa-sign-in-alt"></i> Login ke Akun Anda</h3>
                 <button class="panel-close" onclick="closePanel('loginPanel')"><i class="fas fa-times"></i> Tutup</button>
@@ -1228,8 +1326,8 @@
             </div>
         </div>
 
-        <!-- Register Panel -->
-        <div id="registerPanel" class="panel-section">
+        <!-- Register Panel (kept for backward compatibility, hidden by default) -->
+        <div id="registerPanel" class="panel-section" style="display: none;">
             <div class="panel-header">
                 <h3 class="panel-title"><i class="fas fa-user-plus"></i> Buat Akun Baru</h3>
                 <button class="panel-close" onclick="closePanel('registerPanel')"><i class="fas fa-times"></i> Tutup</button>
@@ -1284,7 +1382,7 @@
                         <li><i class="fas fa-check-circle"></i> License Komersial</li>
                         <li><i class="fas fa-check-circle"></i> Support Email</li>
                     </ul>
-                    <button class="btn-primary-custom" onclick="openPanel('registerPanel')">Pilih</button>
+                    <button class="btn-primary-custom" onclick="openAuthModal('register')">Pilih</button>
                 </div>
                 <div class="pricing-card featured">
                     <h4>Professional</h4>
@@ -1295,7 +1393,7 @@
                         <li><i class="fas fa-check-circle"></i> License Extended</li>
                         <li><i class="fas fa-check-circle"></i> Priority Support</li>
                     </ul>
-                    <button class="btn-primary-custom" style="background: white; color: var(--primary);" onclick="openPanel('registerPanel')">Pilih</button>
+                    <button class="btn-primary-custom" style="background: white; color: var(--primary);" onclick="openAuthModal('register')">Pilih</button>
                 </div>
                 <div class="pricing-card">
                     <h4>Enterprise</h4>
@@ -1306,7 +1404,7 @@
                         <li><i class="fas fa-check-circle"></i> API Access</li>
                         <li><i class="fas fa-check-circle"></i> Dedicated Support</li>
                     </ul>
-                    <button class="btn-primary-custom" onclick="openPanel('registerPanel')">Pilih</button>
+                    <button class="btn-primary-custom" onclick="openAuthModal('register')">Pilih</button>
                 </div>
             </div>
         </div>
@@ -1632,26 +1730,77 @@
             contentSection.style.animation = 'fadeInUp 0.6s ease-out';
         }
 
+        function openAuthModal(type = 'login') {
+            const modal = document.getElementById('authModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const loginForm = document.getElementById('loginFormContainer');
+            const registerForm = document.getElementById('registerFormContainer');
+            
+            if (type === 'register') {
+                showRegister();
+            } else {
+                showLogin();
+            }
+            
+            modal.classList.add('active');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('authModal').classList.remove('active');
+        }
+
+        function showLogin() {
+            const modalTitle = document.getElementById('modalTitle');
+            const loginForm = document.getElementById('loginFormContainer');
+            const registerForm = document.getElementById('registerFormContainer');
+            
+            modalTitle.innerHTML = '<i class="fas fa-sign-in-alt"></i> Login ke Akun Anda';
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+        }
+
+        function showRegister() {
+            const modalTitle = document.getElementById('modalTitle');
+            const loginForm = document.getElementById('loginFormContainer');
+            const registerForm = document.getElementById('registerFormContainer');
+            
+            modalTitle.innerHTML = '<i class="fas fa-user-plus"></i> Buat Akun Baru';
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        }
+
         function openPanel(panelId) {
-            document.querySelectorAll('.panel-section').forEach(p => p.classList.remove('active'));
-            document.getElementById(panelId).classList.add('active');
-            document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Use modal instead of panel for login/register
+            if (panelId === 'loginPanel') {
+                openAuthModal('login');
+            } else if (panelId === 'registerPanel') {
+                openAuthModal('register');
+            } else {
+                document.querySelectorAll('.panel-section').forEach(p => p.classList.remove('active'));
+                document.getElementById(panelId).classList.add('active');
+                document.getElementById(panelId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
 
         function closePanel(panelId) {
-            document.getElementById(panelId).classList.remove('active');
+            // Close modal instead of panel for login/register
+            if (panelId === 'loginPanel' || panelId === 'registerPanel') {
+                closeAuthModal();
+            } else {
+                document.getElementById(panelId).classList.remove('active');
+            }
         }
 
         function handleLogin(event) {
             event.preventDefault();
             alert('Login berhasil! Mengalihkan ke dashboard...');
-            closePanel('loginPanel');
+            closeAuthModal();
         }
 
         function handleRegister(event) {
             event.preventDefault();
             alert('Registrasi akun berhasil! Silakan verifikasi email Anda.');
-            closePanel('registerPanel');
+            closeAuthModal();
         }
 
         function searchDesign() {
