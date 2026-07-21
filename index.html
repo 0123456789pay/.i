@@ -181,7 +181,12 @@
     <main class="main-content">
         <!-- STUDIO ICON SECTIONS -->
         <section id="icon-maker" class="section studio-section" style="display:none;">
-            <h2 class="section-title"><i class="fas fa-icons"></i> Icon Maker</h2>
+            <h2 class="section-title"><i class="fas fa-icons"></i> Icon Maker - Cahaya Iconer</h2>
+            <!-- Icon Maker Full Screen Container -->
+            <div id="icon-maker-container" style="width: 100%; height: calc(100vh - 200px); margin-top: 1rem;"></div>
+            
+            <!-- Legacy Icon Maker (hidden by default) -->
+            <div id="legacy-icon-maker" style="display:none;">
             <div class="studio-toolbar">
                 <button class="tool-btn" onclick="setIconSize(16)"><i class="fas fa-square"></i> 16px</button>
                 <button class="tool-btn" onclick="setIconSize(32)"><i class="fas fa-square"></i> 32px</button>
@@ -239,6 +244,7 @@
                 <h4>Icon Templates</h4>
                 <div class="template-grid" id="iconTemplates"></div>
             </div>
+            </div><!-- End legacy-icon-maker -->
         </section>
 
         <section id="vector-editor" class="section studio-section" style="display:none;">
@@ -1090,6 +1096,11 @@
                 target.style.display = 'block';
                 setTimeout(() => target.classList.add('active'), 10);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Initialize Icon Maker when section is opened
+                if (sectionId === 'icon-maker') {
+                    initIconMaker();
+                }
             }
             initCanvas();
             if (sectionId === 'desain') {
@@ -1097,6 +1108,31 @@
                 generatePalette('monochromatic');
                 loadLayoutTemplates();
             }
+        }
+        
+        // Initialize Full-Screen Icon Maker
+        function initIconMaker() {
+            // Check if Icon Maker is already initialized
+            if (window.iconMakerInitialized) {
+                return;
+            }
+            
+            // Load Icon Maker module
+            import('./https.cahayaiconer/icon-maker/index.js')
+                .then(module => {
+                    const IconMaker = module.default || module.IconMaker;
+                    if (IconMaker && document.getElementById('icon-maker-container')) {
+                        window.iconMaker = new IconMaker();
+                        window.iconMakerInitialized = true;
+                        console.log('✅ Icon Maker loaded successfully');
+                    }
+                })
+                .catch(err => {
+                    console.error('❌ Failed to load Icon Maker:', err);
+                    // Fallback to legacy icon maker
+                    document.getElementById('icon-maker-container').style.display = 'none';
+                    document.getElementById('legacy-icon-maker').style.display = 'block';
+                });
         }
 
         // Initialize Canvas for Icon Maker
