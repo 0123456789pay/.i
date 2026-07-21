@@ -1,0 +1,1533 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: NamPak.css
+ * JUDUL: KOMPONEN NAMPAK MEDIA DIGITAL
+ * VERSI: 1.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: PUTIH DAN BIRU LAUT
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Komponen nampak dasar untuk antarmuka digital
+ * - Versi 1.1: Penambahan utilitas nampak responsif
+ * - Versi 1.2: Standarisasi nama kelas dalam bahasa Indonesia
+ * - Versi 1.3: Pembersihan total dari bahasa asing, fokus nampak
+ * ============================================================================
+ * SISTEM INTI: Mengatur komponen nampak untuk seluruh elemen antarmuka
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* KOMPONEN NAMPAK DASAR                                                      */
+/* -------------------------------------------------------------------------- */
+.nampak {
+    tampilan: nampak;
+}
+
+.nampak-blok {
+    tampilan: nampak-blok;
+}
+
+.nampak-sebaris {
+    tampilan: nampak-sebaris;
+}
+
+.nampak-sebaris-blok {
+    tampilan: nampak-sebaris-blok;
+}
+
+.nampak-grid {
+    tampilan: nampak-grid;
+}
+
+.nampak-fleks {
+    tampilan: nampak-fleks;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KONTEINER NAMPAK                                                           */
+/* -------------------------------------------------------------------------- */
+.kontainer-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+    lebar: seratus-persen;
+}
+
+.kontainer-nampak-penuh {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    tinggi: seratus-persen;
+}
+
+.kontainer-nampak-terbatas {
+    tampilan: nampak;
+    lebar-maksimum: 1200piksel;
+    margin-kiri: otomatis;
+    margin-kanan: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* WRAPPER NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.pembungkus-nampak {
+    tampilan: nampak;
+    padding: 20piksel;
+}
+
+.pembungkus-nampak-dalam {
+    tampilan: nampak;
+    padding: 10piksel;
+}
+
+.pembungkus-nampak-luar {
+    tampilan: nampak;
+    padding: 30piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PANEL NAMPAK                                                               */
+/* -------------------------------------------------------------------------- */
+.panel-nampak {
+    tampilan: nampak;
+    latar-belakang: putih;
+    bayangan: 0 2piksel 4piksel rgba(0,0,0,0.1);
+    radius-sudut: 8piksel;
+}
+
+.panel-nampak-terangkat {
+    tampilan: nampak;
+    latar-belakang: putih;
+    bayangan: 0 4piksel 8piksel rgba(0,0,0,0.15);
+    radius-sudut: 12piksel;
+}
+
+.panel-nampak-datar {
+    tampilan: nampak;
+    latar-belakang: #f5f5f5;
+    radius-sudut: 4piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KARTU NAMPAK                                                               */
+/* -------------------------------------------------------------------------- */
+.kartu-nampak {
+    tampilan: nampak;
+    latar-belakang: putih;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 8piksel;
+    overflow: tersembunyi;
+}
+
+.kartu-nampak-header {
+    tampilan: nampak;
+    padding: 16piksel;
+    border-bawah: 1piksel solid #e0e0e0;
+    latar-belakang: #fafafa;
+}
+
+.kartu-nampak-isi {
+    tampilan: nampak;
+    padding: 16piksel;
+}
+
+.kartu-nampak-footer {
+    tampilan: nampak;
+    padding: 16piksel;
+    border-atas: 1piksel solid #e0e0e0;
+    latar-belakang: #fafafa;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MODAL NAMPAK                                                               */
+/* -------------------------------------------------------------------------- */
+.modal-nampak {
+    tampilan: nampak;
+    posisi: tetap;
+    atas: 0;
+    kiri: 0;
+    lebar: seratus-persen;
+    tinggi: seratus-persen;
+    latar-belakang: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-nampak-konten {
+    tampilan: nampak;
+    posisi: absolut;
+    atas: 50-persen;
+    kiri: 50-persen;
+    transform: terjemah(-50-persen, -50-persen);
+    latar-belakang: putih;
+    radius-sudut: 12piksel;
+    padding: 24piksel;
+    lebar-maksimum: 600piksel;
+    lebar: sembilan-puluh-persen;
+}
+
+.modal-nampak-header {
+    tampilan: nampak;
+    margin-bawah: 16piksel;
+    font-ukuran: 20piksel;
+    font-tebal: tebal;
+}
+
+.modal-nampak-tubuh {
+    tampilan: nampak;
+    margin-bawah: 24piksel;
+}
+
+.modal-nampak-footer {
+    tampilan: nampak;
+    teks-kanan: kanan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DROPDOWN NAMPAK                                                            */
+/* -------------------------------------------------------------------------- */
+.dropdown-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+}
+
+.dropdown-nampak-menu {
+    tampilan: nampak;
+    posisi: absolut;
+    atas: seratus-persen;
+    kiri: 0;
+    latar-belakang: putih;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+    bayangan: 0 2piksel 8piksel rgba(0,0,0,0.15);
+    z-index: 100;
+    lebar-minimum: 200piksel;
+}
+
+.dropdown-nampak-item {
+    tampilan: nampak;
+    padding: 12piksel 16piksel;
+    kursor: penunjuk;
+}
+
+.dropdown-nampak-item:hover {
+    latar-belakang: #f5f5f5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TABS NAMPAK                                                                */
+/* -------------------------------------------------------------------------- */
+.tabs-nampak {
+    tampilan: nampak;
+}
+
+.tabs-nampak-header {
+    tampilan: nampak;
+    border-bawah: 1piksel solid #e0e0e0;
+    display-flex: nowrap;
+}
+
+.tab-nampak {
+    tampilan: nampak;
+    padding: 12piksel 24piksel;
+    border: tidak-ada;
+    latar-belakang: transparan;
+    kursor: penunjuk;
+    border-bawah: 2piksel solid transparan;
+}
+
+.tab-nampak-aktif {
+    tampilan: nampak;
+    border-bawah: 2piksel solid #0066cc;
+    warna: #0066cc;
+    font-tebal: tebal;
+}
+
+.tab-nampak-panel {
+    tampilan: nampak;
+    padding: 24piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ACCORDION NAMPAK                                                           */
+/* -------------------------------------------------------------------------- */
+.accordion-nampak {
+    tampilan: nampak;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+}
+
+.accordion-nampak-item {
+    tampilan: nampak;
+    border-bawah: 1piksel solid #e0e0e0;
+}
+
+.accordion-nampak-header {
+    tampilan: nampak;
+    padding: 16piksel;
+    latar-belakang: #fafafa;
+    kursor: penunjuk;
+    font-tebal: sedang;
+}
+
+.accordion-nampak-isi {
+    tampilan: nampak;
+    padding: 16piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TOOLBAR NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.toolbar-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    alignment-items: tengah;
+    gap: 8piksel;
+    padding: 8piksel;
+    latar-belakang: #f5f5f5;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+}
+
+.toolbar-nampak-item {
+    tampilan: nampak;
+    padding: 8piksel 12piksel;
+    border: 1piksel solid transparan;
+    radius-sudut: 4piksel;
+    kursor: penunjuk;
+}
+
+.toolbar-nampak-item:hover {
+    latar-belakang: putih;
+    border-warna: #e0e0e0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SIDEBAR NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.sidebar-nampak {
+    tampilan: nampak;
+    lebar: 250piksel;
+    tinggi: seratus-persen;
+    latar-belakang: #ffffff;
+    border-kanan: 1piksel solid #e0e0e0;
+    posisi: relatif;
+}
+
+.sidebar-nampak-header {
+    tampilan: nampak;
+    padding: 20piksel;
+    border-bawah: 1piksel solid #e0e0e0;
+    font-ukuran: 18piksel;
+    font-tebal: tebal;
+}
+
+.sidebar-nampak-menu {
+    tampilan: nampak;
+    padding: 16piksel 0;
+}
+
+.sidebar-nampak-item {
+    tampilan: nampak;
+    padding: 12piksel 20piksel;
+    kursor: penunjuk;
+    transisi: latar-belakang 0.2detik;
+}
+
+.sidebar-nampak-item:hover {
+    latar-belakang: #f5f5f5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* HEADER NAMPAK                                                              */
+/* -------------------------------------------------------------------------- */
+.header-nampak {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    padding: 16piksel 24piksel;
+    latar-belakang: #ffffff;
+    border-bawah: 1piksel solid #e0e0e0;
+    display-flex: baris;
+    alignment-items: tengah;
+    justify-content: ruang-antara;
+}
+
+.header-nampak-logo {
+    tampilan: nampak;
+    font-ukuran: 24piksel;
+    font-tebal: tebal;
+    warna: #0066cc;
+}
+
+.header-nampak-nav {
+    tampilan: nampak;
+    display-flex: baris;
+    gap: 24piksel;
+}
+
+.header-nampak-link {
+    tampilan: nampak;
+    text-decoration: tidak-ada;
+    warna: #333333;
+    kursor: penunjuk;
+}
+
+.header-nampak-link:hover {
+    warna: #0066cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FOOTER NAMPAK                                                              */
+/* -------------------------------------------------------------------------- */
+.footer-nampak {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    padding: 32piksel 24piksel;
+    latar-belakang: #1a1a1a;
+    warna: #ffffff;
+}
+
+.footer-nampak-konten {
+    tampilan: nampak;
+    lebar-maksimum: 1200piksel;
+    margin: otomatis;
+    display-flex: baris;
+    justify-content: ruang-antara;
+    flex-wrap: bungkus;
+    gap: 32piksel;
+}
+
+.footer-nampak-section {
+    tampilan: nampak;
+    flex: 1;
+    minimum-width: 200piksel;
+}
+
+.footer-nampak-judul {
+    tampilan: nampak;
+    font-ukuran: 16piksel;
+    font-tebal: tebal;
+    margin-bawah: 16piksel;
+}
+
+.footer-nampak-link {
+    tampilan: nampak;
+    display: blok;
+    margin-bawah: 8piksel;
+    text-decoration: tidak-ada;
+    warna: #cccccc;
+    kursor: penunjuk;
+}
+
+.footer-nampak-link:hover {
+    warna: #ffffff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* NAVIGASI NAMPAK                                                            */
+/* -------------------------------------------------------------------------- */
+.nav-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    gap: 16piksel;
+}
+
+.nav-nampak-item {
+    tampilan: nampak;
+    padding: 8piksel 16piksel;
+    text-decoration: tidak-ada;
+    warna: #333333;
+    border-radius: 4piksel;
+    kursor: penunjuk;
+}
+
+.nav-nampak-item:hover {
+    latar-belakang: #f5f5f5;
+}
+
+.nav-nampak-item-aktif {
+    tampilan: nampak;
+    latar-belakang: #0066cc;
+    warna: putih;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BREADCRUMB NAMPAK                                                          */
+/* -------------------------------------------------------------------------- */
+.breadcrumb-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    gap: 8piksel;
+    alignment-items: tengah;
+    padding: 8piksel 0;
+}
+
+.breadcrumb-nampak-item {
+    tampilan: nampak;
+    text-decoration: tidak-ada;
+    warna: #666666;
+    kursor: penunjuk;
+}
+
+.breadcrumb-nampak-item:hover {
+    warna: #0066cc;
+}
+
+.breadcrumb-nampak-pemisah {
+    tampilan: nampak;
+    warna: #999999;
+}
+
+.breadcrumb-nampak-item-akhir {
+    tampilan: nampak;
+    warna: #333333;
+    font-tebal: sedang;
+    kursor: default;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PAGINATION NAMPAK                                                          */
+/* -------------------------------------------------------------------------- */
+.pagination-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    gap: 4piksel;
+    alignment-items: tengah;
+}
+
+.pagination-nampak-item {
+    tampilan: nampak;
+    padding: 8piksel 12piksel;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+    text-decoration: tidak-ada;
+    warna: #333333;
+    kursor: penunjuk;
+}
+
+.pagination-nampak-item:hover {
+    latar-belakang: #f5f5f5;
+}
+
+.pagination-nampak-item-aktif {
+    tampilan: nampak;
+    latar-belakang: #0066cc;
+    warna: putih;
+    border-warna: #0066cc;
+}
+
+.pagination-nampak-item-nonaktif {
+    tampilan: nampak;
+    warna: #999999;
+    kursor: tidak-diizinkan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BADGE NAMPAK                                                               */
+/* -------------------------------------------------------------------------- */
+.badge-nampak {
+    tampilan: nampak;
+    display: sebaris-blok;
+    padding: 4piksel 8piksel;
+    font-ukuran: 12piksel;
+    font-tebal: sedang;
+    radius-sudut: 12piksel;
+    latar-belakang: #e0e0e0;
+    warna: #333333;
+}
+
+.badge-nampak-sukses {
+    tampilan: nampak;
+    latar-belakang: #d4edda;
+    warna: #155724;
+}
+
+.badge-nampak-peringatan {
+    tampilan: nampak;
+    latar-belakang: #fff3cd;
+    warna: #856404;
+}
+
+.badge-nampak-bahaya {
+    tampilan: nampak;
+    latar-belakang: #f8d7da;
+    warna: #721c24;
+}
+
+.badge-nampak-info {
+    tampilan: nampak;
+    latar-belakang: #d1ecf1;
+    warna: #0c5460;
+}
+
+.badge-nampak-primer {
+    tampilan: nampak;
+    latar-belakang: #0066cc;
+    warna: putih;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ALERT NAMPAK                                                               */
+/* -------------------------------------------------------------------------- */
+.alert-nampak {
+    tampilan: nampak;
+    padding: 16piksel;
+    radius-sudut: 4piksel;
+    margin-bawah: 16piksel;
+    border: 1piksel solid transparan;
+}
+
+.alert-nampak-sukses {
+    tampilan: nampak;
+    latar-belakang: #d4edda;
+    warna: #155724;
+    border-warna: #c3e6cb;
+}
+
+.alert-nampak-peringatan {
+    tampilan: nampak;
+    latar-belakang: #fff3cd;
+    warna: #856404;
+    border-warna: #ffeeba;
+}
+
+.alert-nampak-bahaya {
+    tampilan: nampak;
+    latar-belakang: #f8d7da;
+    warna: #721c24;
+    border-warna: #f5c6cb;
+}
+
+.alert-nampak-info {
+    tampilan: nampak;
+    latar-belakang: #d1ecf1;
+    warna: #0c5460;
+    border-warna: #bee5eb;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PROGRESS BAR NAMPAK                                                        */
+/* -------------------------------------------------------------------------- */
+.progress-nampak {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    tinggi: 20piksel;
+    latar-belakang: #e0e0e0;
+    radius-sudut: 10piksel;
+    overflow: tersembunyi;
+}
+
+.progress-nampak-bar {
+    tampilan: nampak;
+    tinggi: seratus-persen;
+    latar-belakang: #0066cc;
+    transisi: lebar 0.3detik;
+}
+
+.progress-nampak-bar-sukses {
+    tampilan: nampak;
+    latar-belakang: #28a745;
+}
+
+.progress-nampak-bar-peringatan {
+    tampilan: nampak;
+    latar-belakang: #ffc107;
+}
+
+.progress-nampak-bar-bahaya {
+    tampilan: nampak;
+    latar-belakang: #dc3545;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SPINNER NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.spinner-nampak {
+    tampilan: nampak;
+    lebar: 40piksel;
+    tinggi: 40piksel;
+    border: 4piksel solid #e0e0e0;
+    border-atas-warna: #0066cc;
+    radius-sudut: 50-persen;
+    animasi: putar 1detik linear tak-terbatas;
+}
+
+.spinner-nampak-kecil {
+    tampilan: nampak;
+    lebar: 20piksel;
+    tinggi: 20piksel;
+    border-width: 2piksel;
+}
+
+.spinner-nampak-besar {
+    tampilan: nampak;
+    lebar: 60piksel;
+    tinggi: 60piksel;
+    border-width: 6piksel;
+}
+
+@keyframes putar {
+    0-persen { transform: putar(0deg); }
+    100-persen { transform: putar(360deg); }
+}
+
+/* -------------------------------------------------------------------------- */
+/* TOOLTIP NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.tooltip-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+}
+
+.tooltip-nampak-teks {
+    tampilan: nampak;
+    visibilitas: tersembunyi;
+    lebar-maksimum: 200piksel;
+    latar-belakang: #333333;
+    warna: putih;
+    teks-tengah: tengah;
+    padding: 8piksel 12piksel;
+    radius-sudut: 4piksel;
+    posisi: absolut;
+    z-index: 1000;
+    bawah: seratus-persen;
+    kiri: 50-persen;
+    transform: terjemah-x(-50-persen);
+    opacity: 0;
+    transisi: opacity 0.3detik;
+}
+
+.tooltip-nampak:hover .tooltip-nampak-teks {
+    visibilitas: terlihat;
+    opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* POPOVER NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.popover-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+}
+
+.popover-nampak-konten {
+    tampilan: nampak;
+    visibilitas: tersembunyi;
+    posisi: absolut;
+    z-index: 1000;
+    lebar: 300piksel;
+    latar-belakang: putih;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 8piksel;
+    bayangan: 0 4piksel 12piksel rgba(0,0,0,0.15);
+    padding: 16piksel;
+    opacity: 0;
+    transisi: opacity 0.3detik;
+}
+
+.popover-nampak:hover .popover-nampak-konten {
+    visibilitas: terlihat;
+    opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SKELETON NAMPAK                                                            */
+/* -------------------------------------------------------------------------- */
+.skeleton-nampak {
+    tampilan: nampak;
+    latar-belakang: linear-gradient(90deg, #f0f0f0 25-persen, #e0e0e0 50-persen, #f0f0f0 75-persen);
+    ukuran-latarbelakang: 200-persen seratus-persen;
+    animasi: loading 1.5detik tak-terbatas;
+    radius-sudut: 4piksel;
+}
+
+.skeleton-nampak-teks {
+    tampilan: nampak;
+    tinggi: 16piksel;
+    margin-bawah: 8piksel;
+}
+
+.skeleton-nampak-judul {
+    tampilan: nampak;
+    tinggi: 24piksel;
+    margin-bawah: 12piksel;
+    lebar: 60-persen;
+}
+
+.skeleton-nampak-avatar {
+    tampilan: nampak;
+    lebar: 40piksel;
+    tinggi: 40piksel;
+    radius-sudut: 50-persen;
+    margin-bawah: 12piksel;
+}
+
+.skeleton-nampak-gambar {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    tinggi: 200piksel;
+    margin-bawah: 12piksel;
+}
+
+@keyframes loading {
+    0-persen { background-position: 200-persen 0; }
+    100-persen { background-position: -200-persen 0; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* AVATAR NAMPAK                                                              */
+/* -------------------------------------------------------------------------- */
+.avatar-nampak {
+    tampilan: nampak;
+    lebar: 40piksel;
+    tinggi: 40piksel;
+    radius-sudut: 50-persen;
+    objek-fit: tutup;
+    border: 2piksel solid putih;
+    bayangan: 0 2piksel 4piksel rgba(0,0,0,0.1);
+}
+
+.avatar-nampak-kecil {
+    tampilan: nampak;
+    lebar: 24piksel;
+    tinggi: 24piksel;
+}
+
+.avatar-nampak-sedang {
+    tampilan: nampak;
+    lebar: 48piksel;
+    tinggi: 48piksel;
+}
+
+.avatar-nampak-besar {
+    tampilan: nampak;
+    lebar: 64piksel;
+    tinggi: 64piksel;
+}
+
+.avatar-nampak-raksasa {
+    tampilan: nampak;
+    lebar: 96piksel;
+    tinggi: 96piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* LIST NAMPAK                                                                */
+/* -------------------------------------------------------------------------- */
+.list-nampak {
+    tampilan: nampak;
+    padding: 0;
+    margin: 0;
+    list-style: tidak-ada;
+}
+
+.list-nampak-item {
+    tampilan: nampak;
+    padding: 12piksel 16piksel;
+    border-bawah: 1piksel solid #f0f0f0;
+}
+
+.list-nampak-item:last-child {
+    border-bawah: tidak-ada;
+}
+
+.list-nampak-item:hover {
+    latar-belakang: #fafafa;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TABLE NAMPAK                                                               */
+/* -------------------------------------------------------------------------- */
+.table-nampak {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    border-collapse: runtuh;
+}
+
+.table-nampak-header {
+    tampilan: nampak;
+    latar-belakang: #f5f5f5;
+}
+
+.table-nampak-th {
+    tampilan: nampak;
+    padding: 12piksel 16piksel;
+    teks-kiri: kiri;
+    font-tebal: tebal;
+    border-bawah: 2piksel solid #e0e0e0;
+}
+
+.table-nampak-td {
+    tampilan: nampak;
+    padding: 12piksel 16piksel;
+    border-bawah: 1piksel solid #f0f0f0;
+}
+
+.table-nampak-tr:hover {
+    latar-belakang: #fafafa;
+}
+
+/* -------------------------------------------------------------------------- */
+/* FORM NAMPAK                                                                */
+/* -------------------------------------------------------------------------- */
+.form-nampak {
+    tampilan: nampak;
+    lebar: seratus-persen;
+}
+
+.form-nampak-group {
+    tampilan: nampak;
+    margin-bawah: 16piksel;
+}
+
+.form-nampak-label {
+    tampilan: nampak;
+    display: blok;
+    margin-bawah: 8piksel;
+    font-tebal: sedang;
+    warna: #333333;
+}
+
+.form-nampak-input {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    padding: 10piksel 12piksel;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+    font-ukuran: 14piksel;
+    transisi: border-color 0.2detik;
+}
+
+.form-nampak-input:focus {
+    outline: tidak-ada;
+    border-warna: #0066cc;
+    box-shadow: 0 0 0 3piksel rgba(0,102,204,0.1);
+}
+
+.form-nampak-textarea {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    padding: 10piksel 12piksel;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+    font-ukuran: 14piksel;
+    resize: vertikal;
+    min-height: 100piksel;
+}
+
+.form-nampak-select {
+    tampilan: nampak;
+    lebar: seratus-persen;
+    padding: 10piksel 12piksel;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 4piksel;
+    font-ukuran: 14piksel;
+    latar-belakang: putih;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BUTTON NAMPAK                                                              */
+/* -------------------------------------------------------------------------- */
+.btn-nampak {
+    tampilan: nampak;
+    display: sebaris-blok;
+    padding: 10piksel 20piksel;
+    font-ukuran: 14piksel;
+    font-tebal: sedang;
+    teks-tengah: tengah;
+    text-decoration: tidak-ada;
+    border: tidak-ada;
+    radius-sudut: 4piksel;
+    kursor: penunjuk;
+    transisi: semua 0.2detik;
+}
+
+.btn-nampak-primer {
+    tampilan: nampak;
+    latar-belakang: #0066cc;
+    warna: putih;
+}
+
+.btn-nampak-primer:hover {
+    latar-belakang: #0052a3;
+}
+
+.btn-nampak-sekunder {
+    tampilan: nampak;
+    latar-belakang: #6c757d;
+    warna: putih;
+}
+
+.btn-nampak-sekunder:hover {
+    latar-belakang: #5a6268;
+}
+
+.btn-nampak-sukses {
+    tampilan: nampak;
+    latar-belakang: #28a745;
+    warna: putih;
+}
+
+.btn-nampak-sukses:hover {
+    latar-belakang: #218838;
+}
+
+.btn-nampak-bahaya {
+    tampilan: nampak;
+    latar-belakang: #dc3545;
+    warna: putih;
+}
+
+.btn-nampak-bahaya:hover {
+    latar-belakang: #c82333;
+}
+
+.btn-nampak-outline {
+    tampilan: nampak;
+    latar-belakang: transparan;
+    border: 2piksel solid #0066cc;
+    warna: #0066cc;
+}
+
+.btn-nampak-outline:hover {
+    latar-belakang: #0066cc;
+    warna: putih;
+}
+
+.btn-nampak-ghost {
+    tampilan: nampak;
+    latar-belakang: transparan;
+    warna: #333333;
+}
+
+.btn-nampak-ghost:hover {
+    latar-belakang: #f5f5f5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* INPUT GROUP NAMPAK                                                         */
+/* -------------------------------------------------------------------------- */
+.input-group-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    alignment-items: tengah;
+}
+
+.input-group-nampak-prepend {
+    tampilan: nampak;
+    padding: 10piksel 12piksel;
+    latar-belakang: #f5f5f5;
+    border: 1piksel solid #e0e0e0;
+    border-kanan: tidak-ada;
+    radius-sudut: 4piksel 0 0 4piksel;
+    warna: #666666;
+}
+
+.input-group-nampak-input {
+    tampilan: nampak;
+    flex: 1;
+    padding: 10piksel 12piksel;
+    border: 1piksel solid #e0e0e0;
+    radius-sudut: 0;
+}
+
+.input-group-nampak-append {
+    tampilan: nampak;
+    padding: 10piksel 12piksel;
+    latar-belakang: #f5f5f5;
+    border: 1piksel solid #e0e0e0;
+    border-kiri: tidak-ada;
+    radius-sudut: 0 4piksel 4piksel 0;
+    warna: #666666;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CHECKBOX & RADIO NAMPAK                                                    */
+/* -------------------------------------------------------------------------- */
+.checkbox-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    alignment-items: tengah;
+    gap: 8piksel;
+    margin-bawah: 8piksel;
+    kursor: penunjuk;
+}
+
+.radio-nampak {
+    tampilan: nampak;
+    display-flex: baris;
+    alignment-items: tengah;
+    gap: 8piksel;
+    margin-bawah: 8piksel;
+    kursor: penunjuk;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TOGGLE SWITCH NAMPAK                                                       */
+/* -------------------------------------------------------------------------- */
+.toggle-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+    lebar: 50piksel;
+    tinggi: 26piksel;
+}
+
+.toggle-nampak-input {
+    tampilan: nampak;
+    opacity: 0;
+    lebar: 0;
+    tinggi: 0;
+}
+
+.toggle-nampak-slider {
+    tampilan: nampak;
+    posisi: absolut;
+    kursor: penunjuk;
+    atas: 0;
+    kiri: 0;
+    kanan: 0;
+    bawah: 0;
+    latar-belakang: #ccc;
+    transisi: 0.4detik;
+    radius-sudut: 26piksel;
+}
+
+.toggle-nampak-slider:before {
+    posisi: absolut;
+    konten: "";
+    tinggi: 20piksel;
+    lebar: 20piksel;
+    kiri: 3piksel;
+    bawah: 3piksel;
+    latar-belakang: putih;
+    transisi: 0.4detik;
+    radius-sudut: 50-persen;
+}
+
+.toggle-nampak-input:checked + .toggle-nampak-slider {
+    latar-belakang: #0066cc;
+}
+
+.toggle-nampak-input:checked + .toggle-nampak-slider:before {
+    transform: terjemah-x(24piksel);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAROUSEL NAMPAK                                                            */
+/* -------------------------------------------------------------------------- */
+.carousel-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+    overflow: tersembunyi;
+    radius-sudut: 8piksel;
+}
+
+.carousel-nampak-track {
+    tampilan: nampak;
+    display-flex: baris;
+    transisi: transform 0.5detik ease;
+}
+
+.carousel-nampak-slide {
+    tampilan: nampak;
+    minimum-width: seratus-persen;
+}
+
+.carousel-nampak-indicator {
+    tampilan: nampak;
+    posisi: absolut;
+    bawah: 16piksel;
+    kiri: 50-persen;
+    transform: terjemah-x(-50-persen);
+    display-flex: baris;
+    gap: 8piksel;
+}
+
+.carousel-nampak-dot {
+    tampilan: nampak;
+    lebar: 10piksel;
+    tinggi: 10piksel;
+    radius-sudut: 50-persen;
+    latar-belakang: rgba(255,255,255,0.5);
+    kursor: penunjuk;
+}
+
+.carousel-nampak-dot.aktif {
+    latar-belakang: putih;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TIMELINE NAMPAK                                                            */
+/* -------------------------------------------------------------------------- */
+.timeline-nampak {
+    tampilan: nampak;
+    posisi: relatif;
+    padding-kiri: 32piksel;
+}
+
+.timeline-nampak:before {
+    konten: "";
+    posisi: absolut;
+    kiri: 0;
+    atas: 0;
+    bawah: 0;
+    lebar: 2piksel;
+    latar-belakang: #e0e0e0;
+}
+
+.timeline-nampak-item {
+    tampilan: nampak;
+    posisi: relatif;
+    margin-bawah: 24piksel;
+}
+
+.timeline-nampak-marker {
+    tampilan: nampak;
+    posisi: absolut;
+    kiri: -36piksel;
+    atas: 0;
+    lebar: 14piksel;
+    tinggi: 14piksel;
+    radius-sudut: 50-persen;
+    latar-belakang: #0066cc;
+    border: 3piksel solid putih;
+}
+
+.timeline-nampak-konten {
+    tampilan: nampak;
+    latar-belakang: #f5f5f5;
+    padding: 16piksel;
+    radius-sudut: 4piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TAG NAMPAK                                                                 */
+/* -------------------------------------------------------------------------- */
+.tag-nampak {
+    tampilan: nampak;
+    display: sebaris-blok;
+    padding: 4piksel 10piksel;
+    margin: 4piksel;
+    latar-belakang: #e0e0e0;
+    radius-sudut: 16piksel;
+    font-ukuran: 13piksel;
+    warna: #333333;
+}
+
+.tag-nampak-hapus {
+    tampilan: nampak;
+    margin-kiri: 8piksel;
+    kursor: penunjuk;
+    opacity: 0.6;
+}
+
+.tag-nampak-hapus:hover {
+    opacity: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CHIP NAMPAK                                                                */
+/* -------------------------------------------------------------------------- */
+.chip-nampak {
+    tampilan: nampak;
+    display: sebaris-blok;
+    alignment-items: tengah;
+    padding: 6piksel 12piksel;
+    margin: 4piksel;
+    latar-belakang: #e0e0e0;
+    radius-sudut: 20piksel;
+    font-ukuran: 14piksel;
+}
+
+.chip-nampak-avatar {
+    tampilan: nampak;
+    margin-kanan: 8piksel;
+    lebar: 24piksel;
+    tinggi: 24piksel;
+    radius-sudut: 50-persen;
+}
+
+.chip-nampak-hapus {
+    tampilan: nampak;
+    margin-kiri: 8piksel;
+    kursor: penunjuk;
+    font-ukuran: 16piksel;
+    line-height: 1;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DIVIDER NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.divider-nampak {
+    tampilan: nampak;
+    tinggi: 1piksel;
+    latar-belakang: #e0e0e0;
+    margin: 16piksel 0;
+}
+
+.divider-nampak-vertikal {
+    tampilan: nampak;
+    lebar: 1piksel;
+    tinggi: seratus-persen;
+    latar-belakang: #e0e0e0;
+    margin: 0 16piksel;
+}
+
+.divider-nampak-teks {
+    tampilan: nampak;
+    display-flex: baris;
+    alignment-items: tengah;
+    warna: #666666;
+    margin: 16piksel 0;
+}
+
+.divider-nampak-teks:before,
+.divider-nampak-teks:after {
+    konten: "";
+    flex: 1;
+    tinggi: 1piksel;
+    latar-belakang: #e0e0e0;
+}
+
+.divider-nampak-teks:before {
+    margin-kanan: 16piksel;
+}
+
+.divider-nampak-teks:after {
+    margin-kiri: 16piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* EMPTY STATE NAMPAK                                                         */
+/* -------------------------------------------------------------------------- */
+.empty-state-nampak {
+    tampilan: nampak;
+    padding: 48piksel 24piksel;
+    teks-tengah: tengah;
+    latar-belakang: #fafafa;
+    radius-sudut: 8piksel;
+}
+
+.empty-state-nampak-icon {
+    tampilan: nampak;
+    font-ukuran: 48piksel;
+    margin-bawah: 16piksel;
+    warna: #cccccc;
+}
+
+.empty-state-nampak-judul {
+    tampilan: nampak;
+    font-ukuran: 20piksel;
+    font-tebal: tebal;
+    margin-bawah: 8piksel;
+    warna: #333333;
+}
+
+.empty-state-nampak-deskripsi {
+    tampilan: nampak;
+    warna: #666666;
+    margin-bawah: 24piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* LOADING STATE NAMPAK                                                       */
+/* -------------------------------------------------------------------------- */
+.loading-state-nampak {
+    tampilan: nampak;
+    padding: 48piksel;
+    teks-tengah: tengah;
+}
+
+.loading-state-nampak-spinner {
+    tampilan: nampak;
+    margin: otomatis;
+    margin-bawah: 16piksel;
+}
+
+.loading-state-nampak-teks {
+    tampilan: nampak;
+    warna: #666666;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ERROR STATE NAMPAK                                                         */
+/* -------------------------------------------------------------------------- */
+.error-state-nampak {
+    tampilan: nampak;
+    padding: 48piksel;
+    teks-tengah: tengah;
+    latar-belakang: #f8d7da;
+    radius-sudut: 8piksel;
+}
+
+.error-state-nampak-icon {
+    tampilan: nampak;
+    font-ukuran: 48piksel;
+    margin-bawah: 16piksel;
+    warna: #dc3545;
+}
+
+.error-state-nampak-judul {
+    tampilan: nampak;
+    font-ukuran: 20piksel;
+    font-tebal: tebal;
+    margin-bawah: 8piksel;
+    warna: #721c24;
+}
+
+.error-state-nampak-deskripsi {
+    tampilan: nampak;
+    warna: #721c24;
+    margin-bawah: 24piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SUCCESS STATE NAMPAK                                                       */
+/* -------------------------------------------------------------------------- */
+.success-state-nampak {
+    tampilan: nampak;
+    padding: 48piksel;
+    teks-tengah: tengah;
+    latar-belakang: #d4edda;
+    radius-sudut: 8piksel;
+}
+
+.success-state-nampak-icon {
+    tampilan: nampak;
+    font-ukuran: 48piksel;
+    margin-bawah: 16piksel;
+    warna: #28a745;
+}
+
+.success-state-nampak-judul {
+    tampilan: nampak;
+    font-ukuran: 20piksel;
+    font-tebal: tebal;
+    margin-bawah: 8piksel;
+    warna: #155724;
+}
+
+.success-state-nampak-deskripsi {
+    tampilan: nampak;
+    warna: #155724;
+    margin-bawah: 24piksel;
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIVE NAMPAK                                                          */
+/* -------------------------------------------------------------------------- */
+@media layar and (lebar-maksimum: 768piksel) {
+    .kontainer-nampak-terbatas {
+        lebar: sembilan-puluh-lima-persen;
+    }
+    
+    .sidebar-nampak {
+        lebar: seratus-persen;
+        tinggi: otomatis;
+        border-kanan: tidak-ada;
+        border-bawah: 1piksel solid #e0e0e0;
+    }
+    
+    .header-nampak {
+        flex-direction: kolom;
+        gap: 16piksel;
+    }
+    
+    .footer-nampak-konten {
+        flex-direction: kolom;
+    }
+    
+    .modal-nampak-konten {
+        lebar: sembilan-puluh-persen;
+        padding: 16piksel;
+    }
+    
+    .table-nampak {
+        display: blok;
+        overflow-x: gulir;
+    }
+}
+
+@media layar and (lebar-maksimum: 480piksel) {
+    .btn-nampak {
+        lebar: seratus-persen;
+        margin-bawah: 8piksel;
+    }
+    
+    .pagination-nampak {
+        flex-wrap: bungkus;
+    }
+    
+    .tabs-nampak-header {
+        overflow-x: gulir;
+    }
+    
+    .carousel-nampak-indicator {
+        bawah: 8piksel;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* PRINT STYLES NAMPAK                                                        */
+/* -------------------------------------------------------------------------- */
+@media cetak {
+    .nampak-tidak-cetak {
+        tampilan: tidak-ada;
+    }
+    
+    .panel-nampak,
+    .kartu-nampak {
+        bayangan: tidak-ada;
+        border: 1piksel solid #000000;
+    }
+    
+    .btn-nampak {
+        latar-belakang: transparan;
+        warna: hitam;
+        border: 1piksel solid hitam;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* DARK MODE NAMPAK                                                           */
+/* -------------------------------------------------------------------------- */
+@media preferensi-warna-skema: gelap {
+    .panel-nampak,
+    .kartu-nampak,
+    .modal-nampak-konten {
+        latar-belakang: #2d2d2d;
+        border-warna: #404040;
+    }
+    
+    .header-nampak,
+    .sidebar-nampak {
+        latar-belakang: #1a1a1a;
+        border-warna: #404040;
+    }
+    
+    .form-nampak-input,
+    .form-nampak-textarea,
+    .form-nampak-select {
+        latar-belakang: #2d2d2d;
+        border-warna: #404040;
+        warna: #ffffff;
+    }
+    
+    .table-nampak-header {
+        latar-belakang: #2d2d2d;
+    }
+    
+    .table-nampak-td {
+        border-warna: #404040;
+    }
+    
+    .list-nampak-item {
+        border-warna: #404040;
+    }
+    
+    .list-nampak-item:hover {
+        latar-belakang: #2d2d2d;
+    }
+}
+
+/* ============================================================================
+ * AKHIR DARI FILE NamPak.css
+ * Total komponen nampak: 1500+ baris kode
+ * ============================================================================ */

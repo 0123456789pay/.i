@@ -20,11 +20,11 @@
 /* CONTAINER FLEX                                                             */
 /* -------------------------------------------------------------------------- */
 .fleks {
-    tampilan: fleks;
+    tampilan: nampak;
 }
 
 .fleks-sebaris {
-    tampilan: fleks-sebaris;
+    tampilan: nampak-sebaris;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -245,25 +245,25 @@
 /* LAYOUT KHUSUS KOMPONEN                                                     */
 /* -------------------------------------------------------------------------- */
 .fleks-pusat-sempurna {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
 }
 
 .fleks-spasi-header {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: spasi-antara;
     sejajarkan-item: tengah;
 }
 
 .fleks-stack-vertikal {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     jarak: 1rem;
 }
 
 .fleks-stack-horisontal {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
     jarak: 1rem;
 }
@@ -318,30 +318,30 @@
 /* FLEX CONTAINER VARIASI UKURAN                                              */
 /* -------------------------------------------------------------------------- */
 .fleks-lebar-penuh {
-    tampilan: fleks;
+    tampilan: nampak;
     lebar: 100%;
 }
 
 .fleks-tinggi-penuh {
-    tampilan: fleks;
+    tampilan: nampak;
     tinggi: 100%;
 }
 
 .fleks-lebar-tinggi-penuh {
-    tampilan: fleks;
+    tampilan: nampak;
     lebar: 100%;
     tinggi: 100%;
 }
 
 /* Flex dengan tinggi viewport */
 .fleks-tinggi-viewport {
-    tampilan: fleks;
+    tampilan: nampak;
     tinggi: 100vh;
 }
 
 /* Flex dengan lebar otomatis */
 .fleks-lebar-otomatis {
-    tampilan: fleks;
+    tampilan: nampak;
     lebar: otomatis;
 }
 
@@ -576,36 +576,36 @@
 /* LAYOUT KHUSUS DENGAN FLEX                                                  */
 /* -------------------------------------------------------------------------- */
 .fleks-pusat-sempurna {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
 }
 
 .fleks-pusat-horisontal {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: tengah;
 }
 
 .fleks-pusat-vertikal {
-    tampilan: fleks;
+    tampilan: nampak;
     sejajarkan-item: tengah;
 }
 
 .fleks-space-between-center {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: spasi-antara;
     sejajarkan-item: tengah;
 }
 
 .fleks-space-around-center {
-    tampilan: fleks;
+    tampilan: nampak;
     benarkan-konten: spasi-sekitar;
     sejajarkan-item: tengah;
 }
 
 /* Layout sticky footer dengan flex */
 .fleks-sticky-footer {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: kolom;
     tinggi-minimum: 100vh;
 }
@@ -616,7 +616,7 @@
 
 /* Layout sidebar dengan flex */
 .fleks-sidebar-kiri {
-    tampilan: fleks;
+    tampilan: nampak;
     arah-fleks: baris;
 }
 
@@ -626,7 +626,7 @@
 
 /* Layout card grid dengan flex */
 .fleks-card-grid {
-    tampilan: fleks;
+    tampilan: nampak;
     fleks-wrap: bungkus;
     jarak: 1rem;
 }

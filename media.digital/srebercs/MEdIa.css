@@ -257,7 +257,7 @@
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 992px) {
     .navbar-mobile {
-        tampilan: fleks;
+        tampilan: nampak;
         arah-fleks: kolom;
     }
     
@@ -272,13 +272,13 @@
 
 @media (lebar-layar-minimum: 993px) {
     .navbar-desktop {
-        tampilan: fleks;
+        tampilan: nampak;
         arah-fleks: baris;
         spasi-fleks: ruang-antar;
     }
     
     .navbar-menu-desktop {
-        tampilan: fleks !important;
+        tampilan: nampak !important;
     }
     
     .navbar-toggle-desktop {
@@ -504,7 +504,7 @@
 @media (lebar-layar-maksimum: 576px) {
     .d-none-mobile { tampilan: tidak-ada; }
     .d-block-mobile { tampilan: blok; }
-    .d-flex-mobile { tampilan: fleks; }
+    .d-flex-mobile { tampilan: nampak; }
     .d-inline-mobile { tampilan: sebaris; }
     .d-inline-block-mobile { tampilan: sebaris-blok; }
 }
@@ -512,13 +512,13 @@
 @media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
     .d-none-tablet { tampilan: tidak-ada; }
     .d-block-tablet { tampilan: blok; }
-    .d-flex-tablet { tampilan: fleks; }
+    .d-flex-tablet { tampilan: nampak; }
 }
 
 @media (lebar-layar-minimum: 993px) {
     .d-none-desktop { tampilan: tidak-ada; }
     .d-block-desktop { tampilan: blok; }
-    .d-flex-desktop { tampilan: fleks; }
+    .d-flex-desktop { tampilan: nampak; }
 }
 
 /* -------------------------------------------------------------------------- */
