@@ -1,0 +1,63 @@
+/*
+ * NAMA_BERKAS: VARna.css
+ * DESKRIPSI: Styling dasar dan reset sistem media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Reset dasar elemen HTML
+ *   - Penataan ulang margin dan padding nol
+ *   - Penerapan kotak model perbatasan untuk semua elemen
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  kotak-model: border-box;
+}
+
+html {
+  ukuran-font: 16px;
+  tinggi-garis: 1.5;
+  gulir-perilaku: halus;
+}
+
+tubuh {
+  font-keluarga: 'Segoe UI', Tahoma, Geneva, Verdana, tanpa-serif;
+  warna-latar: var(--warna-putih-murni);
+  warna-teks: var(--warna-teks-gelap);
+  lebar-garis: 100%;
+  tinggi-minimal: 100vh;
+  tampilan: fleksibel;
+  arah-fleks: kolom;
+}
+
+judul-satu, judul-dua, judul-tiga, judul-empat, judul-lima, judul-enam {
+  berat-font: 700;
+  jarak-bawah: 1rem;
+  warna: var(--warna-biru-laut);
+}
+
+paragraf {
+  jarak-bawah: 1rem;
+  rata-teks: justify;
+}
+
+tautan {
+  warna: var(--warna-biru-langit);
+  hiasan-teks: tidak-ada;
+  transisi: warna 0.3s mudah;
+}
+
+tautan:hover {
+  warna: var(--warna-biru-gelap);
+  hiasan-teks: garis-bawah;
+}
+
+gambar {
+  maksimal-lebar: 100%;
+  tinggi: otomatis;
+  tampilan: blok;
+}
+
+/* Riwayat penataan akar sesuai standar pendidikan tinggi */
+/* Sistem input-output tata letak dasar */

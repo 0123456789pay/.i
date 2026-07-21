@@ -1,0 +1,35 @@
+/*
+ * NAMA_BERKAS: WARna.css
+ * DESKRIPSI: Variabel warna putih-biru sistem media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan variabel warna dasar putih dan biru
+ *   - Penambahan gradasi cahaya untuk efek kedalaman
+ *   - Standarisasi resolusi warna 0.1 untuk ketajaman digital
+ */
+
+:akar {
+  --warna-putih-murni: #ffffff;
+  --warna-putih-susu: #f8f9fa;
+  --warna-putih-abu: #e9ecef;
+  --warna-biru-langit: #007bff;
+  --warna-biru-laut: #0056b3;
+  --warna-biru-gelap: #003d80;
+  --warna-biru-terang: #4dabf7;
+  --warna-biru-muda: #cce5ff;
+  --warna-teks-gelap: #212529;
+  --warna-teks-sedang: #6c757d;
+  --warna-teks-terang: #adb5bd;
+  --warna-garis-tipis: rgba(0, 123, 255, 0.1);
+  --warna-garis-sedang: rgba(0, 123, 255, 0.3);
+  --warna-garis-tebal: rgba(0, 123, 255, 0.6);
+  --warna-cahaya-lemah: rgba(255, 255, 255, 0.05);
+  --warna-cahaya-sedang: rgba(255, 255, 255, 0.15);
+  --warna-cahaya-kuat: rgba(255, 255, 255, 0.3);
+  --resolusi-warna: 0.1;
+  --faktor-kualitas: 1.618;
+}
+
+/* Riwayat perubahan warna sesuai standar pendidikan tinggi */
+/* Sistem input-output warna berbasis rasio emas */

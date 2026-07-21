@@ -1,0 +1,100 @@
+/*
+ * NAMA_BERKAS: FORmat.css
+ * DESKRIPSI: Sistem format geometris dan bentuk media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan kelas bentuk dasar
+ *   - Penambahan variasi lingkaran dan elips
+ *   - Implementasi poligon untuk desain modern
+ */
+
+.bentuk-kotak {
+  lebar: 100px;
+  tinggi: 100px;
+  latar-belakang: var(--warna-biru-langit);
+}
+
+.bentuk-lingkaran {
+  lebar: 100px;
+  tinggi: 100px;
+  latar-belakang: var(--warna-biru-laut);
+  batas-jari-jari: 50%;
+}
+
+.bentuk-elips {
+  lebar: 150px;
+  tinggi: 80px;
+  latar-belakang: var(--warna-biru-muda);
+  batas-jari-jari: 50% / 40%;
+}
+
+.bentuk-persegi-panjang {
+  lebar: 200px;
+  tinggi: 100px;
+  latar-belakang: var(--warna-biru-terang);
+  batas-jari-jari: 10px;
+}
+
+.bentuk-segitiga {
+  lebar: 0;
+  tinggi: 0;
+  batas-kiri: 50px transparan;
+  batas-kanan: 50px transparan;
+  batas-bawah: 86px var(--warna-biru-langit);
+}
+
+.bentuk-wajah {
+  lebar: 120px;
+  tinggi: 120px;
+  latar-belakang: var(--warna-biru-laut);
+  batas-jari-jari: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animasi-nama: ubah-bentuk 3s mudah tak-terbatas;
+}
+
+@kunci-frames ubah-bentuk {
+  0% {
+    batas-jari-jari: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    batas-jari-jari: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    batas-jari-jari: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+.bentuk-poligon {
+  clip-path: poligon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  latar-belakang: var(--warna-biru-langit);
+  lebar: 150px;
+  tinggi: 150px;
+}
+
+.bentuk-bintang {
+  clip-path: poligon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+  latar-belakang: var(--warna-biru-laut);
+  lebar: 150px;
+  tinggi: 150px;
+}
+
+.bentuk-jajar-genjang {
+  transform: miring(20derajat);
+  latar-belakang: var(--warna-biru-muda);
+  lebar: 150px;
+  tinggi: 100px;
+}
+
+.grid-bentuk {
+  tampilan: grid;
+  ukuran-grid: ulangi(3, 1fr);
+  jarak-grid: 20px;
+  rata-grid: tengah;
+}
+
+/* Riwayat format geometris sesuai standar pendidikan tinggi */
+/* Sistem bentuk input-output visual media digital */

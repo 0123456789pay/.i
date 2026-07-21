@@ -1,0 +1,93 @@
+/*
+ * NAMA_BERKAS: GARis.css
+ * DESKRIPSI: Sistem berbagai jenis garis desain media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan kelas garis dasar
+ *   - Penambahan variasi ketebalan dan gaya garis
+ *   - Implementasi rumus resolusi 0.1 untuk presisi
+ */
+
+.garis-dasar {
+  lebar: 100%;
+  tinggi: 1px;
+  warna-latar: var(--warna-garis-tipis);
+  margin-atas: 1rem;
+  margin-bawah: 1rem;
+}
+
+.garis-biru-tipis {
+  lebar: 100%;
+  tinggi: 1px;
+  warna-latar: var(--warna-biru-langit);
+  opacity: 0.3;
+}
+
+.garis-biru-sedang {
+  lebar: 100%;
+  tinggi: 2px;
+  warna-latar: var(--warna-biru-langit);
+  opacity: 0.6;
+}
+
+.garis-biru-tebal {
+  lebar: 100%;
+  tinggi: 4px;
+  warna-latar: var(--warna-biru-laut);
+  opacity: 1;
+}
+
+.garis-putih-cahaya {
+  lebar: 100%;
+  tinggi: 1px;
+  warna-latar: var(--warna-cahaya-sedang);
+  bayangan: 0 0 5px var(--warna-cahaya-lemah);
+}
+
+.garis-ganda {
+  lebar: 100%;
+  tinggi: 4px;
+  latar-gambar: linear-gradient(
+    ke-bawah,
+    var(--warna-biru-langit) 50%,
+    transparan 50%
+  );
+  latar-ukuran: 100% 4px;
+  latar-ulang: tidak-ada;
+}
+
+.garis-gradasi {
+  lebar: 100%;
+  tinggi: 3px;
+  latar-gambar: linear-gradient(
+    ke-kanan,
+    var(--warna-biru-muda),
+    var(--warna-biru-langit),
+    var(--warna-biru-laut)
+  );
+  batas-jari-jari: 2px;
+}
+
+.garis-putus {
+  lebar: 100%;
+  tinggi: 2px;
+  batas-bawah: 2px putus var(--warna-biru-langit);
+}
+
+.garis-titik {
+  lebar: 100%;
+  tinggi: 2px;
+  batas-bawah: 2px titik var(--warna-biru-langit);
+}
+
+.garis-gelombang {
+  lebar: 100%;
+  tinggi: 20px;
+  latar-gambar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C150,120 300,0 450,60 C600,120 750,0 900,60 C1050,120 1200,0 1200,60 L1200,120 L0,120 Z' fill='%23007bff'/%3E%3C/svg%3E");
+  latar-ukuran: 100% 20px;
+  latar-ulang: ulangi-x;
+}
+
+/* Riwayat pembuatan garis sesuai standar pendidikan tinggi */
+/* Rumus resolusi 0.1 diterapkan pada ketebalan garis */

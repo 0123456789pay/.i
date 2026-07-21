@@ -1,0 +1,104 @@
+/*
+ * NAMA_BERKAS: INput.css
+ * DESKRIPSI: Sistem masukan dan keluaran data media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan kelas input dasar
+ *   - Penambahan variasi formulir interaktif
+ *   - Implementasi sistem validasi visual
+ */
+
+.masukan-dasar {
+  lebar: 100%;
+  tinggi: 50px;
+  batas: 2px padat var(--warna-biru-langit);
+  batas-jari-jari: 8px;
+  jarak-dalam: 15px;
+  warna-latar: var(--warna-putih-murni);
+  warna-teks: var(--warna-teks-gelap);
+}
+
+.masukan-dasar:focus {
+  batas-warna: var(--warna-biru-laut);
+  bayangan: 0 0 10px var(--warna-biru-muda);
+  garis-luar: tidak-ada;
+}
+
+.keluaran-data {
+  lebar: 100%;
+  tinggi: auto;
+  batas: 2px solid var(--warna-biru-laut);
+  batas-jari-jari: 8px;
+  jarak-dalam: 20px;
+  warna-latar: var(--warna-biru-muda);
+  margin-atas: 20px;
+}
+
+.sistem-input {
+  tampilan: fleksibel;
+  arah-fleks: kolom;
+  jarak-grid: 15px;
+}
+
+.baris-input {
+  tampilan: fleksibel;
+  jarak-grid: 20px;
+}
+
+.label-input {
+  berat-font: 600;
+  warna: var(--warna-biru-laut);
+  margin-bawah: 5px;
+  tampilan: blok;
+}
+
+.tombol-kirim {
+  latar-belakang: var(--warna-biru-langit);
+  warna: var(--warna-putih-murni);
+  batas: tidak-ada;
+  batas-jari-jari: 8px;
+  jarak-dalam: 15px 30px;
+  berat-font: 700;
+  kursor: penunjuk;
+  transisi: semua 0.3s mudah;
+}
+
+.tombol-kirim:hover {
+  latar-belakang: var(--warna-biru-laut);
+  ubah: skala(1.05);
+}
+
+.validasi-sukses {
+  batas-warna: #28a745;
+  bayangan: 0 0 10px rgba(40, 167, 69, 0.3);
+}
+
+.validasi-gagal {
+  batas-warna: #dc3545;
+  bayangan: 0 0 10px rgba(220, 53, 69, 0.3);
+}
+
+.pesan-sukses {
+  warna: #28a745;
+  berat-font: 600;
+  margin-atas: 10px;
+}
+
+.pesan-gagal {
+  warna: #dc3545;
+  berat-font: 600;
+  margin-atas: 10px;
+}
+
+.area-teks {
+  lebar: 100%;
+  tinggi: 150px;
+  batas: 2px padat var(--warna-biru-langit);
+  batas-jari-jari: 8px;
+  jarak-dalam: 15px;
+  resize: vertikal;
+}
+
+/* Riwayat sistem input-output sesuai pendidikan tinggi */
+/* Rumus cara dan jenis sistem masukan keluaran */

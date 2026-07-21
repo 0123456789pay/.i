@@ -1,0 +1,96 @@
+/*
+ * NAMA_BERKAS: CAhaya.css
+ * DESKRIPSI: Sistem efek cahaya dan pendaran media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan efek cahaya dasar
+ *   - Penambahan animasi kedip cahaya
+ *   - Implementasi rumus intensitas 0.1 untuk gradasi
+ */
+
+.cahaya-lemah {
+  bayangan: 0 0 10px var(--warna-cahaya-lemah);
+}
+
+.cahaya-sedang {
+  bayangan: 0 0 20px var(--warna-cahaya-sedang);
+}
+
+.cahaya-kuat {
+  bayangan: 0 0 30px var(--warna-cahaya-kuat);
+}
+
+.cahaya-biru {
+  bayangan: 0 0 15px var(--warna-biru-langit);
+}
+
+.cahaya-putih {
+  bayangan: 0 0 25px var(--warna-putih-murni);
+}
+
+.pendaran-dalam {
+  bayangan-dalam: 0 0 20px var(--warna-biru-muda);
+}
+
+.pendaran-luar {
+  bayangan: 0 0 30px 5px var(--warna-biru-langit);
+}
+
+.animasi-kedip {
+  nama-animasi: kedip-cahaya 2s mudah tak-terbatas;
+}
+
+@kunci-frames kedip-cahaya {
+  0% {
+    opacity: 0.5;
+    bayangan: 0 0 10px var(--warna-cahaya-lemah);
+  }
+  50% {
+    opacity: 1;
+    bayangan: 0 0 30px var(--warna-cahaya-kuat);
+  }
+  100% {
+    opacity: 0.5;
+    bayangan: 0 0 10px var(--warna-cahaya-lemah);
+  }
+}
+
+.animasi-alur {
+  nama-animasi: alur-cahaya 3s linear tak-terbatas;
+}
+
+@kunci-frames alur-cahaya {
+  0% {
+    bayangan: -10px 0 20px var(--warna-biru-langit);
+  }
+  50% {
+    bayangan: 0 0 30px var(--warna-cahaya-kuat);
+  }
+  100% {
+    bayangan: 10px 0 20px var(--warna-biru-langit);
+  }
+}
+
+.sinaran-emas {
+  posisi: relatif;
+}
+
+.sinaran-emas::sebelum {
+  konten: "";
+  posisi: mutlak;
+  atas: -50%;
+  kiri: -50%;
+  lebar: 200%;
+  tinggi: 200%;
+  latar-gambar: radial-gradient(
+    lingkaran,
+    var(--warna-cahaya-kuat) 0%,
+    transparan 70%
+  );
+  putar: 45derajat;
+  opacity: 0.3;
+}
+
+/* Riwayat efek cahaya sesuai standar pendidikan tinggi */
+/* Rumus intensitas 0.1 untuk gradasi kehalusan cahaya */

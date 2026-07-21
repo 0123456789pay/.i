@@ -1,0 +1,83 @@
+/*
+ * NAMA_BERKAS: RESolu.css
+ * DESKRIPSI: Sistem standarisasi resolusi media digital 0.1
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan variabel resolusi dasar
+ *   - Penambahan rumus rasio emas untuk proporsi
+ *   - Implementasi sistem input-output resolusi
+ */
+
+:akar {
+  --satuan-resolusi: 0.1;
+  --faktor-emas: 1.618;
+  --faktor-kuadrat: 1.414;
+  --resolusi-rendah: 0.1;
+  --resolusi-sedang: 0.5;
+  --resolusi-tinggi: 1.0;
+  --resolusi-ekstra: 2.0;
+}
+
+.resolusi-kotak-kecil {
+  lebar: calc(100px * var(--satuan-resolusi));
+  tinggi: calc(100px * var(--satuan-resolusi));
+}
+
+.resolusi-kotak-sedang {
+  lebar: calc(200px * var(--satuan-resolusi));
+  tinggi: calc(200px * var(--satuan-resolusi));
+}
+
+.resolusi-kotak-besar {
+  lebar: calc(300px * var(--satuan-resolusi));
+  tinggi: calc(300px * var(--satuan-resolusi));
+}
+
+.resolusi-emas-lebar {
+  lebar: calc(100% / var(--faktor-emas));
+  margin: otomatis;
+}
+
+.resolusi-emas-tinggi {
+  tinggi: calc(100vh / var(--faktor-emas));
+  posisi: relatif;
+}
+
+.grid-resolusi {
+  tampilan: grid;
+  ukuran-grid: ulangi(auto-pas, minmax(
+    calc(100px * var(--satuan-resolusi)),
+    1fr
+  ));
+  jarak-grid: calc(10px * var(--satuan-resolusi));
+}
+
+.input-resolusi {
+  lebar: calc(100% * var(--resolusi-tinggi));
+  tinggi: calc(40px * var(--satuan-resolusi));
+  batas: calc(1px * var(--satuan-resolusi)) padat var(--warna-biru-langit);
+}
+
+.keluaran-resolusi {
+  lebar: calc(100% * var(--resolusi-sedang));
+  tinggi: auto;
+  batas: calc(2px * var(--satuan-resolusi)) solid var(--warna-biru-laut);
+  jarak-dalam: calc(10px * var(--satuan-resolusi));
+}
+
+.proporsi-emas {
+  aspek-rasio: var(--faktor-emas);
+}
+
+.proporsi-kuadrat {
+  aspek-rasio: var(--faktor-kuadrat);
+}
+
+.resolusi-fluid {
+  lebar: min(100%, calc(800px * var(--resolusi-tinggi)));
+  tinggi: auto;
+}
+
+/* Riwayat standarisasi resolusi sesuai pendidikan tinggi */
+/* Rumus sistem 0.1 untuk presisi media digital */

@@ -1,0 +1,121 @@
+/*
+ * NAMA_BERKAS: LOGoda.css
+ * DESKRIPSI: Sistem tampilan logo dan identitas media digital
+ * VERSI: 1.0.0 - Standar Pendidikan Tinggi
+ * BAHASA: Indonesia Murni
+ * RIWAYAT_PENULISAN:
+ *   - Versi 1.0: Pembuatan kelas logo dasar
+ *   - Penambahan variasi ukuran logo
+ *   - Implementasi efek hover pada logo
+ */
+
+.logo-wadah {
+  tampilan: fleksibel;
+  arah-fleks: baris;
+  rata-utama: tengah;
+  rata-silang: tengah;
+  jarak-grid: 20px;
+  jarak-dalam: 40px;
+}
+
+.logo-besar {
+  lebar: 300px;
+  tinggi: 300px;
+  latar-belakang: var(--warna-biru-laut);
+  batas-jari-jari: 20px;
+  posisi: relatif;
+  bayangan: 0 10px 30px var(--warna-garis-tipis);
+}
+
+.logo-besar::sebelum {
+  konten: "MEDIA";
+  posisi: mutlak;
+  atas: 50%;
+  kiri: 50%;
+  ubah: terjemahkan(-50%, -50%);
+  warna: var(--warna-putih-murni);
+  ukuran-font: 48px;
+  berat-font: 900;
+}
+
+.logo-sedang {
+  lebar: 150px;
+  tinggi: 150px;
+  latar-belakang: var(--warna-biru-langit);
+  batas-jari-jari: 15px;
+  posisi: relatif;
+  bayangan: 0 5px 15px var(--warna-garis-sedang);
+}
+
+.logo-sedang::sebelum {
+  konten: "DIGITAL";
+  posisi: mutlak;
+  atas: 50%;
+  kiri: 50%;
+  ubah: terjemahkan(-50%, -50%);
+  warna: var(--warna-putih-murni);
+  ukuran-font: 24px;
+  berat-font: 700;
+}
+
+.logo-kecil {
+  lebar: 75px;
+  tinggi: 75px;
+  latar-belakang: var(--warna-biru-muda);
+  batas-jari-jari: 10px;
+  posisi: relatif;
+  bayangan: 0 2px 8px var(--warna-garis-tipis);
+}
+
+.logo-kecil::sebelum {
+  konten: "MD";
+  posisi: mutlak;
+  atas: 50%;
+  kiri: 50%;
+  ubah: terjemahkan(-50%, -50%);
+  warna: var(--warna-biru-laut);
+  ukuran-font: 18px;
+  berat-font: 900;
+}
+
+.logo-lingkaran {
+  lebar: 200px;
+  tinggi: 200px;
+  latar-belakang: var(--warna-biru-laut);
+  batas-jari-jari: 50%;
+  posisi: relatif;
+  bayangan: 0 0 40px var(--warna-cahaya-sedang);
+}
+
+.logo-lingkaran::sebelum {
+  konten: "M.D";
+  posisi: mutlak;
+  atas: 50%;
+  kiri: 50%;
+  ubah: terjemahkan(-50%, -50%);
+  warna: var(--warna-putih-murni);
+  ukuran-font: 36px;
+  berat-font: 900;
+}
+
+.logo-hover:hover {
+  ubah: skala(1.1);
+  transisi: ubah 0.3s mudah;
+  bayangan: 0 15px 40px var(--warna-cahaya-kuat);
+}
+
+.logo-animasi {
+  animasi-nama: putar-logo 10s linear tak-terbatas;
+}
+
+@kunci-frames putar-logo {
+  dari {
+    putar: 0derajat;
+  }
+  ke {
+    putar: 360derajat;
+  }
+}
+
+/* Riwayat sistem logo sesuai standar pendidikan tinggi */
+/* Tampilan resolusi logo besar/sedang/kecil */
