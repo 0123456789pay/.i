@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllUnivers - Dashboard Administrasi Universal | IHSFB Layout</title>
-    <meta name="description" content="AllUnivers IHSFB Container - Dashboard administrasi universal dengan layout IHSFB (Identifier, Header, Section, Footer, Body)">
+    <title>Allunivers Market Icon Dan Desain - Studio Kreasi Digital | IHSFB Layout</title>
+    <meta name="description" content="Allunivers Market Icon Dan Desain - Platform marketplace dan studio pembuatan icon serta desain digital dengan layout IHSFB (Identifier, Header, Section, Footer, Body)">
     <style>
         /* ============================================================================
-         * SISTEM INTI: AllUnivers IHSFB Container
+         * SISTEM INTI: Allunivers Market Icon Dan Desain
          * Layout: I-H-S-F-B (Identifier, Header, Section, Footer, Body)
          * Versi: 1.0.0
          * Bahasa: Indonesia
@@ -604,20 +604,20 @@
          ========================================================================== -->
     
     <!-- KOMPONEN I: IDENTIFIER - Identitas Sistem -->
-    <div class="ihsfb-identifier" title="AllUnivers IHSFB Container"></div>
+    <div class="ihsfb-identifier" title="Allunivers Market Icon Dan Desain"></div>
     
     <!-- KOMPONEN H: HEADER - Kepala Halaman -->
     <header class="ihsfb-header" role="banner">
         <div class="header-logo">
-            <span>🌐</span>
-            <span>AllUnivers Dashboard</span>
+            <span>🎨</span>
+            <span>Allunivers Market Icon Dan Desain</span>
         </div>
         <nav class="header-actions" role="navigation">
             <button class="btn btn-primary" onclick="refreshDashboard()" title="Refresh Dashboard">
                 <span>🔄</span> Refresh
             </button>
-            <button class="btn btn-primary" onclick="toggleSettings()" title="Pengaturan">
-                <span>⚙️</span> Settings
+            <button class="btn btn-primary" onclick="openIconStudio()" title="Buka Studio Icon">
+                <span>✏️</span> Icon Studio
             </button>
             <button class="btn btn-success" onclick="exportData()" title="Export Data">
                 <span>📥</span> Export
@@ -632,54 +632,58 @@
             <ul class="sidebar-menu">
                 <li>
                     <a href="#overview" class="active" onclick="switchSection('overview')" title="Halaman Utama">
-                        <span>📊</span> Overview
+                        <span>🏠</span> Home
                     </a>
                 </li>
                 <li>
-                    <a href="#uireber" onclick="toggleSubmenu('uireber-submenu')" title="Sistem UIREBER">
-                        <span>📁</span> UIREBER System
+                    <a href="#marketplace" onclick="switchSection('marketplace')" title="Marketplace Icon & Desain">
+                        <span>🛒</span> Marketplace
+                    </a>
+                </li>
+                <li>
+                    <a href="#iconstudio" onclick="openIconStudio()" title="Studio Pembuat Icon">
+                        <span>✏️</span> Icon Studio
+                    </a>
+                </li>
+                <li>
+                    <a href="#designstudio" onclick="openDesignStudio()" title="Studio Pembuat Desain">
+                        <span>🎨</span> Design Studio
+                    </a>
+                </li>
+                <li>
+                    <a href="#categories" onclick="toggleSubmenu('categories-submenu')" title="Kategori Icon & Desain">
+                        <span>📁</span> Categories
                         <span style="margin-left: auto;">▼</span>
                     </a>
-                    <ul class="submenu open" id="uireber-submenu">
-                        <li><a href="#" onclick="loadModule('ai_machinelearning')">AI & Machine Learning</a></li>
-                        <li><a href="#" onclick="loadModule('aireber')">AIREBER Digital</a></li>
-                        <li><a href="#" onclick="loadModule('analisisdata')">Analisis Data</a></li>
-                        <li><a href="#" onclick="loadModule('analytics')">Analytics</a></li>
-                        <li><a href="#" onclick="loadModule('automation')">Automation</a></li>
-                        <li><a href="#" onclick="loadModule('blockchain')">Blockchain & Crypto</a></li>
-                        <li><a href="#" onclick="loadModule('cloud')">Cloud Services</a></li>
-                        <li><a href="#" onclick="loadModule('chatbot')">Chatbot</a></li>
-                        <li><a href="#" onclick="loadModule('design')">Design & Creative</a></li>
+                    <ul class="submenu open" id="categories-submenu">
+                        <li><a href="#" onclick="filterCategory('business')">Business Icons</a></li>
+                        <li><a href="#" onclick="filterCategory('technology')">Technology Icons</a></li>
+                        <li><a href="#" onclick="filterCategory('social')">Social Media</a></li>
+                        <li><a href="#" onclick="filterCategory('education')">Education</a></li>
+                        <li><a href="#" onclick="filterCategory('ecommerce')">E-Commerce</a></li>
+                        <li><a href="#" onclick="filterCategory('gaming')">Gaming</a></li>
+                        <li><a href="#" onclick="filterCategory('medical')">Medical & Health</a></li>
+                        <li><a href="#" onclick="filterCategory('nature')">Nature & Environment</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#modules" onclick="switchSection('modules')" title="Modul Sistem">
-                        <span>🔧</span> Modules
+                    <a href="#mydesigns" onclick="switchSection('mydesigns')" title="Desain Saya">
+                        <span>⭐</span> My Designs
                     </a>
                 </li>
                 <li>
-                    <a href="#files" onclick="switchSection('files')" title="Pengelola Berkas">
-                        <span>📄</span> File Manager
+                    <a href="#templates" onclick="switchSection('templates')" title="Template Siap Pakai">
+                        <span>📋</span> Templates
                     </a>
                 </li>
                 <li>
-                    <a href="#users" onclick="switchSection('users')" title="Pengguna">
-                        <span>👥</span> Users
+                    <a href="#tools" onclick="switchSection('tools')" title="Alat Desain">
+                        <span>🔧</span> Tools
                     </a>
                 </li>
                 <li>
-                    <a href="#settings" onclick="switchSection('settings')" title="Konfigurasi">
-                        <span>⚙️</span> Configuration
-                    </a>
-                </li>
-                <li>
-                    <a href="#logs" onclick="switchSection('logs')" title="Catatan Sistem">
-                        <span>📋</span> System Logs
-                    </a>
-                </li>
-                <li>
-                    <a href="#backup" onclick="switchSection('backup')" title="Cadangan & Pulihkan">
-                        <span>💾</span> Backup & Restore
+                    <a href="#downloads" onclick="switchSection('downloads')" title="Download History">
+                        <span>📥</span> Downloads
                     </a>
                 </li>
             </ul>
@@ -855,7 +859,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div>
                                 <strong style="color: var(--text-primary);">System Initialized</strong>
-                                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 5px;">AllUnivers container started successfully</p>
+                                <p style="color: var(--text-secondary); font-size: 14px; margin-top: 5px;">Allunivers Market platform started successfully</p>
                             </div>
                             <span class="badge badge-success">Success</span>
                         </div>
@@ -945,34 +949,34 @@
     <footer class="ihsfb-footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Tentang AllUnivers</h4>
-                <p>AllUnivers IHSFB Container adalah sistem dashboard administrasi universal yang mengintegrasikan dan merekonstruksi komponen dari struktur folder UIREBER.</p>
+                <h4>Tentang Allunivers Market</h4>
+                <p>Allunivers Market Icon Dan Desain adalah platform marketplace dan studio pembuatan icon serta desain digital profesional.</p>
                 <p>Versi: 1.0.0</p>
                 <p>Build: 2026.07.20</p>
             </div>
             
             <div class="footer-section">
                 <h4>Tautan Cepat</h4>
-                <a href="#overview" onclick="switchSection('overview')">Dashboard</a>
-                <a href="#modules" onclick="switchSection('modules')">Modules</a>
-                <a href="#files" onclick="switchSection('files')">File Manager</a>
-                <a href="#settings" onclick="switchSection('settings')">Settings</a>
-                <a href="#logs" onclick="switchSection('logs')">System Logs</a>
+                <a href="#overview" onclick="switchSection('overview')">Home</a>
+                <a href="#marketplace" onclick="switchSection('marketplace')">Marketplace</a>
+                <a href="#iconstudio" onclick="openIconStudio()">Icon Studio</a>
+                <a href="#designstudio" onclick="openDesignStudio()">Design Studio</a>
+                <a href="#templates" onclick="switchSection('templates')">Templates</a>
             </div>
             
             <div class="footer-section">
-                <h4>Integrasi UIREBER</h4>
-                <a href="#" onclick="openModule('ai_machinelearning.digital')">AI & Machine Learning</a>
-                <a href="#" onclick="openModule('analytics.digital')">Analytics</a>
-                <a href="#" onclick="openModule('automation.digital')">Automation</a>
-                <a href="#" onclick="openModule('cloud.digital')">Cloud Services</a>
-                <a href="#" onclick="openModule('design.digital')">Design & Creative</a>
+                <h4>Kategori Icon</h4>
+                <a href="#" onclick="filterCategory('business')">Business Icons</a>
+                <a href="#" onclick="filterCategory('technology')">Technology Icons</a>
+                <a href="#" onclick="filterCategory('social')">Social Media</a>
+                <a href="#" onclick="filterCategory('education')">Education</a>
+                <a href="#" onclick="filterCategory('gaming')">Gaming</a>
             </div>
             
             <div class="footer-section">
                 <h4>Dukungan</h4>
                 <a href="#">Dokumentasi</a>
-                <a href="#">Referensi API</a>
+                <a href="#">Tutorial Video</a>
                 <a href="#">Forum Komunitas</a>
                 <a href="#">Hubungi Support</a>
                 <a href="#">Laporkan Masalah</a>
@@ -980,10 +984,10 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 AllUnivers IHSFB Container. Hak cipta dilindungi. | Digerakkan oleh Sistem UIREBER</p>
+            <p>&copy; 2026 Allunivers Market Icon Dan Desain. Hak cipta dilindungi. | Platform Kreasi Digital</p>
             <p style="margin-top: 10px; font-size: 12px;">
                 Status Sistem: <span style="color: var(--success-color);">● Operasional</span> | 
-                Sinkronisasi Terakhir: <span id="lastSync">Baru saja</span>
+                Update Terakhir: <span id="lastSync">Baru saja</span>
             </p>
         </div>
     </footer>
@@ -1080,13 +1084,13 @@
             
             // Initialize System
             document.addEventListener('DOMContentLoaded', () => {
-                console.log('[AllUnivers] System initializing...');
+                console.log('[Allunivers Market] System initializing...');
                 loadFromStorage();
                 animateStats();
                 updateLastSync();
                 setupEventListeners();
                 renderModuleTable();
-                console.log('[AllUnivers] System ready');
+                console.log('[Allunivers Market] System ready');
             });
 
             // Setup Event Listeners
@@ -1129,19 +1133,19 @@
                     if (saved) {
                         const data = JSON.parse(saved);
                         Object.assign(AppState, data);
-                        console.log('[AllUnivers] State loaded from storage');
+                        console.log('[Allunivers Market] State loaded from storage');
                     }
                 } catch (e) {
-                    console.error('[AllUnivers] Error loading state:', e);
+                    console.error('[Allunivers Market] Error loading state:', e);
                 }
             }
             
             function saveToStorage() {
                 try {
                     localStorage.setItem('allunivers_state', JSON.stringify(AppState));
-                    console.log('[AllUnivers] State saved');
+                    console.log('[Allunivers Market] State saved');
                 } catch (e) {
-                    console.error('[AllUnivers] Error saving state:', e);
+                    console.error('[Allunivers Market] Error saving state:', e);
                 }
             }
             
@@ -1198,7 +1202,7 @@
             
             // Update Statistics
             window.updateStats = function() {
-                console.log('[AllUnivers] Updating statistics...');
+                console.log('[Allunivers Market] Updating statistics...');
                 // Randomize stats slightly for demo
                 AppState.stats.filesProcessed += Math.floor(Math.random() * 10);
                 AppState.stats.activeUsers = Math.floor(Math.random() * 20) + 80;
@@ -1209,7 +1213,7 @@
             
             // Refresh Dashboard
             window.refreshDashboard = function() {
-                console.log('[AllUnivers] Refreshing dashboard...');
+                console.log('[Allunivers Market] Refreshing dashboard...');
                 showNotification('Refreshing dashboard...', 'info');
                 setTimeout(() => {
                     location.reload();
@@ -1249,7 +1253,7 @@
                     pageTitle.textContent = titles[section] || section.charAt(0).toUpperCase() + section.slice(1);
                 }
                 
-                console.log('[AllUnivers] Switched to section:', section);
+                console.log('[Allunivers Market] Switched to section:', section);
                 showNotification(`Navigated to ${section}`, 'info');
                 
                 // Scroll to top
@@ -1258,7 +1262,7 @@
             
             // Load Module from UIREBER
             window.loadModule = function(moduleName) {
-                console.log('[AllUnivers] Loading module:', moduleName);
+                console.log('[Allunivers Market] Loading module:', moduleName);
                 
                 // Check if it's an HTML module
                 if (UIREBER_MODULES[moduleName]) {
@@ -1279,7 +1283,7 @@
             
             // Open Module in Modal/Iframe
             window.openModule = function(moduleName) {
-                console.log('[AllUnivers] Opening module:', moduleName);
+                console.log('[Allunivers Market] Opening module:', moduleName);
                 
                 // Remove .digital extension if present for HTML lookup
                 const cleanName = moduleName.replace('.digital', '').replace('.html', '');
@@ -1321,7 +1325,7 @@
                 saveToStorage();
                 
                 showNotification(`Opened ${moduleName}`, 'success');
-                console.log('[AllUnivers] Module opened:', moduleName, 'Path:', modulePath);
+                console.log('[Allunivers Market] Module opened:', moduleName, 'Path:', modulePath);
             }
 
             // Close Module Modal
@@ -1366,7 +1370,7 @@
             
             // Sync with UIREBER
             window.syncUIREBER = function() {
-                console.log('[AllUnivers] Syncing with UIREBER...');
+                console.log('[Allunivers Market] Syncing with UIREBER...');
                 showNotification('Synchronizing with UIREBER system...', 'info');
                 
                 setTimeout(() => {
@@ -1384,7 +1388,7 @@
             
             // Refresh Activity
             window.refreshActivity = function() {
-                console.log('[AllUnivers] Refreshing activity...');
+                console.log('[Allunivers Market] Refreshing activity...');
                 const activitySection = document.querySelector('.ihsfb-section:nth-of-type(3)');
                 if (activitySection) {
                     activitySection.classList.remove('fade-in');
@@ -1396,7 +1400,7 @@
             
             // Quick Actions
             window.createNewModule = function() {
-                console.log('[AllUnivers] Creating new module...');
+                console.log('[Allunivers Market] Creating new module...');
                 
                 const moduleName = prompt('Enter new module name:');
                 if (moduleName) {
@@ -1411,7 +1415,7 @@
             };
             
             window.importFromUIREBER = function() {
-                console.log('[AllUnivers] Importing from UIREBER...');
+                console.log('[Allunivers Market] Importing from UIREBER...');
                 showNotification('Scanning UIREBER for components...', 'info');
                 
                 setTimeout(() => {
@@ -1424,7 +1428,7 @@
             };
             
             window.manageFiles = function() {
-                console.log('[AllUnivers] Opening file manager...');
+                console.log('[Allunivers Market] Opening file manager...');
                 switchSection('files');
                 
                 // Open filemanager.html in modal
@@ -1436,7 +1440,7 @@
             };
             
             window.systemDiagnostics = function() {
-                console.log('[AllUnivers] Running diagnostics...');
+                console.log('[Allunivers Market] Running diagnostics...');
                 showNotification('Running system diagnostics...', 'info');
                 
                 setTimeout(() => {
@@ -1450,7 +1454,7 @@
             
             // Export Data
             window.exportData = function() {
-                console.log('[AllUnivers] Exporting data...');
+                console.log('[Allunivers Market] Exporting data...');
                 const exportData = {
                     timestamp: new Date().toISOString(),
                     version: SYSTEM_CONFIG.version,
@@ -1471,7 +1475,7 @@
 
             // Import Data
             window.importData = function() {
-                console.log('[AllUnivers] Importing data...');
+                console.log('[Allunivers Market] Importing data...');
                 const input = document.createElement('input');
                 input.type = 'file';
                 input.accept = '.json';
@@ -1499,7 +1503,7 @@
             
             // Toggle Settings
             window.toggleSettings = function() {
-                console.log('[AllUnivers] Toggling settings...');
+                console.log('[Allunivers Market] Toggling settings...');
                 switchSection('settings');
             };
 
@@ -1524,7 +1528,7 @@
             
             // Show Toast Notification
             function showNotification(message, type = 'info') {
-                console.log(`[AllUnivers] Notification (${type}):`, message);
+                console.log(`[Allunivers Market] Notification (${type}):`, message);
                 
                 const container = document.getElementById('toastContainer');
                 const toast = document.createElement('div');
@@ -1568,7 +1572,7 @@
                     return;
                 }
                 
-                console.log('[AllUnivers] Searching for:', query);
+                console.log('[Allunivers Market] Searching for:', query);
                 showNotification(`Mencari "${query}"...`, 'info');
                 
                 let foundResults = [];
@@ -1624,14 +1628,70 @@
                 }
             };
             
+            // Icon Studio Functions
+            window.openIconStudio = function() {
+                showNotification('Membuka Icon Studio...', 'info');
+                setTimeout(() => {
+                    const modal = document.getElementById('moduleModal');
+                    const title = document.getElementById('modalTitle');
+                    const frame = document.getElementById('moduleFrame');
+                    
+                    title.textContent = '🎨 Icon Studio - Buat Icon Kustom';
+                    frame.src = 'UIREBER/iconstudio.html';
+                    modal.classList.remove('hidden');
+                    
+                    showNotification('Icon Studio siap digunakan!', 'success');
+                }, 500);
+            };
+            
+            // Design Studio Functions
+            window.openDesignStudio = function() {
+                showNotification('Membuka Design Studio...', 'info');
+                setTimeout(() => {
+                    const modal = document.getElementById('moduleModal');
+                    const title = document.getElementById('modalTitle');
+                    const frame = document.getElementById('moduleFrame');
+                    
+                    title.textContent = '✏️ Design Studio - Buat Desain Profesional';
+                    frame.src = 'UIREBER/designstudio.html';
+                    modal.classList.remove('hidden');
+                    
+                    showNotification('Design Studio siap digunakan!', 'success');
+                }, 500);
+            };
+            
+            // Category Filter Functions
+            window.filterCategory = function(category) {
+                showNotification(`Menampilkan icon kategori: ${category}`, 'info');
+                // Implement category filtering logic here
+                console.log('Filtering category:', category);
+            };
+            
+            // Download Pack Function
+            window.downloadPack = function(packName) {
+                showNotification(`Mengunduh pack: ${packName}...`, 'success');
+                console.log('Downloading pack:', packName);
+            };
+            
+            // Purchase Pack Function
+            window.purchasePack = function(packName) {
+                showNotification(`Memproses pembelian pack: ${packName}...`, 'info');
+                console.log('Purchasing pack:', packName);
+            };
+            
+            // View All Marketplace Function
+            window.viewAllMarketplace = function() {
+                showNotification('Membuka semua item marketplace...', 'info');
+                switchSection('marketplace');
+            };
+            
             // Log System Info
             console.log('========================================');
-            console.log('AllUnivers IHSFB Container');
+            console.log('Allunivers Market Icon Dan Desain');
             console.log('Version:', SYSTEM_CONFIG.version);
             console.log('Build:', SYSTEM_CONFIG.buildDate);
             console.log('Environment:', SYSTEM_CONFIG.environment);
-            console.log('UIREBER Path:', SYSTEM_CONFIG.uireberPath);
-            console.log('Available Modules:', Object.keys(UIREBER_MODULES).length);
+            console.log('Platform: Marketplace & Studio Kreasi Digital');
             console.log('========================================');
             
         })();
