@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLUNIVERS ICONER - Admin Command Center</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #667eea;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .terminal {
+            background: #0f0f1a;
+            border-radius: 10px;
+            padding: 20px;
+            height: 500px;
+            overflow-y: auto;
+            border: 1px solid #333;
+            margin-bottom: 20px;
+        }
+        
+        .output {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        
+        .output-line {
+            margin: 5px 0;
+            padding: 5px;
+        }
+        
+        .output-line.info { color: #667eea; }
+        .output-line.success { color: #2ecc71; }
+        .output-line.error { color: #e74c3c; }
+        .output-line.warning { color: #f39c12; }
+        .output-line.command { color: #9b59b6; }
+        
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .prompt {
+            background: #667eea;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        #commandInput {
+            flex: 1;
+            background: #0f0f1a;
+            border: 1px solid #333;
+            color: #eee;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+        
+        #commandInput:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+        
+        .quick-commands {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .quick-btn {
+            background: #2a2a4a;
+            padding: 10px;
+            font-size: 12px;
+        }
+        
+        .quick-btn:hover {
+            background: #3a3a5a;
+        }
+        
+        .status-bar {
+            background: #0f0f1a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #2ecc71;
+        }
+        
+        .admin-badge {
+            background: #667eea;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🖥️ ALLUNIVERS ICONER - Admin Command Center</h1>
+            <p class="subtitle">Owner/Administrator Command Interface for System Management</p>
+        </header>
+        
+        <div class="status-bar">
+            <div class="status-item">
+                <div class="status-indicator"></div>
+                <span>System Online</span>
+            </div>
+            <div class="status-item">
+                <span id="adminStatus">Not logged in</span>
+                <span id="adminBadge" class="admin-badge" style="display:none;">ADMIN</span>
+            </div>
+            <div class="status-item">
+                <span id="currentTime"></span>
+            </div>
+        </div>
+        
+        <div class="terminal" id="terminal">
+            <div class="output" id="output">
+                <div class="output-line info">🚀 ALLUNIVERS ICONER Admin Command System v1.0</div>
+                <div class="output-line info">Type 'help' to see available commands</div>
+                <div class="output-line warning">⚠️ Default admin users: owner, administrator</div>
+                <br>
+            </div>
+        </div>
+        
+        <div class="input-area">
+            <div class="prompt">admin@iconer:~$</div>
+            <input type="text" id="commandInput" placeholder="Enter command..." autocomplete="off">
+            <button onclick="executeCommand()">Execute</button>
+        </div>
+        
+        <div class="quick-commands">
+            <button class="quick-btn" onclick="quickCommand('help')">📋 Help</button>
+            <button class="quick-btn" onclick="quickCommand('system.status')">🖥️ System Status</button>
+            <button class="quick-btn" onclick="quickCommand('admin.login --username owner')">🔐 Login as Owner</button>
+            <button class="quick-btn" onclick="quickCommand('user.list')">👥 List Users</button>
+            <button class="quick-btn" onclick="quickCommand('icon.backup')">💾 Backup Icons</button>
+            <button class="quick-btn" onclick="quickCommand('sale.report --startDate 2024-01-01 --endDate 2024-12-31')">📊 Sales Report</button>
+            <button class="quick-btn" onclick="quickCommand('finance.report --period monthly')">💰 Financial Report</button>
+            <button class="quick-btn" onclick="quickCommand('traffic.analytics --timeRange 7d')">📈 Traffic Analytics</button>
+            <button class="quick-btn" onclick="quickCommand('admin.history')">📜 Command History</button>
+        </div>
+    </div>
+
+    <script src="../data.storage/dataManager.js"></script>
+    <script src="adminSystem.js"></script>
+    <script>
+        const output = document.getElementById('output');
+        const commandInput = document.getElementById('commandInput');
+        
+        function addOutput(text, type = '') {
+            const line = document.createElement('div');
+            line.className = `output-line ${type}`;
+            line.textContent = text;
+            output.appendChild(line);
+            document.getElementById('terminal').scrollTop = document.getElementById('terminal').scrollHeight;
+        }
+        
+        async function executeCommand() {
+            const command = commandInput.value.trim();
+            if (!command) return;
+            
+            addOutput(`admin@iconer:~$ ${command}`, 'command');
+            
+            try {
+                const result = await window.AlluniversAdminCommand.execute(command);
+                
+                if (result && typeof result === 'object') {
+                    if (result.message) {
+                        addOutput(result.success ? `✅ ${result.message}` : `❌ ${result.message}`, 
+                            result.success ? 'success' : 'error');
+                    }
+                    if (result.commands) {
+                        addOutput('\n📚 Available Commands:', 'info');
+                        for (const [category, cmds] of Object.entries(result.commands)) {
+                            addOutput(`\n${category}:`, 'info');
+                            cmds.forEach(cmd => addOutput(`  ${cmd}`));
+                        }
+                    } else if (Array.isArray(result)) {
+                        addOutput(JSON.stringify(result, null, 2));
+                    } else if (!result.message) {
+                        addOutput(JSON.stringify(result, null, 2));
+                    }
+                } else {
+                    addOutput(`Result: ${result}`, 'success');
+                }
+                
+                // Update admin status
+                if (command.startsWith('admin.login')) {
+                    setTimeout(updateAdminStatus, 100);
+                } else if (command.startsWith('admin.logout')) {
+                    setTimeout(updateAdminStatus, 100);
+                }
+                
+            } catch (error) {
+                addOutput(`❌ Error: ${error.message}`, 'error');
+            }
+            
+            commandInput.value = '';
+        }
+        
+        function quickCommand(cmd) {
+            commandInput.value = cmd;
+            executeCommand();
+        }
+        
+        function updateAdminStatus() {
+            const admin = window.AlluniversAdminCommand.currentAdmin;
+            document.getElementById('adminStatus').textContent = admin ? `Logged in as: ${admin}` : 'Not logged in';
+            document.getElementById('adminBadge').style.display = admin ? 'inline-block' : 'none';
+        }
+        
+        function updateTime() {
+            document.getElementById('currentTime').textContent = new Date().toLocaleString('id-ID');
+        }
+        
+        // Enter key to execute
+        commandInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') executeCommand();
+        });
+        
+        // Initialize
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
