@@ -145,15 +145,15 @@
                 </li>
                 <li class="nav-item"><a href="#github" class="nav-link"><i class="fab fa-github"></i> GitHub <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="alert('Repositories')"><i class="fas fa-code-branch"></i> Repositories</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Commits')"><i class="fas fa-history"></i> Commits</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Pull Requests')"><i class="fas fa-code-pull-request"></i> Pull Requests</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Issues')"><i class="fas fa-exclamation-circle"></i> Issues</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Actions')"><i class="fas fa-cogs"></i> Actions</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Packages')"><i class="fas fa-box"></i> Packages</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Wiki')"><i class="fas fa-book"></i> Wiki</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Security')"><i class="fas fa-shield-alt"></i> Security</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Settings')"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('repositories'); return false;"><i class="fas fa-code-branch"></i> Repositories</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('commits'); return false;"><i class="fas fa-history"></i> Commits</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('pull-requests'); return false;"><i class="fas fa-code-pull-request"></i> Pull Requests</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('issues'); return false;"><i class="fas fa-exclamation-circle"></i> Issues</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('actions'); return false;"><i class="fas fa-cogs"></i> Actions</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('packages'); return false;"><i class="fas fa-box"></i> Packages</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('wiki'); return false;"><i class="fas fa-book"></i> Wiki</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('security'); return false;"><i class="fas fa-shield-alt"></i> Security</a>
+                        <a href="#" class="dropdown-item" onclick="openGithubSection('settings'); return false;"><i class="fas fa-cog"></i> Settings</a>
                     </div>
                 </li>
             </ul>
@@ -794,7 +794,141 @@
 
         <section id="github" class="section github-section">
             <h2 class="section-title" style="color:white;"><i class="fab fa-github"></i> GitHub Integration</h2>
-            <div class="grid" id="githubGrid"></div>
+            
+            <!-- Repositories Section -->
+            <div id="github-repositories" class="github-data-section">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshRepositories()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="createRepository()"><i class="fas fa-plus"></i> New Repository</button>
+                    <button class="tool-btn" onclick="filterRepositories('all')"><i class="fas fa-filter"></i> All</button>
+                    <button class="tool-btn" onclick="filterRepositories('public')"><i class="fas fa-globe"></i> Public</button>
+                    <button class="tool-btn" onclick="filterRepositories('private')"><i class="fas fa-lock"></i> Private</button>
+                </div>
+                <div class="grid" id="repositoriesGrid"></div>
+            </div>
+            
+            <!-- Commits Section -->
+            <div id="github-commits" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshCommits()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="viewCommitHistory()"><i class="fas fa-history"></i> History</button>
+                    <select id="commitRepoSelect" onchange="loadCommitsForRepo()" style="padding:0.6rem 1rem;border-radius:8px;border:2px solid #30363d;background:#161b22;color:white;">
+                        <option value="all">All Repositories</option>
+                        <option value="allunivers-core">allunivers-core</option>
+                        <option value="ihbsf-design">ihbsf-design</option>
+                        <option value="icon-api">icon-api</option>
+                    </select>
+                </div>
+                <div class="section" style="background: #161b22; border-radius: 12px;">
+                    <h3 style="margin-bottom: 1rem; color: #58a6ff;"><i class="fas fa-code-commit"></i> Recent Commits</h3>
+                    <div id="commitsList"></div>
+                </div>
+            </div>
+            
+            <!-- Pull Requests Section -->
+            <div id="github-pull-requests" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshPullRequests()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="createPullRequest()"><i class="fas fa-plus"></i> New PR</button>
+                    <button class="tool-btn" onclick="filterPRs('open')"><i class="fas fa-eye"></i> Open</button>
+                    <button class="tool-btn" onclick="filterPRs('closed')"><i class="fas fa-check"></i> Closed</button>
+                    <button class="tool-btn" onclick="filterPRs('merged')"><i class="fas fa-code-merge"></i> Merged</button>
+                </div>
+                <div class="grid" id="pullRequestsGrid"></div>
+            </div>
+            
+            <!-- Issues Section -->
+            <div id="github-issues" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshIssues()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="createIssue()"><i class="fas fa-plus"></i> New Issue</button>
+                    <button class="tool-btn" onclick="filterIssues('open')"><i class="fas fa-exclamation-circle"></i> Open</button>
+                    <button class="tool-btn" onclick="filterIssues('closed')"><i class="fas fa-check-circle"></i> Closed</button>
+                    <button class="tool-btn" onclick="filterIssues('all')"><i class="fas fa-list"></i> All</button>
+                </div>
+                <div class="grid" id="issuesGrid"></div>
+            </div>
+            
+            <!-- Actions Section -->
+            <div id="github-actions" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshActions()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="runWorkflow()"><i class="fas fa-play"></i> Run Workflow</button>
+                    <button class="tool-btn" onclick="viewWorkflows()"><i class="fas fa-list"></i> Workflows</button>
+                </div>
+                <div class="section" style="background: #161b22; border-radius: 12px;">
+                    <h3 style="margin-bottom: 1rem; color: #58a6ff;"><i class="fas fa-cogs"></i> Recent Workflow Runs</h3>
+                    <div id="actionsList"></div>
+                </div>
+            </div>
+            
+            <!-- Packages Section -->
+            <div id="github-packages" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshPackages()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="publishPackage()"><i class="fas fa-upload"></i> Publish Package</button>
+                </div>
+                <div class="grid" id="packagesGrid"></div>
+            </div>
+            
+            <!-- Wiki Section -->
+            <div id="github-wiki" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshWiki()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="createWikiPage()"><i class="fas fa-plus"></i> New Page</button>
+                    <button class="tool-btn" onclick="editWikiPage()"><i class="fas fa-edit"></i> Edit Page</button>
+                </div>
+                <div class="section" style="background: #161b22; border-radius: 12px;">
+                    <h3 style="margin-bottom: 1rem; color: #58a6ff;"><i class="fas fa-book"></i> Wiki Pages</h3>
+                    <div id="wikiPages"></div>
+                </div>
+            </div>
+            
+            <!-- Security Section -->
+            <div id="github-security" class="github-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshSecurity()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="runSecurityScan()"><i class="fas fa-shield-alt"></i> Run Scan</button>
+                    <button class="tool-btn" onclick="viewVulnerabilities()"><i class="fas fa-bug"></i> Vulnerabilities</button>
+                </div>
+                <div class="section" style="background: #161b22; border-radius: 12px;">
+                    <h3 style="margin-bottom: 1rem; color: #58a6ff;"><i class="fas fa-shield-alt"></i> Security Overview</h3>
+                    <div id="securityOverview"></div>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="github-settings" class="github-data-section" style="display: none;">
+                <div class="section" style="background: #161b22; border-radius: 12px;">
+                    <h3 style="margin-bottom: 1.5rem; color: #58a6ff;"><i class="fas fa-cog"></i> GitHub Settings</h3>
+                    <div style="display: grid; gap: 1.5rem;">
+                        <div style="background: #0d1117; padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: white; margin-bottom: 1rem;"><i class="fas fa-user"></i> Account Connection</h4>
+                            <p style="color: #8b949e; margin-bottom: 1rem;">Connected as: <strong style="color: #58a6ff;">@allunivers</strong></p>
+                            <button class="btn-secondary" onclick="disconnectGithub()"><i class="fas fa-unlink"></i> Disconnect</button>
+                        </div>
+                        <div style="background: #0d1117; padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: white; margin-bottom: 1rem;"><i class="fas fa-key"></i> API Token</h4>
+                            <input type="password" value="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" readonly style="width: 100%; padding: 0.8rem; background: #161b22; border: 1px solid #30363d; border-radius: 8px; color: #58a6ff; font-family: monospace; margin-bottom: 1rem;">
+                            <button class="btn-secondary" onclick="regenerateToken()"><i class="fas fa-redo"></i> Regenerate Token</button>
+                        </div>
+                        <div style="background: #0d1117; padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="color: white; margin-bottom: 1rem;"><i class="fas fa-bell"></i> Notifications</h4>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: white; margin-bottom: 0.5rem;">
+                                <input type="checkbox" checked> Enable Push Notifications
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: white; margin-bottom: 0.5rem;">
+                                <input type="checkbox" checked> Email Notifications
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; color: white;">
+                                <input type="checkbox"> Security Alerts
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid" id="githubGrid" style="display: none;"></div>
         </section>
     </main>
 
@@ -892,6 +1026,57 @@
         ];
         
         const githubRepos = [{name:'allunivers-core',lang:'JavaScript'},{name:'ihbsf-design',lang:'TypeScript'},{name:'icon-api',lang:'Python'}];
+        
+        // GitHub Data
+        const githubCommits = [
+            {hash:'a1b2c3d', message:'Fix icon rendering bug', author:'@allunivers', date:'2 hours ago', repo:'allunivers-core'},
+            {hash:'e4f5g6h', message:'Add new 3D designer feature', author:'@developer', date:'5 hours ago', repo:'ihbsf-design'},
+            {hash:'i7j8k9l', message:'Update API documentation', author:'@allunivers', date:'1 day ago', repo:'icon-api'},
+            {hash:'m0n1o2p', message:'Refactor vector editor', author:'@contributor', date:'2 days ago', repo:'allunivers-core'},
+            {hash:'q3r4s5t', message:'Add dark mode support', author:'@allunivers', date:'3 days ago', repo:'ihbsf-design'}
+        ];
+        
+        const githubPullRequests = [
+            {id:1, title:'Add new icon templates', author:'@contributor1', status:'open', repo:'allunivers-core', changes:'+150 -20'},
+            {id:2, title:'Fix color picker issue', author:'@developer', status:'merged', repo:'ihbsf-design', changes:'+45 -12'},
+            {id:3, title:'Update dependencies', author:'@allunivers', status:'open', repo:'icon-api', changes:'+89 -34'},
+            {id:4, title:'Improve performance', author:'@contributor2', status:'closed', repo:'allunivers-core', changes:'+200 -50'}
+        ];
+        
+        const githubIssues = [
+            {id:1, title:'Icon export fails on mobile', author:'@user1', status:'open', priority:'high', repo:'allunivers-core'},
+            {id:2, title:'Add SVG support', author:'@user2', status:'open', priority:'medium', repo:'ihbsf-design'},
+            {id:3, title:'Documentation typo', author:'@user3', status:'closed', priority:'low', repo:'icon-api'},
+            {id:4, title:'Performance optimization needed', author:'@user4', status:'open', priority:'high', repo:'allunivers-core'}
+        ];
+        
+        const githubActions = [
+            {workflow:'CI/CD Pipeline', status:'success', duration:'3m 24s', repo:'allunivers-core', time:'10 minutes ago'},
+            {workflow:'Build & Deploy', status:'running', duration:'1m 15s', repo:'ihbsf-design', time:'Just now'},
+            {workflow:'Security Scan', status:'success', duration:'5m 42s', repo:'icon-api', time:'1 hour ago'},
+            {workflow:'Tests', status:'failed', duration:'2m 18s', repo:'allunivers-core', time:'2 hours ago'}
+        ];
+        
+        const githubPackages = [
+            {name:'@allunivers/icon-core', version:'2.4.1', size:'1.2 MB', downloads:5420, repo:'allunivers-core'},
+            {name:'@allunivers/design-system', version:'1.8.0', size:'3.5 MB', downloads:3210, repo:'ihbsf-design'},
+            {name:'@allunivers/api-client', version:'3.1.2', size:'890 KB', downloads:2180, repo:'icon-api'}
+        ];
+        
+        const githubWikiPages = [
+            {title:'Getting Started', updated:'2 days ago', author:'@allunivers'},
+            {title:'API Reference', updated:'1 week ago', author:'@developer'},
+            {title:'Contributing Guide', updated:'2 weeks ago', author:'@allunivers'},
+            {title:'FAQ', updated:'3 weeks ago', author:'@contributor'}
+        ];
+        
+        const githubSecurity = {
+            vulnerabilities: 2,
+            alerts: 5,
+            dependabot: 'enabled',
+            codeql: 'enabled',
+            lastScan: '1 hour ago'
+        };
 
         // Open Studio Section Function
         function openStudioSection(sectionId) {
@@ -1447,7 +1632,14 @@
             renderBackupHistory();
             renderSystemLogs();
             updateDashboard();
-            document.getElementById('githubGrid').innerHTML = githubRepos.map(r => `<div class="repo-card"><div class="repo-name">${r.name}</div><p style="color:#8b949e;font-size:0.9rem;">Language: ${r.lang}</p></div>`).join('');
+            renderGithubRepositories();
+            renderGithubCommits();
+            renderGithubPullRequests();
+            renderGithubIssues();
+            renderGithubActions();
+            renderGithubPackages();
+            renderGithubWiki();
+            renderGithubSecurity();
             animateNumber('totalIcons', 2500);
             animateNumber('totalDesigns', 1800);
             animateNumber('totalUsers', 15000);
@@ -2005,6 +2197,226 @@
         function downloadLogs() {
             showNotification('Downloading system logs...');
         }
+        
+        // GitHub Functions
+        function openGithubSection(sectionName) {
+            document.querySelectorAll('.github-data-section').forEach(s => s.style.display = 'none');
+            const target = document.getElementById('github-' + sectionName);
+            if (target) {
+                target.style.display = 'block';
+                window.scrollTo({ top: document.getElementById('github').offsetTop - 100, behavior: 'smooth' });
+            }
+        }
+        
+        function renderGithubRepositories() {
+            const grid = document.getElementById('repositoriesGrid');
+            if (!grid) return;
+            grid.innerHTML = githubRepos.map(repo => `
+                <div class="repo-card">
+                    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:1rem;">
+                        <div class="repo-name" style="font-size:1.2rem;">${repo.name}</div>
+                        <span style="background:#238636;color:white;padding:4px 8px;border-radius:6px;font-size:0.75rem;">Public</span>
+                    </div>
+                    <p style="color:#8b949e;font-size:0.9rem;margin-bottom:1rem;">Main programming language: ${repo.lang}</p>
+                    <div style="display:flex;gap:1rem;font-size:0.85rem;color:#8b949e;margin-bottom:1rem;">
+                        <span><i class="fas fa-star"></i> ${Math.floor(Math.random()*500)+100}</span>
+                        <span><i class="fas fa-code-branch"></i> ${Math.floor(Math.random()*50)+10}</span>
+                        <span><i class="fas fa-circle"></i> ${Math.floor(Math.random()*20)+5}</span>
+                    </div>
+                    <div style="display:flex;gap:0.5rem;">
+                        <button class="btn-secondary" onclick="viewRepository('${repo.name}')"><i class="fas fa-eye"></i> View</button>
+                        <button class="btn-primary" onclick="openRepo('${repo.name}')"><i class="fab fa-github"></i> Open</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderGithubCommits() {
+            const list = document.getElementById('commitsList');
+            if (!list) return;
+            list.innerHTML = githubCommits.map(commit => `
+                <div style="padding:1rem;background:#0d1117;border-radius:8px;margin-bottom:0.5rem;display:flex;align-items:center;gap:1rem;">
+                    <div style="background:#161b22;padding:0.5rem;border-radius:6px;font-family:monospace;color:#58a6ff;font-size:0.85rem;">${commit.hash}</div>
+                    <div style="flex:1;">
+                        <div style="color:white;font-weight:600;">${commit.message}</div>
+                        <div style="color:#8b949e;font-size:0.85rem;">${commit.author} • ${commit.date} • ${commit.repo}</div>
+                    </div>
+                    <button class="tool-btn" onclick="viewCommit('${commit.hash}')"><i class="fas fa-eye"></i></button>
+                </div>
+            `).join('');
+        }
+        
+        function renderGithubPullRequests() {
+            const grid = document.getElementById('pullRequestsGrid');
+            if (!grid) return;
+            grid.innerHTML = githubPullRequests.map(pr => {
+                const statusColor = pr.status === 'open' ? '#3fb950' : (pr.status === 'merged' ? '#a371f7' : '#8b949e');
+                const statusIcon = pr.status === 'open' ? 'fa-code-branch' : (pr.status === 'merged' ? 'fa-code-merge' : 'fa-times-circle');
+                return `
+                    <div class="repo-card">
+                        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+                            <span style="color:${statusColor};font-size:0.85rem;"><i class="fas ${statusIcon}"></i> ${pr.status.toUpperCase()}</span>
+                            <span style="color:#8b949e;font-size:0.85rem;">#${pr.id}</span>
+                        </div>
+                        <h4 style="color:#58a6ff;margin-bottom:0.5rem;">${pr.title}</h4>
+                        <p style="color:#8b949e;font-size:0.85rem;margin-bottom:0.5rem;">${pr.author} in ${pr.repo}</p>
+                        <p style="color:#238636;font-size:0.85rem;font-family:monospace;margin-bottom:1rem;">${pr.changes}</p>
+                        <button class="btn-secondary" onclick="viewPullRequest(${pr.id})"><i class="fas fa-eye"></i> View PR</button>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderGithubIssues() {
+            const grid = document.getElementById('issuesGrid');
+            if (!grid) return;
+            grid.innerHTML = githubIssues.map(issue => {
+                const statusColor = issue.status === 'open' ? '#3fb950' : '#8b949e';
+                const priorityColor = issue.priority === 'high' ? '#ef4444' : (issue.priority === 'medium' ? '#f59e0b' : '#3b82f6');
+                return `
+                    <div class="repo-card">
+                        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+                            <span style="color:${statusColor};font-size:0.85rem;"><i class="fas fa-${issue.status === 'open' ? 'exclamation-circle' : 'check-circle'}"></i> ${issue.status.toUpperCase()}</span>
+                            <span style="color:#8b949e;font-size:0.85rem;">#${issue.id}</span>
+                        </div>
+                        <h4 style="color:#58a6ff;margin-bottom:0.5rem;">${issue.title}</h4>
+                        <p style="color:#8b949e;font-size:0.85rem;margin-bottom:0.5rem;">${issue.author} in ${issue.repo}</p>
+                        <span style="background:${priorityColor};color:white;padding:4px 8px;border-radius:6px;font-size:0.75rem;text-transform:uppercase;">${issue.priority}</span>
+                        <div style="margin-top:1rem;">
+                            <button class="btn-secondary" onclick="viewIssue(${issue.id})"><i class="fas fa-eye"></i> View Issue</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderGithubActions() {
+            const list = document.getElementById('actionsList');
+            if (!list) return;
+            list.innerHTML = githubActions.map(action => {
+                const statusColor = action.status === 'success' ? '#3fb950' : (action.status === 'running' ? '#f59e0b' : '#ef4444');
+                const statusIcon = action.status === 'success' ? 'fa-check-circle' : (action.status === 'running' ? 'fa-circle-notch fa-spin' : 'fa-times-circle');
+                return `
+                    <div style="padding:1rem;background:#0d1117;border-radius:8px;margin-bottom:0.5rem;display:flex;align-items:center;gap:1rem;">
+                        <span style="color:${statusColor};font-size:1.2rem;"><i class="fas ${statusIcon}"></i></span>
+                        <div style="flex:1;">
+                            <div style="color:white;font-weight:600;">${action.workflow}</div>
+                            <div style="color:#8b949e;font-size:0.85rem;">${action.repo} • ${action.time}</div>
+                        </div>
+                        <div style="text-align:right;">
+                            <div style="color:#58a6ff;font-size:0.85rem;">${action.duration}</div>
+                            <button class="tool-btn" style="margin-top:0.5rem;" onclick="viewWorkflowRun('${action.workflow}')"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function renderGithubPackages() {
+            const grid = document.getElementById('packagesGrid');
+            if (!grid) return;
+            grid.innerHTML = githubPackages.map(pkg => `
+                <div class="repo-card">
+                    <div style="color:#58a6ff;font-family:monospace;font-size:1.1rem;margin-bottom:0.5rem;">${pkg.name}</div>
+                    <div style="color:#8b949e;font-size:0.85rem;margin-bottom:0.5rem;">Version: ${pkg.version}</div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:#8b949e;margin-bottom:1rem;">
+                        <span><i class="fas fa-hdd"></i> ${pkg.size}</span>
+                        <span><i class="fas fa-download"></i> ${(pkg.downloads/1000).toFixed(1)}k</span>
+                    </div>
+                    <div style="display:flex;gap:0.5rem;">
+                        <button class="btn-secondary" onclick="viewPackage('${pkg.name}')"><i class="fas fa-eye"></i> View</button>
+                        <button class="btn-primary" onclick="installPackage('${pkg.name}')"><i class="fas fa-download"></i> Install</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function renderGithubWiki() {
+            const container = document.getElementById('wikiPages');
+            if (!container) return;
+            container.innerHTML = githubWikiPages.map(page => `
+                <div style="padding:1rem;background:#0d1117;border-radius:8px;margin-bottom:0.5rem;display:flex;justify-content:space-between;align-items:center;">
+                    <div>
+                        <div style="color:#58a6ff;font-weight:600;margin-bottom:0.25rem;">${page.title}</div>
+                        <div style="color:#8b949e;font-size:0.85rem;">Updated ${page.updated} by ${page.author}</div>
+                    </div>
+                    <button class="btn-secondary" onclick="viewWikiPage('${page.title}')"><i class="fas fa-book-open"></i> Read</button>
+                </div>
+            `).join('');
+        }
+        
+        function renderGithubSecurity() {
+            const container = document.getElementById('securityOverview');
+            if (!container) return;
+            container.innerHTML = `
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;">
+                    <div style="background:#0d1117;padding:1.5rem;border-radius:8px;text-align:center;">
+                        <div style="color:#ef4444;font-size:2rem;font-weight:800;margin-bottom:0.5rem;">${githubSecurity.vulnerabilities}</div>
+                        <div style="color:#8b949e;font-size:0.85rem;">Vulnerabilities</div>
+                    </div>
+                    <div style="background:#0d1117;padding:1.5rem;border-radius:8px;text-align:center;">
+                        <div style="color:#f59e0b;font-size:2rem;font-weight:800;margin-bottom:0.5rem;">${githubSecurity.alerts}</div>
+                        <div style="color:#8b949e;font-size:0.85rem;">Security Alerts</div>
+                    </div>
+                    <div style="background:#0d1117;padding:1.5rem;border-radius:8px;text-align:center;">
+                        <div style="color:#3fb950;font-size:2rem;font-weight:800;margin-bottom:0.5rem;">${githubSecurity.dependabot.toUpperCase()}</div>
+                        <div style="color:#8b949e;font-size:0.85rem;">Dependabot</div>
+                    </div>
+                    <div style="background:#0d1117;padding:1.5rem;border-radius:8px;text-align:center;">
+                        <div style="color:#58a6ff;font-size:2rem;font-weight:800;margin-bottom:0.5rem;">${githubSecurity.codeql.toUpperCase()}</div>
+                        <div style="color:#8b949e;font-size:0.85rem;">CodeQL</div>
+                    </div>
+                </div>
+                <div style="background:#0d1117;padding:1.5rem;border-radius:8px;">
+                    <div style="color:#8b949e;font-size:0.85rem;margin-bottom:0.5rem;">Last Security Scan</div>
+                    <div style="color:white;font-size:1.2rem;"><i class="fas fa-clock"></i> ${githubSecurity.lastScan}</div>
+                </div>
+            `;
+        }
+        
+        function refreshRepositories() { showNotification('Refreshing repositories...'); setTimeout(() => { renderGithubRepositories(); showNotification('Repositories refreshed'); }, 1000); }
+        function createRepository() { showNotification('Opening repository creation dialog...'); }
+        function filterRepositories(filter) { showNotification(`Filtering repositories: ${filter}`); }
+        
+        function refreshCommits() { showNotification('Refreshing commits...'); setTimeout(() => { renderGithubCommits(); showNotification('Commits refreshed'); }, 1000); }
+        function viewCommitHistory() { showNotification('Loading commit history...'); }
+        function loadCommitsForRepo() { const repo = document.getElementById('commitRepoSelect').value; showNotification(`Loading commits for: ${repo}`); }
+        
+        function refreshPullRequests() { showNotification('Refreshing pull requests...'); setTimeout(() => { renderGithubPullRequests(); showNotification('Pull requests refreshed'); }, 1000); }
+        function createPullRequest() { showNotification('Opening new pull request form...'); }
+        function filterPRs(filter) { showNotification(`Filtering PRs: ${filter}`); }
+        
+        function refreshIssues() { showNotification('Refreshing issues...'); setTimeout(() => { renderGithubIssues(); showNotification('Issues refreshed'); }, 1000); }
+        function createIssue() { showNotification('Opening new issue form...'); }
+        function filterIssues(filter) { showNotification(`Filtering issues: ${filter}`); }
+        
+        function refreshActions() { showNotification('Refreshing actions...'); setTimeout(() => { renderGithubActions(); showNotification('Actions refreshed'); }, 1000); }
+        function runWorkflow() { showNotification('Select workflow to run...'); }
+        function viewWorkflows() { showNotification('Loading workflows list...'); }
+        
+        function refreshPackages() { showNotification('Refreshing packages...'); setTimeout(() => { renderGithubPackages(); showNotification('Packages refreshed'); }, 1000); }
+        function publishPackage() { showNotification('Opening package publish dialog...'); }
+        
+        function refreshWiki() { showNotification('Refreshing wiki pages...'); setTimeout(() => { renderGithubWiki(); showNotification('Wiki refreshed'); }, 1000); }
+        function createWikiPage() { showNotification('Opening new wiki page editor...'); }
+        function editWikiPage() { showNotification('Opening wiki page editor...'); }
+        
+        function refreshSecurity() { showNotification('Refreshing security overview...'); setTimeout(() => { renderGithubSecurity(); showNotification('Security data refreshed'); }, 1000); }
+        function runSecurityScan() { showNotification('Running security scan...'); }
+        function viewVulnerabilities() { showNotification('Loading vulnerabilities report...'); }
+        
+        function disconnectGithub() { showNotification('Disconnecting GitHub account...'); }
+        function regenerateToken() { showNotification('Generating new API token...'); }
+        
+        function viewRepository(name) { showNotification(`Viewing repository: ${name}`); }
+        function openRepo(name) { window.open(`https://github.com/allunivers/${name}`, '_blank'); }
+        function viewCommit(hash) { showNotification(`Viewing commit: ${hash}`); }
+        function viewPullRequest(id) { showNotification(`Viewing pull request #${id}`); }
+        function viewIssue(id) { showNotification(`Viewing issue #${id}`); }
+        function viewWorkflowRun(name) { showNotification(`Viewing workflow run: ${name}`); }
+        function viewPackage(name) { showNotification(`Viewing package: ${name}`); }
+        function installPackage(name) { showNotification(`Installing package: ${name}`); }
+        function viewWikiPage(title) { showNotification(`Viewing wiki page: ${title}`); }
 
         function animateNumber(id, target) {
             const el = document.getElementById(id);
