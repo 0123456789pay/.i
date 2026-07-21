@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01492",
+    "name": "Light Weather 1492",
+    "category": "Weather",
+    "subcategory": "Light",
+    "layout": "Modal Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Weather/Light/Item 1492",
+    "parentId": "MENU-01491",
+    "level": 5,
+    "order": 1492,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:52Z",
+        "updatedAt": "2024-01-01T00:00:52Z",
+        "version": "1.0.1492",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["weather", "light", "modal layout", "icon-maker"],
+        "description": "Menu item 1492 for Light Weather with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1492)",
+        "onHover": "handleMenuHover(1492)",
+        "onContextMenu": "handleMenuContext(1492)"
+    },
+    "styling": {
+        "className": "menu-item-1492",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

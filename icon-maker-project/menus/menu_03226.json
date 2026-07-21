@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03226",
+    "name": "Realistic Art 3226",
+    "category": "Art",
+    "subcategory": "Realistic",
+    "layout": "Grid Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Realistic/Item 3226",
+    "parentId": "MENU-03221",
+    "level": 5,
+    "order": 3226,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.3226",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "realistic", "grid layout", "icon-maker"],
+        "description": "Menu item 3226 for Realistic Art with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3226)",
+        "onHover": "handleMenuHover(3226)",
+        "onContextMenu": "handleMenuContext(3226)"
+    },
+    "styling": {
+        "className": "menu-item-3226",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02568",
+    "name": "Professional Icons 2568",
+    "category": "Icons",
+    "subcategory": "Professional",
+    "layout": "Sidebar Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Professional/Item 2568",
+    "parentId": "MENU-02561",
+    "level": 5,
+    "order": 2568,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:48Z",
+        "updatedAt": "2024-01-01T00:00:48Z",
+        "version": "1.0.2568",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "professional", "sidebar layout", "icon-maker"],
+        "description": "Menu item 2568 for Professional Icons with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2568)",
+        "onHover": "handleMenuHover(2568)",
+        "onContextMenu": "handleMenuContext(2568)"
+    },
+    "styling": {
+        "className": "menu-item-2568",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00114",
+    "name": "Colorful Tools 114",
+    "category": "Tools",
+    "subcategory": "Colorful",
+    "layout": "Chart Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Tools/Colorful/Item 114",
+    "parentId": "MENU-00111",
+    "level": 2,
+    "order": 114,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:54Z",
+        "updatedAt": "2024-01-01T00:00:54Z",
+        "version": "1.0.114",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["tools", "colorful", "chart layout", "icon-maker"],
+        "description": "Menu item 114 for Colorful Tools with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(114)",
+        "onHover": "handleMenuHover(114)",
+        "onContextMenu": "handleMenuContext(114)"
+    },
+    "styling": {
+        "className": "menu-item-114",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

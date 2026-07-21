@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02292",
+    "name": "Modern Letters 2292",
+    "category": "Letters",
+    "subcategory": "Modern",
+    "layout": "Modal Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Letters/Modern/Item 2292",
+    "parentId": "MENU-02291",
+    "level": 5,
+    "order": 2292,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:12Z",
+        "updatedAt": "2024-01-01T00:00:12Z",
+        "version": "1.0.2292",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["letters", "modern", "modal layout", "icon-maker"],
+        "description": "Menu item 2292 for Modern Letters with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2292)",
+        "onHover": "handleMenuHover(2292)",
+        "onContextMenu": "handleMenuContext(2292)"
+    },
+    "styling": {
+        "className": "menu-item-2292",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

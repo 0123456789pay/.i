@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00166",
+    "name": "Realistic Art 166",
+    "category": "Art",
+    "subcategory": "Realistic",
+    "layout": "Form Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Realistic/Item 166",
+    "parentId": "MENU-00161",
+    "level": 2,
+    "order": 166,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.166",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "realistic", "form layout", "icon-maker"],
+        "description": "Menu item 166 for Realistic Art with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(166)",
+        "onHover": "handleMenuHover(166)",
+        "onContextMenu": "handleMenuContext(166)"
+    },
+    "styling": {
+        "className": "menu-item-166",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

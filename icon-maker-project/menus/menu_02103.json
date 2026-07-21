@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02103",
+    "name": "Outlined Home 2103",
+    "category": "Home",
+    "subcategory": "Outlined",
+    "layout": "Stack Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Outlined/Item 2103",
+    "parentId": "MENU-02101",
+    "level": 5,
+    "order": 2103,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.2103",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "outlined", "stack layout", "icon-maker"],
+        "description": "Menu item 2103 for Outlined Home with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2103)",
+        "onHover": "handleMenuHover(2103)",
+        "onContextMenu": "handleMenuContext(2103)"
+    },
+    "styling": {
+        "className": "menu-item-2103",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

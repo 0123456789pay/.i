@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03222",
+    "name": "Modern Social Media 3222",
+    "category": "Social Media",
+    "subcategory": "Modern",
+    "layout": "Profile Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Social Media/Modern/Item 3222",
+    "parentId": "MENU-03221",
+    "level": 5,
+    "order": 3222,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:42Z",
+        "updatedAt": "2024-01-01T00:00:42Z",
+        "version": "1.0.3222",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["social media", "modern", "profile layout", "icon-maker"],
+        "description": "Menu item 3222 for Modern Social Media with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3222)",
+        "onHover": "handleMenuHover(3222)",
+        "onContextMenu": "handleMenuContext(3222)"
+    },
+    "styling": {
+        "className": "menu-item-3222",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

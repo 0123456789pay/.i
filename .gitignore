@@ -1,33 +1,5 @@
 ```
-# Dependencies
-node_modules/
-
-# Editor/IDE files
-.vscode/
-
-# Build artifacts
-dist/
-build/
-*.js.map
-*.css.map
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Compression files
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -50,4 +22,141 @@ __pycache__/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Build artifacts
+icon-maker-project/build/
+
+# Dependencies
+icon-maker-project/node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# Temp files
+*.tmp
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+pip-log.txt
+pip-selfcheck.json
+
+# Node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.war
+*.sar
+*.nar
+*.kjar
+*.aab
+*.apk
+*.dex
+*.so
+*.dll
+*.dylib
+*.obj
+*.lib
+*.a
+*.o
+*.out
+*.exe
+*.bin
+*.elf
+*.com
+*.sys
+*.sys
+*.bak
+*.old
+*.orig
+*.rej
+*.aux
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.idx
+*.ind
+*.ilg
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.iml
+*.iws
+*.ipr
+*.swp
+*.swo
+*.swn
+*.swm
+*.lock
+*.pid
+*.seed
+*.wsp
+*.wsi
+*.wsc
+*.wsd
+*.wsl
+*.wsp.wsSettings
+*.tmp
+*.temp
+*.log
+*.cache
+*.cached
+*.metadata
+*.localstorage
+*.tmp
+*.temp
+*.log
+*.cache
+*.cached
+*.metadata
+*.localstorage
+*.tmp
+*.temp
+*.log
+*.cache
+*.cached
+*.metadata
+*.localstorage
 ```

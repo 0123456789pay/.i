@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00316",
+    "name": "Realistic Basic Shapes 316",
+    "category": "Basic Shapes",
+    "subcategory": "Realistic",
+    "layout": "Form Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Basic Shapes/Realistic/Item 316",
+    "parentId": "MENU-00311",
+    "level": 4,
+    "order": 316,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:16Z",
+        "updatedAt": "2024-01-01T00:00:16Z",
+        "version": "1.0.316",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["basic shapes", "realistic", "form layout", "icon-maker"],
+        "description": "Menu item 316 for Realistic Basic Shapes with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(316)",
+        "onHover": "handleMenuHover(316)",
+        "onContextMenu": "handleMenuContext(316)"
+    },
+    "styling": {
+        "className": "menu-item-316",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00393",
+    "name": "Outlined Home 393",
+    "category": "Home",
+    "subcategory": "Outlined",
+    "layout": "Sidebar Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Outlined/Item 393",
+    "parentId": "MENU-00391",
+    "level": 4,
+    "order": 393,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:33Z",
+        "updatedAt": "2024-01-01T00:00:33Z",
+        "version": "1.0.393",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "outlined", "sidebar layout", "icon-maker"],
+        "description": "Menu item 393 for Outlined Home with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(393)",
+        "onHover": "handleMenuHover(393)",
+        "onContextMenu": "handleMenuContext(393)"
+    },
+    "styling": {
+        "className": "menu-item-393",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

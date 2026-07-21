@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00173",
+    "name": "Dark Religion 173",
+    "category": "Religion",
+    "subcategory": "Dark",
+    "layout": "Feed Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Religion/Dark/Item 173",
+    "parentId": "MENU-00171",
+    "level": 2,
+    "order": 173,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.173",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["religion", "dark", "feed layout", "icon-maker"],
+        "description": "Menu item 173 for Dark Religion with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(173)",
+        "onHover": "handleMenuHover(173)",
+        "onContextMenu": "handleMenuContext(173)"
+    },
+    "styling": {
+        "className": "menu-item-173",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

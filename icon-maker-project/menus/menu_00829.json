@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00829",
+    "name": "Casual Security 829",
+    "category": "Security",
+    "subcategory": "Casual",
+    "layout": "Flow Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Security/Casual/Item 829",
+    "parentId": "MENU-00821",
+    "level": 5,
+    "order": 829,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:49Z",
+        "updatedAt": "2024-01-01T00:00:49Z",
+        "version": "1.0.829",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["security", "casual", "flow layout", "icon-maker"],
+        "description": "Menu item 829 for Casual Security with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(829)",
+        "onHover": "handleMenuHover(829)",
+        "onContextMenu": "handleMenuContext(829)"
+    },
+    "styling": {
+        "className": "menu-item-829",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

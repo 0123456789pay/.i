@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00376",
+    "name": "Realistic Music 376",
+    "category": "Music",
+    "subcategory": "Realistic",
+    "layout": "Grid Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Realistic/Item 376",
+    "parentId": "MENU-00371",
+    "level": 4,
+    "order": 376,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:16Z",
+        "updatedAt": "2024-01-01T00:00:16Z",
+        "version": "1.0.376",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "realistic", "grid layout", "icon-maker"],
+        "description": "Menu item 376 for Realistic Music with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(376)",
+        "onHover": "handleMenuHover(376)",
+        "onContextMenu": "handleMenuContext(376)"
+    },
+    "styling": {
+        "className": "menu-item-376",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

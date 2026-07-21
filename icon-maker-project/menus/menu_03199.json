@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03199",
+    "name": "Casual Symbols 3199",
+    "category": "Symbols",
+    "subcategory": "Casual",
+    "layout": "Search Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Symbols/Casual/Item 3199",
+    "parentId": "MENU-03191",
+    "level": 5,
+    "order": 3199,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:19Z",
+        "updatedAt": "2024-01-01T00:00:19Z",
+        "version": "1.0.3199",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["symbols", "casual", "search layout", "icon-maker"],
+        "description": "Menu item 3199 for Casual Symbols with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3199)",
+        "onHover": "handleMenuHover(3199)",
+        "onContextMenu": "handleMenuContext(3199)"
+    },
+    "styling": {
+        "className": "menu-item-3199",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

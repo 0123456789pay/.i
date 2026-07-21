@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02672",
+    "name": "Complex Transport 2672",
+    "category": "Transport",
+    "subcategory": "Complex",
+    "layout": "Profile Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Transport/Complex/Item 2672",
+    "parentId": "MENU-02671",
+    "level": 5,
+    "order": 2672,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:32Z",
+        "updatedAt": "2024-01-01T00:00:32Z",
+        "version": "1.0.2672",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["transport", "complex", "profile layout", "icon-maker"],
+        "description": "Menu item 2672 for Complex Transport with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2672)",
+        "onHover": "handleMenuHover(2672)",
+        "onContextMenu": "handleMenuContext(2672)"
+    },
+    "styling": {
+        "className": "menu-item-2672",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

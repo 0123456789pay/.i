@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00214",
+    "name": "Filled Office 214",
+    "category": "Office",
+    "subcategory": "Filled",
+    "layout": "Chart Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Office/Filled/Item 214",
+    "parentId": "MENU-00211",
+    "level": 3,
+    "order": 214,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:34Z",
+        "updatedAt": "2024-01-01T00:00:34Z",
+        "version": "1.0.214",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["office", "filled", "chart layout", "icon-maker"],
+        "description": "Menu item 214 for Filled Office with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(214)",
+        "onHover": "handleMenuHover(214)",
+        "onContextMenu": "handleMenuContext(214)"
+    },
+    "styling": {
+        "className": "menu-item-214",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

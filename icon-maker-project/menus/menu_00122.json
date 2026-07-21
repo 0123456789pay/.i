@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00122",
+    "name": "Complex Fashion 122",
+    "category": "Fashion",
+    "subcategory": "Complex",
+    "layout": "Profile Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Fashion/Complex/Item 122",
+    "parentId": "MENU-00121",
+    "level": 2,
+    "order": 122,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:02Z",
+        "updatedAt": "2024-01-01T00:00:02Z",
+        "version": "1.0.122",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["fashion", "complex", "profile layout", "icon-maker"],
+        "description": "Menu item 122 for Complex Fashion with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(122)",
+        "onHover": "handleMenuHover(122)",
+        "onContextMenu": "handleMenuContext(122)"
+    },
+    "styling": {
+        "className": "menu-item-122",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

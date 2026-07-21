@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01437",
+    "name": "Tritone Letters 1437",
+    "category": "Letters",
+    "subcategory": "Tritone",
+    "layout": "Tree Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Letters/Tritone/Item 1437",
+    "parentId": "MENU-01431",
+    "level": 5,
+    "order": 1437,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:57Z",
+        "updatedAt": "2024-01-01T00:00:57Z",
+        "version": "1.0.1437",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["letters", "tritone", "tree layout", "icon-maker"],
+        "description": "Menu item 1437 for Tritone Letters with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1437)",
+        "onHover": "handleMenuHover(1437)",
+        "onContextMenu": "handleMenuContext(1437)"
+    },
+    "styling": {
+        "className": "menu-item-1437",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

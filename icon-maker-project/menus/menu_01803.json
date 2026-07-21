@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01803",
+    "name": "Outlined Icons 1803",
+    "category": "Icons",
+    "subcategory": "Outlined",
+    "layout": "Stack Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Outlined/Item 1803",
+    "parentId": "MENU-01801",
+    "level": 5,
+    "order": 1803,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.1803",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "outlined", "stack layout", "icon-maker"],
+        "description": "Menu item 1803 for Outlined Icons with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1803)",
+        "onHover": "handleMenuHover(1803)",
+        "onContextMenu": "handleMenuContext(1803)"
+    },
+    "styling": {
+        "className": "menu-item-1803",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

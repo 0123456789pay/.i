@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03437",
+    "name": "Cartoon Transport 3437",
+    "category": "Transport",
+    "subcategory": "Cartoon",
+    "layout": "Tree Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Transport/Cartoon/Item 3437",
+    "parentId": "MENU-03431",
+    "level": 5,
+    "order": 3437,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:17Z",
+        "updatedAt": "2024-01-01T00:00:17Z",
+        "version": "1.0.3437",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["transport", "cartoon", "tree layout", "icon-maker"],
+        "description": "Menu item 3437 for Cartoon Transport with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3437)",
+        "onHover": "handleMenuHover(3437)",
+        "onContextMenu": "handleMenuContext(3437)"
+    },
+    "styling": {
+        "className": "menu-item-3437",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

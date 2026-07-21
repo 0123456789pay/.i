@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00288",
+    "name": "Professional Communication 288",
+    "category": "Communication",
+    "subcategory": "Professional",
+    "layout": "Graph Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Professional/Item 288",
+    "parentId": "MENU-00281",
+    "level": 3,
+    "order": 288,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:48Z",
+        "updatedAt": "2024-01-01T00:00:48Z",
+        "version": "1.0.288",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "professional", "graph layout", "icon-maker"],
+        "description": "Menu item 288 for Professional Communication with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(288)",
+        "onHover": "handleMenuHover(288)",
+        "onContextMenu": "handleMenuContext(288)"
+    },
+    "styling": {
+        "className": "menu-item-288",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

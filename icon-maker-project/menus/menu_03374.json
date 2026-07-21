@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03374",
+    "name": "Future Units 3374",
+    "category": "Units",
+    "subcategory": "Future",
+    "layout": "Search Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Units/Future/Item 3374",
+    "parentId": "MENU-03371",
+    "level": 5,
+    "order": 3374,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:14Z",
+        "updatedAt": "2024-01-01T00:00:14Z",
+        "version": "1.0.3374",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["units", "future", "search layout", "icon-maker"],
+        "description": "Menu item 3374 for Future Units with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3374)",
+        "onHover": "handleMenuHover(3374)",
+        "onContextMenu": "handleMenuContext(3374)"
+    },
+    "styling": {
+        "className": "menu-item-3374",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

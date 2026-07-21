@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02965",
+    "name": "Monochrome Time 2965",
+    "category": "Time",
+    "subcategory": "Monochrome",
+    "layout": "Table Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Time/Monochrome/Item 2965",
+    "parentId": "MENU-02961",
+    "level": 5,
+    "order": 2965,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:25Z",
+        "updatedAt": "2024-01-01T00:00:25Z",
+        "version": "1.0.2965",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["time", "monochrome", "table layout", "icon-maker"],
+        "description": "Menu item 2965 for Monochrome Time with Table Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2965)",
+        "onHover": "handleMenuHover(2965)",
+        "onContextMenu": "handleMenuContext(2965)"
+    },
+    "styling": {
+        "className": "menu-item-2965",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

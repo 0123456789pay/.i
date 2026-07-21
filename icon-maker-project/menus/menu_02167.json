@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02167",
+    "name": "Animated Weather 2167",
+    "category": "Weather",
+    "subcategory": "Animated",
+    "layout": "Modal Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Weather/Animated/Item 2167",
+    "parentId": "MENU-02161",
+    "level": 5,
+    "order": 2167,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:07Z",
+        "updatedAt": "2024-01-01T00:00:07Z",
+        "version": "1.0.2167",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["weather", "animated", "modal layout", "icon-maker"],
+        "description": "Menu item 2167 for Animated Weather with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2167)",
+        "onHover": "handleMenuHover(2167)",
+        "onContextMenu": "handleMenuContext(2167)"
+    },
+    "styling": {
+        "className": "menu-item-2167",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

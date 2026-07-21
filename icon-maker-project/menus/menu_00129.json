@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00129",
+    "name": "Minimal Maps 129",
+    "category": "Maps",
+    "subcategory": "Minimal",
+    "layout": "Flow Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Maps/Minimal/Item 129",
+    "parentId": "MENU-00121",
+    "level": 2,
+    "order": 129,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:09Z",
+        "updatedAt": "2024-01-01T00:00:09Z",
+        "version": "1.0.129",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["maps", "minimal", "flow layout", "icon-maker"],
+        "description": "Menu item 129 for Minimal Maps with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(129)",
+        "onHover": "handleMenuHover(129)",
+        "onContextMenu": "handleMenuContext(129)"
+    },
+    "styling": {
+        "className": "menu-item-129",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

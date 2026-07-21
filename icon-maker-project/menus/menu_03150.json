@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03150",
+    "name": "Vibrant Math 3150",
+    "category": "Math",
+    "subcategory": "Vibrant",
+    "layout": "Filter Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Math/Vibrant/Item 3150",
+    "parentId": "MENU-03141",
+    "level": 5,
+    "order": 3150,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:30Z",
+        "updatedAt": "2024-01-01T00:00:30Z",
+        "version": "1.0.3150",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["math", "vibrant", "filter layout", "icon-maker"],
+        "description": "Menu item 3150 for Vibrant Math with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3150)",
+        "onHover": "handleMenuHover(3150)",
+        "onContextMenu": "handleMenuContext(3150)"
+    },
+    "styling": {
+        "className": "menu-item-3150",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

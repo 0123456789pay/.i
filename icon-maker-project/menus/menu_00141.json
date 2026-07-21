@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00141",
+    "name": "Bold Flags 141",
+    "category": "Flags",
+    "subcategory": "Bold",
+    "layout": "Form Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Bold/Item 141",
+    "parentId": "MENU-00141",
+    "level": 2,
+    "order": 141,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.141",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "bold", "form layout", "icon-maker"],
+        "description": "Menu item 141 for Bold Flags with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(141)",
+        "onHover": "handleMenuHover(141)",
+        "onContextMenu": "handleMenuContext(141)"
+    },
+    "styling": {
+        "className": "menu-item-141",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

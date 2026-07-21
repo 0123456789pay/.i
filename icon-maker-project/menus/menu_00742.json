@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00742",
+    "name": "Light Users 742",
+    "category": "Users",
+    "subcategory": "Light",
+    "layout": "Modal Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Users/Light/Item 742",
+    "parentId": "MENU-00741",
+    "level": 5,
+    "order": 742,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.742",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["users", "light", "modal layout", "icon-maker"],
+        "description": "Menu item 742 for Light Users with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(742)",
+        "onHover": "handleMenuHover(742)",
+        "onContextMenu": "handleMenuContext(742)"
+    },
+    "styling": {
+        "className": "menu-item-742",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

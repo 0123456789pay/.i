@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01630",
+    "name": "Detailed Education 1630",
+    "category": "Education",
+    "subcategory": "Detailed",
+    "layout": "Masonry Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Education/Detailed/Item 1630",
+    "parentId": "MENU-01621",
+    "level": 5,
+    "order": 1630,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:10Z",
+        "updatedAt": "2024-01-01T00:00:10Z",
+        "version": "1.0.1630",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["education", "detailed", "masonry layout", "icon-maker"],
+        "description": "Menu item 1630 for Detailed Education with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1630)",
+        "onHover": "handleMenuHover(1630)",
+        "onContextMenu": "handleMenuContext(1630)"
+    },
+    "styling": {
+        "className": "menu-item-1630",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02075",
+    "name": "Colored Arrows 2075",
+    "category": "Arrows",
+    "subcategory": "Colored",
+    "layout": "Filter Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Arrows/Colored/Item 2075",
+    "parentId": "MENU-02071",
+    "level": 5,
+    "order": 2075,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:35Z",
+        "updatedAt": "2024-01-01T00:00:35Z",
+        "version": "1.0.2075",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["arrows", "colored", "filter layout", "icon-maker"],
+        "description": "Menu item 2075 for Colored Arrows with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2075)",
+        "onHover": "handleMenuHover(2075)",
+        "onContextMenu": "handleMenuContext(2075)"
+    },
+    "styling": {
+        "className": "menu-item-2075",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

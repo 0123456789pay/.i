@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00313",
+    "name": "Retro Currency 313",
+    "category": "Currency",
+    "subcategory": "Retro",
+    "layout": "Graph Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Currency/Retro/Item 313",
+    "parentId": "MENU-00311",
+    "level": 4,
+    "order": 313,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:13Z",
+        "updatedAt": "2024-01-01T00:00:13Z",
+        "version": "1.0.313",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["currency", "retro", "graph layout", "icon-maker"],
+        "description": "Menu item 313 for Retro Currency with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(313)",
+        "onHover": "handleMenuHover(313)",
+        "onContextMenu": "handleMenuContext(313)"
+    },
+    "styling": {
+        "className": "menu-item-313",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

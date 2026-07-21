@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03230",
+    "name": "Elegant Travel 3230",
+    "category": "Travel",
+    "subcategory": "Elegant",
+    "layout": "Masonry Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Elegant/Item 3230",
+    "parentId": "MENU-03221",
+    "level": 5,
+    "order": 3230,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:50Z",
+        "updatedAt": "2024-01-01T00:00:50Z",
+        "version": "1.0.3230",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "elegant", "masonry layout", "icon-maker"],
+        "description": "Menu item 3230 for Elegant Travel with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3230)",
+        "onHover": "handleMenuHover(3230)",
+        "onContextMenu": "handleMenuContext(3230)"
+    },
+    "styling": {
+        "className": "menu-item-3230",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

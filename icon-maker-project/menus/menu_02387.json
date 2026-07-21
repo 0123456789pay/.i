@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02387",
+    "name": "Cartoon Advanced Shapes 2387",
+    "category": "Advanced Shapes",
+    "subcategory": "Cartoon",
+    "layout": "Tree Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Advanced Shapes/Cartoon/Item 2387",
+    "parentId": "MENU-02381",
+    "level": 5,
+    "order": 2387,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:47Z",
+        "updatedAt": "2024-01-01T00:00:47Z",
+        "version": "1.0.2387",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["advanced shapes", "cartoon", "tree layout", "icon-maker"],
+        "description": "Menu item 2387 for Cartoon Advanced Shapes with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2387)",
+        "onHover": "handleMenuHover(2387)",
+        "onContextMenu": "handleMenuContext(2387)"
+    },
+    "styling": {
+        "className": "menu-item-2387",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

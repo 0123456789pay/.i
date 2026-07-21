@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02456",
+    "name": "Duotone Navigation 2456",
+    "category": "Navigation",
+    "subcategory": "Duotone",
+    "layout": "Carousel Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Duotone/Item 2456",
+    "parentId": "MENU-02451",
+    "level": 5,
+    "order": 2456,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:56Z",
+        "updatedAt": "2024-01-01T00:00:56Z",
+        "version": "1.0.2456",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "duotone", "carousel layout", "icon-maker"],
+        "description": "Menu item 2456 for Duotone Navigation with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2456)",
+        "onHover": "handleMenuHover(2456)",
+        "onContextMenu": "handleMenuContext(2456)"
+    },
+    "styling": {
+        "className": "menu-item-2456",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01000",
+    "name": "Detailed Education 1000",
+    "category": "Education",
+    "subcategory": "Detailed",
+    "layout": "Filter Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Education/Detailed/Item 1000",
+    "parentId": "MENU-00991",
+    "level": 5,
+    "order": 1000,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:40Z",
+        "updatedAt": "2024-01-01T00:00:40Z",
+        "version": "1.0.1000",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["education", "detailed", "filter layout", "icon-maker"],
+        "description": "Menu item 1000 for Detailed Education with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1000)",
+        "onHover": "handleMenuHover(1000)",
+        "onContextMenu": "handleMenuContext(1000)"
+    },
+    "styling": {
+        "className": "menu-item-1000",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01594",
+    "name": "Filled Security 1594",
+    "category": "Security",
+    "subcategory": "Filled",
+    "layout": "Header Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Security/Filled/Item 1594",
+    "parentId": "MENU-01591",
+    "level": 5,
+    "order": 1594,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:34Z",
+        "updatedAt": "2024-01-01T00:00:34Z",
+        "version": "1.0.1594",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["security", "filled", "header layout", "icon-maker"],
+        "description": "Menu item 1594 for Filled Security with Header Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1594)",
+        "onHover": "handleMenuHover(1594)",
+        "onContextMenu": "handleMenuContext(1594)"
+    },
+    "styling": {
+        "className": "menu-item-1594",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

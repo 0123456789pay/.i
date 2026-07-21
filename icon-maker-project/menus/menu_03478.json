@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03478",
+    "name": "Multicolor Animals 3478",
+    "category": "Animals",
+    "subcategory": "Multicolor",
+    "layout": "Stack Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Animals/Multicolor/Item 3478",
+    "parentId": "MENU-03471",
+    "level": 5,
+    "order": 3478,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:58Z",
+        "updatedAt": "2024-01-01T00:00:58Z",
+        "version": "1.0.3478",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["animals", "multicolor", "stack layout", "icon-maker"],
+        "description": "Menu item 3478 for Multicolor Animals with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3478)",
+        "onHover": "handleMenuHover(3478)",
+        "onContextMenu": "handleMenuContext(3478)"
+    },
+    "styling": {
+        "className": "menu-item-3478",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02933",
+    "name": "Dark Technology 2933",
+    "category": "Technology",
+    "subcategory": "Dark",
+    "layout": "Card Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Dark/Item 2933",
+    "parentId": "MENU-02931",
+    "level": 5,
+    "order": 2933,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.2933",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "dark", "card layout", "icon-maker"],
+        "description": "Menu item 2933 for Dark Technology with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2933)",
+        "onHover": "handleMenuHover(2933)",
+        "onContextMenu": "handleMenuContext(2933)"
+    },
+    "styling": {
+        "className": "menu-item-2933",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

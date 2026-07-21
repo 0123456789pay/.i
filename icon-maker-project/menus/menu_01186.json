@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01186",
+    "name": "Realistic Music 1186",
+    "category": "Music",
+    "subcategory": "Realistic",
+    "layout": "Timeline Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Realistic/Item 1186",
+    "parentId": "MENU-01181",
+    "level": 5,
+    "order": 1186,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.1186",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "realistic", "timeline layout", "icon-maker"],
+        "description": "Menu item 1186 for Realistic Music with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1186)",
+        "onHover": "handleMenuHover(1186)",
+        "onContextMenu": "handleMenuContext(1186)"
+    },
+    "styling": {
+        "className": "menu-item-1186",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

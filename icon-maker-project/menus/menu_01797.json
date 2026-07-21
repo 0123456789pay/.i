@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01797",
+    "name": "Tritone Letters 1797",
+    "category": "Letters",
+    "subcategory": "Tritone",
+    "layout": "Profile Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Letters/Tritone/Item 1797",
+    "parentId": "MENU-01791",
+    "level": 5,
+    "order": 1797,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:57Z",
+        "updatedAt": "2024-01-01T00:00:57Z",
+        "version": "1.0.1797",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["letters", "tritone", "profile layout", "icon-maker"],
+        "description": "Menu item 1797 for Tritone Letters with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1797)",
+        "onHover": "handleMenuHover(1797)",
+        "onContextMenu": "handleMenuContext(1797)"
+    },
+    "styling": {
+        "className": "menu-item-1797",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

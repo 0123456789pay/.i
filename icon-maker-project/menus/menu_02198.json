@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02198",
+    "name": "Static Religion 2198",
+    "category": "Religion",
+    "subcategory": "Static",
+    "layout": "Feed Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Religion/Static/Item 2198",
+    "parentId": "MENU-02191",
+    "level": 5,
+    "order": 2198,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.2198",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["religion", "static", "feed layout", "icon-maker"],
+        "description": "Menu item 2198 for Static Religion with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2198)",
+        "onHover": "handleMenuHover(2198)",
+        "onContextMenu": "handleMenuContext(2198)"
+    },
+    "styling": {
+        "className": "menu-item-2198",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

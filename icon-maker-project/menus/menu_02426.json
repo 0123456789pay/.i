@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02426",
+    "name": "Duotone Numbers 2426",
+    "category": "Numbers",
+    "subcategory": "Duotone",
+    "layout": "Grid Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Duotone/Item 2426",
+    "parentId": "MENU-02421",
+    "level": 5,
+    "order": 2426,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:26Z",
+        "updatedAt": "2024-01-01T00:00:26Z",
+        "version": "1.0.2426",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "duotone", "grid layout", "icon-maker"],
+        "description": "Menu item 2426 for Duotone Numbers with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2426)",
+        "onHover": "handleMenuHover(2426)",
+        "onContextMenu": "handleMenuContext(2426)"
+    },
+    "styling": {
+        "className": "menu-item-2426",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

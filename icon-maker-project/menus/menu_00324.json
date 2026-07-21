@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00324",
+    "name": "Colorful Business 324",
+    "category": "Business",
+    "subcategory": "Colorful",
+    "layout": "Search Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Business/Colorful/Item 324",
+    "parentId": "MENU-00321",
+    "level": 4,
+    "order": 324,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:24Z",
+        "updatedAt": "2024-01-01T00:00:24Z",
+        "version": "1.0.324",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["business", "colorful", "search layout", "icon-maker"],
+        "description": "Menu item 324 for Colorful Business with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(324)",
+        "onHover": "handleMenuHover(324)",
+        "onContextMenu": "handleMenuContext(324)"
+    },
+    "styling": {
+        "className": "menu-item-324",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

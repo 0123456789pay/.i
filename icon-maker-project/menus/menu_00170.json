@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00170",
+    "name": "Elegant Travel 170",
+    "category": "Travel",
+    "subcategory": "Elegant",
+    "layout": "Footer Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Elegant/Item 170",
+    "parentId": "MENU-00161",
+    "level": 2,
+    "order": 170,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:50Z",
+        "updatedAt": "2024-01-01T00:00:50Z",
+        "version": "1.0.170",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "elegant", "footer layout", "icon-maker"],
+        "description": "Menu item 170 for Elegant Travel with Footer Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(170)",
+        "onHover": "handleMenuHover(170)",
+        "onContextMenu": "handleMenuContext(170)"
+    },
+    "styling": {
+        "className": "menu-item-170",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

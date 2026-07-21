@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02058",
+    "name": "Professional Home 2058",
+    "category": "Home",
+    "subcategory": "Professional",
+    "layout": "Card Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Professional/Item 2058",
+    "parentId": "MENU-02051",
+    "level": 5,
+    "order": 2058,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.2058",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "professional", "card layout", "icon-maker"],
+        "description": "Menu item 2058 for Professional Home with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2058)",
+        "onHover": "handleMenuHover(2058)",
+        "onContextMenu": "handleMenuContext(2058)"
+    },
+    "styling": {
+        "className": "menu-item-2058",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

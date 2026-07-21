@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00354",
+    "name": "Colorful Maps 354",
+    "category": "Maps",
+    "subcategory": "Colorful",
+    "layout": "Flow Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Maps/Colorful/Item 354",
+    "parentId": "MENU-00351",
+    "level": 4,
+    "order": 354,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:54Z",
+        "updatedAt": "2024-01-01T00:00:54Z",
+        "version": "1.0.354",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["maps", "colorful", "flow layout", "icon-maker"],
+        "description": "Menu item 354 for Colorful Maps with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(354)",
+        "onHover": "handleMenuHover(354)",
+        "onContextMenu": "handleMenuContext(354)"
+    },
+    "styling": {
+        "className": "menu-item-354",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

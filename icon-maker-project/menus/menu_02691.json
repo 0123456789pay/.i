@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02691",
+    "name": "Bold Holidays 2691",
+    "category": "Holidays",
+    "subcategory": "Bold",
+    "layout": "Form Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Holidays/Bold/Item 2691",
+    "parentId": "MENU-02691",
+    "level": 5,
+    "order": 2691,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:51Z",
+        "updatedAt": "2024-01-01T00:00:51Z",
+        "version": "1.0.2691",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["holidays", "bold", "form layout", "icon-maker"],
+        "description": "Menu item 2691 for Bold Holidays with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2691)",
+        "onHover": "handleMenuHover(2691)",
+        "onContextMenu": "handleMenuContext(2691)"
+    },
+    "styling": {
+        "className": "menu-item-2691",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

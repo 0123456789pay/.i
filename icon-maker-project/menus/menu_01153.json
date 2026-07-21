@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01153",
+    "name": "Retro Payment 1153",
+    "category": "Payment",
+    "subcategory": "Retro",
+    "layout": "Stack Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Payment/Retro/Item 1153",
+    "parentId": "MENU-01151",
+    "level": 5,
+    "order": 1153,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:13Z",
+        "updatedAt": "2024-01-01T00:00:13Z",
+        "version": "1.0.1153",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["payment", "retro", "stack layout", "icon-maker"],
+        "description": "Menu item 1153 for Retro Payment with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1153)",
+        "onHover": "handleMenuHover(1153)",
+        "onContextMenu": "handleMenuContext(1153)"
+    },
+    "styling": {
+        "className": "menu-item-1153",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

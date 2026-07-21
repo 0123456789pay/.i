@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03345",
+    "name": "Abstract Sports 3345",
+    "category": "Sports",
+    "subcategory": "Abstract",
+    "layout": "Footer Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Sports/Abstract/Item 3345",
+    "parentId": "MENU-03341",
+    "level": 5,
+    "order": 3345,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:45Z",
+        "updatedAt": "2024-01-01T00:00:45Z",
+        "version": "1.0.3345",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["sports", "abstract", "footer layout", "icon-maker"],
+        "description": "Menu item 3345 for Abstract Sports with Footer Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3345)",
+        "onHover": "handleMenuHover(3345)",
+        "onContextMenu": "handleMenuContext(3345)"
+    },
+    "styling": {
+        "className": "menu-item-3345",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

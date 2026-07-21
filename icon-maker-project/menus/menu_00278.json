@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00278",
+    "name": "Static Technology 278",
+    "category": "Technology",
+    "subcategory": "Static",
+    "layout": "Stack Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Static/Item 278",
+    "parentId": "MENU-00271",
+    "level": 3,
+    "order": 278,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.278",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "static", "stack layout", "icon-maker"],
+        "description": "Menu item 278 for Static Technology with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(278)",
+        "onHover": "handleMenuHover(278)",
+        "onContextMenu": "handleMenuContext(278)"
+    },
+    "styling": {
+        "className": "menu-item-278",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

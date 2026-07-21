@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01522",
+    "name": "Light Zodiac 1522",
+    "category": "Zodiac",
+    "subcategory": "Light",
+    "layout": "Profile Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Zodiac/Light/Item 1522",
+    "parentId": "MENU-01521",
+    "level": 5,
+    "order": 1522,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.1522",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["zodiac", "light", "profile layout", "icon-maker"],
+        "description": "Menu item 1522 for Light Zodiac with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1522)",
+        "onHover": "handleMenuHover(1522)",
+        "onContextMenu": "handleMenuContext(1522)"
+    },
+    "styling": {
+        "className": "menu-item-1522",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

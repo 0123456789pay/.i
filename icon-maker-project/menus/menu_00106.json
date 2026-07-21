@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00106",
+    "name": "Realistic Music 106",
+    "category": "Music",
+    "subcategory": "Realistic",
+    "layout": "Carousel Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Realistic/Item 106",
+    "parentId": "MENU-00101",
+    "level": 2,
+    "order": 106,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.106",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "realistic", "carousel layout", "icon-maker"],
+        "description": "Menu item 106 for Realistic Music with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(106)",
+        "onHover": "handleMenuHover(106)",
+        "onContextMenu": "handleMenuContext(106)"
+    },
+    "styling": {
+        "className": "menu-item-106",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

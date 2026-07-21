@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00438",
+    "name": "Professional Home 438",
+    "category": "Home",
+    "subcategory": "Professional",
+    "layout": "Graph Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Professional/Item 438",
+    "parentId": "MENU-00431",
+    "level": 5,
+    "order": 438,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.438",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "professional", "graph layout", "icon-maker"],
+        "description": "Menu item 438 for Professional Home with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(438)",
+        "onHover": "handleMenuHover(438)",
+        "onContextMenu": "handleMenuContext(438)"
+    },
+    "styling": {
+        "className": "menu-item-438",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

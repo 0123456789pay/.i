@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02436",
+    "name": "Gradient Flags 2436",
+    "category": "Flags",
+    "subcategory": "Gradient",
+    "layout": "Timeline Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Gradient/Item 2436",
+    "parentId": "MENU-02431",
+    "level": 5,
+    "order": 2436,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:36Z",
+        "updatedAt": "2024-01-01T00:00:36Z",
+        "version": "1.0.2436",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "gradient", "timeline layout", "icon-maker"],
+        "description": "Menu item 2436 for Gradient Flags with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2436)",
+        "onHover": "handleMenuHover(2436)",
+        "onContextMenu": "handleMenuContext(2436)"
+    },
+    "styling": {
+        "className": "menu-item-2436",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

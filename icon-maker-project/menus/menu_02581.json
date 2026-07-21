@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02581",
+    "name": "Simple Music 2581",
+    "category": "Music",
+    "subcategory": "Simple",
+    "layout": "Carousel Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Simple/Item 2581",
+    "parentId": "MENU-02581",
+    "level": 5,
+    "order": 2581,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:01Z",
+        "updatedAt": "2024-01-01T00:00:01Z",
+        "version": "1.0.2581",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "simple", "carousel layout", "icon-maker"],
+        "description": "Menu item 2581 for Simple Music with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2581)",
+        "onHover": "handleMenuHover(2581)",
+        "onContextMenu": "handleMenuContext(2581)"
+    },
+    "styling": {
+        "className": "menu-item-2581",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

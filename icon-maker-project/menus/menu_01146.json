@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01146",
+    "name": "Gradient Folders 1146",
+    "category": "Folders",
+    "subcategory": "Gradient",
+    "layout": "Dashboard Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Folders/Gradient/Item 1146",
+    "parentId": "MENU-01141",
+    "level": 5,
+    "order": 1146,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:06Z",
+        "updatedAt": "2024-01-01T00:00:06Z",
+        "version": "1.0.1146",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["folders", "gradient", "dashboard layout", "icon-maker"],
+        "description": "Menu item 1146 for Gradient Folders with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1146)",
+        "onHover": "handleMenuHover(1146)",
+        "onContextMenu": "handleMenuContext(1146)"
+    },
+    "styling": {
+        "className": "menu-item-1146",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

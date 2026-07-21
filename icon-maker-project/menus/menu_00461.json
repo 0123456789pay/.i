@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00461",
+    "name": "Classic Medical 461",
+    "category": "Medical",
+    "subcategory": "Classic",
+    "layout": "Timeline Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Medical/Classic/Item 461",
+    "parentId": "MENU-00461",
+    "level": 5,
+    "order": 461,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:41Z",
+        "updatedAt": "2024-01-01T00:00:41Z",
+        "version": "1.0.461",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["medical", "classic", "timeline layout", "icon-maker"],
+        "description": "Menu item 461 for Classic Medical with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(461)",
+        "onHover": "handleMenuHover(461)",
+        "onContextMenu": "handleMenuContext(461)"
+    },
+    "styling": {
+        "className": "menu-item-461",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

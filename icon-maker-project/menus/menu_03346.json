@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03346",
+    "name": "Realistic Music 3346",
+    "category": "Music",
+    "subcategory": "Realistic",
+    "layout": "Dashboard Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Realistic/Item 3346",
+    "parentId": "MENU-03341",
+    "level": 5,
+    "order": 3346,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.3346",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "realistic", "dashboard layout", "icon-maker"],
+        "description": "Menu item 3346 for Realistic Music with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3346)",
+        "onHover": "handleMenuHover(3346)",
+        "onContextMenu": "handleMenuContext(3346)"
+    },
+    "styling": {
+        "className": "menu-item-3346",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

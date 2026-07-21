@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03259",
+    "name": "Casual Security 3259",
+    "category": "Security",
+    "subcategory": "Casual",
+    "layout": "Tile Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Security/Casual/Item 3259",
+    "parentId": "MENU-03251",
+    "level": 5,
+    "order": 3259,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:19Z",
+        "updatedAt": "2024-01-01T00:00:19Z",
+        "version": "1.0.3259",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["security", "casual", "tile layout", "icon-maker"],
+        "description": "Menu item 3259 for Casual Security with Tile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3259)",
+        "onHover": "handleMenuHover(3259)",
+        "onContextMenu": "handleMenuContext(3259)"
+    },
+    "styling": {
+        "className": "menu-item-3259",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

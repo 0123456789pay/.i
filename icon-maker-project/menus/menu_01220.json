@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01220",
+    "name": "Elegant Arrows 1220",
+    "category": "Arrows",
+    "subcategory": "Elegant",
+    "layout": "Footer Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Arrows/Elegant/Item 1220",
+    "parentId": "MENU-01211",
+    "level": 5,
+    "order": 1220,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:20Z",
+        "updatedAt": "2024-01-01T00:00:20Z",
+        "version": "1.0.1220",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["arrows", "elegant", "footer layout", "icon-maker"],
+        "description": "Menu item 1220 for Elegant Arrows with Footer Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1220)",
+        "onHover": "handleMenuHover(1220)",
+        "onContextMenu": "handleMenuContext(1220)"
+    },
+    "styling": {
+        "className": "menu-item-1220",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

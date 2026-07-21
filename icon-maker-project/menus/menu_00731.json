@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00731",
+    "name": "Classic Medical 731",
+    "category": "Medical",
+    "subcategory": "Classic",
+    "layout": "Carousel Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Medical/Classic/Item 731",
+    "parentId": "MENU-00731",
+    "level": 5,
+    "order": 731,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.731",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["medical", "classic", "carousel layout", "icon-maker"],
+        "description": "Menu item 731 for Classic Medical with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(731)",
+        "onHover": "handleMenuHover(731)",
+        "onContextMenu": "handleMenuContext(731)"
+    },
+    "styling": {
+        "className": "menu-item-731",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

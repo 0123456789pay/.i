@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03112",
+    "name": "Light Weather 3112",
+    "category": "Weather",
+    "subcategory": "Light",
+    "layout": "Tree Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Weather/Light/Item 3112",
+    "parentId": "MENU-03111",
+    "level": 5,
+    "order": 3112,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:52Z",
+        "updatedAt": "2024-01-01T00:00:52Z",
+        "version": "1.0.3112",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["weather", "light", "tree layout", "icon-maker"],
+        "description": "Menu item 3112 for Light Weather with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3112)",
+        "onHover": "handleMenuHover(3112)",
+        "onContextMenu": "handleMenuContext(3112)"
+    },
+    "styling": {
+        "className": "menu-item-3112",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02319",
+    "name": "Minimal Tools 2319",
+    "category": "Tools",
+    "subcategory": "Minimal",
+    "layout": "Header Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Tools/Minimal/Item 2319",
+    "parentId": "MENU-02311",
+    "level": 5,
+    "order": 2319,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:39Z",
+        "updatedAt": "2024-01-01T00:00:39Z",
+        "version": "1.0.2319",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["tools", "minimal", "header layout", "icon-maker"],
+        "description": "Menu item 2319 for Minimal Tools with Header Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2319)",
+        "onHover": "handleMenuHover(2319)",
+        "onContextMenu": "handleMenuContext(2319)"
+    },
+    "styling": {
+        "className": "menu-item-2319",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

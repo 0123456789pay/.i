@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00133",
+    "name": "Retro Currency 133",
+    "category": "Currency",
+    "subcategory": "Retro",
+    "layout": "Card Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Currency/Retro/Item 133",
+    "parentId": "MENU-00131",
+    "level": 2,
+    "order": 133,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:13Z",
+        "updatedAt": "2024-01-01T00:00:13Z",
+        "version": "1.0.133",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["currency", "retro", "card layout", "icon-maker"],
+        "description": "Menu item 133 for Retro Currency with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(133)",
+        "onHover": "handleMenuHover(133)",
+        "onContextMenu": "handleMenuContext(133)"
+    },
+    "styling": {
+        "className": "menu-item-133",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00870",
+    "name": "Vibrant Sports 870",
+    "category": "Sports",
+    "subcategory": "Vibrant",
+    "layout": "Footer Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Sports/Vibrant/Item 870",
+    "parentId": "MENU-00861",
+    "level": 5,
+    "order": 870,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:30Z",
+        "updatedAt": "2024-01-01T00:00:30Z",
+        "version": "1.0.870",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["sports", "vibrant", "footer layout", "icon-maker"],
+        "description": "Menu item 870 for Vibrant Sports with Footer Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(870)",
+        "onHover": "handleMenuHover(870)",
+        "onContextMenu": "handleMenuContext(870)"
+    },
+    "styling": {
+        "className": "menu-item-870",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

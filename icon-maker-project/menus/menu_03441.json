@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03441",
+    "name": "Bold Folders 3441",
+    "category": "Folders",
+    "subcategory": "Bold",
+    "layout": "Form Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Folders/Bold/Item 3441",
+    "parentId": "MENU-03441",
+    "level": 5,
+    "order": 3441,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.3441",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["folders", "bold", "form layout", "icon-maker"],
+        "description": "Menu item 3441 for Bold Folders with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3441)",
+        "onHover": "handleMenuHover(3441)",
+        "onContextMenu": "handleMenuContext(3441)"
+    },
+    "styling": {
+        "className": "menu-item-3441",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

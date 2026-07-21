@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00384",
+    "name": "Colorful Tools 384",
+    "category": "Tools",
+    "subcategory": "Colorful",
+    "layout": "Tile Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Tools/Colorful/Item 384",
+    "parentId": "MENU-00381",
+    "level": 4,
+    "order": 384,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:24Z",
+        "updatedAt": "2024-01-01T00:00:24Z",
+        "version": "1.0.384",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["tools", "colorful", "tile layout", "icon-maker"],
+        "description": "Menu item 384 for Colorful Tools with Tile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(384)",
+        "onHover": "handleMenuHover(384)",
+        "onContextMenu": "handleMenuContext(384)"
+    },
+    "styling": {
+        "className": "menu-item-384",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

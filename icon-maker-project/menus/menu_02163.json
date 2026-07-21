@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02163",
+    "name": "Outlined Icons 2163",
+    "category": "Icons",
+    "subcategory": "Outlined",
+    "layout": "Graph Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Outlined/Item 2163",
+    "parentId": "MENU-02161",
+    "level": 5,
+    "order": 2163,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.2163",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "outlined", "graph layout", "icon-maker"],
+        "description": "Menu item 2163 for Outlined Icons with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2163)",
+        "onHover": "handleMenuHover(2163)",
+        "onContextMenu": "handleMenuContext(2163)"
+    },
+    "styling": {
+        "className": "menu-item-2163",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

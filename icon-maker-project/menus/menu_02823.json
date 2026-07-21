@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02823",
+    "name": "Outlined Home 2823",
+    "category": "Home",
+    "subcategory": "Outlined",
+    "layout": "Feed Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Outlined/Item 2823",
+    "parentId": "MENU-02821",
+    "level": 5,
+    "order": 2823,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.2823",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "outlined", "feed layout", "icon-maker"],
+        "description": "Menu item 2823 for Outlined Home with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2823)",
+        "onHover": "handleMenuHover(2823)",
+        "onContextMenu": "handleMenuContext(2823)"
+    },
+    "styling": {
+        "className": "menu-item-2823",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

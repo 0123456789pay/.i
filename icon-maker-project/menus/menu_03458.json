@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03458",
+    "name": "Static Religion 3458",
+    "category": "Religion",
+    "subcategory": "Static",
+    "layout": "Card Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Religion/Static/Item 3458",
+    "parentId": "MENU-03451",
+    "level": 5,
+    "order": 3458,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.3458",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["religion", "static", "card layout", "icon-maker"],
+        "description": "Menu item 3458 for Static Religion with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3458)",
+        "onHover": "handleMenuHover(3458)",
+        "onContextMenu": "handleMenuContext(3458)"
+    },
+    "styling": {
+        "className": "menu-item-3458",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

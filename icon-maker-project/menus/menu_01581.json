@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01581",
+    "name": "Bold Flags 1581",
+    "category": "Flags",
+    "subcategory": "Bold",
+    "layout": "Carousel Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Bold/Item 1581",
+    "parentId": "MENU-01581",
+    "level": 5,
+    "order": 1581,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.1581",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "bold", "carousel layout", "icon-maker"],
+        "description": "Menu item 1581 for Bold Flags with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1581)",
+        "onHover": "handleMenuHover(1581)",
+        "onContextMenu": "handleMenuContext(1581)"
+    },
+    "styling": {
+        "className": "menu-item-1581",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

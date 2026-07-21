@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01083",
+    "name": "Outlined Icons 1083",
+    "category": "Icons",
+    "subcategory": "Outlined",
+    "layout": "Card Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Outlined/Item 1083",
+    "parentId": "MENU-01081",
+    "level": 5,
+    "order": 1083,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.1083",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "outlined", "card layout", "icon-maker"],
+        "description": "Menu item 1083 for Outlined Icons with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1083)",
+        "onHover": "handleMenuHover(1083)",
+        "onContextMenu": "handleMenuContext(1083)"
+    },
+    "styling": {
+        "className": "menu-item-1083",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

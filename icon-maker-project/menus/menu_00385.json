@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00385",
+    "name": "Monochrome Media 385",
+    "category": "Media",
+    "subcategory": "Monochrome",
+    "layout": "Gallery Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Media/Monochrome/Item 385",
+    "parentId": "MENU-00381",
+    "level": 4,
+    "order": 385,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:25Z",
+        "updatedAt": "2024-01-01T00:00:25Z",
+        "version": "1.0.385",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["media", "monochrome", "gallery layout", "icon-maker"],
+        "description": "Menu item 385 for Monochrome Media with Gallery Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(385)",
+        "onHover": "handleMenuHover(385)",
+        "onContextMenu": "handleMenuContext(385)"
+    },
+    "styling": {
+        "className": "menu-item-385",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

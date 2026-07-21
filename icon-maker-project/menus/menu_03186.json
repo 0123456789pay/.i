@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03186",
+    "name": "Gradient Holidays 3186",
+    "category": "Holidays",
+    "subcategory": "Gradient",
+    "layout": "Timeline Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Holidays/Gradient/Item 3186",
+    "parentId": "MENU-03181",
+    "level": 5,
+    "order": 3186,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:06Z",
+        "updatedAt": "2024-01-01T00:00:06Z",
+        "version": "1.0.3186",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["holidays", "gradient", "timeline layout", "icon-maker"],
+        "description": "Menu item 3186 for Gradient Holidays with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3186)",
+        "onHover": "handleMenuHover(3186)",
+        "onContextMenu": "handleMenuContext(3186)"
+    },
+    "styling": {
+        "className": "menu-item-3186",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

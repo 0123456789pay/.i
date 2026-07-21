@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00113",
+    "name": "Dark Settings 113",
+    "category": "Settings",
+    "subcategory": "Dark",
+    "layout": "Graph Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Settings/Dark/Item 113",
+    "parentId": "MENU-00111",
+    "level": 2,
+    "order": 113,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.113",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["settings", "dark", "graph layout", "icon-maker"],
+        "description": "Menu item 113 for Dark Settings with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(113)",
+        "onHover": "handleMenuHover(113)",
+        "onContextMenu": "handleMenuContext(113)"
+    },
+    "styling": {
+        "className": "menu-item-113",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

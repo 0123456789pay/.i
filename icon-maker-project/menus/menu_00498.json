@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00498",
+    "name": "Professional Icons 498",
+    "category": "Icons",
+    "subcategory": "Professional",
+    "layout": "Feed Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Professional/Item 498",
+    "parentId": "MENU-00491",
+    "level": 5,
+    "order": 498,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.498",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "professional", "feed layout", "icon-maker"],
+        "description": "Menu item 498 for Professional Icons with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(498)",
+        "onHover": "handleMenuHover(498)",
+        "onContextMenu": "handleMenuContext(498)"
+    },
+    "styling": {
+        "className": "menu-item-498",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

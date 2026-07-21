@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01104",
+    "name": "Colorful Tools 1104",
+    "category": "Tools",
+    "subcategory": "Colorful",
+    "layout": "Flow Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Tools/Colorful/Item 1104",
+    "parentId": "MENU-01101",
+    "level": 5,
+    "order": 1104,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:24Z",
+        "updatedAt": "2024-01-01T00:00:24Z",
+        "version": "1.0.1104",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["tools", "colorful", "flow layout", "icon-maker"],
+        "description": "Menu item 1104 for Colorful Tools with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1104)",
+        "onHover": "handleMenuHover(1104)",
+        "onContextMenu": "handleMenuContext(1104)"
+    },
+    "styling": {
+        "className": "menu-item-1104",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

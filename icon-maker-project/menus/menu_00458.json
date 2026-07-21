@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00458",
+    "name": "Static Technology 458",
+    "category": "Technology",
+    "subcategory": "Static",
+    "layout": "Card Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Static/Item 458",
+    "parentId": "MENU-00451",
+    "level": 5,
+    "order": 458,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.458",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "static", "card layout", "icon-maker"],
+        "description": "Menu item 458 for Static Technology with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(458)",
+        "onHover": "handleMenuHover(458)",
+        "onContextMenu": "handleMenuContext(458)"
+    },
+    "styling": {
+        "className": "menu-item-458",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00414",
+    "name": "Colorful Business 414",
+    "category": "Business",
+    "subcategory": "Colorful",
+    "layout": "Chart Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Business/Colorful/Item 414",
+    "parentId": "MENU-00411",
+    "level": 5,
+    "order": 414,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:54Z",
+        "updatedAt": "2024-01-01T00:00:54Z",
+        "version": "1.0.414",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["business", "colorful", "chart layout", "icon-maker"],
+        "description": "Menu item 414 for Colorful Business with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(414)",
+        "onHover": "handleMenuHover(414)",
+        "onContextMenu": "handleMenuContext(414)"
+    },
+    "styling": {
+        "className": "menu-item-414",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

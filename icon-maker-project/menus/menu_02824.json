@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02824",
+    "name": "Filled Office 2824",
+    "category": "Office",
+    "subcategory": "Filled",
+    "layout": "Search Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Office/Filled/Item 2824",
+    "parentId": "MENU-02821",
+    "level": 5,
+    "order": 2824,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:04Z",
+        "updatedAt": "2024-01-01T00:00:04Z",
+        "version": "1.0.2824",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["office", "filled", "search layout", "icon-maker"],
+        "description": "Menu item 2824 for Filled Office with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2824)",
+        "onHover": "handleMenuHover(2824)",
+        "onContextMenu": "handleMenuContext(2824)"
+    },
+    "styling": {
+        "className": "menu-item-2824",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

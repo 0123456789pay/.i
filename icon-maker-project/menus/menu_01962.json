@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01962",
+    "name": "Modern Social Media 1962",
+    "category": "Social Media",
+    "subcategory": "Modern",
+    "layout": "Tree Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Social Media/Modern/Item 1962",
+    "parentId": "MENU-01961",
+    "level": 5,
+    "order": 1962,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:42Z",
+        "updatedAt": "2024-01-01T00:00:42Z",
+        "version": "1.0.1962",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["social media", "modern", "tree layout", "icon-maker"],
+        "description": "Menu item 1962 for Modern Social Media with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1962)",
+        "onHover": "handleMenuHover(1962)",
+        "onContextMenu": "handleMenuContext(1962)"
+    },
+    "styling": {
+        "className": "menu-item-1962",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

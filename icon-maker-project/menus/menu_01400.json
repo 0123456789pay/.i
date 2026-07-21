@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01400",
+    "name": "Elegant Arrows 1400",
+    "category": "Arrows",
+    "subcategory": "Elegant",
+    "layout": "Filter Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Arrows/Elegant/Item 1400",
+    "parentId": "MENU-01391",
+    "level": 5,
+    "order": 1400,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:20Z",
+        "updatedAt": "2024-01-01T00:00:20Z",
+        "version": "1.0.1400",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["arrows", "elegant", "filter layout", "icon-maker"],
+        "description": "Menu item 1400 for Elegant Arrows with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1400)",
+        "onHover": "handleMenuHover(1400)",
+        "onContextMenu": "handleMenuContext(1400)"
+    },
+    "styling": {
+        "className": "menu-item-1400",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

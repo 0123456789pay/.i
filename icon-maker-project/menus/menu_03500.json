@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03500",
+    "name": "Elegant Travel 3500",
+    "category": "Travel",
+    "subcategory": "Elegant",
+    "layout": "Filter Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Elegant/Item 3500",
+    "parentId": "MENU-03491",
+    "level": 5,
+    "order": 3500,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:20Z",
+        "updatedAt": "2024-01-01T00:00:20Z",
+        "version": "1.0.3500",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "elegant", "filter layout", "icon-maker"],
+        "description": "Menu item 3500 for Elegant Travel with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3500)",
+        "onHover": "handleMenuHover(3500)",
+        "onContextMenu": "handleMenuContext(3500)"
+    },
+    "styling": {
+        "className": "menu-item-3500",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01294",
+    "name": "Filled Office 1294",
+    "category": "Office",
+    "subcategory": "Filled",
+    "layout": "Header Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Office/Filled/Item 1294",
+    "parentId": "MENU-01291",
+    "level": 5,
+    "order": 1294,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:34Z",
+        "updatedAt": "2024-01-01T00:00:34Z",
+        "version": "1.0.1294",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["office", "filled", "header layout", "icon-maker"],
+        "description": "Menu item 1294 for Filled Office with Header Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1294)",
+        "onHover": "handleMenuHover(1294)",
+        "onContextMenu": "handleMenuContext(1294)"
+    },
+    "styling": {
+        "className": "menu-item-1294",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00296",
+    "name": "Duotone Navigation 296",
+    "category": "Navigation",
+    "subcategory": "Duotone",
+    "layout": "Dashboard Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Duotone/Item 296",
+    "parentId": "MENU-00291",
+    "level": 3,
+    "order": 296,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:56Z",
+        "updatedAt": "2024-01-01T00:00:56Z",
+        "version": "1.0.296",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "duotone", "dashboard layout", "icon-maker"],
+        "description": "Menu item 296 for Duotone Navigation with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(296)",
+        "onHover": "handleMenuHover(296)",
+        "onContextMenu": "handleMenuContext(296)"
+    },
+    "styling": {
+        "className": "menu-item-296",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00818",
+    "name": "Static Technology 818",
+    "category": "Technology",
+    "subcategory": "Static",
+    "layout": "Sidebar Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Static/Item 818",
+    "parentId": "MENU-00811",
+    "level": 5,
+    "order": 818,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.818",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "static", "sidebar layout", "icon-maker"],
+        "description": "Menu item 818 for Static Technology with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(818)",
+        "onHover": "handleMenuHover(818)",
+        "onContextMenu": "handleMenuContext(818)"
+    },
+    "styling": {
+        "className": "menu-item-818",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00933",
+    "name": "Outlined Home 933",
+    "category": "Home",
+    "subcategory": "Outlined",
+    "layout": "Card Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Outlined/Item 933",
+    "parentId": "MENU-00931",
+    "level": 5,
+    "order": 933,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:33Z",
+        "updatedAt": "2024-01-01T00:00:33Z",
+        "version": "1.0.933",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "outlined", "card layout", "icon-maker"],
+        "description": "Menu item 933 for Outlined Home with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(933)",
+        "onHover": "handleMenuHover(933)",
+        "onContextMenu": "handleMenuContext(933)"
+    },
+    "styling": {
+        "className": "menu-item-933",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

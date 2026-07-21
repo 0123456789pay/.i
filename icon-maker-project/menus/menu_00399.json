@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00399",
+    "name": "Minimal Maps 399",
+    "category": "Maps",
+    "subcategory": "Minimal",
+    "layout": "Search Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Maps/Minimal/Item 399",
+    "parentId": "MENU-00391",
+    "level": 4,
+    "order": 399,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:39Z",
+        "updatedAt": "2024-01-01T00:00:39Z",
+        "version": "1.0.399",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["maps", "minimal", "search layout", "icon-maker"],
+        "description": "Menu item 399 for Minimal Maps with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(399)",
+        "onHover": "handleMenuHover(399)",
+        "onContextMenu": "handleMenuContext(399)"
+    },
+    "styling": {
+        "className": "menu-item-399",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

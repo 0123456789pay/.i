@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00099",
+    "name": "Minimal Business 99",
+    "category": "Business",
+    "subcategory": "Minimal",
+    "layout": "Search Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Business/Minimal/Item 99",
+    "parentId": "MENU-00091",
+    "level": 1,
+    "order": 99,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:39Z",
+        "updatedAt": "2024-01-01T00:00:39Z",
+        "version": "1.0.99",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["business", "minimal", "search layout", "icon-maker"],
+        "description": "Menu item 99 for Minimal Business with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(99)",
+        "onHover": "handleMenuHover(99)",
+        "onContextMenu": "handleMenuContext(99)"
+    },
+    "styling": {
+        "className": "menu-item-99",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

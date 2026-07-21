@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02005",
+    "name": "Monochrome Media 2005",
+    "category": "Media",
+    "subcategory": "Monochrome",
+    "layout": "Masonry Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Media/Monochrome/Item 2005",
+    "parentId": "MENU-02001",
+    "level": 5,
+    "order": 2005,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:25Z",
+        "updatedAt": "2024-01-01T00:00:25Z",
+        "version": "1.0.2005",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["media", "monochrome", "masonry layout", "icon-maker"],
+        "description": "Menu item 2005 for Monochrome Media with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2005)",
+        "onHover": "handleMenuHover(2005)",
+        "onContextMenu": "handleMenuContext(2005)"
+    },
+    "styling": {
+        "className": "menu-item-2005",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

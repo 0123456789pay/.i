@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01300",
+    "name": "Detailed Time 1300",
+    "category": "Time",
+    "subcategory": "Detailed",
+    "layout": "Filter Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Time/Detailed/Item 1300",
+    "parentId": "MENU-01291",
+    "level": 5,
+    "order": 1300,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:40Z",
+        "updatedAt": "2024-01-01T00:00:40Z",
+        "version": "1.0.1300",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["time", "detailed", "filter layout", "icon-maker"],
+        "description": "Menu item 1300 for Detailed Time with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1300)",
+        "onHover": "handleMenuHover(1300)",
+        "onContextMenu": "handleMenuContext(1300)"
+    },
+    "styling": {
+        "className": "menu-item-1300",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

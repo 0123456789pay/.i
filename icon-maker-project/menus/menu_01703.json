@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01703",
+    "name": "Dark Religion 1703",
+    "category": "Religion",
+    "subcategory": "Dark",
+    "layout": "Stack Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Religion/Dark/Item 1703",
+    "parentId": "MENU-01701",
+    "level": 5,
+    "order": 1703,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:23Z",
+        "updatedAt": "2024-01-01T00:00:23Z",
+        "version": "1.0.1703",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["religion", "dark", "stack layout", "icon-maker"],
+        "description": "Menu item 1703 for Dark Religion with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1703)",
+        "onHover": "handleMenuHover(1703)",
+        "onContextMenu": "handleMenuContext(1703)"
+    },
+    "styling": {
+        "className": "menu-item-1703",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

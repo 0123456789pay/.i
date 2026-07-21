@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03476",
+    "name": "Duotone Medical 3476",
+    "category": "Medical",
+    "subcategory": "Duotone",
+    "layout": "Grid Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Medical/Duotone/Item 3476",
+    "parentId": "MENU-03471",
+    "level": 5,
+    "order": 3476,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:56Z",
+        "updatedAt": "2024-01-01T00:00:56Z",
+        "version": "1.0.3476",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["medical", "duotone", "grid layout", "icon-maker"],
+        "description": "Menu item 3476 for Duotone Medical with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3476)",
+        "onHover": "handleMenuHover(3476)",
+        "onContextMenu": "handleMenuContext(3476)"
+    },
+    "styling": {
+        "className": "menu-item-3476",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

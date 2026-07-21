@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01960",
+    "name": "Detailed Media 1960",
+    "category": "Media",
+    "subcategory": "Detailed",
+    "layout": "Gallery Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Media/Detailed/Item 1960",
+    "parentId": "MENU-01951",
+    "level": 5,
+    "order": 1960,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:40Z",
+        "updatedAt": "2024-01-01T00:00:40Z",
+        "version": "1.0.1960",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["media", "detailed", "gallery layout", "icon-maker"],
+        "description": "Menu item 1960 for Detailed Media with Gallery Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1960)",
+        "onHover": "handleMenuHover(1960)",
+        "onContextMenu": "handleMenuContext(1960)"
+    },
+    "styling": {
+        "className": "menu-item-1960",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00571",
+    "name": "Simple Art 571",
+    "category": "Art",
+    "subcategory": "Simple",
+    "layout": "Dashboard Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Simple/Item 571",
+    "parentId": "MENU-00571",
+    "level": 5,
+    "order": 571,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:31Z",
+        "updatedAt": "2024-01-01T00:00:31Z",
+        "version": "1.0.571",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "simple", "dashboard layout", "icon-maker"],
+        "description": "Menu item 571 for Simple Art with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(571)",
+        "onHover": "handleMenuHover(571)",
+        "onContextMenu": "handleMenuContext(571)"
+    },
+    "styling": {
+        "className": "menu-item-571",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02495",
+    "name": "Colored Files 2495",
+    "category": "Files",
+    "subcategory": "Colored",
+    "layout": "Footer Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Files/Colored/Item 2495",
+    "parentId": "MENU-02491",
+    "level": 5,
+    "order": 2495,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:35Z",
+        "updatedAt": "2024-01-01T00:00:35Z",
+        "version": "1.0.2495",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["files", "colored", "footer layout", "icon-maker"],
+        "description": "Menu item 2495 for Colored Files with Footer Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2495)",
+        "onHover": "handleMenuHover(2495)",
+        "onContextMenu": "handleMenuContext(2495)"
+    },
+    "styling": {
+        "className": "menu-item-2495",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

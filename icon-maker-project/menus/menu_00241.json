@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00241",
+    "name": "Simple Music 241",
+    "category": "Music",
+    "subcategory": "Simple",
+    "layout": "Form Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Simple/Item 241",
+    "parentId": "MENU-00241",
+    "level": 3,
+    "order": 241,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:01Z",
+        "updatedAt": "2024-01-01T00:00:01Z",
+        "version": "1.0.241",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "simple", "form layout", "icon-maker"],
+        "description": "Menu item 241 for Simple Music with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(241)",
+        "onHover": "handleMenuHover(241)",
+        "onContextMenu": "handleMenuContext(241)"
+    },
+    "styling": {
+        "className": "menu-item-241",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

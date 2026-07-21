@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01930",
+    "name": "Detailed Time 1930",
+    "category": "Time",
+    "subcategory": "Detailed",
+    "layout": "Masonry Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Time/Detailed/Item 1930",
+    "parentId": "MENU-01921",
+    "level": 5,
+    "order": 1930,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:10Z",
+        "updatedAt": "2024-01-01T00:00:10Z",
+        "version": "1.0.1930",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["time", "detailed", "masonry layout", "icon-maker"],
+        "description": "Menu item 1930 for Detailed Time with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1930)",
+        "onHover": "handleMenuHover(1930)",
+        "onContextMenu": "handleMenuContext(1930)"
+    },
+    "styling": {
+        "className": "menu-item-1930",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

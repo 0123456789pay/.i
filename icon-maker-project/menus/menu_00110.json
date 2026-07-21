@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00110",
+    "name": "Elegant Files 110",
+    "category": "Files",
+    "subcategory": "Elegant",
+    "layout": "Gallery Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Files/Elegant/Item 110",
+    "parentId": "MENU-00101",
+    "level": 2,
+    "order": 110,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:50Z",
+        "updatedAt": "2024-01-01T00:00:50Z",
+        "version": "1.0.110",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["files", "elegant", "gallery layout", "icon-maker"],
+        "description": "Menu item 110 for Elegant Files with Gallery Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(110)",
+        "onHover": "handleMenuHover(110)",
+        "onContextMenu": "handleMenuContext(110)"
+    },
+    "styling": {
+        "className": "menu-item-110",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

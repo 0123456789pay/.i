@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02156",
+    "name": "Duotone Numbers 2156",
+    "category": "Numbers",
+    "subcategory": "Duotone",
+    "layout": "Carousel Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Duotone/Item 2156",
+    "parentId": "MENU-02151",
+    "level": 5,
+    "order": 2156,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:56Z",
+        "updatedAt": "2024-01-01T00:00:56Z",
+        "version": "1.0.2156",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "duotone", "carousel layout", "icon-maker"],
+        "description": "Menu item 2156 for Duotone Numbers with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2156)",
+        "onHover": "handleMenuHover(2156)",
+        "onContextMenu": "handleMenuContext(2156)"
+    },
+    "styling": {
+        "className": "menu-item-2156",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

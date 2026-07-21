@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00251",
+    "name": "Classic Navigation 251",
+    "category": "Navigation",
+    "subcategory": "Classic",
+    "layout": "Grid Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Classic/Item 251",
+    "parentId": "MENU-00251",
+    "level": 3,
+    "order": 251,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.251",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "classic", "grid layout", "icon-maker"],
+        "description": "Menu item 251 for Classic Navigation with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(251)",
+        "onHover": "handleMenuHover(251)",
+        "onContextMenu": "handleMenuContext(251)"
+    },
+    "styling": {
+        "className": "menu-item-251",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

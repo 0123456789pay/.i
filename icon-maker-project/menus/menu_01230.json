@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01230",
+    "name": "Vibrant Sports 1230",
+    "category": "Sports",
+    "subcategory": "Vibrant",
+    "layout": "Masonry Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Sports/Vibrant/Item 1230",
+    "parentId": "MENU-01221",
+    "level": 5,
+    "order": 1230,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:30Z",
+        "updatedAt": "2024-01-01T00:00:30Z",
+        "version": "1.0.1230",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["sports", "vibrant", "masonry layout", "icon-maker"],
+        "description": "Menu item 1230 for Vibrant Sports with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1230)",
+        "onHover": "handleMenuHover(1230)",
+        "onContextMenu": "handleMenuContext(1230)"
+    },
+    "styling": {
+        "className": "menu-item-1230",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

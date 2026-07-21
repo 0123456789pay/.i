@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00111",
+    "name": "Bold Folders 111",
+    "category": "Folders",
+    "subcategory": "Bold",
+    "layout": "Timeline Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Folders/Bold/Item 111",
+    "parentId": "MENU-00111",
+    "level": 2,
+    "order": 111,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:51Z",
+        "updatedAt": "2024-01-01T00:00:51Z",
+        "version": "1.0.111",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["folders", "bold", "timeline layout", "icon-maker"],
+        "description": "Menu item 111 for Bold Folders with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(111)",
+        "onHover": "handleMenuHover(111)",
+        "onContextMenu": "handleMenuContext(111)"
+    },
+    "styling": {
+        "className": "menu-item-111",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

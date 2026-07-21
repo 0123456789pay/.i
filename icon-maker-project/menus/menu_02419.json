@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02419",
+    "name": "Casual Office 2419",
+    "category": "Office",
+    "subcategory": "Casual",
+    "layout": "Header Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Office/Casual/Item 2419",
+    "parentId": "MENU-02411",
+    "level": 5,
+    "order": 2419,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:19Z",
+        "updatedAt": "2024-01-01T00:00:19Z",
+        "version": "1.0.2419",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["office", "casual", "header layout", "icon-maker"],
+        "description": "Menu item 2419 for Casual Office with Header Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2419)",
+        "onHover": "handleMenuHover(2419)",
+        "onContextMenu": "handleMenuContext(2419)"
+    },
+    "styling": {
+        "className": "menu-item-2419",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00064",
+    "name": "Filled Security 64",
+    "category": "Security",
+    "subcategory": "Filled",
+    "layout": "Chart Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Security/Filled/Item 64",
+    "parentId": "MENU-00061",
+    "level": 1,
+    "order": 64,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:04Z",
+        "updatedAt": "2024-01-01T00:00:04Z",
+        "version": "1.0.64",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["security", "filled", "chart layout", "icon-maker"],
+        "description": "Menu item 64 for Filled Security with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(64)",
+        "onHover": "handleMenuHover(64)",
+        "onContextMenu": "handleMenuContext(64)"
+    },
+    "styling": {
+        "className": "menu-item-64",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

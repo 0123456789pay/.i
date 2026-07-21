@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00252",
+    "name": "Modern Social Media 252",
+    "category": "Social Media",
+    "subcategory": "Modern",
+    "layout": "Flex Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Social Media/Modern/Item 252",
+    "parentId": "MENU-00251",
+    "level": 3,
+    "order": 252,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:12Z",
+        "updatedAt": "2024-01-01T00:00:12Z",
+        "version": "1.0.252",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["social media", "modern", "flex layout", "icon-maker"],
+        "description": "Menu item 252 for Modern Social Media with Flex Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(252)",
+        "onHover": "handleMenuHover(252)",
+        "onContextMenu": "handleMenuContext(252)"
+    },
+    "styling": {
+        "className": "menu-item-252",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

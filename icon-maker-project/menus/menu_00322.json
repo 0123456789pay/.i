@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00322",
+    "name": "Light Weather 322",
+    "category": "Weather",
+    "subcategory": "Light",
+    "layout": "Profile Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Weather/Light/Item 322",
+    "parentId": "MENU-00321",
+    "level": 4,
+    "order": 322,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.322",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["weather", "light", "profile layout", "icon-maker"],
+        "description": "Menu item 322 for Light Weather with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(322)",
+        "onHover": "handleMenuHover(322)",
+        "onContextMenu": "handleMenuContext(322)"
+    },
+    "styling": {
+        "className": "menu-item-322",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}
