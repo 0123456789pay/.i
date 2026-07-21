@@ -1,4 +1,12 @@
 ```
 # Backup files
-*_backup.*
+*_backup_*
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# Logs
+*.log
 ```
