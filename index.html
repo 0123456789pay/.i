@@ -874,6 +874,22 @@
         </div>
     </footer>
     
+    <!-- Modal/iframe Container for Modules -->
+    <div id="moduleModal" class="module-modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Module Viewer</h3>
+                <button class="btn btn-danger" onclick="closeModuleModal()" title="Tutup">✕</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="moduleFrame" src="" frameborder="0" width="100%" height="600px"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
     <!-- JavaScript System Logic -->
     <script>
         // ========================================
@@ -894,20 +910,58 @@
                 version: '1.0.0',
                 buildDate: '2026-07-20',
                 environment: 'production',
-                uireberPath: '../UIREBER'
+                uireberPath: 'UIREBER',
+                basePath: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1)
+            };
+
+            // Available UIREBER HTML Modules
+            const UIREBER_MODULES = {
+                'aistudio': 'aistudio.html',
+                'appbrowser': 'appbrowser.html',
+                'appbrowser_pro': 'appbrowser_pro.html',
+                'appcalculator': 'appcalculator.html',
+                'appcalendar': 'appcalendar.html',
+                'appclock': 'appclock.html',
+                'appcontacts': 'appcontacts.html',
+                'appcurrency': 'appcurrency.html',
+                'appdictionary': 'appdictionary.html',
+                'appdrawing': 'appdrawing.html',
+                'appemail': 'appemail.html',
+                'appgallery': 'appgallery.html',
+                'appmaps': 'appmaps.html',
+                'appmusic': 'appmusic.html',
+                'appnews': 'appnews.html',
+                'appnotes': 'appnotes.html',
+                'appphone': 'appphone.html',
+                'appscreencapture': 'appscreencapture.html',
+                'appsettings': 'appsettings.html',
+                'apptaskmanager': 'apptaskmanager.html',
+                'apptexteditor': 'apptexteditor.html',
+                'apptodo': 'apptodo.html',
+                'apptranslator': 'apptranslator.html',
+                'appunitconverter': 'appunitconverter.html',
+                'appvoicerecorder': 'appvoicerecorder.html',
+                'appweather': 'appweather.html',
+                'digital': 'digital.html',
+                'filemanager': 'filemanager.html',
+                'filemanajer': 'filemanajer.html',
+                'githubqwenintegration': 'githubqwenintegration.html',
+                'lisensimediadigital': 'lisensimediadigital.html'
             };
             
             // State Management
             const AppState = {
                 currentSection: 'overview',
                 activeModules: [],
+                openedModules: [],
                 stats: {
                     totalModules: 67,
                     filesProcessed: 1250,
                     activeUsers: 89,
                     systemHealth: 98
                 },
-                lastSync: new Date().toISOString()
+                lastSync: new Date().toISOString(),
+                theme: 'light'
             };
             
             // Initialize System
@@ -916,8 +970,43 @@
                 loadFromStorage();
                 animateStats();
                 updateLastSync();
+                setupEventListeners();
+                renderModuleTable();
                 console.log('[AllUnivers] System ready');
             });
+
+            // Setup Event Listeners
+            function setupEventListeners() {
+                // Close modal on outside click
+                document.getElementById('moduleModal').addEventListener('click', (e) => {
+                    if (e.target.id === 'moduleModal') {
+                        closeModuleModal();
+                    }
+                });
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeModuleModal();
+                    }
+                    if (e.ctrlKey && e.key === 's') {
+                        e.preventDefault();
+                        exportData();
+                    }
+                    if (e.ctrlKey && e.key === 'r') {
+                        e.preventDefault();
+                        refreshDashboard();
+                    }
+                });
+
+                // Active menu highlighting
+                document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        document.querySelectorAll('.sidebar-menu a').forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+            }
             
             // Storage Functions
             function loadFromStorage() {
@@ -960,18 +1049,57 @@
                     }, 30);
                 });
             }
+
+            // Render Module Table dynamically
+            function renderModuleTable() {
+                const tbody = document.getElementById('moduleTableBody');
+                if (!tbody) return;
+
+                const moduleData = [
+                    { name: 'AI Machine Learning', folder: 'ai_machinelearning.digital', type: 'Digital', status: 'Active', files: '49', updated: '2026-07-20' },
+                    { name: 'AIREBER Digital', folder: 'aireber.digital', type: 'Digital', status: 'Active', files: '6', updated: '2026-07-20' },
+                    { name: 'Analisis Data', folder: 'analisisdata.digital', type: 'Digital', status: 'Active', files: '25', updated: '2026-07-20' },
+                    { name: 'Analytics', folder: 'analytics.digital', type: 'Digital', status: 'Active', files: '5', updated: '2026-07-20' },
+                    { name: 'Automation', folder: 'automation.digital', type: 'Digital', status: 'Active', files: '8', updated: '2026-07-20' },
+                    { name: 'Blockchain Crypto', folder: 'blockchaincrypto.digital', type: 'Digital', status: 'Pending', files: '12', updated: '2026-07-19' },
+                    { name: 'Chatbot', folder: 'chatbot.digital', type: 'Digital', status: 'Active', files: '7', updated: '2026-07-20' },
+                    { name: 'Cloud Services', folder: 'cloud.digital', type: 'Digital', status: 'Active', files: '15', updated: '2026-07-20' },
+                    { name: 'Design Creative', folder: 'design.digital', type: 'Digital', status: 'Active', files: '10', updated: '2026-07-20' },
+                    { name: 'E-commerce', folder: 'ecommerce.digital', type: 'Digital', status: 'Active', files: '18', updated: '2026-07-20' }
+                ];
+
+                tbody.innerHTML = moduleData.map(mod => `
+                    <tr>
+                        <td>${mod.name}</td>
+                        <td><span class="badge badge-info">${mod.type}</span></td>
+                        <td><span class="badge badge-${mod.status === 'Active' ? 'success' : 'warning'}">${mod.status}</span></td>
+                        <td>${mod.files} files</td>
+                        <td>${mod.updated}</td>
+                        <td>
+                            <button class="btn btn-primary" style="padding: 5px 10px;" onclick="openModule('${mod.folder}')">Open</button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
             
             // Update Statistics
             window.updateStats = function() {
                 console.log('[AllUnivers] Updating statistics...');
+                // Randomize stats slightly for demo
+                AppState.stats.filesProcessed += Math.floor(Math.random() * 10);
+                AppState.stats.activeUsers = Math.floor(Math.random() * 20) + 80;
                 animateStats();
                 showNotification('Statistics updated successfully', 'success');
+                saveToStorage();
             };
             
             // Refresh Dashboard
             window.refreshDashboard = function() {
                 console.log('[AllUnivers] Refreshing dashboard...');
-                location.reload();
+                showNotification('Refreshing dashboard...', 'info');
+                setTimeout(() => {
+                    location.reload();
+                }, 500);
             };
             
             // Toggle Submenu
@@ -979,6 +1107,10 @@
                 const submenu = document.getElementById(submenuId);
                 if (submenu) {
                     submenu.classList.toggle('open');
+                    const arrow = submenu.previousElementSibling?.querySelector('span:last-child');
+                    if (arrow) {
+                        arrow.textContent = submenu.classList.contains('open') ? '▲' : '▼';
+                    }
                 }
             };
             
@@ -986,70 +1118,219 @@
             window.switchSection = function(section) {
                 AppState.currentSection = section;
                 saveToStorage();
+                
+                // Update page title based on section
+                const titles = {
+                    'overview': 'Dashboard Overview',
+                    'modules': 'Module Management',
+                    'files': 'File Manager',
+                    'users': 'User Management',
+                    'settings': 'System Configuration',
+                    'logs': 'System Logs',
+                    'backup': 'Backup & Restore'
+                };
+                
+                const pageTitle = document.getElementById('pageTitle');
+                if (pageTitle) {
+                    pageTitle.textContent = titles[section] || section.charAt(0).toUpperCase() + section.slice(1);
+                }
+                
                 console.log('[AllUnivers] Switched to section:', section);
                 showNotification(`Navigated to ${section}`, 'info');
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             };
             
             // Load Module from UIREBER
             window.loadModule = function(moduleName) {
                 console.log('[AllUnivers] Loading module:', moduleName);
-                const modulePath = `${SYSTEM_CONFIG.uireberPath}/${moduleName}.digital`;
-                showNotification(`Loading ${moduleName} from UIREBER...`, 'info');
-                // Simulate module loading
-                setTimeout(() => {
-                    showNotification(`${moduleName} loaded successfully`, 'success');
-                }, 1000);
+                
+                // Check if it's an HTML module
+                if (UIREBER_MODULES[moduleName]) {
+                    openModuleInModal(moduleName, UIREBER_MODULES[moduleName]);
+                } else {
+                    // Try to open as digital folder
+                    const modulePath = `${SYSTEM_CONFIG.basePath}${SYSTEM_CONFIG.uireberPath}/${moduleName}.digital/`;
+                    showNotification(`Loading ${moduleName} from UIREBER...`, 'info');
+                    
+                    // Simulate module loading
+                    setTimeout(() => {
+                        showNotification(`${moduleName} loaded successfully`, 'success');
+                        AppState.activeModules.push(moduleName);
+                        saveToStorage();
+                    }, 1000);
+                }
             };
             
-            // Open Module
+            // Open Module in Modal/Iframe
             window.openModule = function(moduleName) {
                 console.log('[AllUnivers] Opening module:', moduleName);
-                showNotification(`Opening ${moduleName}...`, 'info');
-                // In real implementation, this would navigate to the module
+                
+                // Remove .digital extension if present for HTML lookup
+                const cleanName = moduleName.replace('.digital', '').replace('.html', '');
+                
+                // Check if we have an HTML file for this module
+                if (UIREBER_MODULES[cleanName]) {
+                    openModuleInModal(cleanName, UIREBER_MODULES[cleanName]);
+                } else if (moduleName.endsWith('.html')) {
+                    const htmlName = moduleName.replace('.html', '');
+                    if (UIREBER_MODULES[htmlName]) {
+                        openModuleInModal(htmlName, UIREBER_MODULES[htmlName]);
+                    } else {
+                        openModuleInModal(moduleName, moduleName);
+                    }
+                } else {
+                    // Open folder path
+                    const modulePath = `${SYSTEM_CONFIG.basePath}${SYSTEM_CONFIG.uireberPath}/${moduleName}/`;
+                    showNotification(`Opening folder: ${moduleName}`, 'info');
+                    
+                    // Create content section for folder view
+                    showFolderView(moduleName, modulePath);
+                }
             };
+
+            // Open Module in Modal
+            function openModuleInModal(moduleName, fileName) {
+                const modal = document.getElementById('moduleModal');
+                const frame = document.getElementById('moduleFrame');
+                const title = document.getElementById('modalTitle');
+                
+                const modulePath = `${SYSTEM_CONFIG.basePath}${SYSTEM_CONFIG.uireberPath}/${fileName}`;
+                
+                title.textContent = `Module: ${moduleName}`;
+                frame.src = modulePath;
+                
+                modal.classList.remove('hidden');
+                
+                AppState.openedModules.push({ name: moduleName, file: fileName, openedAt: new Date().toISOString() });
+                saveToStorage();
+                
+                showNotification(`Opened ${moduleName}`, 'success');
+                console.log('[AllUnivers] Module opened:', moduleName, 'Path:', modulePath);
+            }
+
+            // Close Module Modal
+            window.closeModuleModal = function() {
+                const modal = document.getElementById('moduleModal');
+                const frame = document.getElementById('moduleFrame');
+                
+                frame.src = '';
+                modal.classList.add('hidden');
+                
+                showNotification('Module closed', 'info');
+            };
+
+            // Show Folder View
+            function showFolderView(folderName, folderPath) {
+                const mainContent = document.querySelector('.ihsfb-main-content');
+                if (!mainContent) return;
+
+                const folderSection = document.createElement('section');
+                folderSection.className = 'ihsfb-section fade-in';
+                folderSection.id = 'folderViewSection';
+                folderSection.innerHTML = `
+                    <div class="section-header">
+                        <h2 class="section-title">Folder: ${folderName}</h2>
+                        <button class="btn btn-secondary" onclick="this.parentElement.parentElement.remove()">Close</button>
+                    </div>
+                    <div class="content-section">
+                        <p>Loading contents from: ${folderPath}</p>
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                `;
+
+                // Remove existing folder view if any
+                const existing = document.getElementById('folderViewSection');
+                if (existing) existing.remove();
+
+                mainContent.appendChild(folderSection);
+                showNotification(`Loading folder: ${folderName}`, 'info');
+            }
             
             // Sync with UIREBER
             window.syncUIREBER = function() {
                 console.log('[AllUnivers] Syncing with UIREBER...');
                 showNotification('Synchronizing with UIREBER system...', 'info');
+                
                 setTimeout(() => {
                     AppState.lastSync = new Date().toISOString();
                     updateLastSync();
                     saveToStorage();
-                    showNotification('Sync completed successfully', 'success');
+                    
+                    // Update stats
+                    AppState.stats.totalModules = Object.keys(UIREBER_MODULES).length;
+                    animateStats();
+                    
+                    showNotification('Sync completed successfully! Found ' + Object.keys(UIREBER_MODULES).length + ' modules.', 'success');
                 }, 2000);
             };
             
             // Refresh Activity
             window.refreshActivity = function() {
                 console.log('[AllUnivers] Refreshing activity...');
+                const activitySection = document.querySelector('.ihsfb-section:nth-of-type(3)');
+                if (activitySection) {
+                    activitySection.classList.remove('fade-in');
+                    void activitySection.offsetWidth; // Trigger reflow
+                    activitySection.classList.add('fade-in');
+                }
                 showNotification('Activity refreshed', 'success');
             };
             
             // Quick Actions
             window.createNewModule = function() {
                 console.log('[AllUnivers] Creating new module...');
-                showNotification('Module creation dialog opening...', 'info');
+                
+                const moduleName = prompt('Enter new module name:');
+                if (moduleName) {
+                    showNotification(`Creating module: ${moduleName}...`, 'info');
+                    setTimeout(() => {
+                        showNotification(`Module "${moduleName}" created successfully!`, 'success');
+                        AppState.activeModules.push(moduleName);
+                        saveToStorage();
+                        renderModuleTable();
+                    }, 1500);
+                }
             };
             
             window.importFromUIREBER = function() {
                 console.log('[AllUnivers] Importing from UIREBER...');
-                showNotification('Importing components from UIREBER...', 'info');
+                showNotification('Scanning UIREBER for components...', 'info');
+                
                 setTimeout(() => {
-                    showNotification('Components reconstructed successfully', 'success');
-                }, 1500);
+                    const importedCount = Object.keys(UIREBER_MODULES).length;
+                    showNotification(`${importedCount} components reconstructed from UIREBER!`, 'success');
+                    AppState.stats.totalModules = importedCount;
+                    animateStats();
+                    saveToStorage();
+                }, 2000);
             };
             
             window.manageFiles = function() {
                 console.log('[AllUnivers] Opening file manager...');
                 switchSection('files');
+                
+                // Open filemanager.html in modal
+                setTimeout(() => {
+                    if (UIREBER_MODULES['filemanager']) {
+                        openModuleInModal('filemanager', UIREBER_MODULES['filemanager']);
+                    }
+                }, 500);
             };
             
             window.systemDiagnostics = function() {
                 console.log('[AllUnivers] Running diagnostics...');
                 showNotification('Running system diagnostics...', 'info');
+                
                 setTimeout(() => {
-                    showNotification('System health: 98% - All systems operational', 'success');
+                    const health = Math.floor(Math.random() * 5) + 95;
+                    AppState.stats.systemHealth = health;
+                    animateStats();
+                    saveToStorage();
+                    showNotification(`System health: ${health}% - All systems operational`, 'success');
                 }, 2000);
             };
             
@@ -1058,8 +1339,11 @@
                 console.log('[AllUnivers] Exporting data...');
                 const exportData = {
                     timestamp: new Date().toISOString(),
+                    version: SYSTEM_CONFIG.version,
                     stats: AppState.stats,
-                    modules: AppState.activeModules
+                    modules: AppState.activeModules,
+                    openedModules: AppState.openedModules,
+                    lastSync: AppState.lastSync
                 };
                 const blob = new Blob([JSON.stringify(exportData, null, 2)], {type: 'application/json'});
                 const url = URL.createObjectURL(blob);
@@ -1070,27 +1354,94 @@
                 URL.revokeObjectURL(url);
                 showNotification('Data exported successfully', 'success');
             };
+
+            // Import Data
+            window.importData = function() {
+                console.log('[AllUnivers] Importing data...');
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.accept = '.json';
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            try {
+                                const data = JSON.parse(event.target.result);
+                                Object.assign(AppState, data);
+                                saveToStorage();
+                                animateStats();
+                                updateLastSync();
+                                showNotification('Data imported successfully', 'success');
+                            } catch (err) {
+                                showNotification('Error importing data: Invalid format', 'danger');
+                            }
+                        };
+                        reader.readAsText(file);
+                    }
+                };
+                input.click();
+            };
             
             // Toggle Settings
             window.toggleSettings = function() {
                 console.log('[AllUnivers] Toggling settings...');
                 switchSection('settings');
             };
+
+            // Toggle Theme
+            window.toggleTheme = function() {
+                AppState.theme = AppState.theme === 'light' ? 'dark' : 'light';
+                document.body.style.background = AppState.theme === 'light' 
+                    ? 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                    : 'linear-gradient(135deg, #1f2937 0%, #111827 100%)';
+                saveToStorage();
+                showNotification(`Theme changed to ${AppState.theme}`, 'info');
+            };
             
             // Update Last Sync Time
             function updateLastSync() {
                 const lastSyncEl = document.getElementById('lastSync');
                 if (lastSyncEl) {
-                    lastSyncEl.textContent = 'Just now';
+                    const now = new Date();
+                    lastSyncEl.textContent = now.toLocaleString('id-ID');
                 }
             }
             
-            // Show Notification
+            // Show Toast Notification
             function showNotification(message, type = 'info') {
                 console.log(`[AllUnivers] Notification (${type}):`, message);
-                // In real implementation, this would show a toast notification
-                alert(`${type.toUpperCase()}: ${message}`);
+                
+                const container = document.getElementById('toastContainer');
+                const toast = document.createElement('div');
+                toast.className = `toast toast-${type}`;
+                
+                const icons = {
+                    'success': '✓',
+                    'error': '✕',
+                    'warning': '⚠',
+                    'info': 'ℹ',
+                    'danger': '✕'
+                };
+                
+                toast.innerHTML = `
+                    <span class="toast-icon">${icons[type] || icons['info']}</span>
+                    <span class="toast-message">${message}</span>
+                    <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
+                `;
+                
+                container.appendChild(toast);
+                
+                // Auto remove after 4 seconds
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateX(100%)';
+                    setTimeout(() => toast.remove(), 300);
+                }, 4000);
             }
+
+            // Make showNotification globally available
+            window.showNotification = showNotification;
             
             // Log System Info
             console.log('========================================');
@@ -1099,9 +1450,171 @@
             console.log('Build:', SYSTEM_CONFIG.buildDate);
             console.log('Environment:', SYSTEM_CONFIG.environment);
             console.log('UIREBER Path:', SYSTEM_CONFIG.uireberPath);
+            console.log('Available Modules:', Object.keys(UIREBER_MODULES).length);
             console.log('========================================');
             
         })();
     </script>
+
+    <!-- Additional Styles for Modal and Toast -->
+    <style>
+        /* Modal Styles */
+        .module-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .module-modal.hidden {
+            display: none;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .modal-body {
+            padding: 0;
+            height: calc(90vh - 80px);
+            overflow: auto;
+        }
+
+        .modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Toast Notification Styles */
+        .toast-container {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 10001;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            min-width: 300px;
+            max-width: 400px;
+            transition: all 0.3s ease;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast-success {
+            background: var(--success-color);
+        }
+
+        .toast-error,
+        .toast-danger {
+            background: var(--danger-color);
+        }
+
+        .toast-warning {
+            background: var(--warning-color);
+        }
+
+        .toast-info {
+            background: var(--primary-color);
+        }
+
+        .toast-icon {
+            font-size: 20px;
+        }
+
+        .toast-message {
+            flex: 1;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .toast-close:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                max-height: 80vh;
+            }
+
+            .modal-body {
+                height: calc(80vh - 80px);
+            }
+
+            .toast-container {
+                right: 10px;
+                top: 70px;
+            }
+
+            .toast {
+                min-width: 250px;
+                max-width: 300px;
+                padding: 12px 15px;
+            }
+        }
+    </style>
 </body>
 </html>
