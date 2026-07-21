@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00030",
+    "name": "Vibrant Science 30",
+    "category": "Science",
+    "subcategory": "Vibrant",
+    "layout": "Masonry Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Science/Vibrant/Item 30",
+    "parentId": "MENU-00021",
+    "level": 1,
+    "order": 30,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:30Z",
+        "updatedAt": "2024-01-01T00:00:30Z",
+        "version": "1.0.30",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["science", "vibrant", "masonry layout", "icon-maker"],
+        "description": "Menu item 30 for Vibrant Science with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(30)",
+        "onHover": "handleMenuHover(30)",
+        "onContextMenu": "handleMenuContext(30)"
+    },
+    "styling": {
+        "className": "menu-item-30",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

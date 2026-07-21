@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02418",
+    "name": "Professional Home 2418",
+    "category": "Home",
+    "subcategory": "Professional",
+    "layout": "Sidebar Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Professional/Item 2418",
+    "parentId": "MENU-02411",
+    "level": 5,
+    "order": 2418,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.2418",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "professional", "sidebar layout", "icon-maker"],
+        "description": "Menu item 2418 for Professional Home with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2418)",
+        "onHover": "handleMenuHover(2418)",
+        "onContextMenu": "handleMenuContext(2418)"
+    },
+    "styling": {
+        "className": "menu-item-2418",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

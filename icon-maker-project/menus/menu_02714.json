@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02714",
+    "name": "Future Plants 2714",
+    "category": "Plants",
+    "subcategory": "Future",
+    "layout": "Chart Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Plants/Future/Item 2714",
+    "parentId": "MENU-02711",
+    "level": 5,
+    "order": 2714,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:14Z",
+        "updatedAt": "2024-01-01T00:00:14Z",
+        "version": "1.0.2714",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["plants", "future", "chart layout", "icon-maker"],
+        "description": "Menu item 2714 for Future Plants with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2714)",
+        "onHover": "handleMenuHover(2714)",
+        "onContextMenu": "handleMenuContext(2714)"
+    },
+    "styling": {
+        "className": "menu-item-2714",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

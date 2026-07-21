@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00184",
+    "name": "Filled Symbols 184",
+    "category": "Symbols",
+    "subcategory": "Filled",
+    "layout": "Tile Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Symbols/Filled/Item 184",
+    "parentId": "MENU-00181",
+    "level": 2,
+    "order": 184,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:04Z",
+        "updatedAt": "2024-01-01T00:00:04Z",
+        "version": "1.0.184",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["symbols", "filled", "tile layout", "icon-maker"],
+        "description": "Menu item 184 for Filled Symbols with Tile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(184)",
+        "onHover": "handleMenuHover(184)",
+        "onContextMenu": "handleMenuContext(184)"
+    },
+    "styling": {
+        "className": "menu-item-184",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

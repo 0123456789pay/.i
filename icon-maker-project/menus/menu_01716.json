@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01716",
+    "name": "Gradient Flags 1716",
+    "category": "Flags",
+    "subcategory": "Gradient",
+    "layout": "Form Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Gradient/Item 1716",
+    "parentId": "MENU-01711",
+    "level": 5,
+    "order": 1716,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:36Z",
+        "updatedAt": "2024-01-01T00:00:36Z",
+        "version": "1.0.1716",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "gradient", "form layout", "icon-maker"],
+        "description": "Menu item 1716 for Gradient Flags with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1716)",
+        "onHover": "handleMenuHover(1716)",
+        "onContextMenu": "handleMenuContext(1716)"
+    },
+    "styling": {
+        "className": "menu-item-1716",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

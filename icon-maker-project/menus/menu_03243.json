@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03243",
+    "name": "Outlined Icons 3243",
+    "category": "Icons",
+    "subcategory": "Outlined",
+    "layout": "Sidebar Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Outlined/Item 3243",
+    "parentId": "MENU-03241",
+    "level": 5,
+    "order": 3243,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.3243",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "outlined", "sidebar layout", "icon-maker"],
+        "description": "Menu item 3243 for Outlined Icons with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3243)",
+        "onHover": "handleMenuHover(3243)",
+        "onContextMenu": "handleMenuContext(3243)"
+    },
+    "styling": {
+        "className": "menu-item-3243",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

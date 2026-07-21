@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02062",
+    "name": "Light Zodiac 2062",
+    "category": "Zodiac",
+    "subcategory": "Light",
+    "layout": "Tree Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Zodiac/Light/Item 2062",
+    "parentId": "MENU-02061",
+    "level": 5,
+    "order": 2062,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.2062",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["zodiac", "light", "tree layout", "icon-maker"],
+        "description": "Menu item 2062 for Light Zodiac with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2062)",
+        "onHover": "handleMenuHover(2062)",
+        "onContextMenu": "handleMenuContext(2062)"
+    },
+    "styling": {
+        "className": "menu-item-2062",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

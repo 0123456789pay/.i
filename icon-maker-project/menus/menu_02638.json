@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02638",
+    "name": "Multicolor Payment 2638",
+    "category": "Payment",
+    "subcategory": "Multicolor",
+    "layout": "Graph Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Payment/Multicolor/Item 2638",
+    "parentId": "MENU-02631",
+    "level": 5,
+    "order": 2638,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:58Z",
+        "updatedAt": "2024-01-01T00:00:58Z",
+        "version": "1.0.2638",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["payment", "multicolor", "graph layout", "icon-maker"],
+        "description": "Menu item 2638 for Multicolor Payment with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2638)",
+        "onHover": "handleMenuHover(2638)",
+        "onContextMenu": "handleMenuContext(2638)"
+    },
+    "styling": {
+        "className": "menu-item-2638",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

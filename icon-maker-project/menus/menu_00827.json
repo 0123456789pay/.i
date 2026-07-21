@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00827",
+    "name": "Cartoon Transport 827",
+    "category": "Transport",
+    "subcategory": "Cartoon",
+    "layout": "Flex Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Transport/Cartoon/Item 827",
+    "parentId": "MENU-00821",
+    "level": 5,
+    "order": 827,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:47Z",
+        "updatedAt": "2024-01-01T00:00:47Z",
+        "version": "1.0.827",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["transport", "cartoon", "flex layout", "icon-maker"],
+        "description": "Menu item 827 for Cartoon Transport with Flex Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(827)",
+        "onHover": "handleMenuHover(827)",
+        "onContextMenu": "handleMenuContext(827)"
+    },
+    "styling": {
+        "className": "menu-item-827",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

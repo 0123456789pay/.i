@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00365",
+    "name": "Colored Arrows 365",
+    "category": "Arrows",
+    "subcategory": "Colored",
+    "layout": "Table Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Arrows/Colored/Item 365",
+    "parentId": "MENU-00361",
+    "level": 4,
+    "order": 365,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:05Z",
+        "updatedAt": "2024-01-01T00:00:05Z",
+        "version": "1.0.365",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["arrows", "colored", "table layout", "icon-maker"],
+        "description": "Menu item 365 for Colored Arrows with Table Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(365)",
+        "onHover": "handleMenuHover(365)",
+        "onContextMenu": "handleMenuContext(365)"
+    },
+    "styling": {
+        "className": "menu-item-365",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

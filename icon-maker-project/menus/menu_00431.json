@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00431",
+    "name": "Classic Navigation 431",
+    "category": "Navigation",
+    "subcategory": "Classic",
+    "layout": "Carousel Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Classic/Item 431",
+    "parentId": "MENU-00431",
+    "level": 5,
+    "order": 431,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.431",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "classic", "carousel layout", "icon-maker"],
+        "description": "Menu item 431 for Classic Navigation with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(431)",
+        "onHover": "handleMenuHover(431)",
+        "onContextMenu": "handleMenuContext(431)"
+    },
+    "styling": {
+        "className": "menu-item-431",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

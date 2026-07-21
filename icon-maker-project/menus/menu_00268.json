@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00268",
+    "name": "Multicolor Currency 268",
+    "category": "Currency",
+    "subcategory": "Multicolor",
+    "layout": "Sidebar Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Currency/Multicolor/Item 268",
+    "parentId": "MENU-00261",
+    "level": 3,
+    "order": 268,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:28Z",
+        "updatedAt": "2024-01-01T00:00:28Z",
+        "version": "1.0.268",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["currency", "multicolor", "sidebar layout", "icon-maker"],
+        "description": "Menu item 268 for Multicolor Currency with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(268)",
+        "onHover": "handleMenuHover(268)",
+        "onContextMenu": "handleMenuContext(268)"
+    },
+    "styling": {
+        "className": "menu-item-268",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

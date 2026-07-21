@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01433",
+    "name": "Dark Religion 1433",
+    "category": "Religion",
+    "subcategory": "Dark",
+    "layout": "Card Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Religion/Dark/Item 1433",
+    "parentId": "MENU-01431",
+    "level": 5,
+    "order": 1433,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.1433",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["religion", "dark", "card layout", "icon-maker"],
+        "description": "Menu item 1433 for Dark Religion with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1433)",
+        "onHover": "handleMenuHover(1433)",
+        "onContextMenu": "handleMenuContext(1433)"
+    },
+    "styling": {
+        "className": "menu-item-1433",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

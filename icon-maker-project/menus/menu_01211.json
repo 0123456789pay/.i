@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01211",
+    "name": "Classic Numbers 1211",
+    "category": "Numbers",
+    "subcategory": "Classic",
+    "layout": "Timeline Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Classic/Item 1211",
+    "parentId": "MENU-01211",
+    "level": 5,
+    "order": 1211,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.1211",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "classic", "timeline layout", "icon-maker"],
+        "description": "Menu item 1211 for Classic Numbers with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1211)",
+        "onHover": "handleMenuHover(1211)",
+        "onContextMenu": "handleMenuContext(1211)"
+    },
+    "styling": {
+        "className": "menu-item-1211",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

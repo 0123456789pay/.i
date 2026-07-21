@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03202",
+    "name": "Light Weather 3202",
+    "category": "Weather",
+    "subcategory": "Light",
+    "layout": "Flex Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Weather/Light/Item 3202",
+    "parentId": "MENU-03201",
+    "level": 5,
+    "order": 3202,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.3202",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["weather", "light", "flex layout", "icon-maker"],
+        "description": "Menu item 3202 for Light Weather with Flex Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3202)",
+        "onHover": "handleMenuHover(3202)",
+        "onContextMenu": "handleMenuContext(3202)"
+    },
+    "styling": {
+        "className": "menu-item-3202",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

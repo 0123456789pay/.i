@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01575",
+    "name": "Abstract Math 1575",
+    "category": "Math",
+    "subcategory": "Abstract",
+    "layout": "Filter Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Math/Abstract/Item 1575",
+    "parentId": "MENU-01571",
+    "level": 5,
+    "order": 1575,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:15Z",
+        "updatedAt": "2024-01-01T00:00:15Z",
+        "version": "1.0.1575",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["math", "abstract", "filter layout", "icon-maker"],
+        "description": "Menu item 1575 for Abstract Math with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1575)",
+        "onHover": "handleMenuHover(1575)",
+        "onContextMenu": "handleMenuContext(1575)"
+    },
+    "styling": {
+        "className": "menu-item-1575",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

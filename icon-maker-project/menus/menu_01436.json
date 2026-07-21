@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01436",
+    "name": "Duotone Numbers 1436",
+    "category": "Numbers",
+    "subcategory": "Duotone",
+    "layout": "Timeline Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Duotone/Item 1436",
+    "parentId": "MENU-01431",
+    "level": 5,
+    "order": 1436,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:56Z",
+        "updatedAt": "2024-01-01T00:00:56Z",
+        "version": "1.0.1436",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "duotone", "timeline layout", "icon-maker"],
+        "description": "Menu item 1436 for Duotone Numbers with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1436)",
+        "onHover": "handleMenuHover(1436)",
+        "onContextMenu": "handleMenuContext(1436)"
+    },
+    "styling": {
+        "className": "menu-item-1436",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

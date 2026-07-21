@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03046",
+    "name": "Realistic Art 3046",
+    "category": "Art",
+    "subcategory": "Realistic",
+    "layout": "Dashboard Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Realistic/Item 3046",
+    "parentId": "MENU-03041",
+    "level": 5,
+    "order": 3046,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.3046",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "realistic", "dashboard layout", "icon-maker"],
+        "description": "Menu item 3046 for Realistic Art with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3046)",
+        "onHover": "handleMenuHover(3046)",
+        "onContextMenu": "handleMenuContext(3046)"
+    },
+    "styling": {
+        "className": "menu-item-3046",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00462",
+    "name": "Modern Food 462",
+    "category": "Food",
+    "subcategory": "Modern",
+    "layout": "Tree Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Food/Modern/Item 462",
+    "parentId": "MENU-00461",
+    "level": 5,
+    "order": 462,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:42Z",
+        "updatedAt": "2024-01-01T00:00:42Z",
+        "version": "1.0.462",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["food", "modern", "tree layout", "icon-maker"],
+        "description": "Menu item 462 for Modern Food with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(462)",
+        "onHover": "handleMenuHover(462)",
+        "onContextMenu": "handleMenuContext(462)"
+    },
+    "styling": {
+        "className": "menu-item-462",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

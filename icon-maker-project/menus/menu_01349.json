@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01349",
+    "name": "Pastel Units 1349",
+    "category": "Units",
+    "subcategory": "Pastel",
+    "layout": "Search Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Units/Pastel/Item 1349",
+    "parentId": "MENU-01341",
+    "level": 5,
+    "order": 1349,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:29Z",
+        "updatedAt": "2024-01-01T00:00:29Z",
+        "version": "1.0.1349",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["units", "pastel", "search layout", "icon-maker"],
+        "description": "Menu item 1349 for Pastel Units with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1349)",
+        "onHover": "handleMenuHover(1349)",
+        "onContextMenu": "handleMenuContext(1349)"
+    },
+    "styling": {
+        "className": "menu-item-1349",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

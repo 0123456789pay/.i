@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00698",
+    "name": "Static Settings 698",
+    "category": "Settings",
+    "subcategory": "Static",
+    "layout": "Feed Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Settings/Static/Item 698",
+    "parentId": "MENU-00691",
+    "level": 5,
+    "order": 698,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.698",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["settings", "static", "feed layout", "icon-maker"],
+        "description": "Menu item 698 for Static Settings with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(698)",
+        "onHover": "handleMenuHover(698)",
+        "onContextMenu": "handleMenuContext(698)"
+    },
+    "styling": {
+        "className": "menu-item-698",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

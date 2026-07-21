@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02689",
+    "name": "Casual Office 2689",
+    "category": "Office",
+    "subcategory": "Casual",
+    "layout": "Chart Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Office/Casual/Item 2689",
+    "parentId": "MENU-02681",
+    "level": 5,
+    "order": 2689,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:49Z",
+        "updatedAt": "2024-01-01T00:00:49Z",
+        "version": "1.0.2689",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["office", "casual", "chart layout", "icon-maker"],
+        "description": "Menu item 2689 for Casual Office with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2689)",
+        "onHover": "handleMenuHover(2689)",
+        "onContextMenu": "handleMenuContext(2689)"
+    },
+    "styling": {
+        "className": "menu-item-2689",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

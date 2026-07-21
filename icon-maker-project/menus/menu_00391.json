@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00391",
+    "name": "Simple Art 391",
+    "category": "Art",
+    "subcategory": "Simple",
+    "layout": "Form Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Simple/Item 391",
+    "parentId": "MENU-00391",
+    "level": 4,
+    "order": 391,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:31Z",
+        "updatedAt": "2024-01-01T00:00:31Z",
+        "version": "1.0.391",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "simple", "form layout", "icon-maker"],
+        "description": "Menu item 391 for Simple Art with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(391)",
+        "onHover": "handleMenuHover(391)",
+        "onContextMenu": "handleMenuContext(391)"
+    },
+    "styling": {
+        "className": "menu-item-391",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02966",
+    "name": "Duotone Numbers 2966",
+    "category": "Numbers",
+    "subcategory": "Duotone",
+    "layout": "Form Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Duotone/Item 2966",
+    "parentId": "MENU-02961",
+    "level": 5,
+    "order": 2966,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:26Z",
+        "updatedAt": "2024-01-01T00:00:26Z",
+        "version": "1.0.2966",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "duotone", "form layout", "icon-maker"],
+        "description": "Menu item 2966 for Duotone Numbers with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2966)",
+        "onHover": "handleMenuHover(2966)",
+        "onContextMenu": "handleMenuContext(2966)"
+    },
+    "styling": {
+        "className": "menu-item-2966",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

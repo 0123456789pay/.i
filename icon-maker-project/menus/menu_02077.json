@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02077",
+    "name": "Animated Weather 2077",
+    "category": "Weather",
+    "subcategory": "Animated",
+    "layout": "Flex Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Weather/Animated/Item 2077",
+    "parentId": "MENU-02071",
+    "level": 5,
+    "order": 2077,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:37Z",
+        "updatedAt": "2024-01-01T00:00:37Z",
+        "version": "1.0.2077",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["weather", "animated", "flex layout", "icon-maker"],
+        "description": "Menu item 2077 for Animated Weather with Flex Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2077)",
+        "onHover": "handleMenuHover(2077)",
+        "onContextMenu": "handleMenuContext(2077)"
+    },
+    "styling": {
+        "className": "menu-item-2077",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

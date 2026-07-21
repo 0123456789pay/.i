@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01229",
+    "name": "Pastel Plants 1229",
+    "category": "Plants",
+    "subcategory": "Pastel",
+    "layout": "Flow Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Plants/Pastel/Item 1229",
+    "parentId": "MENU-01221",
+    "level": 5,
+    "order": 1229,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:29Z",
+        "updatedAt": "2024-01-01T00:00:29Z",
+        "version": "1.0.1229",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["plants", "pastel", "flow layout", "icon-maker"],
+        "description": "Menu item 1229 for Pastel Plants with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1229)",
+        "onHover": "handleMenuHover(1229)",
+        "onContextMenu": "handleMenuContext(1229)"
+    },
+    "styling": {
+        "className": "menu-item-1229",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01818",
+    "name": "Professional Communication 1818",
+    "category": "Communication",
+    "subcategory": "Professional",
+    "layout": "Sidebar Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Professional/Item 1818",
+    "parentId": "MENU-01811",
+    "level": 5,
+    "order": 1818,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.1818",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "professional", "sidebar layout", "icon-maker"],
+        "description": "Menu item 1818 for Professional Communication with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1818)",
+        "onHover": "handleMenuHover(1818)",
+        "onContextMenu": "handleMenuContext(1818)"
+    },
+    "styling": {
+        "className": "menu-item-1818",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

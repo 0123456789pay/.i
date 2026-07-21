@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02647",
+    "name": "Animated Zodiac 2647",
+    "category": "Zodiac",
+    "subcategory": "Animated",
+    "layout": "Profile Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Zodiac/Animated/Item 2647",
+    "parentId": "MENU-02641",
+    "level": 5,
+    "order": 2647,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:07Z",
+        "updatedAt": "2024-01-01T00:00:07Z",
+        "version": "1.0.2647",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["zodiac", "animated", "profile layout", "icon-maker"],
+        "description": "Menu item 2647 for Animated Zodiac with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2647)",
+        "onHover": "handleMenuHover(2647)",
+        "onContextMenu": "handleMenuContext(2647)"
+    },
+    "styling": {
+        "className": "menu-item-2647",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

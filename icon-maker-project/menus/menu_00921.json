@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00921",
+    "name": "Bold Folders 921",
+    "category": "Folders",
+    "subcategory": "Bold",
+    "layout": "Dashboard Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Folders/Bold/Item 921",
+    "parentId": "MENU-00921",
+    "level": 5,
+    "order": 921,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.921",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["folders", "bold", "dashboard layout", "icon-maker"],
+        "description": "Menu item 921 for Bold Folders with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(921)",
+        "onHover": "handleMenuHover(921)",
+        "onContextMenu": "handleMenuContext(921)"
+    },
+    "styling": {
+        "className": "menu-item-921",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

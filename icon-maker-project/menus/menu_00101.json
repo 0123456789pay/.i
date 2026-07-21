@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00101",
+    "name": "Classic Medical 101",
+    "category": "Medical",
+    "subcategory": "Classic",
+    "layout": "Grid Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Medical/Classic/Item 101",
+    "parentId": "MENU-00101",
+    "level": 2,
+    "order": 101,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:41Z",
+        "updatedAt": "2024-01-01T00:00:41Z",
+        "version": "1.0.101",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["medical", "classic", "grid layout", "icon-maker"],
+        "description": "Menu item 101 for Classic Medical with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(101)",
+        "onHover": "handleMenuHover(101)",
+        "onContextMenu": "handleMenuContext(101)"
+    },
+    "styling": {
+        "className": "menu-item-101",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

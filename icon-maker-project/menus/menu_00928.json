@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00928",
+    "name": "Multicolor Payment 928",
+    "category": "Payment",
+    "subcategory": "Multicolor",
+    "layout": "Stack Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Payment/Multicolor/Item 928",
+    "parentId": "MENU-00921",
+    "level": 5,
+    "order": 928,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:28Z",
+        "updatedAt": "2024-01-01T00:00:28Z",
+        "version": "1.0.928",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["payment", "multicolor", "stack layout", "icon-maker"],
+        "description": "Menu item 928 for Multicolor Payment with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(928)",
+        "onHover": "handleMenuHover(928)",
+        "onContextMenu": "handleMenuContext(928)"
+    },
+    "styling": {
+        "className": "menu-item-928",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00383",
+    "name": "Dark Settings 383",
+    "category": "Settings",
+    "subcategory": "Dark",
+    "layout": "Card Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Settings/Dark/Item 383",
+    "parentId": "MENU-00381",
+    "level": 4,
+    "order": 383,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:23Z",
+        "updatedAt": "2024-01-01T00:00:23Z",
+        "version": "1.0.383",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["settings", "dark", "card layout", "icon-maker"],
+        "description": "Menu item 383 for Dark Settings with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(383)",
+        "onHover": "handleMenuHover(383)",
+        "onContextMenu": "handleMenuContext(383)"
+    },
+    "styling": {
+        "className": "menu-item-383",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

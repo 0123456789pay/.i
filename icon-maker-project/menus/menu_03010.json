@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03010",
+    "name": "Detailed Time 3010",
+    "category": "Time",
+    "subcategory": "Detailed",
+    "layout": "Gallery Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Time/Detailed/Item 3010",
+    "parentId": "MENU-03001",
+    "level": 5,
+    "order": 3010,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:10Z",
+        "updatedAt": "2024-01-01T00:00:10Z",
+        "version": "1.0.3010",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["time", "detailed", "gallery layout", "icon-maker"],
+        "description": "Menu item 3010 for Detailed Time with Gallery Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3010)",
+        "onHover": "handleMenuHover(3010)",
+        "onContextMenu": "handleMenuContext(3010)"
+    },
+    "styling": {
+        "className": "menu-item-3010",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

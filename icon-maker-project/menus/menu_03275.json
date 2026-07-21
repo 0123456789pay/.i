@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03275",
+    "name": "Colored Travel 3275",
+    "category": "Travel",
+    "subcategory": "Colored",
+    "layout": "Filter Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Colored/Item 3275",
+    "parentId": "MENU-03271",
+    "level": 5,
+    "order": 3275,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:35Z",
+        "updatedAt": "2024-01-01T00:00:35Z",
+        "version": "1.0.3275",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "colored", "filter layout", "icon-maker"],
+        "description": "Menu item 3275 for Colored Travel with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3275)",
+        "onHover": "handleMenuHover(3275)",
+        "onContextMenu": "handleMenuContext(3275)"
+    },
+    "styling": {
+        "className": "menu-item-3275",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

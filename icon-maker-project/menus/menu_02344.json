@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02344",
+    "name": "Filled Symbols 2344",
+    "category": "Symbols",
+    "subcategory": "Filled",
+    "layout": "Header Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Symbols/Filled/Item 2344",
+    "parentId": "MENU-02341",
+    "level": 5,
+    "order": 2344,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:04Z",
+        "updatedAt": "2024-01-01T00:00:04Z",
+        "version": "1.0.2344",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["symbols", "filled", "header layout", "icon-maker"],
+        "description": "Menu item 2344 for Filled Symbols with Header Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2344)",
+        "onHover": "handleMenuHover(2344)",
+        "onContextMenu": "handleMenuContext(2344)"
+    },
+    "styling": {
+        "className": "menu-item-2344",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

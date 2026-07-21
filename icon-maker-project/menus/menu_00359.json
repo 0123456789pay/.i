@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00359",
+    "name": "Pastel Units 359",
+    "category": "Units",
+    "subcategory": "Pastel",
+    "layout": "Tile Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Units/Pastel/Item 359",
+    "parentId": "MENU-00351",
+    "level": 4,
+    "order": 359,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:59Z",
+        "updatedAt": "2024-01-01T00:00:59Z",
+        "version": "1.0.359",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["units", "pastel", "tile layout", "icon-maker"],
+        "description": "Menu item 359 for Pastel Units with Tile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(359)",
+        "onHover": "handleMenuHover(359)",
+        "onContextMenu": "handleMenuContext(359)"
+    },
+    "styling": {
+        "className": "menu-item-359",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

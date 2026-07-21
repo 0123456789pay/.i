@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03429",
+    "name": "Minimal Business 3429",
+    "category": "Business",
+    "subcategory": "Minimal",
+    "layout": "Flow Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Business/Minimal/Item 3429",
+    "parentId": "MENU-03421",
+    "level": 5,
+    "order": 3429,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:09Z",
+        "updatedAt": "2024-01-01T00:00:09Z",
+        "version": "1.0.3429",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["business", "minimal", "flow layout", "icon-maker"],
+        "description": "Menu item 3429 for Minimal Business with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3429)",
+        "onHover": "handleMenuHover(3429)",
+        "onContextMenu": "handleMenuContext(3429)"
+    },
+    "styling": {
+        "className": "menu-item-3429",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

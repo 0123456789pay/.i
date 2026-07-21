@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02686",
+    "name": "Realistic Art 2686",
+    "category": "Art",
+    "subcategory": "Realistic",
+    "layout": "Timeline Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Realistic/Item 2686",
+    "parentId": "MENU-02681",
+    "level": 5,
+    "order": 2686,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.2686",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "realistic", "timeline layout", "icon-maker"],
+        "description": "Menu item 2686 for Realistic Art with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2686)",
+        "onHover": "handleMenuHover(2686)",
+        "onContextMenu": "handleMenuContext(2686)"
+    },
+    "styling": {
+        "className": "menu-item-2686",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

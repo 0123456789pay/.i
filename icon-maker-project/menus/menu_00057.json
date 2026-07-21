@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00057",
+    "name": "Tritone Food 57",
+    "category": "Food",
+    "subcategory": "Tritone",
+    "layout": "List Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Food/Tritone/Item 57",
+    "parentId": "MENU-00051",
+    "level": 1,
+    "order": 57,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:57Z",
+        "updatedAt": "2024-01-01T00:00:57Z",
+        "version": "1.0.57",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["food", "tritone", "list layout", "icon-maker"],
+        "description": "Menu item 57 for Tritone Food with List Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(57)",
+        "onHover": "handleMenuHover(57)",
+        "onContextMenu": "handleMenuContext(57)"
+    },
+    "styling": {
+        "className": "menu-item-57",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

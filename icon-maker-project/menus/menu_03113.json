@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03113",
+    "name": "Dark Technology 3113",
+    "category": "Technology",
+    "subcategory": "Dark",
+    "layout": "Graph Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Dark/Item 3113",
+    "parentId": "MENU-03111",
+    "level": 5,
+    "order": 3113,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.3113",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "dark", "graph layout", "icon-maker"],
+        "description": "Menu item 3113 for Dark Technology with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3113)",
+        "onHover": "handleMenuHover(3113)",
+        "onContextMenu": "handleMenuContext(3113)"
+    },
+    "styling": {
+        "className": "menu-item-3113",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03491",
+    "name": "Classic Navigation 3491",
+    "category": "Navigation",
+    "subcategory": "Classic",
+    "layout": "Form Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Classic/Item 3491",
+    "parentId": "MENU-03491",
+    "level": 5,
+    "order": 3491,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.3491",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "classic", "form layout", "icon-maker"],
+        "description": "Menu item 3491 for Classic Navigation with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3491)",
+        "onHover": "handleMenuHover(3491)",
+        "onContextMenu": "handleMenuContext(3491)"
+    },
+    "styling": {
+        "className": "menu-item-3491",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

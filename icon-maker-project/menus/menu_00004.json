@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00004",
+    "name": "Filled Symbols 4",
+    "category": "Symbols",
+    "subcategory": "Filled",
+    "layout": "Flow Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Symbols/Filled/Item 4",
+    "parentId": null,
+    "level": 1,
+    "order": 4,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:04Z",
+        "updatedAt": "2024-01-01T00:00:04Z",
+        "version": "1.0.4",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["symbols", "filled", "flow layout", "icon-maker"],
+        "description": "Menu item 4 for Filled Symbols with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(4)",
+        "onHover": "handleMenuHover(4)",
+        "onContextMenu": "handleMenuContext(4)"
+    },
+    "styling": {
+        "className": "menu-item-4",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

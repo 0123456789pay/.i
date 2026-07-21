@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00161",
+    "name": "Classic Navigation 161",
+    "category": "Navigation",
+    "subcategory": "Classic",
+    "layout": "Timeline Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Classic/Item 161",
+    "parentId": "MENU-00161",
+    "level": 2,
+    "order": 161,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:41Z",
+        "updatedAt": "2024-01-01T00:00:41Z",
+        "version": "1.0.161",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "classic", "timeline layout", "icon-maker"],
+        "description": "Menu item 161 for Classic Navigation with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(161)",
+        "onHover": "handleMenuHover(161)",
+        "onContextMenu": "handleMenuContext(161)"
+    },
+    "styling": {
+        "className": "menu-item-161",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

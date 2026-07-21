@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02997",
+    "name": "Tritone Social Media 2997",
+    "category": "Social Media",
+    "subcategory": "Tritone",
+    "layout": "Profile Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Social Media/Tritone/Item 2997",
+    "parentId": "MENU-02991",
+    "level": 5,
+    "order": 2997,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:57Z",
+        "updatedAt": "2024-01-01T00:00:57Z",
+        "version": "1.0.2997",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["social media", "tritone", "profile layout", "icon-maker"],
+        "description": "Menu item 2997 for Tritone Social Media with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2997)",
+        "onHover": "handleMenuHover(2997)",
+        "onContextMenu": "handleMenuContext(2997)"
+    },
+    "styling": {
+        "className": "menu-item-2997",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

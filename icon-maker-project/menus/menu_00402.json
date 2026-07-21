@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00402",
+    "name": "Modern Letters 402",
+    "category": "Letters",
+    "subcategory": "Modern",
+    "layout": "Flex Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Letters/Modern/Item 402",
+    "parentId": "MENU-00401",
+    "level": 5,
+    "order": 402,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:42Z",
+        "updatedAt": "2024-01-01T00:00:42Z",
+        "version": "1.0.402",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["letters", "modern", "flex layout", "icon-maker"],
+        "description": "Menu item 402 for Modern Letters with Flex Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(402)",
+        "onHover": "handleMenuHover(402)",
+        "onContextMenu": "handleMenuContext(402)"
+    },
+    "styling": {
+        "className": "menu-item-402",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

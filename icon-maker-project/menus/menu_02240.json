@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02240",
+    "name": "Elegant Travel 2240",
+    "category": "Travel",
+    "subcategory": "Elegant",
+    "layout": "Table Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Elegant/Item 2240",
+    "parentId": "MENU-02231",
+    "level": 5,
+    "order": 2240,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:20Z",
+        "updatedAt": "2024-01-01T00:00:20Z",
+        "version": "1.0.2240",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "elegant", "table layout", "icon-maker"],
+        "description": "Menu item 2240 for Elegant Travel with Table Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2240)",
+        "onHover": "handleMenuHover(2240)",
+        "onContextMenu": "handleMenuContext(2240)"
+    },
+    "styling": {
+        "className": "menu-item-2240",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

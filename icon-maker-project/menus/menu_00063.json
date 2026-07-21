@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00063",
+    "name": "Outlined Communication 63",
+    "category": "Communication",
+    "subcategory": "Outlined",
+    "layout": "Graph Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Outlined/Item 63",
+    "parentId": "MENU-00061",
+    "level": 1,
+    "order": 63,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.63",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "outlined", "graph layout", "icon-maker"],
+        "description": "Menu item 63 for Outlined Communication with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(63)",
+        "onHover": "handleMenuHover(63)",
+        "onContextMenu": "handleMenuContext(63)"
+    },
+    "styling": {
+        "className": "menu-item-63",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

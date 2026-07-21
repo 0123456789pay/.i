@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02564",
+    "name": "Future Units 2564",
+    "category": "Units",
+    "subcategory": "Future",
+    "layout": "Chart Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Units/Future/Item 2564",
+    "parentId": "MENU-02561",
+    "level": 5,
+    "order": 2564,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:44Z",
+        "updatedAt": "2024-01-01T00:00:44Z",
+        "version": "1.0.2564",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["units", "future", "chart layout", "icon-maker"],
+        "description": "Menu item 2564 for Future Units with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2564)",
+        "onHover": "handleMenuHover(2564)",
+        "onContextMenu": "handleMenuContext(2564)"
+    },
+    "styling": {
+        "className": "menu-item-2564",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

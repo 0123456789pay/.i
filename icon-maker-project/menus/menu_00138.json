@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00138",
+    "name": "Professional Icons 138",
+    "category": "Icons",
+    "subcategory": "Professional",
+    "layout": "Graph Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Professional/Item 138",
+    "parentId": "MENU-00131",
+    "level": 2,
+    "order": 138,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.138",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "professional", "graph layout", "icon-maker"],
+        "description": "Menu item 138 for Professional Icons with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(138)",
+        "onHover": "handleMenuHover(138)",
+        "onContextMenu": "handleMenuContext(138)"
+    },
+    "styling": {
+        "className": "menu-item-138",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00067",
+    "name": "Animated Users 67",
+    "category": "Users",
+    "subcategory": "Animated",
+    "layout": "Modal Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Users/Animated/Item 67",
+    "parentId": "MENU-00061",
+    "level": 1,
+    "order": 67,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:07Z",
+        "updatedAt": "2024-01-01T00:00:07Z",
+        "version": "1.0.67",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["users", "animated", "modal layout", "icon-maker"],
+        "description": "Menu item 67 for Animated Users with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(67)",
+        "onHover": "handleMenuHover(67)",
+        "onContextMenu": "handleMenuContext(67)"
+    },
+    "styling": {
+        "className": "menu-item-67",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

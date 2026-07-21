@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00257",
+    "name": "Cartoon Fashion 257",
+    "category": "Fashion",
+    "subcategory": "Cartoon",
+    "layout": "List Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Fashion/Cartoon/Item 257",
+    "parentId": "MENU-00251",
+    "level": 3,
+    "order": 257,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:17Z",
+        "updatedAt": "2024-01-01T00:00:17Z",
+        "version": "1.0.257",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["fashion", "cartoon", "list layout", "icon-maker"],
+        "description": "Menu item 257 for Cartoon Fashion with List Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(257)",
+        "onHover": "handleMenuHover(257)",
+        "onContextMenu": "handleMenuContext(257)"
+    },
+    "styling": {
+        "className": "menu-item-257",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

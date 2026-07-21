@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02355",
+    "name": "Abstract Sports 2355",
+    "category": "Sports",
+    "subcategory": "Abstract",
+    "layout": "Masonry Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Sports/Abstract/Item 2355",
+    "parentId": "MENU-02351",
+    "level": 5,
+    "order": 2355,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:15Z",
+        "updatedAt": "2024-01-01T00:00:15Z",
+        "version": "1.0.2355",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["sports", "abstract", "masonry layout", "icon-maker"],
+        "description": "Menu item 2355 for Abstract Sports with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2355)",
+        "onHover": "handleMenuHover(2355)",
+        "onContextMenu": "handleMenuContext(2355)"
+    },
+    "styling": {
+        "className": "menu-item-2355",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

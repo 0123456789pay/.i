@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01813",
+    "name": "Retro Animals 1813",
+    "category": "Animals",
+    "subcategory": "Retro",
+    "layout": "Graph Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Animals/Retro/Item 1813",
+    "parentId": "MENU-01811",
+    "level": 5,
+    "order": 1813,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:13Z",
+        "updatedAt": "2024-01-01T00:00:13Z",
+        "version": "1.0.1813",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["animals", "retro", "graph layout", "icon-maker"],
+        "description": "Menu item 1813 for Retro Animals with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1813)",
+        "onHover": "handleMenuHover(1813)",
+        "onContextMenu": "handleMenuContext(1813)"
+    },
+    "styling": {
+        "className": "menu-item-1813",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

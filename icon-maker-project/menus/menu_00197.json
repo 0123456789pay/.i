@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00197",
+    "name": "Cartoon Transport 197",
+    "category": "Transport",
+    "subcategory": "Cartoon",
+    "layout": "Profile Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Transport/Cartoon/Item 197",
+    "parentId": "MENU-00191",
+    "level": 2,
+    "order": 197,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:17Z",
+        "updatedAt": "2024-01-01T00:00:17Z",
+        "version": "1.0.197",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["transport", "cartoon", "profile layout", "icon-maker"],
+        "description": "Menu item 197 for Cartoon Transport with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(197)",
+        "onHover": "handleMenuHover(197)",
+        "onContextMenu": "handleMenuContext(197)"
+    },
+    "styling": {
+        "className": "menu-item-197",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

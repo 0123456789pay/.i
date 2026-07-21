@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03005",
+    "name": "Colored Travel 3005",
+    "category": "Travel",
+    "subcategory": "Colored",
+    "layout": "Masonry Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Colored/Item 3005",
+    "parentId": "MENU-03001",
+    "level": 5,
+    "order": 3005,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:05Z",
+        "updatedAt": "2024-01-01T00:00:05Z",
+        "version": "1.0.3005",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "colored", "masonry layout", "icon-maker"],
+        "description": "Menu item 3005 for Colored Travel with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3005)",
+        "onHover": "handleMenuHover(3005)",
+        "onContextMenu": "handleMenuContext(3005)"
+    },
+    "styling": {
+        "className": "menu-item-3005",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01580",
+    "name": "Elegant Arrows 1580",
+    "category": "Arrows",
+    "subcategory": "Elegant",
+    "layout": "Masonry Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Arrows/Elegant/Item 1580",
+    "parentId": "MENU-01571",
+    "level": 5,
+    "order": 1580,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:20Z",
+        "updatedAt": "2024-01-01T00:00:20Z",
+        "version": "1.0.1580",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["arrows", "elegant", "masonry layout", "icon-maker"],
+        "description": "Menu item 1580 for Elegant Arrows with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1580)",
+        "onHover": "handleMenuHover(1580)",
+        "onContextMenu": "handleMenuContext(1580)"
+    },
+    "styling": {
+        "className": "menu-item-1580",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

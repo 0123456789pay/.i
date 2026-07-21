@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00473",
+    "name": "Dark Settings 473",
+    "category": "Settings",
+    "subcategory": "Dark",
+    "layout": "Feed Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Settings/Dark/Item 473",
+    "parentId": "MENU-00471",
+    "level": 5,
+    "order": 473,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.473",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["settings", "dark", "feed layout", "icon-maker"],
+        "description": "Menu item 473 for Dark Settings with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(473)",
+        "onHover": "handleMenuHover(473)",
+        "onContextMenu": "handleMenuContext(473)"
+    },
+    "styling": {
+        "className": "menu-item-473",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

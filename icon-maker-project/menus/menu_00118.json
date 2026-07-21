@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00118",
+    "name": "Multicolor Payment 118",
+    "category": "Payment",
+    "subcategory": "Multicolor",
+    "layout": "Sidebar Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Payment/Multicolor/Item 118",
+    "parentId": "MENU-00111",
+    "level": 2,
+    "order": 118,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:58Z",
+        "updatedAt": "2024-01-01T00:00:58Z",
+        "version": "1.0.118",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["payment", "multicolor", "sidebar layout", "icon-maker"],
+        "description": "Menu item 118 for Multicolor Payment with Sidebar Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(118)",
+        "onHover": "handleMenuHover(118)",
+        "onContextMenu": "handleMenuContext(118)"
+    },
+    "styling": {
+        "className": "menu-item-118",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01698",
+    "name": "Professional Home 1698",
+    "category": "Home",
+    "subcategory": "Professional",
+    "layout": "Feed Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Professional/Item 1698",
+    "parentId": "MENU-01691",
+    "level": 5,
+    "order": 1698,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.1698",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "professional", "feed layout", "icon-maker"],
+        "description": "Menu item 1698 for Professional Home with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1698)",
+        "onHover": "handleMenuHover(1698)",
+        "onContextMenu": "handleMenuContext(1698)"
+    },
+    "styling": {
+        "className": "menu-item-1698",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

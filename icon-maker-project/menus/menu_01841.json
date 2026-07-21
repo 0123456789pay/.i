@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01841",
+    "name": "Classic Numbers 1841",
+    "category": "Numbers",
+    "subcategory": "Classic",
+    "layout": "Form Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Classic/Item 1841",
+    "parentId": "MENU-01841",
+    "level": 5,
+    "order": 1841,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:41Z",
+        "updatedAt": "2024-01-01T00:00:41Z",
+        "version": "1.0.1841",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "classic", "form layout", "icon-maker"],
+        "description": "Menu item 1841 for Classic Numbers with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1841)",
+        "onHover": "handleMenuHover(1841)",
+        "onContextMenu": "handleMenuContext(1841)"
+    },
+    "styling": {
+        "className": "menu-item-1841",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

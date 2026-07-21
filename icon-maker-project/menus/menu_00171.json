@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00171",
+    "name": "Bold Holidays 171",
+    "category": "Holidays",
+    "subcategory": "Bold",
+    "layout": "Dashboard Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Holidays/Bold/Item 171",
+    "parentId": "MENU-00171",
+    "level": 2,
+    "order": 171,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:51Z",
+        "updatedAt": "2024-01-01T00:00:51Z",
+        "version": "1.0.171",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["holidays", "bold", "dashboard layout", "icon-maker"],
+        "description": "Menu item 171 for Bold Holidays with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(171)",
+        "onHover": "handleMenuHover(171)",
+        "onContextMenu": "handleMenuContext(171)"
+    },
+    "styling": {
+        "className": "menu-item-171",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02325",
+    "name": "Abstract Science 2325",
+    "category": "Science",
+    "subcategory": "Abstract",
+    "layout": "Filter Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Science/Abstract/Item 2325",
+    "parentId": "MENU-02321",
+    "level": 5,
+    "order": 2325,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:45Z",
+        "updatedAt": "2024-01-01T00:00:45Z",
+        "version": "1.0.2325",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["science", "abstract", "filter layout", "icon-maker"],
+        "description": "Menu item 2325 for Abstract Science with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2325)",
+        "onHover": "handleMenuHover(2325)",
+        "onContextMenu": "handleMenuContext(2325)"
+    },
+    "styling": {
+        "className": "menu-item-2325",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

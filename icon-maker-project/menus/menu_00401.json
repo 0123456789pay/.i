@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00401",
+    "name": "Classic Numbers 401",
+    "category": "Numbers",
+    "subcategory": "Classic",
+    "layout": "Grid Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Classic/Item 401",
+    "parentId": "MENU-00401",
+    "level": 5,
+    "order": 401,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:41Z",
+        "updatedAt": "2024-01-01T00:00:41Z",
+        "version": "1.0.401",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "classic", "grid layout", "icon-maker"],
+        "description": "Menu item 401 for Classic Numbers with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(401)",
+        "onHover": "handleMenuHover(401)",
+        "onContextMenu": "handleMenuContext(401)"
+    },
+    "styling": {
+        "className": "menu-item-401",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

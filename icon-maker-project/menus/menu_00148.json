@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00148",
+    "name": "Multicolor Animals 148",
+    "category": "Animals",
+    "subcategory": "Multicolor",
+    "layout": "Feed Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Animals/Multicolor/Item 148",
+    "parentId": "MENU-00141",
+    "level": 2,
+    "order": 148,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:28Z",
+        "updatedAt": "2024-01-01T00:00:28Z",
+        "version": "1.0.148",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["animals", "multicolor", "feed layout", "icon-maker"],
+        "description": "Menu item 148 for Multicolor Animals with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(148)",
+        "onHover": "handleMenuHover(148)",
+        "onContextMenu": "handleMenuContext(148)"
+    },
+    "styling": {
+        "className": "menu-item-148",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02440",
+    "name": "Detailed Education 2440",
+    "category": "Education",
+    "subcategory": "Detailed",
+    "layout": "Table Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Education/Detailed/Item 2440",
+    "parentId": "MENU-02431",
+    "level": 5,
+    "order": 2440,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:40Z",
+        "updatedAt": "2024-01-01T00:00:40Z",
+        "version": "1.0.2440",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["education", "detailed", "table layout", "icon-maker"],
+        "description": "Menu item 2440 for Detailed Education with Table Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2440)",
+        "onHover": "handleMenuHover(2440)",
+        "onContextMenu": "handleMenuContext(2440)"
+    },
+    "styling": {
+        "className": "menu-item-2440",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

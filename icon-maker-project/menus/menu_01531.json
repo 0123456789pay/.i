@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01531",
+    "name": "Simple Basic Shapes 1531",
+    "category": "Basic Shapes",
+    "subcategory": "Simple",
+    "layout": "Carousel Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Basic Shapes/Simple/Item 1531",
+    "parentId": "MENU-01531",
+    "level": 5,
+    "order": 1531,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:31Z",
+        "updatedAt": "2024-01-01T00:00:31Z",
+        "version": "1.0.1531",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["basic shapes", "simple", "carousel layout", "icon-maker"],
+        "description": "Menu item 1531 for Simple Basic Shapes with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1531)",
+        "onHover": "handleMenuHover(1531)",
+        "onContextMenu": "handleMenuContext(1531)"
+    },
+    "styling": {
+        "className": "menu-item-1531",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

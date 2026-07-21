@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00490",
+    "name": "Detailed Time 490",
+    "category": "Time",
+    "subcategory": "Detailed",
+    "layout": "Table Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Time/Detailed/Item 490",
+    "parentId": "MENU-00481",
+    "level": 5,
+    "order": 490,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:10Z",
+        "updatedAt": "2024-01-01T00:00:10Z",
+        "version": "1.0.490",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["time", "detailed", "table layout", "icon-maker"],
+        "description": "Menu item 490 for Detailed Time with Table Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(490)",
+        "onHover": "handleMenuHover(490)",
+        "onContextMenu": "handleMenuContext(490)"
+    },
+    "styling": {
+        "className": "menu-item-490",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

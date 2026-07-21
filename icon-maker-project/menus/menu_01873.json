@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01873",
+    "name": "Retro Payment 1873",
+    "category": "Payment",
+    "subcategory": "Retro",
+    "layout": "Feed Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Payment/Retro/Item 1873",
+    "parentId": "MENU-01871",
+    "level": 5,
+    "order": 1873,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:13Z",
+        "updatedAt": "2024-01-01T00:00:13Z",
+        "version": "1.0.1873",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["payment", "retro", "feed layout", "icon-maker"],
+        "description": "Menu item 1873 for Retro Payment with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1873)",
+        "onHover": "handleMenuHover(1873)",
+        "onContextMenu": "handleMenuContext(1873)"
+    },
+    "styling": {
+        "className": "menu-item-1873",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

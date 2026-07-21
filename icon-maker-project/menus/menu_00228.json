@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00228",
+    "name": "Professional Icons 228",
+    "category": "Icons",
+    "subcategory": "Professional",
+    "layout": "Stack Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Professional/Item 228",
+    "parentId": "MENU-00221",
+    "level": 3,
+    "order": 228,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:48Z",
+        "updatedAt": "2024-01-01T00:00:48Z",
+        "version": "1.0.228",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "professional", "stack layout", "icon-maker"],
+        "description": "Menu item 228 for Professional Icons with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(228)",
+        "onHover": "handleMenuHover(228)",
+        "onContextMenu": "handleMenuContext(228)"
+    },
+    "styling": {
+        "className": "menu-item-228",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01761",
+    "name": "Bold Flags 1761",
+    "category": "Flags",
+    "subcategory": "Bold",
+    "layout": "Timeline Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Bold/Item 1761",
+    "parentId": "MENU-01761",
+    "level": 5,
+    "order": 1761,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.1761",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "bold", "timeline layout", "icon-maker"],
+        "description": "Menu item 1761 for Bold Flags with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1761)",
+        "onHover": "handleMenuHover(1761)",
+        "onContextMenu": "handleMenuContext(1761)"
+    },
+    "styling": {
+        "className": "menu-item-1761",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

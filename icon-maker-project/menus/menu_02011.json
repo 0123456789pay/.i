@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02011",
+    "name": "Simple Art 2011",
+    "category": "Art",
+    "subcategory": "Simple",
+    "layout": "Timeline Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Simple/Item 2011",
+    "parentId": "MENU-02011",
+    "level": 5,
+    "order": 2011,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:31Z",
+        "updatedAt": "2024-01-01T00:00:31Z",
+        "version": "1.0.2011",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "simple", "timeline layout", "icon-maker"],
+        "description": "Menu item 2011 for Simple Art with Timeline Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2011)",
+        "onHover": "handleMenuHover(2011)",
+        "onContextMenu": "handleMenuContext(2011)"
+    },
+    "styling": {
+        "className": "menu-item-2011",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

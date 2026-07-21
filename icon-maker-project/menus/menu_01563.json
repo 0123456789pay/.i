@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01563",
+    "name": "Outlined Home 1563",
+    "category": "Home",
+    "subcategory": "Outlined",
+    "layout": "Graph Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Outlined/Item 1563",
+    "parentId": "MENU-01561",
+    "level": 5,
+    "order": 1563,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.1563",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "outlined", "graph layout", "icon-maker"],
+        "description": "Menu item 1563 for Outlined Home with Graph Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1563)",
+        "onHover": "handleMenuHover(1563)",
+        "onContextMenu": "handleMenuContext(1563)"
+    },
+    "styling": {
+        "className": "menu-item-1563",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

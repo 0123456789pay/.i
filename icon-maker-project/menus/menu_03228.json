@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03228",
+    "name": "Professional Home 3228",
+    "category": "Home",
+    "subcategory": "Professional",
+    "layout": "Stack Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Home/Professional/Item 3228",
+    "parentId": "MENU-03221",
+    "level": 5,
+    "order": 3228,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:48Z",
+        "updatedAt": "2024-01-01T00:00:48Z",
+        "version": "1.0.3228",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["home", "professional", "stack layout", "icon-maker"],
+        "description": "Menu item 3228 for Professional Home with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3228)",
+        "onHover": "handleMenuHover(3228)",
+        "onContextMenu": "handleMenuContext(3228)"
+    },
+    "styling": {
+        "className": "menu-item-3228",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

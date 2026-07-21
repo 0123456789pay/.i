@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02534",
+    "name": "Future Plants 2534",
+    "category": "Plants",
+    "subcategory": "Future",
+    "layout": "Tile Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Plants/Future/Item 2534",
+    "parentId": "MENU-02531",
+    "level": 5,
+    "order": 2534,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:14Z",
+        "updatedAt": "2024-01-01T00:00:14Z",
+        "version": "1.0.2534",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["plants", "future", "tile layout", "icon-maker"],
+        "description": "Menu item 2534 for Future Plants with Tile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2534)",
+        "onHover": "handleMenuHover(2534)",
+        "onContextMenu": "handleMenuContext(2534)"
+    },
+    "styling": {
+        "className": "menu-item-2534",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

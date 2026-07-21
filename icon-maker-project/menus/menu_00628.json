@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00628",
+    "name": "Multicolor Currency 628",
+    "category": "Currency",
+    "subcategory": "Multicolor",
+    "layout": "Stack Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Currency/Multicolor/Item 628",
+    "parentId": "MENU-00621",
+    "level": 5,
+    "order": 628,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:28Z",
+        "updatedAt": "2024-01-01T00:00:28Z",
+        "version": "1.0.628",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["currency", "multicolor", "stack layout", "icon-maker"],
+        "description": "Menu item 628 for Multicolor Currency with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(628)",
+        "onHover": "handleMenuHover(628)",
+        "onContextMenu": "handleMenuContext(628)"
+    },
+    "styling": {
+        "className": "menu-item-628",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

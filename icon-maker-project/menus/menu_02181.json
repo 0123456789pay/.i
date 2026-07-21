@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02181",
+    "name": "Bold Folders 2181",
+    "category": "Folders",
+    "subcategory": "Bold",
+    "layout": "Carousel Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Folders/Bold/Item 2181",
+    "parentId": "MENU-02181",
+    "level": 5,
+    "order": 2181,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.2181",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["folders", "bold", "carousel layout", "icon-maker"],
+        "description": "Menu item 2181 for Bold Folders with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2181)",
+        "onHover": "handleMenuHover(2181)",
+        "onContextMenu": "handleMenuContext(2181)"
+    },
+    "styling": {
+        "className": "menu-item-2181",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

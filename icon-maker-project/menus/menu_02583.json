@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02583",
+    "name": "Outlined Communication 2583",
+    "category": "Communication",
+    "subcategory": "Outlined",
+    "layout": "Card Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Outlined/Item 2583",
+    "parentId": "MENU-02581",
+    "level": 5,
+    "order": 2583,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.2583",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "outlined", "card layout", "icon-maker"],
+        "description": "Menu item 2583 for Outlined Communication with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2583)",
+        "onHover": "handleMenuHover(2583)",
+        "onContextMenu": "handleMenuContext(2583)"
+    },
+    "styling": {
+        "className": "menu-item-2583",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

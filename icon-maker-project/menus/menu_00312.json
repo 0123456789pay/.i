@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00312",
+    "name": "Modern Letters 312",
+    "category": "Letters",
+    "subcategory": "Modern",
+    "layout": "Tree Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Letters/Modern/Item 312",
+    "parentId": "MENU-00311",
+    "level": 4,
+    "order": 312,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:12Z",
+        "updatedAt": "2024-01-01T00:00:12Z",
+        "version": "1.0.312",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["letters", "modern", "tree layout", "icon-maker"],
+        "description": "Menu item 312 for Modern Letters with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(312)",
+        "onHover": "handleMenuHover(312)",
+        "onContextMenu": "handleMenuContext(312)"
+    },
+    "styling": {
+        "className": "menu-item-312",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

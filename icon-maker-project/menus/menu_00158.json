@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00158",
+    "name": "Static Settings 158",
+    "category": "Settings",
+    "subcategory": "Static",
+    "layout": "Card Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Settings/Static/Item 158",
+    "parentId": "MENU-00151",
+    "level": 2,
+    "order": 158,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:38Z",
+        "updatedAt": "2024-01-01T00:00:38Z",
+        "version": "1.0.158",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["settings", "static", "card layout", "icon-maker"],
+        "description": "Menu item 158 for Static Settings with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(158)",
+        "onHover": "handleMenuHover(158)",
+        "onContextMenu": "handleMenuContext(158)"
+    },
+    "styling": {
+        "className": "menu-item-158",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

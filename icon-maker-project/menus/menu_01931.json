@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01931",
+    "name": "Classic Numbers 1931",
+    "category": "Numbers",
+    "subcategory": "Classic",
+    "layout": "Carousel Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Classic/Item 1931",
+    "parentId": "MENU-01931",
+    "level": 5,
+    "order": 1931,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.1931",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "classic", "carousel layout", "icon-maker"],
+        "description": "Menu item 1931 for Classic Numbers with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1931)",
+        "onHover": "handleMenuHover(1931)",
+        "onContextMenu": "handleMenuContext(1931)"
+    },
+    "styling": {
+        "className": "menu-item-1931",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

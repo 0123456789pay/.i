@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00476",
+    "name": "Duotone Navigation 476",
+    "category": "Navigation",
+    "subcategory": "Duotone",
+    "layout": "Grid Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Navigation/Duotone/Item 476",
+    "parentId": "MENU-00471",
+    "level": 5,
+    "order": 476,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:56Z",
+        "updatedAt": "2024-01-01T00:00:56Z",
+        "version": "1.0.476",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["navigation", "duotone", "grid layout", "icon-maker"],
+        "description": "Menu item 476 for Duotone Navigation with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(476)",
+        "onHover": "handleMenuHover(476)",
+        "onContextMenu": "handleMenuContext(476)"
+    },
+    "styling": {
+        "className": "menu-item-476",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

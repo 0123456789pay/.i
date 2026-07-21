@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01221",
+    "name": "Bold Flags 1221",
+    "category": "Flags",
+    "subcategory": "Bold",
+    "layout": "Dashboard Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Bold/Item 1221",
+    "parentId": "MENU-01221",
+    "level": 5,
+    "order": 1221,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.1221",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "bold", "dashboard layout", "icon-maker"],
+        "description": "Menu item 1221 for Bold Flags with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1221)",
+        "onHover": "handleMenuHover(1221)",
+        "onContextMenu": "handleMenuContext(1221)"
+    },
+    "styling": {
+        "className": "menu-item-1221",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

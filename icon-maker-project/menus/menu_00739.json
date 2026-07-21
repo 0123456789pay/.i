@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00739",
+    "name": "Casual Security 739",
+    "category": "Security",
+    "subcategory": "Casual",
+    "layout": "Chart Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Security/Casual/Item 739",
+    "parentId": "MENU-00731",
+    "level": 5,
+    "order": 739,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:19Z",
+        "updatedAt": "2024-01-01T00:00:19Z",
+        "version": "1.0.739",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["security", "casual", "chart layout", "icon-maker"],
+        "description": "Menu item 739 for Casual Security with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(739)",
+        "onHover": "handleMenuHover(739)",
+        "onContextMenu": "handleMenuContext(739)"
+    },
+    "styling": {
+        "className": "menu-item-739",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

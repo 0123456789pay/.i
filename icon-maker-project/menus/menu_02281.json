@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02281",
+    "name": "Simple Art 2281",
+    "category": "Art",
+    "subcategory": "Simple",
+    "layout": "Carousel Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Art/Simple/Item 2281",
+    "parentId": "MENU-02281",
+    "level": 5,
+    "order": 2281,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:01Z",
+        "updatedAt": "2024-01-01T00:00:01Z",
+        "version": "1.0.2281",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["art", "simple", "carousel layout", "icon-maker"],
+        "description": "Menu item 2281 for Simple Art with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2281)",
+        "onHover": "handleMenuHover(2281)",
+        "onContextMenu": "handleMenuContext(2281)"
+    },
+    "styling": {
+        "className": "menu-item-2281",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

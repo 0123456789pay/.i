@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00887",
+    "name": "Cartoon Fashion 887",
+    "category": "Fashion",
+    "subcategory": "Cartoon",
+    "layout": "Tree Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Fashion/Cartoon/Item 887",
+    "parentId": "MENU-00881",
+    "level": 5,
+    "order": 887,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:47Z",
+        "updatedAt": "2024-01-01T00:00:47Z",
+        "version": "1.0.887",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["fashion", "cartoon", "tree layout", "icon-maker"],
+        "description": "Menu item 887 for Cartoon Fashion with Tree Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(887)",
+        "onHover": "handleMenuHover(887)",
+        "onContextMenu": "handleMenuContext(887)"
+    },
+    "styling": {
+        "className": "menu-item-887",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00306",
+    "name": "Gradient Holidays 306",
+    "category": "Holidays",
+    "subcategory": "Gradient",
+    "layout": "Carousel Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Holidays/Gradient/Item 306",
+    "parentId": "MENU-00301",
+    "level": 4,
+    "order": 306,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:06Z",
+        "updatedAt": "2024-01-01T00:00:06Z",
+        "version": "1.0.306",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["holidays", "gradient", "carousel layout", "icon-maker"],
+        "description": "Menu item 306 for Gradient Holidays with Carousel Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(306)",
+        "onHover": "handleMenuHover(306)",
+        "onContextMenu": "handleMenuContext(306)"
+    },
+    "styling": {
+        "className": "menu-item-306",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

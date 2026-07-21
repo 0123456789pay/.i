@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03371",
+    "name": "Classic Numbers 3371",
+    "category": "Numbers",
+    "subcategory": "Classic",
+    "layout": "Dashboard Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Classic/Item 3371",
+    "parentId": "MENU-03371",
+    "level": 5,
+    "order": 3371,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:11Z",
+        "updatedAt": "2024-01-01T00:00:11Z",
+        "version": "1.0.3371",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "classic", "dashboard layout", "icon-maker"],
+        "description": "Menu item 3371 for Classic Numbers with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3371)",
+        "onHover": "handleMenuHover(3371)",
+        "onContextMenu": "handleMenuContext(3371)"
+    },
+    "styling": {
+        "className": "menu-item-3371",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

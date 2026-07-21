@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02505",
+    "name": "Abstract Science 2505",
+    "category": "Science",
+    "subcategory": "Abstract",
+    "layout": "Masonry Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Science/Abstract/Item 2505",
+    "parentId": "MENU-02501",
+    "level": 5,
+    "order": 2505,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:45Z",
+        "updatedAt": "2024-01-01T00:00:45Z",
+        "version": "1.0.2505",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["science", "abstract", "masonry layout", "icon-maker"],
+        "description": "Menu item 2505 for Abstract Science with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2505)",
+        "onHover": "handleMenuHover(2505)",
+        "onContextMenu": "handleMenuContext(2505)"
+    },
+    "styling": {
+        "className": "menu-item-2505",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02279",
+    "name": "Pastel Gaming 2279",
+    "category": "Gaming",
+    "subcategory": "Pastel",
+    "layout": "Flow Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Gaming/Pastel/Item 2279",
+    "parentId": "MENU-02271",
+    "level": 5,
+    "order": 2279,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:59Z",
+        "updatedAt": "2024-01-01T00:00:59Z",
+        "version": "1.0.2279",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["gaming", "pastel", "flow layout", "icon-maker"],
+        "description": "Menu item 2279 for Pastel Gaming with Flow Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2279)",
+        "onHover": "handleMenuHover(2279)",
+        "onContextMenu": "handleMenuContext(2279)"
+    },
+    "styling": {
+        "className": "menu-item-2279",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

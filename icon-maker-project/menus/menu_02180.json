@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02180",
+    "name": "Elegant Files 2180",
+    "category": "Files",
+    "subcategory": "Elegant",
+    "layout": "Masonry Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Files/Elegant/Item 2180",
+    "parentId": "MENU-02171",
+    "level": 5,
+    "order": 2180,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:20Z",
+        "updatedAt": "2024-01-01T00:00:20Z",
+        "version": "1.0.2180",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["files", "elegant", "masonry layout", "icon-maker"],
+        "description": "Menu item 2180 for Elegant Files with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2180)",
+        "onHover": "handleMenuHover(2180)",
+        "onContextMenu": "handleMenuContext(2180)"
+    },
+    "styling": {
+        "className": "menu-item-2180",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

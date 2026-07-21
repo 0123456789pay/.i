@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00922",
+    "name": "Light Users 922",
+    "category": "Users",
+    "subcategory": "Light",
+    "layout": "Profile Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Users/Light/Item 922",
+    "parentId": "MENU-00921",
+    "level": 5,
+    "order": 922,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.922",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["users", "light", "profile layout", "icon-maker"],
+        "description": "Menu item 922 for Light Users with Profile Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(922)",
+        "onHover": "handleMenuHover(922)",
+        "onContextMenu": "handleMenuContext(922)"
+    },
+    "styling": {
+        "className": "menu-item-922",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

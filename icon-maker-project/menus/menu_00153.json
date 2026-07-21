@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00153",
+    "name": "Outlined Communication 153",
+    "category": "Communication",
+    "subcategory": "Outlined",
+    "layout": "Stack Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Outlined/Item 153",
+    "parentId": "MENU-00151",
+    "level": 2,
+    "order": 153,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:33Z",
+        "updatedAt": "2024-01-01T00:00:33Z",
+        "version": "1.0.153",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "outlined", "stack layout", "icon-maker"],
+        "description": "Menu item 153 for Outlined Communication with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(153)",
+        "onHover": "handleMenuHover(153)",
+        "onContextMenu": "handleMenuContext(153)"
+    },
+    "styling": {
+        "className": "menu-item-153",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

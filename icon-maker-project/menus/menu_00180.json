@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00180",
+    "name": "Vibrant Math 180",
+    "category": "Math",
+    "subcategory": "Vibrant",
+    "layout": "Masonry Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Math/Vibrant/Item 180",
+    "parentId": "MENU-00171",
+    "level": 2,
+    "order": 180,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z",
+        "version": "1.0.180",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["math", "vibrant", "masonry layout", "icon-maker"],
+        "description": "Menu item 180 for Vibrant Math with Masonry Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(180)",
+        "onHover": "handleMenuHover(180)",
+        "onContextMenu": "handleMenuContext(180)"
+    },
+    "styling": {
+        "className": "menu-item-180",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

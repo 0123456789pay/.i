@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01098",
+    "name": "Professional Communication 1098",
+    "category": "Communication",
+    "subcategory": "Professional",
+    "layout": "Feed Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Professional/Item 1098",
+    "parentId": "MENU-01091",
+    "level": 5,
+    "order": 1098,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.1098",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "professional", "feed layout", "icon-maker"],
+        "description": "Menu item 1098 for Professional Communication with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1098)",
+        "onHover": "handleMenuHover(1098)",
+        "onContextMenu": "handleMenuContext(1098)"
+    },
+    "styling": {
+        "className": "menu-item-1098",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

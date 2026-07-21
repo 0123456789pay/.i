@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01632",
+    "name": "Modern Food 1632",
+    "category": "Food",
+    "subcategory": "Modern",
+    "layout": "List Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Food/Modern/Item 1632",
+    "parentId": "MENU-01631",
+    "level": 5,
+    "order": 1632,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:12Z",
+        "updatedAt": "2024-01-01T00:00:12Z",
+        "version": "1.0.1632",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["food", "modern", "list layout", "icon-maker"],
+        "description": "Menu item 1632 for Modern Food with List Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1632)",
+        "onHover": "handleMenuHover(1632)",
+        "onContextMenu": "handleMenuContext(1632)"
+    },
+    "styling": {
+        "className": "menu-item-1632",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00373",
+    "name": "Retro Animals 373",
+    "category": "Animals",
+    "subcategory": "Retro",
+    "layout": "Feed Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Animals/Retro/Item 373",
+    "parentId": "MENU-00371",
+    "level": 4,
+    "order": 373,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:13Z",
+        "updatedAt": "2024-01-01T00:00:13Z",
+        "version": "1.0.373",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["animals", "retro", "feed layout", "icon-maker"],
+        "description": "Menu item 373 for Retro Animals with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(373)",
+        "onHover": "handleMenuHover(373)",
+        "onContextMenu": "handleMenuContext(373)"
+    },
+    "styling": {
+        "className": "menu-item-373",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

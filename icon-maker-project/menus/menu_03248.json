@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03248",
+    "name": "Static Technology 3248",
+    "category": "Technology",
+    "subcategory": "Static",
+    "layout": "Feed Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Static/Item 3248",
+    "parentId": "MENU-03241",
+    "level": 5,
+    "order": 3248,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:08Z",
+        "updatedAt": "2024-01-01T00:00:08Z",
+        "version": "1.0.3248",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "static", "feed layout", "icon-maker"],
+        "description": "Menu item 3248 for Static Technology with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3248)",
+        "onHover": "handleMenuHover(3248)",
+        "onContextMenu": "handleMenuContext(3248)"
+    },
+    "styling": {
+        "className": "menu-item-3248",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

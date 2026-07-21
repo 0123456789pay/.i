@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02266",
+    "name": "Realistic Music 2266",
+    "category": "Music",
+    "subcategory": "Realistic",
+    "layout": "Form Layout",
+    "iconType": "Vector Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Music/Realistic/Item 2266",
+    "parentId": "MENU-02261",
+    "level": 5,
+    "order": 2266,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:46Z",
+        "updatedAt": "2024-01-01T00:00:46Z",
+        "version": "1.0.2266",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["music", "realistic", "form layout", "icon-maker"],
+        "description": "Menu item 2266 for Realistic Music with Form Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2266)",
+        "onHover": "handleMenuHover(2266)",
+        "onContextMenu": "handleMenuContext(2266)"
+    },
+    "styling": {
+        "className": "menu-item-2266",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

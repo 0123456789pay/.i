@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00182",
+    "name": "Complex Advanced Shapes 182",
+    "category": "Advanced Shapes",
+    "subcategory": "Complex",
+    "layout": "List Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Advanced Shapes/Complex/Item 182",
+    "parentId": "MENU-00181",
+    "level": 2,
+    "order": 182,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:02Z",
+        "updatedAt": "2024-01-01T00:00:02Z",
+        "version": "1.0.182",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["advanced shapes", "complex", "list layout", "icon-maker"],
+        "description": "Menu item 182 for Complex Advanced Shapes with List Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(182)",
+        "onHover": "handleMenuHover(182)",
+        "onContextMenu": "handleMenuContext(182)"
+    },
+    "styling": {
+        "className": "menu-item-182",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

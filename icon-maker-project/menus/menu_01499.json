@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01499",
+    "name": "Pastel Plants 1499",
+    "category": "Plants",
+    "subcategory": "Pastel",
+    "layout": "Search Layout",
+    "iconType": "Static Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Plants/Pastel/Item 1499",
+    "parentId": "MENU-01491",
+    "level": 5,
+    "order": 1499,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:59Z",
+        "updatedAt": "2024-01-01T00:00:59Z",
+        "version": "1.0.1499",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["plants", "pastel", "search layout", "icon-maker"],
+        "description": "Menu item 1499 for Pastel Plants with Search Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1499)",
+        "onHover": "handleMenuHover(1499)",
+        "onContextMenu": "handleMenuContext(1499)"
+    },
+    "styling": {
+        "className": "menu-item-1499",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

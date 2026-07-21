@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01928",
+    "name": "Static Religion 1928",
+    "category": "Religion",
+    "subcategory": "Static",
+    "layout": "Stack Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Religion/Static/Item 1928",
+    "parentId": "MENU-01921",
+    "level": 5,
+    "order": 1928,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:08Z",
+        "updatedAt": "2024-01-01T00:00:08Z",
+        "version": "1.0.1928",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["religion", "static", "stack layout", "icon-maker"],
+        "description": "Menu item 1928 for Static Religion with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1928)",
+        "onHover": "handleMenuHover(1928)",
+        "onContextMenu": "handleMenuContext(1928)"
+    },
+    "styling": {
+        "className": "menu-item-1928",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

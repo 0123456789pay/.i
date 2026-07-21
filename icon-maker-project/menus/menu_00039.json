@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00039",
+    "name": "Minimal Maps 39",
+    "category": "Maps",
+    "subcategory": "Minimal",
+    "layout": "Chart Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Maps/Minimal/Item 39",
+    "parentId": "MENU-00031",
+    "level": 1,
+    "order": 39,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:39Z",
+        "updatedAt": "2024-01-01T00:00:39Z",
+        "version": "1.0.39",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["maps", "minimal", "chart layout", "icon-maker"],
+        "description": "Menu item 39 for Minimal Maps with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(39)",
+        "onHover": "handleMenuHover(39)",
+        "onContextMenu": "handleMenuContext(39)"
+    },
+    "styling": {
+        "className": "menu-item-39",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

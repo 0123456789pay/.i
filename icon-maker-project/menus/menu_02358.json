@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02358",
+    "name": "Professional Communication 2358",
+    "category": "Communication",
+    "subcategory": "Professional",
+    "layout": "Card Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Communication/Professional/Item 2358",
+    "parentId": "MENU-02351",
+    "level": 5,
+    "order": 2358,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:18Z",
+        "updatedAt": "2024-01-01T00:00:18Z",
+        "version": "1.0.2358",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["communication", "professional", "card layout", "icon-maker"],
+        "description": "Menu item 2358 for Professional Communication with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2358)",
+        "onHover": "handleMenuHover(2358)",
+        "onContextMenu": "handleMenuContext(2358)"
+    },
+    "styling": {
+        "className": "menu-item-2358",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

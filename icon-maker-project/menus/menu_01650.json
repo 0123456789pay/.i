@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01650",
+    "name": "Vibrant Science 1650",
+    "category": "Science",
+    "subcategory": "Vibrant",
+    "layout": "Filter Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Science/Vibrant/Item 1650",
+    "parentId": "MENU-01641",
+    "level": 5,
+    "order": 1650,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:30Z",
+        "updatedAt": "2024-01-01T00:00:30Z",
+        "version": "1.0.1650",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["science", "vibrant", "filter layout", "icon-maker"],
+        "description": "Menu item 1650 for Vibrant Science with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1650)",
+        "onHover": "handleMenuHover(1650)",
+        "onContextMenu": "handleMenuContext(1650)"
+    },
+    "styling": {
+        "className": "menu-item-1650",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

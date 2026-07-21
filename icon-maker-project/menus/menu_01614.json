@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01614",
+    "name": "Colorful Maps 1614",
+    "category": "Maps",
+    "subcategory": "Colorful",
+    "layout": "Chart Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Maps/Colorful/Item 1614",
+    "parentId": "MENU-01611",
+    "level": 5,
+    "order": 1614,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:54Z",
+        "updatedAt": "2024-01-01T00:00:54Z",
+        "version": "1.0.1614",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["maps", "colorful", "chart layout", "icon-maker"],
+        "description": "Menu item 1614 for Colorful Maps with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1614)",
+        "onHover": "handleMenuHover(1614)",
+        "onContextMenu": "handleMenuContext(1614)"
+    },
+    "styling": {
+        "className": "menu-item-1614",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

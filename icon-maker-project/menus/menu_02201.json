@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02201",
+    "name": "Classic Numbers 2201",
+    "category": "Numbers",
+    "subcategory": "Classic",
+    "layout": "Grid Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Numbers/Classic/Item 2201",
+    "parentId": "MENU-02201",
+    "level": 5,
+    "order": 2201,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:41Z",
+        "updatedAt": "2024-01-01T00:00:41Z",
+        "version": "1.0.2201",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["numbers", "classic", "grid layout", "icon-maker"],
+        "description": "Menu item 2201 for Classic Numbers with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2201)",
+        "onHover": "handleMenuHover(2201)",
+        "onContextMenu": "handleMenuContext(2201)"
+    },
+    "styling": {
+        "className": "menu-item-2201",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00710",
+    "name": "Elegant Travel 710",
+    "category": "Travel",
+    "subcategory": "Elegant",
+    "layout": "Gallery Layout",
+    "iconType": "Interactive Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Travel/Elegant/Item 710",
+    "parentId": "MENU-00701",
+    "level": 5,
+    "order": 710,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:50Z",
+        "updatedAt": "2024-01-01T00:00:50Z",
+        "version": "1.0.710",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["travel", "elegant", "gallery layout", "icon-maker"],
+        "description": "Menu item 710 for Elegant Travel with Gallery Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(710)",
+        "onHover": "handleMenuHover(710)",
+        "onContextMenu": "handleMenuContext(710)"
+    },
+    "styling": {
+        "className": "menu-item-710",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

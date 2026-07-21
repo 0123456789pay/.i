@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00189",
+    "name": "Minimal Business 189",
+    "category": "Business",
+    "subcategory": "Minimal",
+    "layout": "Chart Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Business/Minimal/Item 189",
+    "parentId": "MENU-00181",
+    "level": 2,
+    "order": 189,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:09Z",
+        "updatedAt": "2024-01-01T00:00:09Z",
+        "version": "1.0.189",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["business", "minimal", "chart layout", "icon-maker"],
+        "description": "Menu item 189 for Minimal Business with Chart Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(189)",
+        "onHover": "handleMenuHover(189)",
+        "onContextMenu": "handleMenuContext(189)"
+    },
+    "styling": {
+        "className": "menu-item-189",
+        "iconClass": "static-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

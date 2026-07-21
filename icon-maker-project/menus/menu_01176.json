@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01176",
+    "name": "Gradient Flags 1176",
+    "category": "Flags",
+    "subcategory": "Gradient",
+    "layout": "Grid Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Gradient/Item 1176",
+    "parentId": "MENU-01171",
+    "level": 5,
+    "order": 1176,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:36Z",
+        "updatedAt": "2024-01-01T00:00:36Z",
+        "version": "1.0.1176",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "gradient", "grid layout", "icon-maker"],
+        "description": "Menu item 1176 for Gradient Flags with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1176)",
+        "onHover": "handleMenuHover(1176)",
+        "onContextMenu": "handleMenuContext(1176)"
+    },
+    "styling": {
+        "className": "menu-item-1176",
+        "iconClass": "vector-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

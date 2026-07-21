@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00501",
+    "name": "Bold Flags 501",
+    "category": "Flags",
+    "subcategory": "Bold",
+    "layout": "Grid Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Flags/Bold/Item 501",
+    "parentId": "MENU-00501",
+    "level": 5,
+    "order": 501,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:21Z",
+        "updatedAt": "2024-01-01T00:00:21Z",
+        "version": "1.0.501",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["flags", "bold", "grid layout", "icon-maker"],
+        "description": "Menu item 501 for Bold Flags with Grid Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(501)",
+        "onHover": "handleMenuHover(501)",
+        "onContextMenu": "handleMenuContext(501)"
+    },
+    "styling": {
+        "className": "menu-item-501",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

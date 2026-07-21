@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03494",
+    "name": "Future Gaming 3494",
+    "category": "Gaming",
+    "subcategory": "Future",
+    "layout": "Header Layout",
+    "iconType": "Font Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Gaming/Future/Item 3494",
+    "parentId": "MENU-03491",
+    "level": 5,
+    "order": 3494,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:14Z",
+        "updatedAt": "2024-01-01T00:00:14Z",
+        "version": "1.0.3494",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["gaming", "future", "header layout", "icon-maker"],
+        "description": "Menu item 3494 for Future Gaming with Header Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3494)",
+        "onHover": "handleMenuHover(3494)",
+        "onContextMenu": "handleMenuContext(3494)"
+    },
+    "styling": {
+        "className": "menu-item-3494",
+        "iconClass": "font-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

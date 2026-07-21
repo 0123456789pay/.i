@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00617",
+    "name": "Cartoon Fashion 617",
+    "category": "Fashion",
+    "subcategory": "Cartoon",
+    "layout": "Modal Layout",
+    "iconType": "Raster Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Fashion/Cartoon/Item 617",
+    "parentId": "MENU-00611",
+    "level": 5,
+    "order": 617,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:17Z",
+        "updatedAt": "2024-01-01T00:00:17Z",
+        "version": "1.0.617",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["fashion", "cartoon", "modal layout", "icon-maker"],
+        "description": "Menu item 617 for Cartoon Fashion with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(617)",
+        "onHover": "handleMenuHover(617)",
+        "onContextMenu": "handleMenuContext(617)"
+    },
+    "styling": {
+        "className": "menu-item-617",
+        "iconClass": "raster-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

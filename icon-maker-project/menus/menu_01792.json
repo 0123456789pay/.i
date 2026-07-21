@@ -1,0 +1,38 @@
+{
+    "id": "MENU-01792",
+    "name": "Light Zodiac 1792",
+    "category": "Zodiac",
+    "subcategory": "Light",
+    "layout": "Modal Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Zodiac/Light/Item 1792",
+    "parentId": "MENU-01791",
+    "level": 5,
+    "order": 1792,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:52Z",
+        "updatedAt": "2024-01-01T00:00:52Z",
+        "version": "1.0.1792",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["zodiac", "light", "modal layout", "icon-maker"],
+        "description": "Menu item 1792 for Light Zodiac with Modal Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(1792)",
+        "onHover": "handleMenuHover(1792)",
+        "onContextMenu": "handleMenuContext(1792)"
+    },
+    "styling": {
+        "className": "menu-item-1792",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02971",
+    "name": "Simple Basic Shapes 2971",
+    "category": "Basic Shapes",
+    "subcategory": "Simple",
+    "layout": "Dashboard Layout",
+    "iconType": "SVG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Basic Shapes/Simple/Item 2971",
+    "parentId": "MENU-02971",
+    "level": 5,
+    "order": 2971,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:31Z",
+        "updatedAt": "2024-01-01T00:00:31Z",
+        "version": "1.0.2971",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["basic shapes", "simple", "dashboard layout", "icon-maker"],
+        "description": "Menu item 2971 for Simple Basic Shapes with Dashboard Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2971)",
+        "onHover": "handleMenuHover(2971)",
+        "onContextMenu": "handleMenuContext(2971)"
+    },
+    "styling": {
+        "className": "menu-item-2971",
+        "iconClass": "svg-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

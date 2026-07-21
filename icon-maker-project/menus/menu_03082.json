@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03082",
+    "name": "Light Users 3082",
+    "category": "Users",
+    "subcategory": "Light",
+    "layout": "List Layout",
+    "iconType": "PNG Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Users/Light/Item 3082",
+    "parentId": "MENU-03081",
+    "level": 5,
+    "order": 3082,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:22Z",
+        "updatedAt": "2024-01-01T00:00:22Z",
+        "version": "1.0.3082",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["users", "light", "list layout", "icon-maker"],
+        "description": "Menu item 3082 for Light Users with List Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3082)",
+        "onHover": "handleMenuHover(3082)",
+        "onContextMenu": "handleMenuContext(3082)"
+    },
+    "styling": {
+        "className": "menu-item-3082",
+        "iconClass": "png-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

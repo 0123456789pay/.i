@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00053",
+    "name": "Dark Technology 53",
+    "category": "Technology",
+    "subcategory": "Dark",
+    "layout": "Stack Layout",
+    "iconType": "ICO Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Technology/Dark/Item 53",
+    "parentId": "MENU-00051",
+    "level": 1,
+    "order": 53,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:53Z",
+        "updatedAt": "2024-01-01T00:00:53Z",
+        "version": "1.0.53",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["technology", "dark", "stack layout", "icon-maker"],
+        "description": "Menu item 53 for Dark Technology with Stack Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(53)",
+        "onHover": "handleMenuHover(53)",
+        "onContextMenu": "handleMenuContext(53)"
+    },
+    "styling": {
+        "className": "menu-item-53",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

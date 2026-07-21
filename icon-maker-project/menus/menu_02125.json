@@ -1,0 +1,38 @@
+{
+    "id": "MENU-02125",
+    "name": "Monochrome Education 2125",
+    "category": "Education",
+    "subcategory": "Monochrome",
+    "layout": "Filter Layout",
+    "iconType": "Base64 Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Education/Monochrome/Item 2125",
+    "parentId": "MENU-02121",
+    "level": 5,
+    "order": 2125,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:25Z",
+        "updatedAt": "2024-01-01T00:00:25Z",
+        "version": "1.0.2125",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["education", "monochrome", "filter layout", "icon-maker"],
+        "description": "Menu item 2125 for Monochrome Education with Filter Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(2125)",
+        "onHover": "handleMenuHover(2125)",
+        "onContextMenu": "handleMenuContext(2125)"
+    },
+    "styling": {
+        "className": "menu-item-2125",
+        "iconClass": "base64-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

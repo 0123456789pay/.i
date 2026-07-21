@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03423",
+    "name": "Outlined Icons 3423",
+    "category": "Icons",
+    "subcategory": "Outlined",
+    "layout": "Feed Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Icons/Outlined/Item 3423",
+    "parentId": "MENU-03421",
+    "level": 5,
+    "order": 3423,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:03Z",
+        "updatedAt": "2024-01-01T00:00:03Z",
+        "version": "1.0.3423",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["icons", "outlined", "feed layout", "icon-maker"],
+        "description": "Menu item 3423 for Outlined Icons with Feed Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3423)",
+        "onHover": "handleMenuHover(3423)",
+        "onContextMenu": "handleMenuContext(3423)"
+    },
+    "styling": {
+        "className": "menu-item-3423",
+        "iconClass": "ico-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id": "MENU-03360",
+    "name": "Vibrant Science 3360",
+    "category": "Science",
+    "subcategory": "Vibrant",
+    "layout": "Gallery Layout",
+    "iconType": null,
+    "hasIcon": false,
+    "path": "Icon Maker/Science/Vibrant/Item 3360",
+    "parentId": "MENU-03351",
+    "level": 5,
+    "order": 3360,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:00Z",
+        "updatedAt": "2024-01-01T00:00:00Z",
+        "version": "1.0.3360",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["science", "vibrant", "gallery layout", "icon-maker"],
+        "description": "Menu item 3360 for Vibrant Science with Gallery Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(3360)",
+        "onHover": "handleMenuHover(3360)",
+        "onContextMenu": "handleMenuContext(3360)"
+    },
+    "styling": {
+        "className": "menu-item-3360",
+        "iconClass": "interactive-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}

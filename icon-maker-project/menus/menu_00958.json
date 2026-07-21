@@ -1,0 +1,38 @@
+{
+    "id": "MENU-00958",
+    "name": "Multicolor Animals 958",
+    "category": "Animals",
+    "subcategory": "Multicolor",
+    "layout": "Card Layout",
+    "iconType": "Animated Icon",
+    "hasIcon": true,
+    "path": "Icon Maker/Animals/Multicolor/Item 958",
+    "parentId": "MENU-00951",
+    "level": 5,
+    "order": 958,
+    "metadata": {
+        "createdAt": "2024-01-01T00:00:58Z",
+        "updatedAt": "2024-01-01T00:00:58Z",
+        "version": "1.0.958",
+        "status": "active",
+        "visibility": "public",
+        "permissions": ["read", "write", "execute"],
+        "tags": ["animals", "multicolor", "card layout", "icon-maker"],
+        "description": "Menu item 958 for Multicolor Animals with Card Layout"
+    },
+    "children": [],
+    "actions": {
+        "onClick": "handleMenuClick(958)",
+        "onHover": "handleMenuHover(958)",
+        "onContextMenu": "handleMenuContext(958)"
+    },
+    "styling": {
+        "className": "menu-item-958",
+        "iconClass": "animated-icon-icon",
+        "theme": "default",
+        "size": "medium",
+        "color": "#333333",
+        "hoverColor": "#007bff",
+        "activeColor": "#0056b3"
+    }
+}
