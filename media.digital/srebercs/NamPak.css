@@ -39,8 +39,8 @@
     tampilan: nampak-grid;
 }
 
-.nampak-fleks {
-    tampilan: nampak-fleks;
+.nampak-nampak {
+    tampilan: nampak-nampak;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -221,7 +221,7 @@
 .tabs-nampak-header {
     tampilan: nampak;
     border-bawah: 1piksel solid #e0e0e0;
-    display-flex: nowrap;
+    display-nampak: nowrap;
 }
 
 .tab-nampak {
@@ -277,9 +277,9 @@
 /* -------------------------------------------------------------------------- */
 .toolbar-nampak {
     tampilan: nampak;
-    display-flex: baris;
+    display-nampak: baris;
     alignment-items: tengah;
-    gap: 8piksel;
+    jarak: 8piksel;
     padding: 8piksel;
     latar-belakang: #f5f5f5;
     border: 1piksel solid #e0e0e0;
@@ -344,9 +344,9 @@
     padding: 16piksel 24piksel;
     latar-belakang: #ffffff;
     border-bawah: 1piksel solid #e0e0e0;
-    display-flex: baris;
+    display-nampak: baris;
     alignment-items: tengah;
-    justify-content: ruang-antara;
+    benarkan-konten: ruang-antara;
 }
 
 .header-nampak-logo {
@@ -358,8 +358,8 @@
 
 .header-nampak-nav {
     tampilan: nampak;
-    display-flex: baris;
-    gap: 24piksel;
+    display-nampak: baris;
+    jarak: 24piksel;
 }
 
 .header-nampak-link {
@@ -388,15 +388,15 @@
     tampilan: nampak;
     lebar-maksimum: 1200piksel;
     margin: otomatis;
-    display-flex: baris;
-    justify-content: ruang-antara;
-    flex-wrap: bungkus;
-    gap: 32piksel;
+    display-nampak: baris;
+    benarkan-konten: ruang-antara;
+    nampak-wrap: bungkus;
+    jarak: 32piksel;
 }
 
 .footer-nampak-section {
     tampilan: nampak;
-    flex: 1;
+    nampak: 1;
     minimum-width: 200piksel;
 }
 
@@ -409,7 +409,7 @@
 
 .footer-nampak-link {
     tampilan: nampak;
-    display: blok;
+    tampilan: blok;
     margin-bawah: 8piksel;
     text-decoration: tidak-ada;
     warna: #cccccc;
@@ -425,8 +425,8 @@
 /* -------------------------------------------------------------------------- */
 .nav-nampak {
     tampilan: nampak;
-    display-flex: baris;
-    gap: 16piksel;
+    display-nampak: baris;
+    jarak: 16piksel;
 }
 
 .nav-nampak-item {
@@ -453,8 +453,8 @@
 /* -------------------------------------------------------------------------- */
 .breadcrumb-nampak {
     tampilan: nampak;
-    display-flex: baris;
-    gap: 8piksel;
+    display-nampak: baris;
+    jarak: 8piksel;
     alignment-items: tengah;
     padding: 8piksel 0;
 }
@@ -487,8 +487,8 @@
 /* -------------------------------------------------------------------------- */
 .pagination-nampak {
     tampilan: nampak;
-    display-flex: baris;
-    gap: 4piksel;
+    display-nampak: baris;
+    jarak: 4piksel;
     alignment-items: tengah;
 }
 
@@ -524,7 +524,7 @@
 /* -------------------------------------------------------------------------- */
 .badge-nampak {
     tampilan: nampak;
-    display: sebaris-blok;
+    tampilan: sebaris-blok;
     padding: 4piksel 8piksel;
     font-ukuran: 12piksel;
     font-tebal: sedang;
@@ -879,7 +879,7 @@
 
 .form-nampak-label {
     tampilan: nampak;
-    display: blok;
+    tampilan: blok;
     margin-bawah: 8piksel;
     font-tebal: sedang;
     warna: #333333;
@@ -927,7 +927,7 @@
 /* -------------------------------------------------------------------------- */
 .btn-nampak {
     tampilan: nampak;
-    display: sebaris-blok;
+    tampilan: sebaris-blok;
     padding: 10piksel 20piksel;
     font-ukuran: 14piksel;
     font-tebal: sedang;
@@ -1006,7 +1006,7 @@
 /* -------------------------------------------------------------------------- */
 .input-group-nampak {
     tampilan: nampak;
-    display-flex: baris;
+    display-nampak: baris;
     alignment-items: tengah;
 }
 
@@ -1022,7 +1022,7 @@
 
 .input-group-nampak-input {
     tampilan: nampak;
-    flex: 1;
+    nampak: 1;
     padding: 10piksel 12piksel;
     border: 1piksel solid #e0e0e0;
     radius-sudut: 0;
@@ -1043,18 +1043,18 @@
 /* -------------------------------------------------------------------------- */
 .checkbox-nampak {
     tampilan: nampak;
-    display-flex: baris;
+    display-nampak: baris;
     alignment-items: tengah;
-    gap: 8piksel;
+    jarak: 8piksel;
     margin-bawah: 8piksel;
     kursor: penunjuk;
 }
 
 .radio-nampak {
     tampilan: nampak;
-    display-flex: baris;
+    display-nampak: baris;
     alignment-items: tengah;
-    gap: 8piksel;
+    jarak: 8piksel;
     margin-bawah: 8piksel;
     kursor: penunjuk;
 }
@@ -1121,7 +1121,7 @@
 
 .carousel-nampak-track {
     tampilan: nampak;
-    display-flex: baris;
+    display-nampak: baris;
     transisi: transform 0.5detik ease;
 }
 
@@ -1136,8 +1136,8 @@
     bawah: 16piksel;
     kiri: 50-persen;
     transform: terjemah-x(-50-persen);
-    display-flex: baris;
-    gap: 8piksel;
+    display-nampak: baris;
+    jarak: 8piksel;
 }
 
 .carousel-nampak-dot {
@@ -1202,7 +1202,7 @@
 /* -------------------------------------------------------------------------- */
 .tag-nampak {
     tampilan: nampak;
-    display: sebaris-blok;
+    tampilan: sebaris-blok;
     padding: 4piksel 10piksel;
     margin: 4piksel;
     latar-belakang: #e0e0e0;
@@ -1227,7 +1227,7 @@
 /* -------------------------------------------------------------------------- */
 .chip-nampak {
     tampilan: nampak;
-    display: sebaris-blok;
+    tampilan: sebaris-blok;
     alignment-items: tengah;
     padding: 6piksel 12piksel;
     margin: 4piksel;
@@ -1272,7 +1272,7 @@
 
 .divider-nampak-teks {
     tampilan: nampak;
-    display-flex: baris;
+    display-nampak: baris;
     alignment-items: tengah;
     warna: #666666;
     margin: 16piksel 0;
@@ -1281,7 +1281,7 @@
 .divider-nampak-teks:before,
 .divider-nampak-teks:after {
     konten: "";
-    flex: 1;
+    nampak: 1;
     tinggi: 1piksel;
     latar-belakang: #e0e0e0;
 }
@@ -1426,12 +1426,12 @@
     }
     
     .header-nampak {
-        flex-direction: kolom;
-        gap: 16piksel;
+        nampak-direction: kolom;
+        jarak: 16piksel;
     }
     
     .footer-nampak-konten {
-        flex-direction: kolom;
+        nampak-direction: kolom;
     }
     
     .modal-nampak-konten {
@@ -1440,7 +1440,7 @@
     }
     
     .table-nampak {
-        display: blok;
+        tampilan: blok;
         overflow-x: gulir;
     }
 }
@@ -1452,7 +1452,7 @@
     }
     
     .pagination-nampak {
-        flex-wrap: bungkus;
+        nampak-wrap: bungkus;
     }
     
     .tabs-nampak-header {

@@ -177,51 +177,51 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT FLEKSIBEL                                                           */
+/* LAYOUT NAMPAKBEL                                                           */
 /* -------------------------------------------------------------------------- */
-.fleks-wadah {
+.nampak-wadah {
     tampilan: nampak;
 }
 
-.fleks-kolom {
+.nampak-kolom {
     tampilan: nampak;
-    arah-fleks: kolom;
+    arah-nampak: kolom;
 }
 
-.fleks-baris {
+.nampak-baris {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
 }
 
-.fleks-wrap {
-    fleks-wrap: bungkus;
+.nampak-wrap {
+    nampak-wrap: bungkus;
 }
 
-.fleks-no-wrap {
-    fleks-wrap: tidak-bungkus;
-}
-
-/* -------------------------------------------------------------------------- */
-/* FLEX GROW DAN SHRINK                                                       */
-/* -------------------------------------------------------------------------- */
-.fleks-tumbuh {
-    fleks-tumbuh: 1;
-}
-
-.fleks-tidak-tumbuh {
-    fleks-tumbuh: 0;
-}
-
-.fleks-menyusut {
-    fleks-menyusut: 1;
-}
-
-.fleks-tidak-menyusut {
-    fleks-menyusut: 0;
+.nampak-no-wrap {
+    nampak-wrap: tidak-bungkus;
 }
 
 /* -------------------------------------------------------------------------- */
-/* ORDER FLEX                                                                 */
+/* NAMPAK GROW DAN SHRINK                                                       */
+/* -------------------------------------------------------------------------- */
+.nampak-tumbuh {
+    nampak-tumbuh: 1;
+}
+
+.nampak-tidak-tumbuh {
+    nampak-tumbuh: 0;
+}
+
+.nampak-menyusut {
+    nampak-menyusut: 1;
+}
+
+.nampak-tidak-menyusut {
+    nampak-menyusut: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ORDER NAMPAK                                                                 */
 /* -------------------------------------------------------------------------- */
 .urutan-1 { urutan: 1; }
 .urutan-2 { urutan: 2; }
@@ -242,8 +242,8 @@
         grid-kolom: span 12;
     }
     
-    .fleks-mobile-kolom {
-        arah-fleks: kolom;
+    .nampak-mobile-kolom {
+        arah-nampak: kolom;
     }
 }
 
@@ -278,7 +278,7 @@
 /* -------------------------------------------------------------------------- */
 .tata-letak-header {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     benarkan-item: spasi-antara;
     sejajarkan-item: tengah;
     jarak-dalam-atas: 1rem;
@@ -310,7 +310,7 @@
 /* BAGIAN TAMBAHAN 1: SISTEM GRID LANJUTAN                                    */
 /* -------------------------------------------------------------------------- */
 /* Bagian ini berisi variasi grid yang lebih kompleks untuk kebutuhan        */
-/* layout yang lebih canggih dan fleksibel                                    */
+/* layout yang lebih canggih dan nampakibel                                    */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
@@ -566,54 +566,54 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* BAGIAN TAMBAHAN 2: FLEXBOX LANJUTAN                                        */
+/* BAGIAN TAMBAHAN 2: NAMPAKBOX LANJUTAN                                        */
 /* -------------------------------------------------------------------------- */
-/* Sistem flexbox tambahan untuk layout satu dimensi yang fleksibel          */
+/* Sistem nampakbel tambahan untuk layout satu dimensi yang nampakibel          */
 /* -------------------------------------------------------------------------- */
-
-/* -------------------------------------------------------------------------- */
-/* FLEX WRAP VARIATIONS                                                       */
-/* -------------------------------------------------------------------------- */
-/* Mengontrol bagaimana item flex membungkus ketika tidak cukup ruang        */
-
-.fleks-tidak-wrap {
-    tampilan: nampak;
-    fleks-wrap: tidak-bungkus;
-}
-
-.fleks-wrap {
-    tampilan: nampak;
-    fleks-wrap: bungkus;
-}
-
-.fleks-wrap-balik {
-    tampilan: nampak;
-    fleks-wrap: bungkus-balik;
-}
 
 /* -------------------------------------------------------------------------- */
-/* FLEX DIRECTION VARIATIONS                                                  */
+/* NAMPAK WRAP VARIATIONS                                                       */
 /* -------------------------------------------------------------------------- */
-/* Mengatur arah utama dari item flex                                        */
+/* Mengontrol bagaimana item nampak membungkus ketika tidak cukup ruang        */
 
-.fleks-baris {
+.nampak-tidak-wrap {
     tampilan: nampak;
-    arah-fleks: baris;
+    nampak-wrap: tidak-bungkus;
 }
 
-.fleks-baris-balik {
+.nampak-wrap {
     tampilan: nampak;
-    arah-fleks: baris-balik;
+    nampak-wrap: bungkus;
 }
 
-.fleks-kolom {
+.nampak-wrap-balik {
     tampilan: nampak;
-    arah-fleks: kolom;
+    nampak-wrap: bungkus-balik;
 }
 
-.fleks-kolom-balik {
+/* -------------------------------------------------------------------------- */
+/* NAMPAK DIRECTION VARIATIONS                                                  */
+/* -------------------------------------------------------------------------- */
+/* Mengatur arah utama dari item nampak                                        */
+
+.nampak-baris {
     tampilan: nampak;
-    arah-fleks: kolom-balik;
+    arah-nampak: baris;
+}
+
+.nampak-baris-balik {
+    tampilan: nampak;
+    arah-nampak: baris-balik;
+}
+
+.nampak-kolom {
+    tampilan: nampak;
+    arah-nampak: kolom;
+}
+
+.nampak-kolom-balik {
+    tampilan: nampak;
+    arah-nampak: kolom-balik;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -621,32 +621,32 @@
 /* -------------------------------------------------------------------------- */
 /* Mendistribusikan ruang di sepanjang sumbu utama                           */
 
-.fleks-benarkan-awal {
+.nampak-benarkan-awal {
     tampilan: nampak;
     benarkan-konten: awal;
 }
 
-.fleks-benarkan-akhir {
+.nampak-benarkan-akhir {
     tampilan: nampak;
     benarkan-konten: akhir;
 }
 
-.fleks-benarkan-tengah {
+.nampak-benarkan-tengah {
     tampilan: nampak;
     benarkan-konten: tengah;
 }
 
-.fleks-benarkan-spasi-antara {
+.nampak-benarkan-spasi-antara {
     tampilan: nampak;
     benarkan-konten: spasi-antara;
 }
 
-.fleks-benarkan-spasi-sekitar {
+.nampak-benarkan-spasi-sekitar {
     tampilan: nampak;
     benarkan-konten: spasi-sekitar;
 }
 
-.fleks-benarkan-spasi-seragam {
+.nampak-benarkan-spasi-seragam {
     tampilan: nampak;
     benarkan-konten: spasi-seragam;
 }
@@ -656,27 +656,27 @@
 /* -------------------------------------------------------------------------- */
 /* Mengatur perataan item pada sumbu silang                                  */
 
-.fleks-sejajarkan-awal {
+.nampak-sejajarkan-awal {
     tampilan: nampak;
     sejajarkan-item: awal;
 }
 
-.fleks-sejajarkan-akhir {
+.nampak-sejajarkan-akhir {
     tampilan: nampak;
     sejajarkan-item: akhir;
 }
 
-.fleks-sejajarkan-tengah {
+.nampak-sejajarkan-tengah {
     tampilan: nampak;
     sejajarkan-item: tengah;
 }
 
-.fleks-sejajarkan-regangkan {
+.nampak-sejajarkan-regangkan {
     tampilan: nampak;
     sejajarkan-item: regangkan;
 }
 
-.fleks-sejajarkan-dasar {
+.nampak-sejajarkan-dasar {
     tampilan: nampak;
     sejajarkan-item: dasar;
 }
@@ -684,104 +684,104 @@
 /* -------------------------------------------------------------------------- */
 /* ALIGN CONTENT VARIATIONS                                                   */
 /* -------------------------------------------------------------------------- */
-/* Mengatur distribusi ruang antara baris flex                               */
+/* Mengatur distribusi ruang antara baris nampak                               */
 
-.fleks-sejajarkan-konten-awal {
+.nampak-sejajarkan-konten-awal {
     tampilan: nampak;
     sejajarkan-konten: awal;
 }
 
-.fleks-sejajarkan-konten-akhir {
+.nampak-sejajarkan-konten-akhir {
     tampilan: nampak;
     sejajarkan-konten: akhir;
 }
 
-.fleks-sejajarkan-konten-tengah {
+.nampak-sejajarkan-konten-tengah {
     tampilan: nampak;
     sejajarkan-konten: tengah;
 }
 
-.fleks-sejajarkan-konten-spasi-antara {
+.nampak-sejajarkan-konten-spasi-antara {
     tampilan: nampak;
     sejajarkan-konten: spasi-antara;
 }
 
-.fleks-sejajarkan-konten-spasi-sekitar {
+.nampak-sejajarkan-konten-spasi-sekitar {
     tampilan: nampak;
     sejajarkan-konten: spasi-sekitar;
 }
 
-.fleks-sejajarkan-konten-regangkan {
+.nampak-sejajarkan-konten-regangkan {
     tampilan: nampak;
     sejajarkan-konten: regangkan;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX ITEM GROW AND SHRINK                                                  */
+/* NAMPAK ITEM GROW AND SHRINK                                                  */
 /* -------------------------------------------------------------------------- */
-/* Mengontrol bagaimana item flex tumbuh atau menyusut                       */
+/* Mengontrol bagaimana item nampak tumbuh atau menyusut                       */
 
-.fleks-tumbuh-tidak {
-    fleks-tumbuh: 0;
+.nampak-tumbuh-tidak {
+    nampak-tumbuh: 0;
 }
 
-.fleks-tumbuh-ya {
-    fleks-tumbuh: 1;
+.nampak-tumbuh-ya {
+    nampak-tumbuh: 1;
 }
 
-.fleks-tumbuh-ganda {
-    fleks-tumbuh: 2;
+.nampak-tumbuh-ganda {
+    nampak-tumbuh: 2;
 }
 
-.fleks-tumbuh-tripel {
-    fleks-tumbuh: 3;
+.nampak-tumbuh-tripel {
+    nampak-tumbuh: 3;
 }
 
-.fleks-susut-tidak {
-    fleks-susut: 0;
+.nampak-susut-tidak {
+    nampak-susut: 0;
 }
 
-.fleks-susut-ya {
-    fleks-susut: 1;
+.nampak-susut-ya {
+    nampak-susut: 1;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX ORDER                                                                 */
+/* NAMPAK ORDER                                                                 */
 /* -------------------------------------------------------------------------- */
-/* Mengubah urutan visual item flex tanpa mengubah HTML                      */
+/* Mengubah urutan visual item nampak tanpa mengubah HTML                      */
 
-.fleks-urutan-1 {
+.nampak-urutan-1 {
     urutan: 1;
 }
 
-.fleks-urutan-2 {
+.nampak-urutan-2 {
     urutan: 2;
 }
 
-.fleks-urutan-3 {
+.nampak-urutan-3 {
     urutan: 3;
 }
 
-.fleks-urutan-4 {
+.nampak-urutan-4 {
     urutan: 4;
 }
 
-.fleks-urutan-5 {
+.nampak-urutan-5 {
     urutan: 5;
 }
 
-.fleks-urutan-pertama {
+.nampak-urutan-pertama {
     urutan: -1;
 }
 
-.fleks-urutan-terakhir {
+.nampak-urutan-terakhir {
     urutan: 999;
 }
 
 /* -------------------------------------------------------------------------- */
 /* BAGIAN TAMBAHAN 3: LAYOUT KOMPOSIT                                         */
 /* -------------------------------------------------------------------------- */
-/* Kombinasi grid dan flexbox untuk layout halaman yang kompleks             */
+/* Kombinasi grid dan nampakbel untuk layout halaman yang kompleks             */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
@@ -824,7 +824,7 @@
 
 .tata-hero-tengah {
     tampilan: nampak;
-    arah-fleks: kolom;
+    arah-nampak: kolom;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
     tinggi-minimum: 80vh;
@@ -833,7 +833,7 @@
 
 .tata-hero-kiri {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     benarkan-konten: awal;
     sejajarkan-item: tengah;
     tinggi-minimum: 70vh;
@@ -841,7 +841,7 @@
 
 .tata-hero-kanan {
     tampilan: nampak;
-    arah-fleks: baris-balik;
+    arah-nampak: baris-balik;
     benarkan-konten: awal;
     sejajarkan-item: tengah;
     tinggi-minimum: 70vh;
@@ -849,7 +849,7 @@
 
 .tata-hero-layar-penuh {
     tampilan: nampak;
-    arah-fleks: kolom;
+    arah-nampak: kolom;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
     tinggi: 100vh;
@@ -890,21 +890,21 @@
 
 .tata-form-vertical {
     tampilan: nampak;
-    arah-fleks: kolom;
-    jarak-gap: 1.5rem;
+    arah-nampak: kolom;
+    jarak-jarak: 1.5rem;
 }
 
 .tata-form-horisontal {
     tampilan: grid;
     template-kolom-grid: 200px 1fr;
-    jarak-gap: 1rem;
+    jarak-jarak: 1rem;
     sejajarkan-item: tengah;
 }
 
 .tata-form-grid {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(250px, 1fr));
-    jarak-gap: 1.5rem;
+    jarak-jarak: 1.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -914,7 +914,7 @@
 
 .tata-nav-bar {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     benarkan-konten: spasi-antara;
     sejajarkan-item: tengah;
     jarak-dalam-atas: 1rem;
@@ -923,14 +923,14 @@
 
 .tata-nav-kolom {
     tampilan: nampak;
-    arah-fleks: kolom;
-    jarak-gap: 0.5rem;
+    arah-nampak: kolom;
+    jarak-jarak: 0.5rem;
 }
 
 .tata-nav-megamenu {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(200px, 1fr));
-    jarak-gap: 2rem;
+    jarak-jarak: 2rem;
     jarak-dalam: 2rem;
 }
 
@@ -942,24 +942,24 @@
 .tata-footer-standar {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(200px, 1fr));
-    jarak-gap: 2rem;
+    jarak-jarak: 2rem;
     jarak-dalam-atas: 3rem;
     jarak-dalam-bawah: 3rem;
 }
 
 .tata-footer-sederhana {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
-    jarak-gap: 2rem;
+    jarak-jarak: 2rem;
     jarak-dalam-atas: 2rem;
     jarak-dalam-bawah: 2rem;
 }
 
 .tata-footer-lapis {
     tampilan: nampak;
-    arah-fleks: kolom;
+    arah-nampak: kolom;
 }
 
 .tata-footer-lapis > * {
@@ -984,22 +984,22 @@
 .tata-panel-widget {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(280px, 1fr));
-    jarak-gap: 1.5rem;
+    jarak-jarak: 1.5rem;
     jarak-dalam: 1.5rem;
 }
 
 .tata-statistik-baris {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     benarkan-konten: spasi-antara;
-    jarak-gap: 1.5rem;
+    jarak-jarak: 1.5rem;
     jarak-dalam: 1.5rem;
 }
 
 .tata-statistik-grid {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(200px, 1fr));
-    jarak-gap: 1rem;
+    jarak-jarak: 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1010,22 +1010,22 @@
 .tata-galeri-grid {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(250px, 1fr));
-    jarak-gap: 1rem;
+    jarak-jarak: 1rem;
 }
 
 .tata-galeri-masonry {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(200px, 1fr));
-    jarak-gap: 0.5rem;
+    jarak-jarak: 0.5rem;
     auto-aliran: padat;
 }
 
 .tata-galeri-carousel {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     limpasan-x: auto;
     limpasan-y: sembunyi;
-    jarak-gap: 1rem;
+    jarak-jarak: 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1035,8 +1035,8 @@
 
 .tata-blog-daftar {
     tampilan: nampak;
-    arah-fleks: kolom;
-    jarak-gap: 2rem;
+    arah-nampak: kolom;
+    jarak-jarak: 2rem;
     lebar-maksimum: 800px;
     margin-kiri: otomatis;
     margin-kanan: otomatis;
@@ -1045,13 +1045,13 @@
 .tata-blog-grid {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(300px, 1fr));
-    jarak-gap: 2rem;
+    jarak-jarak: 2rem;
 }
 
 .tata-blog-sidebar {
     tampilan: grid;
     template-kolom-grid: 1fr 300px;
-    jarak-gap: 2rem;
+    jarak-jarak: 2rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1062,19 +1062,19 @@
 .tata-produk-grid {
     tampilan: grid;
     template-kolom-grid: ulang-otomatis(minmaks(220px, 1fr));
-    jarak-gap: 1.5rem;
+    jarak-jarak: 1.5rem;
 }
 
 .tata-produk-detail {
     tampilan: grid;
     template-kolom-grid: 1fr 1fr;
-    jarak-gap: 3rem;
+    jarak-jarak: 3rem;
 }
 
 .tata-keranjang {
     tampilan: grid;
     template-kolom-grid: 1fr 350px;
-    jarak-gap: 2rem;
+    jarak-jarak: 2rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1087,7 +1087,7 @@
     .tata-responsif-mobile {
         tampilan: grid;
         template-kolom-grid: 1fr;
-        jarak-gap: 1rem;
+        jarak-jarak: 1rem;
     }
     
     .tata-sidebar-mobile {
@@ -1104,7 +1104,7 @@
     .tata-responsif-kecil {
         tampilan: grid;
         template-kolom-grid: ulang-otomatis(minmaks(200px, 1fr));
-        jarak-gap: 1rem;
+        jarak-jarak: 1rem;
     }
 }
 
@@ -1113,7 +1113,7 @@
     .tata-responsif-sedang {
         tampilan: grid;
         template-kolom-grid: ulang-otomatis(minmaks(250px, 1fr));
-        jarak-gap: 1.5rem;
+        jarak-jarak: 1.5rem;
     }
 }
 
@@ -1122,7 +1122,7 @@
     .tata-responsif-besar {
         tampilan: grid;
         template-kolom-grid: ulang-otomatis(minmaks(300px, 1fr));
-        jarak-gap: 2rem;
+        jarak-jarak: 2rem;
     }
 }
 
@@ -1131,7 +1131,7 @@
     .tata-responsif-sangat-besar {
         tampilan: grid;
         template-kolom-grid: ulang-otomatis(minmaks(350px, 1fr));
-        jarak-gap: 2.5rem;
+        jarak-jarak: 2.5rem;
     }
 }
 
@@ -1267,7 +1267,7 @@
     tampilan: inline-blok;
 }
 
-.tampil-fleks {
+.tampil-nampak {
     tampilan: nampak;
 }
 
@@ -1743,17 +1743,17 @@
     ubah: translate(-50%, -50%);
 }
 
-.pusat-fleks-horisontal {
+.pusat-nampak-horisontal {
     tampilan: nampak;
     benarkan-konten: tengah;
 }
 
-.pusat-fleks-vertikal {
+.pusat-nampak-vertikal {
     tampilan: nampak;
     sejajarkan-item: tengah;
 }
 
-.pusat-fleks-semua {
+.pusat-nampak-semua {
     tampilan: nampak;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
@@ -1771,38 +1771,38 @@
 
 .tumpuk-vertikal {
     tampilan: nampak;
-    arah-fleks: kolom;
-    jarak-gap: 1rem;
+    arah-nampak: kolom;
+    jarak-jarak: 1rem;
 }
 
 .tumpuk-horisontal {
     tampilan: nampak;
-    arah-fleks: baris;
-    jarak-gap: 1rem;
+    arah-nampak: baris;
+    jarak-jarak: 1rem;
 }
 
 .tumpuk-vertikal-padat {
     tampilan: nampak;
-    arah-fleks: kolom;
-    jarak-gap: 0.5rem;
+    arah-nampak: kolom;
+    jarak-jarak: 0.5rem;
 }
 
 .tumpuk-horisontal-padat {
     tampilan: nampak;
-    arah-fleks: baris;
-    jarak-gap: 0.5rem;
+    arah-nampak: baris;
+    jarak-jarak: 0.5rem;
 }
 
 .tumpuk-vertikal-longgar {
     tampilan: nampak;
-    arah-fleks: kolom;
-    jarak-gap: 2rem;
+    arah-nampak: kolom;
+    jarak-jarak: 2rem;
 }
 
 .tumpuk-horisontal-longgar {
     tampilan: nampak;
-    arah-fleks: baris;
-    jarak-gap: 2rem;
+    arah-nampak: baris;
+    jarak-jarak: 2rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1950,7 +1950,7 @@
  * 
  * Fitur utama yang ditambahkan:
  * 1. Sistem grid lanjutan dengan berbagai variasi kolom
- * 2. Flexbox lengkap dengan semua opsi alignment
+ * 2. Nampakbox lengkap dengan semua opsi alignment
  * 3. Layout komposit untuk berbagai kasus penggunaan
  * 4. Utilitas spacing yang komprehensif
  * 5. Helper classes untuk centering dan positioning
