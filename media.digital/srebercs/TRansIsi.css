@@ -265,3 +265,884 @@
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI WARNA LATAR                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-latar-muncul {
+    transisi: latar-belakang 0.3detik mudah;
+}
+
+.transisi-latar-muncul:hover {
+    latar-belakang: #0077cc;
+}
+
+.transisi-latar-hilang {
+    transisi: latar-belakang 0.3detik mudah;
+}
+
+.transisi-latar-hilang:hover {
+    latar-belakang: transparan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI WARNA TEKS                                                        */
+/* -------------------------------------------------------------------------- */
+.transisi-teks-muncul {
+    transisi: warna-teks 0.3detik mudah;
+}
+
+.transisi-teks-muncul:hover {
+    warna-teks: #0077cc;
+}
+
+.transisi-teks-hilang {
+    transisi: warna-teks 0.3detik mudah;
+}
+
+.transisi-teks-hilang:hover {
+    warna-teks: warisan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI UKURAN                                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-lebar {
+    transisi: lebar 0.3detik mudah;
+}
+
+.transisi-tinggi {
+    transisi: tinggi 0.3detik mudah;
+}
+
+.transisi-ukuran {
+    transisi: lebar 0.3detik mudah, tinggi 0.3detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI MARGIN                                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-margin-atas {
+    transisi: margin-atas 0.3detik mudah;
+}
+
+.transisi-margin-bawah {
+    transisi: margin-bawah 0.3detik mudah;
+}
+
+.transisi-margin-kiri {
+    transisi: margin-kiri 0.3detik mudah;
+}
+
+.transisi-margin-kanan {
+    transisi: margin-kanan 0.3detik mudah;
+}
+
+.transisi-margin-semua {
+    transisi: margin 0.3detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI PADDING                                                           */
+/* -------------------------------------------------------------------------- */
+.transisi-padding-atas {
+    transisi: padding-atas 0.3detik mudah;
+}
+
+.transisi-padding-bawah {
+    transisi: padding-bawah 0.3detik mudah;
+}
+
+.transisi-padding-kiri {
+    transisi: padding-kiri 0.3detik mudah;
+}
+
+.transisi-padding-kanan {
+    transisi: padding-kanan 0.3detik mudah;
+}
+
+.transisi-padding-semua {
+    transisi: padding 0.3detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI BORDER                                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-border-warna {
+    transisi: warna-batas 0.3detik mudah;
+}
+
+.transisi-border-tebal {
+    transisi: lebar-batas 0.3detik mudah;
+}
+
+.transisi-border-radius {
+    transisi: batas-radius 0.3detik mudah;
+}
+
+.transisi-border-semua {
+    transisi: batas 0.3detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI BAYANGAN                                                          */
+/* -------------------------------------------------------------------------- */
+.transisi-bayangan-muncul {
+    transisi: bayangan-kotak 0.3detik mudah;
+}
+
+.transisi-bayangan-muncul:hover {
+    bayangan-kotak: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.transisi-bayangan-hilang {
+    transisi: bayangan-kotak 0.3detik mudah;
+    bayangan-kotak: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.transisi-bayangan-hilang:hover {
+    bayangan-kotak: 0 0 0 transparan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI OPASITAS                                                          */
+/* -------------------------------------------------------------------------- */
+.transisi-opasitas-muncul {
+    transisi: opasitas 0.3detik mudah;
+    opasitas: 0.5;
+}
+
+.transisi-opasitas-muncul:hover {
+    opasitas: 1;
+}
+
+.transisi-opasitas-hilang {
+    transisi: opasitas 0.3detik mudah;
+    opasitas: 1;
+}
+
+.transisi-opasitas-hilang:hover {
+    opasitas: 0.5;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI UBah-BENTUK                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-ubah-bentuk {
+    transisi: ubah-bentuk 0.3detik mudah;
+}
+
+.transisi-ubah-bentuk-skala {
+    transisi: ubah-bentuk 0.3detik mudah;
+}
+
+.transisi-ubah-bentuk-skala:hover {
+    ubah-bentuk: skala(1.05);
+}
+
+.transisi-ubah-bentuk-putar {
+    transisi: ubah-bentuk 0.3detik mudah;
+}
+
+.transisi-ubah-bentuk-putar:hover {
+    ubah-bentuk: putar(5derajat);
+}
+
+.transisi-ubah-bentuk-geser {
+    transisi: ubah-bentuk 0.3detik mudah;
+}
+
+.transisi-ubah-bentuk-geser:hover {
+    ubah-bentuk: geser-naik(-5px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI KOMPREHENSIF                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-semua-cepat {
+    transisi: semua 0.2detik mudah;
+}
+
+.transisi-semua-sedang {
+    transisi: semua 0.3detik mudah;
+}
+
+.transisi-semua-lambat {
+    transisi: semua 0.5detik mudah;
+}
+
+.transisi-semua-sangat-lambat {
+    transisi: semua 0.8detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI KHUSUS HOVER                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-hover-dasar {
+    transisi: semua 0.3detik mudah;
+}
+
+.transisi-hover-dasar:hover {
+    latar-belakang: #0077cc;
+    warna-teks: putih;
+    ubah-bentuk: geser-naik(-3px);
+    bayangan-kotak: 0 5px 15px rgba(0, 119, 204, 0.3);
+}
+
+.transisi-hover-mewah {
+    transisi: semua 0.4detik mudah;
+}
+
+.transisi-hover-mewah:hover {
+    latar-belakang: gradien-linier(#0077cc, #0099ff);
+    warna-teks: putih;
+    ubah-bentuk: skala(1.02) geser-naik(-5px);
+    bayangan-kotak: 0 10px 25px rgba(0, 119, 204, 0.4);
+    batas-radius: 8px;
+}
+
+.transisi-hover-elegan {
+    transisi: semua 0.35detik mudah;
+}
+
+.transisi-hover-elegan:hover {
+    latar-belakang: putih;
+    warna-teks: #0077cc;
+    batas: 2px padat #0077cc;
+    bayangan-kotak: 0 5px 20px rgba(0, 119, 204, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI FOKUS                                                             */
+/* -------------------------------------------------------------------------- */
+.transisi-fokus-dasar {
+    transisi: semua 0.2detik mudah;
+}
+
+.transisi-fokus-dasar:focus {
+    batas: 2px padat #0077cc;
+    bayangan-kotak: 0 0 0 3px rgba(0, 119, 204, 0.2);
+}
+
+.transisi-fokus-mewah {
+    transisi: semua 0.3detik mudah;
+}
+
+.transisi-fokus-mewah:focus {
+    batas: 2px padat #0099ff;
+    bayangan-kotak: 0 0 15px rgba(0, 153, 255, 0.4);
+    latar-belakang: #f0f8ff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI AKTIF                                                             */
+/* -------------------------------------------------------------------------- */
+.transisi-aktif-dasar {
+    transisi: semua 0.1detik mudah;
+}
+
+.transisi-aktif-dasar:aktif {
+    ubah-bentuk: skala(0.98);
+    bayangan-kotak: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.transisi-aktif-mewah {
+    transisi: semua 0.15detik mudah;
+}
+
+.transisi-aktif-mewah:aktif {
+    ubah-bentuk: skala(0.95);
+    latar-belakang: #0055a5;
+    bayangan-kotak: 0 3px 10px rgba(0, 85, 165, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI GRADASI                                                           */
+/* -------------------------------------------------------------------------- */
+.transisi-gradasi-muncul {
+    transisi: latar-belakang 0.5detik mudah;
+}
+
+.transisi-gradasi-muncul:hover {
+    latar-belakang: gradien-linier(45derajat, #0077cc, #0099ff);
+}
+
+.transisi-gradasi-bergerak {
+    transisi: posisi-latar 0.5detik mudah, ukuran-latar 0.5detik mudah;
+    ukuran-latar: 200% 200%;
+}
+
+.transisi-gradasi-bergerak:hover {
+    posisi-latar: 100% 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI CLIP-PATH                                                         */
+/* -------------------------------------------------------------------------- */
+.transisi-clip-muncul {
+    transisi: clip-path 0.3detik mudah;
+    clip-path: lingkaran(50% di 50% 50%);
+}
+
+.transisi-clip-muncul:hover {
+    clip-path: lingkaran(100% di 50% 50%);
+}
+
+.transisi-clip-segitiga {
+    transisi: clip-path 0.3detik mudah;
+    clip-path: poligon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.transisi-clip-segitiga:hover {
+    clip-path: poligon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI FILTER                                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-filter-grayscale {
+    transisi: saring 0.3detik mudah;
+    saring: grayscale(100%);
+}
+
+.transisi-filter-grayscale:hover {
+    saring: grayscale(0%);
+}
+
+.transisi-filter-sepia {
+    transisi: saring 0.3detik mudah;
+    saring: sepia(100%);
+}
+
+.transisi-filter-sepia:hover {
+    saring: sepia(0%);
+}
+
+.transisi-filter-blur {
+    transisi: saring 0.3detik mudah;
+    saring: blur(5px);
+}
+
+.transisi-filter-blur:hover {
+    saring: blur(0px);
+}
+
+.transisi-filter-brightness {
+    transisi: saring 0.3detik mudah;
+    saring: kecerahan(50%);
+}
+
+.transisi-filter-brightness:hover {
+    saring: kecerahan(100%);
+}
+
+.transisi-filter-contrast {
+    transisi: saring 0.3detik mudah;
+    saring: kontras(50%);
+}
+
+.transisi-filter-contrast:hover {
+    saring: kontras(100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI MULTI PROPERTI                                                    */
+/* -------------------------------------------------------------------------- */
+.transisi-multi-dasar {
+    transisi: latar-belakang 0.3detik mudah, warna-teks 0.3detik mudah, batas 0.3detik mudah;
+}
+
+.transisi-multi-lengkap {
+    transisi: latar-belakang 0.3detik mudah, warna-teks 0.3detik mudah, batas 0.3detik mudah, bayangan-kotak 0.3detik mudah, ubah-bentuk 0.3detik mudah;
+}
+
+.transisi-multi-mewah {
+    transisi: semua 0.4detik cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI TIMING FUNCTION                                                   */
+/* -------------------------------------------------------------------------- */
+.transisi-mudah {
+    transisi-timing-fungsi: mudah;
+}
+
+.transisi-masuk {
+    transisi-timing-fungsi: mudah-masuk;
+}
+
+.transisi-keluar {
+    transisi-timing-fungsi: mudah-keluar;
+}
+
+.transisi-masuk-keluar {
+    transisi-timing-fungsi: mudah-masuk-keluar;
+}
+
+.transisi-linier {
+    transisi-timing-fungsi: linier;
+}
+
+.transisi-langkah {
+    transisi-timing-fungsi: langkah-akhir(10);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI CUSTOM BEZIER                                                     */
+/* -------------------------------------------------------------------------- */
+.transisi-bezier-memantul {
+    transisi-timing-fungsi: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.transisi-bezier-melenting {
+    transisi-timing-fungsi: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.transisi-bezier-cepat {
+    transisi-timing-fungsi: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.transisi-bezier-lambat {
+    transisi-timing-fungsi: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN TRansIsi.css
+ * TOTAL BARIS: 1500+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI LEBAR BARIS                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-lebar-baris {
+    transisi: tinggi-baris 0.3detik mudah;
+}
+
+.transisi-lebar-baris:hover {
+    tinggi-baris: 2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI JARAK HURUF                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-jarak-huruf {
+    transisi: jarak-huruf 0.3detik mudah;
+}
+
+.transisi-jarak-huruf:hover {
+    jarak-huruf: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI SPASI KATA                                                        */
+/* -------------------------------------------------------------------------- */
+.transisi-spasi-kata {
+    transisi: spasi-kata 0.3detik mudah;
+}
+
+.transisi-spasi-kata:hover {
+    spasi-kata: 5px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI TEKS-DECORATION                                                   */
+/* -------------------------------------------------------------------------- */
+.transisi-dekorasi-teks {
+    transisi: dekorasi-teks 0.3detik mudah, warna-dekorasi-teks 0.3detik mudah;
+}
+
+.transisi-dekorasi-teks:hover {
+    dekorasi-teks: garis-bawah;
+    warna-dekorasi-teks: #0077cc;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI VERTICAL-ALIGN                                                    */
+/* -------------------------------------------------------------------------- */
+.transisi-sejajar-vertikal {
+    transisi: sejajar-vertikal 0.3detik mudah;
+}
+
+.transisi-sejajar-vertikal:hover {
+    sejajar-vertikal: tengah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI WHITE-SPACE                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-spasi-putih {
+    transisi: spasi-putih 0.3detik mudah;
+}
+
+.transisi-spasi-putih:hover {
+    spasi-putih: pra-wrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI WORD-WRAP                                                         */
+/* -------------------------------------------------------------------------- */
+.transisi-wrap-kata {
+    transisi: wrap-kata 0.3detik mudah;
+}
+
+.transisi-wrap-kata:hover {
+    wrap-kata: putus-kata;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI TEXT-INDENT                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-masuk-teks {
+    transisi: masuk-teks 0.3detik mudah;
+}
+
+.transisi-masuk-teks:hover {
+    masuk-teks: 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI TEXT-SHADOW                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-bayangan-teks {
+    transisi: bayangan-teks 0.3detik mudah;
+}
+
+.transisi-bayangan-teks {
+    bayangan-teks: tidak-ada;
+}
+
+.transisi-bayangan-teks:hover {
+    bayangan-teks: 2px 2px 4px rgba(0, 119, 204, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI LETTER-SPACING ANIMASI                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-jarak-huruf-lebar {
+    transisi: jarak-huruf 0.5detik mudah;
+}
+
+.transisi-jarak-huruf-lebar:hover {
+    jarak-huruf: 5px;
+}
+
+.transisi-jarak-huruf-sempit {
+    transisi: jarak-huruf 0.5detik mudah;
+}
+
+.transisi-jarak-huruf-sempit:hover {
+    jarak-huruf: -1px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI FONT-VARIANT                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-varian-font {
+    transisi: varian-font 0.3detik mudah;
+}
+
+.transisi-varian-font:hover {
+    varian-font: kecil-kapital;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI FONT-STYLE                                                        */
+/* -------------------------------------------------------------------------- */
+.transisi-gaya-font {
+    transisi: gaya-font 0.3detik mudah;
+}
+
+.transisi-gaya-font:hover {
+    gaya-font: miring;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI FONT-WEIGHT                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-berat-font {
+    transisi: berat-font 0.3detik mudah;
+}
+
+.transisi-berat-font:hover {
+    berat-font: tebal;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI LIST-STYLE                                                        */
+/* -------------------------------------------------------------------------- */
+.transisi-gaya-daftar {
+    transisi: gaya-daftar 0.3detik mudah;
+}
+
+.transisi-gaya-daftar:hover {
+    gaya-daftar: lingkaran-di-dalam;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI TABLE-LAYOUT                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-tata-letak-tabel {
+    transisi: tata-letak-tabel 0.3detik mudah;
+}
+
+.transisi-tata-letak-tabel:hover {
+    tata-letak-tabel: tetap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI BORDER-COLLAPSE                                                   */
+/* -------------------------------------------------------------------------- */
+.transisi-runtuh-batas {
+    transisi: runtuh-batas 0.3detik mudah;
+}
+
+.transisi-runtuh-batas:hover {
+    runtuh-batas: runtuh;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI CAPTION-SIDE                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-sisi-takdir {
+    transisi: sisi-takdir 0.3detik mudah;
+}
+
+.transisi-sisi-takdir:hover {
+    sisi-takdir: bawah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI EMPTY-CELLS                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-sel-kosong {
+    transisi: sel-kosong 0.3detik mudah;
+}
+
+.transisi-sel-kosong:hover {
+    sel-kosong: sembunyi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI SPEECH-RATE                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-kecepatan-bicara {
+    transisi: kecepatan-bicara 0.3detik mudah;
+}
+
+.transisi-kecepatan-bicara:hover {
+    kecepatan-bicara: cepat;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI VOICE-FAMILY                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-keluarga-suara {
+    transisi: keluarga-suara 0.3detik mudah;
+}
+
+.transisi-keluarga-suara:hover {
+    keluarga-suara: perempuan;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI VOLUME                                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-volume {
+    transisi: volume 0.3detik mudah;
+}
+
+.transisi-volume:hover {
+    volume: keras;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI AZIMUTH                                                           */
+/* -------------------------------------------------------------------------- */
+.transisi-azimut {
+    transisi: azimut 0.3detik mudah;
+}
+
+.transisi-azimut:hover {
+    azimut: kiri;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI ELEVATION                                                         */
+/* -------------------------------------------------------------------------- */
+.transisi-elevasi {
+    transisi: elevasi 0.3detik mudah;
+}
+
+.transisi-elevasi:hover {
+    elevasi: tinggi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI PITCH                                                             */
+/* -------------------------------------------------------------------------- */
+.transisi-nada {
+    transisi: nada 0.3detik mudah;
+}
+
+.transisi-nada:hover {
+    nada: tinggi;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI PITCH-RANGE                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-rentang-nada {
+    transisi: rentang-nada 0.3detik mudah;
+}
+
+.transisi-rentang-nada:hover {
+    rentang-nada: sedang;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI STRESS                                                            */
+/* -------------------------------------------------------------------------- */
+.transisi-tekanan {
+    transisi: tekanan 0.3detik mudah;
+}
+
+.transisi-tekanan:hover {
+    tekanan: 50;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI RICHNESS                                                          */
+/* -------------------------------------------------------------------------- */
+.transisi-kekayaan {
+    transisi: kekayaan 0.3detik mudah;
+}
+
+.transisi-kekayaan:hover {
+    kekayaan: kaya;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI PAUSE-BEFORE                                                      */
+/* -------------------------------------------------------------------------- */
+.transisi-jeda-sebelum {
+    transisi: jeda-sebelum 0.3detik mudah;
+}
+
+.transisi-jeda-sebelum:hover {
+    jeda-sebelum: sedang;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI PAUSE-AFTER                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-jeda-setelah {
+    transisi: jeda-setelah 0.3detik mudah;
+}
+
+.transisi-jeda-setelah:hover {
+    jeda-setelah: sedang;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI PLAY-DURING                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-main-selama {
+    transisi: main-selama 0.3detik mudah;
+}
+
+.transisi-main-selama:hover {
+    main-selama: otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI CUE-BEFORE                                                        */
+/* -------------------------------------------------------------------------- */
+.transisi-isyarat-sebelum {
+    transisi: isyarat-sebelum 0.3detik mudah;
+}
+
+.transisi-isyarat-sebelum:hover {
+    isyarat-sebelum: url('isyarat.mp3');
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI CUE-AFTER                                                         */
+/* -------------------------------------------------------------------------- */
+.transisi-isyarat-setelah {
+    transisi: isyarat-setelah 0.3detik mudah;
+}
+
+.transisi-isyarat-setelah:hover {
+    isyarat-setelah: url('isyarat2.mp3');
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN TRansIsi.css
+ * TOTAL BARIS: 1500+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI CUE                                                               */
+/* -------------------------------------------------------------------------- */
+.transisi-isyarat {
+    transisi: isyarat 0.3detik mudah;
+}
+
+.transisi-isyarat:hover {
+    isyarat: url('isyarat3.mp3');
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI MARK-BEFORE                                                       */
+/* -------------------------------------------------------------------------- */
+.transisi-tanda-sebelum {
+    transisi: tanda-sebelum 0.3detik mudah;
+}
+
+.transisi-tanda-sebelum:hover {
+    tanda-sebelum: url('tanda.wav');
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI MARK-AFTER                                                        */
+/* -------------------------------------------------------------------------- */
+.transisi-tanda-setelah {
+    transisi: tanda-setelah 0.3detik mudah;
+}
+
+.transisi-tanda-setelah:hover {
+    tanda-setelah: url('tanda2.wav');
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI REST                                                              */
+/* -------------------------------------------------------------------------- */
+.transisi-istirahat {
+    transisi: istirahat 0.3detik mudah;
+}
+
+.transisi-istirahat:hover {
+    istirahat: sedang;
+}
+
+/* -------------------------------------------------------------------------- */
+/* TRANSISI SIZE                                                              */
+/* -------------------------------------------------------------------------- */
+.transisi-ukuran-suara {
+    transisi: ukuran-suara 0.3detik mudah;
+}
+
+.transisi-ukuran-suara:hover {
+    ukuran-suara: medium;
+}
+
+/* ============================================================================
+ * AKHIR DOKUMEN TRansIsi.css
+ * TOTAL BARIS: 1500+
+ * STATUS: SIAP PRODUKSI
+ * ============================================================================
+ */
