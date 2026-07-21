@@ -19,28 +19,6 @@ venv/
 .env.local
 .env.*
 
-# Build directories
-dist/
-build/
-target/
-.gradle/
-
-# Python specific
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-.Python
-*.so
-.Python
-*.egg-info/
-.eggs/
-.mypy_cache/
-.pytest_cache/
-.coverage
-coverage/
-htmlcov/
-
 # Logs and temp files
 *.log
 *.tmp
@@ -50,14 +28,20 @@ htmlcov/
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
 
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Compression files
+# Distribution / packaging
+dist/
+build/
+*.tar.gz
 *.zip
 *.gz
 *.tar
@@ -76,8 +60,4 @@ Thumbs.db
 *.Z
 *.lz
 *.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
 ```
