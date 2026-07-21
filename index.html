@@ -1074,9 +1074,9 @@
                     <span>ALLUNIVERS.DIGITAL</span>
                 </a>
                 <ul class="nav-menu">
-                    <!-- Menu I - IDENTIFIER (IFRAME) -->
+                    <!-- Menu Market Icon -->
                     <li class="nav-item">
-                        <a href="#iframe-section" class="nav-link" data-ihsfb="identifier">Identifier <i class="fas fa-chevron-down"></i></a>
+                        <a href="#market-icon" class="nav-link" data-ihsfb="identifier">Market Icon <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="id-01"><i class="fas fa-id-card"></i> ID Card Digital</a>
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="id-02"><i class="fas fa-barcode"></i> Barcode System</a>
@@ -1086,9 +1086,9 @@
                         </div>
                     </li>
                     
-                    <!-- Menu H - HEADER -->
+                    <!-- Menu Desain -->
                     <li class="nav-item">
-                        <a href="#header-section" class="nav-link" data-ihsfb="header">Header <i class="fas fa-chevron-down"></i></a>
+                        <a href="#desain" class="nav-link" data-ihsfb="header">Desain <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-01"><i class="fas fa-font"></i> Typography System</a>
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-02"><i class="fas fa-palette"></i> Color Palette</a>
@@ -1098,9 +1098,9 @@
                         </div>
                     </li>
                     
-                    <!-- Menu S - SATU SECTION -->
+                    <!-- Menu Studio Icon -->
                     <li class="nav-item">
-                        <a href="#section-main" class="nav-link" data-ihsfb="section">Section <i class="fas fa-chevron-down"></i></a>
+                        <a href="#studio-icon" class="nav-link" data-ihsfb="section">Studio Icon <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-01"><i class="fas fa-columns"></i> Grid System</a>
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-02"><i class="fas fa-box"></i> Component Library</a>
@@ -1110,9 +1110,9 @@
                         </div>
                     </li>
                     
-                    <!-- Menu F - FOOTER -->
+                    <!-- Menu Desain Studio -->
                     <li class="nav-item">
-                        <a href="#footer-section" class="nav-link" data-ihsfb="footer">Footer <i class="fas fa-chevron-down"></i></a>
+                        <a href="#desain-studio" class="nav-link" data-ihsfb="footer">Desain Studio <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-01"><i class="fas fa-link"></i> Link Manager</a>
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-02"><i class="fas fa-copyright"></i> Copyright System</a>
@@ -1122,9 +1122,9 @@
                         </div>
                     </li>
                     
-                    <!-- Menu B - BODY -->
+                    <!-- Menu .digital -->
                     <li class="nav-item">
-                        <a href="#body-main" class="nav-link" data-ihsfb="body">Body <i class="fas fa-chevron-down"></i></a>
+                        <a href="#digital" class="nav-link" data-ihsfb="body">.digital <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-01"><i class="fas fa-file-alt"></i> Content Editor</a>
                             <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-02"><i class="fas fa-database"></i> Database Manager</a>
@@ -1417,6 +1417,219 @@
             document.getElementById('searchInput').addEventListener('input', function(e) {
                 searchFeatures(e.target.value);
             });
+
+            // Event listener untuk dropdown menu IHSFB
+            document.querySelectorAll('.dropdown-item[data-action="load-content"]').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    loadContentBySection(sectionId);
+                });
+            });
+        }
+
+        function loadContentBySection(sectionId) {
+            // Sistem IHSFB: Identifier, Header, Section, Footer, Body
+            // Ditambah sistem UIREBER, alfabet, .digital, .iconer
+            
+            let contentTitle = '';
+            let contentIcon = '';
+            let contentDesc = '';
+            let category = '';
+            
+            // Mapping section IDs ke konten berdasarkan sistem IHSFB + UIREBER
+            if (sectionId.startsWith('id-')) {
+                // IDENTIFIER (I) - Market Icon
+                const idMap = {
+                    'id-01': { title: 'ID Card Digital', icon: 'fa-id-card', desc: 'Sistem pembuatan dan verifikasi ID Card digital dengan teknologi blockchain.', cat: 'identifier' },
+                    'id-02': { title: 'Barcode System', icon: 'fa-barcode', desc: 'Generator dan scanner barcode untuk kebutuhan inventory dan retail.', cat: 'identifier' },
+                    'id-03': { title: 'QR Code Generator', icon: 'fa-qrcode', desc: 'Pembuatan QR Code custom dengan branding dan analytics tracking.', cat: 'identifier' },
+                    'id-04': { title: 'Passport Verification', icon: 'fa-passport', desc: 'Sistem verifikasi paspor digital dengan OCR dan facial recognition.', cat: 'identifier' },
+                    'id-05': { title: 'Identity Validator', icon: 'fa-user-check', desc: 'Validasi identitas multi-faktor untuk keamanan akun digital.', cat: 'identifier' }
+                };
+                if (idMap[sectionId]) {
+                    contentTitle = idMap[sectionId].title;
+                    contentIcon = idMap[sectionId].icon;
+                    contentDesc = idMap[sectionId].desc;
+                    category = idMap[sectionId].cat;
+                }
+            } else if (sectionId.startsWith('hd-')) {
+                // HEADER (H) - Desain
+                const hdMap = {
+                    'hd-01': { title: 'Typography System', icon: 'fa-font', desc: 'Sistem tipografi responsif dengan variasi font dan hierarchy.', cat: 'desain' },
+                    'hd-02': { title: 'Color Palette', icon: 'fa-palette', desc: 'Generator palet warna dengan harmoni dan accessibility check.', cat: 'desain' },
+                    'hd-03': { title: 'Layout Builder', icon: 'fa-layer-group', desc: 'Drag-and-drop layout builder untuk berbagai device screen.', cat: 'desain' },
+                    'hd-04': { title: 'Responsive Design', icon: 'fa-mobile-alt', desc: 'Preview responsive design untuk mobile, tablet, dan desktop.', cat: 'desain' },
+                    'hd-05': { title: 'Theme Customizer', icon: 'fa-magic', desc: 'Customizer tema dengan live preview dan export CSS variables.', cat: 'desain' }
+                };
+                if (hdMap[sectionId]) {
+                    contentTitle = hdMap[sectionId].title;
+                    contentIcon = hdMap[sectionId].icon;
+                    contentDesc = hdMap[sectionId].desc;
+                    category = hdMap[sectionId].cat;
+                }
+            } else if (sectionId.startsWith('sc-')) {
+                // SECTION (S) - Studio Icon
+                const scMap = {
+                    'sc-01': { title: 'Grid System', icon: 'fa-columns', desc: 'Sistem grid 12 kolom dengan breakpoint customizable.', cat: 'studio-icon' },
+                    'sc-02': { title: 'Component Library', icon: 'fa-box', desc: 'Kumpulan komponen UI siap pakai dengan dokumentasi lengkap.', cat: 'studio-icon' },
+                    'sc-03': { title: 'Media Gallery', icon: 'fa-images', desc: 'Gallery manager untuk images, video, dan interactive media.', cat: 'studio-icon' },
+                    'sc-04': { title: 'Data Visualization', icon: 'fa-chart-bar', desc: 'Chart dan graph library untuk dashboard dan reporting.', cat: 'studio-icon' },
+                    'sc-05': { title: 'Plugin Manager', icon: 'fa-plug', desc: 'Manajer plugin untuk extend functionality website Anda.', cat: 'studio-icon' }
+                };
+                if (scMap[sectionId]) {
+                    contentTitle = scMap[sectionId].title;
+                    contentIcon = scMap[sectionId].icon;
+                    contentDesc = scMap[sectionId].desc;
+                    category = scMap[sectionId].cat;
+                }
+            } else if (sectionId.startsWith('ft-')) {
+                // FOOTER (F) - Desain Studio
+                const ftMap = {
+                    'ft-01': { title: 'Link Manager', icon: 'fa-link', desc: 'Manajemen link footer dengan kategori dan analytics.', cat: 'desain-studio' },
+                    'ft-02': { title: 'Copyright System', icon: 'fa-copyright', desc: 'Sistem copyright otomatis dengan dynamic year update.', cat: 'desain-studio' },
+                    'ft-03': { title: 'Social Integration', icon: 'fa-share-alt', desc: 'Integrasi media sosial dengan auto-sync dan scheduling.', cat: 'desain-studio' },
+                    'ft-04': { title: 'Sitemap Builder', icon: 'fa-sitemap', desc: 'Generator sitemap XML dan HTML untuk SEO optimization.', cat: 'desain-studio' },
+                    'ft-05': { title: 'Feed Generator', icon: 'fa-rss', desc: 'RSS feed generator dengan custom template dan scheduling.', cat: 'desain-studio' }
+                };
+                if (ftMap[sectionId]) {
+                    contentTitle = ftMap[sectionId].title;
+                    contentIcon = ftMap[sectionId].icon;
+                    contentDesc = ftMap[sectionId].desc;
+                    category = ftMap[sectionId].cat;
+                }
+            } else if (sectionId.startsWith('bd-')) {
+                // BODY (B) - .digital
+                const bdMap = {
+                    'bd-01': { title: 'Content Editor', icon: 'fa-file-alt', desc: 'WYSIWYG editor dengan collaboration features dan version control.', cat: 'digital' },
+                    'bd-02': { title: 'Database Manager', icon: 'fa-database', desc: 'GUI database manager untuk CRUD operations dan backup.', cat: 'digital' },
+                    'bd-03': { title: 'Settings Panel', icon: 'fa-cog', desc: 'Panel pengaturan global dengan categorized settings.', cat: 'digital' },
+                    'bd-04': { title: 'Security Module', icon: 'fa-shield-alt', desc: 'Modul keamanan dengan firewall, encryption, dan audit log.', cat: 'digital' },
+                    'bd-05': { title: 'Performance Optimizer', icon: 'fa-rocket', desc: 'Optimizer performa dengan caching, minification, dan CDN.', cat: 'digital' }
+                };
+                if (bdMap[sectionId]) {
+                    contentTitle = bdMap[sectionId].title;
+                    contentIcon = bdMap[sectionId].icon;
+                    contentDesc = bdMap[sectionId].desc;
+                    category = bdMap[sectionId].cat;
+                }
+            }
+
+            if (contentTitle) {
+                displaySectionContent(contentTitle, contentIcon, contentDesc, category, sectionId);
+            }
+        }
+
+        function displaySectionContent(title, icon, description, category, sectionId) {
+            // Scroll ke main content section
+            const mainContent = document.querySelector('.main-content') || document.getElementById('features-section');
+            if (mainContent) {
+                mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Update atau buat section khusus untuk menampilkan konten yang dipilih
+            let contentSection = document.getElementById('dynamic-content-section');
+            if (!contentSection) {
+                contentSection = document.createElement('section');
+                contentSection.id = 'dynamic-content-section';
+                contentSection.className = 'section-main';
+                contentSection.style.cssText = 'padding: 4rem 1rem; background: var(--bg-alt); margin-top: 2rem;';
+                
+                const container = document.createElement('div');
+                container.className = 'container';
+                container.style.cssText = 'max-width: 1400px; margin: 0 auto; padding: 0 1rem;';
+                contentSection.appendChild(container);
+                
+                // Insert setelah hero section
+                const heroSection = document.querySelector('.hero-section');
+                if (heroSection && heroSection.nextSibling) {
+                    heroSection.parentNode.insertBefore(contentSection, heroSection.nextSibling);
+                } else {
+                    document.body.insertBefore(contentSection, document.querySelector('.main-content') || document.body.firstChild);
+                }
+                
+                container = contentSection.querySelector('.container');
+            }
+
+            const container = contentSection.querySelector('.container');
+            container.innerHTML = `
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <div style="display: inline-block; padding: 1.5rem; background: var(--primary-gradient); border-radius: 50%; margin-bottom: 1rem; box-shadow: var(--card-shadow);">
+                        <i class="fas ${icon}" style="font-size: 3rem; color: white;"></i>
+                    </div>
+                    <h2 style="font-size: 2.5rem; color: var(--primary-dark); margin-bottom: 1rem; font-weight: 800;">${title}</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-light); max-width: 800px; margin: 0 auto;">${description}</p>
+                    <div style="margin-top: 1.5rem;">
+                        <span style="display: inline-block; padding: 0.5rem 1.2rem; background: var(--primary); color: white; border-radius: 50px; font-size: 0.9rem; font-weight: 600;">
+                            <i class="fas fa-tag"></i> ${category.toUpperCase()}
+                        </span>
+                        <span style="display: inline-block; padding: 0.5rem 1.2rem; background: var(--bg); color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; font-size: 0.9rem; font-weight: 600; margin-left: 0.5rem;">
+                            <i class="fas fa-code"></i> ${sectionId.toUpperCase()}
+                        </span>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--card-shadow); border: 1px solid var(--border);">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-star"></i> Fitur Utama</h3>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border);"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> Integrasi sistem UIREBER</li>
+                            <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border);"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> Support format .digital dan .iconer</li>
+                            <li style="padding: 0.8rem 0; border-bottom: 1px solid var(--border);"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> Responsive pada semua device</li>
+                            <li style="padding: 0.8rem 0;"><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> Dokumentasi lengkap tersedia</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--card-shadow); border: 1px solid var(--border);">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-cube"></i> Spesifikasi Teknis</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="padding: 1rem; background: var(--bg-alt); border-radius: 8px;">
+                                <div style="font-size: 0.85rem; color: var(--text-light);">Framework</div>
+                                <div style="font-weight: 700; color: var(--primary-dark);">IHSFB v2.0</div>
+                            </div>
+                            <div style="padding: 1rem; background: var(--bg-alt); border-radius: 8px;">
+                                <div style="font-size: 0.85rem; color: var(--text-light);">Compatibility</div>
+                                <div style="font-weight: 700; color: var(--primary-dark);">All Browser</div>
+                            </div>
+                            <div style="padding: 1rem; background: var(--bg-alt); border-radius: 8px;">
+                                <div style="font-size: 0.85rem; color: var(--text-light);">License</div>
+                                <div style="font-weight: 700; color: var(--primary-dark);">MIT Open</div>
+                            </div>
+                            <div style="padding: 1rem; background: var(--bg-alt); border-radius: 8px;">
+                                <div style="font-size: 0.85rem; color: var(--text-light);">Version</div>
+                                <div style="font-weight: 700; color: var(--primary-dark);">1.0.0</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: var(--card-shadow); border: 1px solid var(--border); grid-column: span 2;">
+                        <h3 style="color: var(--primary-dark); margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-play-circle"></i> Preview & Demo</h3>
+                        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);">
+                            <iframe src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                                    onload="this.contentDocument.body.innerHTML='<div style=\'display:flex;justify-content:center;align-items:center;height:100%;flex-direction:column;text-align:center;padding:2rem;\'><div style=\'font-size:4rem;margin-bottom:1rem;\'><i class=\'fas ${icon}\' style=\'color:var(--primary);\'></i></div><h3 style=\'color:var(--primary-dark);\'>${title}</h3><p style=\'color:var(--text-light);max-width:600px;\'>Demo interaktif akan dimuat disini...</p></div>';"
+                                    title="${title} Demo"></iframe>
+                        </div>
+                        <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button onclick="alert('Memulai demo ${title}...')" style="flex: 1; padding: 1rem 2rem; background: var(--primary-gradient); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-size: 1rem;">
+                                <i class="fas fa-play"></i> Mulai Demo
+                            </button>
+                            <button onclick="alert('Mengunduh dokumentasi ${title}...')" style="flex: 1; padding: 1rem 2rem; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-size: 1rem;">
+                                <i class="fas fa-download"></i> Download Docs
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; text-align: center;">
+                    <button onclick="document.getElementById('dynamic-content-section').remove(); window.scrollTo({top: 0, behavior: 'smooth'});" 
+                            style="padding: 1rem 3rem; background: var(--bg); color: var(--text-light); border: 2px solid var(--border); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; font-size: 1rem;">
+                        <i class="fas fa-arrow-up"></i> Kembali ke Atas
+                    </button>
+                </div>
+            `;
+
+            // Tambahkan animasi
+            contentSection.style.animation = 'fadeInUp 0.6s ease-out';
         }
 
         function openPanel(panelId) {
