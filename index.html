@@ -135,10 +135,12 @@
                 </li>
                 <li class="nav-item"><a href="#pusatdata" class="nav-link"><i class="fas fa-database"></i> Pusat Data <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="alert('Dashboard')"><i class="fas fa-tachometer"></i> Dashboard</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Integrasi')"><i class="fas fa-network-wired"></i> Integrasi</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Layout Gallery')"><i class="fas fa-th-large"></i> Layout Gallery</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Analytics')"><i class="fas fa-chart-line"></i> Analytics</a>
+                        <a href="#" class="dropdown-item" onclick="openPusatDataSection('dashboard'); return false;"><i class="fas fa-tachometer"></i> Dashboard</a>
+                        <a href="#" class="dropdown-item" onclick="openPusatDataSection('integrasi'); return false;"><i class="fas fa-network-wired"></i> Integrasi</a>
+                        <a href="#" class="dropdown-item" onclick="openPusatDataSection('layout-gallery'); return false;"><i class="fas fa-th-large"></i> Layout Gallery</a>
+                        <a href="#" class="dropdown-item" onclick="openPusatDataSection('analytics'); return false;"><i class="fas fa-chart-line"></i> Analytics</a>
+                        <a href="#" class="dropdown-item" onclick="openPusatDataSection('backup'); return false;"><i class="fas fa-hdd"></i> Backup & Restore</a>
+                        <a href="#" class="dropdown-item" onclick="openPusatDataSection('logs'); return false;"><i class="fas fa-file-alt"></i> System Logs</a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="#github" class="nav-link"><i class="fab fa-github"></i> GitHub <i class="fas fa-chevron-down"></i></a>
@@ -684,7 +686,110 @@
 
         <section id="pusatdata" class="section">
             <h2 class="section-title"><i class="fas fa-database"></i> Pusat Data</h2>
-            <div class="grid" id="pusatDataGrid"></div>
+            
+            <!-- Dashboard Section -->
+            <div id="pusatData-dashboard" class="pusat-data-section">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="refreshDashboard()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="tool-btn" onclick="exportDashboard()"><i class="fas fa-download"></i> Export Report</button>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); margin-bottom: 2rem;">
+                    <div class="card" style="background: linear-gradient(135deg, #0066ff, #0047b3); color: white;">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2);"><i class="fas fa-folder"></i></div>
+                        <h3>Total Files</h3>
+                        <p class="stat-number" id="totalFiles">0</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #10b981, #059669); color: white;">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2);"><i class="fas fa-check-circle"></i></div>
+                        <h3>Active Sync</h3>
+                        <p class="stat-number" id="activeSync">0</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white;">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2);"><i class="fas fa-exclamation-triangle"></i></div>
+                        <h3>Warnings</h3>
+                        <p class="stat-number" id="warningCount">0</p>
+                    </div>
+                    <div class="card" style="background: linear-gradient(135deg, #ef4444, #dc2626); color: white;">
+                        <div class="card-icon" style="background: rgba(255,255,255,0.2);"><i class="fas fa-times-circle"></i></div>
+                        <h3>Errors</h3>
+                        <p class="stat-number" id="errorCount">0</p>
+                    </div>
+                </div>
+                <div class="section" style="background: var(--bg); border-radius: 12px;">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-chart-bar"></i> Storage Usage</h3>
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                            <span>Used Space</span>
+                            <span id="storagePercent">0%</span>
+                        </div>
+                        <div style="background: #e2e8f0; height: 20px; border-radius: 10px; overflow: hidden;">
+                            <div id="storageBar" style="width: 0%; background: linear-gradient(90deg, #0066ff, #0047b3); height: 100%; transition: width 0.5s;"></div>
+                        </div>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">Total: 500 GB | Available: <span id="availableSpace">0</span> GB</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Integrasi Section -->
+            <div id="pusatData-integrasi" class="pusat-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="addIntegration()"><i class="fas fa-plus"></i> Add Integration</button>
+                    <button class="tool-btn" onclick="testAllConnections()"><i class="fas fa-plug"></i> Test All</button>
+                </div>
+                <div class="grid" id="integrationGrid"></div>
+            </div>
+            
+            <!-- Layout Gallery Section -->
+            <div id="pusatData-layout-gallery" class="pusat-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="setLayoutView('grid')"><i class="fas fa-th"></i> Grid</button>
+                    <button class="tool-btn" onclick="setLayoutView('list')"><i class="fas fa-list"></i> List</button>
+                    <button class="tool-btn" onclick="uploadLayout()"><i class="fas fa-upload"></i> Upload Layout</button>
+                </div>
+                <div class="grid" id="layoutGalleryGrid"></div>
+            </div>
+            
+            <!-- Analytics Section -->
+            <div id="pusatData-analytics" class="pusat-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="setAnalyticsPeriod('day')"><i class="fas fa-calendar-day"></i> Day</button>
+                    <button class="tool-btn" onclick="setAnalyticsPeriod('week')"><i class="fas fa-calendar-week"></i> Week</button>
+                    <button class="tool-btn" onclick="setAnalyticsPeriod('month')"><i class="fas fa-calendar-alt"></i> Month</button>
+                    <button class="tool-btn" onclick="exportAnalytics()"><i class="fas fa-file-export"></i> Export</button>
+                </div>
+                <div class="section" style="background: var(--bg); border-radius: 12px; margin-bottom: 1.5rem;">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-chart-line"></i> Traffic Overview</h3>
+                    <canvas id="analyticsChart" height="100"></canvas>
+                </div>
+                <div class="grid" id="analyticsMetrics"></div>
+            </div>
+            
+            <!-- Backup & Restore Section -->
+            <div id="pusatData-backup" class="pusat-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="createBackup()"><i class="fas fa-hdd"></i> Create Backup</button>
+                    <button class="tool-btn" onclick="restoreBackup()"><i class="fas fa-undo"></i> Restore</button>
+                    <button class="tool-btn" onclick="scheduleBackup()"><i class="fas fa-clock"></i> Schedule</button>
+                </div>
+                <div class="section" style="background: var(--bg); border-radius: 12px;">
+                    <h3 style="margin-bottom: 1rem; color: var(--primary);"><i class="fas fa-history"></i> Backup History</h3>
+                    <div id="backupHistory"></div>
+                </div>
+            </div>
+            
+            <!-- System Logs Section -->
+            <div id="pusatData-logs" class="pusat-data-section" style="display: none;">
+                <div class="studio-toolbar">
+                    <button class="tool-btn" onclick="filterLogs('all')"><i class="fas fa-filter"></i> All</button>
+                    <button class="tool-btn" onclick="filterLogs('error')"><i class="fas fa-times-circle"></i> Errors</button>
+                    <button class="tool-btn" onclick="filterLogs('warning')"><i class="fas fa-exclamation-triangle"></i> Warnings</button>
+                    <button class="tool-btn" onclick="clearLogs()"><i class="fas fa-trash"></i> Clear Logs</button>
+                    <button class="tool-btn" onclick="downloadLogs()"><i class="fas fa-download"></i> Download</button>
+                </div>
+                <div class="section" style="background: #1e293b; color: #10b981; border-radius: 12px; font-family: monospace; max-height: 500px; overflow-y: auto;" id="systemLogs"></div>
+            </div>
+            
+            <div class="grid" id="pusatDataGrid" style="display: none;"></div>
         </section>
 
         <section id="github" class="section github-section">
@@ -734,7 +839,58 @@
         let cart = [];
         let currentFilter = 'all';
         
-        const pusatDataItems = [{title:'Dashboard',icon:'fa-tachometer'},{title:'Integrasi API',icon:'fa-network-wired'},{title:'Layout Gallery',icon:'fa-th-large'},{title:'Analytics',icon:'fa-chart-line'}];
+        const pusatDataItems = [
+            {title:'Dashboard',icon:'fa-tachometer', section: 'dashboard'},
+            {title:'Integrasi API',icon:'fa-network-wired', section: 'integrasi'},
+            {title:'Layout Gallery',icon:'fa-th-large', section: 'layout-gallery'},
+            {title:'Analytics',icon:'fa-chart-line', section: 'analytics'},
+            {title:'Backup & Restore',icon:'fa-hdd', section: 'backup'},
+            {title:'System Logs',icon:'fa-file-alt', section: 'logs'}
+        ];
+        
+        const integrations = [
+            {name: 'Google Drive', status: 'connected', icon: 'fa-google', lastSync: '5 minutes ago'},
+            {name: 'Dropbox', status: 'connected', icon: 'fa-dropbox', lastSync: '10 minutes ago'},
+            {name: 'OneDrive', status: 'disconnected', icon: 'fa-microsoft', lastSync: '2 days ago'},
+            {name: 'GitHub', status: 'connected', icon: 'fa-github', lastSync: '1 minute ago'},
+            {name: 'AWS S3', status: 'connected', icon: 'fa-aws', lastSync: '15 minutes ago'},
+            {name: 'Firebase', status: 'warning', icon: 'fa-fire-alt', lastSync: '1 hour ago'}
+        ];
+        
+        const layouts = [
+            {name: 'Dashboard Modern', type: 'Dashboard', preview: 'fa-desktop'},
+            {name: 'E-commerce Layout', type: 'E-commerce', preview: 'fa-shopping-cart'},
+            {name: 'Portfolio Grid', type: 'Portfolio', preview: 'fa-images'},
+            {name: 'Blog Classic', type: 'Blog', preview: 'fa-newspaper'},
+            {name: 'Landing Page', type: 'Marketing', preview: 'fa-rocket'},
+            {name: 'Admin Panel', type: 'Admin', preview: 'fa-cog'}
+        ];
+        
+        const analyticsData = {
+            day: [120, 180, 150, 220, 190, 250, 200],
+            week: [800, 950, 1100, 980, 1250, 1400, 1350],
+            month: [3200, 3800, 4100, 3900, 4500, 4800, 4600]
+        };
+        
+        const backupHistory = [
+            {date: '2026-01-15 10:30', size: '2.5 GB', status: 'success'},
+            {date: '2026-01-14 10:30', size: '2.4 GB', status: 'success'},
+            {date: '2026-01-13 10:30', size: '2.3 GB', status: 'success'},
+            {date: '2026-01-12 10:30', size: '2.2 GB', status: 'failed'},
+            {date: '2026-01-11 10:30', size: '2.1 GB', status: 'success'}
+        ];
+        
+        const systemLogsData = [
+            {time: '10:45:32', type: 'info', message: 'System startup completed successfully'},
+            {time: '10:46:15', type: 'success', message: 'Database connection established'},
+            {time: '10:47:00', type: 'warning', message: 'High memory usage detected (85%)'},
+            {time: '10:48:22', type: 'error', message: 'Failed to connect to external API'},
+            {time: '10:49:10', type: 'info', message: 'User authentication successful'},
+            {time: '10:50:05', type: 'success', message: 'Backup process initiated'},
+            {time: '10:51:30', type: 'warning', message: 'Disk space below 20%'},
+            {time: '10:52:45', type: 'info', message: 'Cache cleared successfully'}
+        ];
+        
         const githubRepos = [{name:'allunivers-core',lang:'JavaScript'},{name:'ihbsf-design',lang:'TypeScript'},{name:'icon-api',lang:'Python'}];
 
         // Open Studio Section Function
@@ -1286,7 +1442,11 @@
                 studioGrid.innerHTML = studioTools.map(t => `<div class="card" onclick="openStudioSection('${t.name.toLowerCase().replace(' ', '-')}' )"><div class="card-icon"><i class="fas ${t.icon}"></i></div><h3>${t.name}</h3></div>`).join('');
             }
             renderMarketItems(marketItems);
-            document.getElementById('pusatDataGrid').innerHTML = pusatDataItems.map(p => `<div class="card"><div class="card-icon"><i class="fas ${p.icon}"></i></div><h3>${p.title}</h3></div>`).join('');
+            renderIntegrations();
+            renderLayouts();
+            renderBackupHistory();
+            renderSystemLogs();
+            updateDashboard();
             document.getElementById('githubGrid').innerHTML = githubRepos.map(r => `<div class="repo-card"><div class="repo-name">${r.name}</div><p style="color:#8b949e;font-size:0.9rem;">Language: ${r.lang}</p></div>`).join('');
             animateNumber('totalIcons', 2500);
             animateNumber('totalDesigns', 1800);
@@ -1485,6 +1645,257 @@
                 notification.style.animation = 'slideOut 0.3s ease';
                 setTimeout(() => notification.remove(), 300);
             }, 2000);
+        }
+        
+        // Pusat Data Functions
+        function openPusatDataSection(sectionName) {
+            document.querySelectorAll('.pusat-data-section').forEach(s => s.style.display = 'none');
+            const target = document.getElementById('pusatData-' + sectionName);
+            if (target) {
+                target.style.display = 'block';
+                window.scrollTo({ top: document.getElementById('pusatdata').offsetTop - 100, behavior: 'smooth' });
+            }
+            if (sectionName === 'analytics') {
+                setTimeout(() => renderAnalyticsChart('day'), 100);
+            }
+        }
+        
+        function updateDashboard() {
+            animateNumber('totalFiles', 1250);
+            animateNumber('activeSync', 5);
+            animateNumber('warningCount', 3);
+            animateNumber('errorCount', 1);
+            document.getElementById('storagePercent').textContent = '65%';
+            document.getElementById('storageBar').style.width = '65%';
+            document.getElementById('availableSpace').textContent = '175';
+        }
+        
+        function refreshDashboard() {
+            updateDashboard();
+            showNotification('Dashboard refreshed successfully');
+        }
+        
+        function exportDashboard() {
+            showNotification('Exporting dashboard report...');
+        }
+        
+        function renderIntegrations() {
+            const grid = document.getElementById('integrationGrid');
+            if (!grid) return;
+            grid.innerHTML = integrations.map(int => {
+                const statusColor = int.status === 'connected' ? '#10b981' : (int.status === 'disconnected' ? '#ef4444' : '#f59e0b');
+                const statusText = int.status.charAt(0).toUpperCase() + int.status.slice(1);
+                return `
+                    <div class="card" style="background:white;">
+                        <div class="card-icon"><i class="fab ${int.icon}"></i></div>
+                        <h3>${int.name}</h3>
+                        <p style="color:${statusColor};font-weight:600;margin:0.5rem 0;"><i class="fas fa-circle" style="font-size:0.5rem;"></i> ${statusText}</p>
+                        <p style="color:#64748b;font-size:0.85rem;">Last sync: ${int.lastSync}</p>
+                        <button onclick="testConnection('${int.name}')" class="btn-secondary" style="margin-top:1rem;"><i class="fas fa-plug"></i> Test Connection</button>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function addIntegration() {
+            showNotification('Opening integration wizard...');
+        }
+        
+        function testAllConnections() {
+            showNotification('Testing all connections...');
+        }
+        
+        function testConnection(name) {
+            showNotification(`Testing connection to ${name}...`);
+        }
+        
+        function renderLayouts() {
+            const grid = document.getElementById('layoutGalleryGrid');
+            if (!grid) return;
+            grid.innerHTML = layouts.map(l => `
+                <div class="card" style="background:white;cursor:pointer;" onclick="previewLayout('${l.name}')">
+                    <div class="card-icon"><i class="fas ${l.preview}"></i></div>
+                    <h3>${l.name}</h3>
+                    <p style="color:#64748b;font-size:0.85rem;">${l.type}</p>
+                </div>
+            `).join('');
+        }
+        
+        function setLayoutView(view) {
+            showNotification('Layout view changed to ' + view);
+        }
+        
+        function uploadLayout() {
+            showNotification('Opening file picker...');
+        }
+        
+        function previewLayout(name) {
+            showNotification('Previewing layout: ' + name);
+        }
+        
+        function setAnalyticsPeriod(period) {
+            renderAnalyticsChart(period);
+            document.querySelectorAll('#pusatData-analytics .tool-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        function renderAnalyticsChart(period) {
+            const canvas = document.getElementById('analyticsChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const data = analyticsData[period] || analyticsData.day;
+            
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 100;
+            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            
+            const stepX = canvas.width / (data.length - 1);
+            const maxVal = Math.max(...data);
+            
+            data.forEach((val, i) => {
+                const x = i * stepX;
+                const y = canvas.height - (val / maxVal) * (canvas.height - 20);
+                ctx.lineTo(x, y);
+            });
+            
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(0, 102, 255, 0.2)';
+            ctx.fill();
+            
+            ctx.beginPath();
+            data.forEach((val, i) => {
+                const x = i * stepX;
+                const y = canvas.height - (val / maxVal) * (canvas.height - 20);
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            });
+            ctx.strokeStyle = '#0066ff';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            renderAnalyticsMetrics(period);
+        }
+        
+        function renderAnalyticsMetrics(period) {
+            const grid = document.getElementById('analyticsMetrics');
+            if (!grid) return;
+            const metrics = [
+                {label: 'Total Views', value: period === 'day' ? '1,250' : (period === 'week' ? '8,750' : '35,000'), icon: 'fa-eye'},
+                {label: 'Unique Visitors', value: period === 'day' ? '850' : (period === 'week' ? '5,950' : '23,800'), icon: 'fa-users'},
+                {label: 'Avg. Session', value: '4m 32s', icon: 'fa-clock'},
+                {label: 'Bounce Rate', value: '32%', icon: 'fa-chart-bar'}
+            ];
+            grid.innerHTML = metrics.map(m => `
+                <div class="card" style="background:white;">
+                    <div class="card-icon" style="background:linear-gradient(135deg,#0066ff,#0047b3);"><i class="fas ${m.icon}"></i></div>
+                    <h3>${m.label}</h3>
+                    <p class="stat-number">${m.value}</p>
+                </div>
+            `).join('');
+        }
+        
+        function exportAnalytics() {
+            showNotification('Exporting analytics report...');
+        }
+        
+        function createBackup() {
+            showNotification('Creating backup...');
+            setTimeout(() => showNotification('Backup created successfully!'), 2000);
+        }
+        
+        function restoreBackup() {
+            showNotification('Opening backup selection...');
+        }
+        
+        function scheduleBackup() {
+            showNotification('Opening schedule settings...');
+        }
+        
+        function renderBackupHistory() {
+            const container = document.getElementById('backupHistory');
+            if (!container) return;
+            container.innerHTML = `
+                <table style="width:100%;border-collapse:collapse;">
+                    <thead>
+                        <tr style="background:#f1f5f9;">
+                            <th style="padding:1rem;text-align:left;">Date & Time</th>
+                            <th style="padding:1rem;">Size</th>
+                            <th style="padding:1rem;">Status</th>
+                            <th style="padding:1rem;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${backupHistory.map(b => {
+                            const statusColor = b.status === 'success' ? '#10b981' : '#ef4444';
+                            return `
+                                <tr style="border-bottom:1px solid #e2e8f0;">
+                                    <td style="padding:1rem;">${b.date}</td>
+                                    <td style="padding:1rem;text-align:center;">${b.size}</td>
+                                    <td style="padding:1rem;text-align:center;"><span style="padding:4px 12px;background:${statusColor}20;color:${statusColor};border-radius:20px;font-size:0.85rem;font-weight:600;">${b.status.toUpperCase()}</span></td>
+                                    <td style="padding:1rem;text-align:center;">
+                                        <button onclick="downloadBackup('${b.date}')" style="padding:0.4rem 0.8rem;background:#0066ff;color:white;border:none;border-radius:6px;cursor:pointer;"><i class="fas fa-download"></i></button>
+                                        <button onclick="restoreFromBackup('${b.date}')" style="padding:0.4rem 0.8rem;background:#10b981;color:white;border:none;border-radius:6px;cursor:pointer;margin-left:0.5rem;"><i class="fas fa-undo"></i></button>
+                                    </td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+        
+        function downloadBackup(date) {
+            showNotification('Downloading backup from ' + date);
+        }
+        
+        function restoreFromBackup(date) {
+            showNotification('Restoring from backup: ' + date);
+        }
+        
+        function renderSystemLogs() {
+            const container = document.getElementById('systemLogs');
+            if (!container) return;
+            container.innerHTML = systemLogsData.map(log => {
+                const color = log.type === 'error' ? '#ef4444' : (log.type === 'warning' ? '#f59e0b' : (log.type === 'success' ? '#10b981' : '#3b82f6'));
+                const icon = log.type === 'error' ? 'fa-times-circle' : (log.type === 'warning' ? 'fa-exclamation-triangle' : (log.type === 'success' ? 'fa-check-circle' : 'fa-info-circle'));
+                return `
+                    <div style="padding:0.5rem;border-bottom:1px solid #334155;display:flex;gap:1rem;align-items:flex-start;">
+                        <span style="color:#64748b;font-size:0.85rem;min-width:80px;">${log.time}</span>
+                        <span style="color:${color};"><i class="fas ${icon}"></i></span>
+                        <span style="flex:1;">${log.message}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function filterLogs(type) {
+            const container = document.getElementById('systemLogs');
+            if (!container) return;
+            const filtered = type === 'all' ? systemLogsData : systemLogsData.filter(log => log.type === type);
+            container.innerHTML = filtered.map(log => {
+                const color = log.type === 'error' ? '#ef4444' : (log.type === 'warning' ? '#f59e0b' : (log.type === 'success' ? '#10b981' : '#3b82f6'));
+                const icon = log.type === 'error' ? 'fa-times-circle' : (log.type === 'warning' ? 'fa-exclamation-triangle' : (log.type === 'success' ? 'fa-check-circle' : 'fa-info-circle'));
+                return `
+                    <div style="padding:0.5rem;border-bottom:1px solid #334155;display:flex;gap:1rem;align-items:flex-start;">
+                        <span style="color:#64748b;font-size:0.85rem;min-width:80px;">${log.time}</span>
+                        <span style="color:${color};"><i class="fas ${icon}"></i></span>
+                        <span style="flex:1;">${log.message}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function clearLogs() {
+            document.getElementById('systemLogs').innerHTML = '<div style="padding:2rem;text-align:center;color:#64748b;">No logs available</div>';
+            showNotification('Logs cleared');
+        }
+        
+        function downloadLogs() {
+            showNotification('Downloading system logs...');
         }
 
         function animateNumber(id, target) {
