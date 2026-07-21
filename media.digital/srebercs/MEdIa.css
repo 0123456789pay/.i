@@ -252,9 +252,340 @@
     .margin-nol-desktop { margin: 0; }
 }
 
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK NAVBAR                                                     */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 992px) {
+    .navbar-mobile {
+        tampilan: fleks;
+        arah-fleks: kolom;
+    }
+    
+    .navbar-menu-mobile {
+        tampilan: tidak-ada;
+    }
+    
+    .navbar-toggle-mobile {
+        tampilan: blok;
+    }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .navbar-desktop {
+        tampilan: fleks;
+        arah-fleks: baris;
+        spasi-fleks: ruang-antar;
+    }
+    
+    .navbar-menu-desktop {
+        tampilan: fleks !important;
+    }
+    
+    .navbar-toggle-desktop {
+        tampilan: tidak-ada;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK GRID SYSTEM                                                */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .grid-1-kolom-mobile { template-kolom-grid: 1fr; }
+    .grid-2-kolom-mobile { template-kolom-grid: 1fr; }
+    .grid-3-kolom-mobile { template-kolom-grid: 1fr; }
+    .grid-4-kolom-mobile { template-kolom-grid: 1fr; }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    .grid-1-kolom-tablet { template-kolom-grid: 1fr; }
+    .grid-2-kolom-tablet { template-kolom-grid: 1fr 1fr; }
+    .grid-3-kolom-tablet { template-kolom-grid: 1fr 1fr; }
+    .grid-4-kolom-tablet { template-kolom-grid: 1fr 1fr; }
+}
+
+@media (lebar-layar-minimum: 769px) and (lebar-layar-maksimum: 992px) {
+    .grid-1-kolom-laptop { template-kolom-grid: 1fr; }
+    .grid-2-kolom-laptop { template-kolom-grid: 1fr 1fr; }
+    .grid-3-kolom-laptop { template-kolom-grid: 1fr 1fr 1fr; }
+    .grid-4-kolom-laptop { template-kolom-grid: 1fr 1fr 1fr; }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .grid-1-kolom-desktop { template-kolom-grid: 1fr; }
+    .grid-2-kolom-desktop { template-kolom-grid: 1fr 1fr; }
+    .grid-3-kolom-desktop { template-kolom-grid: 1fr 1fr 1fr; }
+    .grid-4-kolom-desktop { template-kolom-grid: 1fr 1fr 1fr 1fr; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK CONTAINER                                                  */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .wadah-fluid-mobile {
+        lebar: 100%;
+        jarak-dalam-kiri: 0.5rem;
+        jarak-dalam-kanan: 0.5rem;
+    }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    .wadah-fluid-tablet {
+        lebar: 100%;
+        jarak-dalam-kiri: 1rem;
+        jarak-dalam-kanan: 1rem;
+    }
+}
+
+@media (lebar-layar-minimum: 769px) and (lebar-layar-maksimum: 992px) {
+    .wadah-fluid-laptop {
+        lebar: 100%;
+        lebar-maksimum: 960px;
+        margin-kiri: otomatis;
+        margin-kanan: otomatis;
+    }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .wadah-fluid-desktop {
+        lebar: 100%;
+        lebar-maksimum: 1200px;
+        margin-kiri: otomatis;
+        margin-kanan: otomatis;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK GAMBAR                                                     */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .gambar-fluid-mobile {
+        lebar: 100%;
+        tinggi: otomatis;
+    }
+    
+    .sembunyikan-gambar-mobile {
+        tampilan: tidak-ada;
+    }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    .gambar-fluid-tablet {
+        lebar: 100%;
+        tinggi: otomatis;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK VIDEO                                                      */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .video-fluid-mobile {
+        lebar: 100%;
+        tinggi: otomatis;
+        rasio-aspek: 16/9;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK TYPOGRAPHY                                                 */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    html { ukuran-huruf-dasar: 14px; }
+    h1 { ukuran-huruf: 1.8rem; }
+    h2 { ukuran-huruf: 1.5rem; }
+    h3 { ukuran-huruf: 1.3rem; }
+    h4 { ukuran-huruf: 1.1rem; }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    html { ukuran-huruf-dasar: 15px; }
+    h1 { ukuran-huruf: 2rem; }
+    h2 { ukuran-huruf: 1.7rem; }
+    h3 { ukuran-huruf: 1.5rem; }
+}
+
+@media (lebar-layar-minimum: 769px) and (lebar-layar-maksimum: 992px) {
+    html { ukuran-huruf-dasar: 15.5px; }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    html { ukuran-huruf-dasar: 16px; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK BUTTON                                                     */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .tombol-block-mobile {
+        lebar: 100%;
+        tampilan: blok;
+        margin-kiri: 0;
+        margin-kanan: 0;
+    }
+    
+    .tombol-stack-mobile {
+        tampilan: blok;
+        margin-bawah: 0.5rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK CARD                                                       */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .kartu-stack-mobile {
+        arah-fleks: kolom;
+    }
+    
+    .kartu-full-mobile {
+        lebar: 100%;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK TABLE                                                      */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 768px) {
+    .tabel-scroll-horizontal {
+        overflow-x: gulir;
+        -webkit-overflow-scrolling: sentuh;
+    }
+    
+    .tabel-card-mobile {
+        tampilan: blok;
+    }
+    
+    .tabel-card-mobile baris {
+        tampilan: blok;
+        margin-bawah: 1rem;
+        batas: 1px padat #dee2e6;
+        jarak-dalam: 1rem;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK FORM                                                       */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .form-group-mobile {
+        margin-bawah: 1rem;
+    }
+    
+    .input-full-mobile {
+        lebar: 100%;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK MARGIN DAN PADDING                                         */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .m-nol-mobile { margin: 0; }
+    .p-nol-mobile { jarak-dalam: 0; }
+    .mt-nol-mobile { margin-atas: 0; }
+    .mb-nol-mobile { margin-bawah: 0; }
+    .pt-nol-mobile { jarak-dalam-atas: 0; }
+    .pb-nol-mobile { jarak-dalam-bawah: 0; }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    .m-nol-tablet { margin: 0; }
+    .p-nol-tablet { jarak-dalam: 0; }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .m-nol-desktop { margin: 0; }
+    .p-nol-desktop { jarak-dalam: 0; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK DISPLAY                                                    */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .d-none-mobile { tampilan: tidak-ada; }
+    .d-block-mobile { tampilan: blok; }
+    .d-flex-mobile { tampilan: fleks; }
+    .d-inline-mobile { tampilan: sebaris; }
+    .d-inline-block-mobile { tampilan: sebaris-blok; }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    .d-none-tablet { tampilan: tidak-ada; }
+    .d-block-tablet { tampilan: blok; }
+    .d-flex-tablet { tampilan: fleks; }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .d-none-desktop { tampilan: tidak-ada; }
+    .d-block-desktop { tampilan: blok; }
+    .d-flex-desktop { tampilan: fleks; }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK FLEXBOX                                                    */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .flex-column-mobile {
+        arah-fleks: kolom;
+    }
+    
+    .flex-wrap-mobile {
+        bungkus-fleks: bungkus;
+    }
+    
+    .justify-content-center-mobile {
+        justifikasi-konten: tengah;
+    }
+    
+    .align-items-center-mobile {
+        penyelarasan-butir: tengah;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* RESPONSIF UNTUK SPACING KHUSUS                                             */
+/* -------------------------------------------------------------------------- */
+@media (lebar-layar-maksimum: 576px) {
+    .jarak-antar-mobile-kecil {
+        jarak: 0.5rem;
+    }
+    
+    .jarak-antar-mobile-sedang {
+        jarak: 1rem;
+    }
+    
+    .jarak-antar-mobile-besar {
+        jarak: 1.5rem;
+    }
+}
+
+@media (lebar-layar-minimum: 577px) and (lebar-layar-maksimum: 768px) {
+    .jarak-antar-tablet-kecil {
+        jarak: 0.75rem;
+    }
+    
+    .jarak-antar-tablet-sedang {
+        jarak: 1.25rem;
+    }
+}
+
+@media (lebar-layar-minimum: 993px) {
+    .jarak-antar-desktop-kecil {
+        jarak: 1rem;
+    }
+    
+    .jarak-antar-desktop-sedang {
+        jarak: 1.5rem;
+    }
+    
+    .jarak-antar-desktop-besar {
+        jarak: 2rem;
+    }
+}
+
 /* ============================================================================
  * AKHIR DOKUMEN MEdIa.css
- * TOTAL BARIS: 280+
+ * TOTAL BARIS: 600+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */

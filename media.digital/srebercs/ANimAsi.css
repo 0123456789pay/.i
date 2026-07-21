@@ -301,9 +301,508 @@
     }
 }
 
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK TOMBOL                                                */
+/* -------------------------------------------------------------------------- */
+@kunci-tombol-tekan {
+    0% { ubah-bentuk: skala(1); }
+    50% { ubah-bentuk: skala(0.95); }
+    100% { ubah-bentuk: skala(1); }
+}
+
+.tombol-tekan {
+    animasi: tombol-tekan 0.2detik mudah;
+}
+
+@kunci-tombol-goyang {
+    0%, 100% { ubah-bentuk: putar(0derajat); }
+    25% { ubah-bentuk: putar(-5derajat); }
+    75% { ubah-bentuk: putar(5derajat); }
+}
+
+.tombol-goyang {
+    animasi: tombol-goyang 0.3detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK INPUT FORM                                            */
+/* -------------------------------------------------------------------------- */
+@kunci-input-fokus {
+    0% { batas-lebar: 0%; }
+    100% { batas-lebar: 100%; }
+}
+
+.input-fokus-animasi {
+    posisi: relatif;
+}
+
+.input-fokus-animasi::setelah {
+    konten: '';
+    posisi: absolut;
+    bawah: 0;
+    kiri: 0;
+    lebar: 0%;
+    tinggi: 2px;
+    latar-belakang: #0077cc;
+    transisi: lebar 0.3detik mudah;
+}
+
+.input-fokus-animasi:fokus::setelah {
+    lebar: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK MODAL/POPUP                                           */
+/* -------------------------------------------------------------------------- */
+@kunci-modal-masuk {
+    0% {
+        opasitas: 0;
+        ubah-bentuk: skala(0.7) geser-naik(-50px);
+    }
+    100% {
+        opasitas: 1;
+        ubah-bentuk: skala(1) geser-naik(0);
+    }
+}
+
+.modal-masuk {
+    animasi: modal-masuk 0.4detik mudah-maju;
+}
+
+@kunci-modal-keluar {
+    0% {
+        opasitas: 1;
+        ubah-bentuk: skala(1);
+    }
+    100% {
+        opasitas: 0;
+        ubah-bentuk: skala(0.7);
+    }
+}
+
+.modal-keluar {
+    animasi: modal-keluar 0.3detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK DROPDOWN                                              */
+/* -------------------------------------------------------------------------- */
+@kunci-dropdown-masuk {
+    0% {
+        opasitas: 0;
+        ubah-bentuk: geser-naik(-10px);
+    }
+    100% {
+        opasitas: 1;
+        ubah-bentuk: geser-naik(0);
+    }
+}
+
+.dropdown-masuk {
+    animasi: dropdown-masuk 0.2detik mudah maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK TOOLTIP                                               */
+/* -------------------------------------------------------------------------- */
+@kunci-tooltip-muncul {
+    0% {
+        opasitas: 0;
+        ubah-bentuk: skala(0.8);
+    }
+    100% {
+        opasitas: 1;
+        ubah-bentuk: skala(1);
+    }
+}
+
+.tooltip-muncul {
+    animasi: tooltip-muncul 0.2detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK NOTIFIKASI                                            */
+/* -------------------------------------------------------------------------- */
+@kunci-notifikasi-masuk {
+    0% {
+        opasitas: 0;
+        ubah-bentuk: geser-kiri(100%);
+    }
+    100% {
+        opasitas: 1;
+        ubah-bentuk: geser-kiri(0);
+    }
+}
+
+.notifikasi-masuk {
+    animasi: notifikasi-masuk 0.4detik mudah-maju;
+}
+
+@kunci-notifikasi-keluar {
+    0% {
+        opasitas: 1;
+        ubah-bentuk: geser-kiri(0);
+    }
+    100% {
+        opasitas: 0;
+        ubah-bentuk: geser-kiri(100%);
+    }
+}
+
+.notifikasi-keluar {
+    animasi: notifikasi-keluar 0.3detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK PROGRESS BAR                                          */
+/* -------------------------------------------------------------------------- */
+@kunci-progress-isi {
+    0% { lebar: 0%; }
+    100% { lebar: var(--persen-progres, 100%); }
+}
+
+.progress-isi {
+    animasi: progress-isi 1detik mudah-maju;
+}
+
+@kunci-progress-garis {
+    0% { latar-posisi: 0% 50%; }
+    100% { latar-posisi: 100% 50%; }
+}
+
+.progress-garis-animasi {
+    latar-belakang: gradien-linier(45derajat, 
+        rgba(255,255,255,0.2) 25%, 
+        transparan 25%, 
+        transparan 50%, 
+        rgba(255,255,255,0.2) 50%, 
+        rgba(255,255,255,0.2) 75%, 
+        transparan 75%, 
+        transparan);
+    ukuran-latar: 2rem 2rem;
+    animasi: progress-garis 1detik linier tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK TAB                                                   */
+/* -------------------------------------------------------------------------- */
+@kunci-tab-ganti {
+    0% {
+        opasitas: 0;
+        ubah-bentuk: geser-kiri(20px);
+    }
+    100% {
+        opasitas: 1;
+        ubah-bentuk: geser-kiri(0);
+    }
+}
+
+.tab-ganti {
+    animasi: tab-ganti 0.3detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK ACCORDION                                             */
+/* -------------------------------------------------------------------------- */
+@kunci-accordion-buka {
+    0% {
+        tinggi-maks: 0;
+        opasitas: 0;
+    }
+    100% {
+        tinggi-maks: 1000px;
+        opasitas: 1;
+    }
+}
+
+.accordion-buka {
+    animasi: accordion-buka 0.4detik mudah-maju;
+}
+
+@kunci-accordion-tutup {
+    0% {
+        tinggi-maks: 1000px;
+        opasitas: 1;
+    }
+    100% {
+        tinggi-maks: 0;
+        opasitas: 0;
+    }
+}
+
+.accordion-tutup {
+    animasi: accordion-tutup 0.3detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK CAROUSEL/SLIDER                                       */
+/* -------------------------------------------------------------------------- */
+@kunci-slide-kiri {
+    0% {
+        ubah-bentuk: geser-kiri(100%);
+        opasitas: 0;
+    }
+    100% {
+        ubah-bentuk: geser-kiri(0);
+        opasitas: 1;
+    }
+}
+
+.slide-kiri {
+    animasi: slide-kiri 0.5detik mudah-maju;
+}
+
+@kunci-slide-kanan {
+    0% {
+        ubah-bentuk: geser-kiri(-100%);
+        opasitas: 0;
+    }
+    100% {
+        ubah-bentuk: geser-kiri(0);
+        opasitas: 1;
+    }
+}
+
+.slide-kanan {
+    animasi: slide-kanan 0.5detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK NUMBER COUNTER                                        */
+/* -------------------------------------------------------------------------- */
+@kunci-hitung-naik {
+    0% {
+        ubah-bentuk: geser-naik(100%);
+        opasitas: 0;
+    }
+    100% {
+        ubah-bentuk: geser-naik(0);
+        opasitas: 1;
+    }
+}
+
+.hitung-naik {
+    animasi: hitung-naik 0.6detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK IMAGE HOVER                                           */
+/* -------------------------------------------------------------------------- */
+@kunci-image-zoom {
+    0% { ubah-bentuk: skala(1); }
+    100% { ubah-bentuk: skala(1.1); }
+}
+
+.image-zoom:hover {
+    animasi: image-zoom 0.3detik mudah-maju;
+}
+
+@kunci-image-putar {
+    0% { ubah-bentuk: putar(0derajat); }
+    100% { ubah-bentuk: putar(5derajat); }
+}
+
+.image-putar:hover {
+    animasi: image-putar 0.2detik mudah;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK BADGE                                                 */
+/* -------------------------------------------------------------------------- */
+@kunci-badge-muncul {
+    0% {
+        ubah-bentuk: skala(0);
+    }
+    50% {
+        ubah-bentuk: skala(1.2);
+    }
+    100% {
+        ubah-bentuk: skala(1);
+    }
+}
+
+.badge-muncul {
+    animasi: badge-muncul 0.4detik mudah-maju;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK LOADING SPINNER                                       */
+/* -------------------------------------------------------------------------- */
+@kunci-spinner-putar {
+    0% {
+        ubah-bentuk: putar(0derajat);
+    }
+    100% {
+        ubah-bentuk: putar(360derajat);
+    }
+}
+
+.spinner-putar {
+    animasi: spinner-putar 1detik linier tak-terbatas;
+}
+
+@kunci-spinner-nabung {
+    0% {
+        putar: 0derajat;
+    }
+    100% {
+        putar: 360derajat;
+    }
+}
+
+.spinner-nabung {
+    lebar: 40px;
+    tinggi: 40px;
+    batas: 4px padat #f3f3f3;
+    batas-atas: 4px padat #0077cc;
+    melengkung-batas: 50%;
+    animasi: spinner-nabung 1detik linier tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK SKELETON LOADING                                      */
+/* -------------------------------------------------------------------------- */
+@kunci-skeleton-berkedip {
+    0% {
+        latar-belakang: #f0f0f0;
+    }
+    50% {
+        latar-belakang: #e0e0e0;
+    }
+    100% {
+        latar-belakang: #f0f0f0;
+    }
+}
+
+.skeleton-berkedip {
+    animasi: skeleton-berkedip 1.5detik mudah tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK PARALLAX                                              */
+/* -------------------------------------------------------------------------- */
+@kunci-parallax-gerak {
+    0% {
+        latar-posisi: 50% 0%;
+    }
+    100% {
+        latar-posisi: 50% 100%;
+    }
+}
+
+.parallax-gerak {
+    animasi: parallax-gerak 20detik linier tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ANIMASI KHUSUS UNTUK TEXT TYPING                                           */
+/* -------------------------------------------------------------------------- */
+@kunci-ketik {
+    0% { lebar: 0; }
+    100% { lebar: 100%; }
+}
+
+.teks-ketik {
+    overflow: tersembunyi;
+    batas-kanan: 2px padat #0077cc;
+    putih-ruang: nowrap;
+    margin: 0 otomatis;
+    huruf-berkedip: 750ms langkah-akhir;
+    animasi: ketik 3.5s langkah-akhir 1s tak-terbatas normal keduanya;
+}
+
+/* -------------------------------------------------------------------------- */
+/* KELAS UTILITAS ANIMASI                                                     */
+/* -------------------------------------------------------------------------- */
+.animasi-jeda {
+    animasi-main: dijeda;
+}
+
+.animasi-lanjut {
+    animasi-main: berjalan;
+}
+
+.animasi-normal {
+    animasi-arah: normal;
+}
+
+.animasi-balik {
+    animasi-arah: balik;
+}
+
+.animasi-selang-seling {
+    animasi-arah: selang-seling;
+}
+
+.animasi-selang-seling-balik {
+    animasi-arah: selang-seling-balik;
+}
+
+.animasi-isian-maju {
+    animasi-isian: maju;
+}
+
+.animasi-isian-mundur {
+    animasi-isian: mundur;
+}
+
+.animasi-isian-kedua-duanya {
+    animasi-isian: kedua-duanya;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DELAY ANIMASI                                                              */
+/* -------------------------------------------------------------------------- */
+.delay-100 {
+    animasi-delay: 0.1detik;
+}
+
+.delay-200 {
+    animasi-delay: 0.2detik;
+}
+
+.delay-300 {
+    animasi-delay: 0.3detik;
+}
+
+.delay-400 {
+    animasi-delay: 0.4detik;
+}
+
+.delay-500 {
+    animasi-delay: 0.5detik;
+}
+
+.delay-1000 {
+    animasi-delay: 1detik;
+}
+
+.delay-2000 {
+    animasi-delay: 2detik;
+}
+
+/* -------------------------------------------------------------------------- */
+/* DURASI ANIMASI                                                             */
+/* -------------------------------------------------------------------------- */
+.durasi-cepat {
+    animasi-durasi: 0.3detik;
+}
+
+.durasi-sedang {
+    animasi-durasi: 0.5detik;
+}
+
+.durasi-lambat {
+    animasi-durasi: 1detik;
+}
+
+.durasi-sangat-lambat {
+    animasi-durasi: 2detik;
+}
+
 /* ============================================================================
  * AKHIR DOKUMEN ANimAsi.css
- * TOTAL BARIS: 300+
+ * TOTAL BARIS: 700+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
