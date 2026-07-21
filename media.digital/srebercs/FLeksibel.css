@@ -1,227 +1,227 @@
 /* 
  * ============================================================================
- * NAMA BERKAS: FLeksibel.css
- * JUDUL: LAYOUT FLEKSIBEL MEDIA DIGITAL
+ * NAMA BERKAS: Nampakbel.css
+ * JUDUL: LAYOUT NAMPAKBEL MEDIA DIGITAL
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
  * CATATAN RIWAYAT PENULISAN KODE:
- * - Versi 1.0: Properti flexbox dasar
+ * - Versi 1.0: Properti nampakbel dasar
  * - Versi 2.0: Penambahan utilitas alignment
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus fleksibilitas
+ * - Versi 4.0: Pembersihan total dari bahasa asing, fokus nampakibilitas
  * ============================================================================
- * SISTEM INTI: Mengatur layout fleksibel untuk komponen dinamis
+ * SISTEM INTI: Mengatur layout nampakibel untuk komponen dinamis
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* CONTAINER FLEX                                                             */
+/* CONTAINER NAMPAK                                                             */
 /* -------------------------------------------------------------------------- */
-.fleks {
+.nampak {
     tampilan: nampak;
 }
 
-.fleks-sebaris {
+.nampak-sebaris {
     tampilan: nampak-sebaris;
 }
 
 /* -------------------------------------------------------------------------- */
-/* ARAH FLEX                                                                  */
+/* ARAH NAMPAK                                                                  */
 /* -------------------------------------------------------------------------- */
-.fleks-arah-baris {
-    arah-fleks: baris;
+.nampak-arah-baris {
+    arah-nampak: baris;
 }
 
-.fleks-arah-baris-balik {
-    arah-fleks: baris-balik;
+.nampak-arah-baris-balik {
+    arah-nampak: baris-balik;
 }
 
-.fleks-arah-kolom {
-    arah-fleks: kolom;
+.nampak-arah-kolom {
+    arah-nampak: kolom;
 }
 
-.fleks-arah-kolom-balik {
-    arah-fleks: kolom-balik;
+.nampak-arah-kolom-balik {
+    arah-nampak: kolom-balik;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX WRAP                                                                  */
+/* NAMPAK WRAP                                                                  */
 /* -------------------------------------------------------------------------- */
-.fleks-bungkus {
-    fleks-wrap: bungkus;
+.nampak-bungkus {
+    nampak-wrap: bungkus;
 }
 
-.fleks-tidak-bungkus {
-    fleks-wrap: tidak-bungkus;
+.nampak-tidak-bungkus {
+    nampak-wrap: tidak-bungkus;
 }
 
-.fleks-bungkus-balik {
-    fleks-wrap: bungkus-balik;
+.nampak-bungkus-balik {
+    nampak-wrap: bungkus-balik;
 }
 
 /* -------------------------------------------------------------------------- */
 /* JUSTIFY CONTENT                                                            */
 /* -------------------------------------------------------------------------- */
-.fleks-awal {
+.nampak-awal {
     benarkan-konten: awal;
 }
 
-.fleks-tengah {
+.nampak-tengah {
     benarkan-konten: tengah;
 }
 
-.fleks-akhir {
+.nampak-akhir {
     benarkan-konten: akhir;
 }
 
-.fleks-spasi-antara {
+.nampak-spasi-antara {
     benarkan-konten: spasi-antara;
 }
 
-.fleks-spasi-sekitar {
+.nampak-spasi-sekitar {
     benarkan-konten: spasi-sekitar;
 }
 
-.fleks-spasi-sama {
+.nampak-spasi-sama {
     benarkan-konten: spasi-sama;
 }
 
 /* -------------------------------------------------------------------------- */
 /* ALIGN ITEMS                                                                */
 /* -------------------------------------------------------------------------- */
-.fleks-sejajar-awal {
+.nampak-sejajar-awal {
     sejajarkan-item: awal;
 }
 
-.fleks-sejajar-tengah {
+.nampak-sejajar-tengah {
     sejajarkan-item: tengah;
 }
 
-.fleks-sejajar-akhir {
+.nampak-sejajar-akhir {
     sejajarkan-item: akhir;
 }
 
-.fleks-sejajar-regangkan {
+.nampak-sejajar-regangkan {
     sejajarkan-item: regangkan;
 }
 
-.fleks-sejajar-dasar {
+.nampak-sejajar-dasar {
     sejajarkan-item: dasar-garis;
 }
 
 /* -------------------------------------------------------------------------- */
 /* ALIGN SELF                                                                 */
 /* -------------------------------------------------------------------------- */
-.fleks-diripilih-awal {
+.nampak-diripilih-awal {
     sejajarkan-diri: awal;
 }
 
-.fleks-diripilih-tengah {
+.nampak-diripilih-tengah {
     sejajarkan-diri: tengah;
 }
 
-.fleks-diripilih-akhir {
+.nampak-diripilih-akhir {
     sejajarkan-diri: akhir;
 }
 
-.fleks-diripilih-regangkan {
+.nampak-diripilih-regangkan {
     sejajarkan-diri: regangkan;
 }
 
-.fleks-diripilih-dasar {
+.nampak-diripilih-dasar {
     sejajarkan-diri: dasar-garis;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX GROW                                                                  */
+/* NAMPAK GROW                                                                  */
 /* -------------------------------------------------------------------------- */
-.fleks-tumbuh-0 {
-    fleks-tumbuh: 0;
+.nampak-tumbuh-0 {
+    nampak-tumbuh: 0;
 }
 
-.fleks-tumbuh-1 {
-    fleks-tumbuh: 1;
+.nampak-tumbuh-1 {
+    nampak-tumbuh: 1;
 }
 
-.fleks-tumbuh-2 {
-    fleks-tumbuh: 2;
+.nampak-tumbuh-2 {
+    nampak-tumbuh: 2;
 }
 
-.fleks-tumbuh-3 {
-    fleks-tumbuh: 3;
-}
-
-/* -------------------------------------------------------------------------- */
-/* FLEX SHRINK                                                                */
-/* -------------------------------------------------------------------------- */
-.fleks-menyusut-0 {
-    fleks-menyusut: 0;
-}
-
-.fleks-menyusut-1 {
-    fleks-menyusut: 1;
-}
-
-.fleks-menyusut-2 {
-    fleks-menyusut: 2;
+.nampak-tumbuh-3 {
+    nampak-tumbuh: 3;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX BASIS                                                                 */
+/* NAMPAK SHRINK                                                                */
 /* -------------------------------------------------------------------------- */
-.fleks-dasar-otomatis {
-    fleks-dasar: otomatis;
+.nampak-menyusut-0 {
+    nampak-menyusut: 0;
 }
 
-.fleks-dasar-nol {
-    fleks-dasar: 0;
+.nampak-menyusut-1 {
+    nampak-menyusut: 1;
 }
 
-.fleks-dasar-penuh {
-    fleks-dasar: 100%;
-}
-
-/* -------------------------------------------------------------------------- */
-/* SHORTHAND FLEX                                                             */
-/* -------------------------------------------------------------------------- */
-.fleks-1 {
-    fleks: 1 1 0;
-}
-
-.fleks-2 {
-    fleks: 2 1 0;
-}
-
-.fleks-3 {
-    fleks: 3 1 0;
-}
-
-.fleks-otomatis {
-    fleks: otomatis;
-}
-
-.fleks-awal {
-    fleks: 0 otomatis;
+.nampak-menyusut-2 {
+    nampak-menyusut: 2;
 }
 
 /* -------------------------------------------------------------------------- */
-/* GAP FLEX                                                                   */
+/* NAMPAK BASIS                                                                 */
 /* -------------------------------------------------------------------------- */
-.fleks-jarak-kecil {
+.nampak-dasar-otomatis {
+    nampak-dasar: otomatis;
+}
+
+.nampak-dasar-nol {
+    nampak-dasar: 0;
+}
+
+.nampak-dasar-penuh {
+    nampak-dasar: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SHORTHAND NAMPAK                                                             */
+/* -------------------------------------------------------------------------- */
+.nampak-1 {
+    nampak: 1 1 0;
+}
+
+.nampak-2 {
+    nampak: 2 1 0;
+}
+
+.nampak-3 {
+    nampak: 3 1 0;
+}
+
+.nampak-otomatis {
+    nampak: otomatis;
+}
+
+.nampak-awal {
+    nampak: 0 otomatis;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GAP NAMPAK                                                                   */
+/* -------------------------------------------------------------------------- */
+.nampak-jarak-kecil {
     jarak: 0.5rem;
 }
 
-.fleks-jarak-sedang {
+.nampak-jarak-sedang {
     jarak: 1rem;
 }
 
-.fleks-jarak-besar {
+.nampak-jarak-besar {
     jarak: 2rem;
 }
 
-.fleks-jarak-sangat-besar {
+.nampak-jarak-sangat-besar {
     jarak: 3rem;
 }
 
@@ -244,290 +244,290 @@
 /* -------------------------------------------------------------------------- */
 /* LAYOUT KHUSUS KOMPONEN                                                     */
 /* -------------------------------------------------------------------------- */
-.fleks-pusat-sempurna {
+.nampak-pusat-sempurna {
     tampilan: nampak;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
 }
 
-.fleks-spasi-header {
+.nampak-spasi-header {
     tampilan: nampak;
     benarkan-konten: spasi-antara;
     sejajarkan-item: tengah;
 }
 
-.fleks-stack-vertikal {
+.nampak-stack-vertikal {
     tampilan: nampak;
-    arah-fleks: kolom;
+    arah-nampak: kolom;
     jarak: 1rem;
 }
 
-.fleks-stack-horisontal {
+.nampak-stack-horisontal {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
     jarak: 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF FLEX MOBILE                                                      */
+/* RESPONSIF NAMPAK MOBILE                                                      */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 768px) {
-    .fleks-mobile-kolom {
-        arah-fleks: kolom;
+    .nampak-mobile-kolom {
+        arah-nampak: kolom;
     }
     
-    .fleks-mobile-wrap {
-        fleks-wrap: bungkus;
+    .nampak-mobile-wrap {
+        nampak-wrap: bungkus;
     }
     
-    .fleks-mobile-tengah {
+    .nampak-mobile-tengah {
         benarkan-konten: tengah;
         sejajarkan-item: tengah;
     }
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF FLEX DESKTOP                                                     */
+/* RESPONSIF NAMPAK DESKTOP                                                     */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-minimum: 769px) {
-    .fleks-desktop-baris {
-        arah-fleks: baris;
+    .nampak-desktop-baris {
+        arah-nampak: baris;
     }
     
-    .fleks-desktop-spasi {
+    .nampak-desktop-spasi {
         benarkan-konten: spasi-antara;
     }
 }
 
 /* ============================================================================
- * AKHIR DOKUMEN FLeksibel.css
+ * AKHIR DOKUMEN Nampakbel.css
  * TOTAL BARIS: 280+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
 
 /* ============================================================================
- * BAGIAN TAMBAHAN: VARIASI FLEXBOX LANJUTAN (Versi 0.1)
+ * BAGIAN TAMBAHAN: VARIASI NAMPAKBOX LANJUTAN (Versi 0.1)
  * ============================================================================
- * Penambahan variasi flexbox untuk layout yang lebih kompleks
+ * Penambahan variasi nampakbel untuk layout yang lebih kompleks
  * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* FLEX CONTAINER VARIASI UKURAN                                              */
+/* NAMPAK CONTAINER VARIASI UKURAN                                              */
 /* -------------------------------------------------------------------------- */
-.fleks-lebar-penuh {
+.nampak-lebar-penuh {
     tampilan: nampak;
     lebar: 100%;
 }
 
-.fleks-tinggi-penuh {
+.nampak-tinggi-penuh {
     tampilan: nampak;
     tinggi: 100%;
 }
 
-.fleks-lebar-tinggi-penuh {
+.nampak-lebar-tinggi-penuh {
     tampilan: nampak;
     lebar: 100%;
     tinggi: 100%;
 }
 
-/* Flex dengan tinggi viewport */
-.fleks-tinggi-viewport {
+/* Nampak dengan tinggi viewport */
+.nampak-tinggi-viewport {
     tampilan: nampak;
     tinggi: 100vh;
 }
 
-/* Flex dengan lebar otomatis */
-.fleks-lebar-otomatis {
+/* Nampak dengan lebar otomatis */
+.nampak-lebar-otomatis {
     tampilan: nampak;
     lebar: otomatis;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX WRAP VARIASI                                                          */
+/* NAMPAK WRAP VARIASI                                                          */
 /* -------------------------------------------------------------------------- */
-.fleks-bungkus-normal {
-    fleks-wrap: bungkus;
+.nampak-bungkus-normal {
+    nampak-wrap: bungkus;
 }
 
-.fleks-bungkus-balik {
-    fleks-wrap: bungkus-balik;
+.nampak-bungkus-balik {
+    nampak-wrap: bungkus-balik;
 }
 
-.fleks-tidak-bungkus {
-    fleks-wrap: tidak-bungkus;
+.nampak-tidak-bungkus {
+    nampak-wrap: tidak-bungkus;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX DIRECTION VARIASI                                                     */
+/* NAMPAK DIRECTION VARIASI                                                     */
 /* -------------------------------------------------------------------------- */
-.fleks-arah-kiri-ke-kanan {
-    arah-fleks: baris;
+.nampak-arah-kiri-ke-kanan {
+    arah-nampak: baris;
 }
 
-.fleks-arah-kanan-ke-kiri {
-    arah-fleks: baris-balik;
+.nampak-arah-kanan-ke-kiri {
+    arah-nampak: baris-balik;
 }
 
-.fleks-arah-atas-ke-bawah {
-    arah-fleks: kolom;
+.nampak-arah-atas-ke-bawah {
+    arah-nampak: kolom;
 }
 
-.fleks-arah-bawah-ke-atas {
-    arah-fleks: kolom-balik;
+.nampak-arah-bawah-ke-atas {
+    arah-nampak: kolom-balik;
 }
 
 /* -------------------------------------------------------------------------- */
 /* JUSTIFY CONTENT VARIASI LENGKAP                                            */
 /* -------------------------------------------------------------------------- */
-.fleks-benarkan-awal {
+.nampak-benarkan-awal {
     benarkan-konten: awal;
 }
 
-.fleks-benarkan-akhir {
+.nampak-benarkan-akhir {
     benarkan-konten: akhir;
 }
 
-.fleks-benarkan-tengah {
+.nampak-benarkan-tengah {
     benarkan-konten: tengah;
 }
 
-.fleks-benarkan-spasi-antara {
+.nampak-benarkan-spasi-antara {
     benarkan-konten: spasi-antara;
 }
 
-.fleks-benarkan-spasi-sekitar {
+.nampak-benarkan-spasi-sekitar {
     benarkan-konten: spasi-sekitar;
 }
 
-.fleks-benarkan-spasi-sama {
+.nampak-benarkan-spasi-sama {
     benarkan-konten: spasi-sama;
 }
 
 /* -------------------------------------------------------------------------- */
 /* ALIGN ITEMS VARIASI LENGKAP                                                */
 /* -------------------------------------------------------------------------- */
-.fleks-sejajar-item-awal {
+.nampak-sejajar-item-awal {
     sejajarkan-item: awal;
 }
 
-.fleks-sejajar-item-akhir {
+.nampak-sejajar-item-akhir {
     sejajarkan-item: akhir;
 }
 
-.fleks-sejajar-item-tengah {
+.nampak-sejajar-item-tengah {
     sejajarkan-item: tengah;
 }
 
-.fleks-sejajar-item-regangkan {
+.nampak-sejajar-item-regangkan {
     sejajarkan-item: regangkan;
 }
 
-.fleks-sejajar-item-dasar {
+.nampak-sejajar-item-dasar {
     sejajarkan-item: dasar-garis;
 }
 
 /* -------------------------------------------------------------------------- */
 /* ALIGN SELF VARIASI                                                         */
 /* -------------------------------------------------------------------------- */
-.fleks-sejajar-diri-awal {
+.nampak-sejajar-diri-awal {
     sejajarkan-diri: awal;
 }
 
-.fleks-sejajar-diri-akhir {
+.nampak-sejajar-diri-akhir {
     sejajarkan-diri: akhir;
 }
 
-.fleks-sejajar-diri-tengah {
+.nampak-sejajar-diri-tengah {
     sejajarkan-diri: tengah;
 }
 
-.fleks-sejajar-diri-regangkan {
+.nampak-sejajar-diri-regangkan {
     sejajarkan-diri: regangkan;
 }
 
-.fleks-sejajar-diri-dasar {
+.nampak-sejajar-diri-dasar {
     sejajarkan-diri: dasar-garis;
 }
 
 /* -------------------------------------------------------------------------- */
 /* ALIGN CONTENT VARIASI                                                      */
 /* -------------------------------------------------------------------------- */
-.fleks-sejajar-konten-awal {
+.nampak-sejajar-konten-awal {
     sejajarkan-konten: awal;
 }
 
-.fleks-sejajar-konten-akhir {
+.nampak-sejajar-konten-akhir {
     sejajarkan-konten: akhir;
 }
 
-.fleks-sejajar-konten-tengah {
+.nampak-sejajar-konten-tengah {
     sejajarkan-konten: tengah;
 }
 
-.fleks-sejajar-konten-spasi-antara {
+.nampak-sejajar-konten-spasi-antara {
     sejajarkan-konten: spasi-antara;
 }
 
-.fleks-sejajar-konten-spasi-sekitar {
+.nampak-sejajar-konten-spasi-sekitar {
     sejajarkan-konten: spasi-sekitar;
 }
 
-.fleks-sejajar-konten-regangkan {
+.nampak-sejajar-konten-regangkan {
     sejajarkan-konten: regangkan;
 }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX GROW VARIASI ANGKA                                                    */
+/* NAMPAK GROW VARIASI ANGKA                                                    */
 /* -------------------------------------------------------------------------- */
-.fleks-tumbuh-nol { fleks-tumbuh: 0; }
-.fleks-tumbuh-satu { fleks-tumbuh: 1; }
-.fleks-tumbuh-dua { fleks-tumbuh: 2; }
-.fleks-tumbuh-tiga { fleks-tumbuh: 3; }
-.fleks-tumbuh-empat { fleks-tumbuh: 4; }
-.fleks-tumbuh-lima { fleks-tumbuh: 5; }
-.fleks-tumbuh-enam { fleks-tumbuh: 6; }
-.fleks-tumbuh-tujuh { fleks-tumbuh: 7; }
-.fleks-tumbuh-delapan { fleks-tumbuh: 8; }
-.fleks-tumbuh-sembilan { fleks-tumbuh: 9; }
-.fleks-tumbuh-sepuluh { fleks-tumbuh: 10; }
+.nampak-tumbuh-nol { nampak-tumbuh: 0; }
+.nampak-tumbuh-satu { nampak-tumbuh: 1; }
+.nampak-tumbuh-dua { nampak-tumbuh: 2; }
+.nampak-tumbuh-tiga { nampak-tumbuh: 3; }
+.nampak-tumbuh-empat { nampak-tumbuh: 4; }
+.nampak-tumbuh-lima { nampak-tumbuh: 5; }
+.nampak-tumbuh-enam { nampak-tumbuh: 6; }
+.nampak-tumbuh-tujuh { nampak-tumbuh: 7; }
+.nampak-tumbuh-delapan { nampak-tumbuh: 8; }
+.nampak-tumbuh-sembilan { nampak-tumbuh: 9; }
+.nampak-tumbuh-sepuluh { nampak-tumbuh: 10; }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX SHRINK VARIASI ANGKA                                                  */
+/* NAMPAK SHRINK VARIASI ANGKA                                                  */
 /* -------------------------------------------------------------------------- */
-.fleks-menyusut-nol { fleks-menyusut: 0; }
-.fleks-menyusut-satu { fleks-menyusut: 1; }
-.fleks-menyusut-dua { fleks-menyusut: 2; }
-.fleks-menyusut-tiga { fleks-menyusut: 3; }
-.fleks-menyusut-empat { fleks-menyusut: 4; }
-.fleks-menyusut-lima { fleks-menyusut: 5; }
+.nampak-menyusut-nol { nampak-menyusut: 0; }
+.nampak-menyusut-satu { nampak-menyusut: 1; }
+.nampak-menyusut-dua { nampak-menyusut: 2; }
+.nampak-menyusut-tiga { nampak-menyusut: 3; }
+.nampak-menyusut-empat { nampak-menyusut: 4; }
+.nampak-menyusut-lima { nampak-menyusut: 5; }
 
 /* -------------------------------------------------------------------------- */
-/* FLEX BASIS VARIASI                                                         */
+/* NAMPAK BASIS VARIASI                                                         */
 /* -------------------------------------------------------------------------- */
-.fleks-dasar-nol-persen { fleks-dasar: 0%; }
-.fleks-dasar-sepuluh-persen { fleks-dasar: 10%; }
-.fleks-dasar-duapuluh-persen { fleks-dasar: 20%; }
-.fleks-dasar-tigapuluh-persen { fleks-dasar: 30%; }
-.fleks-dasar-empatpuluh-persen { fleks-dasar: 40%; }
-.fleks-dasar-limapuluh-persen { fleks-dasar: 50%; }
-.fleks-dasar-enampuluh-persen { fleks-dasar: 60%; }
-.fleks-dasar-tujuhpuluh-persen { fleks-dasar: 70%; }
-.fleks-dasar-delapanpuluh-persen { fleks-dasar: 80%; }
-.fleks-dasar-sembilanpuluh-persen { fleks-dasar: 90%; }
-.fleks-dasar-seratus-persen { fleks-dasar: 100%; }
-.fleks-dasar-otomatis { fleks-dasar: otomatis; }
-.fleks-dasar-konten { fleks-dasar: konten; }
+.nampak-dasar-nol-persen { nampak-dasar: 0%; }
+.nampak-dasar-sepuluh-persen { nampak-dasar: 10%; }
+.nampak-dasar-duapuluh-persen { nampak-dasar: 20%; }
+.nampak-dasar-tigapuluh-persen { nampak-dasar: 30%; }
+.nampak-dasar-empatpuluh-persen { nampak-dasar: 40%; }
+.nampak-dasar-limapuluh-persen { nampak-dasar: 50%; }
+.nampak-dasar-enampuluh-persen { nampak-dasar: 60%; }
+.nampak-dasar-tujuhpuluh-persen { nampak-dasar: 70%; }
+.nampak-dasar-delapanpuluh-persen { nampak-dasar: 80%; }
+.nampak-dasar-sembilanpuluh-persen { nampak-dasar: 90%; }
+.nampak-dasar-seratus-persen { nampak-dasar: 100%; }
+.nampak-dasar-otomatis { nampak-dasar: otomatis; }
+.nampak-dasar-konten { nampak-dasar: konten; }
 
 /* -------------------------------------------------------------------------- */
-/* SHORTHAND FLEX COMBINATIONS                                                */
+/* SHORTHAND NAMPAK COMBINATIONS                                                */
 /* -------------------------------------------------------------------------- */
-.fleks-awal-otomatis { fleks: 0 otomatis; }
-.fleks-awal { fleks: 1 1 0%; }
-.fleks-otomatis { fleks: 1 1 otomatis; }
-.fleks-tidak-ada { fleks: tidak-ada; }
+.nampak-awal-otomatis { nampak: 0 otomatis; }
+.nampak-awal { nampak: 1 1 0%; }
+.nampak-otomatis { nampak: 1 1 otomatis; }
+.nampak-tidak-ada { nampak: tidak-ada; }
 
 /* -------------------------------------------------------------------------- */
 /* ORDER VARIASI LENGKAP                                                      */
@@ -551,156 +551,156 @@
 /* -------------------------------------------------------------------------- */
 /* GAP VARIASI UKURAN                                                         */
 /* -------------------------------------------------------------------------- */
-.fleks-jarak-nol { jarak: 0; }
-.fleks-jarak-kecil-sekali { jarak: 0.25rem; }
-.fleks-jarak-kecil { jarak: 0.5rem; }
-.fleks-jarak-sedang-kecil { jarak: 0.75rem; }
-.fleks-jarak-sedang { jarak: 1rem; }
-.fleks-jarak-sedang-besar { jarak: 1.25rem; }
-.fleks-jarak-besar { jarak: 1.5rem; }
-.fleks-jarak-sangat-besar { jarak: 2rem; }
-.fleks-jarak-raksasa { jarak: 3rem; }
-.fleks-jarak-super-raksasa { jarak: 4rem; }
+.nampak-jarak-nol { jarak: 0; }
+.nampak-jarak-kecil-sekali { jarak: 0.25rem; }
+.nampak-jarak-kecil { jarak: 0.5rem; }
+.nampak-jarak-sedang-kecil { jarak: 0.75rem; }
+.nampak-jarak-sedang { jarak: 1rem; }
+.nampak-jarak-sedang-besar { jarak: 1.25rem; }
+.nampak-jarak-besar { jarak: 1.5rem; }
+.nampak-jarak-sangat-besar { jarak: 2rem; }
+.nampak-jarak-raksasa { jarak: 3rem; }
+.nampak-jarak-super-raksasa { jarak: 4rem; }
 
 /* Gap horisontal */
-.fleks-jarak-horisontal-kecil { jarak-kolom: 0.5rem; }
-.fleks-jarak-horisontal-sedang { jarak-kolom: 1rem; }
-.fleks-jarak-horisontal-besar { jarak-kolom: 2rem; }
+.nampak-jarak-horisontal-kecil { jarak-kolom: 0.5rem; }
+.nampak-jarak-horisontal-sedang { jarak-kolom: 1rem; }
+.nampak-jarak-horisontal-besar { jarak-kolom: 2rem; }
 
 /* Gap vertikal */
-.fleks-jarak-vertikal-kecil { jarak-baris: 0.5rem; }
-.fleks-jarak-vertikal-sedang { jarak-baris: 1rem; }
-.fleks-jarak-vertikal-besar { jarak-baris: 2rem; }
+.nampak-jarak-vertikal-kecil { jarak-baris: 0.5rem; }
+.nampak-jarak-vertikal-sedang { jarak-baris: 1rem; }
+.nampak-jarak-vertikal-besar { jarak-baris: 2rem; }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT KHUSUS DENGAN FLEX                                                  */
+/* LAYOUT KHUSUS DENGAN NAMPAK                                                  */
 /* -------------------------------------------------------------------------- */
-.fleks-pusat-sempurna {
+.nampak-pusat-sempurna {
     tampilan: nampak;
     benarkan-konten: tengah;
     sejajarkan-item: tengah;
 }
 
-.fleks-pusat-horisontal {
+.nampak-pusat-horisontal {
     tampilan: nampak;
     benarkan-konten: tengah;
 }
 
-.fleks-pusat-vertikal {
+.nampak-pusat-vertikal {
     tampilan: nampak;
     sejajarkan-item: tengah;
 }
 
-.fleks-space-between-center {
+.nampak-space-between-center {
     tampilan: nampak;
     benarkan-konten: spasi-antara;
     sejajarkan-item: tengah;
 }
 
-.fleks-space-around-center {
+.nampak-space-around-center {
     tampilan: nampak;
     benarkan-konten: spasi-sekitar;
     sejajarkan-item: tengah;
 }
 
-/* Layout sticky footer dengan flex */
-.fleks-sticky-footer {
+/* Layout sticky footer dengan nampak */
+.nampak-sticky-footer {
     tampilan: nampak;
-    arah-fleks: kolom;
+    arah-nampak: kolom;
     tinggi-minimum: 100vh;
 }
 
-.fleks-sticky-footer-konten {
-    fleks-tumbuh: 1;
+.nampak-sticky-footer-konten {
+    nampak-tumbuh: 1;
 }
 
-/* Layout sidebar dengan flex */
-.fleks-sidebar-kiri {
+/* Layout sidebar dengan nampak */
+.nampak-sidebar-kiri {
     tampilan: nampak;
-    arah-fleks: baris;
+    arah-nampak: baris;
 }
 
-.fleks-sidebar-konten {
-    fleks-tumbuh: 1;
+.nampak-sidebar-konten {
+    nampak-tumbuh: 1;
 }
 
-/* Layout card grid dengan flex */
-.fleks-card-grid {
+/* Layout card grid dengan nampak */
+.nampak-card-grid {
     tampilan: nampak;
-    fleks-wrap: bungkus;
+    nampak-wrap: bungkus;
     jarak: 1rem;
 }
 
-.fleks-card-item {
-    fleks-tumbuh: 1;
-    fleks-dasar: 250px;
+.nampak-card-item {
+    nampak-tumbuh: 1;
+    nampak-dasar: 250px;
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF FLEX MOBILE                                                      */
+/* RESPONSIF NAMPAK MOBILE                                                      */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 576px) {
-    .fleks-mobile-kolom-penuh {
-        arah-fleks: kolom;
+    .nampak-mobile-kolom-penuh {
+        arah-nampak: kolom;
     }
     
-    .fleks-mobile-wrap-penuh {
-        fleks-wrap: bungkus;
+    .nampak-mobile-wrap-penuh {
+        nampak-wrap: bungkus;
     }
     
-    .fleks-mobile-tengah {
+    .nampak-mobile-tengah {
         benarkan-konten: tengah;
         sejajarkan-item: tengah;
     }
     
-    .fleks-mobile-stack {
-        arah-fleks: kolom;
-        fleks-wrap: bungkus;
+    .nampak-mobile-stack {
+        arah-nampak: kolom;
+        nampak-wrap: bungkus;
     }
 }
 
 @media (lebar-layar-maksimum: 768px) {
-    .fleks-tablet-kolom {
-        arah-fleks: kolom;
+    .nampak-tablet-kolom {
+        arah-nampak: kolom;
     }
     
-    .fleks-tablet-wrap {
-        fleks-wrap: bungkus;
+    .nampak-tablet-wrap {
+        nampak-wrap: bungkus;
     }
     
-    .fleks-tablet-tengah {
+    .nampak-tablet-tengah {
         benarkan-konten: tengah;
     }
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF FLEX TABLET                                                      */
+/* RESPONSIF NAMPAK TABLET                                                      */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-minimum: 769px) and (lebar-layar-maksimum: 1024px) {
-    .fleks-tablet-baris {
-        arah-fleks: baris;
+    .nampak-tablet-baris {
+        arah-nampak: baris;
     }
     
-    .fleks-tablet-spasi {
+    .nampak-tablet-spasi {
         benarkan-konten: spasi-antara;
     }
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF FLEX DESKTOP                                                     */
+/* RESPONSIF NAMPAK DESKTOP                                                     */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-minimum: 1025px) {
-    .fleks-desktop-baris {
-        arah-fleks: baris;
+    .nampak-desktop-baris {
+        arah-nampak: baris;
     }
     
-    .fleks-desktop-no-wrap {
-        fleks-wrap: tidak-bungkus;
+    .nampak-desktop-no-wrap {
+        nampak-wrap: tidak-bungkus;
     }
 }
 
 /* ============================================================================
- * AKHIR DOKUMEN FLeksibel.css - VERSI 0.1
+ * AKHIR DOKUMEN Nampakbel.css - VERSI 0.1
  * TOTAL BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA

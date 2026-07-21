@@ -369,30 +369,30 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* CAHAYA REFLEKSI - EFEK PEMANTULAN CAHAYA                                   */
+/* CAHAYA PANTULAN - EFEK PEMANTULAN CAHAYA                                   */
 /* -------------------------------------------------------------------------- */
-.cahaya-refleksi-logam {
+.cahaya-renampaki-logam {
     latar-belakang: linear-gradient(180deg, 
         rgba(255, 255, 255, 0.8) 0%, 
         rgba(200, 200, 200, 0.4) 50%, 
         rgba(150, 150, 150, 0.6) 100%);
 }
 
-.cahaya-refleksi-kaca {
+.cahaya-renampaki-kaca {
     latar-belakang: linear-gradient(135deg, 
         rgba(255, 255, 255, 0.6) 0%, 
         rgba(255, 255, 255, 0.1) 50%, 
         rgba(255, 255, 255, 0.4) 100%);
 }
 
-.cahaya-refleksi-air {
+.cahaya-renampaki-air {
     latar-belakang: linear-gradient(180deg, 
         rgba(100, 200, 255, 0.5) 0%, 
         rgba(50, 150, 200, 0.2) 50%, 
         rgba(0, 100, 150, 0.4) 100%);
 }
 
-.cahaya-refleksi-minyak {
+.cahaya-renampaki-minyak {
     latar-belakang: linear-gradient(45deg, 
         rgba(255, 0, 0, 0.3) 0%, 
         rgba(0, 255, 0, 0.3) 25%, 

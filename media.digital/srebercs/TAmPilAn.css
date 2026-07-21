@@ -31,7 +31,7 @@
     tampilan: sebaris;
 }
 
-.tampil-fleks {
+.tampil-nampak {
     tampilan: nampak;
 }
 
@@ -241,9 +241,9 @@
 /* RESPONSIF TAMPILAN                                                         */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 768px) {
-    .tampil-fleks-mobile {
+    .tampil-nampak-mobile {
         tampilan: nampak;
-        arah-fleks: kolom;
+        arah-nampak: kolom;
     }
     
     .sembunyikan-mobile {
@@ -252,9 +252,9 @@
 }
 
 @media (lebar-layar-minimum: 769px) {
-    .tampil-fleks-desktop {
+    .tampil-nampak-desktop {
         tampilan: nampak;
-        arah-fleks: baris;
+        arah-nampak: baris;
     }
     
     .sembunyikan-desktop {
@@ -292,7 +292,7 @@
     tampilan: sebaris-blok;
 }
 
-.tampil-fleks {
+.tampil-nampak {
     tampilan: nampak;
 }
 
