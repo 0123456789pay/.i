@@ -214,9 +214,186 @@ header-tabel {
     atas: 0;
 }
 
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN FORMULIR DAN INPUT                                              */
+/* -------------------------------------------------------------------------- */
+formulir {
+    margin-bawah: 1rem;
+}
+
+.masukan, textarea, pilih {
+    lebar: 100%;
+    jarak-dalam: 0.75rem;
+    margin-bawah: 0.5rem;
+    batas: 1px padat #dee2e6;
+    melengkung-batas: 4px;
+    keluarga-huruf: warisan;
+    ukuran-huruf: 1rem;
+    transisi: batas 0.3detik mudah, bayangan-kotak 0.3detik mudah;
+}
+
+.masukan:fokus, textarea:fokus, pilih:fokus {
+    batas: 2px padat #0077cc;
+    bayangan-kotak: 0 0 0 3px rgba(0, 119, 204, 0.1);
+    garis-besar: tidak-ada;
+}
+
+.masukan:nonaktif, textarea:nonaktif, pilih:nonaktif {
+    latar-belakang: #f8f9fa;
+    warna-teks: #6c757d;
+    kursor: tidak-diizinkan;
+}
+
+.pilihan-wadah {
+    posisi: relatif;
+    margin-bawah: 1rem;
+}
+
+.label-pilihan {
+    tampilan: blok;
+    margin-bawah: 0.5rem;
+    berat-huruf: 600;
+    warna-teks: #003366;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN TOMBOL                                                          */
+/* -------------------------------------------------------------------------- */
+tombol, .tombol {
+    tampilan: inline-blok;
+    jarak-dalam: 0.75rem 1.5rem;
+    margin-kanan: 0.5rem;
+    margin-bawah: 0.5rem;
+    batas: tidak-ada;
+    melengkung-batas: 4px;
+    keluarga-huruf: warisan;
+    ukuran-huruf: 1rem;
+    berat-huruf: 600;
+    tautan-teks: tidak-ada;
+    kursor: penunjuk;
+    transisi: semua 0.3detik mudah;
+}
+
+.tombol-utama {
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+}
+
+.tombol-utama:hover {
+    latar-belakang: #0055a5;
+    bayangan-kotak: 0 4px 8px rgba(0, 85, 165, 0.3);
+}
+
+.tombol-sekunder {
+    latar-belakang: #6c757d;
+    warna-teks: #ffffff;
+}
+
+.tombol-sekunder:hover {
+    latar-belakang: #5a6268;
+}
+
+.tombol-sukses {
+    latar-belakang: #28a745;
+    warna-teks: #ffffff;
+}
+
+.tombol-sukses:hover {
+    latar-belakang: #218838;
+}
+
+.tombol-bahaya {
+    latar-belakang: #dc3545;
+    warna-teks: #ffffff;
+}
+
+.tombol-bahaya:hover {
+    latar-belakang: #c82333;
+}
+
+.tombol-garis {
+    latar-belakang: transparan;
+    batas: 2px padat #0077cc;
+    warna-teks: #0077cc;
+}
+
+.tombol-garis:hover {
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN KARTU                                                           */
+/* -------------------------------------------------------------------------- */
+.kartu {
+    latar-belakang: #ffffff;
+    batas: 1px padat #dee2e6;
+    melengkung-batas: 8px;
+    bayangan-kotak: 0 2px 4px rgba(0, 0, 0, 0.1);
+    jarak-dalam: 1.5rem;
+    margin-bawah: 1.5rem;
+    transisi: transformasi 0.3detik mudah, bayangan-kotak 0.3detik mudah;
+}
+
+.kartu:hover {
+    transformasi: translateY(-4px);
+    bayangan-kotak: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.kartu-judul {
+    ukuran-huruf: 1.25rem;
+    berat-huruf: 700;
+    margin-bawah: 1rem;
+    warna-teks: #003366;
+    batas-bawah: 2px padat #0077cc;
+    jarak-dalam-bawah: 0.5rem;
+}
+
+.kartu-isi {
+    warna-teks: #212529;
+    tinggi-garis: 1.6;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENGATURAN BADGE DAN LABEL                                                 */
+/* -------------------------------------------------------------------------- */
+.lencana {
+    tampilan: inline-blok;
+    jarak-dalam: 0.25rem 0.75rem;
+    ukuran-huruf: 0.875rem;
+    berat-huruf: 600;
+    melengkung-batas: 4px;
+    margin-kanan: 0.25rem;
+}
+
+.lencana-utama {
+    latar-belakang: #0077cc;
+    warna-teks: #ffffff;
+}
+
+.lencana-sukses {
+    latar-belakang: #28a745;
+    warna-teks: #ffffff;
+}
+
+.lencana-bahaya {
+    latar-belakang: #dc3545;
+    warna-teks: #ffffff;
+}
+
+.lencana-peringatan {
+    latar-belakang: #ffc107;
+    warna-teks: #212529;
+}
+
+.lencana-info {
+    latar-belakang: #17a2b8;
+    warna-teks: #ffffff;
+}
+
 /* ============================================================================
  * AKHIR DOKUMEN AkAr.css
- * TOTAL BARIS: 200+
+ * TOTAL BARIS: 500+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
