@@ -45,7 +45,7 @@
          * ============================================================================ */
         .brand-navbar {
             background: var(--primary-gradient);
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             position: fixed;
             top: 0;
             left: 0;
@@ -54,19 +54,120 @@
             box-shadow: 0 4px 20px rgba(0, 102, 255, 0.3);
         }
 
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .brand-logo {
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 900;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            white-space: nowrap;
         }
 
         .brand-logo i {
             color: #ffffff;
             filter: drop-shadow(0 2px 4px rgba(0, 102, 255, 0.3));
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link i.fa-chevron-down {
+            font-size: 0.7rem;
+            transition: transform 0.3s;
+        }
+
+        .nav-item:hover .nav-link i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 102, 255, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            z-index: 1001;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.7rem 1.2rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .dropdown-item:hover {
+            background: var(--bg-alt);
+            color: var(--primary);
+            padding-left: 1.4rem;
+        }
+
+        .dropdown-item i {
+            color: var(--primary);
+            font-size: 0.85rem;
+            width: 18px;
         }
 
         .auth-buttons {
@@ -79,11 +180,12 @@
             padding: 0.5rem 1.2rem;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: all 0.3s;
             text-decoration: none;
             cursor: pointer;
             border: none;
+            white-space: nowrap;
         }
 
         .btn-login {
@@ -105,6 +207,14 @@
         .btn-register:hover {
             background: #f0f0f0;
             color: var(--primary-dark);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* ============================================================================
@@ -137,19 +247,19 @@
         }
 
         .hero-title {
-            font-size: 2.8rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
             animation: fadeInDown 0.8s ease-out;
         }
 
         .hero-subtitle {
-            font-size: 1.8rem;
+            font-size: 1.3rem;
             font-weight: 600;
             opacity: 0.95;
             max-width: 900px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             animation: fadeInUp 0.8s ease-out 0.2s both;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
@@ -157,7 +267,7 @@
         .stats-container {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             animation: fadeInUp 0.8s ease-out 0.4s both;
         }
@@ -165,26 +275,26 @@
         .stat-box {
             background: rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
-            padding: 1.5rem 2.5rem;
-            border-radius: 15px;
+            padding: 1rem 1.8rem;
+            border-radius: 12px;
             border: 1px solid rgba(255,255,255,0.3);
         }
 
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             display: block;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             opacity: 0.9;
         }
 
         /* Search Container */
         .search-container {
             max-width: 800px;
-            margin: -3rem auto 3rem;
+            margin: -2.5rem auto 2.5rem;
             padding: 0 1rem;
             position: relative;
             z-index: 10;
@@ -193,7 +303,7 @@
         .search-box {
             background: white;
             border-radius: 50px;
-            padding: 0.5rem;
+            padding: 0.4rem;
             box-shadow: var(--card-shadow);
             display: flex;
             align-items: center;
@@ -203,8 +313,8 @@
         .search-box input {
             flex: 1;
             border: none;
-            padding: 1rem 1.5rem;
-            font-size: 1.1rem;
+            padding: 0.8rem 1.2rem;
+            font-size: 1rem;
             outline: none;
             border-radius: 50px;
         }
@@ -213,9 +323,10 @@
             background: var(--primary-gradient);
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -236,19 +347,19 @@
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #333;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .section-title p {
             color: #666;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
         }
 
         .category-filter {
@@ -256,18 +367,19 @@
             justify-content: center;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             padding: 0 1rem;
         }
 
         .filter-btn {
-            padding: 0.6rem 1.5rem;
+            padding: 0.5rem 1.2rem;
             border: 2px solid var(--primary);
             background: white;
             color: var(--primary);
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
+            font-size: 0.85rem;
             transition: all 0.3s;
         }
 
@@ -284,8 +396,8 @@
         .features-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 4rem;
+            gap: 1rem;
+            margin-bottom: 3rem;
         }
 
         @media (max-width: 1400px) {
@@ -314,14 +426,18 @@
 
         .feature-card {
             background: white;
-            border-radius: 20px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             box-shadow: var(--card-shadow);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border);
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .feature-card::before {
@@ -347,14 +463,14 @@
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 15px;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
             box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
             background: linear-gradient(135deg, #ffffff 0%, #e6f0ff 100%);
         }
@@ -365,28 +481,28 @@
         }
 
         .feature-name {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             color: var(--primary-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             line-height: 1.3;
         }
 
         .feature-path {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--primary);
             font-family: 'Courier New', monospace;
             background: #eff6ff;
-            padding: 0.3rem 0.6rem;
+            padding: 0.25rem 0.5rem;
             border-radius: 6px;
             display: inline-block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .feature-stats {
             display: flex;
-            gap: 0.8rem;
-            font-size: 0.75rem;
+            gap: 0.6rem;
+            font-size: 0.7rem;
             color: var(--primary-dark);
         }
 
@@ -434,30 +550,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
             border-bottom: 2px solid var(--border);
         }
 
         .box-title {
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-dark);
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.6rem;
         }
 
         .box-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.8rem;
         }
 
         .box-item {
             background: var(--primary-gradient);
-            padding: 1.2rem;
-            border-radius: 12px;
+            padding: 1rem;
+            border-radius: 10px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
@@ -478,15 +594,15 @@
         }
 
         .box-item i {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #ffffff;
             text-shadow: 0 2px 8px rgba(0, 102, 255, 0.4);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .box-item span {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
             color: #ffffff;
             text-shadow: 0 1px 4px rgba(0,0,0,0.3);
@@ -597,8 +713,8 @@
 
         .pricing-card {
             background: var(--bg-alt);
-            border-radius: 15px;
-            padding: 2rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             text-align: center;
             border: 2px solid var(--border);
             transition: all 0.3s;
@@ -617,25 +733,26 @@
         }
 
         .pricing-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
         }
 
         .pricing-card .price {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .pricing-card ul {
             list-style: none;
             padding: 0;
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
         }
 
         .pricing-card li {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-size: 0.85rem;
         }
 
         .pricing-card.featured li {
@@ -792,7 +909,7 @@
         footer {
             background: var(--primary-gradient);
             color: white;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             text-align: center;
         }
 
@@ -805,10 +922,10 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 0.8rem;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
             padding: 1.5rem;
             background: rgba(255,255,255,0.1);
-            border-radius: 15px;
+            border-radius: 12px;
             max-height: none;
             overflow-y: visible;
         }
@@ -816,10 +933,10 @@
         .footer-links a {
             color: white;
             text-decoration: none;
-            padding: 0.6rem 1rem;
+            padding: 0.5rem 1rem;
             background: rgba(255,255,255,0.15);
             border-radius: 8px;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.3s;
             text-align: center;
             white-space: nowrap;
@@ -837,19 +954,19 @@
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin: 2rem 0;
+            margin: 1.5rem 0;
         }
 
         .social-links a {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: rgba(255,255,255,0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: all 0.3s;
         }
 
@@ -975,11 +1092,65 @@
 <body>
     <!-- HEADER: Brand Navbar -->
     <nav class="brand-navbar">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <a href="#" class="brand-logo">
-                <i class="fas fa-thumbtack"></i>
-                <span>ALLUNIVERS.DIGITAL</span>
-            </a>
+        <div class="navbar-container">
+            <div class="navbar-left">
+                <a href="#" class="brand-logo">
+                    <i class="fas fa-thumbtack"></i>
+                    <span>ALLUNIVERS.DIGITAL</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Beranda <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-home"></i> Dashboard</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-chart-line"></i> Statistik</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-bell"></i> Notifikasi</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-cog"></i> Pengaturan</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-question-circle"></i> Bantuan</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Produk <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-icons"></i> Icon Pack</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-image"></i> Desain Grafis</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-vector-square"></i> Vector</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-paint-brush"></i> Template</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-layer-group"></i> UI Kit</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Layanan <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-pen-fancy"></i> Custom Design</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-magic"></i> Branding</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-mobile-alt"></i> Mobile App</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-globe"></i> Website</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-headset"></i> Support</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Komunitas <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-users"></i> Forum</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-comments"></i> Diskusi</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-book"></i> Tutorial</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-calendar-alt"></i> Event</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-award"></i> Leaderboard</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Tentang <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-info-circle"></i> Profil</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-file-contract"></i> Lisensi</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-envelope"></i> Kontak</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-newspaper"></i> Blog</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-handshake"></i> Partner</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
             <div class="auth-buttons">
                 <button class="btn-auth btn-login" onclick="openPanel('loginPanel')">
                     <i class="fas fa-sign-in-alt"></i> Login
