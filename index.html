@@ -45,6 +45,54 @@
         .repo-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 1.5rem; }
         .repo-name { color: #58a6ff; font-weight: 600; }
         
+        /* Studio Sections Styles */
+        .studio-section { display: none; }
+        .studio-section.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .studio-toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 1rem; background: var(--bg); border-radius: 12px; margin-bottom: 1.5rem; border: 2px solid #e2e8f0; }
+        .tool-btn { padding: 0.6rem 1rem; background: white; border: 2px solid var(--primary); color: var(--primary); border-radius: 8px; cursor: pointer; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
+        .tool-btn:hover { background: var(--primary); color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,102,255,0.3); }
+        .tool-separator { width: 2px; background: #e2e8f0; margin: 0 0.5rem; }
+        
+        .studio-workspace { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .icon-canvas-container, .vector-canvas-container, .3d-canvas-container, .animation-preview { background: white; border-radius: 12px; padding: 1.5rem; border: 2px solid #e2e8f0; min-height: 500px; display: flex; align-items: center; justify-content: center; overflow: auto; }
+        #iconCanvas, #vectorCanvas, #canvas3d { max-width: 100%; border: 1px dashed #cbd5e1; }
+        #animationStage { width: 300px; height: 300px; position: relative; background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-radius: 12px; overflow: hidden; }
+        .anim-element { width: 60px; height: 60px; background: linear-gradient(135deg, #0047b3, #0066ff); border-radius: 12px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        
+        .icon-properties, .vector-properties, .3d-properties, .animation-properties { background: white; border-radius: 12px; padding: 1.5rem; border: 2px solid #e2e8f0; }
+        .prop-group { margin-bottom: 1rem; }
+        .prop-group label { display: block; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; font-size: 0.9rem; }
+        .prop-group input[type="color"] { width: 100%; height: 40px; border: 2px solid #e2e8f0; border-radius: 8px; cursor: pointer; }
+        .prop-group input[type="range"], .prop-group select, .prop-group input[type="number"] { width: 100%; padding: 0.5rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; }
+        .btn-primary { width: 100%; padding: 0.8rem; background: linear-gradient(135deg, #0047b3, #0066ff); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,102,255,0.3); }
+        .btn-secondary { width: 100%; padding: 0.8rem; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .btn-secondary:hover { background: var(--primary); color: white; }
+        
+        .icon-library { background: white; border-radius: 12px; padding: 1.5rem; border: 2px solid #e2e8f0; }
+        .template-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .template-item { width: 80px; height: 80px; background: var(--bg); border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+        .template-item:hover { border-color: var(--primary); transform: scale(1.05); }
+        .template-item i { font-size: 2rem; color: var(--primary); }
+        
+        .layers-panel { margin-top: 1.5rem; padding-top: 1rem; border-top: 2px solid #e2e8f0; }
+        #layerList { max-height: 200px; overflow-y: auto; }
+        .layer-item { padding: 0.5rem; background: var(--bg); border-radius: 6px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+        .layer-item:hover { background: #e2e8f0; }
+        .layer-item.active { background: var(--primary); color: white; }
+        
+        .timeline-container { background: white; border-radius: 12px; padding: 1.5rem; border: 2px solid #e2e8f0; margin-top: 1.5rem; }
+        .timeline-controls { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .timeline-tracks { background: var(--bg); border-radius: 8px; padding: 1rem; }
+        .track { display: flex; align-items: center; margin-bottom: 0.5rem; }
+        .track-label { width: 80px; font-weight: 600; font-size: 0.85rem; color: var(--text); }
+        .track-timeline { flex: 1; height: 30px; background: white; border-radius: 4px; position: relative; overflow: hidden; }
+        .keyframe { position: absolute; width: 12px; height: 12px; background: var(--primary); border-radius: 50%; top: 50%; transform: translateY(-50%); cursor: pointer; }
+        .timeline-scrubber { margin-top: 1rem; }
+        .timeline-scrubber input { width: 100%; }
+        
         footer { background: linear-gradient(135deg, #0047b3, #0066ff); color: white; padding: 3rem 1rem; text-align: center; }
     </style>
 </head>
@@ -56,12 +104,12 @@
                 <span class="brand-title">ALLUNIVERS ICONER</span>
             </div>
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#studio" class="nav-link"><i class="fas fa-pen-nib"></i> Studio Icon <i class="fas fa-chevron-down"></i></a>
+                <li class="nav-item"><a href="#" class="nav-link" onclick="openStudioSection('icon-maker'); return false;"><i class="fas fa-pen-nib"></i> Studio Icon <i class="fas fa-chevron-down"></i></a>
                     <div class="dropdown-menu">
-                        <a href="#" class="dropdown-item" onclick="alert('Icon Maker')"><i class="fas fa-icons"></i> Icon Maker</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Vector Editor')"><i class="fas fa-bezier-curve"></i> Vector Editor</a>
-                        <a href="#" class="dropdown-item" onclick="alert('3D Designer')"><i class="fas fa-cube"></i> 3D Designer</a>
-                        <a href="#" class="dropdown-item" onclick="alert('Animation Studio')"><i class="fas fa-film"></i> Animation Studio</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('icon-maker'); return false;"><i class="fas fa-icons"></i> Icon Maker</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('vector-editor'); return false;"><i class="fas fa-bezier-curve"></i> Vector Editor</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('3d-designer'); return false;"><i class="fas fa-cube"></i> 3D Designer</a>
+                        <a href="#" class="dropdown-item" onclick="openStudioSection('animation-studio'); return false;"><i class="fas fa-film"></i> Animation Studio</a>
                     </div>
                 </li>
                 <li class="nav-item"><a href="#desain" class="nav-link"><i class="fas fa-palette"></i> Desain IHBSF <i class="fas fa-chevron-down"></i></a>
@@ -119,11 +167,274 @@
     </section>
 
     <main class="main-content">
-        <section id="studio" class="section">
-            <h2 class="section-title"><i class="fas fa-pen-nib"></i> Studio Icon Maker</h2>
-            <div class="grid" id="studioGrid"></div>
+        <!-- STUDIO ICON SECTIONS -->
+        <section id="icon-maker" class="section studio-section" style="display:none;">
+            <h2 class="section-title"><i class="fas fa-icons"></i> Icon Maker</h2>
+            <div class="studio-toolbar">
+                <button class="tool-btn" onclick="setIconSize(16)"><i class="fas fa-square"></i> 16px</button>
+                <button class="tool-btn" onclick="setIconSize(32)"><i class="fas fa-square"></i> 32px</button>
+                <button class="tool-btn" onclick="setIconSize(64)"><i class="fas fa-square"></i> 64px</button>
+                <button class="tool-btn" onclick="setIconSize(128)"><i class="fas fa-square"></i> 128px</button>
+                <button class="tool-btn" onclick="setIconSize(256)"><i class="fas fa-square"></i> 256px</button>
+                <button class="tool-btn" onclick="setIconSize(512)"><i class="fas fa-square"></i> 512px</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="setGrid(true)"><i class="fas fa-border-all"></i> Grid</button>
+                <button class="tool-btn" onclick="undoAction()"><i class="fas fa-undo"></i> Undo</button>
+                <button class="tool-btn" onclick="redoAction()"><i class="fas fa-redo"></i> Redo</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="exportIcon('png')"><i class="fas fa-download"></i> PNG</button>
+                <button class="tool-btn" onclick="exportIcon('svg')"><i class="fas fa-file-code"></i> SVG</button>
+                <button class="tool-btn" onclick="exportIcon('ico')"><i class="fas fa-image"></i> ICO</button>
+            </div>
+            <div class="studio-workspace">
+                <div class="icon-canvas-container">
+                    <canvas id="iconCanvas" width="512" height="512"></canvas>
+                </div>
+                <div class="icon-properties">
+                    <h4>Properties</h4>
+                    <div class="prop-group">
+                        <label>Fill Color</label>
+                        <input type="color" id="fillColor" value="#0066ff" onchange="updateColor()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Stroke Color</label>
+                        <input type="color" id="strokeColor" value="#0047b3" onchange="updateColor()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Stroke Width</label>
+                        <input type="range" id="strokeWidth" min="1" max="20" value="2" oninput="updateStroke()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Opacity</label>
+                        <input type="range" id="opacity" min="0" max="100" value="100" oninput="updateOpacity()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Shape</label>
+                        <select id="shapeType" onchange="changeShape()">
+                            <option value="circle">Circle</option>
+                            <option value="square">Square</option>
+                            <option value="rounded">Rounded Square</option>
+                            <option value="triangle">Triangle</option>
+                            <option value="star">Star</option>
+                            <option value="hexagon">Hexagon</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" onclick="addShape()"><i class="fas fa-plus"></i> Add Shape</button>
+                    <button class="btn-secondary" onclick="clearCanvas()"><i class="fas fa-trash"></i> Clear</button>
+                </div>
+            </div>
+            <div class="icon-library">
+                <h4>Icon Templates</h4>
+                <div class="template-grid" id="iconTemplates"></div>
+            </div>
         </section>
 
+        <section id="vector-editor" class="section studio-section" style="display:none;">
+            <h2 class="section-title"><i class="fas fa-bezier-curve"></i> Vector Editor</h2>
+            <div class="studio-toolbar">
+                <button class="tool-btn" onclick="setTool('select')"><i class="fas fa-mouse-pointer"></i> Select</button>
+                <button class="tool-btn" onclick="setTool('pen')"><i class="fas fa-pen"></i> Pen</button>
+                <button class="tool-btn" onclick="setTool('node')"><i class="fas fa-vector-square"></i> Node</button>
+                <button class="tool-btn" onclick="setTool('path')"><i class="fas fa-draw-polygon"></i> Path</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="addRectangle()"><i class="far fa-square"></i> Rectangle</button>
+                <button class="tool-btn" onclick="addEllipse()"><i class="far fa-circle"></i> Ellipse</button>
+                <button class="tool-btn" onclick="addPolygon()"><i class="fas fa-draw-polygon"></i> Polygon</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="bringToFront()"><i class="fas fa-arrow-up"></i> Front</button>
+                <button class="tool-btn" onclick="sendToBack()"><i class="fas fa-arrow-down"></i> Back</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="exportVector('svg')"><i class="fas fa-download"></i> SVG</button>
+                <button class="tool-btn" onclick="exportVector('dxf')"><i class="fas fa-file-export"></i> DXF</button>
+            </div>
+            <div class="studio-workspace">
+                <div class="vector-canvas-container">
+                    <svg id="vectorCanvas" width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="1"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)"/>
+                        <g id="vectorLayer"></g>
+                    </svg>
+                </div>
+                <div class="vector-properties">
+                    <h4>Vector Properties</h4>
+                    <div class="prop-group">
+                        <label>Fill</label>
+                        <input type="color" id="vectorFill" value="#0066ff" onchange="updateVectorFill()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Stroke</label>
+                        <input type="color" id="vectorStroke" value="#0047b3" onchange="updateVectorStroke()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Stroke Width</label>
+                        <input type="number" id="vectorStrokeWidth" value="2" min="0" max="50" onchange="updateVectorStrokeWidth()">
+                    </div>
+                    <div class="layers-panel" id="layersPanel">
+                        <h5>Layers</h5>
+                        <div id="layerList"></div>
+                    </div>
+                    <button class="btn-primary" onclick="addGroup()"><i class="fas fa-layer-group"></i> Group</button>
+                    <button class="btn-secondary" onclick="ungroup()"><i class="fas fa-ungroup"></i> Ungroup</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="3d-designer" class="section studio-section" style="display:none;">
+            <h2 class="section-title"><i class="fas fa-cube"></i> 3D Designer</h2>
+            <div class="studio-toolbar">
+                <button class="tool-btn" onclick="add3DCube()"><i class="fas fa-cube"></i> Cube</button>
+                <button class="tool-btn" onclick="add3DSphere()"><i class="fas fa-circle"></i> Sphere</button>
+                <button class="tool-btn" onclick="add3DCylinder()"><i class="fas fa-database"></i> Cylinder</button>
+                <button class="tool-btn" onclick="add3DCone()"><i class="fas fa-cone"></i> Cone</button>
+                <button class="tool-btn" onclick="add3DTorus()"><i class="fas fa-ring"></i> Torus</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="rotate3D('x')"><i class="fas fa-sync"></i> Rotate X</button>
+                <button class="tool-btn" onclick="rotate3D('y')"><i class="fas fa-sync"></i> Rotate Y</button>
+                <button class="tool-btn" onclick="rotate3D('z')"><i class="fas fa-sync"></i> Rotate Z</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="setMaterial('basic')"><i class="fas fa-paint-brush"></i> Basic</button>
+                <button class="tool-btn" onclick="setMaterial('standard')"><i class="fas fa-gem"></i> Standard</button>
+                <button class="tool-btn" onclick="setMaterial('physical')"><i class="fas fa-flask"></i> Physical</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="render3D()"><i class="fas fa-camera"></i> Render</button>
+                <button class="tool-btn" onclick="export3D('glb')"><i class="fas fa-download"></i> GLB</button>
+                <button class="tool-btn" onclick="export3D('obj')"><i class="fas fa-file-export"></i> OBJ</button>
+            </div>
+            <div class="studio-workspace">
+                <div class="3d-canvas-container">
+                    <canvas id="canvas3d"></canvas>
+                </div>
+                <div class="3d-properties">
+                    <h4>3D Properties</h4>
+                    <div class="prop-group">
+                        <label>Position X</label>
+                        <input type="range" id="posX" min="-10" max="10" step="0.1" value="0" oninput="update3DPosition()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Position Y</label>
+                        <input type="range" id="posY" min="-10" max="10" step="0.1" value="0" oninput="update3DPosition()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Position Z</label>
+                        <input type="range" id="posZ" min="-10" max="10" step="0.1" value="0" oninput="update3DPosition()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Scale</label>
+                        <input type="range" id="scale3D" min="0.1" max="5" step="0.1" value="1" oninput="update3DScale()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Rotation</label>
+                        <input type="range" id="rotation3D" min="0" max="360" value="0" oninput="update3DRotation()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Light Intensity</label>
+                        <input type="range" id="lightIntensity" min="0" max="2" step="0.1" value="1" oninput="updateLighting()">
+                    </div>
+                    <div class="prop-group">
+                        <label>Camera Zoom</label>
+                        <input type="range" id="cameraZoom" min="1" max="10" step="0.1" value="5" oninput="updateCamera()">
+                    </div>
+                    <button class="btn-secondary" onclick="reset3DView()"><i class="fas fa-home"></i> Reset View</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="animation-studio" class="section studio-section" style="display:none;">
+            <h2 class="section-title"><i class="fas fa-film"></i> Animation Studio</h2>
+            <div class="studio-toolbar">
+                <button class="tool-btn" onclick="playAnimation()"><i class="fas fa-play"></i> Play</button>
+                <button class="tool-btn" onclick="pauseAnimation()"><i class="fas fa-pause"></i> Pause</button>
+                <button class="tool-btn" onclick="stopAnimation()"><i class="fas fa-stop"></i> Stop</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="addKeyframe()"><i class="fas fa-key"></i> Add Keyframe</button>
+                <button class="tool-btn" onclick="removeKeyframe()"><i class="fas fa-minus-circle"></i> Remove</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="setAnimationType('fade')"><i class="fas fa-adjust"></i> Fade</button>
+                <button class="tool-btn" onclick="setAnimationType('slide')"><i class="fas fa-arrows-alt-h"></i> Slide</button>
+                <button class="tool-btn" onclick="setAnimationType('scale')"><i class="fas fa-expand"></i> Scale</button>
+                <button class="tool-btn" onclick="setAnimationType('rotate')"><i class="fas fa-sync"></i> Rotate</button>
+                <button class="tool-btn" onclick="setAnimationType('bounce')"><i class="fas fa-bahai"></i> Bounce</button>
+                <div class="tool-separator"></div>
+                <button class="tool-btn" onclick="exportAnimation('gif')"><i class="fas fa-film"></i> GIF</button>
+                <button class="tool-btn" onclick="exportAnimation('mp4')"><i class="fas fa-video"></i> MP4</button>
+                <button class="tool-btn" onclick="exportAnimation('webm')"><i class="fas fa-file-video"></i> WebM</button>
+            </div>
+            <div class="studio-workspace">
+                <div class="animation-preview">
+                    <div id="animationStage">
+                        <div id="animatedElement" class="anim-element"></div>
+                    </div>
+                </div>
+                <div class="timeline-container">
+                    <div class="timeline-controls">
+                        <span>FPS:</span>
+                        <select id="fpsSelect" onchange="changeFPS()">
+                            <option value="12">12 FPS</option>
+                            <option value="24" selected>24 FPS</option>
+                            <option value="30">30 FPS</option>
+                            <option value="60">60 FPS</option>
+                        </select>
+                        <span>Duration:</span>
+                        <input type="number" id="durationInput" value="5" min="1" max="60" onchange="changeDuration()">s
+                    </div>
+                    <div class="timeline-tracks" id="timelineTracks">
+                        <div class="track" data-track="position">
+                            <span class="track-label">Position</span>
+                            <div class="track-timeline" id="positionTrack"></div>
+                        </div>
+                        <div class="track" data-track="scale">
+                            <span class="track-label">Scale</span>
+                            <div class="track-timeline" id="scaleTrack"></div>
+                        </div>
+                        <div class="track" data-track="rotation">
+                            <span class="track-label">Rotation</span>
+                            <div class="track-timeline" id="rotationTrack"></div>
+                        </div>
+                        <div class="track" data-track="opacity">
+                            <span class="track-label">Opacity</span>
+                            <div class="track-timeline" id="opacityTrack"></div>
+                        </div>
+                    </div>
+                    <div class="timeline-scrubber">
+                        <input type="range" id="scrubber" min="0" max="100" value="0" oninput="scrubTimeline()">
+                    </div>
+                </div>
+                <div class="animation-properties">
+                    <h4>Animation Properties</h4>
+                    <div class="prop-group">
+                        <label>Easing</label>
+                        <select id="easingSelect" onchange="changeEasing()">
+                            <option value="linear">Linear</option>
+                            <option value="ease">Ease</option>
+                            <option value="ease-in">Ease In</option>
+                            <option value="ease-out">Ease Out</option>
+                            <option value="ease-in-out">Ease In Out</option>
+                            <option value="bounce">Bounce</option>
+                            <option value="elastic">Elastic</option>
+                        </select>
+                    </div>
+                    <div class="prop-group">
+                        <label>Repeat</label>
+                        <input type="checkbox" id="repeatAnim" onchange="toggleRepeat()"> Loop
+                    </div>
+                    <div class="prop-group">
+                        <label>Direction</label>
+                        <select id="directionSelect" onchange="changeDirection()">
+                            <option value="normal">Normal</option>
+                            <option value="reverse">Reverse</option>
+                            <option value="alternate">Alternate</option>
+                            <option value="alternate-reverse">Alternate Reverse</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORIGINAL SECTIONS -->
         <section id="desain" class="section">
             <h2 class="section-title"><i class="fas fa-palette"></i> Desain Mode IHBSF</h2>
             <div style="background:var(--bg);border-radius:16px;padding:2rem;min-height:300px;border:2px dashed var(--primary);display:flex;align-items:center;justify-content:center;"><i class="fas fa-plus-circle" style="font-size:4rem;color:var(--primary);opacity:0.3;"></i></div>
@@ -155,15 +466,146 @@
         const pusatDataItems = [{title:'Dashboard',icon:'fa-tachometer'},{title:'Integrasi API',icon:'fa-network-wired'},{title:'Layout Gallery',icon:'fa-th-large'},{title:'Analytics',icon:'fa-chart-line'}];
         const githubRepos = [{name:'allunivers-core',lang:'JavaScript'},{name:'ihbsf-design',lang:'TypeScript'},{name:'icon-api',lang:'Python'}];
 
+        // Open Studio Section Function
+        function openStudioSection(sectionId) {
+            document.querySelectorAll('.studio-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.studio-section').forEach(s => s.style.display = 'none');
+            const target = document.getElementById(sectionId);
+            if (target) {
+                target.style.display = 'block';
+                setTimeout(() => target.classList.add('active'), 10);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            initCanvas();
+        }
+
+        // Initialize Canvas for Icon Maker
+        let canvas, ctx;
+        function initCanvas() {
+            canvas = document.getElementById('iconCanvas');
+            if (canvas) {
+                ctx = canvas.getContext('2d');
+                ctx.fillStyle = '#ffffff';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            loadTemplates();
+        }
+
+        // Icon Templates
+        const templates = [
+            { icon: 'fa-home', name: 'Home' },
+            { icon: 'fa-user', name: 'User' },
+            { icon: 'fa-cog', name: 'Settings' },
+            { icon: 'fa-heart', name: 'Heart' },
+            { icon: 'fa-star', name: 'Star' },
+            { icon: 'fa-cloud', name: 'Cloud' },
+            { icon: 'fa-camera', name: 'Camera' },
+            { icon: 'fa-music', name: 'Music' },
+            { icon: 'fa-video', name: 'Video' },
+            { icon: 'fa-gamepad', name: 'Game' },
+            { icon: 'fa-shopping-cart', name: 'Cart' },
+            { icon: 'fa-envelope', name: 'Mail' }
+        ];
+
+        function loadTemplates() {
+            const container = document.getElementById('iconTemplates');
+            if (container) {
+                container.innerHTML = templates.map(t => `<div class="template-item" onclick="loadTemplate('${t.icon}')"><i class="fas ${t.icon}"></i></div>`).join('');
+            }
+        }
+
+        function loadTemplate(iconClass) {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, 512, 512);
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 512, 512);
+            ctx.fillStyle = document.getElementById('fillColor').value;
+            ctx.font = '256px FontAwesome';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            const icons = { 'fa-home': '\uf015', 'fa-user': '\uf007', 'fa-cog': '\uf013', 'fa-heart': '\uf004', 'fa-star': '\uf005', 'fa-cloud': '\uf0c2', 'fa-camera': '\uf030', 'fa-music': '\uf001', 'fa-video': '\uf03d', 'fa-gamepad': '\uf11b', 'fa-shopping-cart': '\uf07a', 'fa-envelope': '\uf0e0' };
+            ctx.fillText(icons[iconClass] || '\uf015', 256, 256);
+        }
+
+        // Icon Maker Functions
+        function setIconSize(size) { alert('Icon size set to ' + size + 'px'); }
+        function setGrid(show) { alert('Grid ' + (show ? 'enabled' : 'disabled')); }
+        function undoAction() { alert('Undo action'); }
+        function redoAction() { alert('Redo action'); }
+
+        function exportIcon(format) {
+            if (!canvas) return;
+            const link = document.createElement('a');
+            link.download = 'icon.' + format;
+            link.href = canvas.toDataURL('image/' + format);
+            link.click();
+        }
+
+        function updateColor() { alert('Color updated'); }
+        function updateStroke() { alert('Stroke width updated'); }
+        function updateOpacity() { alert('Opacity updated'); }
+        function changeShape() { alert('Shape changed'); }
+        function addShape() { alert('Shape added'); }
+        function clearCanvas() { if(ctx) { ctx.fillStyle='#fff'; ctx.fillRect(0,0,canvas.width,canvas.height); } }
+
+        // Vector Editor Functions
+        function setTool(tool) { alert('Tool: ' + tool); }
+        function addRectangle() { alert('Add rectangle'); }
+        function addEllipse() { alert('Add ellipse'); }
+        function addPolygon() { alert('Add polygon'); }
+        function bringToFront() { alert('Bring to front'); }
+        function sendToBack() { alert('Send to back'); }
+        function exportVector(format) { alert('Export as ' + format); }
+        function updateVectorFill() { alert('Fill updated'); }
+        function updateVectorStroke() { alert('Stroke updated'); }
+        function updateVectorStrokeWidth() { alert('Stroke width updated'); }
+        function addGroup() { alert('Group added'); }
+        function ungroup() { alert('Ungroup'); }
+
+        // 3D Designer Functions
+        function add3DCube() { alert('Add 3D Cube'); }
+        function add3DSphere() { alert('Add 3D Sphere'); }
+        function add3DCylinder() { alert('Add 3D Cylinder'); }
+        function add3DCone() { alert('Add 3D Cone'); }
+        function add3DTorus() { alert('Add 3D Torus'); }
+        function rotate3D(axis) { alert('Rotate ' + axis); }
+        function setMaterial(mat) { alert('Material: ' + mat); }
+        function render3D() { alert('Render 3D scene'); }
+        function export3D(format) { alert('Export as ' + format); }
+        function update3DPosition() { alert('Position updated'); }
+        function update3DScale() { alert('Scale updated'); }
+        function update3DRotation() { alert('Rotation updated'); }
+        function updateLighting() { alert('Lighting updated'); }
+        function updateCamera() { alert('Camera updated'); }
+        function reset3DView() { alert('Reset view'); }
+
+        // Animation Studio Functions
+        function playAnimation() { const el=document.getElementById('animatedElement'); if(el)el.style.animation='fadeIn 1s ease infinite alternate'; }
+        function pauseAnimation() { const el=document.getElementById('animatedElement'); if(el)el.style.animationPlayState='paused'; }
+        function stopAnimation() { const el=document.getElementById('animatedElement'); if(el)el.style.animation=''; }
+        function addKeyframe() { alert('Keyframe added'); }
+        function removeKeyframe() { alert('Keyframe removed'); }
+        function setAnimationType(type) { alert('Animation type: ' + type); }
+        function exportAnimation(format) { alert('Export as ' + format); }
+        function changeFPS() { alert('FPS changed'); }
+        function changeDuration() { alert('Duration changed'); }
+        function scrubTimeline() { alert('Scrubbing timeline'); }
+        function changeEasing() { alert('Easing changed'); }
+        function toggleRepeat() { alert('Repeat toggled'); }
+        function changeDirection() { alert('Direction changed'); }
+
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('studioGrid').innerHTML = studioTools.map(t => `<div class="card"><div class="card-icon"><i class="fas ${t.icon}"></i></div><h3>${t.name}</h3></div>`).join('');
+            const studioGrid = document.getElementById('studioGrid');
+            if (studioGrid) {
+                studioGrid.innerHTML = studioTools.map(t => `<div class="card" onclick="openStudioSection('${t.name.toLowerCase().replace(' ', '-')}' )"><div class="card-icon"><i class="fas ${t.icon}"></i></div><h3>${t.name}</h3></div>`).join('');
+            }
             document.getElementById('marketGrid').innerHTML = marketItems.map(i => `<div class="card" style="background:white;color:var(--text);"><h3>${i.name}</h3><p style="color:var(--primary);font-weight:800;">${i.price}</p></div>`).join('');
             document.getElementById('pusatDataGrid').innerHTML = pusatDataItems.map(p => `<div class="card"><div class="card-icon"><i class="fas ${p.icon}"></i></div><h3>${p.title}</h3></div>`).join('');
             document.getElementById('githubGrid').innerHTML = githubRepos.map(r => `<div class="repo-card"><div class="repo-name">${r.name}</div><p style="color:#8b949e;font-size:0.9rem;">Language: ${r.lang}</p></div>`).join('');
-            
             animateNumber('totalIcons', 2500);
             animateNumber('totalDesigns', 1800);
             animateNumber('totalUsers', 15000);
+            loadTemplates();
         });
 
         function animateNumber(id, target) {
