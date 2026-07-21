@@ -247,7 +247,7 @@
         }
 
         .hero-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             margin-bottom: 0.6rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.3);
@@ -255,7 +255,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             opacity: 0.95;
             max-width: 900px;
@@ -281,13 +281,13 @@
         }
 
         .stat-number {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             display: block;
         }
 
         .stat-label {
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             opacity: 0.9;
         }
 
@@ -314,7 +314,7 @@
             flex: 1;
             border: none;
             padding: 0.6rem 1rem;
-            font-size: 0.9rem;
+            font-size: 1rem;
             outline: none;
             border-radius: 50px;
         }
@@ -326,7 +326,7 @@
             padding: 0.6rem 1.2rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s;
         }
@@ -351,7 +351,7 @@
         }
 
         .section-title h2 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: #333;
             margin-bottom: 0.3rem;
@@ -359,7 +359,7 @@
 
         .section-title p {
             color: #666;
-            font-size: 0.85rem;
+            font-size: 1rem;
         }
 
         .category-filter {
@@ -379,7 +379,7 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
             transition: all 0.3s;
         }
 
@@ -434,10 +434,11 @@
             position: relative;
             overflow: hidden;
             border: 1px solid var(--border);
-            aspect-ratio: 1;
+            aspect-ratio: auto;
+            min-height: 200px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
         }
 
         .feature-card::before {
@@ -481,7 +482,7 @@
         }
 
         .feature-name {
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary-dark);
             margin-bottom: 0.3rem;
@@ -489,7 +490,7 @@
         }
 
         .feature-path {
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             color: var(--primary);
             font-family: 'Courier New', monospace;
             background: #eff6ff;
@@ -502,7 +503,7 @@
         .feature-stats {
             display: flex;
             gap: 0.5rem;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             color: var(--primary-dark);
         }
 
@@ -522,7 +523,7 @@
             right: 0.8rem;
             padding: 0.25rem 0.6rem;
             border-radius: 15px;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
 
@@ -556,7 +557,7 @@
         }
 
         .box-title {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-dark);
             display: flex;
@@ -602,7 +603,7 @@
 
         .box-item span {
             display: block;
-            font-size: 0.65rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: #ffffff;
             text-shadow: 0 1px 4px rgba(0,0,0,0.3);
@@ -1075,61 +1076,61 @@
                 <ul class="nav-menu">
                     <!-- Menu I - IDENTIFIER (IFRAME) -->
                     <li class="nav-item">
-                        <a href="#iframe-section" class="nav-link">Identifier <i class="fas fa-chevron-down"></i></a>
+                        <a href="#iframe-section" class="nav-link" data-ihsfb="identifier">Identifier <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#iframe-preview" class="dropdown-item"><i class="fas fa-tv"></i> Live Preview</a>
-                            <a href="#iframe-sources" class="dropdown-item"><i class="fas fa-database"></i> Data Sources</a>
-                            <a href="#iframe-embeds" class="dropdown-item"><i class="fas fa-code"></i> Embed Codes</a>
-                            <a href="#iframe-analytics" class="dropdown-item"><i class="fas fa-chart-line"></i> Traffic Stats</a>
-                            <a href="#iframe-security" class="dropdown-item"><i class="fas fa-shield-alt"></i> Security Check</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="id-01"><i class="fas fa-id-card"></i> ID Card Digital</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="id-02"><i class="fas fa-barcode"></i> Barcode System</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="id-03"><i class="fas fa-qrcode"></i> QR Code Generator</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="id-04"><i class="fas fa-passport"></i> Passport Verification</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="id-05"><i class="fas fa-user-check"></i> Identity Validator</a>
                         </div>
                     </li>
                     
                     <!-- Menu H - HEADER -->
                     <li class="nav-item">
-                        <a href="#header-section" class="nav-link">Header <i class="fas fa-chevron-down"></i></a>
+                        <a href="#header-section" class="nav-link" data-ihsfb="header">Header <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#header-branding" class="dropdown-item"><i class="fas fa-paint-brush"></i> Branding</a>
-                            <a href="#header-navigation" class="dropdown-item"><i class="fas fa-bars"></i> Navigation</a>
-                            <a href="#header-search" class="dropdown-item"><i class="fas fa-search"></i> Search Bar</a>
-                            <a href="#header-notifications" class="dropdown-item"><i class="fas fa-bell"></i> Alerts</a>
-                            <a href="#header-profile" class="dropdown-item"><i class="fas fa-user-circle"></i> User Profile</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-01"><i class="fas fa-font"></i> Typography System</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-02"><i class="fas fa-palette"></i> Color Palette</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-03"><i class="fas fa-layer-group"></i> Layout Builder</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-04"><i class="fas fa-mobile-alt"></i> Responsive Design</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="hd-05"><i class="fas fa-magic"></i> Theme Customizer</a>
                         </div>
                     </li>
                     
                     <!-- Menu S - SATU SECTION -->
                     <li class="nav-item">
-                        <a href="#section-main" class="nav-link">Section <i class="fas fa-chevron-down"></i></a>
+                        <a href="#section-main" class="nav-link" data-ihsfb="section">Section <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#section-features" class="dropdown-item"><i class="fas fa-th-large"></i> Features Grid</a>
-                            <a href="#section-categories" class="dropdown-item"><i class="fas fa-tags"></i> Categories</a>
-                            <a href="#section-pricing" class="dropdown-item"><i class="fas fa-dollar-sign"></i> Pricing Plans</a>
-                            <a href="#section-testimonials" class="dropdown-item"><i class="fas fa-comments"></i> Testimonials</a>
-                            <a href="#section-cta" class="dropdown-item"><i class="fas fa-bullhorn"></i> Call to Action</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-01"><i class="fas fa-columns"></i> Grid System</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-02"><i class="fas fa-box"></i> Component Library</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-03"><i class="fas fa-images"></i> Media Gallery</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-04"><i class="fas fa-chart-bar"></i> Data Visualization</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="sc-05"><i class="fas fa-plug"></i> Plugin Manager</a>
                         </div>
                     </li>
                     
                     <!-- Menu F - FOOTER -->
                     <li class="nav-item">
-                        <a href="#footer-section" class="nav-link">Footer <i class="fas fa-chevron-down"></i></a>
+                        <a href="#footer-section" class="nav-link" data-ihsfb="footer">Footer <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#footer-links" class="dropdown-item"><i class="fas fa-link"></i> Quick Links</a>
-                            <a href="#footer-contact" class="dropdown-item"><i class="fas fa-envelope"></i> Contact Info</a>
-                            <a href="#footer-social" class="dropdown-item"><i class="fas fa-share-alt"></i> Social Media</a>
-                            <a href="#footer-legal" class="dropdown-item"><i class="fas fa-file-contract"></i> Legal Docs</a>
-                            <a href="#footer-newsletter" class="dropdown-item"><i class="fas fa-newspaper"></i> Newsletter</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-01"><i class="fas fa-link"></i> Link Manager</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-02"><i class="fas fa-copyright"></i> Copyright System</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-03"><i class="fas fa-share-alt"></i> Social Integration</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-04"><i class="fas fa-sitemap"></i> Sitemap Builder</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="ft-05"><i class="fas fa-rss"></i> Feed Generator</a>
                         </div>
                     </li>
                     
                     <!-- Menu B - BODY -->
                     <li class="nav-item">
-                        <a href="#body-main" class="nav-link">Body <i class="fas fa-chevron-down"></i></a>
+                        <a href="#body-main" class="nav-link" data-ihsfb="body">Body <i class="fas fa-chevron-down"></i></a>
                         <div class="dropdown-menu">
-                            <a href="#body-hero" class="dropdown-item"><i class="fas fa-image"></i> Hero Banner</a>
-                            <a href="#body-stats" class="dropdown-item"><i class="fas fa-counter"></i> Statistics</a>
-                            <a href="#body-content" class="dropdown-item"><i class="fas fa-align-left"></i> Main Content</a>
-                            <a href="#body-sidebar" class="dropdown-item"><i class="fas fa-columns"></i> Sidebars</a>
-                            <a href="#body-widgets" class="dropdown-item"><i class="fas fa-plug"></i> Widgets</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-01"><i class="fas fa-file-alt"></i> Content Editor</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-02"><i class="fas fa-database"></i> Database Manager</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-03"><i class="fas fa-cog"></i> Settings Panel</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-04"><i class="fas fa-shield-alt"></i> Security Module</a>
+                            <a href="#" class="dropdown-item" data-action="load-content" data-section="bd-05"><i class="fas fa-rocket"></i> Performance Optimizer</a>
                         </div>
                     </li>
                 </ul>
