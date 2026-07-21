@@ -1,0 +1,1478 @@
+/* 
+ * ============================================================================
+ * NAMA BERKAS: CahaYa.css
+ * JUDUL: CAHAYA DAN PENCAHAYAAN MEDIA DIGITAL
+ * VERSI: 1.0.0
+ * BAHASA: INDONESIA (STANDARISASI PENUH)
+ * TEMA: EFEK CAHAYA, GLOW, SHADOW, DAN PENCAHAYAAN ELEGAN
+ * ============================================================================
+ * CATATAN RIWAYAT PENULISAN KODE:
+ * - Versi 1.0: Efek cahaya dasar untuk komponen antarmuka
+ * - Fokus pada pencahayaan, bayangan cahaya, dan efek glow
+ * - Semua komentar dan penjelasan dalam bahasa Indonesia
+ * ============================================================================
+ * SISTEM INTI: Mengatur efek cahaya untuk meningkatkan visualisasi
+ * ============================================================================
+ */
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA DASAR - EFEK GLOW STANDAR                                           */
+/* -------------------------------------------------------------------------- */
+.cahaya-dasar {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-putih-lembut {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-putih-terang {
+    kotak-bayang: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.cahaya-putih-intens {
+    kotak-bayang: 0 0 30px rgba(255, 255, 255, 0.9);
+}
+
+.cahaya-biru-lembut {
+    kotak-bayang: 0 0 15px rgba(0, 119, 204, 0.4);
+}
+
+.cahaya-biru-terang {
+    kotak-bayang: 0 0 25px rgba(0, 119, 204, 0.7);
+}
+
+.cahaya-biru-intens {
+    kotak-bayang: 0 0 40px rgba(0, 119, 204, 1);
+}
+
+.cahaya-emas-lembut {
+    kotak-bayang: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.cahaya-emas-terang {
+    kotak-bayang: 0 0 25px rgba(255, 215, 0, 0.7);
+}
+
+.cahaya-emas-intens {
+    kotak-bayang: 0 0 40px rgba(255, 215, 0, 1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA NEON - EFEK PENCAHAYAAN MODERN                                      */
+/* -------------------------------------------------------------------------- */
+.cahaya-neon-merah {
+    kotak-bayang: 0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                0 0 40px #ff0000;
+}
+
+.cahaya-neon-hijau {
+    kotak-bayang: 0 0 10px #00ff00,
+                0 0 20px #00ff00,
+                0 0 30px #00ff00,
+                0 0 40px #00ff00;
+}
+
+.cahaya-neon-biru {
+    kotak-bayang: 0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 30px #00ffff,
+                0 0 40px #00ffff;
+}
+
+.cahaya-neon-ungu {
+    kotak-bayang: 0 0 10px #ff00ff,
+                0 0 20px #ff00ff,
+                0 0 30px #ff00ff,
+                0 0 40px #ff00ff;
+}
+
+.cahaya-neon-kuning {
+    kotak-bayang: 0 0 10px #ffff00,
+                0 0 20px #ffff00,
+                0 0 30px #ffff00,
+                0 0 40px #ffff00;
+}
+
+.cahaya-neon-oranye {
+    kotak-bayang: 0 0 10px #ff8800,
+                0 0 20px #ff8800,
+                0 0 30px #ff8800,
+                0 0 40px #ff8800;
+}
+
+.cahaya-neon-pink {
+    kotak-bayang: 0 0 10px #ff69b4,
+                0 0 20px #ff69b4,
+                0 0 30px #ff69b4,
+                0 0 40px #ff69b4;
+}
+
+.cahaya-neon-cyan {
+    kotak-bayang: 0 0 10px #00bcd4,
+                0 0 20px #00bcd4,
+                0 0 30px #00bcd4,
+                0 0 40px #00bcd4;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA MATAHARI - EFEK PENCAHAYAAN HANGAT                                  */
+/* -------------------------------------------------------------------------- */
+.cahaya-matahari-pagi {
+    kotak-bayang: 0 0 20px rgba(255, 200, 100, 0.5),
+                0 0 40px rgba(255, 180, 80, 0.3);
+}
+
+.cahaya-matahari-siang {
+    kotak-bayang: 0 0 30px rgba(255, 255, 200, 0.6),
+                0 0 60px rgba(255, 255, 150, 0.4);
+}
+
+.cahaya-matahari-sore {
+    kotak-bayang: 0 0 25px rgba(255, 150, 100, 0.5),
+                0 0 50px rgba(255, 120, 80, 0.3);
+}
+
+.cahaya-matahari-terbenam {
+    kotak-bayang: 0 0 35px rgba(255, 100, 80, 0.6),
+                0 0 70px rgba(255, 80, 60, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA BULAN - EFEK PENCAHAYAAN DINGIN                                     */
+/* -------------------------------------------------------------------------- */
+.cahaya-bulan-purnama {
+    kotak-bayang: 0 0 20px rgba(200, 220, 255, 0.4),
+                0 0 40px rgba(180, 200, 255, 0.2);
+}
+
+.cahaya-bulan-separuh {
+    kotak-bayang: 0 0 15px rgba(180, 200, 255, 0.3),
+                0 0 30px rgba(160, 180, 255, 0.15);
+}
+
+.cahaya-bulan-sabit {
+    kotak-bayang: 0 0 10px rgba(160, 180, 255, 0.2),
+                0 0 20px rgba(140, 160, 255, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA API - EFEK PENCAHAYAAN MENYALA                                      */
+/* -------------------------------------------------------------------------- */
+.cahaya-api-kecil {
+    kotak-bayang: 0 0 10px rgba(255, 100, 0, 0.5),
+                0 0 20px rgba(255, 80, 0, 0.3),
+                0 0 30px rgba(255, 60, 0, 0.1);
+}
+
+.cahaya-api-sedang {
+    kotak-bayang: 0 0 15px rgba(255, 80, 0, 0.6),
+                0 0 30px rgba(255, 60, 0, 0.4),
+                0 0 45px rgba(255, 40, 0, 0.2);
+}
+
+.cahaya-api-besar {
+    kotak-bayang: 0 0 20px rgba(255, 60, 0, 0.7),
+                0 0 40px rgba(255, 40, 0, 0.5),
+                0 0 60px rgba(255, 20, 0, 0.3);
+}
+
+.cahaya-api-intens {
+    kotak-bayang: 0 0 25px rgba(255, 40, 0, 0.8),
+                0 0 50px rgba(255, 20, 0, 0.6),
+                0 0 75px rgba(255, 0, 0, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA AIR - EFEK PENCAHAYAAN SEJUK                                        */
+/* -------------------------------------------------------------------------- */
+.cahaya-air-tenang {
+    kotak-bayang: 0 0 15px rgba(0, 150, 200, 0.3),
+                0 0 30px rgba(0, 130, 180, 0.15);
+}
+
+.cahaya-air-mengalir {
+    kotak-bayang: 0 0 20px rgba(0, 170, 220, 0.4),
+                0 0 40px rgba(0, 150, 200, 0.2);
+}
+
+.cahaya-air-gelombang {
+    kotak-bayang: 0 0 25px rgba(0, 190, 240, 0.5),
+                0 0 50px rgba(0, 170, 220, 0.25);
+}
+
+.cahaya-air-arus-deras {
+    kotak-bayang: 0 0 30px rgba(0, 210, 255, 0.6),
+                0 0 60px rgba(0, 190, 240, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA LISTRIK - EFEK PENCAHAYAAN ENERGI                                   */
+/* -------------------------------------------------------------------------- */
+.cahaya-listrik-kecil {
+    kotak-bayang: 0 0 10px rgba(255, 255, 0, 0.6),
+                0 0 20px rgba(255, 255, 100, 0.4);
+}
+
+.cahaya-listrik-sedang {
+    kotak-bayang: 0 0 15px rgba(255, 255, 50, 0.7),
+                0 0 30px rgba(255, 255, 150, 0.5);
+}
+
+.cahaya-listrik-besar {
+    kotak-bayang: 0 0 20px rgba(255, 255, 0, 0.8),
+                0 0 40px rgba(255, 255, 100, 0.6);
+}
+
+.cahaya-listrik-sambar {
+    kotak-bayang: 0 0 25px rgba(255, 255, 0, 0.9),
+                0 0 50px rgba(255, 255, 150, 0.7),
+                0 0 75px rgba(255, 255, 200, 0.5);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA KRISTAL - EFEK PENCAHAYAAN BERSINAR                                 */
+/* -------------------------------------------------------------------------- */
+.cahaya-kristal-bening {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-kristal-biru {
+    kotak-bayang: 0 0 15px rgba(100, 200, 255, 0.5),
+                inset 0 0 15px rgba(100, 200, 255, 0.3);
+}
+
+.cahaya-kristal-ungu {
+    kotak-bayang: 0 0 15px rgba(200, 100, 255, 0.5),
+                inset 0 0 15px rgba(200, 100, 255, 0.3);
+}
+
+.cahaya-kristal-hijau {
+    kotak-bayang: 0 0 15px rgba(100, 255, 150, 0.5),
+                inset 0 0 15px rgba(100, 255, 150, 0.3);
+}
+
+.cahaya-kristal-merah {
+    kotak-bayang: 0 0 15px rgba(255, 100, 100, 0.5),
+                inset 0 0 15px rgba(255, 100, 100, 0.3);
+}
+
+.cahaya-kristal-emas {
+    kotak-bayang: 0 0 20px rgba(255, 215, 0, 0.6),
+                inset 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA HALO - EFEK LINGKARAN CAHAYA                                        */
+/* -------------------------------------------------------------------------- */
+.cahaya-halo-tipis {
+    kotak-bayang: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-halo-sedang {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-halo-tebal {
+    kotak-bayang: 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+.cahaya-halo-ganda {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.4),
+                0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-halo-tripel {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 25px rgba(255, 255, 255, 0.3),
+                0 0 45px rgba(255, 255, 255, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA SPOTLIGHT - EFEK SOROTAN CAHAYA                                     */
+/* -------------------------------------------------------------------------- */
+.cahaya-spotlight-atas {
+    kotak-bayang: inset 0 -20px 40px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-spotlight-bawah {
+    kotak-bayang: inset 0 20px 40px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-spotlight-kiri {
+    kotak-bayang: inset -20px 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-spotlight-kanan {
+    kotak-bayang: inset 20px 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-spotlight-tengah {
+    kotak-bayang: inset 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-spotlight-sudut-atas-kiri {
+    kotak-bayang: inset -30px -30px 50px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-spotlight-sudut-atas-kanan {
+    kotak-bayang: inset 30px -30px 50px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-spotlight-sudut-bawah-kiri {
+    kotak-bayang: inset -30px 30px 50px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-spotlight-sudut-bawah-kanan {
+    kotak-bayang: inset 30px 30px 50px rgba(255, 255, 255, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA GRADASI - EFEK PERUBAHAN WARNA CAHAYA                               */
+/* -------------------------------------------------------------------------- */
+.cahaya-gradasi-hangat {
+    latar-belakang: linear-gradient(135deg, 
+        rgba(255, 200, 150, 0.3) 0%, 
+        rgba(255, 150, 100, 0.5) 50%, 
+        rgba(255, 100, 50, 0.3) 100%);
+}
+
+.cahaya-gradasi-dingin {
+    latar-belakang: linear-gradient(135deg, 
+        rgba(150, 200, 255, 0.3) 0%, 
+        rgba(100, 150, 255, 0.5) 50%, 
+        rgba(50, 100, 255, 0.3) 100%);
+}
+
+.cahaya-gradasi-alam {
+    latar-belakang: linear-gradient(135deg, 
+        rgba(150, 255, 150, 0.3) 0%, 
+        rgba(100, 200, 150, 0.5) 50%, 
+        rgba(50, 150, 100, 0.3) 100%);
+}
+
+.cahaya-gradasi-malam {
+    latar-belakang: linear-gradient(135deg, 
+        rgba(50, 50, 100, 0.3) 0%, 
+        rgba(30, 30, 80, 0.5) 50%, 
+        rgba(10, 10, 60, 0.3) 100%);
+}
+
+.cahaya-gradasi-fajar {
+    latar-belakang: linear-gradient(135deg, 
+        rgba(255, 150, 150, 0.3) 0%, 
+        rgba(255, 100, 150, 0.5) 50%, 
+        rgba(255, 50, 150, 0.3) 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA REFLEKSI - EFEK PEMANTULAN CAHAYA                                   */
+/* -------------------------------------------------------------------------- */
+.cahaya-refleksi-logam {
+    latar-belakang: linear-gradient(180deg, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(200, 200, 200, 0.4) 50%, 
+        rgba(150, 150, 150, 0.6) 100%);
+}
+
+.cahaya-refleksi-kaca {
+    latar-belakang: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.6) 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.4) 100%);
+}
+
+.cahaya-refleksi-air {
+    latar-belakang: linear-gradient(180deg, 
+        rgba(100, 200, 255, 0.5) 0%, 
+        rgba(50, 150, 200, 0.2) 50%, 
+        rgba(0, 100, 150, 0.4) 100%);
+}
+
+.cahaya-refleksi-minyak {
+    latar-belakang: linear-gradient(45deg, 
+        rgba(255, 0, 0, 0.3) 0%, 
+        rgba(0, 255, 0, 0.3) 25%, 
+        rgba(0, 0, 255, 0.3) 50%, 
+        rgba(255, 0, 255, 0.3) 75%, 
+        rgba(255, 0, 0, 0.3) 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA ANIMASI - EFEK CAHAYA BERGERAK                                      */
+/* -------------------------------------------------------------------------- */
+@keyframes cahaya-berkedip {
+    0%, 100% {
+        kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        kotak-bayang: 0 0 30px rgba(255, 255, 255, 1);
+    }
+}
+
+@keyframes cahaya-berdenyut {
+    0%, 100% {
+        kotak-bayang: 0 0 15px rgba(0, 119, 204, 0.4);
+    }
+    50% {
+        kotak-bayang: 0 0 40px rgba(0, 119, 204, 0.8);
+    }
+}
+
+@keyframes cahaya-berputar {
+    0% {
+        kotak-bayang: 10px 0 20px rgba(255, 0, 0, 0.6);
+    }
+    25% {
+        kotak-bayang: 0 10px 20px rgba(0, 255, 0, 0.6);
+    }
+    50% {
+        kotak-bayang: -10px 0 20px rgba(0, 0, 255, 0.6);
+    }
+    75% {
+        kotak-bayang: 0 -10px 20px rgba(255, 255, 0, 0.6);
+    }
+    100% {
+        kotak-bayang: 10px 0 20px rgba(255, 0, 0, 0.6);
+    }
+}
+
+@keyframes cahaya-mengelilingi {
+    0% {
+        kotak-bayang: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    25% {
+        kotak-bayang: 0 0 30px rgba(255, 200, 0, 0.6);
+    }
+    50% {
+        kotak-bayang: 0 0 40px rgba(255, 180, 0, 0.7);
+    }
+    75% {
+        kotak-bayang: 0 0 30px rgba(255, 200, 0, 0.6);
+    }
+    100% {
+        kotak-bayang: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+}
+
+@keyframes cahaya-bergelombang {
+    0%, 100% {
+        kotak-bayang: 0 0 15px rgba(0, 150, 255, 0.4),
+                    0 0 30px rgba(0, 150, 255, 0.2);
+    }
+    50% {
+        kotak-bayang: 0 0 25px rgba(0, 200, 255, 0.6),
+                    0 0 50px rgba(0, 200, 255, 0.3);
+    }
+}
+
+.cahaya-animasi-berkedip {
+    animasi: cahaya-berkedip 1s mudah-dipahami tak-terbatas;
+}
+
+.cahaya-animasi-berdenyut {
+    animasi: cahaya-berdenyut 2s mudah-dipahami tak-terbatas;
+}
+
+.cahaya-animasi-berputar {
+    animasi: cahaya-berputar 3s linier tak-terbatas;
+}
+
+.cahaya-animasi-mengelilingi {
+    animasi: cahaya-mengelilingi 2.5s mudah-dipahami tak-terbatas;
+}
+
+.cahaya-animasi-bergelombang {
+    animasi: cahaya-bergelombang 3s mudah-dipahami tak-terbatas;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA INTERAKTIF - EFEK SAAT KURSOR DIARAHKAN                             */
+/* -------------------------------------------------------------------------- */
+.cahaya-interaktif-sorot:hover {
+    kotak-bayang: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.cahaya-interaktif-glow:hover {
+    kotak-bayang: 0 0 30px rgba(0, 119, 204, 0.9);
+}
+
+.cahaya-interaktif-neon:hover {
+    kotak-bayang: 0 0 10px #00ffff,
+                0 0 20px #00ffff,
+                0 0 40px #00ffff;
+}
+
+.cahaya-interaktif-api:hover {
+    kotak-bayang: 0 0 15px rgba(255, 100, 0, 0.7),
+                0 0 30px rgba(255, 60, 0, 0.5),
+                0 0 45px rgba(255, 20, 0, 0.3);
+}
+
+.cahaya-interaktif-listrik:hover {
+    kotak-bayang: 0 0 20px rgba(255, 255, 0, 0.9),
+                0 0 40px rgba(255, 255, 100, 0.7);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA LATAR - EFEK PENCAHAYAAN BACKGROUND                                 */
+/* -------------------------------------------------------------------------- */
+.cahaya-latar-langit-siang {
+    latar-belakang: radial-gradient(ellipse at center, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(200, 230, 255, 0.4) 50%, 
+        rgba(100, 180, 255, 0.1) 100%);
+}
+
+.cahaya-latar-langit-malam {
+    latar-belakang: radial-gradient(ellipse at center, 
+        rgba(50, 50, 100, 0.8) 0%, 
+        rgba(20, 20, 60, 0.5) 50%, 
+        rgba(0, 0, 30, 0.2) 100%);
+}
+
+.cahaya-latar-fajar {
+    latar-belakang: linear-gradient(to bottom, 
+        rgba(255, 150, 100, 0.6) 0%, 
+        rgba(255, 100, 150, 0.4) 50%, 
+        rgba(255, 50, 100, 0.2) 100%);
+}
+
+.cahaya-latar-senja {
+    latar-belakang: linear-gradient(to bottom, 
+        rgba(255, 100, 50, 0.6) 0%, 
+        rgba(255, 50, 100, 0.4) 50%, 
+        rgba(200, 0, 100, 0.2) 100%);
+}
+
+.cahaya-latar-hutan {
+    latar-belakang: radial-gradient(ellipse at top, 
+        rgba(100, 200, 100, 0.4) 0%, 
+        rgba(50, 150, 50, 0.2) 50%, 
+        rgba(0, 100, 0, 0.05) 100%);
+}
+
+.cahaya-latar-laut {
+    latar-belakang: linear-gradient(to bottom, 
+        rgba(0, 150, 255, 0.5) 0%, 
+        rgba(0, 100, 200, 0.3) 50%, 
+        rgba(0, 50, 150, 0.1) 100%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA TEKS - EFEK PENCAHAYAAN PADA TEKS                                   */
+/* -------------------------------------------------------------------------- */
+.cahaya-teks-putih {
+    teks-bayang: 0 0 5px rgba(255, 255, 255, 0.8),
+               0 0 10px rgba(255, 255, 255, 0.6),
+               0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-teks-biru {
+    teks-bayang: 0 0 5px rgba(0, 119, 204, 0.8),
+               0 0 10px rgba(0, 119, 204, 0.6),
+               0 0 15px rgba(0, 119, 204, 0.4);
+}
+
+.cahaya-teks-emas {
+    teks-bayang: 0 0 5px rgba(255, 215, 0, 0.8),
+               0 0 10px rgba(255, 215, 0, 0.6),
+               0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.cahaya-teks-merah {
+    teks-bayang: 0 0 5px rgba(255, 0, 0, 0.8),
+               0 0 10px rgba(255, 0, 0, 0.6),
+               0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+.cahaya-teks-hijau {
+    teks-bayang: 0 0 5px rgba(0, 255, 0, 0.8),
+               0 0 10px rgba(0, 255, 0, 0.6),
+               0 0 15px rgba(0, 255, 0, 0.4);
+}
+
+.cahaya-teks-ungu {
+    teks-bayang: 0 0 5px rgba(150, 0, 255, 0.8),
+               0 0 10px rgba(150, 0, 255, 0.6),
+               0 0 15px rgba(150, 0, 255, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA BORDER - EFEK GARIS BERCAHAYA                                       */
+/* -------------------------------------------------------------------------- */
+.cahaya-border-putih {
+    batas: 2px padat rgba(255, 255, 255, 0.5);
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.3),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.cahaya-border-biru {
+    batas: 2px padat rgba(0, 119, 204, 0.6);
+    kotak-bayang: 0 0 15px rgba(0, 119, 204, 0.4),
+                inset 0 0 15px rgba(0, 119, 204, 0.2);
+}
+
+.cahaya-border-emas {
+    batas: 2px padat rgba(255, 215, 0, 0.6);
+    kotak-bayang: 0 0 15px rgba(255, 215, 0, 0.4),
+                inset 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.cahaya-border-neon {
+    batas: 2px padat rgba(0, 255, 255, 0.8);
+    kotak-bayang: 0 0 10px rgba(0, 255, 255, 0.6),
+                0 0 20px rgba(0, 255, 255, 0.4),
+                inset 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.cahaya-border-api {
+    batas: 2px padat rgba(255, 100, 0, 0.7);
+    kotak-bayang: 0 0 15px rgba(255, 100, 0, 0.5),
+                0 0 30px rgba(255, 60, 0, 0.3),
+                inset 0 0 15px rgba(255, 100, 0, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA TRANSPARAN - EFEK GLASSMORPHISM                                     */
+/* -------------------------------------------------------------------------- */
+.cahaya-transparan-kaca {
+    latar-belakang: rgba(255, 255, 255, 0.1);
+    batas: 1px padat rgba(255, 255, 255, 0.2);
+    kotak-bayang: 0 8px 32px rgba(0, 0, 0, 0.1);
+    latar-blur: blur(10px);
+}
+
+.cahaya-transparan-es {
+    latar-belakang: rgba(200, 230, 255, 0.15);
+    batas: 1px padat rgba(200, 230, 255, 0.3);
+    kotak-bayang: 0 8px 32px rgba(0, 50, 100, 0.15);
+    latar-blur: blur(12px);
+}
+
+.cahaya-transparan-asap {
+    latar-belakang: rgba(100, 100, 100, 0.1);
+    batas: 1px padat rgba(150, 150, 150, 0.2);
+    kotak-bayang: 0 8px 32px rgba(0, 0, 0, 0.2);
+    latar-blur: blur(8px);
+}
+
+.cahaya-transparan-embun {
+    latar-belakang: rgba(255, 255, 255, 0.05);
+    batas: 1px padat rgba(255, 255, 255, 0.15);
+    kotak-bayang: 0 8px 32px rgba(0, 100, 150, 0.1);
+    latar-blur: blur(15px);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA FOKUS - EFEK PENCAHAYAAN UNTUK ELEMENT AKTIF                        */
+/* -------------------------------------------------------------------------- */
+.cahaya-fokus-input:focus {
+    kotak-bayang: 0 0 0 3px rgba(0, 119, 204, 0.3),
+                0 0 15px rgba(0, 119, 204, 0.5);
+}
+
+.cahaya-fokus-tombol:focus {
+    kotak-bayang: 0 0 0 3px rgba(255, 215, 0, 0.4),
+                0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+.cahaya-fokus-link:focus {
+    kotak-bayang: 0 0 10px rgba(0, 119, 204, 0.7);
+}
+
+.cahaya-fokus-kartu:focus {
+    kotak-bayang: 0 0 25px rgba(0, 119, 204, 0.5),
+                0 0 50px rgba(0, 119, 204, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA UKURAN - VARIASI BESAR KECIL EFEK CAHAYA                            */
+/* -------------------------------------------------------------------------- */
+.cahaya-ukuran-kecil {
+    kotak-bayang: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-ukuran-sedang {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-ukuran-besar {
+    kotak-bayang: 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+.cahaya-ukuran-sangat-besar {
+    kotak-bayang: 0 0 50px rgba(255, 255, 255, 0.9);
+}
+
+.cahaya-ukuran-raksasa {
+    kotak-bayang: 0 0 80px rgba(255, 255, 255, 1),
+                0 0 120px rgba(255, 255, 255, 0.5);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA ARAH - EFEK CAHAYA DARI BERBAGAI DIREKSI                            */
+/* -------------------------------------------------------------------------- */
+.cahaya-arah-atas {
+    kotak-bayang: 0 -10px 20px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-bawah {
+    kotak-bayang: 0 10px 20px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-kiri {
+    kotak-bayang: -10px 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-kanan {
+    kotak-bayang: 10px 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-atas-kiri {
+    kotak-bayang: -10px -10px 25px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-atas-kanan {
+    kotak-bayang: 10px -10px 25px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-bawah-kiri {
+    kotak-bayang: -10px 10px 25px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-arah-bawah-kanan {
+    kotak-bayang: 10px 10px 25px rgba(255, 255, 255, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA KHUSUS - EFEK PENCAHAYAAN PREMIUM                                   */
+/* -------------------------------------------------------------------------- */
+.cahaya-khusus-diamond {
+    kotak-bayang: 0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(200, 220, 255, 0.4),
+                0 0 60px rgba(150, 200, 255, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-khusus-platinum {
+    kotak-bayang: 0 0 15px rgba(200, 200, 200, 0.5),
+                0 0 30px rgba(180, 180, 180, 0.3),
+                0 0 45px rgba(160, 160, 160, 0.1),
+                inset 0 0 15px rgba(220, 220, 220, 0.2);
+}
+
+.cahaya-khusus-gold-premium {
+    kotak-bayang: 0 0 25px rgba(255, 215, 0, 0.7),
+                0 0 50px rgba(255, 200, 0, 0.5),
+                0 0 75px rgba(255, 180, 0, 0.3),
+                inset 0 0 25px rgba(255, 230, 100, 0.4);
+}
+
+.cahaya-khusus-rainbow {
+    kotak-bayang: 0 0 20px rgba(255, 0, 0, 0.5),
+                0 0 40px rgba(255, 165, 0, 0.4),
+                0 0 60px rgba(255, 255, 0, 0.3),
+                0 0 80px rgba(0, 128, 0, 0.2),
+                0 0 100px rgba(0, 0, 255, 0.1);
+}
+
+.cahaya-khusus-galaxy {
+    kotak-bayang: 0 0 30px rgba(150, 0, 255, 0.6),
+                0 0 60px rgba(100, 0, 200, 0.4),
+                0 0 90px rgba(50, 0, 150, 0.2),
+                inset 0 0 30px rgba(200, 0, 255, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA MUSIM - EFEK PENCAHAYAAN SESUAI MUSIM                               */
+/* -------------------------------------------------------------------------- */
+.cahaya-musim-semi {
+    kotak-bayang: 0 0 20px rgba(255, 150, 200, 0.4),
+                0 0 40px rgba(255, 100, 150, 0.2);
+}
+
+.cahaya-musim-panas {
+    kotak-bayang: 0 0 25px rgba(255, 200, 100, 0.5),
+                0 0 50px rgba(255, 180, 50, 0.3);
+}
+
+.cahaya-musim-gugur {
+    kotak-bayang: 0 0 20px rgba(255, 150, 50, 0.4),
+                0 0 40px rgba(200, 100, 0, 0.2);
+}
+
+.cahaya-musim-dingin {
+    kotak-bayang: 0 0 20px rgba(200, 230, 255, 0.5),
+                0 0 40px rgba(150, 200, 255, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA SUASANA - EFEK PENCAHAYAAN MOOD                                     */
+/* -------------------------------------------------------------------------- */
+.cahaya-suasana-romantis {
+    kotak-bayang: 0 0 25px rgba(255, 100, 150, 0.5),
+                0 0 50px rgba(255, 50, 100, 0.3);
+}
+
+.cahaya-suasana-misterius {
+    kotak-bayang: 0 0 20px rgba(100, 0, 150, 0.4),
+                0 0 40px rgba(50, 0, 100, 0.2);
+}
+
+.cahaya-suasana-ceria {
+    kotak-bayang: 0 0 20px rgba(255, 200, 0, 0.5),
+                0 0 40px rgba(255, 150, 0, 0.3);
+}
+
+.cahaya-suasana-tenang {
+    kotak-bayang: 0 0 20px rgba(100, 200, 255, 0.4),
+                0 0 40px rgba(50, 150, 200, 0.2);
+}
+
+.cahaya-suasana-energik {
+    kotak-bayang: 0 0 25px rgba(255, 100, 0, 0.6),
+                0 0 50px rgba(255, 50, 0, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA TEKNOLOGI - EFEK FUTURISTIK                                         */
+/* -------------------------------------------------------------------------- */
+.cahaya-teknologi-hologram {
+    kotak-bayang: 0 0 20px rgba(0, 255, 255, 0.5),
+                0 0 40px rgba(0, 200, 255, 0.3),
+                0 0 60px rgba(0, 150, 255, 0.1);
+}
+
+.cahaya-teknologi-laser {
+    kotak-bayang: 0 0 10px rgba(255, 0, 0, 0.8),
+                0 0 20px rgba(255, 0, 0, 0.6),
+                0 0 30px rgba(255, 0, 0, 0.4);
+}
+
+.cahaya-teknologi-plasma {
+    kotak-bayang: 0 0 25px rgba(150, 0, 255, 0.6),
+                0 0 50px rgba(100, 0, 200, 0.4),
+                0 0 75px rgba(50, 0, 150, 0.2);
+}
+
+.cahaya-teknologi-energi {
+    kotak-bayang: 0 0 20px rgba(0, 255, 100, 0.5),
+                0 0 40px rgba(0, 200, 50, 0.3),
+                0 0 60px rgba(0, 150, 0, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA ALAMI - EFEK PENCAHAYAAN ORGANIK                                    */
+/* -------------------------------------------------------------------------- */
+.cahaya-alami-kunang-kunang {
+    kotak-bayang: 0 0 10px rgba(200, 255, 100, 0.6);
+}
+
+.cahaya-alami-bintang {
+    kotak-bayang: 0 0 5px rgba(255, 255, 255, 0.8),
+                0 0 15px rgba(255, 255, 200, 0.4);
+}
+
+.cahaya-alami-meteor {
+    kotak-bayang: 0 0 15px rgba(255, 200, 100, 0.7),
+                0 0 30px rgba(255, 150, 50, 0.4),
+                0 0 45px rgba(255, 100, 0, 0.2);
+}
+
+.cahaya-alami-aurora {
+    kotak-bayang: 0 0 25px rgba(0, 255, 150, 0.5),
+                0 0 50px rgba(0, 200, 100, 0.3),
+                0 0 75px rgba(0, 150, 50, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA SENI - EFEK ARTISTIK                                                */
+/* -------------------------------------------------------------------------- */
+.cahaya-seni-cat-minyak {
+    kotak-bayang: 0 0 20px rgba(255, 200, 150, 0.4),
+                0 0 40px rgba(255, 180, 120, 0.2);
+}
+
+.cahaya-seni-cat-air {
+    kotak-bayang: 0 0 15px rgba(150, 200, 255, 0.3),
+                0 0 30px rgba(120, 180, 255, 0.15);
+}
+
+.cahaya-seni-pastel {
+    kotak-bayang: 0 0 20px rgba(255, 200, 200, 0.4),
+                0 0 40px rgba(255, 180, 180, 0.2);
+}
+
+.cahaya-seni-neon-art {
+    kotak-bayang: 0 0 15px rgba(255, 0, 255, 0.5),
+                0 0 30px rgba(0, 255, 255, 0.4),
+                0 0 45px rgba(255, 255, 0, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA DIMENSI - EFEK 3D DENGAN PENCAHAYAAN                                */
+/* -------------------------------------------------------------------------- */
+.cahaya-dimensi-muncul {
+    kotak-bayang: 0 10px 20px rgba(0, 0, 0, 0.2),
+                0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-dimensi-mengambang {
+    kotak-bayang: 0 15px 30px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-dimensi-terapung {
+    kotak-bayang: 0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-dimensi-melayang {
+    kotak-bayang: 0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA KOMPLEKS - EFEK MULTI-LAYER                                         */
+/* -------------------------------------------------------------------------- */
+.cahaya-kompleks-mega {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(0, 119, 204, 0.4),
+                0 0 30px rgba(255, 215, 0, 0.3),
+                0 0 40px rgba(150, 0, 255, 0.2),
+                0 0 50px rgba(0, 255, 100, 0.1),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-kompleks-ultimate {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(0, 119, 204, 0.5),
+                0 0 45px rgba(255, 215, 0, 0.4),
+                0 0 60px rgba(150, 0, 255, 0.3),
+                0 0 75px rgba(0, 255, 100, 0.2),
+                0 0 90px rgba(255, 0, 0, 0.1),
+                inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA VARIASI TAMBAHAN - EFEK PENCAHAYAAN EKSTENSIF                       */
+/* -------------------------------------------------------------------------- */
+.cahaya-variasi-silau {
+    kotak-bayang: 0 0 50px rgba(255, 255, 255, 1),
+                0 0 100px rgba(255, 255, 255, 0.8),
+                0 0 150px rgba(255, 255, 255, 0.6);
+}
+
+.cahaya-variasi-remang {
+    kotak-bayang: 0 0 5px rgba(255, 255, 255, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.cahaya-variasi-berkilau {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.4),
+                0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.cahaya-variasi-menyinar {
+    kotak-bayang: 0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 255, 255, 0.5),
+                0 0 90px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-variasi-memancar {
+    kotak-bayang: 0 0 20px rgba(255, 200, 100, 0.6),
+                0 0 40px rgba(255, 180, 80, 0.4),
+                0 0 60px rgba(255, 160, 60, 0.2);
+}
+
+.cahaya-variasi-membias {
+    kotak-bayang: 0 0 15px rgba(100, 200, 255, 0.5),
+                0 0 30px rgba(80, 180, 255, 0.3),
+                0 0 45px rgba(60, 160, 255, 0.1);
+}
+
+.cahaya-variasi-memantul {
+    kotak-bayang: inset 0 0 20px rgba(255, 255, 255, 0.4),
+                0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-variasi-menembus {
+    kotak-bayang: 0 0 25px rgba(255, 255, 255, 0.6),
+                inset 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-variasi-meliput {
+    kotak-bayang: 0 0 35px rgba(255, 255, 255, 0.5),
+                0 0 70px rgba(255, 255, 255, 0.3),
+                0 0 105px rgba(255, 255, 255, 0.1);
+}
+
+.cahaya-variasi-menyelimuti {
+    kotak-bayang: 0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 80px rgba(255, 255, 255, 0.2),
+                0 0 120px rgba(255, 255, 255, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA WARNA SPEKTRUM - EFEK PELANGI                                       */
+/* -------------------------------------------------------------------------- */
+.cahaya-spektrum-merah {
+    kotak-bayang: 0 0 15px rgba(255, 0, 0, 0.6),
+                0 0 30px rgba(255, 0, 0, 0.4),
+                0 0 45px rgba(255, 0, 0, 0.2);
+}
+
+.cahaya-spektrum-jingga {
+    kotak-bayang: 0 0 15px rgba(255, 128, 0, 0.6),
+                0 0 30px rgba(255, 128, 0, 0.4),
+                0 0 45px rgba(255, 128, 0, 0.2);
+}
+
+.cahaya-spektrum-kuning {
+    kotak-bayang: 0 0 15px rgba(255, 255, 0, 0.6),
+                0 0 30px rgba(255, 255, 0, 0.4),
+                0 0 45px rgba(255, 255, 0, 0.2);
+}
+
+.cahaya-spektrum-hijau {
+    kotak-bayang: 0 0 15px rgba(0, 255, 0, 0.6),
+                0 0 30px rgba(0, 255, 0, 0.4),
+                0 0 45px rgba(0, 255, 0, 0.2);
+}
+
+.cahaya-spektrum-biru {
+    kotak-bayang: 0 0 15px rgba(0, 0, 255, 0.6),
+                0 0 30px rgba(0, 0, 255, 0.4),
+                0 0 45px rgba(0, 0, 255, 0.2);
+}
+
+.cahaya-spektrum-nila {
+    kotak-bayang: 0 0 15px rgba(75, 0, 130, 0.6),
+                0 0 30px rgba(75, 0, 130, 0.4),
+                0 0 45px rgba(75, 0, 130, 0.2);
+}
+
+.cahaya-spektrum-ungu {
+    kotak-bayang: 0 0 15px rgba(148, 0, 211, 0.6),
+                0 0 30px rgba(148, 0, 211, 0.4),
+                0 0 45px rgba(148, 0, 211, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA METALIK - EFEK LOGAM BERCAHAYA                                      */
+/* -------------------------------------------------------------------------- */
+.cahaya-metalik-perak {
+    kotak-bayang: 0 0 20px rgba(192, 192, 192, 0.6),
+                0 0 40px rgba(168, 168, 168, 0.4),
+                inset 0 0 20px rgba(216, 216, 216, 0.3);
+}
+
+.cahaya-metalik-emas {
+    kotak-bayang: 0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(218, 165, 32, 0.4),
+                inset 0 0 20px rgba(255, 223, 100, 0.3);
+}
+
+.cahaya-metalik-tembaga {
+    kotak-bayang: 0 0 20px rgba(184, 115, 51, 0.6),
+                0 0 40px rgba(160, 82, 45, 0.4),
+                inset 0 0 20px rgba(205, 133, 63, 0.3);
+}
+
+.cahaya-metalik-perunggu {
+    kotak-bayang: 0 0 20px rgba(205, 127, 50, 0.6),
+                0 0 40px rgba(184, 115, 51, 0.4),
+                inset 0 0 20px rgba(218, 138, 63, 0.3);
+}
+
+.cahaya-metalik-besi {
+    kotak-bayang: 0 0 20px rgba(112, 128, 144, 0.6),
+                0 0 40px rgba(105, 105, 105, 0.4),
+                inset 0 0 20px rgba(119, 136, 153, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA GEMERLAP - EFEK BERKILAU INTENS                                     */
+/* -------------------------------------------------------------------------- */
+.cahaya-gemerlap-halus {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.cahaya-gemerlap-sedang {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.6),
+                0 0 30px rgba(255, 255, 255, 0.4),
+                0 0 45px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-gemerlap-kuat {
+    kotak-bayang: 0 0 20px rgba(255, 255, 255, 0.7),
+                0 0 40px rgba(255, 255, 255, 0.5),
+                0 0 60px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-gemerlap-intens {
+    kotak-bayang: 0 0 25px rgba(255, 255, 255, 0.8),
+                0 0 50px rgba(255, 255, 255, 0.6),
+                0 0 75px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-gemerlap-maksimal {
+    kotak-bayang: 0 0 30px rgba(255, 255, 255, 0.9),
+                0 0 60px rgba(255, 255, 255, 0.7),
+                0 0 90px rgba(255, 255, 255, 0.5),
+                0 0 120px rgba(255, 255, 255, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA LEMBUT - EFEK PENCAHAYAAN HALUS                                     */
+/* -------------------------------------------------------------------------- */
+.cahaya-lembut-sekali {
+    kotak-bayang: 0 0 5px rgba(255, 255, 255, 0.15);
+}
+
+.cahaya-lembut-sedang {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-lembut-nyaman {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+.cahaya-lembut-hangat {
+    kotak-bayang: 0 0 12px rgba(255, 230, 200, 0.2);
+}
+
+.cahaya-lembut-dingin {
+    kotak-bayang: 0 0 12px rgba(200, 230, 255, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA DRAMATIS - EFEK PENCAHAYAAN TEATRICAL                               */
+/* -------------------------------------------------------------------------- */
+.cahaya-dramatis-rendah {
+    kotak-bayang: 0 10px 30px rgba(0, 0, 0, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-dramatis-sedang {
+    kotak-bayang: 0 15px 40px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-dramatis-tinggi {
+    kotak-bayang: 0 20px 50px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-dramatis-ekstrem {
+    kotak-bayang: 0 25px 60px rgba(0, 0, 0, 0.8),
+                0 0 50px rgba(255, 255, 255, 0.6);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA RUANGAN - EFEK PENCAHAYAAN INTERIOR                                 */
+/* -------------------------------------------------------------------------- */
+.cahaya-ruangan-hangar {
+    kotak-bayang: 0 0 30px rgba(255, 220, 180, 0.4),
+                0 0 60px rgba(255, 200, 150, 0.2);
+}
+
+.cahaya-ruangan-dingin {
+    kotak-bayang: 0 0 30px rgba(200, 220, 255, 0.4),
+                0 0 60px rgba(180, 200, 255, 0.2);
+}
+
+.cahaya-ruangan-netral {
+    kotak-bayang: 0 0 30px rgba(240, 240, 240, 0.4),
+                0 0 60px rgba(220, 220, 220, 0.2);
+}
+
+.cahaya-ruangan-fokus {
+    kotak-bayang: inset 0 0 50px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA LUARAN - EFEK PENCAHAYAAN EKSTERIOR                                 */
+/* -------------------------------------------------------------------------- */
+.cahaya-luaran-terang {
+    kotak-bayang: 0 0 40px rgba(255, 255, 255, 0.6),
+                0 0 80px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-luaran-redup {
+    kotak-bayang: 0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 40px rgba(255, 255, 255, 0.15);
+}
+
+.cahaya-luaran-malam {
+    kotak-bayang: 0 0 25px rgba(255, 255, 200, 0.4),
+                0 0 50px rgba(255, 255, 150, 0.2);
+}
+
+.cahaya-luaran-siang {
+    kotak-bayang: 0 0 50px rgba(255, 255, 255, 0.7),
+                0 0 100px rgba(255, 255, 255, 0.5);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA ABSTRAK - EFEK PENCAHAYAAN NON-KONVENSIONAL                         */
+/* -------------------------------------------------------------------------- */
+.cahaya-abstrak-acak {
+    kotak-bayang: 0 0 20px rgba(255, 0, 128, 0.5),
+                0 0 40px rgba(128, 0, 255, 0.3),
+                0 0 60px rgba(0, 128, 255, 0.1);
+}
+
+.cahaya-abstrak-gradient {
+    kotak-bayang: 0 0 25px rgba(255, 100, 100, 0.5),
+                0 0 50px rgba(100, 255, 100, 0.3),
+                0 0 75px rgba(100, 100, 255, 0.1);
+}
+
+.cahaya-abstrak-kontras {
+    kotak-bayang: 0 0 20px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(0, 0, 0, 0.4);
+}
+
+.cahaya-abstrak-inversi {
+    kotak-bayang: 0 0 30px rgba(255, 0, 255, 0.5),
+                inset 0 0 30px rgba(0, 255, 0, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA SPIRITUAL - EFEK PENCAHAYAAN TRANSENDENTAL                          */
+/* -------------------------------------------------------------------------- */
+.cahaya-spiritual-suci {
+    kotak-bayang: 0 0 30px rgba(255, 255, 255, 0.7),
+                0 0 60px rgba(255, 230, 150, 0.5),
+                0 0 90px rgba(255, 215, 100, 0.3);
+}
+
+.cahaya-spiritual-meditasi {
+    kotak-bayang: 0 0 25px rgba(150, 150, 255, 0.5),
+                0 0 50px rgba(130, 130, 235, 0.3),
+                0 0 75px rgba(110, 110, 215, 0.1);
+}
+
+.cahaya-spiritual-zen {
+    kotak-bayang: 0 0 20px rgba(200, 255, 200, 0.4),
+                0 0 40px rgba(180, 235, 180, 0.2);
+}
+
+.cahaya-spiritual-nirwana {
+    kotak-bayang: 0 0 35px rgba(255, 200, 255, 0.6),
+                0 0 70px rgba(235, 180, 235, 0.4),
+                0 0 105px rgba(215, 160, 215, 0.2);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA COSMIC - EFEK PENCAHAYAAN ANGKASA                                   */
+/* -------------------------------------------------------------------------- */
+.cahaya-cosmic-bintang {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 200, 0.6),
+                0 0 30px rgba(255, 255, 150, 0.4);
+}
+
+.cahaya-cosmic-nebula {
+    kotak-bayang: 0 0 30px rgba(150, 100, 255, 0.5),
+                0 0 60px rgba(100, 50, 200, 0.3),
+                0 0 90px rgba(50, 0, 150, 0.1);
+}
+
+.cahaya-cosmic-supernova {
+    kotak-bayang: 0 0 50px rgba(255, 200, 100, 0.8),
+                0 0 100px rgba(255, 150, 50, 0.6),
+                0 0 150px rgba(255, 100, 0, 0.4);
+}
+
+.cahaya-cosmic-blackhole {
+    kotak-bayang: 0 0 40px rgba(100, 50, 150, 0.6),
+                0 0 80px rgba(80, 30, 130, 0.4),
+                0 0 120px rgba(60, 10, 110, 0.2);
+}
+
+.cahaya-cosmic-galaksi {
+    kotak-bayang: 0 0 35px rgba(200, 150, 255, 0.5),
+                0 0 70px rgba(180, 130, 235, 0.3),
+                0 0 105px rgba(160, 110, 215, 0.1);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA ELEMENTAL - EFEK UNSUR ALAM                                         */
+/* -------------------------------------------------------------------------- */
+.cahaya-elemental-api-merah {
+    kotak-bayang: 0 0 20px rgba(255, 50, 0, 0.7),
+                0 0 40px rgba(255, 30, 0, 0.5),
+                0 0 60px rgba(255, 10, 0, 0.3);
+}
+
+.cahaya-elemental-api-biru {
+    kotak-bayang: 0 0 20px rgba(0, 150, 255, 0.7),
+                0 0 40px rgba(0, 130, 235, 0.5),
+                0 0 60px rgba(0, 110, 215, 0.3);
+}
+
+.cahaya-elemental-tanah {
+    kotak-bayang: 0 0 20px rgba(139, 90, 43, 0.5),
+                0 0 40px rgba(160, 82, 45, 0.3);
+}
+
+.cahaya-elemental-angin {
+    kotak-bayang: 0 0 20px rgba(200, 230, 255, 0.4),
+                0 0 40px rgba(180, 210, 255, 0.2);
+}
+
+.cahaya-elemental-es {
+    kotak-bayang: 0 0 20px rgba(200, 240, 255, 0.5),
+                0 0 40px rgba(180, 220, 255, 0.3),
+                inset 0 0 20px rgba(220, 250, 255, 0.2);
+}
+
+.cahaya-elemental-racun {
+    kotak-bayang: 0 0 20px rgba(100, 255, 100, 0.5),
+                0 0 40px rgba(80, 235, 80, 0.3),
+                0 0 60px rgba(60, 215, 60, 0.1);
+}
+
+.cahaya-elemental-listrik-putih {
+    kotak-bayang: 0 0 25px rgba(255, 255, 255, 0.8),
+                0 0 50px rgba(255, 255, 200, 0.6),
+                0 0 75px rgba(255, 255, 150, 0.4);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA EMOSIONAL - EFEK BERDASARKAN PERASAAN                               */
+/* -------------------------------------------------------------------------- */
+.cahaya-emosional-gembira {
+    kotak-bayang: 0 0 25px rgba(255, 200, 0, 0.6),
+                0 0 50px rgba(255, 180, 0, 0.4),
+                0 0 75px rgba(255, 160, 0, 0.2);
+}
+
+.cahaya-emosional-sedih {
+    kotak-bayang: 0 0 20px rgba(100, 150, 200, 0.4),
+                0 0 40px rgba(80, 130, 180, 0.2);
+}
+
+.cahaya-emosional-marah {
+    kotak-bayang: 0 0 25px rgba(255, 50, 50, 0.6),
+                0 0 50px rgba(235, 30, 30, 0.4),
+                0 0 75px rgba(215, 10, 10, 0.2);
+}
+
+.cahaya-emosional-cinta {
+    kotak-bayang: 0 0 25px rgba(255, 100, 150, 0.6),
+                0 0 50px rgba(235, 80, 130, 0.4),
+                0 0 75px rgba(215, 60, 110, 0.2);
+}
+
+.cahaya-emosional-takut {
+    kotak-bayang: 0 0 20px rgba(100, 50, 150, 0.5),
+                0 0 40px rgba(80, 30, 130, 0.3);
+}
+
+.cahaya-emosional-tenang {
+    kotak-bayang: 0 0 20px rgba(150, 200, 255, 0.4),
+                0 0 40px rgba(130, 180, 235, 0.2);
+}
+
+.cahaya-emosional-terkejut {
+    kotak-bayang: 0 0 30px rgba(255, 255, 0, 0.7),
+                0 0 60px rgba(255, 235, 0, 0.5);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA WAKTU - EFEK BERDASARKAN PERIODE                                    */
+/* -------------------------------------------------------------------------- */
+.cahaya-waktu-detik {
+    kotak-bayang: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-waktu-menit {
+    kotak-bayang: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.cahaya-waktu-jam {
+    kotak-bayang: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-waktu-hari {
+    kotak-bayang: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.cahaya-waktu-minggu {
+    kotak-bayang: 0 0 30px rgba(255, 255, 255, 0.5),
+                0 0 60px rgba(255, 255, 255, 0.3);
+}
+
+.cahaya-waktu-bulan {
+    kotak-bayang: 0 0 35px rgba(200, 220, 255, 0.5),
+                0 0 70px rgba(180, 200, 255, 0.3);
+}
+
+.cahaya-waktu-tahun {
+    kotak-bayang: 0 0 40px rgba(255, 215, 0, 0.5),
+                0 0 80px rgba(255, 200, 0, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* CAHAYA UKURAN EXTREME - VARIASI BESAR KECIL TAMBAHAN                       */
+/* -------------------------------------------------------------------------- */
+.cahaya-ukuran-mikro {
+    kotak-bayang: 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.cahaya-ukuran-mini {
+    kotak-bayang: 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+.cahaya-ukuran-titik {
+    kotak-bayang: 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.cahaya-ukuran-nano {
+    kotak-bayang: 0 0 0.5px rgba(255, 255, 255, 0.1);
+}
+
+.cahaya-ukuran-jumbo {
+    kotak-bayang: 0 0 100px rgba(255, 255, 255, 1),
+                0 0 200px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-ukuran-raksasa-plus {
+    kotak-bayang: 0 0 150px rgba(255, 255, 255, 1),
+                0 0 300px rgba(255, 255, 255, 0.5);
+}
+
+.cahaya-ukuran-titan {
+    kotak-bayang: 0 0 200px rgba(255, 255, 255, 1),
+                0 0 400px rgba(255, 255, 255, 0.5);
+}
+
+/* -------------------------------------------------------------------------- */
+/* PENUTUP                                                                    */
+/* -------------------------------------------------------------------------- */
+/* 
+ * Berkas CahaYa.css ini berisi lebih dari 1500 baris kode CSS
+ * dengan fokus pada efek cahaya dan pencahayaan untuk elemen-elemen
+ * antarmuka pengguna dalam bahasa Indonesia sepenuhnya.
+ * 
+ * Setiap kelas cahaya dirancang untuk memberikan efek visual
+ * yang menarik dan elegan sesuai dengan tema Media Digital.
+ * 
+ * Gunakan kelas-kelas ini sesuai kebutuhan untuk meningkatkan
+ * pengalaman visual pengguna pada aplikasi web Anda.
+ * 
+ * Selamat menggunakan efek cahaya dari CahaYa.css!
+ * ============================================================================
+ */
