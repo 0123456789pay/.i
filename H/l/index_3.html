@@ -1,1 +1,132 @@
-<!DOCTYPE html> <html lang="id"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>AI Studio Dashboard</title> </head> <body> <div class="dashboard-container"> <aside class="sidebar"> <div class="sidebar-header"> <a href="index.html" class="sidebar-logo">🤖 AI Studio</a> </div> <ul class="menu"> <li class="menu-item"> <a href="#" class="menu-link active" data-has-submenu> <span><span class="menu-icon">📊</span>Dashboard</span> <span class="menu-arrow">▶</span> </a> <ul class="submenu open"> <li class="menu-item"><a href="dashboard/overview.html" class="menu-link">Overview</a></li> <li class="menu-item"><a href="dashboard/analytics.html" class="menu-link">Analytics</a></li> <li class="menu-item"><a href="dashboard/settings.html" class="menu-link">Settings</a></li> </ul> </li> <li class="menu-item"> <a href="#" class="menu-link" data-has-submenu> <span><span class="menu-icon">⚙️</span>Automation</span> <span class="menu-arrow">▶</span> </a> <ul class="submenu"> <li class="menu-item"><a href="pages/workflows.html" class="menu-link">Workflows</a></li> <li class="menu-item"><a href="pages/triggers.html" class="menu-link">Triggers</a></li> <li class="menu-item"><a href="pages/actions.html" class="menu-link">Actions</a></li> </ul> </li> <li class="menu-item"> <a href="#" class="menu-link" data-has-submenu> <span><span class="menu-icon">🔌</span>Integrations</span> <span class="menu-arrow">▶</span> </a> <ul class="submenu"> <li class="menu-item"><a href="api/rest.html" class="menu-link">REST API</a></li> <li class="menu-item"><a href="api/webhooks.html" class="menu-link">Webhooks</a></li> </ul> </li> </ul> </aside> <main class="main-content"> <div class="top-bar"> <h1 class="page-title">Dashboard Overview</h1> <button class="btn btn-secondary" onclick="window.location.href='auth/login.html'">Logout</button> </div> <div class="dashboard-grid"> <div class="card"> <div class="card-header"> <h3 class="card-title">Total Processes</h3> <div class="card-icon">⚙️</div> </div> <div class="card-value" data-animate="8547">0</div> <div class="card-label">Active automation processes</div> </div> <div class="card"> <div class="card-header"> <h3 class="card-title">AI Tasks</h3> <div class="card-icon">🤖</div> </div> <div class="card-value" data-animate="12847">0</div> <div class="card-label">Tasks completed today</div> </div> <div class="card"> <div class="card-header"> <h3 class="card-title">Success Rate</h3> <div class="card-icon">✅</div> </div> <div class="card-value" data-animate="987">0</div> <div class="card-label">Success rate percentage</div> </div> <div class="card"> <div class="card-header"> <h3 class="card-title">API Calls</h3> <div class="card-icon">🔌</div> </div> <div class="card-value" data-animate="45892">0</div> <div class="card-label">Total API calls this hour</div> </div> </div> <div class="card"> <div class="card-header"> <h3 class="card-title">Recent Activity</h3> <button class="btn btn-secondary" onclick="refreshDashboardData()">Refresh</button> </div> <div style="padding: 20px 0;"> <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--gray-200);"> <div><strong>Workflow executed</strong><p style="color: var(--gray-700); font-size: 14px;">Auto-processing completed</p></div> <span style="color: var(--gray-700); font-size: 14px;">2 minutes ago</span> </div> <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--gray-200);"> <div><strong>API Integration</strong><p style="color: var(--gray-700); font-size: 14px;">New webhook configured</p></div> <span style="color: var(--gray-700); font-size: 14px;">15 minutes ago</span> </div> <div style="display: flex; justify-content: space-between; padding: 15px 0;"> <div><strong>AI Model Updated</strong><p style="color: var(--gray-700); font-size: 14px;">Model retrained successfully</p></div> <span style="color: var(--gray-700); font-size: 14px;">1 hour ago</span> </div> </div> </div> </main> </div> </body> </html> 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALLUNIVERS ICONER - Header Component</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .navigation {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .username {
+            font-weight: bold;
+        }
+        
+        .user-role {
+            background: rgba(255,255,255,0.3);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        
+        .demo-section {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .control-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div id="iconer-header"></div>
+    
+    <div class="demo-section">
+        <h1>🎨 ALLUNIVERS ICONER - Header Module</h1>
+        <p>Komponen header untuk sistem ALLUNIVERS ICONER dengan navigasi dinamis dan informasi pengguna.</p>
+        
+        <div class="control-panel">
+            <h3>Control Panel</h3>
+            <button onclick="loadDefaultNav()">Load Default Navigation</button>
+            <button onclick="setUser()">Set User</button>
+            <button onclick="clearUser()">Clear User</button>
+        </div>
+    </div>
+
+    <script src="header.js"></script>
+    <script>
+        function loadDefaultNav() {
+            window.IconerHeader.setNavigation([
+                { label: 'Home', href: '#' },
+                { label: 'Icon Maker', href: '#' },
+                { label: 'Marketplace', href: '#' },
+                { label: 'Pricing', href: '#' },
+                { label: 'Contact', href: '#' }
+            ]);
+        }
+
+        function setUser() {
+            window.IconerHeader.setUser({
+                username: 'Admin Iconer',
+                role: 'Administrator'
+            });
+        }
+
+        function clearUser() {
+            window.IconerHeader.user = null;
+            document.getElementById('user-display').innerHTML = '';
+        }
+
+        // Load default on init
+        loadDefaultNav();
+    </script>
+</body>
+</html>
