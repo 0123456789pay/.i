@@ -234,6 +234,74 @@
         }
         .editor-panel.open { width: 50%; }
 
+        /* AI Sidebar Styles */
+        .ai-sidebar {
+            width: 0;
+            background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+            border-left: 3px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+            position: relative;
+            box-shadow: -4px 0 20px rgba(0,204,102,0.15);
+            overflow: hidden;
+        }
+        .ai-sidebar.open { width: 400px; }
+        .ai-chat-container {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .ai-message {
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 90%;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .ai-message p { margin-bottom: 8px; }
+        .ai-message ul { margin-left: 20px; margin-bottom: 8px; }
+        .ai-message li { margin-bottom: 4px; }
+        .ai-system {
+            background: linear-gradient(135deg, #e6f0ff 0%, #f0f4ff 100%);
+            border-left: 4px solid var(--blue-primary);
+            align-self: flex-start;
+        }
+        .ai-user {
+            background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
+            border-left: 4px solid var(--secondary);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .ai-response {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+            border-left: 4px solid var(--warning);
+            align-self: flex-start;
+        }
+        .ai-input-container {
+            padding: 15px;
+            border-top: 2px solid var(--border);
+            background: #ffffff;
+        }
+        .ai-input-container textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            resize: vertical;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .ai-input-container textarea:focus {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(0,102,255,0.1);
+        }
+
         .panel-header {
             height: 50px;
             border-bottom: 2px solid var(--border);
@@ -385,9 +453,10 @@
             <span class="icon">🚀</span> SOUTHEAST HIGERWARE - FILE MANAGER
         </div>
         <div style="display: flex; gap: 15px; align-items: center;">
-            <div class="storage-info">☁️ Unlimited Cloud Storage Active</div>
+            <div class="storage-info" id="storageInfo">☁️ Unlimited Cloud Storage Active</div>
             <button class="btn" onclick="app.togglePlugins()">🧩 Plugins</button>
             <button class="btn" onclick="app.openSettings()">⚙️ Config</button>
+            <button class="btn btn-primary" onclick="app.toggleAISidebar()">🤖 AI Assistant</button>
         </div>
     </header>
 
@@ -425,6 +494,7 @@
                 <button class="btn" onclick="app.uploadFile()">⬆️ Upload</button>
                 <button class="btn" onclick="app.syncGitHub()">🔄 GitHub Sync</button>
                 <div style="flex:1"></div>
+                <button class="btn" onclick="window.location.href='/search.html'">🔍 ReberPencarian</button>
                 <button class="btn" onclick="app.toggleView('grid')">▦ Grid</button>
                 <button class="btn" onclick="app.toggleView('list')">☰ List</button>
                 <input type="text" placeholder="Search files..." style="background:#f8faff; border:2px solid var(--border); color:var(--text-main); padding:8px 14px; border-radius:8px; width: 220px; font-size:0.85rem;">
@@ -457,6 +527,34 @@
             <div id="metaPanel" style="display:none; padding:20px; color:var(--text-muted);">
                 <h4>File Properties</h4>
                 <p id="metaContent"></p>
+            </div>
+        </aside>
+
+        <!-- AI Assistant Sidebar -->
+        <aside class="ai-sidebar" id="aiSidebar">
+            <div class="panel-header">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:1.5rem;">🤖</span>
+                    <strong>AI Assistant</strong>
+                </div>
+                <button class="btn" style="padding:2px 8px;" onclick="app.toggleAISidebar()">✕</button>
+            </div>
+            <div class="ai-chat-container" id="aiChatContainer">
+                <div class="ai-message ai-system">
+                    <p>Halo! Saya AI Assistant Anda. Saya dapat membantu:</p>
+                    <ul>
+                        <li>✏️ Mengedit file HTML/code</li>
+                        <li>📁 Membuat folder baru</li>
+                        <li>📄 Membuat file baru</li>
+                        <li>💻 Membuat kode otomatis</li>
+                        <li>📝 Menulis teks, paragraf, atau poin-poin</li>
+                    </ul>
+                    <p>Apa yang bisa saya bantu hari ini?</p>
+                </div>
+            </div>
+            <div class="ai-input-container">
+                <textarea id="aiInput" placeholder="Ketik perintah AI di sini..." rows="3"></textarea>
+                <button class="btn btn-primary" onclick="app.sendAIMessage()" style="width:100%; margin-top:10px;">🚀 Kirim ke AI</button>
             </div>
         </aside>
     </div>
@@ -1450,6 +1548,183 @@
 
             setStatus(msg) {
                 document.getElementById('statusText').innerText = msg;
+            }
+
+            // AI Assistant Functions
+            toggleAISidebar() {
+                const sidebar = document.getElementById('aiSidebar');
+                sidebar.classList.toggle('open');
+                if (sidebar.classList.contains('open')) {
+                    this.setStatus('AI Assistant opened');
+                    document.getElementById('aiInput').focus();
+                } else {
+                    this.setStatus('AI Assistant closed');
+                }
+            }
+
+            addAIMessage(content, type) {
+                const container = document.getElementById('aiChatContainer');
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `ai-message ai-${type}`;
+                msgDiv.innerHTML = content;
+                container.appendChild(msgDiv);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            async sendAIMessage() {
+                const input = document.getElementById('aiInput');
+                const message = input.value.trim();
+                if (!message) return;
+
+                // Add user message
+                this.addAIMessage(`<p>${this.escapeHtml(message)}</p>`, 'user');
+                input.value = '';
+
+                // Show loading
+                this.addAIMessage('<p>🤔 Memproses permintaan Anda...</p>', 'response');
+
+                // Simulate AI processing
+                setTimeout(() => {
+                    this.processAICommand(message);
+                }, 800);
+            }
+
+            processAICommand(command) {
+                const cmd = command.toLowerCase();
+                let response = '';
+
+                // Detect intent
+                if (cmd.includes('buat folder') || cmd.includes('create folder') || cmd.includes('new folder')) {
+                    const match = cmd.match(/folder\s+(?:bernama|named)?\s*["']?([^"']+)["']?/i) || cmd.match(/(?:buat|create)\s+folder\s+([^\s]+)/i);
+                    const folderName = match ? match[1] : 'New Folder';
+                    this.createFolder();
+                    document.getElementById('newFileName').value = folderName;
+                    document.getElementById('newFileType').value = 'folder';
+                    response = `<p>✅ Saya telah menyiapkan pembuatan folder "<strong>${folderName}</strong>". Silakan klik tombol Create untuk konfirmasi.</p>`;
+                    // Remove last loading message and add response
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('buat file') || cmd.includes('create file') || cmd.includes('new file')) {
+                    const match = cmd.match(/file\s+(?:bernama|named)?\s*["']?([^"']+)["']?/i) || cmd.match(/(?:buat|create)\s+file\s+([^\s]+)/i);
+                    const fileName = match ? match[1] : 'newfile.txt';
+                    this.createFile();
+                    document.getElementById('newFileName').value = fileName;
+                    response = `<p>✅ Saya telah menyiapkan pembuatan file "<strong>${fileName}</strong>". Silakan klik tombol Create untuk konfirmasi.</p>`;
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('edit') || cmd.includes('ubah') || cmd.includes('modify')) {
+                    response = `<p>✏️ Untuk mengedit file, silakan:</p>
+                        <ol>
+                            <li>Klik file yang ingin diedit</li>
+                            <li>Pilih tab "Code" di panel editor</li>
+                            <li>Ubah kode sesuai kebutuhan</li>
+                            <li>Klik tombol "Save" atau tekan Ctrl+S</li>
+                        </ol>
+                        <p>Atau berikan perintah lebih spesifik seperti: "edit file index.html dan tambahkan header baru"</p>`;
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('kode') || cmd.includes('code') || cmd.includes('html') || cmd.includes('css') || cmd.includes('javascript')) {
+                    response = `<p>💻 Tentu! Berikut contoh kode yang bisa saya buat:</p>`;
+                    
+                    if (cmd.includes('html')) {
+                        response += `<pre style="background:#f8faff; padding:10px; border-radius:6px; overflow-x:auto; font-family:monospace; font-size:0.85rem;">&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>Halaman Baru&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Selamat Datang&lt;/h1&gt;
+    &lt;p&gt;Ini adalah halaman yang dibuat oleh AI.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>`;
+                    } else if (cmd.includes('css')) {
+                        response += `<pre style="background:#f8faff; padding:10px; border-radius:6px; overflow-x:auto; font-family:monospace; font-size:0.85rem;">/* Style CSS */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}</pre>`;
+                    } else if (cmd.includes('javascript') || cmd.includes('js')) {
+                        response += `<pre style="background:#f8faff; padding:10px; border-radius:6px; overflow-x:auto; font-family:monospace; font-size:0.85rem;">// JavaScript Code
+class Aplikasi {
+    constructor() {
+        this.nama = 'Aplikasi Saya';
+        this.versi = '1.0.0';
+    }
+    
+    init() {
+        console.log('Aplikasi dimulai');
+    }
+}
+const app = new Aplikasi();
+app.init();</pre>`;
+                    } else {
+                        response += `<p>Silakan tentukan bahasa pemrograman yang diinginkan (HTML, CSS, JavaScript, dll).</p>`;
+                    }
+                    
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('teks') || cmd.includes('text') || cmd.includes('paragraf') || cmd.includes('poin') || cmd.includes('list')) {
+                    response = `<p>📝 Tentu! Berikut contoh teks yang bisa saya buat:</p>`;
+                    
+                    if (cmd.includes('poin') || cmd.includes('list')) {
+                        response += `<ul>
+                            <li>Poin pertama: Informasi penting tentang topik ini</li>
+                            <li>Poin kedua: Penjelasan lebih detail</li>
+                            <li>Poin ketiga: Kesimpulan atau rekomendasi</li>
+                        </ul>`;
+                    } else {
+                        response += `<p>Ini adalah contoh paragraf yang dibuat oleh AI Assistant. Paragraf ini dapat digunakan untuk berbagai keperluan seperti konten website, dokumentasi, atau materi presentasi. Saya dapat membantu Anda membuat teks dengan berbagai gaya dan panjang sesuai kebutuhan.</p>`;
+                    }
+                    
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                // Default response
+                response = `<p>🤖 Saya memahami permintaan Anda: "<strong>${this.escapeHtml(command)}</strong>"</p>
+                    <p>Berikut hal-hal yang dapat saya bantu:</p>
+                    <ul>
+                        <li>📁 <strong>Membuat folder:</strong> "Buat folder bernama Documents"</li>
+                        <li>📄 <strong>Membuat file:</strong> "Buat file baru index.html"</li>
+                        <li>✏️ <strong>Mengedit file:</strong> "Edit file config.json"</li>
+                        <li>💻 <strong>Membuat kode:</strong> "Buat kode HTML untuk landing page"</li>
+                        <li>📝 <strong>Menulis teks:</strong> "Buat paragraf tentang teknologi"</li>
+                    </ul>`;
+                
+                const container = document.getElementById('aiChatContainer');
+                container.lastElementChild.remove();
+                this.addAIMessage(response, 'response');
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
             }
         }
 
