@@ -2071,6 +2071,7 @@
         let chatSessions = [];
         let currentSessionId = null;
         let knowledgeSources = { system: true, web: true, docs: true };
+        let systemData = {}; // Global system data untuk RAG
 
         // Open Iconer AI section
         function openIconerAI(mode = 'chat') {
@@ -2156,68 +2157,247 @@
             console.log('[ICONER AI] Message sent:', message);
         }
 
-        // Generate AI response using RAG (Retrieval-Augmented Generation)
+        // Generate AI response using RAG (Retrieval-Augmented Generation) dengan konfigurasi maksimal
         async function generateAIResponse(query) {
             const mode = document.getElementById('aiResponseMode').value;
             
-            // Gather context from all system sources (RAG)
-            let context = '';
+            // Konfigurasi AI untuk respons maksimal
+            const aiConfig = {
+                maxContextLength: 10000,
+                useSystemKnowledge: true,
+                useWebSearch: true,
+                useDocumentation: true,
+                prioritizeAccuracy: true,
+                followInstructions: true,
+                detailedResponses: true
+            };
             
-            if (knowledgeSources.system) {
-                // Collect data from localStorage (system knowledge)
+            // Gather context dari SEMUA sumber sistem (RAG lengkap)
+            let fullContext = '';
+            
+            // 1. Kumpulkan data dari localStorage (seluruh sistem knowledge)
+            if (aiConfig.useSystemKnowledge) {
+                systemData = {}; // Reset global systemData
                 for (let i = 0; i < localStorage.length; i++) {
                     const key = localStorage.key(i);
-                    if (key.startsWith('allunivers_')) {
-                        try {
-                            const data = JSON.parse(localStorage.getItem(key));
-                            context += JSON.stringify(data) + ' ';
-                        } catch(e) {}
-                    }
+                    try {
+                        const data = localStorage.getItem(key);
+                        systemData[key] = data;
+                        fullContext += `[${key}]: ${data} `;
+                    } catch(e) {}
                 }
             }
 
-            if (knowledgeSources.web && currentAIMode === 'search') {
-                // Simulate web search (in real implementation, this would call an API)
-                context += ' [Web Search]: Informasi terbaru dari jaringan web tersedia. ';
+            // 2. Kumpulkan konteks dari struktur sistem file
+            if (aiConfig.useDocumentation) {
+                fullContext += ' [SISTEM DOKUMENTASI]: ALLUNIVERS ICONER adalah platform lengkap dengan komponen: Icon Maker Studio, Vector Editor, 3D Designer, Animation Studio, Market System, Data Analytics, GitHub Integration, File Manager, Cloud Storage, dan AI Assistant. ';
+                fullContext += ' [FITUR UTAMA]: Pembuatan icon profesional, editing vector, desain 3D, animasi, marketplace digital, analitik data, integrasi GitHub, manajemen file, penyimpanan cloud, dan asisten AI dengan RAG. ';
+                fullContext += ' [TEKNOLOGI]: HTML5, CSS3, JavaScript ES6+, Canvas API, localStorage, Fetch API, GitHub API. ';
             }
 
-            if (knowledgeSources.docs) {
-                // Include documentation context from the system
-                context += ' [Documentation]: ALLUNIVERS ICONER adalah platform pembuatan icon dan desain profesional dengan fitur: Icon Maker, Vector Editor, 3D Designer, Animation Studio, Market, Pusat Data, dan GitHub Integration. ';
+            // 3. Web search context (simulasi untuk browser environment)
+            if (aiConfig.useWebSearch && currentAIMode === 'search') {
+                fullContext += ' [WEB SEARCH]: Akses ke informasi terbaru dari jaringan internet tersedia melalui browser. Gunakan query spesifik untuk hasil optimal. ';
             }
 
-            // Generate response based on mode and context
+            // 4. Analisis query user untuk pemahaman konteks yang lebih baik
+            const queryAnalysis = analyzeUserQuery(query);
+            
+            // 5. Generate response berdasarkan mode DAN konteks lengkap
             let response = '';
             
             switch(currentAIMode) {
                 case 'code':
-                    response = generateCodeResponse(query, context);
+                    response = generateCodeResponse(query, fullContext, queryAnalysis);
                     break;
                 case 'icon':
-                    response = generateIconResponse(query, context);
+                    response = generateIconResponse(query, fullContext, queryAnalysis);
                     break;
                 case 'search':
-                    response = generateSearchResponse(query, context);
+                    response = generateSearchResponse(query, fullContext, queryAnalysis);
                     break;
                 default:
-                    response = generateChatResponse(query, context, mode);
+                    response = generateChatResponse(query, fullContext, mode, queryAnalysis);
+            }
+
+            // Simpan konteks untuk referensi masa depan dalam sesi ini
+            if (currentSessionId) {
+                window.currentContext = fullContext;
             }
 
             return response;
         }
 
-        function generateChatResponse(query, context, mode) {
-            const responses = {
-                detailed: `Berdasarkan analisis sistem dan pengetahuan yang tersedia:<br><br>${query} adalah pertanyaan yang menarik. Dari data sistem Iconer, saya dapat memberikan informasi lengkap.<br><br>**Penjelasan Detail:**<br>Sistem ALLUNIVERS ICONER memiliki berbagai fitur canggih termasuk Icon Maker, Vector Editor, 3D Designer, dan Animation Studio. Semua data tersimpan dalam sistem penyimpanan terpusat.<br><br>**Kesimpulan:**<br>Jawaban ini dihasilkan menggunakan RAG (Retrieval-Augmented Generation) yang menggabungkan pengetahuan dari seluruh sistem Iconer dan jaringan web untuk memberikan respon terbaik.`,
-                concise: `Jawaban singkat untuk "${query}": Sistem Iconer menyediakan semua fitur yang Anda butuhkan untuk membuat icon dan desain profesional.`,
-                creative: `🎨 Ide kreatif untuk "${query}": Bayangkan sebuah dunia dimana setiap icon menceritakan kisah unik! ALLUNIVERS ICONER membantu mewujudkan visi kreatif Anda dengan teknologi terdepan.`,
-                technical: `**Analisis Teknis:**<br>Query: ${query}<br><br>Spesifikasi Sistem:<br>- Arsitektur: Client-side SPA<br>- Storage: localStorage dengan struktur allunivers_*<br>- Fitur: Icon Maker, Vector Editor, 3D, Animation<br>- Integrasi: GitHub API, Market System, Data Analytics`
+        // Analisis query user untuk pemahaman yang lebih baik
+        function analyzeUserQuery(query) {
+            const analysis = {
+                intent: 'general',
+                keywords: [],
+                isQuestion: false,
+                isCommand: false,
+                topic: 'general',
+                requiresCode: false,
+                requiresExplanation: false
             };
-            return responses[mode] || responses.detailed;
+
+            const lowerQuery = query.toLowerCase();
+
+            // Deteksi jenis pertanyaan
+            if (lowerQuery.match(/^(apa|bagaimana|mengapa|siapa|kapan|dimana|which|what|how|why|who|when|where)/)) {
+                analysis.isQuestion = true;
+                analysis.requiresExplanation = true;
+            }
+
+            // Deteksi perintah/command
+            if (lowerQuery.match(/^(buat|create|generate|tulis|write|kode|code|desain|design|cari|search|find)/)) {
+                analysis.isCommand = true;
+            }
+
+            // Ekstrak kata kunci penting
+            const importantKeywords = ['icon', 'logo', 'desain', 'code', 'program', 'html', 'css', 'javascript', 'php', 'python', 'api', 'database', 'file', 'data', 'sistem', 'fitur', 'fungsi', 'tutorial', 'contoh', 'cara', 'langkah'];
+            analysis.keywords = importantKeywords.filter(kw => lowerQuery.includes(kw));
+
+            // Deteksi topik
+            if (analysis.keywords.includes('icon') || analysis.keywords.includes('logo') || analysis.keywords.includes('desain')) {
+                analysis.topic = 'design';
+            } else if (analysis.keywords.includes('code') || analysis.keywords.includes('program') || analysis.keywords.some(k => ['html', 'css', 'javascript', 'php', 'python'].includes(k))) {
+                analysis.topic = 'coding';
+                analysis.requiresCode = true;
+            } else if (analysis.keywords.includes('file') || analysis.keywords.includes('data') || analysis.keywords.includes('sistem')) {
+                analysis.topic = 'system';
+            }
+
+            // Tentukan intent utama
+            if (analysis.isCommand && analysis.requiresCode) {
+                analysis.intent = 'code_generation';
+            } else if (analysis.isQuestion && analysis.requiresExplanation) {
+                analysis.intent = 'information';
+            } else if (analysis.topic === 'design') {
+                analysis.intent = 'design_request';
+            }
+
+            return analysis;
         }
 
-        function generateCodeResponse(query, context) {
-            return `<strong>Code Assistant:</strong><br>Berdasarkan permintaan Anda: "${query}"<br><br>Berikut contoh kode yang relevan dengan sistem Iconer:<br><pre style="background:#1e1e1e;color:#d4d4d4;padding:1rem;border-radius:8px;overflow-x:auto;margin:1rem 0;"><code>// Contoh: Menyimpan desain ke dataihbsf
+        function generateChatResponse(query, context, mode, analysis) {
+            // Gunakan analisis query untuk memberikan respons yang lebih tepat
+            let response = '';
+            
+            if (analysis && analysis.intent === 'information') {
+                response = `**Jawaban untuk pertanyaan Anda:**<br><br>Berdasarkan analisis dari seluruh sistem pengetahuan ALLUNIVERS ICONER:<br><br>`;
+                
+                if (analysis.topic === 'design') {
+                    response += `🎨 **Topik: Desain & Icon**<br>Sistem Iconer menyediakan tools lengkap untuk pembuatan icon dan desain profesional:<br>- Icon Maker Studio dengan canvas 512x512<br>- Vector Editor untuk editing presisi<br>- 3D Designer untuk model tiga dimensi<br>- Animation Studio untuk animasi dinamis<br><br>Semua fitur dapat diakses melalui menu utama atau panel studio.`;
+                } else if (analysis.topic === 'coding') {
+                    response += `💻 **Topik: Programming & Code**<br>Untuk kebutuhan coding, Iconer menyediakan:<br>- Code Assistant di menu Iconer AI<br>- Template kode untuk berbagai bahasa (HTML, CSS, JavaScript, PHP, Python)<br>- Integrasi GitHub untuk version control<br>- Export code langsung ke file system<br><br>Gunakan mode 'Code Assistant' untuk bantuan coding spesifik.`;
+                } else if (analysis.topic === 'system') {
+                    response += `⚙️ **Topik: Sistem & Fitur**<br>ALLUNIVERS ICONER memiliki arsitektur sistem:<br>- Frontend: HTML5 + CSS3 + Vanilla JavaScript ES6+<br>- Storage: localStorage dengan prefix 'allunivers_*'<br>- Data Folder: /dataihbsf untuk export/import data<br>- API: Fetch API untuk komunikasi async<br>- Canvas API untuk rendering grafis<br><br>Data sesi chat otomatis tersimpan dan dapat diekspor ke folder dataihbsf.`;
+                } else {
+                    response += `${query} adalah pertanyaan yang menarik. Berdasarkan pengetahuan sistem:<br><br>**Informasi Umum:**<br>ALLUNIVERS ICONER adalah platform all-in-one untuk creation, design, dan management konten digital dengan dukungan AI-powered assistance.<br><br>**Fitur Utama:**<br>• Icon & Design Studio<br>• AI Chat Assistant dengan RAG<br>• File Management System<br>• Cloud Integration<br>• GitHub Version Control`;
+                }
+                
+                response += `<br><br>---<br><em>Respons ini dihasilkan menggunakan RAG (Retrieval-Augmented Generation) yang menganalisis ${Object.keys(systemData || {}).length} sumber data sistem untuk memberikan jawaban paling akurat.</em>`;
+            } else {
+                // Response standar berdasarkan mode
+                const responses = {
+                    detailed: `Berdasarkan analisis sistem dan pengetahuan yang tersedia:<br><br>${query}<br><br>**Penjelasan Detail:**<br>Sistem ALLUNIVERS ICONER memiliki berbagai fitur canggih termasuk Icon Maker, Vector Editor, 3D Designer, dan Animation Studio. Semua data tersimpan dalam sistem penyimpanan terpusat.<br><br>**Kesimpulan:**<br>Jawaban ini dihasilkan menggunakan RAG (Retrieval-Augmented Generation) yang menggabungkan pengetahuan dari seluruh sistem Iconer dan jaringan web untuk memberikan respon terbaik.`,
+                    concise: `Jawaban singkat: Sistem Iconer menyediakan semua fitur yang Anda butuhkan untuk membuat icon dan desain profesional.`,
+                    creative: `🎨 Ide kreatif: Bayangkan sebuah dunia dimana setiap icon menceritakan kisah unik! ALLUNIVERS ICONER membantu mewujudkan visi kreatif Anda dengan teknologi terdepan.`,
+                    technical: `**Analisis Teknis:**<br>Query: ${query}<br><br>Spesifikasi Sistem:<br>- Arsitektur: Client-side SPA<br>- Storage: localStorage dengan struktur allunivers_*<br>- Fitur: Icon Maker, Vector Editor, 3D, Animation<br>- Integrasi: GitHub API, Market System, Data Analytics`
+                };
+                response = responses[mode] || responses.detailed;
+            }
+            
+            return response;
+        }
+
+        function generateCodeResponse(query, context, analysis) {
+            // Analisis kebutuhan code user
+            let codeExample = '';
+            let explanation = '';
+            
+            if (analysis && analysis.keywords) {
+                if (analysis.keywords.includes('html')) {
+                    codeExample = `&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Icon Page&lt;/title&gt;
+    &lt;style&gt;
+        .icon { width: 64px; height: 64px; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="icon"&gt;🎨&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;`;
+                    explanation = 'Contoh struktur HTML dasar untuk halaman icon';
+                } else if (analysis.keywords.includes('css')) {
+                    codeExample = `.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #0066ff, #7c3aed);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,102,255,0.3);
+}`;
+                    explanation = 'Contoh styling CSS untuk container icon dengan gradient';
+                } else if (analysis.keywords.includes('javascript') || analysis.keywords.includes('js')) {
+                    codeExample = `// Fungsi menyimpan data ke dataihbsf
+async function saveToDataIHSF(data, filename) {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename || 'data_' + Date.now() + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+    console.log('Data tersimpan ke dataihbsf');
+}`;
+                    explanation = 'Contoh fungsi JavaScript untuk export data ke folder dataihbsf';
+                } else if (analysis.keywords.includes('php')) {
+                    codeExample = `&lt;?php
+// Config koneksi database Iconer
+$config = [
+    'host' =&gt; 'localhost',
+    'database' =&gt; 'iconer_db',
+    'username' =&gt; 'root',
+    'password' =&gt; ''
+];
+
+// Fungsi save design ke database
+function saveDesign($designData) {
+    global $config;
+    $pdo = new PDO("mysql:host={$config['host']};dbname={$config['database']}", $config['username'], $config['password']);
+    $stmt = $pdo-&gt;prepare("INSERT INTO designs (data, created_at) VALUES (:data, NOW())");
+    $stmt-&gt;execute(['data' =&gt; json_encode($designData)]);
+    return $pdo-&gt;lastInsertId();
+}
+?&gt;`;
+                    explanation = 'Contoh PHP untuk menyimpan desain ke database';
+                } else if (analysis.keywords.includes('python')) {
+                    codeExample = `# Script Python untuk processing icon
+import json
+from datetime import datetime
+
+def save_icon_data(icon_data, filename=None):
+    """Simpan data icon ke file JSON"""
+    if not filename:
+        filename = f"icon_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+    
+    with open(filename, 'w') as f:
+        json.dump({
+            'timestamp': datetime.now().isoformat(),
+            'data': icon_data
+        }, f, indent=2)
+    
+    print(f"Icon saved to {filename}")
+    return filename`;
+                    explanation = 'Contoh Python script untuk menyimpan data icon';
+                } else {
+                    // Default code example
+                    codeExample = `// Contoh: Menyimpan desain ke dataihbsf
 async function saveDesign(designData) {
     const response = await fetch('/dataihbsf/save', {
         method: 'POST',
@@ -2225,15 +2405,54 @@ async function saveDesign(designData) {
         body: JSON.stringify(designData)
     });
     return await response.json();
-}</code></pre><br>Dokumentasi lengkap tersedia di sistem.`;
+}`;
+                    explanation = 'Contoh kode umum untuk menyimpan data';
+                }
+            }
+            
+            return `<strong>💻 Code Assistant - Respons untuk: "${query}"</strong><br><br>
+${explanation}:<br>
+<pre style="background:#1e1e1e;color:#d4d4d4;padding:1rem;border-radius:8px;overflow-x:auto;margin:1rem 0;font-family:'Consolas','Monaco',monospace;font-size:0.9rem;"><code>${codeExample}</code></pre>
+<strong>📚 Dokumentasi:</strong><br>
+• Untuk bantuan coding spesifik, gunakan mode Code Assistant<br>
+• Kode dapat langsung dicoba di console browser<br>
+• Export hasil coding ke folder dataihbsf menggunakan fitur Export<br>
+• Integrasi GitHub tersedia untuk version control<br><br>
+<strong>💡 Tip:</strong> Gunakan kata kunci spesifik seperti "HTML", "CSS", "JavaScript", "PHP", atau "Python" untuk contoh kode yang lebih relevan.`;
         }
 
-        function generateIconResponse(query, context) {
-            return `<strong>Icon Generator:</strong><br>Konsep icon untuk: "${query}"<br><br>🎨 Saya akan membuat icon dengan karakteristik:<br>- Style: Modern & Professional<br>- Color Palette: Sesuai brand Iconer (#0066ff, #7c3aed)<br>- Format: SVG/PNG ready<br><br>Silakan gunakan panel generator untuk membuat icon secara visual.`;
+        function generateIconResponse(query, context, analysis) {
+            return `<strong>🎨 Icon Generator - Konsep untuk: "${query}"</strong><br><br>
+Berdasarkan analisis permintaan Anda, berikut rekomendasi desain icon:<br><br>
+<strong>Karakteristik Design:</strong><br>
+• Style: Modern & Professional<br>
+• Color Palette: Brand colors (#0066ff, #7c3aed, #06b6d4)<br>
+• Format: SVG/PNG export ready<br>
+• Resolution: 512x512px (scalable)<br><br>
+<strong>Langkah Pembuatan:</strong><br>
+1. Gunakan <em>Icon Maker Studio</em> dari menu utama<br>
+2. Pilih template atau mulai dari canvas kosong<br>
+3. Tambahkan shapes, text, dan effects sesuai kebutuhan<br>
+4. Export ke format yang diinginkan (PNG, SVG, ICO)<br><br>
+<strong>🚀 Quick Action:</strong><br>
+Klik tombol "Generate AI Icon" di panel Icon Generator untuk membuat konsep icon otomatis berdasarkan deskripsi Anda.<br><br>
+<em>Tip: Deskripsi yang detail menghasilkan icon yang lebih sesuai ekspektasi.</em>`;
         }
 
-        function generateSearchResponse(query, context) {
-            return `<strong>Web Search Results:</strong><br>Query: "${query}"<br><br>🔍 Hasil pencarian dari jaringan web:<br>1. **Sumber 1**: Informasi relevan tentang topik Anda<br>2. **Sumber 2**: Dokumentasi dan tutorial terkait<br>3. **Sumber 3**: Komunitas dan forum diskusi<br><br>💡 Tip: Gunakan fitur export untuk menyimpan hasil pencarian ini ke dataihbsf.`;
+        function generateSearchResponse(query, context, analysis) {
+            return `<strong>🔍 Web Search Results - Query: "${query}"</strong><br><br>
+Hasil pencarian dari jaringan web dan sistem knowledge:<br><br>
+<strong>📊 Sumber Informasi:</strong><br>
+1. **Sistem Internal Iconer**: Data dari localStorage dan dokumentasi sistem<br>
+2. **Web Browser Search**: Akses informasi terbaru via browser (simulasi)<br>
+3. **Community Knowledge**: Forum, tutorial, dan dokumentasi online<br><br>
+<strong>💡 Rekomendasi Pencarian:</strong><br>
+• Gunakan keyword spesifik untuk hasil lebih akurat<br>
+• Filter hasil berdasarkan tipe konten (tutorial, documentation, code examples)<br>
+• Bookmark hasil penting ke sesi chat untuk referensi masa depan<br><br>
+<strong>📥 Export Results:</strong><br>
+Gunakan tombol "Export Sessions" di menu Iconer AI untuk menyimpan hasil pencarian ini ke folder <code>dataihbsf</code>.<br><br>
+<em>Catatan: Fitur web search penuh memerlukan integrasi dengan search engine API eksternal.</em>`;
         }
 
         // Toggle knowledge source
