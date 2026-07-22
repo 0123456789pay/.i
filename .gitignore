@@ -1,49 +1,5 @@
 ```
-# Build artifacts and compiled files
-*.pyc
-__pycache__/
-*.o
-*.obj
-*.out
-dist/
-build/
-target/
-
-# Dependencies
-node_modules/
-venv/
-.venv/
-.julia/
-zig-cache/
-zig-out/
-
-# Logs and temporary files
-*.log
-*.tmp
-*.swp
-*.swo
-
-# Environment and secrets
-.env
-.env.local
-.env.*
-
-# Editors and IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Coverage and testing
-.coverage
-coverage/
-htmlcov/
-
-# Compressed archives
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -66,5 +22,46 @@ htmlcov/
 *.tar.bz2
 *.tar.xz
 *.tar.zst
+
+# Dependencies
+node_modules/
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System/Environment files
+.DS_Store
+Thumbs.db
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Build artifacts (from path patterns)
+B/c/storage/
+B/j/storage/
+B/l/storage/
+F/c/storage/
+F/j/storage/
+F/l/storage/
+H/c/storage/
+H/j/storage/
+H/l/storage/
+I/c/storage/
+I/j/storage/
+I/l/storage/
+S/c/storage/
+S/j/storage/
+S/l/storage/
 
 ```
