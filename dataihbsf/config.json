@@ -1,27 +1,32 @@
 {
-  "version": "1.0",
-  "platform": "ALLUNIVERS ICONER",
-  "dataStorage": {
-    "path": "./dataihbsf",
-    "autoExport": true,
-    "autoImport": false,
-    "format": "json"
+  "version": "1.0.0",
+  "system": "IHBSF",
+  "folders": {
+    "main": ["I", "H", "B", "S", "F"],
+    "sub": ["h", "t", "m", "l", "c", "s", "S", "j", "`s"]
   },
-  "aiSettings": {
-    "ragEnabled": true,
-    "knowledgeSources": {
-      "system": true,
-      "web": true,
-      "docs": true
-    },
-    "responseModes": ["detailed", "concise", "creative", "technical"],
-    "defaultMode": "detailed"
+  "fileMapping": {
+    ".html": "l",
+    ".css": "c",
+    ".js": "j"
   },
-  "chatFeatures": {
-    "sessionsEnabled": true,
-    "maxSessions": 100,
-    "autoSave": true,
-    "exportEnabled": true,
-    "importEnabled": true
+  "autoSave": {
+    "enabled": true,
+    "interval": 5000,
+    "path": "/workspace/dataihbsf"
+  },
+  "storage": {
+    "type": "localStorage",
+    "prefix": "ihbsf_"
+  },
+  "navigation": {
+    "enabled": true,
+    "links": [
+      {"folder": "I", "path": "../I/index.html"},
+      {"folder": "H", "path": "../H/index.html"},
+      {"folder": "B", "path": "../B/index.html"},
+      {"folder": "S", "path": "../S/index.html"},
+      {"folder": "F", "path": "../F/index.html"}
+    ]
   }
 }
