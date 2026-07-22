@@ -510,27 +510,115 @@
     </div>
 
     <script>
-        // Simulated File System Data - Southeast Higerware Edition
+        // Complete File System Data - Southeast Higerware Ultimate Edition
+        const githubRepos = [
+            'media.digital',
+            'ai_machinelearning.digital',
+            'aireber.digital',
+            'analisisdata.digital',
+            'analytics.digital',
+            'arsipversi.digital',
+            'automation.digital',
+            'bantuansupport.digital',
+            'bisnisstartup.digital',
+            'blockchaincrypto.digital',
+            'chatbot.digital',
+            'cloud.digital',
+            'configphpgit.digital',
+            'configprotokol.digital',
+            'configselectortrue.digital',
+            'configsimbolakar.digital',
+            'data.digital',
+            'datamerge_branch.digital',
+            'desainkreatif.digital',
+            'design.digital',
+            'dns_domain.digital',
+            'ecommerce.digital',
+            'ecommerceretail.digital',
+            'energilingkungan.digital',
+            'gameentertainment.digital',
+            'hukumkepatuhan.digital',
+            'identitasakses.digital',
+            'infrastrukturcloud.digital',
+            'integration.digital',
+            'iot_perangkat.digital',
+            'jaringanaktuaris.digital',
+            'kapasitasramrom.digital',
+            'keamanansiber.digital',
+            'kesehatandigital.digital',
+            'keuanganperbankan.digital',
+            'komunikasi.digital',
+            'konstruksigedung.digital',
+            'lisensidomain.digital',
+            'manajemendata.digital',
+            'manajemenfile.digital',
+            'manajemenproyek.digital',
+            'mediakonten.digital',
+            'monitoring.digital',
+            'newsnia.digital',
+            'optimization.digital',
+            'pendidikanpelatihan.digital',
+            'pengaturansistem.digital',
+            'pengembangansoftware.digital',
+            'platform.digital',
+            'pusatdigital.digital',
+            'ragreber.digital',
+            'reberpencarian.digital',
+            'security.digital',
+            'situspenyesuaian.digital',
+            'studio.digital',
+            'tanggapdarurat.digital',
+            'tiketevent.digital',
+            'transportasilogistik.digital',
+            'visualisasireporting.digital'
+        ];
+
         const fileSystem = {
             '/': [
-                { id: 1, name: 'documents', type: 'folder', size: '-', date: '2023-10-25' },
-                { id: 2, name: 'images', type: 'folder', size: '-', date: '2023-10-24' },
-                { id: 3, name: 'code', type: 'folder', size: '-', date: '2023-10-26' },
-                { id: 4, name: 'media', type: 'folder', size: '-', date: '2023-10-20' },
-                { id: 5, name: 'readme.md', type: 'file', ext: 'md', size: '2 KB', date: '2023-10-27', content: '# Welcome to Southeast Higerware\nUnlimited Storage System Active.\nGitHub Integration Ready.' },
-                { id: 6, name: 'config.json', type: 'file', ext: 'json', size: '1 KB', date: '2023-10-27', content: '{\n  "system": "southeast-higerware",\n  "version": "10.6.0",\n  "storage": "unlimited",\n  "github": "southeasthigerware"\n}' }
-            ],
-            '/code': [
-                { id: 7, name: 'index.html', type: 'file', ext: 'html', size: '15 KB', date: '2023-10-27', content: '<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>' },
-                { id: 8, name: 'style.css', type: 'file', ext: 'css', size: '4 KB', date: '2023-10-27', content: 'body { background: linear-gradient(135deg, #ffffff, #0066ff); color: #1a1a2e; }' },
-                { id: 9, name: 'app.js', type: 'file', ext: 'js', size: '8 KB', date: '2023-10-27', content: 'console.log("Southeast Higerware System Ready");' }
+                { id: 1, name: 'documents', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 2, name: 'images', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 3, name: 'code', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 4, name: 'media', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 5, name: 'github-repos', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 6, name: 'readme.md', type: 'file', ext: 'md', size: '3 KB', date: '2024-01-15', content: '# Southeast Higerware File Manager\n\n## Unlimited Cloud Storage System\n\n### Features:\n- ✅ Unlimited Storage Capacity\n- ✅ GitHub Integration (southeasthigerware)\n- ✅ Internal Web Preview\n- ✅ Code Editor with Syntax Highlighting\n- ✅ Plugin Support (Chrome, Edge, Firefox)\n- ✅ Advanced File Management\n- ✅ Real-time Sync\n\n### Repositories Available:\n' + githubRepos.map(r => `- ${r}`).join('\n') },
+                { id: 7, name: 'system.config', type: 'file', ext: 'json', size: '2 KB', date: '2024-01-15', content: '{\n  "system": "southeast-higerware",\n  "version": "10.6.0",\n  "storage": "unlimited",\n  "theme": "white-blue-gradient",\n  "github": "southeasthigerware",\n  "plugins": ["chrome", "edge", "firefox"],\n  "features": ["editor", "preview", "sync", "terminal"]\n}' }
             ],
             '/documents': [
-                { id: 10, name: 'project_plan.txt', type: 'file', ext: 'txt', size: '5 KB', date: '2023-10-25', content: 'Phase 1: Design\nPhase 2: Development\nPhase 3: GitHub Sync' }
+                { id: 10, name: 'project_plan.txt', type: 'file', ext: 'txt', size: '5 KB', date: '2024-01-15', content: 'Southeast Higerware Development Plan\n\nPhase 1: Core System\nPhase 2: GitHub Integration\nPhase 3: Plugin Ecosystem\nPhase 4: AI Enhancement' },
+                { id: 11, name: 'notes.md', type: 'file', ext: 'md', size: '2 KB', date: '2024-01-15', content: '# Meeting Notes\n\n## Action Items\n- Implement unlimited storage simulation\n- Add GitHub repo synchronization\n- Create plugin manager interface' }
             ],
-            '/images': [],
-            '/media': []
+            '/images': [
+                { id: 12, name: 'logo.svg', type: 'file', ext: 'svg', size: '4 KB', date: '2024-01-15', content: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#0066ff"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">SH</text></svg>' }
+            ],
+            '/code': [
+                { id: 13, name: 'index.html', type: 'file', ext: 'html', size: '25 KB', date: '2024-01-15', content: '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>Southeast Higerware</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n    <p>Welcome to Southeast Higerware System</p>\n</body>\n</html>' },
+                { id: 14, name: 'style.css', type: 'file', ext: 'css', size: '8 KB', date: '2024-01-15', content: '/* Southeast Higerware Styles */\nbody {\n    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 50%, #0066ff 100%);\n    color: #1a1a2e;\n    font-family: system-ui;\n}\n\n.container {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 20px;\n}' },
+                { id: 15, name: 'app.js', type: 'file', ext: 'js', size: '12 KB', date: '2024-01-15', content: '// Southeast Higerware Application\nconsole.log("System Initialized");\n\nclass App {\n    constructor() {\n        this.version = "10.6.0";\n        this.storage = "unlimited";\n    }\n    \n    init() {\n        console.log("App started");\n    }\n}\n\nconst app = new App();\napp.init();' },
+                { id: 16, name: 'config.json', type: 'file', ext: 'json', size: '1 KB', date: '2024-01-15', content: '{\n    "name": "southeast-higerware",\n    "version": "10.6.0"\n}' }
+            ],
+            '/media': [
+                { id: 17, name: 'intro.mp4', type: 'file', ext: 'mp4', size: '15 MB', date: '2024-01-15', content: '[Binary Video Data]' },
+                { id: 18, name: 'background.mp3', type: 'file', ext: 'mp3', size: '4 MB', date: '2024-01-15', content: '[Binary Audio Data]' }
+            ],
+            '/github-repos': githubRepos.map((repo, index) => ({
+                id: 100 + index,
+                name: repo,
+                type: 'folder',
+                size: '-',
+                date: '2024-01-15',
+                githubRepo: repo
+            }))
         };
+
+        // Add individual repo files dynamically
+        githubRepos.forEach(repo => {
+            const repoPath = `/github-repos/${repo}`;
+            fileSystem[repoPath] = [
+                { id: 2000 + githubRepos.indexOf(repo), name: 'README.md', type: 'file', ext: 'md', size: '2 KB', date: '2024-01-15', content: `# ${repo}\n\nSoutheast Higerware Repository\n\n## Description\nThis is part of the Southeast Higerware ecosystem.\n\n## Features\n- Unlimited storage capability\n- Full GitHub integration\n- Web-based file management` },
+                { id: 2100 + githubRepos.indexOf(repo), name: 'index.html', type: 'file', ext: 'html', size: '5 KB', date: '2024-01-15', content: `<!DOCTYPE html>\n<html><head><title>${repo}</title></head>\n<body><h1>${repo}</h1><p>Southeast Higerware Project</p></body></html>` },
+                { id: 2200 + githubRepos.indexOf(repo), name: '.gitignore', type: 'file', ext: 'gitignore', size: '1 KB', date: '2024-01-15', content: 'node_modules/\n*.log\n.DS_Store\ndist/' }
+            ];
+        });
 
         class FileManager {
             constructor() {
@@ -538,6 +626,14 @@
                 this.selectedFile = null;
                 this.viewMode = 'grid';
                 this.githubUser = 'southeasthigerware';
+                this.clipboard = null;
+                this.history = [];
+                this.historyIndex = -1;
+                this.plugins = {
+                    chrome: { active: true, version: '3.2.1' },
+                    edge: { active: true, version: '2.8.0' },
+                    firefox: { active: true, version: '4.1.2' }
+                };
                 this.init();
             }
 
@@ -545,12 +641,29 @@
                 this.renderFiles();
                 this.updateBreadcrumb();
                 this.setupEventListeners();
-                this.setStatus('Southeast Higerware System Initialized. Unlimited Storage Ready.');
+                this.loadPlugins();
+                this.setStatus('✅ Southeast Higerware System Initialized - Unlimited Storage Active');
+                this.updateStorageIndicator();
+            }
+
+            updateStorageIndicator() {
+                // Simulated unlimited storage
+                setInterval(() => {
+                    const used = (Math.random() * 100).toFixed(2);
+                    document.querySelector('.storage-info').innerHTML = `☁️ Unlimited Cloud Storage | Used: ${used} GB / ∞`;
+                }, 5000);
+            }
+
+            loadPlugins() {
+                console.log('Loading plugins...');
+                console.log('Chrome Extension:', this.plugins.chrome);
+                console.log('Edge Module:', this.plugins.edge);
+                console.log('Firefox Adapter:', this.plugins.firefox);
             }
 
             setupEventListeners() {
                 document.addEventListener('click', (e) => {
-                    if (!e.target.closest('.context-menu')) {
+                    if (!e.target.closest('.context-menu') && !e.target.closest('.file-item')) {
                         document.getElementById('contextMenu').style.display = 'none';
                     }
                 });
@@ -561,19 +674,456 @@
                     menu.style.display = 'block';
                     menu.style.left = `${e.pageX}px`;
                     menu.style.top = `${e.pageY}px`;
+                    
+                    // Position context menu based on available space
+                    const rect = menu.getBoundingClientRect();
+                    if (rect.right > window.innerWidth) {
+                        menu.style.left = `${e.pageX - rect.width}px`;
+                    }
+                    if (rect.bottom > window.innerHeight) {
+                        menu.style.top = `${e.pageY - rect.height}px`;
+                    }
                 });
 
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') {
                         document.getElementById('editorPanel').classList.remove('open');
                         document.getElementById('newFileModal').style.display = 'none';
+                        document.getElementById('contextMenu').style.display = 'none';
                     }
                     if (e.ctrlKey && e.key === 's') {
                         e.preventDefault();
                         this.saveFile();
                     }
+                    if (e.ctrlKey && e.key === 'n') {
+                        e.preventDefault();
+                        this.createFile();
+                    }
+                    if (e.ctrlKey && e.key === 'f') {
+                        e.preventDefault();
+                        document.querySelector('.search-input').focus();
+                    }
+                    if (e.key === 'F2' && this.selectedFile) {
+                        e.preventDefault();
+                        this.contextAction('rename');
+                    }
+                    if (e.key === 'Delete' && this.selectedFile) {
+                        e.preventDefault();
+                        this.contextAction('delete');
+                    }
+                    if (e.key === 'Enter' && this.selectedFile) {
+                        e.preventDefault();
+                        this.openFile(this.selectedFile);
+                    }
+                });
+
+                // Search functionality
+                document.querySelector('.search-input').addEventListener('input', (e) => {
+                    this.searchFiles(e.target.value);
                 });
             }
+
+            searchFiles(query) {
+                if (!query) {
+                    this.renderFiles();
+                    return;
+                }
+                
+                const results = [];
+                for (let path in fileSystem) {
+                    fileSystem[path].forEach(file => {
+                        if (file.name.toLowerCase().includes(query.toLowerCase())) {
+                            results.push({ ...file, fullPath: path });
+                        }
+                    });
+                }
+                
+                this.renderSearchResults(results, query);
+            }
+
+            renderSearchResults(results, query) {
+                const grid = document.getElementById('fileGrid');
+                grid.innerHTML = `<div style="grid-column: 1/-1; padding: 10px; background: var(--bg-hover); border-radius: 8px; margin-bottom: 10px;">🔍 Search results for "${query}": ${results.length} found</div>`;
+                
+                if (results.length === 0) {
+                    grid.innerHTML += '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;">No files found</div>';
+                    return;
+                }
+
+                results.forEach(file => {
+                    const el = document.createElement('div');
+                    el.className = 'file-item';
+                    el.ondblclick = () => {
+                        this.currentPath = file.fullPath;
+                        this.openFile(file);
+                    };
+                    el.onclick = () => this.selectFile(file, el);
+                    el.innerHTML = `
+                        <div class="file-icon">${this.getIcon(file.type, file.name)}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${file.fullPath}</div>
+                    `;
+                    grid.appendChild(el);
+                });
+            }
+
+            getIcon(type, name) {
+                if (type === 'folder') {
+                    if (name.includes('github')) return '📦';
+                    return '📁';
+                }
+                const ext = name.split('.').pop().toLowerCase();
+                const icons = {
+                    'html': '🌐', 'htm': '🌐',
+                    'css': '🎨',
+                    'js': '📜', 'ts': '📜', 'jsx': '📜', 'tsx': '📜',
+                    'json': '⚙️',
+                    'md': '📝', 'txt': '📄', 'rtf': '📄',
+                    'png': '🖼️', 'jpg': '🖼️', 'jpeg': '🖼️', 'gif': '🖼️', 'svg': '🖼️', 'webp': '🖼️',
+                    'mp4': '🎬', 'avi': '🎬', 'mov': '🎬', 'webm': '🎬',
+                    'mp3': '🎵', 'wav': '🎵', 'ogg': '🎵', 'flac': '🎵',
+                    'zip': '📦', 'rar': '📦', 'tar': '📦', 'gz': '📦', '7z': '📦',
+                    'pdf': '📕',
+                    'xml': '📋',
+                    'yaml': '📋', 'yml': '📋',
+                    'py': '🐍',
+                    'php': '🐘',
+                    'rb': '💎',
+                    'go': '🔷',
+                    'rs': '🦀',
+                    'java': '☕',
+                    'c': '©️', 'cpp': '©️', 'h': '©️',
+                    'sh': '💻', 'bash': '💻',
+                    'sql': '🗄️',
+                    'dockerfile': '🐳',
+                    'gitignore': '🙈',
+                    'env': '🔒'
+                };
+                return icons[ext] || '📄';
+            }
+
+            renderFiles() {
+                const grid = document.getElementById('fileGrid');
+                grid.innerHTML = '';
+                const files = fileSystem[this.currentPath] || [];
+
+                if (files.length === 0) {
+                    grid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;"><span style="font-size:3rem;">📂</span><br><br>Folder Empty<br><small>Click "+ New File" or drag & drop to add items</small></div>';
+                    return;
+                }
+
+                // Sort: folders first, then files
+                const sorted = [...files].sort((a, b) => {
+                    if (a.type === b.type) return a.name.localeCompare(b.name);
+                    return a.type === 'folder' ? -1 : 1;
+                });
+
+                sorted.forEach(file => {
+                    const el = document.createElement('div');
+                    el.className = 'file-item';
+                    el.dataset.fileId = file.id;
+                    el.ondblclick = () => this.openFile(file);
+                    el.onclick = (e) => {
+                        e.stopPropagation();
+                        this.selectFile(file, el);
+                    };
+                    el.innerHTML = `
+                        <div class="file-icon">${this.getIcon(file.type, file.name)}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${file.size} • ${file.date}</div>
+                    `;
+                    grid.appendChild(el);
+                });
+            }
+
+            navigate(path, addToHistory = true) {
+                if (addToHistory && this.currentPath !== path) {
+                    this.history = this.history.slice(0, this.historyIndex + 1);
+                    this.history.push(path);
+                    this.historyIndex++;
+                }
+                
+                this.currentPath = path;
+                this.renderFiles();
+                this.updateBreadcrumb();
+                this.setStatus(`📂 Navigated to ${path}`);
+                this.selectedFile = null;
+            }
+
+            goBack() {
+                if (this.historyIndex > 0) {
+                    this.historyIndex--;
+                    this.currentPath = this.history[this.historyIndex];
+                    this.renderFiles();
+                    this.updateBreadcrumb();
+                    this.setStatus('⬅️ Navigation: Back');
+                }
+            }
+
+            goForward() {
+                if (this.historyIndex < this.history.length - 1) {
+                    this.historyIndex++;
+                    this.currentPath = this.history[this.historyIndex];
+                    this.renderFiles();
+                    this.updateBreadcrumb();
+                    this.setStatus('➡️ Navigation: Forward');
+                }
+            }
+
+            updateBreadcrumb() {
+                const parts = this.currentPath.split('/').filter(p => p);
+                let html = '<span class="crumb" onclick="app.navigate(\'/\')">🏠 Root</span>';
+                let current = '';
+                parts.forEach(part => {
+                    current += '/' + part;
+                    html += ` <span class="separator">/</span> <span class="crumb" onclick="app.navigate('${current}')">${part}</span>`;
+                });
+                document.getElementById('breadcrumb').innerHTML = html;
+            }
+
+            selectFile(file, element) {
+                document.querySelectorAll('.file-item').forEach(el => {
+                    el.style.borderColor = 'var(--border)';
+                    el.style.background = '#ffffff';
+                });
+                element.style.borderColor = 'var(--blue-primary)';
+                element.style.background = 'var(--bg-hover)';
+                this.selectedFile = file;
+            }
+
+            openFile(file) {
+                if (file.type === 'folder') {
+                    const newPath = this.currentPath === '/' ? `/${file.name}` : `${this.currentPath}/${file.name}`;
+                    this.navigate(newPath);
+                } else {
+                    this.openEditor(file);
+                }
+            }
+
+            openEditor(file) {
+                const panel = document.getElementById('editorPanel');
+                const editor = document.getElementById('codeEditor');
+                const preview = document.getElementById('previewFrame');
+                
+                panel.classList.add('open');
+                this.switchTab('code');
+                
+                if (file.content) {
+                    editor.value = file.content;
+                } else {
+                    editor.value = '[Binary File or No Content Available]\n\nFile: ' + file.name + '\nSize: ' + file.size + '\nType: ' + (file.ext || 'unknown');
+                }
+                
+                editor.dataset.currentFile = file.id;
+                editor.dataset.name = file.name;
+                editor.dataset.path = this.currentPath;
+                editor.dataset.ext = file.ext || '';
+                
+                // Auto-detect language for syntax highlighting simulation
+                this.detectLanguage(file.ext || '');
+                
+                this.setStatus(`📝 Editing: ${file.name}`);
+            }
+
+            detectLanguage(ext) {
+                const languages = {
+                    'html': 'HTML', 'htm': 'HTML',
+                    'css': 'CSS',
+                    'js': 'JavaScript', 'ts': 'TypeScript', 'jsx': 'JSX', 'tsx': 'TSX',
+                    'json': 'JSON',
+                    'md': 'Markdown',
+                    'py': 'Python',
+                    'php': 'PHP',
+                    'rb': 'Ruby',
+                    'java': 'Java',
+                    'c': 'C', 'cpp': 'C++',
+                    'go': 'Go',
+                    'rs': 'Rust',
+                    'sql': 'SQL',
+                    'xml': 'XML',
+                    'yaml': 'YAML', 'yml': 'YAML',
+                    'sh': 'Bash',
+                    'dockerfile': 'Dockerfile'
+                };
+                const lang = languages[ext] || 'Plain Text';
+                console.log(`Detected language: ${lang}`);
+            }
+
+            switchTab(tab) {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                event.target.classList.add('active');
+                
+                const editor = document.getElementById('codeEditor');
+                const preview = document.getElementById('previewFrame');
+                const meta = document.getElementById('metaPanel');
+
+                editor.style.display = 'none';
+                preview.style.display = 'none';
+                meta.style.display = 'none';
+
+                if (tab === 'code') {
+                    editor.style.display = 'block';
+                    editor.focus();
+                }
+                if (tab === 'preview') {
+                    preview.style.display = 'block';
+                    const content = editor.value;
+                    const ext = editor.dataset.ext || '';
+                    
+                    if (['html', 'htm'].includes(ext)) {
+                        const blob = new Blob([content], {type: 'text/html'});
+                        preview.src = URL.createObjectURL(blob);
+                    } else if (ext === 'md') {
+                        // Simple markdown to HTML conversion
+                        const htmlContent = content
+                            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                            .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+                            .replace(/\*(.*)\*/gim, '<em>$1</em>')
+                            .replace(/`(.*)`/gim, '<code>$1</code>')
+                            .replace(/\n/gim, '<br>');
+                        const blob = new Blob([htmlContent], {type: 'text/html'});
+                        preview.src = URL.createObjectURL(blob);
+                    } else {
+                        preview.srcdoc = `<html><body style="padding:20px;font-family:monospace;white-space:pre-wrap;">${content}</body></html>`;
+                    }
+                }
+                if (tab === 'meta') {
+                    meta.style.display = 'block';
+                    const name = editor.dataset.name;
+                    const path = editor.dataset.path;
+                    const ext = editor.dataset.ext || 'unknown';
+                    const size = editor.value.length;
+                    
+                    // Generate pseudo hash
+                    const pseudoHash = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+                        .map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 64);
+                    
+                    document.getElementById('metaContent').innerHTML = `
+                        <div style="display:grid;gap:12px;">
+                            <div><strong>📄 Name:</strong> ${name}</div>
+                            <div><strong>📍 Path:</strong> ${path}/${name}</div>
+                            <div><strong>📏 Size:</strong> ${size} bytes (${(size/1024).toFixed(2)} KB)</div>
+                            <div><strong>📝 Extension:</strong> .${ext}</div>
+                            <div><strong>🕐 Modified:</strong> Just now</div>
+                            <div><strong>🔐 SHA-256:</strong> <code style="font-size:0.8em;">${pseudoHash}</code></div>
+                            <div><strong>💾 MIME Type:</strong> ${this.getMimeType(ext)}</div>
+                            <div><strong>🌐 Encoding:</strong> UTF-8</div>
+                        </div>
+                    `;
+                }
+            }
+
+            getMimeType(ext) {
+                const mimes = {
+                    'html': 'text/html', 'htm': 'text/html',
+                    'css': 'text/css',
+                    'js': 'application/javascript',
+                    'json': 'application/json',
+                    'md': 'text/markdown',
+                    'txt': 'text/plain',
+                    'xml': 'application/xml',
+                    'png': 'image/png',
+                    'jpg': 'image/jpeg',
+                    'svg': 'image/svg+xml'
+                };
+                return mimes[ext] || 'application/octet-stream';
+            }
+
+            saveFile() {
+                const editor = document.getElementById('codeEditor');
+                const id = parseInt(editor.dataset.currentFile);
+                const content = editor.value;
+                const name = editor.dataset.name;
+                
+                for (let path in fileSystem) {
+                    const file = fileSystem[path].find(f => f.id === id);
+                    if (file) {
+                        file.content = content;
+                        file.size = this.formatSize(content.length);
+                        file.date = new Date().toISOString().split('T')[0];
+                        this.setStatus(`💾 Saved: ${name} (${content.length} bytes)`);
+                        
+                        // Show save animation
+                        const btn = event.target;
+                        const originalText = btn.innerText;
+                        btn.innerText = '✓ Saved';
+                        btn.style.background = 'var(--success)';
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.style.background = '';
+                        }, 1500);
+                        
+                        return;
+                    }
+                }
+                
+                // File not found in current system - could be new
+                this.setStatus('⚠️ File not found in system. May need to refresh.');
+            }
+
+            formatSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+                return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+            }
+
+            closeEditor() {
+                document.getElementById('editorPanel').classList.remove('open');
+                this.selectedFile = null;
+                this.setStatus('Editor closed');
+            }
+
+            createFile() {
+                document.getElementById('newFileName').value = '';
+                document.getElementById('newFileType').value = 'file';
+                document.getElementById('newFileModal').style.display = 'flex';
+                document.getElementById('newFileName').focus();
+            }
+
+            confirmCreate() {
+                const name = document.getElementById('newFileName').value.trim();
+                const type = document.getElementById('newFileType').value;
+                
+                if (!name) { 
+                    alert('❌ Please enter a valid name'); 
+                    return; 
+                }
+                
+                // Validate filename
+                if (/[<>:"/\\|?*]/.test(name)) {
+                    alert('❌ Invalid characters in filename');
+                    return;
+                }
+                
+                // Check if file already exists
+                const files = fileSystem[this.currentPath] || [];
+                if (files.some(f => f.name === name)) {
+                    alert('❌ A file with this name already exists');
+                    return;
+                }
+                
+                let defaultContent = '';
+                const ext = name.split('.').pop().toLowerCase();
+                
+                if (type === 'html') defaultContent = '<!DOCTYPE html>\n<html>\n<head>\n    <title>New Page</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>';
+                else if (type === 'js') defaultContent = '// New JavaScript File\nconsole.log("Hello World");';
+                else if (type === 'css') defaultContent = '/* New CSS File */\nbody {\n    margin: 0;\n    padding: 0;\n}';
+                else if (type === 'json') defaultContent = '{\n    "key": "value"\n}';
+                else if (type === 'md') defaultContent = '# New Document\n\nWrite your content here.';
+                
+                const newItem = {
+                    id: Date.now(),
+                    name: name,
+                    type: type === 'folder' ? 'folder' : 'file',
+                    size: type === 'folder' ? '-' : '0 B',
+                    date: new Date().toISOString().split('T')[0],
+                    ext: ext,
+                    content: type === 'folder' ? undefined : defaultContent
+                };
+                
+                if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
 
             getIcon(type, name) {
                 if (type === 'folder') return '📁';
