@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus File Manager - Unlimited Storage System</title>
+    <title>Southeast Higerware - Unlimited Cloud File Manager</title>
     <style>
         :root {
-            --bg-dark: #1e1e2e;
-            --bg-panel: #252537;
-            --bg-hover: #313244;
-            --text-main: #cdd6f4;
-            --text-muted: #a6adc8;
-            --accent: #89b4fa;
-            --accent-hover: #b4befe;
-            --success: #a6e3a1;
-            --warning: #f9e2af;
-            --danger: #f38ba8;
-            --border: #45475a;
+            --white: #ffffff;
+            --white-off: #f8f9fa;
+            --blue-primary: #0066ff;
+            --blue-light: #3385ff;
+            --blue-dark: #0052cc;
+            --gradient-white-blue: linear-gradient(135deg, #ffffff 0%, #f0f4ff 50%, #0066ff 100%);
+            --gradient-blue-white: linear-gradient(135deg, #0066ff 0%, #3385ff 50%, #ffffff 100%);
+            --gradient-header: linear-gradient(90deg, #ffffff 0%, #e6f0ff 50%, #0066ff 100%);
+            --gradient-sidebar: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            --shadow-soft: 0 2px 10px rgba(0, 102, 255, 0.1);
+            --shadow-strong: 0 4px 20px rgba(0, 102, 255, 0.2);
+            --text-main: #1a1a2e;
+            --text-muted: #667eea;
+            --text-light: #ffffff;
+            --border: #e6f0ff;
+            --bg-panel: #ffffff;
+            --bg-hover: #f0f4ff;
+            --success: #00cc66;
+            --warning: #ffaa00;
+            --danger: #ff4466;
             --font-mono: 'Fira Code', 'Consolas', monospace;
-            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-dark);
+            background: var(--gradient-white-blue);
             color: var(--text-main);
             height: 100vh;
             overflow: hidden;
@@ -35,17 +44,37 @@
 
         /* Header */
         header {
-            height: 50px;
-            background: var(--bg-panel);
-            border-bottom: 1px solid var(--border);
+            height: 60px;
+            background: var(--gradient-header);
+            border-bottom: 2px solid var(--blue-primary);
             display: flex;
             align-items: center;
-            padding: 0 15px;
+            padding: 0 20px;
             justify-content: space-between;
+            box-shadow: var(--shadow-soft);
         }
 
-        .logo { font-weight: bold; font-size: 1.2rem; color: var(--accent); display: flex; align-items: center; gap: 10px; }
-        .storage-info { font-size: 0.85rem; color: var(--success); background: rgba(166, 227, 161, 0.1); padding: 4px 10px; border-radius: 4px; }
+        .logo { 
+            font-weight: bold; 
+            font-size: 1.3rem; 
+            background: var(--gradient-blue-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            text-shadow: none;
+        }
+        .storage-info { 
+            font-size: 0.85rem; 
+            color: var(--success); 
+            background: linear-gradient(135deg, rgba(0, 204, 102, 0.1), rgba(0, 102, 255, 0.1)); 
+            padding: 6px 14px; 
+            border-radius: 20px;
+            border: 1px solid var(--blue-primary);
+            font-weight: 600;
+        }
         
         /* Main Layout */
         .main-container {
@@ -56,133 +85,176 @@
 
         /* Sidebar */
         .sidebar {
-            width: 250px;
-            background: var(--bg-panel);
-            border-right: 1px solid var(--border);
+            width: 280px;
+            background: var(--gradient-sidebar);
+            border-right: 2px solid var(--border);
             display: flex;
             flex-direction: column;
             overflow-y: auto;
+            box-shadow: var(--shadow-soft);
         }
 
         .nav-item {
-            padding: 10px 15px;
+            padding: 12px 18px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: background 0.2s;
+            gap: 12px;
+            transition: all 0.3s ease;
             font-size: 0.9rem;
+            border-left: 3px solid transparent;
+            color: var(--text-main);
         }
-        .nav-item:hover, .nav-item.active { background: var(--bg-hover); color: var(--accent); }
-        .nav-section { padding: 10px 15px; font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: bold; margin-top: 10px; }
+        .nav-item:hover { 
+            background: var(--gradient-white-blue); 
+            color: var(--blue-primary);
+            border-left-color: var(--blue-primary);
+        }
+        .nav-item.active { 
+            background: var(--gradient-blue-white); 
+            color: var(--text-light);
+            border-left-color: var(--blue-dark);
+        }
+        .nav-section { 
+            padding: 12px 18px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            color: var(--blue-primary); 
+            font-weight: bold; 
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
 
         /* File Explorer */
         .explorer {
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: var(--bg-dark);
+            background: #ffffff;
         }
 
         .toolbar {
-            height: 45px;
-            border-bottom: 1px solid var(--border);
+            height: 55px;
+            border-bottom: 2px solid var(--border);
             display: flex;
             align-items: center;
-            padding: 0 15px;
-            gap: 10px;
-            background: var(--bg-panel);
+            padding: 0 20px;
+            gap: 12px;
+            background: linear-gradient(90deg, #ffffff 0%, #f8faff 100%);
         }
 
         .btn {
-            background: var(--bg-hover);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            padding: 5px 12px;
-            border-radius: 4px;
+            background: var(--gradient-white-blue);
+            border: 2px solid var(--blue-primary);
+            color: var(--blue-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 0.85rem;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 5px;
-            transition: all 0.2s;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
         }
-        .btn:hover { background: var(--accent); color: var(--bg-dark); border-color: var(--accent); }
-        .btn-primary { background: var(--accent); color: var(--bg-dark); border: none; }
-        .btn-primary:hover { background: var(--accent-hover); }
+        .btn:hover { 
+            background: var(--gradient-blue-white); 
+            color: var(--text-light); 
+            border-color: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+        .btn-primary { 
+            background: var(--gradient-blue-white); 
+            color: var(--text-light); 
+            border: 2px solid var(--blue-primary);
+        }
+        .btn-primary:hover { 
+            background: var(--blue-primary); 
+            border-color: var(--blue-dark);
+        }
 
         .breadcrumb {
-            padding: 8px 15px;
+            padding: 12px 20px;
             font-size: 0.9rem;
-            color: var(--text-muted);
-            border-bottom: 1px solid var(--border);
+            color: var(--blue-primary);
+            border-bottom: 2px solid var(--border);
             display: flex;
-            gap: 5px;
+            gap: 8px;
             align-items: center;
+            background: #f8faff;
         }
-        .crumb { cursor: pointer; }
-        .crumb:hover { color: var(--accent); text-decoration: underline; }
+        .crumb { cursor: pointer; font-weight: 500; }
+        .crumb:hover { color: var(--blue-dark); text-decoration: underline; }
 
         .file-grid {
             flex: 1;
-            padding: 20px;
+            padding: 25px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
             overflow-y: auto;
             align-content: start;
+            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
         }
 
         .file-item {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 15px;
+            background: #ffffff;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: all 0.3s ease;
             text-align: center;
+            box-shadow: var(--shadow-soft);
         }
-        .file-item:hover { transform: translateY(-3px); border-color: var(--accent); }
-        .file-icon { font-size: 2.5rem; margin-bottom: 10px; }
-        .file-name { font-size: 0.85rem; word-break: break-word; line-height: 1.2; }
-        .file-meta { font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; }
+        .file-item:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--blue-primary);
+            box-shadow: var(--shadow-strong);
+        }
+        .file-icon { font-size: 3rem; margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,102,255,0.2)); }
+        .file-name { font-size: 0.85rem; word-break: break-word; line-height: 1.3; color: var(--text-main); font-weight: 500; }
+        .file-meta { font-size: 0.7rem; color: var(--text-muted); margin-top: 8px; }
 
         /* Editor & Preview Panel */
         .editor-panel {
             width: 0;
-            background: var(--bg-panel);
-            border-left: 1px solid var(--border);
+            background: #ffffff;
+            border-left: 3px solid var(--blue-primary);
             display: flex;
             flex-direction: column;
             transition: width 0.3s ease;
             position: relative;
+            box-shadow: -4px 0 20px rgba(0,102,255,0.1);
         }
         .editor-panel.open { width: 50%; }
 
         .panel-header {
-            height: 40px;
-            border-bottom: 1px solid var(--border);
+            height: 50px;
+            border-bottom: 2px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 15px;
-            background: var(--bg-dark);
+            padding: 0 20px;
+            background: var(--gradient-header);
         }
 
         .code-area {
             flex: 1;
-            background: #11111b;
-            color: #a6adc8;
+            background: #f8faff;
+            color: var(--text-main);
             border: none;
-            padding: 15px;
+            padding: 20px;
             font-family: var(--font-mono);
             font-size: 14px;
             resize: none;
             outline: none;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .preview-frame {
@@ -193,68 +265,112 @@
         }
 
         .tabs { display: flex; }
-        .tab { padding: 8px 15px; cursor: pointer; border-bottom: 2px solid transparent; font-size: 0.85rem; }
-        .tab.active { border-bottom-color: var(--accent); color: var(--accent); }
+        .tab { 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            border-bottom: 3px solid transparent; 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .tab.active { 
+            border-bottom-color: var(--blue-primary); 
+            color: var(--blue-primary);
+            background: linear-gradient(180deg, #e6f0ff 0%, transparent 100%);
+        }
 
         /* Context Menu */
         .context-menu {
             position: fixed;
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 5px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: #ffffff;
+            border: 2px solid var(--blue-primary);
+            border-radius: 10px;
+            padding: 8px 0;
+            box-shadow: 0 8px 30px rgba(0,102,255,0.2);
             z-index: 1000;
             display: none;
-            min-width: 200px;
+            min-width: 220px;
         }
         .ctx-item {
-            padding: 8px 15px;
+            padding: 10px 18px;
             cursor: pointer;
             font-size: 0.9rem;
             display: flex;
             justify-content: space-between;
+            color: var(--text-main);
+            transition: all 0.2s ease;
         }
-        .ctx-item:hover { background: var(--bg-hover); color: var(--accent); }
-        .ctx-divider { height: 1px; background: var(--border); margin: 4px 0; }
+        .ctx-item:hover { 
+            background: var(--gradient-white-blue); 
+            color: var(--blue-primary);
+        }
+        .ctx-divider { height: 2px; background: var(--border); margin: 6px 0; }
         .shortcut { font-size: 0.75rem; color: var(--text-muted); }
 
         /* Modal */
         .modal-overlay {
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 102, 255, 0.3);
+            backdrop-filter: blur(4px);
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 2000;
         }
         .modal {
-            background: var(--bg-panel);
-            padding: 25px;
-            border-radius: 8px;
-            width: 400px;
-            border: 1px solid var(--border);
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            width: 450px;
+            border: 3px solid var(--blue-primary);
+            box-shadow: 0 10px 40px rgba(0,102,255,0.3);
         }
-        .modal h3 { margin-bottom: 15px; color: var(--accent); }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; margin-bottom: 5px; font-size: 0.85rem; }
+        .modal h3 { 
+            margin-bottom: 20px; 
+            background: var(--gradient-blue-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5rem;
+        }
+        .input-group { margin-bottom: 18px; }
+        .input-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 0.85rem; 
+            color: var(--blue-primary);
+            font-weight: 600;
+        }
         .input-group input, .input-group select {
-            width: 100%; padding: 8px; background: var(--bg-dark);
-            border: 1px solid var(--border); color: var(--text-main); border-radius: 4px;
+            width: 100%; 
+            padding: 12px; 
+            background: #f8faff;
+            border: 2px solid var(--border); 
+            color: var(--text-main); 
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
-        .modal-actions { display: flex; justify-content: flex-end; gap: 10px; }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(0,102,255,0.1);
+        }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 12px; }
 
         /* Status Bar */
         .status-bar {
-            height: 25px;
-            background: var(--accent);
-            color: var(--bg-dark);
+            height: 35px;
+            background: var(--gradient-header);
+            color: var(--blue-primary);
             display: flex;
             align-items: center;
-            padding: 0 15px;
-            font-size: 0.75rem;
-            font-weight: bold;
+            padding: 0 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
             justify-content: space-between;
+            border-top: 2px solid var(--blue-primary);
         }
 
         /* Icons */
@@ -266,7 +382,7 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <span class="icon">🚀</span> NEXUS FILE MANAGER
+            <span class="icon">🚀</span> SOUTHEAST HIGERWARE - FILE MANAGER
         </div>
         <div style="display: flex; gap: 15px; align-items: center;">
             <div class="storage-info">☁️ Unlimited Cloud Storage Active</div>
@@ -286,6 +402,10 @@
             <div class="nav-item" onclick="app.navigate('/code')">💻 Source Code</div>
             <div class="nav-item" onclick="app.navigate('/media')">🎵 Media</div>
             
+            <div class="nav-section">GitHub Repositories</div>
+            <div class="nav-item" onclick="app.loadGitHubRepo('southeasthigerware/media.digital')">📦 media.digital</div>
+            <div class="nav-item" onclick="app.showGitHubProfile()">🔗 View All Repos</div>
+            
             <div class="nav-section">Cloud & Network</div>
             <div class="nav-item">🌐 Web FTP</div>
             <div class="nav-item">🔗 GitHub Sync</div>
@@ -303,10 +423,11 @@
                 <button class="btn btn-primary" onclick="app.createFile()">+ New File</button>
                 <button class="btn" onclick="app.createFolder()">+ Folder</button>
                 <button class="btn" onclick="app.uploadFile()">⬆️ Upload</button>
+                <button class="btn" onclick="app.syncGitHub()">🔄 GitHub Sync</button>
                 <div style="flex:1"></div>
-                <button class="btn" onclick="app.toggleView('grid')">▦</button>
-                <button class="btn" onclick="app.toggleView('list')">☰</button>
-                <input type="text" placeholder="Search files..." style="background:var(--bg-dark); border:1px solid var(--border); color:white; padding:5px 10px; border-radius:4px; width: 200px;">
+                <button class="btn" onclick="app.toggleView('grid')">▦ Grid</button>
+                <button class="btn" onclick="app.toggleView('list')">☰ List</button>
+                <input type="text" placeholder="Search files..." style="background:#f8faff; border:2px solid var(--border); color:var(--text-main); padding:8px 14px; border-radius:8px; width: 220px; font-size:0.85rem;">
             </div>
             
             <div class="breadcrumb" id="breadcrumb">
@@ -342,9 +463,10 @@
 
     <!-- Status Bar -->
     <footer class="status-bar">
-        <span id="statusText">Ready</span>
-        <span>System Version: 10.5.2 (Nexus Core)</span>
-        <span>Latency: 12ms</span>
+        <span id="statusText">Ready - Southeast Higerware System</span>
+        <span>System Version: 10.6.0 (Southeast Core)</span>
+        <span>GitHub: southeasthigerware</span>
+        <span>Latency: 8ms</span>
     </footer>
 
     <!-- Context Menu -->
@@ -388,23 +510,23 @@
     </div>
 
     <script>
-        // Simulated File System Data
+        // Simulated File System Data - Southeast Higerware Edition
         const fileSystem = {
             '/': [
                 { id: 1, name: 'documents', type: 'folder', size: '-', date: '2023-10-25' },
                 { id: 2, name: 'images', type: 'folder', size: '-', date: '2023-10-24' },
                 { id: 3, name: 'code', type: 'folder', size: '-', date: '2023-10-26' },
                 { id: 4, name: 'media', type: 'folder', size: '-', date: '2023-10-20' },
-                { id: 5, name: 'readme.md', type: 'file', ext: 'md', size: '2 KB', date: '2023-10-27', content: '# Welcome to Nexus\nUnlimited Storage System Active.' },
-                { id: 6, name: 'config.json', type: 'file', ext: 'json', size: '1 KB', date: '2023-10-27', content: '{\n  "system": "nexus",\n  "version": "10.5.2",\n  "storage": "unlimited"\n}' }
+                { id: 5, name: 'readme.md', type: 'file', ext: 'md', size: '2 KB', date: '2023-10-27', content: '# Welcome to Southeast Higerware\nUnlimited Storage System Active.\nGitHub Integration Ready.' },
+                { id: 6, name: 'config.json', type: 'file', ext: 'json', size: '1 KB', date: '2023-10-27', content: '{\n  "system": "southeast-higerware",\n  "version": "10.6.0",\n  "storage": "unlimited",\n  "github": "southeasthigerware"\n}' }
             ],
             '/code': [
                 { id: 7, name: 'index.html', type: 'file', ext: 'html', size: '15 KB', date: '2023-10-27', content: '<!DOCTYPE html><html><body><h1>Hello World</h1></body></html>' },
-                { id: 8, name: 'style.css', type: 'file', ext: 'css', size: '4 KB', date: '2023-10-27', content: 'body { background: #000; color: #fff; }' },
-                { id: 9, name: 'app.js', type: 'file', ext: 'js', size: '8 KB', date: '2023-10-27', content: 'console.log("System Ready");' }
+                { id: 8, name: 'style.css', type: 'file', ext: 'css', size: '4 KB', date: '2023-10-27', content: 'body { background: linear-gradient(135deg, #ffffff, #0066ff); color: #1a1a2e; }' },
+                { id: 9, name: 'app.js', type: 'file', ext: 'js', size: '8 KB', date: '2023-10-27', content: 'console.log("Southeast Higerware System Ready");' }
             ],
             '/documents': [
-                { id: 10, name: 'project_plan.txt', type: 'file', ext: 'txt', size: '5 KB', date: '2023-10-25', content: 'Phase 1: Design\nPhase 2: Development' }
+                { id: 10, name: 'project_plan.txt', type: 'file', ext: 'txt', size: '5 KB', date: '2023-10-25', content: 'Phase 1: Design\nPhase 2: Development\nPhase 3: GitHub Sync' }
             ],
             '/images': [],
             '/media': []
@@ -415,6 +537,7 @@
                 this.currentPath = '/';
                 this.selectedFile = null;
                 this.viewMode = 'grid';
+                this.githubUser = 'southeasthigerware';
                 this.init();
             }
 
@@ -422,7 +545,7 @@
                 this.renderFiles();
                 this.updateBreadcrumb();
                 this.setupEventListeners();
-                this.setStatus('System Initialized. Unlimited Storage Ready.');
+                this.setStatus('Southeast Higerware System Initialized. Unlimited Storage Ready.');
             }
 
             setupEventListeners() {
@@ -434,14 +557,12 @@
                 
                 document.addEventListener('contextmenu', (e) => {
                     e.preventDefault();
-                    // Simple logic to show context menu anywhere for demo
                     const menu = document.getElementById('contextMenu');
                     menu.style.display = 'block';
                     menu.style.left = `${e.pageX}px`;
                     menu.style.top = `${e.pageY}px`;
                 });
 
-                // Keyboard shortcuts
                 document.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') {
                         document.getElementById('editorPanel').classList.remove('open');
@@ -476,7 +597,7 @@
                 const files = fileSystem[this.currentPath] || [];
 
                 if (files.length === 0) {
-                    grid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;">Folder Empty</div>';
+                    grid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;">Folder Empty - Click + New File to add items</div>';
                     return;
                 }
 
@@ -514,7 +635,7 @@
 
             selectFile(file, element) {
                 document.querySelectorAll('.file-item').forEach(el => el.style.borderColor = 'var(--border)');
-                element.style.borderColor = 'var(--accent)';
+                element.style.borderColor = 'var(--blue-primary)';
                 this.selectedFile = file;
             }
 
@@ -579,77 +700,91 @@
                 const id = parseInt(editor.dataset.currentFile);
                 const content = editor.value;
                 
-                // Update simulated FS
-                for (let key in fileSystem) {
-                    const file = fileSystem[key].find(f => f.id === id);
+                for (let path in fileSystem) {
+                    const file = fileSystem[path].find(f => f.id === id);
                     if (file) {
                         file.content = content;
-                        file.size = (content.length / 1024).toFixed(1) + ' KB';
-                        break;
+                        file.size = content.length + ' bytes';
+                        this.setStatus(`Saved ${file.name} - ${content.length} bytes`);
+                        return;
                     }
                 }
-                this.setStatus('File Saved Successfully');
-                
-                // Visual feedback
-                const btn = event.target;
-                const originalText = btn.innerText;
-                btn.innerText = '✓ Saved';
-                setTimeout(() => btn.innerText = originalText, 1000);
             }
 
             closeEditor() {
                 document.getElementById('editorPanel').classList.remove('open');
+                this.selectedFile = null;
             }
 
             createFile() {
-                document.getElementById('newFileType').value = 'file';
+                document.getElementById('newFileName').value = '';
                 document.getElementById('newFileModal').style.display = 'flex';
                 document.getElementById('newFileName').focus();
-            }
-
-            createFolder() {
-                document.getElementById('newFileType').value = 'folder';
-                document.getElementById('newFileModal').style.display = 'flex';
-                document.getElementById('newFileName').value = 'New Folder';
             }
 
             confirmCreate() {
                 const name = document.getElementById('newFileName').value;
                 const type = document.getElementById('newFileType').value;
                 
-                if (!name) return;
-
+                if (!name) { alert('Please enter a name'); return; }
+                
                 const newItem = {
                     id: Date.now(),
                     name: name,
-                    type: type,
+                    type: type === 'folder' ? 'folder' : 'file',
                     size: type === 'folder' ? '-' : '0 KB',
                     date: new Date().toISOString().split('T')[0],
                     content: type === 'folder' ? undefined : ''
                 };
-
+                
                 if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
                 fileSystem[this.currentPath].push(newItem);
-                
                 this.renderFiles();
                 document.getElementById('newFileModal').style.display = 'none';
-                this.setStatus(`Created ${type} "${name}"`);
+                this.setStatus(`Created ${type} ${name}`);
+            }
+
+            createFolder() {
+                const name = prompt('Folder Name:', 'New Folder');
+                if (name) {
+                    const newFolder = {
+                        id: Date.now(),
+                        name: name,
+                        type: 'folder',
+                        size: '-',
+                        date: new Date().toISOString().split('T')[0]
+                    };
+                    if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
+                    fileSystem[this.currentPath].push(newFolder);
+                    this.renderFiles();
+                    this.setStatus(`Created folder ${name}`);
+                }
             }
 
             uploadFile() {
-                alert('Upload Plugin Activated:\nDrag and drop files anywhere or click to browse.\nSupports unlimited batch upload.');
-                // Simulation of upload
-                const mockFile = {
-                    id: Date.now(),
-                    name: 'uploaded_file_' + Math.floor(Math.random()*1000) + '.txt',
-                    type: 'file',
-                    size: '12 KB',
-                    date: new Date().toISOString().split('T')[0],
-                    content: 'Uploaded content simulation...'
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const newFile = {
+                            id: Date.now(),
+                            name: file.name,
+                            type: 'file',
+                            ext: file.name.split('.').pop(),
+                            size: Math.round(file.size / 1024) + ' KB',
+                            date: new Date().toISOString().split('T')[0],
+                            content: event.target.result
+                        };
+                        if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
+                        fileSystem[this.currentPath].push(newFile);
+                        this.renderFiles();
+                        this.setStatus(`Uploaded ${file.name}`);
+                    };
+                    reader.readAsText(file);
                 };
-                fileSystem[this.currentPath].push(mockFile);
-                this.renderFiles();
-                this.setStatus('File Uploaded Successfully');
+                input.click();
             }
 
             toggleView(mode) {
@@ -657,9 +792,8 @@
                 const grid = document.getElementById('fileGrid');
                 if (mode === 'list') {
                     grid.style.gridTemplateColumns = '1fr';
-                    // In a real app, we'd change the HTML structure for list view
                 } else {
-                    grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(100px, 1fr))';
+                    grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(120px, 1fr))';
                 }
             }
 
@@ -672,7 +806,7 @@
 
                 switch(action) {
                     case 'edit': this.openEditor(this.selectedFile); break;
-                    case 'preview': 
+                    case 'preview':
                         this.openEditor(this.selectedFile);
                         setTimeout(() => {
                             document.querySelector('.tab:nth-child(2)').click();
@@ -701,6 +835,32 @@
                 }
             }
 
+            // GitHub Integration Functions
+            loadGitHubRepo(repoPath) {
+                this.setStatus(`Loading repository: ${repoPath}...`);
+                // Simulated GitHub repo loading
+                const githubFiles = [
+                    { id: 1001, name: 'README.md', type: 'file', ext: 'md', size: '3 KB', date: '2024-01-15', content: '# Southeast Higerware Repository\n\nUnlimited Cloud Storage System' },
+                    { id: 1002, name: 'index.html', type: 'file', ext: 'html', size: '25 KB', date: '2024-01-16', content: '<!DOCTYPE html><html><head><title>Southeast Higerware</title></head><body><h1>Welcome</h1></body></html>' },
+                    { id: 1003, name: 'styles.css', type: 'file', ext: 'css', size: '8 KB', date: '2024-01-16', content: 'body { background: linear-gradient(135deg, #ffffff, #0066ff); }' }
+                ];
+                fileSystem['/github'] = githubFiles;
+                this.navigate('/github');
+                this.setStatus(`Repository ${repoPath} loaded successfully`);
+            }
+
+            showGitHubProfile() {
+                window.open('https://github.com/southeasthigerware', '_blank');
+                this.setStatus('Opening GitHub profile...');
+            }
+
+            syncGitHub() {
+                this.setStatus('Syncing with GitHub...');
+                setTimeout(() => {
+                    this.setStatus('GitHub sync complete. All repositories up to date.');
+                }, 1500);
+            }
+
             togglePlugins() {
                 const plugins = [
                     "Chrome Extension Loader [ACTIVE]",
@@ -715,7 +875,7 @@
             }
 
             openSettings() {
-                alert("SYSTEM CONFIGURATION\n\nTheme: Dark Nexus\nStorage: Unlimited (Virtual)\nAuto-Save: Enabled\nSync: Real-time\nSecurity Level: Maximum");
+                alert("SYSTEM CONFIGURATION\n\nTheme: White & Blue Gradient\nStorage: Unlimited (Virtual)\nAuto-Save: Enabled\nSync: Real-time\nSecurity Level: Maximum");
             }
 
             openTerminal() {
@@ -728,7 +888,7 @@
             }
 
             showSystemInfo() {
-                alert(`SYSTEM STATUS\n\nOS: Nexus Web OS\nKernel: Browser Engine\nMemory: Dynamic Allocation\nStorage: Virtual Infinite\nUptime: ${performance.now().toFixed(0)}ms`);
+                alert(`SYSTEM STATUS\n\nOS: Southeast Higerware OS\nKernel: Browser Engine\nMemory: Dynamic Allocation\nStorage: Virtual Infinite\nUptime: ${performance.now().toFixed(0)}ms\nGitHub: southeasthigerware`);
             }
 
             garbageCollect() {
