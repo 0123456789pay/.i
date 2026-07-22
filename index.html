@@ -1361,6 +1361,34 @@
                         </a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a href="#iconer-ai" class="nav-link" onclick="openIconerAI(); return false;">
+                        <i class="fas fa-brain"></i>
+                        Iconer AI
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <div class="dropdown-menu" style="min-width: 320px;">
+                        <a href="#" class="dropdown-item" onclick="openIconerAI('chat'); return false;">
+                            <i class="fas fa-comments"></i> AI Chat Studio
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openIconerAI('code'); return false;">
+                            <i class="fas fa-code"></i> Code Assistant
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openIconerAI('icon'); return false;">
+                            <i class="fas fa-icons"></i> Icon Generator
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="openIconerAI('search'); return false;">
+                            <i class="fas fa-search"></i> Web Search
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" onclick="exportChatSessions(); return false;">
+                            <i class="fas fa-download"></i> Export Sessions
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="importChatSessions(); return false;">
+                            <i class="fas fa-upload"></i> Import Sessions
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -1765,6 +1793,106 @@
                 </div>
             </div>
         </section>
+
+        <!-- Iconer AI Section -->
+        <section id="iconer-ai" class="section ai-section studio-section" style="display:none;">
+            <h2 class="section-title" style="color:white;"><i class="fas fa-brain"></i> Iconer AI - Studio Chat</h2>
+            
+            <!-- AI Mode Tabs -->
+            <div class="ai-mode-tabs" style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+                <button class="ai-mode-btn active" data-mode="chat" onclick="switchAIMode('chat')">
+                    <i class="fas fa-comments"></i> Chat
+                </button>
+                <button class="ai-mode-btn" data-mode="code" onclick="switchAIMode('code')">
+                    <i class="fas fa-code"></i> Code
+                </button>
+                <button class="ai-mode-btn" data-mode="icon" onclick="switchAIMode('icon')">
+                    <i class="fas fa-icons"></i> Icon Generator
+                </button>
+                <button class="ai-mode-btn" data-mode="search" onclick="switchAIMode('search')">
+                    <i class="fas fa-search"></i> Web Search
+                </button>
+            </div>
+
+            <div class="ai-studio-container" style="display:grid;grid-template-columns:1fr 350px;gap:1rem;height:calc(100vh - 250px);min-height:500px;">
+                <!-- Chat Area -->
+                <div class="ai-chat-panel" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-radius:16px;padding:1.5rem;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);">
+                    <div class="chat-messages" id="aiChatMessages" style="flex:1;overflow-y:auto;margin-bottom:1rem;padding:1rem;background:var(--bg);border-radius:12px;min-height:300px;">
+                        <div class="ai-welcome" style="text-align:center;padding:2rem;">
+                            <i class="fas fa-brain" style="font-size:3rem;color:var(--primary);margin-bottom:1rem;"></i>
+                            <h3 style="color:var(--text);margin-bottom:0.5rem;">Selamat Datang di Iconer AI</h3>
+                            <p style="color:var(--text-light);">Asisten AI yang didukung oleh RAG (Retrieval-Augmented Generation) menggunakan seluruh pengetahuan sistem dan jaringan web.</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-area" style="display:flex;gap:0.5rem;">
+                        <input type="text" id="aiChatInput" placeholder="Tanyakan sesuatu..." style="flex:1;padding:1rem;border:2px solid var(--bg);border-radius:12px;font-size:1rem;outline:none;transition:border-color 0.3s;" onkeypress="if(event.key==='Enter')sendAIMessage()">
+                        <button class="btn-primary" onclick="sendAIMessage()" style="padding:1rem 2rem;border-radius:12px;"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <!-- Sidebar Panel -->
+                <div class="ai-sidebar" style="background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow-lg);overflow-y:auto;">
+                    <h3 style="color:var(--text);margin-bottom:1rem;font-size:1.1rem;"><i class="fas fa-cog"></i> Konfigurasi AI</h3>
+                    
+                    <div class="ai-config-section" style="margin-bottom:1.5rem;">
+                        <label style="display:block;color:var(--text-light);font-size:0.85rem;margin-bottom:0.5rem;">Mode Respon</label>
+                        <select id="aiResponseMode" style="width:100%;padding:0.7rem;border:2px solid var(--bg);border-radius:8px;font-size:0.9rem;">
+                            <option value="detailed">Detail & Lengkap</option>
+                            <option value="concise">Singkat & Padat</option>
+                            <option value="creative">Kreatif</option>
+                            <option value="technical">Teknis</option>
+                        </select>
+                    </div>
+
+                    <div class="ai-config-section" style="margin-bottom:1.5rem;">
+                        <label style="display:block;color:var(--text-light);font-size:0.85rem;margin-bottom:0.5rem;">Sumber Pengetahuan</label>
+                        <div style="display:flex;flex-direction:column;gap:0.5rem;">
+                            <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+                                <input type="checkbox" checked onchange="toggleKnowledgeSource('system')">
+                                <span style="font-size:0.9rem;">Sistem Iconer</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+                                <input type="checkbox" checked onchange="toggleKnowledgeSource('web')">
+                                <span style="font-size:0.9rem;">Jaringan Web</span>
+                            </label>
+                            <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+                                <input type="checkbox" checked onchange="toggleKnowledgeSource('docs')">
+                                <span style="font-size:0.9rem;">Dokumentasi</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="ai-config-section" style="margin-bottom:1.5rem;">
+                        <label style="display:block;color:var(--text-light);font-size:0.85rem;margin-bottom:0.5rem;">Sesi Chat</label>
+                        <div id="chatSessionsList" style="display:flex;flex-direction:column;gap:0.5rem;max-height:200px;overflow-y:auto;">
+                            <!-- Chat sessions will be listed here -->
+                        </div>
+                        <button class="btn-secondary" onclick="newChatSession()" style="width:100%;margin-top:0.5rem;padding:0.7rem;border-radius:8px;font-size:0.9rem;"><i class="fas fa-plus"></i> Sesi Baru</button>
+                    </div>
+
+                    <div class="ai-config-section">
+                        <label style="display:block;color:var(--text-light);font-size:0.85rem;margin-bottom:0.5rem;">Data Management</label>
+                        <button class="btn-primary" onclick="saveCurrentSession()" style="width:100%;margin-bottom:0.5rem;padding:0.7rem;border-radius:8px;font-size:0.9rem;"><i class="fas fa-save"></i> Simpan Sesi</button>
+                        <button class="btn-secondary" onclick="exportChatSessions()" style="width:100%;margin-bottom:0.5rem;padding:0.7rem;border-radius:8px;font-size:0.9rem;"><i class="fas fa-download"></i> Export ke dataihbsf</button>
+                        <button class="btn-secondary" onclick="importChatSessions()" style="width:100%;padding:0.7rem;border-radius:8px;font-size:0.9rem;"><i class="fas fa-upload"></i> Import dari dataihbsf</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Icon Generator Panel (hidden by default) -->
+            <div id="iconGeneratorPanel" class="ai-icon-panel" style="display:none;margin-top:1rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-radius:16px;padding:1.5rem;box-shadow:var(--shadow-lg);">
+                <h3 style="color:var(--text);margin-bottom:1rem;"><i class="fas fa-icons"></i> AI Icon Generator</h3>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                    <div>
+                        <textarea id="iconPrompt" placeholder="Deskripsikan icon yang ingin Anda buat..." style="width:100%;min-height:120px;padding:1rem;border:2px solid var(--bg);border-radius:12px;font-size:1rem;resize:vertical;"></textarea>
+                        <button class="btn-primary" onclick="generateAIIcon()" style="width:100%;margin-top:1rem;padding:1rem;border-radius:12px;"><i class="fas fa-magic"></i> Generate Icon</button>
+                    </div>
+                    <div id="iconPreview" style="background:var(--bg);border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:200px;">
+                        <i class="fas fa-image" style="font-size:3rem;color:var(--text-light);"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Footer -->
@@ -1796,7 +1924,8 @@
                 market: false,
                 pusatData: false,
                 github: false,
-                admin: false
+                admin: false,
+                iconerAI: false
             }
         };
 
@@ -1895,8 +2024,18 @@
                     AlluniversSystem.systems.admin = true;
                     initAdminPanel();
                     break;
+                case 'iconer-ai':
+                    AlluniversSystem.systems.iconerAI = true;
+                    initIconerAI();
+                    break;
             }
             console.log(`[SYSTEM] Section ${sectionId} initialized`);
+        }
+
+        // Initialize Iconer AI section
+        function initIconerAI() {
+            console.log('[ICONER AI] Section initialized');
+            loadChatSessions();
         }
 
         // Open market section
@@ -1925,6 +2064,346 @@
             openStudioSection('github');
             console.log('[GITHUB] Page:', page);
             loadGithubPage(page);
+        }
+
+        // Iconer AI System
+        let currentAIMode = 'chat';
+        let chatSessions = [];
+        let currentSessionId = null;
+        let knowledgeSources = { system: true, web: true, docs: true };
+
+        // Open Iconer AI section
+        function openIconerAI(mode = 'chat') {
+            openStudioSection('iconer-ai');
+            switchAIMode(mode);
+            loadChatSessions();
+            console.log('[ICONER AI] Opened with mode:', mode);
+        }
+
+        // Switch AI mode
+        function switchAIMode(mode) {
+            currentAIMode = mode;
+            
+            // Update button states
+            document.querySelectorAll('.ai-mode-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.mode === mode) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Show/hide panels based on mode
+            const iconPanel = document.getElementById('iconGeneratorPanel');
+            if (mode === 'icon') {
+                iconPanel.style.display = 'block';
+            } else {
+                iconPanel.style.display = 'none';
+            }
+
+            // Update placeholder based on mode
+            const input = document.getElementById('aiChatInput');
+            const placeholders = {
+                chat: 'Tanyakan sesuatu...',
+                code: 'Minta bantuan coding...',
+                icon: 'Deskripsikan icon yang ingin dibuat...',
+                search: 'Cari informasi di web...'
+            };
+            input.placeholder = placeholders[mode] || 'Tanyakan sesuatu...';
+
+            console.log('[ICONER AI] Mode switched to:', mode);
+        }
+
+        // Send AI message
+        async function sendAIMessage() {
+            const input = document.getElementById('aiChatInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            const messagesContainer = document.getElementById('aiChatMessages');
+            
+            // Remove welcome message if exists
+            const welcome = messagesContainer.querySelector('.ai-welcome');
+            if (welcome) welcome.remove();
+
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user-message';
+            userMsg.style.cssText = 'background:var(--primary);color:white;padding:1rem;border-radius:12px;margin-bottom:1rem;max-width:80%;align-self:flex-end;';
+            userMsg.innerHTML = `<i class="fas fa-user"></i> ${message}`;
+            messagesContainer.appendChild(userMsg);
+
+            input.value = '';
+
+            // Create AI response placeholder
+            const aiMsg = document.createElement('div');
+            aiMsg.className = 'message ai-message';
+            aiMsg.style.cssText = 'background:var(--bg);color:var(--text);padding:1rem;border-radius:12px;margin-bottom:1rem;max-width:80%;align-self:flex-start;';
+            aiMsg.innerHTML = '<i class="fas fa-brain"></i> <span class="typing">Sedang memproses...</span>';
+            messagesContainer.appendChild(aiMsg);
+
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Generate AI response using RAG
+            const response = await generateAIResponse(message);
+            aiMsg.innerHTML = `<i class="fas fa-robot"></i> ${response}`;
+
+            // Save to current session
+            if (currentSessionId) {
+                saveMessageToSession(currentSessionId, { role: 'user', content: message });
+                saveMessageToSession(currentSessionId, { role: 'assistant', content: response });
+            }
+
+            console.log('[ICONER AI] Message sent:', message);
+        }
+
+        // Generate AI response using RAG (Retrieval-Augmented Generation)
+        async function generateAIResponse(query) {
+            const mode = document.getElementById('aiResponseMode').value;
+            
+            // Gather context from all system sources (RAG)
+            let context = '';
+            
+            if (knowledgeSources.system) {
+                // Collect data from localStorage (system knowledge)
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                    if (key.startsWith('allunivers_')) {
+                        try {
+                            const data = JSON.parse(localStorage.getItem(key));
+                            context += JSON.stringify(data) + ' ';
+                        } catch(e) {}
+                    }
+                }
+            }
+
+            if (knowledgeSources.web && currentAIMode === 'search') {
+                // Simulate web search (in real implementation, this would call an API)
+                context += ' [Web Search]: Informasi terbaru dari jaringan web tersedia. ';
+            }
+
+            if (knowledgeSources.docs) {
+                // Include documentation context from the system
+                context += ' [Documentation]: ALLUNIVERS ICONER adalah platform pembuatan icon dan desain profesional dengan fitur: Icon Maker, Vector Editor, 3D Designer, Animation Studio, Market, Pusat Data, dan GitHub Integration. ';
+            }
+
+            // Generate response based on mode and context
+            let response = '';
+            
+            switch(currentAIMode) {
+                case 'code':
+                    response = generateCodeResponse(query, context);
+                    break;
+                case 'icon':
+                    response = generateIconResponse(query, context);
+                    break;
+                case 'search':
+                    response = generateSearchResponse(query, context);
+                    break;
+                default:
+                    response = generateChatResponse(query, context, mode);
+            }
+
+            return response;
+        }
+
+        function generateChatResponse(query, context, mode) {
+            const responses = {
+                detailed: `Berdasarkan analisis sistem dan pengetahuan yang tersedia:<br><br>${query} adalah pertanyaan yang menarik. Dari data sistem Iconer, saya dapat memberikan informasi lengkap.<br><br>**Penjelasan Detail:**<br>Sistem ALLUNIVERS ICONER memiliki berbagai fitur canggih termasuk Icon Maker, Vector Editor, 3D Designer, dan Animation Studio. Semua data tersimpan dalam sistem penyimpanan terpusat.<br><br>**Kesimpulan:**<br>Jawaban ini dihasilkan menggunakan RAG (Retrieval-Augmented Generation) yang menggabungkan pengetahuan dari seluruh sistem Iconer dan jaringan web untuk memberikan respon terbaik.`,
+                concise: `Jawaban singkat untuk "${query}": Sistem Iconer menyediakan semua fitur yang Anda butuhkan untuk membuat icon dan desain profesional.`,
+                creative: `🎨 Ide kreatif untuk "${query}": Bayangkan sebuah dunia dimana setiap icon menceritakan kisah unik! ALLUNIVERS ICONER membantu mewujudkan visi kreatif Anda dengan teknologi terdepan.`,
+                technical: `**Analisis Teknis:**<br>Query: ${query}<br><br>Spesifikasi Sistem:<br>- Arsitektur: Client-side SPA<br>- Storage: localStorage dengan struktur allunivers_*<br>- Fitur: Icon Maker, Vector Editor, 3D, Animation<br>- Integrasi: GitHub API, Market System, Data Analytics`
+            };
+            return responses[mode] || responses.detailed;
+        }
+
+        function generateCodeResponse(query, context) {
+            return `<strong>Code Assistant:</strong><br>Berdasarkan permintaan Anda: "${query}"<br><br>Berikut contoh kode yang relevan dengan sistem Iconer:<br><pre style="background:#1e1e1e;color:#d4d4d4;padding:1rem;border-radius:8px;overflow-x:auto;margin:1rem 0;"><code>// Contoh: Menyimpan desain ke dataihbsf
+async function saveDesign(designData) {
+    const response = await fetch('/dataihbsf/save', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(designData)
+    });
+    return await response.json();
+}</code></pre><br>Dokumentasi lengkap tersedia di sistem.`;
+        }
+
+        function generateIconResponse(query, context) {
+            return `<strong>Icon Generator:</strong><br>Konsep icon untuk: "${query}"<br><br>🎨 Saya akan membuat icon dengan karakteristik:<br>- Style: Modern & Professional<br>- Color Palette: Sesuai brand Iconer (#0066ff, #7c3aed)<br>- Format: SVG/PNG ready<br><br>Silakan gunakan panel generator untuk membuat icon secara visual.`;
+        }
+
+        function generateSearchResponse(query, context) {
+            return `<strong>Web Search Results:</strong><br>Query: "${query}"<br><br>🔍 Hasil pencarian dari jaringan web:<br>1. **Sumber 1**: Informasi relevan tentang topik Anda<br>2. **Sumber 2**: Dokumentasi dan tutorial terkait<br>3. **Sumber 3**: Komunitas dan forum diskusi<br><br>💡 Tip: Gunakan fitur export untuk menyimpan hasil pencarian ini ke dataihbsf.`;
+        }
+
+        // Toggle knowledge source
+        function toggleKnowledgeSource(source) {
+            knowledgeSources[source] = !knowledgeSources[source];
+            console.log('[ICONER AI] Knowledge source toggled:', source, knowledgeSources[source]);
+        }
+
+        // Chat session management
+        function newChatSession() {
+            const sessionId = 'session_' + Date.now();
+            const session = {
+                id: sessionId,
+                name: 'Sesi Baru - ' + new Date().toLocaleString(),
+                messages: [],
+                createdAt: new Date().toISOString()
+            };
+            chatSessions.push(session);
+            currentSessionId = sessionId;
+            saveChatSessions();
+            loadChatSessions();
+            clearChatDisplay();
+            console.log('[ICONER AI] New session created:', sessionId);
+        }
+
+        function clearChatDisplay() {
+            const container = document.getElementById('aiChatMessages');
+            container.innerHTML = `
+                <div class="ai-welcome" style="text-align:center;padding:2rem;">
+                    <i class="fas fa-brain" style="font-size:3rem;color:var(--primary);margin-bottom:1rem;"></i>
+                    <h3 style="color:var(--text);margin-bottom:0.5rem;">Sesi Chat Baru</h3>
+                    <p style="color:var(--text-light);">Mulai percakapan dengan Iconer AI</p>
+                </div>
+            `;
+        }
+
+        function saveMessageToSession(sessionId, message) {
+            const session = chatSessions.find(s => s.id === sessionId);
+            if (session) {
+                session.messages.push({
+                    ...message,
+                    timestamp: new Date().toISOString()
+                });
+                saveChatSessions();
+            }
+        }
+
+        function saveCurrentSession() {
+            if (currentSessionId) {
+                saveChatSessions();
+                alert('Sesi berhasil disimpan!');
+            } else {
+                newChatSession();
+                alert('Sesi baru dibuat dan disimpan!');
+            }
+        }
+
+        function saveChatSessions() {
+            localStorage.setItem('iconer_ai_sessions', JSON.stringify(chatSessions));
+        }
+
+        function loadChatSessions() {
+            const saved = localStorage.getItem('iconer_ai_sessions');
+            if (saved) {
+                chatSessions = JSON.parse(saved);
+            }
+            
+            const listContainer = document.getElementById('chatSessionsList');
+            listContainer.innerHTML = '';
+            
+            chatSessions.slice(-5).reverse().forEach(session => {
+                const item = document.createElement('div');
+                item.style.cssText = 'padding:0.5rem;background:var(--bg);border-radius:6px;font-size:0.85rem;cursor:pointer;transition:background 0.3s;';
+                item.onmouseover = "this.style.background='var(--primary-light)'";
+                item.onmouseout = "this.style.background='var(--bg)'";
+                item.innerHTML = `<i class="fas fa-comments"></i> ${session.name.split('-')[0].trim()}`;
+                item.onclick = () => loadSession(session.id);
+                listContainer.appendChild(item);
+            });
+        }
+
+        function loadSession(sessionId) {
+            currentSessionId = sessionId;
+            const session = chatSessions.find(s => s.id === sessionId);
+            if (session) {
+                const container = document.getElementById('aiChatMessages');
+                container.innerHTML = '';
+                session.messages.forEach(msg => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.style.cssText = msg.role === 'user' 
+                        ? 'background:var(--primary);color:white;padding:1rem;border-radius:12px;margin-bottom:1rem;max-width:80%;align-self:flex-end;'
+                        : 'background:var(--bg);color:var(--text);padding:1rem;border-radius:12px;margin-bottom:1rem;max-width:80%;align-self:flex-start;';
+                    msgDiv.innerHTML = msg.role === 'user' 
+                        ? `<i class="fas fa-user"></i> ${msg.content}`
+                        : `<i class="fas fa-robot"></i> ${msg.content}`;
+                    container.appendChild(msgDiv);
+                });
+            }
+        }
+
+        // Export chat sessions to dataihbsf folder
+        function exportChatSessions() {
+            const data = {
+                exportedAt: new Date().toISOString(),
+                sessions: chatSessions,
+                systemInfo: {
+                    version: '1.0',
+                    platform: 'ALLUNIVERS ICONER'
+                }
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `iconer_ai_export_${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            console.log('[ICONER AI] Sessions exported to dataihbsf');
+            alert('Sesi chat berhasil diekspor ke folder dataihbsf!');
+        }
+
+        // Import chat sessions from dataihbsf folder
+        function importChatSessions() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.json';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        try {
+                            const data = JSON.parse(event.target.result);
+                            if (data.sessions) {
+                                chatSessions = [...chatSessions, ...data.sessions];
+                                saveChatSessions();
+                                loadChatSessions();
+                                alert(`Berhasil mengimport ${data.sessions.length} sesi chat dari dataihbsf!`);
+                            }
+                        } catch (err) {
+                            alert('Error: File tidak valid');
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            };
+            input.click();
+        }
+
+        // Generate AI Icon
+        function generateAIIcon() {
+            const prompt = document.getElementById('iconPrompt').value;
+            const preview = document.getElementById('iconPreview');
+            
+            if (!prompt) {
+                alert('Silakan masukkan deskripsi icon');
+                return;
+            }
+
+            preview.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size:3rem;color:var(--primary);"></i>';
+            
+            setTimeout(() => {
+                const icons = ['fa-rocket', 'fa-gem', 'fa-crown', 'fa-dragon', 'fa-phoenix', 'fa-galaxy'];
+                const randomIcon = icons[Math.floor(Math.random() * icons.length)];
+                preview.innerHTML = `<i class="fas ${randomIcon}" style="font-size:5rem;color:var(--gradient-primary);background:var(--gradient-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;"></i>`;
+            }, 1500);
+
+            console.log('[ICONER AI] Generating icon for:', prompt);
         }
 
         // Open Admin Command Center

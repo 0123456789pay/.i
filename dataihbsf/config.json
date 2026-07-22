@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "platform": "ALLUNIVERS ICONER",
+  "dataStorage": {
+    "path": "./dataihbsf",
+    "autoExport": true,
+    "autoImport": false,
+    "format": "json"
+  },
+  "aiSettings": {
+    "ragEnabled": true,
+    "knowledgeSources": {
+      "system": true,
+      "web": true,
+      "docs": true
+    },
+    "responseModes": ["detailed", "concise", "creative", "technical"],
+    "defaultMode": "detailed"
+  },
+  "chatFeatures": {
+    "sessionsEnabled": true,
+    "maxSessions": 100,
+    "autoSave": true,
+    "exportEnabled": true,
+    "importEnabled": true
+  }
+}
