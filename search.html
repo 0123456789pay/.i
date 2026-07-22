@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReberPencarian - Indeks File HTML</title>
+    <style>
+        :root {
+            --primary: #4285f4;
+            --primary-dark: #3367d6;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --warning: #fbbc04;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-dark: #202124;
+            --text-muted: #5f6368;
+            --border: #dadce0;
+            --shadow: 0 1px 6px rgba(0,0,0,0.1);
+            --shadow-hover: 0 2px 12px rgba(0,0,0,0.15);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, Arial, sans-serif; background: var(--bg-light); color: var(--text-dark); min-height: 100vh; }
+        header { background: var(--bg-white); border-bottom: 1px solid var(--border); padding: 20px 30px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 1.5rem; font-weight: 600; }
+        .logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; }
+        .logo span:nth-child(2) { color: var(--primary); }
+        .logo span:nth-child(3) { color: var(--accent); }
+        .logo span:nth-child(4) { color: var(--warning); }
+        .logo span:nth-child(5) { color: var(--secondary); }
+        .stats { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); }
+        .stat-item { display: flex; align-items: center; gap: 6px; padding: 6px 14px; background: var(--bg-light); border-radius: 20px; }
+        .stat-value { font-weight: 700; color: var(--primary); }
+        .search-section { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 60px 20px; text-align: center; }
+        .search-container { max-width: 700px; margin: 0 auto; }
+        .search-title { color: white; font-size: 2.5rem; margin-bottom: 30px; font-weight: 600; }
+        .search-box { position: relative; display: flex; gap: 10px; }
+        .search-input { flex: 1; padding: 16px 25px; padding-left: 50px; font-size: 1.1rem; border: none; border-radius: 30px; outline: none; box-shadow: var(--shadow-hover); }
+        .search-input:focus { box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem; }
+        .search-btn { padding: 16px 35px; background: var(--secondary); color: white; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+        .search-btn:hover { background: #2d8e47; transform: translateY(-2px); }
+        .quick-filters { display: flex; justify-content: center; gap: 10px; margin-top: 25px; flex-wrap: wrap; }
+        .filter-chip { padding: 8px 18px; background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; cursor: pointer; font-size: 0.9rem; }
+        .filter-chip:hover, .filter-chip.active { background: white; color: var(--primary); }
+        .results-section { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+        .results-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+        .view-toggle { display: flex; gap: 5px; }
+        .view-btn { padding: 8px 12px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+        .view-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .results-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .results-list { display: flex; flex-direction: column; gap: 10px; }
+        .result-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 10px; padding: 18px; transition: all 0.3s ease; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+        .result-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+        .result-card.grid-view { min-height: 140px; display: flex; flex-direction: column; justify-content: space-between; }
+        .result-icon { font-size: 2rem; margin-bottom: 10px; }
+        .result-title { font-weight: 600; font-size: 1rem; color: var(--primary); margin-bottom: 8px; word-break: break-word; }
+        .result-path { font-size: 0.85rem; color: var(--text-muted); font-family: 'Consolas', monospace; background: var(--bg-light); padding: 4px 8px; border-radius: 4px; word-break: break-all; }
+        .pagination { display: flex; justify-content: center; gap: 8px; margin-top: 30px; flex-wrap: wrap; }
+        .page-btn { padding: 10px 16px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+        .page-btn:hover, .page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .loading, .no-results { text-align: center; padding: 60px 20px; color: var(--text-muted); }
+        .spinner { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        footer { background: var(--bg-white); border-top: 1px solid var(--border); padding: 25px 30px; text-align: center; color: var(--text-muted); }
+        footer a { color: var(--primary); text-decoration: none; }
+        @media (max-width: 768px) { header { flex-direction: column; gap: 15px; } .search-box { flex-direction: column; } .search-btn { width: 100%; } .results-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🔍</div>
+            <span>R</span><span>e</span><span>b</span><span>e</span><span>r</span><span>Pencarian</span>
+        </div>
+        <div class="stats">
+            <div class="stat-item"><span>📄 Total:</span><span class="stat-value" id="totalCount">0</span></div>
+            <div class="stat-item"><span>🔎 Hasil:</span><span class="stat-value" id="resultCount">0</span></div>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <div class="search-container">
+            <h1 class="search-title">Cari File HTML dalam Sistem</h1>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Ketik nama file atau path..." autofocus>
+                <button class="search-btn" onclick="performSearch()">Cari</button>
+            </div>
+            <div class="quick-filters">
+                <button class="filter-chip active" onclick="filterBy('all')">Semua</button>
+                <button class="filter-chip" onclick="filterBy('index')">Index</button>
+                <button class="filter-chip" onclick="filterBy('dashboard')">Dashboard</button>
+                <button class="filter-chip" onclick="filterBy('login')">Login</button>
+                <button class="filter-chip" onclick="filterBy('admin')">Admin</button>
+                <button class="filter-chip" onclick="filterBy('filemanajer')">File Manager</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="results-header">
+            <div class="results-count">Menampilkan <strong id="displayCount">0</strong> dari <strong id="totalCount2">0</strong> file</div>
+            <div class="view-toggle">
+                <button class="view-btn active" onclick="setView('grid')">▦</button>
+                <button class="view-btn" onclick="setView('list')">☰</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading"><div class="spinner"></div><p>Memuat indeks file...</p></div>
+        <div id="noResults" class="no-results" style="display:none;"><div style="font-size:4rem;">📭</div><h3>Tidak ada hasil ditemukan</h3></div>
+        <div id="resultsGrid" class="results-grid" style="display:none;"></div>
+        <div id="resultsList" class="results-list" style="display:none;"></div>
+        <div id="pagination" class="pagination"></div>
+    </section>
+
+    <footer>
+        <p>© 2024 ReberPencarian - Sistem Indeks File HTML</p>
+        <p>Mengindeks <strong id="footerCount">0</strong> file di seluruh sistem</p>
+        <p><a href="/index.html">← Kembali ke File Manager</a></p>
+    </footer>
+
+    <script>
+        let allFiles = [];
+        let filteredFiles = [];
+        let currentPage = 1;
+        const itemsPerPage = 50;
+        let currentView = 'grid';
+        let currentFilter = 'all';
+
+        async function loadIndex() {
+            try {
+                const response = await fetch('/html_index.json');
+                allFiles = await response.json();
+                filteredFiles = [...allFiles];
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('totalCount').textContent = allFiles.length.toLocaleString();
+                document.getElementById('totalCount2').textContent = allFiles.length.toLocaleString();
+                document.getElementById('footerCount').textContent = allFiles.length.toLocaleString();
+                document.getElementById('resultsGrid').style.display = 'grid';
+                renderResults();
+            } catch (error) {
+                document.getElementById('loading').innerHTML = '<div style="font-size:4rem;">⚠️</div><h3>Gagal memuat indeks</h3><p>' + error.message + '</p>';
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            filteredFiles = query ? allFiles.filter(f => f.name.toLowerCase().includes(query) || f.path.toLowerCase().includes(query)) : [...allFiles];
+            applyFilter(currentFilter);
+            currentPage = 1;
+            renderResults();
+        }
+
+        function filterBy(category) {
+            currentFilter = category;
+            document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+            event.target.classList.add('active');
+            if (category === 'all') {
+                filteredFiles = [...allFiles];
+            } else {
+                filteredFiles = allFiles.filter(f => f.name.toLowerCase().includes(category.toLowerCase()));
+            }
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (query) {
+                filteredFiles = filteredFiles.filter(f => f.name.toLowerCase().includes(query) || f.path.toLowerCase().includes(query));
+            }
+            currentPage = 1;
+            renderResults();
+        }
+
+        function setView(view) {
+            currentView = view;
+            document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById('resultsGrid').style.display = view === 'grid' ? 'grid' : 'none';
+            document.getElementById('resultsList').style.display = view === 'list' ? 'flex' : 'none';
+            renderResults();
+        }
+
+        function getFileIcon(name) {
+            const n = name.toLowerCase();
+            if (n.includes('index')) return '🏠';
+            if (n.includes('dashboard')) return '📊';
+            if (n.includes('login')) return '🔐';
+            if (n.includes('admin')) return '⚙️';
+            if (n.includes('filemanajer')) return '📁';
+            if (n.includes('video')) return '🎬';
+            if (n.includes('audio')) return '🎵';
+            if (n.includes('config')) return '🔧';
+            if (n.includes('search') || n.includes('cari')) return '🔍';
+            return '🌐';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function renderResults() {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const pageItems = filteredFiles.slice(start, end);
+            document.getElementById('displayCount').textContent = (start + 1) + '-' + Math.min(end, filteredFiles.length);
+            document.getElementById('resultCount').textContent = filteredFiles.length.toLocaleString();
+            const grid = document.getElementById('resultsGrid');
+            const list = document.getElementById('resultsList');
+            const noRes = document.getElementById('noResults');
+            if (filteredFiles.length === 0) {
+                grid.style.display = 'none';
+                list.style.display = 'none';
+                noRes.style.display = 'block';
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            noRes.style.display = 'none';
+            grid.innerHTML = pageItems.map(f => '<a href="' + f.url + '" class="result-card grid-view" target="_blank"><div><div class="result-icon">' + getFileIcon(f.name) + '</div><div class="result-title">' + escapeHtml(f.name) + '</div></div><div class="result-path">' + escapeHtml(f.path) + '</div></a>').join('');
+            list.innerHTML = pageItems.map(f => '<a href="' + f.url + '" class="result-card list-item" style="display:flex;gap:15px;align-items:center;padding:15px;" target="_blank"><div class="result-icon">' + getFileIcon(f.name) + '</div><div><div class="result-title">' + escapeHtml(f.name) + '</div><div class="result-path">' + escapeHtml(f.path) + '</div></div></a>').join('');
+            renderPagination();
+        }
+
+        function renderPagination() {
+            const totalPages = Math.ceil(filteredFiles.length / itemsPerPage);
+            const p = document.getElementById('pagination');
+            if (totalPages <= 1) { p.innerHTML = ''; return; }
+            let html = '';
+            if (currentPage > 1) html += '<button class="page-btn" onclick="goToPage(' + (currentPage-1) + ')">← Prev</button>';
+            let start = Math.max(1, currentPage - 3);
+            let end = Math.min(totalPages, currentPage + 3);
+            for (let i = start; i <= end; i++) {
+                html += '<button class="page-btn' + (i === currentPage ? ' active' : '') + '" onclick="goToPage(' + i + ')">' + i + '</button>';
+            }
+            if (currentPage < totalPages) html += '<button class="page-btn" onclick="goToPage(' + (currentPage+1) + ')">Next →</button>';
+            p.innerHTML = html;
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderResults();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        loadIndex();
+    </script>
+</body>
+</html>
