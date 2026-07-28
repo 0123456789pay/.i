@@ -109,6 +109,9 @@ function checkAuthStatus() {
     const userDisplay = document.getElementById('nav-user-display');
     const logoutBtn = document.getElementById('nav-logout-btn');
 
+    console.log('checkAuthStatus - User:', user);
+    console.log('checkAuthStatus - Elements:', { loginBtn, registerBtn, userDisplay, logoutBtn });
+
     if (user) {
         // User sudah login - sembunyikan tombol login/register
         if (loginBtn) loginBtn.style.display = 'none';
@@ -116,7 +119,7 @@ function checkAuthStatus() {
         
         // Tampilkan identitas user
         if (userDisplay) {
-            userDisplay.style.display = 'flex';
+            userDisplay.style.display = 'inline-flex';
             userDisplay.innerHTML = `
                 <span class="user-greeting">Halo, <strong>${user.name || user.email}</strong></span>
                 ${user.role === 'admin' ? '<span class="badge-admin">Admin</span>' : ''}
@@ -125,14 +128,24 @@ function checkAuthStatus() {
         // Tampilkan tombol logout
         if (logoutBtn) {
             logoutBtn.style.display = 'block';
-            logoutBtn.onclick = () => handleLogout();
+            logoutBtn.onclick = (e) => {
+                e.preventDefault();
+                handleLogout();
+            };
         }
+        console.log('User is logged in, UI updated');
     } else {
         // User belum login - tampilkan tombol login/register
         if (loginBtn) loginBtn.style.display = 'block';
         if (registerBtn) registerBtn.style.display = 'block';
-        if (userDisplay) userDisplay.style.display = 'none';
-        if (logoutBtn) logoutBtn.style.display = 'none';
+        if (userDisplay) {
+            userDisplay.style.display = 'none';
+            userDisplay.innerHTML = '';
+        }
+        if (logoutBtn) {
+            logoutBtn.style.display = 'none';
+        }
+        console.log('User is not logged in, showing login/register buttons');
     }
 }
 
@@ -155,8 +168,10 @@ if (loginForm) {
             localStorage.setItem('currentUser', JSON.stringify(adminUser));
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('adminUser', 'admin');
+            console.log('Admin login successful:', adminUser);
             alert('Login berhasil! Selamat datang, Admin.');
             window.location.href = 'dashboard/index.html';
+            return; // Prevent further execution
         }
         // Regular user login
         else if (email && password) {
@@ -228,5 +243,6 @@ function handleLogout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('adminUser');
     alert('Anda telah logout.');
-    window.location.href = 'index.html';
+    // Reload halaman untuk refresh status
+    window.location.reload();
 }
