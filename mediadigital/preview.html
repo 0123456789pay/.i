@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Semua Index.html - Media Digital</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .preview-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .preview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            max-width: 70%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            padding: 6px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-view {
+            background: white;
+            color: #667eea;
+        }
+        
+        .btn-view:hover {
+            background: #f0f0f0;
+        }
+        
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: #f5f5f5;
+        }
+        
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .iframe-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .iframe-container:hover .iframe-overlay {
+            opacity: 1;
+        }
+        
+        .path-info {
+            padding: 12px 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .path-info code {
+            font-size: 0.75rem;
+            color: #666;
+            word-break: break-all;
+            display: block;
+            background: #e9ecef;
+            padding: 8px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .no-preview {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        .no-preview-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        @media (max-width: 768px) {
+            .preview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .card-header h3 {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 Preview Semua Index.html</h1>
+            <p>Media Digital - Kumpulan Preview Halaman</p>
+            <div class="stats">
+                <span class="stat-badge" id="totalCount">Total: 0 files</span>
+                <span class="stat-badge" id="loadedCount">Loaded: 0</span>
+            </div>
+        </header>
+        
+        <div class="preview-grid" id="previewGrid">
+            <!-- Preview cards will be inserted here -->
+        </div>
+        
+        <footer>
+            <p>Generated automatically for /mediadigital/ directory</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">© 2024 Media Digital</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Daftar semua file index.html yang ditemukan
+        const indexFiles = [
+            { path: "/mediadigital/index.html", name: "Root Index" },
+            { path: "/mediadigital/B/index.html", name: "B Index" },
+            { path: "/mediadigital/B/l/e/index.html", name: "B/l/e Index" },
+            { path: "/mediadigital/I/index.html", name: "I Index" },
+            { path: "/mediadigital/I/l/e/index.html", name: "I/l/e Index" },
+            { path: "/mediadigital/dashboard/index.html", name: "Dashboard Index" },
+            { path: "/mediadigital/H/index.html", name: "H Index" },
+            { path: "/mediadigital/H/l/e/index.html", name: "H/l/e Index" },
+            { path: "/mediadigital/S/index.html", name: "S Index" },
+            { path: "/mediadigital/S/l/e/index.html", name: "S/l/e Index" },
+            { path: "/mediadigital/F/index.html", name: "F Index" },
+            { path: "/mediadigital/F/l/e/index.html", name: "F/l/e Index" }
+        ];
+        
+        const previewGrid = document.getElementById('previewGrid');
+        const totalCount = document.getElementById('totalCount');
+        const loadedCount = document.getElementById('loadedCount');
+        
+        let loadedFrames = 0;
+        
+        function createPreviewCard(file) {
+            const card = document.createElement('div');
+            card.className = 'preview-card';
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <h3>${file.name}</h3>
+                    <div class="card-actions">
+                        <a href="${file.path}" target="_blank" class="btn btn-view">🔗 Open</a>
+                    </div>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="${file.path}" loading="lazy" onload="frameLoaded()"></iframe>
+                    <div class="iframe-overlay">
+                        <a href="${file.path}" target="_blank" class="btn btn-view">View Full Page</a>
+                    </div>
+                </div>
+                <div class="path-info">
+                    <code>${file.path}</code>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        function frameLoaded() {
+            loadedFrames++;
+            loadedCount.textContent = `Loaded: ${loadedFrames}`;
+        }
+        
+        function init() {
+            totalCount.textContent = `Total: ${indexFiles.length} files`;
+            loadedCount.textContent = `Loaded: 0`;
+            
+            indexFiles.forEach(file => {
+                const card = createPreviewCard(file);
+                previewGrid.appendChild(card);
+            });
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
