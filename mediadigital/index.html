@@ -3,158 +3,1733 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Media Digital - Platform Konten Digital</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Southeast Higerware - Unlimited Cloud File Manager</title>
+    <style>
+        :root {
+            --white: #ffffff;
+            --white-off: #f8f9fa;
+            --blue-primary: #0066ff;
+            --blue-light: #3385ff;
+            --blue-dark: #0052cc;
+            --gradient-white-blue: linear-gradient(135deg, #ffffff 0%, #f0f4ff 50%, #0066ff 100%);
+            --gradient-blue-white: linear-gradient(135deg, #0066ff 0%, #3385ff 50%, #ffffff 100%);
+            --gradient-header: linear-gradient(90deg, #ffffff 0%, #e6f0ff 50%, #0066ff 100%);
+            --gradient-sidebar: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+            --shadow-soft: 0 2px 10px rgba(0, 102, 255, 0.1);
+            --shadow-strong: 0 4px 20px rgba(0, 102, 255, 0.2);
+            --text-main: #1a1a2e;
+            --text-muted: #667eea;
+            --text-light: #ffffff;
+            --border: #e6f0ff;
+            --bg-panel: #ffffff;
+            --bg-hover: #f0f4ff;
+            --success: #00cc66;
+            --warning: #ffaa00;
+            --danger: #ff4466;
+            --font-mono: 'Fira Code', 'Consolas', monospace;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--gradient-white-blue);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            height: 60px;
+            background: var(--gradient-header);
+            border-bottom: 2px solid var(--blue-primary);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            justify-content: space-between;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .logo { 
+            font-weight: bold; 
+            font-size: 1.3rem; 
+            background: var(--gradient-blue-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex; 
+            align-items: center; 
+            gap: 12px;
+            text-shadow: none;
+        }
+        .storage-info { 
+            font-size: 0.85rem; 
+            color: var(--success); 
+            background: linear-gradient(135deg, rgba(0, 204, 102, 0.1), rgba(0, 102, 255, 0.1)); 
+            padding: 6px 14px; 
+            border-radius: 20px;
+            border: 1px solid var(--blue-primary);
+            font-weight: 600;
+        }
+        
+        /* Main Layout */
+        .main-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--gradient-sidebar);
+            border-right: 2px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-item {
+            padding: 12px 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border-left: 3px solid transparent;
+            color: var(--text-main);
+        }
+        .nav-item:hover { 
+            background: var(--gradient-white-blue); 
+            color: var(--blue-primary);
+            border-left-color: var(--blue-primary);
+        }
+        .nav-item.active { 
+            background: var(--gradient-blue-white); 
+            color: var(--text-light);
+            border-left-color: var(--blue-dark);
+        }
+        .nav-section { 
+            padding: 12px 18px; 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            color: var(--blue-primary); 
+            font-weight: bold; 
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* File Explorer */
+        .explorer {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+        }
+
+        .toolbar {
+            height: 55px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 12px;
+            background: linear-gradient(90deg, #ffffff 0%, #f8faff 100%);
+        }
+
+        .btn {
+            background: var(--gradient-white-blue);
+            border: 2px solid var(--blue-primary);
+            color: var(--blue-primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+        .btn:hover { 
+            background: var(--gradient-blue-white); 
+            color: var(--text-light); 
+            border-color: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+        .btn-primary { 
+            background: var(--gradient-blue-white); 
+            color: var(--text-light); 
+            border: 2px solid var(--blue-primary);
+        }
+        .btn-primary:hover { 
+            background: var(--blue-primary); 
+            border-color: var(--blue-dark);
+        }
+
+        .breadcrumb {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            color: var(--blue-primary);
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            background: #f8faff;
+        }
+        .crumb { cursor: pointer; font-weight: 500; }
+        .crumb:hover { color: var(--blue-dark); text-decoration: underline; }
+
+        .file-grid {
+            flex: 1;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            overflow-y: auto;
+            align-content: start;
+            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+        }
+
+        .file-item {
+            background: #ffffff;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+        }
+        .file-item:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--blue-primary);
+            box-shadow: var(--shadow-strong);
+        }
+        .file-icon { font-size: 3rem; margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,102,255,0.2)); }
+        .file-name { font-size: 0.85rem; word-break: break-word; line-height: 1.3; color: var(--text-main); font-weight: 500; }
+        .file-meta { font-size: 0.7rem; color: var(--text-muted); margin-top: 8px; }
+
+        /* Editor & Preview Panel */
+        .editor-panel {
+            width: 0;
+            background: #ffffff;
+            border-left: 3px solid var(--blue-primary);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+            position: relative;
+            box-shadow: -4px 0 20px rgba(0,102,255,0.1);
+        }
+        .editor-panel.open { width: 50%; }
+
+        /* AI Sidebar Styles */
+        .ai-sidebar {
+            width: 0;
+            background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+            border-left: 3px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+            position: relative;
+            box-shadow: -4px 0 20px rgba(0,204,102,0.15);
+            overflow: hidden;
+        }
+        .ai-sidebar.open { width: 400px; }
+        .ai-chat-container {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .ai-message {
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 90%;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        .ai-message p { margin-bottom: 8px; }
+        .ai-message ul { margin-left: 20px; margin-bottom: 8px; }
+        .ai-message li { margin-bottom: 4px; }
+        .ai-system {
+            background: linear-gradient(135deg, #e6f0ff 0%, #f0f4ff 100%);
+            border-left: 4px solid var(--blue-primary);
+            align-self: flex-start;
+        }
+        .ai-user {
+            background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
+            border-left: 4px solid var(--secondary);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .ai-response {
+            background: linear-gradient(135deg, #fff3cd 0%, #fff8e1 100%);
+            border-left: 4px solid var(--warning);
+            align-self: flex-start;
+        }
+        .ai-input-container {
+            padding: 15px;
+            border-top: 2px solid var(--border);
+            background: #ffffff;
+        }
+        .ai-input-container textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            resize: vertical;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .ai-input-container textarea:focus {
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(0,102,255,0.1);
+        }
+
+        .panel-header {
+            height: 50px;
+            border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background: var(--gradient-header);
+        }
+
+        .code-area {
+            flex: 1;
+            background: #f8faff;
+            color: var(--text-main);
+            border: none;
+            padding: 20px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            resize: none;
+            outline: none;
+            line-height: 1.6;
+        }
+
+        .preview-frame {
+            flex: 1;
+            background: white;
+            border: none;
+            width: 100%;
+        }
+
+        .tabs { display: flex; }
+        .tab { 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            border-bottom: 3px solid transparent; 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .tab.active { 
+            border-bottom-color: var(--blue-primary); 
+            color: var(--blue-primary);
+            background: linear-gradient(180deg, #e6f0ff 0%, transparent 100%);
+        }
+
+        /* Context Menu */
+        .context-menu {
+            position: fixed;
+            background: #ffffff;
+            border: 2px solid var(--blue-primary);
+            border-radius: 10px;
+            padding: 8px 0;
+            box-shadow: 0 8px 30px rgba(0,102,255,0.2);
+            z-index: 1000;
+            display: none;
+            min-width: 220px;
+        }
+        .ctx-item {
+            padding: 10px 18px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+        .ctx-item:hover { 
+            background: var(--gradient-white-blue); 
+            color: var(--blue-primary);
+        }
+        .ctx-divider { height: 2px; background: var(--border); margin: 6px 0; }
+        .shortcut { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 102, 255, 0.3);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            width: 450px;
+            border: 3px solid var(--blue-primary);
+            box-shadow: 0 10px 40px rgba(0,102,255,0.3);
+        }
+        .modal h3 { 
+            margin-bottom: 20px; 
+            background: var(--gradient-blue-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.5rem;
+        }
+        .input-group { margin-bottom: 18px; }
+        .input-group label { 
+            display: block; 
+            margin-bottom: 8px; 
+            font-size: 0.85rem; 
+            color: var(--blue-primary);
+            font-weight: 600;
+        }
+        .input-group input, .input-group select {
+            width: 100%; 
+            padding: 12px; 
+            background: #f8faff;
+            border: 2px solid var(--border); 
+            color: var(--text-main); 
+            border-radius: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--blue-primary);
+            box-shadow: 0 0 0 3px rgba(0,102,255,0.1);
+        }
+        .modal-actions { display: flex; justify-content: flex-end; gap: 12px; }
+
+        /* Status Bar */
+        .status-bar {
+            height: 35px;
+            background: var(--gradient-header);
+            color: var(--blue-primary);
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            justify-content: space-between;
+            border-top: 2px solid var(--blue-primary);
+        }
+
+        /* Icons */
+        .icon { font-style: normal; }
+    </style>
 </head>
 <body>
+
+    <!-- Header -->
     <header>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>Media Digital</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#features">Fitur</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#contact">Kontak</a></li>
-                <!-- Tombol Login - hanya tampil jika belum login -->
-                <li><a href="login.html" class="btn-login" id="nav-login-btn">Login</a></li>
-                <!-- Tombol Register - hanya tampil jika belum login -->
-                <li><a href="register.html" class="btn-register" id="nav-register-btn">Daftar</a></li>
-                <!-- Identitas User - hanya tampil jika sudah login -->
-                <li id="nav-user-display" class="user-display" style="display: none;"></li>
-                <!-- Tombol Logout - hanya tampil jika sudah login -->
-                <li><a href="#" class="btn-logout" id="nav-logout-btn" style="display: none;">Logout</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+        <div class="logo">
+            <span class="icon">🚀</span> SOUTHEAST HIGERWARE - FILE MANAGER
+        </div>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <div class="storage-info" id="storageInfo">☁️ Unlimited Cloud Storage Active</div>
+            <button class="btn" onclick="app.togglePlugins()">🧩 Plugins</button>
+            <button class="btn" onclick="app.openSettings()">⚙️ Config</button>
+            <button class="btn btn-primary" onclick="app.toggleAISidebar()">🤖 AI Assistant</button>
+        </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Selamat Datang di Media Digital</h2>
-                <p>Platform terdepan untuk mengelola dan mendistribusikan konten digital Anda</p>
-                <div class="hero-buttons">
-                    <a href="register.html" class="btn-primary">Mulai Sekarang</a>
-                    <a href="#features" class="btn-secondary">Pelajari Lebih Lanjut</a>
+    <!-- Main Content -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="nav-section">System</div>
+            <div class="nav-item active" onclick="app.navigate('/')">🏠 Root Directory</div>
+            <div class="nav-item" onclick="app.navigate('/documents')">📄 Documents</div>
+            <div class="nav-item" onclick="app.navigate('/images')">🖼️ Images</div>
+            <div class="nav-item" onclick="app.navigate('/code')">💻 Source Code</div>
+            <div class="nav-item" onclick="app.navigate('/media')">🎵 Media</div>
+            
+            <div class="nav-section">GitHub Repositories</div>
+            <div class="nav-item" onclick="app.loadGitHubRepo('southeasthigerware/media.digital')">📦 media.digital</div>
+            <div class="nav-item" onclick="app.showGitHubProfile()">🔗 View All Repos</div>
+            
+            <div class="nav-section">Cloud & Network</div>
+            <div class="nav-item">🌐 Web FTP</div>
+            <div class="nav-item">🔗 GitHub Sync</div>
+            <div class="nav-item">📡 Remote Server</div>
+
+            <div class="nav-section">Tools</div>
+            <div class="nav-item" onclick="app.openTerminal()">💻 Terminal</div>
+            <div class="nav-item" onclick="app.showSystemInfo()">ℹ️ System Info</div>
+            <div class="nav-item" onclick="app.garbageCollect()">🧹 Optimize Storage</div>
+        </aside>
+
+        <!-- Explorer Area -->
+        <main class="explorer">
+            <div class="toolbar">
+                <button class="btn btn-primary" onclick="app.createFile()">+ New File</button>
+                <button class="btn" onclick="app.createFolder()">+ Folder</button>
+                <button class="btn" onclick="app.uploadFile()">⬆️ Upload</button>
+                <button class="btn" onclick="app.syncGitHub()">🔄 GitHub Sync</button>
+                <div style="flex:1"></div>
+                <button class="btn" onclick="window.location.href='/search.html'">🔍 ReberPencarian</button>
+                <button class="btn" onclick="app.toggleView('grid')">▦ Grid</button>
+                <button class="btn" onclick="app.toggleView('list')">☰ List</button>
+                <input type="text" placeholder="Search files..." style="background:#f8faff; border:2px solid var(--border); color:var(--text-main); padding:8px 14px; border-radius:8px; width: 220px; font-size:0.85rem;">
+            </div>
+            
+            <div class="breadcrumb" id="breadcrumb">
+                <span class="crumb" onclick="app.navigate('/')">Root</span>
+            </div>
+
+            <div class="file-grid" id="fileGrid">
+                <!-- Files will be injected here -->
+            </div>
+        </main>
+
+        <!-- Editor/Preview Panel -->
+        <aside class="editor-panel" id="editorPanel">
+            <div class="panel-header">
+                <div class="tabs">
+                    <div class="tab active" onclick="app.switchTab('code')">Code</div>
+                    <div class="tab" onclick="app.switchTab('preview')">Preview</div>
+                    <div class="tab" onclick="app.switchTab('meta')">Meta</div>
+                </div>
+                <div style="display:flex; gap:5px;">
+                    <button class="btn" style="padding:2px 8px;" onclick="app.saveFile()">💾 Save</button>
+                    <button class="btn" style="padding:2px 8px;" onclick="app.closeEditor()">✕</button>
                 </div>
             </div>
-        </section>
-
-        <!-- Features Section -->
-        <section id="features" class="features">
-            <div class="container">
-                <h2 class="section-title">Fitur Unggulan</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">📱</div>
-                        <h3>Manajemen Konten</h3>
-                        <p>Kelola semua konten digital Anda dalam satu platform terintegrasi</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🔒</div>
-                        <h3>Keamanan Terjamin</h3>
-                        <p>Sistem keamanan tingkat tinggi untuk melindungi aset digital Anda</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Akses Cepat</h3>
-                        <p>Akses konten Anda kapan saja dan di mana saja dengan cepat</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>Analitik Lengkap</h3>
-                        <p>Pantau performa konten dengan analitik yang komprehensif</p>
-                    </div>
-                </div>
+            <textarea class="code-area" id="codeEditor" spellcheck="false"></textarea>
+            <iframe class="preview-frame" id="previewFrame" style="display:none;"></iframe>
+            <div id="metaPanel" style="display:none; padding:20px; color:var(--text-muted);">
+                <h4>File Properties</h4>
+                <p id="metaContent"></p>
             </div>
-        </section>
+        </aside>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">Tentang Kami</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>Media Digital adalah platform inovatif yang dirancang untuk membantu kreator, bisnis, dan organisasi dalam mengelola dan mendistribusikan konten digital mereka secara efisien.</p>
-                        <p>Dengan teknologi terkini dan antarmuka yang user-friendly, kami berkomitmen untuk memberikan pengalaman terbaik dalam pengelolaan media digital.</p>
-                    </div>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <h3>10K+</h3>
-                            <p>Pengguna Aktif</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>50K+</h3>
-                            <p>Konten Digital</p>
-                        </div>
-                        <div class="stat-item">
-                            <h3>99.9%</h3>
-                            <p>Uptime</p>
-                        </div>
-                    </div>
+        <!-- AI Assistant Sidebar -->
+        <aside class="ai-sidebar" id="aiSidebar">
+            <div class="panel-header">
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <span style="font-size:1.5rem;">🤖</span>
+                    <strong>AI Assistant</strong>
                 </div>
+                <button class="btn" style="padding:2px 8px;" onclick="app.toggleAISidebar()">✕</button>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Hubungi Kami</h2>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Nama Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email Anda" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Pesan Anda" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Kirim Pesan</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Media Digital</h3>
-                    <p>Platform konten digital terpercaya untuk kebutuhan Anda</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Tautan Cepat</h4>
+            <div class="ai-chat-container" id="aiChatContainer">
+                <div class="ai-message ai-system">
+                    <p>Halo! Saya AI Assistant Anda. Saya dapat membantu:</p>
                     <ul>
-                        <li><a href="#home">Beranda</a></li>
-                        <li><a href="#features">Fitur</a></li>
-                        <li><a href="#about">Tentang</a></li>
-                        <li><a href="#contact">Kontak</a></li>
+                        <li>✏️ Mengedit file HTML/code</li>
+                        <li>📁 Membuat folder baru</li>
+                        <li>📄 Membuat file baru</li>
+                        <li>💻 Membuat kode otomatis</li>
+                        <li>📝 Menulis teks, paragraf, atau poin-poin</li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                    </ul>
+                    <p>Apa yang bisa saya bantu hari ini?</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Media Digital. Hak Cipta Dilindungi.</p>
+            <div class="ai-input-container">
+                <textarea id="aiInput" placeholder="Ketik perintah AI di sini..." rows="3"></textarea>
+                <button class="btn btn-primary" onclick="app.sendAIMessage()" style="width:100%; margin-top:10px;">🚀 Kirim ke AI</button>
             </div>
-        </div>
+        </aside>
+    </div>
+
+    <!-- Status Bar -->
+    <footer class="status-bar">
+        <span id="statusText">Ready - Southeast Higerware System</span>
+        <span>System Version: 10.6.0 (Southeast Core)</span>
+        <span>GitHub: southeasthigerware</span>
+        <span>Latency: 8ms</span>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu">
+        <div class="ctx-item" onclick="app.contextAction('open')">Open <span class="shortcut">Enter</span></div>
+        <div class="ctx-item" onclick="app.contextAction('edit')">Edit Code <span class="shortcut">E</span></div>
+        <div class="ctx-item" onclick="app.contextAction('preview')">Preview Web <span class="shortcut">P</span></div>
+        <div class="ctx-divider"></div>
+        <div class="ctx-item" onclick="app.contextAction('rename')">Rename <span class="shortcut">F2</span></div>
+        <div class="ctx-item" onclick="app.contextAction('duplicate')">Duplicate</div>
+        <div class="ctx-item" onclick="app.contextAction('download')">Download</div>
+        <div class="ctx-divider"></div>
+        <div class="ctx-item" onclick="app.contextAction('delete')" style="color:var(--danger)">Delete <span class="shortcut">Del</span></div>
+        <div class="ctx-item" onclick="app.contextAction('properties')">Properties</div>
+    </div>
+
+    <!-- New File Modal -->
+    <div class="modal-overlay" id="newFileModal">
+        <div class="modal">
+            <h3>Create New Item</h3>
+            <div class="input-group">
+                <label>Name</label>
+                <input type="text" id="newFileName" placeholder="example.txt">
+            </div>
+            <div class="input-group">
+                <label>Type</label>
+                <select id="newFileType">
+                    <option value="file">Text File</option>
+                    <option value="html">HTML Web Page</option>
+                    <option value="js">JavaScript</option>
+                    <option value="css">CSS Style</option>
+                    <option value="json">JSON Data</option>
+                    <option value="folder">Folder</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button class="btn" onclick="document.getElementById('newFileModal').style.display='none'">Cancel</button>
+                <button class="btn btn-primary" onclick="app.confirmCreate()">Create</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Complete File System Data - Southeast Higerware Ultimate Edition
+        const githubRepos = [
+            'media.digital',
+            'ai_machinelearning.digital',
+            'aireber.digital',
+            'analisisdata.digital',
+            'analytics.digital',
+            'arsipversi.digital',
+            'automation.digital',
+            'bantuansupport.digital',
+            'bisnisstartup.digital',
+            'blockchaincrypto.digital',
+            'chatbot.digital',
+            'cloud.digital',
+            'configphpgit.digital',
+            'configprotokol.digital',
+            'configselectortrue.digital',
+            'configsimbolakar.digital',
+            'data.digital',
+            'datamerge_branch.digital',
+            'desainkreatif.digital',
+            'design.digital',
+            'dns_domain.digital',
+            'ecommerce.digital',
+            'ecommerceretail.digital',
+            'energilingkungan.digital',
+            'gameentertainment.digital',
+            'hukumkepatuhan.digital',
+            'identitasakses.digital',
+            'infrastrukturcloud.digital',
+            'integration.digital',
+            'iot_perangkat.digital',
+            'jaringanaktuaris.digital',
+            'kapasitasramrom.digital',
+            'keamanansiber.digital',
+            'kesehatandigital.digital',
+            'keuanganperbankan.digital',
+            'komunikasi.digital',
+            'konstruksigedung.digital',
+            'lisensidomain.digital',
+            'manajemendata.digital',
+            'manajemenfile.digital',
+            'manajemenproyek.digital',
+            'mediakonten.digital',
+            'monitoring.digital',
+            'newsnia.digital',
+            'optimization.digital',
+            'pendidikanpelatihan.digital',
+            'pengaturansistem.digital',
+            'pengembangansoftware.digital',
+            'platform.digital',
+            'pusatdigital.digital',
+            'ragreber.digital',
+            'reberpencarian.digital',
+            'security.digital',
+            'situspenyesuaian.digital',
+            'studio.digital',
+            'tanggapdarurat.digital',
+            'tiketevent.digital',
+            'transportasilogistik.digital',
+            'visualisasireporting.digital'
+        ];
+
+        const fileSystem = {
+            '/': [
+                { id: 1, name: 'documents', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 2, name: 'images', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 3, name: 'code', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 4, name: 'media', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 5, name: 'github-repos', type: 'folder', size: '-', date: '2024-01-15' },
+                { id: 6, name: 'readme.md', type: 'file', ext: 'md', size: '3 KB', date: '2024-01-15', content: '# Southeast Higerware File Manager\n\n## Unlimited Cloud Storage System\n\n### Features:\n- ✅ Unlimited Storage Capacity\n- ✅ GitHub Integration (southeasthigerware)\n- ✅ Internal Web Preview\n- ✅ Code Editor with Syntax Highlighting\n- ✅ Plugin Support (Chrome, Edge, Firefox)\n- ✅ Advanced File Management\n- ✅ Real-time Sync\n\n### Repositories Available:\n' + githubRepos.map(r => `- ${r}`).join('\n') },
+                { id: 7, name: 'system.config', type: 'file', ext: 'json', size: '2 KB', date: '2024-01-15', content: '{\n  "system": "southeast-higerware",\n  "version": "10.6.0",\n  "storage": "unlimited",\n  "theme": "white-blue-gradient",\n  "github": "southeasthigerware",\n  "plugins": ["chrome", "edge", "firefox"],\n  "features": ["editor", "preview", "sync", "terminal"]\n}' }
+            ],
+            '/documents': [
+                { id: 10, name: 'project_plan.txt', type: 'file', ext: 'txt', size: '5 KB', date: '2024-01-15', content: 'Southeast Higerware Development Plan\n\nPhase 1: Core System\nPhase 2: GitHub Integration\nPhase 3: Plugin Ecosystem\nPhase 4: AI Enhancement' },
+                { id: 11, name: 'notes.md', type: 'file', ext: 'md', size: '2 KB', date: '2024-01-15', content: '# Meeting Notes\n\n## Action Items\n- Implement unlimited storage simulation\n- Add GitHub repo synchronization\n- Create plugin manager interface' }
+            ],
+            '/images': [
+                { id: 12, name: 'logo.svg', type: 'file', ext: 'svg', size: '4 KB', date: '2024-01-15', content: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#0066ff"/><text x="50" y="60" text-anchor="middle" fill="white" font-size="40">SH</text></svg>' }
+            ],
+            '/code': [
+                { id: 13, name: 'index.html', type: 'file', ext: 'html', size: '25 KB', date: '2024-01-15', content: '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="UTF-8">\n    <title>Southeast Higerware</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n    <p>Welcome to Southeast Higerware System</p>\n</body>\n</html>' },
+                { id: 14, name: 'style.css', type: 'file', ext: 'css', size: '8 KB', date: '2024-01-15', content: '/* Southeast Higerware Styles */\nbody {\n    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 50%, #0066ff 100%);\n    color: #1a1a2e;\n    font-family: system-ui;\n}\n\n.container {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 20px;\n}' },
+                { id: 15, name: 'app.js', type: 'file', ext: 'js', size: '12 KB', date: '2024-01-15', content: '// Southeast Higerware Application\nconsole.log("System Initialized");\n\nclass App {\n    constructor() {\n        this.version = "10.6.0";\n        this.storage = "unlimited";\n    }\n    \n    init() {\n        console.log("App started");\n    }\n}\n\nconst app = new App();\napp.init();' },
+                { id: 16, name: 'config.json', type: 'file', ext: 'json', size: '1 KB', date: '2024-01-15', content: '{\n    "name": "southeast-higerware",\n    "version": "10.6.0"\n}' }
+            ],
+            '/media': [
+                { id: 17, name: 'intro.mp4', type: 'file', ext: 'mp4', size: '15 MB', date: '2024-01-15', content: '[Binary Video Data]' },
+                { id: 18, name: 'background.mp3', type: 'file', ext: 'mp3', size: '4 MB', date: '2024-01-15', content: '[Binary Audio Data]' }
+            ],
+            '/github-repos': githubRepos.map((repo, index) => ({
+                id: 100 + index,
+                name: repo,
+                type: 'folder',
+                size: '-',
+                date: '2024-01-15',
+                githubRepo: repo
+            }))
+        };
+
+        // Add individual repo files dynamically
+        githubRepos.forEach(repo => {
+            const repoPath = `/github-repos/${repo}`;
+            fileSystem[repoPath] = [
+                { id: 2000 + githubRepos.indexOf(repo), name: 'README.md', type: 'file', ext: 'md', size: '2 KB', date: '2024-01-15', content: `# ${repo}\n\nSoutheast Higerware Repository\n\n## Description\nThis is part of the Southeast Higerware ecosystem.\n\n## Features\n- Unlimited storage capability\n- Full GitHub integration\n- Web-based file management` },
+                { id: 2100 + githubRepos.indexOf(repo), name: 'index.html', type: 'file', ext: 'html', size: '5 KB', date: '2024-01-15', content: `<!DOCTYPE html>\n<html><head><title>${repo}</title></head>\n<body><h1>${repo}</h1><p>Southeast Higerware Project</p></body></html>` },
+                { id: 2200 + githubRepos.indexOf(repo), name: '.gitignore', type: 'file', ext: 'gitignore', size: '1 KB', date: '2024-01-15', content: 'node_modules/\n*.log\n.DS_Store\ndist/' }
+            ];
+        });
+
+        class FileManager {
+            constructor() {
+                this.currentPath = '/';
+                this.selectedFile = null;
+                this.viewMode = 'grid';
+                this.githubUser = 'southeasthigerware';
+                this.clipboard = null;
+                this.history = [];
+                this.historyIndex = -1;
+                this.plugins = {
+                    chrome: { active: true, version: '3.2.1' },
+                    edge: { active: true, version: '2.8.0' },
+                    firefox: { active: true, version: '4.1.2' }
+                };
+                this.init();
+            }
+
+            init() {
+                this.renderFiles();
+                this.updateBreadcrumb();
+                this.setupEventListeners();
+                this.loadPlugins();
+                this.setStatus('✅ Southeast Higerware System Initialized - Unlimited Storage Active');
+                this.updateStorageIndicator();
+            }
+
+            updateStorageIndicator() {
+                // Simulated unlimited storage
+                setInterval(() => {
+                    const used = (Math.random() * 100).toFixed(2);
+                    document.querySelector('.storage-info').innerHTML = `☁️ Unlimited Cloud Storage | Used: ${used} GB / ∞`;
+                }, 5000);
+            }
+
+            loadPlugins() {
+                console.log('Loading plugins...');
+                console.log('Chrome Extension:', this.plugins.chrome);
+                console.log('Edge Module:', this.plugins.edge);
+                console.log('Firefox Adapter:', this.plugins.firefox);
+            }
+
+            setupEventListeners() {
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.context-menu') && !e.target.closest('.file-item')) {
+                        document.getElementById('contextMenu').style.display = 'none';
+                    }
+                });
+                
+                document.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    const menu = document.getElementById('contextMenu');
+                    menu.style.display = 'block';
+                    menu.style.left = `${e.pageX}px`;
+                    menu.style.top = `${e.pageY}px`;
+                    
+                    // Position context menu based on available space
+                    const rect = menu.getBoundingClientRect();
+                    if (rect.right > window.innerWidth) {
+                        menu.style.left = `${e.pageX - rect.width}px`;
+                    }
+                    if (rect.bottom > window.innerHeight) {
+                        menu.style.top = `${e.pageY - rect.height}px`;
+                    }
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        document.getElementById('editorPanel').classList.remove('open');
+                        document.getElementById('newFileModal').style.display = 'none';
+                        document.getElementById('contextMenu').style.display = 'none';
+                    }
+                    if (e.ctrlKey && e.key === 's') {
+                        e.preventDefault();
+                        this.saveFile();
+                    }
+                    if (e.ctrlKey && e.key === 'n') {
+                        e.preventDefault();
+                        this.createFile();
+                    }
+                    if (e.ctrlKey && e.key === 'f') {
+                        e.preventDefault();
+                        document.querySelector('.search-input').focus();
+                    }
+                    if (e.key === 'F2' && this.selectedFile) {
+                        e.preventDefault();
+                        this.contextAction('rename');
+                    }
+                    if (e.key === 'Delete' && this.selectedFile) {
+                        e.preventDefault();
+                        this.contextAction('delete');
+                    }
+                    if (e.key === 'Enter' && this.selectedFile) {
+                        e.preventDefault();
+                        this.openFile(this.selectedFile);
+                    }
+                });
+
+                // Search functionality
+                document.querySelector('.search-input').addEventListener('input', (e) => {
+                    this.searchFiles(e.target.value);
+                });
+            }
+
+            searchFiles(query) {
+                if (!query) {
+                    this.renderFiles();
+                    return;
+                }
+                
+                const results = [];
+                for (let path in fileSystem) {
+                    fileSystem[path].forEach(file => {
+                        if (file.name.toLowerCase().includes(query.toLowerCase())) {
+                            results.push({ ...file, fullPath: path });
+                        }
+                    });
+                }
+                
+                this.renderSearchResults(results, query);
+            }
+
+            renderSearchResults(results, query) {
+                const grid = document.getElementById('fileGrid');
+                grid.innerHTML = `<div style="grid-column: 1/-1; padding: 10px; background: var(--bg-hover); border-radius: 8px; margin-bottom: 10px;">🔍 Search results for "${query}": ${results.length} found</div>`;
+                
+                if (results.length === 0) {
+                    grid.innerHTML += '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;">No files found</div>';
+                    return;
+                }
+
+                results.forEach(file => {
+                    const el = document.createElement('div');
+                    el.className = 'file-item';
+                    el.ondblclick = () => {
+                        this.currentPath = file.fullPath;
+                        this.openFile(file);
+                    };
+                    el.onclick = () => this.selectFile(file, el);
+                    el.innerHTML = `
+                        <div class="file-icon">${this.getIcon(file.type, file.name)}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${file.fullPath}</div>
+                    `;
+                    grid.appendChild(el);
+                });
+            }
+
+            getIcon(type, name) {
+                if (type === 'folder') {
+                    if (name.includes('github')) return '📦';
+                    return '📁';
+                }
+                const ext = name.split('.').pop().toLowerCase();
+                const icons = {
+                    'html': '🌐', 'htm': '🌐',
+                    'css': '🎨',
+                    'js': '📜', 'ts': '📜', 'jsx': '📜', 'tsx': '📜',
+                    'json': '⚙️',
+                    'md': '📝', 'txt': '📄', 'rtf': '📄',
+                    'png': '🖼️', 'jpg': '🖼️', 'jpeg': '🖼️', 'gif': '🖼️', 'svg': '🖼️', 'webp': '🖼️',
+                    'mp4': '🎬', 'avi': '🎬', 'mov': '🎬', 'webm': '🎬',
+                    'mp3': '🎵', 'wav': '🎵', 'ogg': '🎵', 'flac': '🎵',
+                    'zip': '📦', 'rar': '📦', 'tar': '📦', 'gz': '📦', '7z': '📦',
+                    'pdf': '📕',
+                    'xml': '📋',
+                    'yaml': '📋', 'yml': '📋',
+                    'py': '🐍',
+                    'php': '🐘',
+                    'rb': '💎',
+                    'go': '🔷',
+                    'rs': '🦀',
+                    'java': '☕',
+                    'c': '©️', 'cpp': '©️', 'h': '©️',
+                    'sh': '💻', 'bash': '💻',
+                    'sql': '🗄️',
+                    'dockerfile': '🐳',
+                    'gitignore': '🙈',
+                    'env': '🔒'
+                };
+                return icons[ext] || '📄';
+            }
+
+            renderFiles() {
+                const grid = document.getElementById('fileGrid');
+                grid.innerHTML = '';
+                const files = fileSystem[this.currentPath] || [];
+
+                if (files.length === 0) {
+                    grid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;"><span style="font-size:3rem;">📂</span><br><br>Folder Empty<br><small>Click "+ New File" or drag & drop to add items</small></div>';
+                    return;
+                }
+
+                // Sort: folders first, then files
+                const sorted = [...files].sort((a, b) => {
+                    if (a.type === b.type) return a.name.localeCompare(b.name);
+                    return a.type === 'folder' ? -1 : 1;
+                });
+
+                sorted.forEach(file => {
+                    const el = document.createElement('div');
+                    el.className = 'file-item';
+                    el.dataset.fileId = file.id;
+                    el.ondblclick = () => this.openFile(file);
+                    el.onclick = (e) => {
+                        e.stopPropagation();
+                        this.selectFile(file, el);
+                    };
+                    el.innerHTML = `
+                        <div class="file-icon">${this.getIcon(file.type, file.name)}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${file.size} • ${file.date}</div>
+                    `;
+                    grid.appendChild(el);
+                });
+            }
+
+            navigate(path, addToHistory = true) {
+                if (addToHistory && this.currentPath !== path) {
+                    this.history = this.history.slice(0, this.historyIndex + 1);
+                    this.history.push(path);
+                    this.historyIndex++;
+                }
+                
+                this.currentPath = path;
+                this.renderFiles();
+                this.updateBreadcrumb();
+                this.setStatus(`📂 Navigated to ${path}`);
+                this.selectedFile = null;
+            }
+
+            goBack() {
+                if (this.historyIndex > 0) {
+                    this.historyIndex--;
+                    this.currentPath = this.history[this.historyIndex];
+                    this.renderFiles();
+                    this.updateBreadcrumb();
+                    this.setStatus('⬅️ Navigation: Back');
+                }
+            }
+
+            goForward() {
+                if (this.historyIndex < this.history.length - 1) {
+                    this.historyIndex++;
+                    this.currentPath = this.history[this.historyIndex];
+                    this.renderFiles();
+                    this.updateBreadcrumb();
+                    this.setStatus('➡️ Navigation: Forward');
+                }
+            }
+
+            updateBreadcrumb() {
+                const parts = this.currentPath.split('/').filter(p => p);
+                let html = '<span class="crumb" onclick="app.navigate(\'/\')">🏠 Root</span>';
+                let current = '';
+                parts.forEach(part => {
+                    current += '/' + part;
+                    html += ` <span class="separator">/</span> <span class="crumb" onclick="app.navigate('${current}')">${part}</span>`;
+                });
+                document.getElementById('breadcrumb').innerHTML = html;
+            }
+
+            selectFile(file, element) {
+                document.querySelectorAll('.file-item').forEach(el => {
+                    el.style.borderColor = 'var(--border)';
+                    el.style.background = '#ffffff';
+                });
+                element.style.borderColor = 'var(--blue-primary)';
+                element.style.background = 'var(--bg-hover)';
+                this.selectedFile = file;
+            }
+
+            openFile(file) {
+                if (file.type === 'folder') {
+                    const newPath = this.currentPath === '/' ? `/${file.name}` : `${this.currentPath}/${file.name}`;
+                    this.navigate(newPath);
+                } else {
+                    this.openEditor(file);
+                }
+            }
+
+            openEditor(file) {
+                const panel = document.getElementById('editorPanel');
+                const editor = document.getElementById('codeEditor');
+                const preview = document.getElementById('previewFrame');
+                
+                panel.classList.add('open');
+                this.switchTab('code');
+                
+                if (file.content) {
+                    editor.value = file.content;
+                } else {
+                    editor.value = '[Binary File or No Content Available]\n\nFile: ' + file.name + '\nSize: ' + file.size + '\nType: ' + (file.ext || 'unknown');
+                }
+                
+                editor.dataset.currentFile = file.id;
+                editor.dataset.name = file.name;
+                editor.dataset.path = this.currentPath;
+                editor.dataset.ext = file.ext || '';
+                
+                // Auto-detect language for syntax highlighting simulation
+                this.detectLanguage(file.ext || '');
+                
+                this.setStatus(`📝 Editing: ${file.name}`);
+            }
+
+            detectLanguage(ext) {
+                const languages = {
+                    'html': 'HTML', 'htm': 'HTML',
+                    'css': 'CSS',
+                    'js': 'JavaScript', 'ts': 'TypeScript', 'jsx': 'JSX', 'tsx': 'TSX',
+                    'json': 'JSON',
+                    'md': 'Markdown',
+                    'py': 'Python',
+                    'php': 'PHP',
+                    'rb': 'Ruby',
+                    'java': 'Java',
+                    'c': 'C', 'cpp': 'C++',
+                    'go': 'Go',
+                    'rs': 'Rust',
+                    'sql': 'SQL',
+                    'xml': 'XML',
+                    'yaml': 'YAML', 'yml': 'YAML',
+                    'sh': 'Bash',
+                    'dockerfile': 'Dockerfile'
+                };
+                const lang = languages[ext] || 'Plain Text';
+                console.log(`Detected language: ${lang}`);
+            }
+
+            switchTab(tab) {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                event.target.classList.add('active');
+                
+                const editor = document.getElementById('codeEditor');
+                const preview = document.getElementById('previewFrame');
+                const meta = document.getElementById('metaPanel');
+
+                editor.style.display = 'none';
+                preview.style.display = 'none';
+                meta.style.display = 'none';
+
+                if (tab === 'code') {
+                    editor.style.display = 'block';
+                    editor.focus();
+                }
+                if (tab === 'preview') {
+                    preview.style.display = 'block';
+                    const content = editor.value;
+                    const ext = editor.dataset.ext || '';
+                    
+                    if (['html', 'htm'].includes(ext)) {
+                        const blob = new Blob([content], {type: 'text/html'});
+                        preview.src = URL.createObjectURL(blob);
+                    } else if (ext === 'md') {
+                        // Simple markdown to HTML conversion
+                        const htmlContent = content
+                            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                            .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+                            .replace(/\*(.*)\*/gim, '<em>$1</em>')
+                            .replace(/`(.*)`/gim, '<code>$1</code>')
+                            .replace(/\n/gim, '<br>');
+                        const blob = new Blob([htmlContent], {type: 'text/html'});
+                        preview.src = URL.createObjectURL(blob);
+                    } else {
+                        preview.srcdoc = `<html><body style="padding:20px;font-family:monospace;white-space:pre-wrap;">${content}</body></html>`;
+                    }
+                }
+                if (tab === 'meta') {
+                    meta.style.display = 'block';
+                    const name = editor.dataset.name;
+                    const path = editor.dataset.path;
+                    const ext = editor.dataset.ext || 'unknown';
+                    const size = editor.value.length;
+                    
+                    // Generate pseudo hash
+                    const pseudoHash = Array.from(crypto.getRandomValues(new Uint8Array(32)))
+                        .map(b => b.toString(16).padStart(2, '0')).join('').substring(0, 64);
+                    
+                    document.getElementById('metaContent').innerHTML = `
+                        <div style="display:grid;gap:12px;">
+                            <div><strong>📄 Name:</strong> ${name}</div>
+                            <div><strong>📍 Path:</strong> ${path}/${name}</div>
+                            <div><strong>📏 Size:</strong> ${size} bytes (${(size/1024).toFixed(2)} KB)</div>
+                            <div><strong>📝 Extension:</strong> .${ext}</div>
+                            <div><strong>🕐 Modified:</strong> Just now</div>
+                            <div><strong>🔐 SHA-256:</strong> <code style="font-size:0.8em;">${pseudoHash}</code></div>
+                            <div><strong>💾 MIME Type:</strong> ${this.getMimeType(ext)}</div>
+                            <div><strong>🌐 Encoding:</strong> UTF-8</div>
+                        </div>
+                    `;
+                }
+            }
+
+            getMimeType(ext) {
+                const mimes = {
+                    'html': 'text/html', 'htm': 'text/html',
+                    'css': 'text/css',
+                    'js': 'application/javascript',
+                    'json': 'application/json',
+                    'md': 'text/markdown',
+                    'txt': 'text/plain',
+                    'xml': 'application/xml',
+                    'png': 'image/png',
+                    'jpg': 'image/jpeg',
+                    'svg': 'image/svg+xml'
+                };
+                return mimes[ext] || 'application/octet-stream';
+            }
+
+            saveFile() {
+                const editor = document.getElementById('codeEditor');
+                const id = parseInt(editor.dataset.currentFile);
+                const content = editor.value;
+                const name = editor.dataset.name;
+                
+                for (let path in fileSystem) {
+                    const file = fileSystem[path].find(f => f.id === id);
+                    if (file) {
+                        file.content = content;
+                        file.size = this.formatSize(content.length);
+                        file.date = new Date().toISOString().split('T')[0];
+                        this.setStatus(`💾 Saved: ${name} (${content.length} bytes)`);
+                        
+                        // Show save animation
+                        const btn = event.target;
+                        const originalText = btn.innerText;
+                        btn.innerText = '✓ Saved';
+                        btn.style.background = 'var(--success)';
+                        setTimeout(() => {
+                            btn.innerText = originalText;
+                            btn.style.background = '';
+                        }, 1500);
+                        
+                        return;
+                    }
+                }
+                
+                // File not found in current system - could be new
+                this.setStatus('⚠️ File not found in system. May need to refresh.');
+            }
+
+            formatSize(bytes) {
+                if (bytes < 1024) return bytes + ' B';
+                if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + ' KB';
+                return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+            }
+
+            closeEditor() {
+                document.getElementById('editorPanel').classList.remove('open');
+                this.selectedFile = null;
+                this.setStatus('Editor closed');
+            }
+
+            createFile() {
+                document.getElementById('newFileName').value = '';
+                document.getElementById('newFileType').value = 'file';
+                document.getElementById('newFileModal').style.display = 'flex';
+                document.getElementById('newFileName').focus();
+            }
+
+            confirmCreate() {
+                const name = document.getElementById('newFileName').value.trim();
+                const type = document.getElementById('newFileType').value;
+                
+                if (!name) { 
+                    alert('❌ Please enter a valid name'); 
+                    return; 
+                }
+                
+                // Validate filename
+                if (/[<>:"/\\|?*]/.test(name)) {
+                    alert('❌ Invalid characters in filename');
+                    return;
+                }
+                
+                // Check if file already exists
+                const files = fileSystem[this.currentPath] || [];
+                if (files.some(f => f.name === name)) {
+                    alert('❌ A file with this name already exists');
+                    return;
+                }
+                
+                let defaultContent = '';
+                const ext = name.split('.').pop().toLowerCase();
+                
+                if (type === 'html') defaultContent = '<!DOCTYPE html>\n<html>\n<head>\n    <title>New Page</title>\n</head>\n<body>\n    <h1>Hello World</h1>\n</body>\n</html>';
+                else if (type === 'js') defaultContent = '// New JavaScript File\nconsole.log("Hello World");';
+                else if (type === 'css') defaultContent = '/* New CSS File */\nbody {\n    margin: 0;\n    padding: 0;\n}';
+                else if (type === 'json') defaultContent = '{\n    "key": "value"\n}';
+                else if (type === 'md') defaultContent = '# New Document\n\nWrite your content here.';
+                
+                const newItem = {
+                    id: Date.now(),
+                    name: name,
+                    type: type === 'folder' ? 'folder' : 'file',
+                    size: type === 'folder' ? '-' : '0 B',
+                    date: new Date().toISOString().split('T')[0],
+                    ext: ext,
+                    content: type === 'folder' ? undefined : defaultContent
+                };
+                
+                if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
+
+            getIcon(type, name) {
+                if (type === 'folder') return '📁';
+                const ext = name.split('.').pop().toLowerCase();
+                const icons = {
+                    'html': '🌐', 'htm': '🌐',
+                    'css': '🎨',
+                    'js': '📜', 'ts': '📜',
+                    'json': '⚙️',
+                    'md': '📝', 'txt': '📄',
+                    'png': '🖼️', 'jpg': '🖼️', 'gif': '🖼️',
+                    'mp4': '🎬', 'mp3': '🎵',
+                    'zip': '📦', 'rar': '📦'
+                };
+                return icons[ext] || '📄';
+            }
+
+            renderFiles() {
+                const grid = document.getElementById('fileGrid');
+                grid.innerHTML = '';
+                const files = fileSystem[this.currentPath] || [];
+
+                if (files.length === 0) {
+                    grid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; margin-top:50px;">Folder Empty - Click + New File to add items</div>';
+                    return;
+                }
+
+                files.forEach(file => {
+                    const el = document.createElement('div');
+                    el.className = 'file-item';
+                    el.ondblclick = () => this.openFile(file);
+                    el.onclick = () => this.selectFile(file, el);
+                    el.innerHTML = `
+                        <div class="file-icon">${this.getIcon(file.type, file.name)}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-meta">${file.size} • ${file.date}</div>
+                    `;
+                    grid.appendChild(el);
+                });
+            }
+
+            navigate(path) {
+                this.currentPath = path;
+                this.renderFiles();
+                this.updateBreadcrumb();
+                this.setStatus(`Navigated to ${path}`);
+            }
+
+            updateBreadcrumb() {
+                const parts = this.currentPath.split('/').filter(p => p);
+                let html = '<span class="crumb" onclick="app.navigate(\'/\')">Root</span>';
+                let current = '';
+                parts.forEach(part => {
+                    current += '/' + part;
+                    html += ` <span>/</span> <span class="crumb" onclick="app.navigate('${current}')">${part}</span>`;
+                });
+                document.getElementById('breadcrumb').innerHTML = html;
+            }
+
+            selectFile(file, element) {
+                document.querySelectorAll('.file-item').forEach(el => el.style.borderColor = 'var(--border)');
+                element.style.borderColor = 'var(--blue-primary)';
+                this.selectedFile = file;
+            }
+
+            openFile(file) {
+                if (file.type === 'folder') {
+                    const newPath = this.currentPath === '/' ? `/${file.name}` : `${this.currentPath}/${file.name}`;
+                    this.navigate(newPath);
+                } else {
+                    this.openEditor(file);
+                }
+            }
+
+            openEditor(file) {
+                const panel = document.getElementById('editorPanel');
+                const editor = document.getElementById('codeEditor');
+                const preview = document.getElementById('previewFrame');
+                
+                panel.classList.add('open');
+                this.switchTab('code');
+                
+                editor.value = file.content || '[Binary File or No Content]';
+                editor.dataset.currentFile = file.id;
+                editor.dataset.name = file.name;
+                
+                this.setStatus(`Opened ${file.name}`);
+            }
+
+            switchTab(tab) {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                event.target.classList.add('active');
+                
+                const editor = document.getElementById('codeEditor');
+                const preview = document.getElementById('previewFrame');
+                const meta = document.getElementById('metaPanel');
+
+                editor.style.display = 'none';
+                preview.style.display = 'none';
+                meta.style.display = 'none';
+
+                if (tab === 'code') editor.style.display = 'block';
+                if (tab === 'preview') {
+                    preview.style.display = 'block';
+                    const content = editor.value;
+                    const blob = new Blob([content], {type: 'text/html'});
+                    preview.src = URL.createObjectURL(blob);
+                }
+                if (tab === 'meta') {
+                    meta.style.display = 'block';
+                    const name = editor.dataset.name;
+                    document.getElementById('metaContent').innerHTML = `
+                        <p><strong>Name:</strong> ${name}</p>
+                        <p><strong>Path:</strong> ${this.currentPath}/${name}</p>
+                        <p><strong>Size:</strong> ${editor.value.length} bytes</p>
+                        <p><strong>Modified:</strong> Just now</p>
+                        <p><strong>Hash:</strong> SHA-256: ${Math.random().toString(36).substring(2)}...</p>
+                    `;
+                }
+            }
+
+            saveFile() {
+                const editor = document.getElementById('codeEditor');
+                const id = parseInt(editor.dataset.currentFile);
+                const content = editor.value;
+                
+                for (let path in fileSystem) {
+                    const file = fileSystem[path].find(f => f.id === id);
+                    if (file) {
+                        file.content = content;
+                        file.size = content.length + ' bytes';
+                        this.setStatus(`Saved ${file.name} - ${content.length} bytes`);
+                        return;
+                    }
+                }
+            }
+
+            closeEditor() {
+                document.getElementById('editorPanel').classList.remove('open');
+                this.selectedFile = null;
+            }
+
+            createFile() {
+                document.getElementById('newFileName').value = '';
+                document.getElementById('newFileModal').style.display = 'flex';
+                document.getElementById('newFileName').focus();
+            }
+
+            confirmCreate() {
+                const name = document.getElementById('newFileName').value;
+                const type = document.getElementById('newFileType').value;
+                
+                if (!name) { alert('Please enter a name'); return; }
+                
+                const newItem = {
+                    id: Date.now(),
+                    name: name,
+                    type: type === 'folder' ? 'folder' : 'file',
+                    size: type === 'folder' ? '-' : '0 KB',
+                    date: new Date().toISOString().split('T')[0],
+                    content: type === 'folder' ? undefined : ''
+                };
+                
+                if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
+                fileSystem[this.currentPath].push(newItem);
+                this.renderFiles();
+                document.getElementById('newFileModal').style.display = 'none';
+                this.setStatus(`Created ${type} ${name}`);
+            }
+
+            createFolder() {
+                const name = prompt('Folder Name:', 'New Folder');
+                if (name) {
+                    const newFolder = {
+                        id: Date.now(),
+                        name: name,
+                        type: 'folder',
+                        size: '-',
+                        date: new Date().toISOString().split('T')[0]
+                    };
+                    if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
+                    fileSystem[this.currentPath].push(newFolder);
+                    this.renderFiles();
+                    this.setStatus(`Created folder ${name}`);
+                }
+            }
+
+            uploadFile() {
+                const input = document.createElement('input');
+                input.type = 'file';
+                input.onchange = (e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const newFile = {
+                            id: Date.now(),
+                            name: file.name,
+                            type: 'file',
+                            ext: file.name.split('.').pop(),
+                            size: Math.round(file.size / 1024) + ' KB',
+                            date: new Date().toISOString().split('T')[0],
+                            content: event.target.result
+                        };
+                        if (!fileSystem[this.currentPath]) fileSystem[this.currentPath] = [];
+                        fileSystem[this.currentPath].push(newFile);
+                        this.renderFiles();
+                        this.setStatus(`Uploaded ${file.name}`);
+                    };
+                    reader.readAsText(file);
+                };
+                input.click();
+            }
+
+            toggleView(mode) {
+                this.viewMode = mode;
+                const grid = document.getElementById('fileGrid');
+                if (mode === 'list') {
+                    grid.style.gridTemplateColumns = '1fr';
+                } else {
+                    grid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(120px, 1fr))';
+                }
+            }
+
+            contextAction(action) {
+                document.getElementById('contextMenu').style.display = 'none';
+                if (!this.selectedFile && action !== 'create') {
+                    if(action === 'create') this.createFile();
+                    return;
+                }
+
+                switch(action) {
+                    case 'edit': this.openEditor(this.selectedFile); break;
+                    case 'preview':
+                        this.openEditor(this.selectedFile);
+                        setTimeout(() => {
+                            document.querySelector('.tab:nth-child(2)').click();
+                        }, 100);
+                        break;
+                    case 'delete':
+                        if(confirm(`Delete ${this.selectedFile.name}?`)) {
+                            fileSystem[this.currentPath] = fileSystem[this.currentPath].filter(f => f.id !== this.selectedFile.id);
+                            this.renderFiles();
+                            this.setStatus('Item Deleted');
+                        }
+                        break;
+                    case 'rename':
+                        const newName = prompt('Rename to:', this.selectedFile.name);
+                        if (newName) {
+                            this.selectedFile.name = newName;
+                            this.renderFiles();
+                        }
+                        break;
+                    case 'properties':
+                        this.openEditor(this.selectedFile);
+                        setTimeout(() => document.querySelector('.tab:nth-child(3)').click(), 100);
+                        break;
+                    default:
+                        this.setStatus(`Action "${action}" executed on ${this.selectedFile?.name || 'System'}`);
+                }
+            }
+
+            // GitHub Integration Functions
+            loadGitHubRepo(repoPath) {
+                this.setStatus(`Loading repository: ${repoPath}...`);
+                // Simulated GitHub repo loading
+                const githubFiles = [
+                    { id: 1001, name: 'README.md', type: 'file', ext: 'md', size: '3 KB', date: '2024-01-15', content: '# Southeast Higerware Repository\n\nUnlimited Cloud Storage System' },
+                    { id: 1002, name: 'index.html', type: 'file', ext: 'html', size: '25 KB', date: '2024-01-16', content: '<!DOCTYPE html><html><head><title>Southeast Higerware</title></head><body><h1>Welcome</h1></body></html>' },
+                    { id: 1003, name: 'styles.css', type: 'file', ext: 'css', size: '8 KB', date: '2024-01-16', content: 'body { background: linear-gradient(135deg, #ffffff, #0066ff); }' }
+                ];
+                fileSystem['/github'] = githubFiles;
+                this.navigate('/github');
+                this.setStatus(`Repository ${repoPath} loaded successfully`);
+            }
+
+            showGitHubProfile() {
+                window.open('https://github.com/southeasthigerware', '_blank');
+                this.setStatus('Opening GitHub profile...');
+            }
+
+            syncGitHub() {
+                this.setStatus('Syncing with GitHub...');
+                setTimeout(() => {
+                    this.setStatus('GitHub sync complete. All repositories up to date.');
+                }, 1500);
+            }
+
+            togglePlugins() {
+                const plugins = [
+                    "Chrome Extension Loader [ACTIVE]",
+                    "Edge Integration Module [ACTIVE]",
+                    "Firefox Sync Adapter [ACTIVE]",
+                    "VS Code Web Engine [LOADED]",
+                    "Git Version Control [READY]",
+                    "Docker Container Manager [SIMULATED]",
+                    "AI Code Assistant [STANDBY]"
+                ];
+                alert("PLUGIN MANAGER\n\n" + plugins.join('\n'));
+            }
+
+            openSettings() {
+                alert("SYSTEM CONFIGURATION\n\nTheme: White & Blue Gradient\nStorage: Unlimited (Virtual)\nAuto-Save: Enabled\nSync: Real-time\nSecurity Level: Maximum");
+            }
+
+            openTerminal() {
+                const cmd = prompt("TERMINAL ACCESS\nEnter command:");
+                if (cmd) {
+                    this.setStatus(`Executed: ${cmd}`);
+                    if (cmd === 'ls') alert(Object.keys(fileSystem).join('\n'));
+                    if (cmd === 'help') alert("Available commands: ls, cd, mkdir, rm, cat, clear, git, npm");
+                }
+            }
+
+            showSystemInfo() {
+                alert(`SYSTEM STATUS\n\nOS: Southeast Higerware OS\nKernel: Browser Engine\nMemory: Dynamic Allocation\nStorage: Virtual Infinite\nUptime: ${performance.now().toFixed(0)}ms\nGitHub: southeasthigerware`);
+            }
+
+            garbageCollect() {
+                this.setStatus('Optimizing storage blocks...');
+                setTimeout(() => {
+                    this.setStatus('Optimization Complete. 0 bytes reclaimed (System is clean).');
+                }, 1000);
+            }
+
+            setStatus(msg) {
+                document.getElementById('statusText').innerText = msg;
+            }
+
+            // AI Assistant Functions
+            toggleAISidebar() {
+                const sidebar = document.getElementById('aiSidebar');
+                sidebar.classList.toggle('open');
+                if (sidebar.classList.contains('open')) {
+                    this.setStatus('AI Assistant opened');
+                    document.getElementById('aiInput').focus();
+                } else {
+                    this.setStatus('AI Assistant closed');
+                }
+            }
+
+            addAIMessage(content, type) {
+                const container = document.getElementById('aiChatContainer');
+                const msgDiv = document.createElement('div');
+                msgDiv.className = `ai-message ai-${type}`;
+                msgDiv.innerHTML = content;
+                container.appendChild(msgDiv);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            async sendAIMessage() {
+                const input = document.getElementById('aiInput');
+                const message = input.value.trim();
+                if (!message) return;
+
+                // Add user message
+                this.addAIMessage(`<p>${this.escapeHtml(message)}</p>`, 'user');
+                input.value = '';
+
+                // Show loading
+                this.addAIMessage('<p>🤔 Memproses permintaan Anda...</p>', 'response');
+
+                // Simulate AI processing
+                setTimeout(() => {
+                    this.processAICommand(message);
+                }, 800);
+            }
+
+            processAICommand(command) {
+                const cmd = command.toLowerCase();
+                let response = '';
+
+                // Detect intent
+                if (cmd.includes('buat folder') || cmd.includes('create folder') || cmd.includes('new folder')) {
+                    const match = cmd.match(/folder\s+(?:bernama|named)?\s*["']?([^"']+)["']?/i) || cmd.match(/(?:buat|create)\s+folder\s+([^\s]+)/i);
+                    const folderName = match ? match[1] : 'New Folder';
+                    this.createFolder();
+                    document.getElementById('newFileName').value = folderName;
+                    document.getElementById('newFileType').value = 'folder';
+                    response = `<p>✅ Saya telah menyiapkan pembuatan folder "<strong>${folderName}</strong>". Silakan klik tombol Create untuk konfirmasi.</p>`;
+                    // Remove last loading message and add response
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('buat file') || cmd.includes('create file') || cmd.includes('new file')) {
+                    const match = cmd.match(/file\s+(?:bernama|named)?\s*["']?([^"']+)["']?/i) || cmd.match(/(?:buat|create)\s+file\s+([^\s]+)/i);
+                    const fileName = match ? match[1] : 'newfile.txt';
+                    this.createFile();
+                    document.getElementById('newFileName').value = fileName;
+                    response = `<p>✅ Saya telah menyiapkan pembuatan file "<strong>${fileName}</strong>". Silakan klik tombol Create untuk konfirmasi.</p>`;
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('edit') || cmd.includes('ubah') || cmd.includes('modify')) {
+                    response = `<p>✏️ Untuk mengedit file, silakan:</p>
+                        <ol>
+                            <li>Klik file yang ingin diedit</li>
+                            <li>Pilih tab "Code" di panel editor</li>
+                            <li>Ubah kode sesuai kebutuhan</li>
+                            <li>Klik tombol "Save" atau tekan Ctrl+S</li>
+                        </ol>
+                        <p>Atau berikan perintah lebih spesifik seperti: "edit file index.html dan tambahkan header baru"</p>`;
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('kode') || cmd.includes('code') || cmd.includes('html') || cmd.includes('css') || cmd.includes('javascript')) {
+                    response = `<p>💻 Tentu! Berikut contoh kode yang bisa saya buat:</p>`;
+                    
+                    if (cmd.includes('html')) {
+                        response += `<pre style="background:#f8faff; padding:10px; border-radius:6px; overflow-x:auto; font-family:monospace; font-size:0.85rem;">&lt;!DOCTYPE html&gt;
+&lt;html lang="id"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title>Halaman Baru&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Selamat Datang&lt;/h1&gt;
+    &lt;p&gt;Ini adalah halaman yang dibuat oleh AI.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>`;
+                    } else if (cmd.includes('css')) {
+                        response += `<pre style="background:#f8faff; padding:10px; border-radius:6px; overflow-x:auto; font-family:monospace; font-size:0.85rem;">/* Style CSS */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}</pre>`;
+                    } else if (cmd.includes('javascript') || cmd.includes('js')) {
+                        response += `<pre style="background:#f8faff; padding:10px; border-radius:6px; overflow-x:auto; font-family:monospace; font-size:0.85rem;">// JavaScript Code
+class Aplikasi {
+    constructor() {
+        this.nama = 'Aplikasi Saya';
+        this.versi = '1.0.0';
+    }
+    
+    init() {
+        console.log('Aplikasi dimulai');
+    }
+}
+const app = new Aplikasi();
+app.init();</pre>`;
+                    } else {
+                        response += `<p>Silakan tentukan bahasa pemrograman yang diinginkan (HTML, CSS, JavaScript, dll).</p>`;
+                    }
+                    
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                if (cmd.includes('teks') || cmd.includes('text') || cmd.includes('paragraf') || cmd.includes('poin') || cmd.includes('list')) {
+                    response = `<p>📝 Tentu! Berikut contoh teks yang bisa saya buat:</p>`;
+                    
+                    if (cmd.includes('poin') || cmd.includes('list')) {
+                        response += `<ul>
+                            <li>Poin pertama: Informasi penting tentang topik ini</li>
+                            <li>Poin kedua: Penjelasan lebih detail</li>
+                            <li>Poin ketiga: Kesimpulan atau rekomendasi</li>
+                        </ul>`;
+                    } else {
+                        response += `<p>Ini adalah contoh paragraf yang dibuat oleh AI Assistant. Paragraf ini dapat digunakan untuk berbagai keperluan seperti konten website, dokumentasi, atau materi presentasi. Saya dapat membantu Anda membuat teks dengan berbagai gaya dan panjang sesuai kebutuhan.</p>`;
+                    }
+                    
+                    const container = document.getElementById('aiChatContainer');
+                    container.lastElementChild.remove();
+                    this.addAIMessage(response, 'response');
+                    return;
+                }
+
+                // Default response
+                response = `<p>🤖 Saya memahami permintaan Anda: "<strong>${this.escapeHtml(command)}</strong>"</p>
+                    <p>Berikut hal-hal yang dapat saya bantu:</p>
+                    <ul>
+                        <li>📁 <strong>Membuat folder:</strong> "Buat folder bernama Documents"</li>
+                        <li>📄 <strong>Membuat file:</strong> "Buat file baru index.html"</li>
+                        <li>✏️ <strong>Mengedit file:</strong> "Edit file config.json"</li>
+                        <li>💻 <strong>Membuat kode:</strong> "Buat kode HTML untuk landing page"</li>
+                        <li>📝 <strong>Menulis teks:</strong> "Buat paragraf tentang teknologi"</li>
+                    </ul>`;
+                
+                const container = document.getElementById('aiChatContainer');
+                container.lastElementChild.remove();
+                this.addAIMessage(response, 'response');
+            }
+
+            escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        }
+
+        // Initialize App
+        const app = new FileManager();
+    </script>
 </body>
 </html>
