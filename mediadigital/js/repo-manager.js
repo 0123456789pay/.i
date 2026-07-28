@@ -20,6 +20,7 @@ function showSection(sectionName) {
 function logout() {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('adminUser');
+    localStorage.removeItem('currentUser');
     alert('Anda telah logout.');
     window.location.href = '../login.html';
 }
@@ -28,13 +29,20 @@ function logout() {
 function checkAdminAuth() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const adminUser = localStorage.getItem('adminUser');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     
+    // Cek jika user adalah admin
     if (isLoggedIn !== 'true' || adminUser !== 'admin') {
         window.location.href = '../login.html';
         return false;
     }
     
-    document.getElementById('adminName').textContent = adminUser;
+    // Tampilkan nama admin
+    if (currentUser && currentUser.name) {
+        document.getElementById('adminName').textContent = currentUser.name;
+    } else {
+        document.getElementById('adminName').textContent = 'Super Admin';
+    }
     
     // Tampilkan identitas user di dashboard
     displayUserIdentity();
@@ -127,4 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Auto-refresh setiap 5 menit
     setInterval(fetchRepositories, 300000);
+    
+    console.log('Dashboard initialized successfully');
+    console.log('Current user:', JSON.parse(localStorage.getItem('currentUser')));
 });

@@ -4,7 +4,6 @@
 __pycache__/
 *.o
 *.obj
-*.class
 *.exe
 *.dll
 *.so
@@ -17,14 +16,33 @@ venv/
 .venv/
 .env
 .env.local
-*.env.*
+.env.*
 
 # Build directories
 dist/
 build/
 target/
-*.jar
-*.war
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Editors
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Compressed files
 *.zip
 *.gz
 *.tar
@@ -43,65 +61,17 @@ target/
 *.Z
 *.lz
 *.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
+# Gradle
+.gradle/
 
-# Editors and IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Python specific
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-.Python
-*.so
-*.egg-info/
-.eggs/
+# MyPy
 .mypy_cache/
+
+# Pytest
 .pytest_cache/
-
-# Node.js specific
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Java specific
-*.class
-*.jar
-*.war
-*.ear
-hs_err_pid*
-
-# C/C++ specific
-*.o
-*.obj
-*.a
-*.lib
-*.so
-*.dylib
-*.dll
-
-# Go specific
-*.o
-*.a
-*.swp
-*~
-.DS_Store
 ```
