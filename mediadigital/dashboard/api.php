@@ -1,7 +1,7 @@
 <?php
 /**
  * MEDIA.DIGITAL - Dashboard API
- * Endpoint untuk data dashboard
+ * Endpoint untuk data dashboard, file manager, dan preview
  */
 
 header('Content-Type: application/json');
@@ -42,6 +42,32 @@ switch($action) {
         echo json_encode([
             'success' => true,
             'data' => $systems
+        ]);
+        break;
+    
+    case 'getFileStructure':
+        $structure = getFileStructure();
+        echo json_encode([
+            'success' => true,
+            'data' => $structure
+        ]);
+        break;
+    
+    case 'readFile':
+        $filePath = $_GET['path'] ?? '';
+        if (empty($filePath)) {
+            echo json_encode(['success' => false, 'message' => 'Path file diperlukan']);
+            break;
+        }
+        $result = readFileContent($filePath);
+        echo json_encode($result);
+        break;
+    
+    case 'getExternalUrls':
+        $urls = getExternalUrls();
+        echo json_encode([
+            'success' => true,
+            'data' => $urls
         ]);
         break;
         
