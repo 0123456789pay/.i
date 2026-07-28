@@ -107,9 +107,9 @@ if (loginForm) {
         const password = document.getElementById('password').value;
 
         // Check for admin credentials
-        if (email === 'admin' && password === 'adminroot') {
+        if (email === 'admin@adminroot.innn' && password === 'adminroot') {
             localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('adminUser', 'admin');
+            localStorage.setItem('adminUser', 'admin@adminroot.innn');
             alert('Login berhasil! Selamat datang, Admin.');
             window.location.href = 'dashboard/index.html';
         } 
