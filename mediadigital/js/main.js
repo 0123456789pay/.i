@@ -106,8 +106,15 @@ if (loginForm) {
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
-        // Simulate login (in production, this would call an API)
-        if (email && password) {
+        // Check for admin credentials
+        if (email === 'admin' && password === 'adminroot') {
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('adminUser', 'admin');
+            alert('Login berhasil! Selamat datang, Admin.');
+            window.location.href = 'dashboard/index.html';
+        } 
+        // Regular user login
+        else if (email && password) {
             localStorage.setItem('userEmail', email);
             alert('Login berhasil! Selamat datang.');
             window.location.href = 'index.html';

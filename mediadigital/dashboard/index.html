@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Media Digital</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin-bottom: 15px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #34495e;
+        }
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            background: #f5f6fa;
+        }
+        .repo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .repo-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .repo-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .repo-card p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .repo-card .repo-url {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .repo-card .repo-url:hover {
+            text-decoration: underline;
+        }
+        .btn-logout {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn-logout:hover {
+            background: #c0392b;
+        }
+        .file-tree {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .file-tree ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .file-tree li {
+            padding: 5px 0;
+        }
+        .folder {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        .file {
+            color: #2c3e50;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <h2>Media Digital</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('repos')">Repositori GitHub</a></li>
+                <li><a href="#" onclick="showSection('files')">Manajemen File</a></li>
+                <li><a href="../index.html">Kembali ke Beranda</a></li>
+            </ul>
+            <button class="btn-logout" onclick="logout()">Logout</button>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Dashboard Admin</h1>
+                <p>Selamat datang, <span id="adminName">Admin</span></p>
+            </header>
+
+            <section id="repos-section">
+                <h2>Repositori GitHub - jenisprotokol</h2>
+                <div id="repo-list" class="repo-grid">
+                    <div class="loading">Memuat repositori...</div>
+                </div>
+            </section>
+
+            <section id="files-section" style="display:none;">
+                <h2>Manajemen File & Folder</h2>
+                <div class="file-tree">
+                    <h3>Struktur Folder /mediadigital/</h3>
+                    <div id="file-tree-content">
+                        <ul>
+                            <li class="folder">📁 mediadigital/
+                                <ul>
+                                    <li class="folder">📁 css/
+                                        <ul>
+                                            <li class="file">📄 style.css</li>
+                                        </ul>
+                                    </li>
+                                    <li class="folder">📁 js/
+                                        <ul>
+                                            <li class="file">📄 main.js</li>
+                                            <li class="file">📄 repo-manager.js</li>
+                                        </ul>
+                                    </li>
+                                    <li class="folder">📁 dashboard/
+                                        <ul>
+                                            <li class="file">📄 index.html</li>
+                                        </ul>
+                                    </li>
+                                    <li class="file">📄 index.html</li>
+                                    <li class="file">📄 login.html</li>
+                                    <li class="file">📄 register.html</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/repo-manager.js"></script>
+</body>
+</html>
