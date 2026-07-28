@@ -17,8 +17,14 @@
                 <li><a href="#features">Fitur</a></li>
                 <li><a href="#about">Tentang</a></li>
                 <li><a href="#contact">Kontak</a></li>
-                <li><a href="login.html" class="btn-login">Login</a></li>
-                <li><a href="register.html" class="btn-register">Daftar</a></li>
+                <!-- Tombol Login - hanya tampil jika belum login -->
+                <li><a href="login.html" class="btn-login" id="nav-login-btn">Login</a></li>
+                <!-- Tombol Register - hanya tampil jika belum login -->
+                <li><a href="register.html" class="btn-register" id="nav-register-btn">Daftar</a></li>
+                <!-- Identitas User - hanya tampil jika sudah login -->
+                <li id="nav-user-display" class="user-display" style="display: none;"></li>
+                <!-- Tombol Logout - hanya tampil jika sudah login -->
+                <li><a href="#" class="btn-logout" id="nav-logout-btn" style="display: none;" onclick="handleLogout(); return false;">Logout</a></li>
             </ul>
             <div class="menu-toggle">
                 <span></span>
