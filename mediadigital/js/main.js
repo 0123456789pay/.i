@@ -153,6 +153,8 @@ if (loginForm) {
                 role: 'admin'
             };
             localStorage.setItem('currentUser', JSON.stringify(adminUser));
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('adminUser', 'admin');
             alert('Login berhasil! Selamat datang, Admin.');
             window.location.href = 'dashboard/index.html';
         }
@@ -164,6 +166,7 @@ if (loginForm) {
             
             if (foundUser) {
                 localStorage.setItem('currentUser', JSON.stringify(foundUser));
+                localStorage.setItem('isLoggedIn', 'true');
                 alert('Login berhasil! Selamat datang.');
                 window.location.href = 'index.html';
             } else {
@@ -222,6 +225,8 @@ if (registerForm) {
 // Logout function
 function handleLogout() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('adminUser');
     alert('Anda telah logout.');
     window.location.href = 'index.html';
 }
