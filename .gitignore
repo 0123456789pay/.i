@@ -1,20 +1,301 @@
-```
-# Web artifacts
-*.html.swp
-*.tmp
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+dist/
+build/
 
-# Editor/IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
+# Dependencies
+.venv/
+venv/
+node_modules/
 
-# Logs
+# Logs and temp files
 *.log
+*.tmp
+*.swp
 
 # Environment
 .env
 .env.local
-*.env.*
-```
+.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+
+# Python specific
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Node.js specific
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Java specific
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+
+# C/C++ specific
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.out
+
+# Go specific
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Ruby specific
+*.gem
+*.rbc
+.bundle/
+
+# Rust specific
+*.o
+*.rlib
+target/
+
+# Julia specific
+julia-*/
+
+# Zig specific
+zig-out/
+zig-cache/
+
+# MyPy
+.mypy_cache/
+
+# PyTest
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# IntelliJ IDEA
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.Trashes
+*.nib
+settings.xml~
+
+# Log files
+*.log
+
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Environment variables
+.env
+.env.local
+.env.*
+
+# Distribution / packaging
+.Python
+*.so
+*.egg-info/
+MANIFEST
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask
+instance/
+.webassets-cache
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Sage
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.nib
+*~.nib
+.nib
+*~
+*.bak
+*.backup
+*.old
+*.orig
+*~
+\#*\#
+.\#*
+.~lock.*
+lock.*
+*~
+
+# Build results
+*.css.map
+*.js.map
+*.min.css
+*.min.js
+
+# Various
+*.fdb_latexmk
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.fls
+*.log
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# Archives
+*.zip
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+*.7z
+*.rar
+*.gz
+*.bz2
+*.xz
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar
+*.tgz
