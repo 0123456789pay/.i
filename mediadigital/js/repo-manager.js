@@ -35,7 +35,26 @@ function checkAdminAuth() {
     }
     
     document.getElementById('adminName').textContent = adminUser;
+    
+    // Tampilkan identitas user di dashboard
+    displayUserIdentity();
+    
     return true;
+}
+
+// Fungsi untuk menampilkan identitas user di dashboard
+function displayUserIdentity() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const displayContainer = document.getElementById('user-identity-display');
+    
+    if (user && displayContainer) {
+        displayContainer.innerHTML = `
+            <div class="user-display" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 25px; color: white; font-weight: 500;">
+                <span class="user-greeting">Halo, <strong>${user.name || user.email}</strong></span>
+                ${user.role === 'admin' ? '<span class="badge-admin" style="background: #ff9800; color: white; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; text-transform: uppercase;">Admin</span>' : ''}
+            </div>
+        `;
+    }
 }
 
 // Mengambil repositori dari GitHub
