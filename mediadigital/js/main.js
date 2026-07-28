@@ -1,5 +1,9 @@
-// Mobile Menu Toggle
+// --- Authentication & Session Management ---
+
+// Cek status login saat halaman dimuat
 document.addEventListener('DOMContentLoaded', function() {
+    checkAuthStatus(); // Update header berdasarkan status login
+    
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -50,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
@@ -97,27 +101,74 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Fungsi untuk update Header berdasarkan status login
+function checkAuthStatus() {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const loginBtn = document.getElementById('nav-login-btn');
+    const registerBtn = document.getElementById('nav-register-btn');
+    const userDisplay = document.getElementById('nav-user-display');
+    const logoutBtn = document.getElementById('nav-logout-btn');
+
+    if (user) {
+        // User sudah login - sembunyikan tombol login/register
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (registerBtn) registerBtn.style.display = 'none';
+        
+        // Tampilkan identitas user
+        if (userDisplay) {
+            userDisplay.style.display = 'flex';
+            userDisplay.innerHTML = `
+                <span class="user-greeting">Halo, <strong>${user.name || user.email}</strong></span>
+                ${user.role === 'admin' ? '<span class="badge-admin">Admin</span>' : ''}
+            `;
+        }
+        // Tampilkan tombol logout
+        if (logoutBtn) {
+            logoutBtn.style.display = 'block';
+            logoutBtn.onclick = () => handleLogout();
+        }
+    } else {
+        // User belum login - tampilkan tombol login/register
+        if (loginBtn) loginBtn.style.display = 'block';
+        if (registerBtn) registerBtn.style.display = 'block';
+        if (userDisplay) userDisplay.style.display = 'none';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+    }
+}
+
 // Login Form Handler (if on login page)
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
 
         // Check for admin credentials
         if (email === 'admin@adminroot.innn' && password === 'adminroot') {
-            localStorage.setItem('isLoggedIn', 'true');
-            localStorage.setItem('adminUser', 'admin@adminroot.innn');
+            const adminUser = {
+                name: 'Super Admin',
+                email: email,
+                role: 'admin'
+            };
+            localStorage.setItem('currentUser', JSON.stringify(adminUser));
             alert('Login berhasil! Selamat datang, Admin.');
             window.location.href = 'dashboard/index.html';
-        } 
+        }
         // Regular user login
         else if (email && password) {
-            localStorage.setItem('userEmail', email);
-            alert('Login berhasil! Selamat datang.');
-            window.location.href = 'index.html';
+            // Cek dari registered users
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const foundUser = users.find(u => u.email === email && u.password === password);
+            
+            if (foundUser) {
+                localStorage.setItem('currentUser', JSON.stringify(foundUser));
+                alert('Login berhasil! Selamat datang.');
+                window.location.href = 'index.html';
+            } else {
+                alert('Email atau password salah!');
+            }
         } else {
             alert('Mohon lengkapi semua field.');
         }
@@ -129,7 +180,7 @@ const registerForm = document.getElementById('registerForm');
 if (registerForm) {
     registerForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
@@ -151,30 +202,26 @@ if (registerForm) {
             return;
         }
 
-        // Simulate registration (in production, this would call an API)
-        localStorage.setItem('userName', name);
-        localStorage.setItem('userEmail', email);
+        // Simpan user ke localStorage
+        const newUser = {
+            name: name,
+            email: email,
+            password: password,
+            role: 'user'
+        };
+        
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push(newUser);
+        localStorage.setItem('users', JSON.stringify(users));
+        
         alert('Registrasi berhasil! Silakan login.');
         window.location.href = 'login.html';
     });
 }
 
-// Check if user is logged in
-function checkAuth() {
-    const userEmail = localStorage.getItem('userEmail');
-    const userName = localStorage.getItem('userName');
-    
-    if (userEmail) {
-        console.log(`User logged in: ${userName || userEmail}`);
-        return true;
-    }
-    return false;
-}
-
 // Logout function
-function logout() {
-    localStorage.removeItem('userEmail');
-    localStorage.removeItem('userName');
+function handleLogout() {
+    localStorage.removeItem('currentUser');
     alert('Anda telah logout.');
     window.location.href = 'index.html';
 }
