@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preview Semua File HTML - MediaDigital</title>
     <style>
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #16213e;
+            --accent-bg: #0f3460;
+            --primary-color: #e94560;
+            --secondary-color: #4ecca3;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --border-color: #2a2a4e;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -26,114 +37,182 @@
 
         /* Sidebar Styles */
         .sidebar {
-            width: 380px;
-            background: #1a1a2e;
-            color: #fff;
+            width: 400px;
+            background: var(--primary-bg);
+            color: var(--text-primary);
             display: flex;
             flex-direction: column;
-            border-right: 2px solid #16213e;
+            border-right: 2px solid var(--secondary-bg);
             flex-shrink: 0;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
         }
 
         .sidebar-header {
-            padding: 20px;
-            background: #0f3460;
-            border-bottom: 2px solid #16213e;
+            padding: 20px 25px;
+            background: var(--accent-bg);
+            border-bottom: 2px solid var(--secondary-bg);
         }
 
         .sidebar-header h2 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
-            color: #e94560;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .stats {
-            font-size: 0.85rem;
-            color: #a0a0a0;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .stats span {
-            color: #4ecca3;
+            color: var(--secondary-color);
             font-weight: bold;
+            font-size: 1.1rem;
+            background: rgba(78, 204, 163, 0.1);
+            padding: 2px 10px;
+            border-radius: 12px;
         }
 
         .search-box {
-            padding: 15px 20px;
-            background: #16213e;
-            border-bottom: 1px solid #0f3460;
+            padding: 15px 25px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--accent-bg);
         }
 
         .search-box input {
             width: 100%;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 8px;
-            background: #1a1a2e;
-            color: #fff;
-            font-size: 0.9rem;
+            padding: 14px 18px;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            font-size: 0.95rem;
             outline: none;
             transition: all 0.3s ease;
         }
 
         .search-box input:focus {
-            background: #0f3460;
-            box-shadow: 0 0 0 2px #e94560;
+            background: var(--accent-bg);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.2);
         }
 
         .search-box input::placeholder {
             color: #666;
         }
 
-        .file-list {
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            padding: 10px 25px;
+            background: var(--secondary-bg);
+            border-bottom: 1px solid var(--accent-bg);
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 6px 14px;
+            background: var(--primary-bg);
+            border: 1px solid var(--accent-bg);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: var(--primary-color);
+            color: var(--text-primary);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .file-list-container {
             flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .file-list {
+            height: 100%;
             overflow-y: auto;
             padding: 10px;
         }
 
         .file-list::-webkit-scrollbar {
-            width: 8px;
+            width: 10px;
         }
 
         .file-list::-webkit-scrollbar-track {
-            background: #1a1a2e;
+            background: var(--primary-bg);
+            border-radius: 5px;
         }
 
         .file-list::-webkit-scrollbar-thumb {
-            background: #0f3460;
-            border-radius: 4px;
+            background: var(--accent-bg);
+            border-radius: 5px;
+            border: 2px solid var(--primary-bg);
         }
 
         .file-list::-webkit-scrollbar-thumb:hover {
-            background: #e94560;
+            background: var(--primary-color);
         }
 
         .file-item {
-            padding: 12px 15px;
-            margin-bottom: 8px;
-            background: #16213e;
-            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 6px;
+            background: var(--secondary-bg);
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-left: 3px solid transparent;
+            border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .file-item:hover {
-            background: #0f3460;
+            background: var(--accent-bg);
             transform: translateX(5px);
-            border-left-color: #e94560;
+            border-left-color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.2);
         }
 
         .file-item.active {
-            background: #0f3460;
-            border-left-color: #4ecca3;
-            box-shadow: 0 0 15px rgba(78, 204, 163, 0.3);
+            background: var(--accent-bg);
+            border-left-color: var(--secondary-color);
+            box-shadow: 0 0 20px rgba(78, 204, 163, 0.3);
+        }
+
+        .file-icon-wrapper {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-bg), var(--secondary-bg));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .file-info {
+            flex: 1;
+            min-width: 0;
         }
 
         .file-name {
             font-weight: 600;
-            font-size: 0.9rem;
-            color: #fff;
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -141,16 +220,19 @@
 
         .file-path {
             font-size: 0.75rem;
-            color: #a0a0a0;
+            color: var(--text-secondary);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .file-icon {
-            display: inline-block;
-            margin-right: 8px;
-            color: #4ecca3;
+        .file-count {
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            background: rgba(78, 204, 163, 0.1);
+            padding: 2px 8px;
+            border-radius: 10px;
+            flex-shrink: 0;
         }
 
         /* Preview Area Styles */
@@ -163,67 +245,113 @@
         }
 
         .preview-header {
-            padding: 20px;
+            padding: 20px 30px;
             background: #fff;
             border-bottom: 2px solid #e0e0e0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .preview-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .preview-title strong {
             color: #667eea;
+            font-weight: 700;
+            max-width: 500px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .preview-status {
+            font-size: 0.85rem;
+            color: #4ecca3;
+            background: rgba(78, 204, 163, 0.1);
+            padding: 4px 12px;
+            border-radius: 15px;
         }
 
         .preview-actions {
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .btn {
-            padding: 10px 20px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: #fff;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
         .btn-primary:hover {
-            background: #5568d3;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
 
         .btn-secondary {
-            background: #e94560;
+            background: linear-gradient(135deg, #e94560, #c73e54);
             color: #fff;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
         }
 
         .btn-secondary:hover {
-            background: #d63d56;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #4ecca3, #3db892);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(78, 204, 163, 0.4);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(78, 204, 163, 0.6);
         }
 
         .btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
+            box-shadow: none;
         }
 
         .iframe-container {
@@ -246,38 +374,99 @@
             justify-content: center;
             height: 100%;
             color: #999;
+            padding: 40px;
         }
 
-        .empty-state svg {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            opacity: 0.5;
+        .empty-state-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .empty-state-icon svg {
+            width: 60px;
+            height: 60px;
+            color: #fff;
         }
 
         .empty-state p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .empty-state span {
+            font-size: 0.95rem;
+            color: #999;
         }
 
         .loading {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100%;
+            gap: 20px;
         }
 
         .spinner {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border: 4px solid #f3f3f3;
             border-top: 4px solid #667eea;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
 
+        .loading-text {
+            color: #667eea;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        .load-more {
+            padding: 20px;
+            text-align: center;
+            background: var(--secondary-bg);
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .load-more:hover {
+            background: var(--accent-bg);
+            transform: scale(1.02);
+        }
+
+        /* Virtual scroll container */
+        .virtual-scroll {
+            position: relative;
+        }
+
+        .virtual-spacer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .virtual-content {
+            position: sticky;
+            top: 0;
         }
 
         /* Responsive */
@@ -288,13 +477,24 @@
 
             .sidebar {
                 width: 100%;
-                height: 40vh;
+                height: 45vh;
                 border-right: none;
-                border-bottom: 2px solid #16213e;
+                border-bottom: 2px solid var(--secondary-bg);
             }
 
             .preview-area {
-                height: 60vh;
+                height: 55vh;
+            }
+
+            .preview-header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .preview-actions {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -310,8 +510,16 @@
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="🔍 Cari file HTML..." autocomplete="off">
             </div>
-            <div class="file-list" id="fileList">
-                <!-- File items will be loaded here -->
+            <div class="filter-tags" id="filterTags">
+                <div class="filter-tag active" data-filter="all">Semua</div>
+                <div class="filter-tag" data-filter="index">Index</div>
+                <div class="filter-tag" data-filter="filemanajer">File</div>
+                <div class="filter-tag" data-filter="dashboard">Dashboard</div>
+            </div>
+            <div class="file-list-container">
+                <div class="file-list" id="fileList">
+                    <!-- File items will be loaded here -->
+                </div>
             </div>
         </aside>
 
@@ -319,9 +527,14 @@
         <main class="preview-area">
             <div class="preview-header">
                 <div class="preview-title">
-                    Preview: <strong id="currentFile">Belum ada file dipilih</strong>
+                    <span>Preview:</span>
+                    <strong id="currentFile">Belum ada file dipilih</strong>
+                    <span class="preview-status" id="previewStatus" style="display: none;">✓ Siap</span>
                 </div>
                 <div class="preview-actions">
+                    <button class="btn btn-success" id="homeBtn" disabled>
+                        🏠 Home
+                    </button>
                     <button class="btn btn-primary" id="refreshBtn" disabled>
                         🔄 Refresh
                     </button>
@@ -332,14 +545,17 @@
             </div>
             <div class="iframe-container" id="iframeContainer">
                 <div class="empty-state">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
+                    <div class="empty-state-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
                     <p>Pilih file dari sidebar untuk melihat preview</p>
+                    <span>Support untuk 3000+ file HTML</span>
                 </div>
             </div>
         </main>
@@ -349,7 +565,9 @@
         let htmlFiles = [];
         let currentFileIndex = -1;
         let filteredFiles = [];
-
+        let visibleCount = 100; // Initial visible items
+        const ITEM_HEIGHT = 70; // Approximate height of each item in pixels
+        
         // DOM Elements
         const fileList = document.getElementById('fileList');
         const searchInput = document.getElementById('searchInput');
@@ -358,16 +576,23 @@
         const iframeContainer = document.getElementById('iframeContainer');
         const refreshBtn = document.getElementById('refreshBtn');
         const openNewBtn = document.getElementById('openNewBtn');
+        const homeBtn = document.getElementById('homeBtn');
+        const previewStatus = document.getElementById('previewStatus');
+        const filterTags = document.getElementById('filterTags');
+        
+        let activeFilter = 'all';
 
         // Load HTML files data from JSON
         async function loadFilesData() {
             try {
+                fileList.innerHTML = '<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat ' + htmlFiles.length + ' file...</div></div>';
                 const response = await fetch('html_data.json');
                 if (!response.ok) {
                     throw new Error('Gagal memuat data file');
                 }
                 htmlFiles = await response.json();
                 filteredFiles = [...htmlFiles];
+                totalFiles.textContent = htmlFiles.length.toLocaleString();
                 init();
             } catch (error) {
                 console.error('Error loading files:', error);
@@ -383,57 +608,71 @@
 
         // Initialize
         function init() {
-            totalFiles.textContent = htmlFiles.length;
             renderFileList(filteredFiles);
             setupEventListeners();
         }
-
-        // Render file list with virtual scrolling approach
+        
+        // Virtual scroll rendering for 3000+ files
         function renderFileList(files) {
             fileList.innerHTML = '';
             
             if (files.length === 0) {
-                fileList.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Tidak ada file ditemukan</div>';
+                fileList.innerHTML = '<div style="padding: 40px 20px; text-align: center; color: #666;"><p style="font-size: 1.2rem; margin-bottom: 10px;">😕 Tidak ada file ditemukan</p><p style="font-size: 0.9rem;">Coba kata kunci pencarian lain</p></div>';
                 return;
             }
-
-            // Show first 200 items for performance
-            const maxItems = Math.min(files.length, 200);
-            const fragment = document.createDocumentFragment();
             
-            for (let i = 0; i < maxItems; i++) {
+            // Use virtual scrolling - only render visible items
+            const fragment = document.createDocumentFragment();
+            const itemsToRender = Math.min(files.length, visibleCount);
+            
+            for (let i = 0; i < itemsToRender; i++) {
                 const file = files[i];
                 const item = createFileItem(file, i);
                 fragment.appendChild(item);
             }
             
             fileList.appendChild(fragment);
-
-            if (files.length > 200) {
-                const moreItem = document.createElement('div');
-                moreItem.style.padding = '15px';
-                moreItem.style.textAlign = 'center';
-                moreItem.style.color = '#666';
-                moreItem.style.fontSize = '0.85rem';
-                moreItem.style.background = '#1a1a2e';
-                moreItem.style.borderRadius = '8px';
-                moreItem.style.marginTop = '10px';
-                moreItem.textContent = `... dan ${files.length - 200} file lainnya. Gunakan pencarian untuk menemukan file spesifik.`;
-                fileList.appendChild(moreItem);
+            
+            // Add "Load More" button if there are more files
+            if (files.length > visibleCount) {
+                const loadMoreDiv = document.createElement('div');
+                loadMoreDiv.className = 'load-more';
+                loadMoreDiv.textContent = `⬇️ Muat ${Math.min(100, files.length - visibleCount)} file lagi (${visibleCount}/${files.length})`;
+                loadMoreDiv.addEventListener('click', () => {
+                    visibleCount = Math.min(visibleCount + 100, files.length);
+                    renderFileList(files);
+                });
+                fileList.appendChild(loadMoreDiv);
             }
+            
+            // Update stats
+            const countInfo = document.createElement('div');
+            countInfo.style.cssText = 'padding: 15px; text-align: center; color: #4ecca3; font-size: 0.85rem; background: rgba(78, 204, 163, 0.05); border-radius: 8px; margin-top: 10px;';
+            countInfo.textContent = `Menampilkan ${itemsToRender} dari ${files.length} file`;
+            fileList.appendChild(countInfo);
         }
 
-        // Create file item element
+        // Create file item element with improved UI
         function createFileItem(file, index) {
             const item = document.createElement('div');
             item.className = 'file-item';
             item.dataset.index = index;
             
+            // Determine icon based on file type
+            let icon = '📄';
+            if (file.filename.includes('index')) icon = '🏠';
+            else if (file.filename.includes('dashboard')) icon = '📊';
+            else if (file.filename.includes('filemanajer') || file.filename.includes('file')) icon = '📁';
+            else if (file.filename.includes('config') || file.filename.includes('setting')) icon = '⚙️';
+            else if (file.filename.includes('api')) icon = '🔌';
+            
             item.innerHTML = `
-                <div class="file-name">
-                    <span class="file-icon">📄</span>${escapeHtml(file.filename)}
+                <div class="file-icon-wrapper">${icon}</div>
+                <div class="file-info">
+                    <div class="file-name">${escapeHtml(file.filename)}</div>
+                    <div class="file-path">${escapeHtml(file.rel_path)}</div>
                 </div>
-                <div class="file-path">${escapeHtml(file.rel_path)}</div>
+                <div class="file-count">#${index + 1}</div>
             `;
             
             item.addEventListener('click', () => selectFile(index));
@@ -464,6 +703,10 @@
             // Enable buttons
             refreshBtn.disabled = false;
             openNewBtn.disabled = false;
+            homeBtn.disabled = false;
+            
+            // Show status
+            previewStatus.style.display = 'inline-block';
             
             // Load preview
             loadPreview(file);
@@ -474,6 +717,7 @@
             iframeContainer.innerHTML = `
                 <div class="loading">
                     <div class="spinner"></div>
+                    <div class="loading-text">Memuat ${escapeHtml(file.filename)}...</div>
                 </div>
             `;
             
@@ -490,41 +734,76 @@
                         loading="lazy"
                     ></iframe>
                 `;
-            }, 300);
+                
+                // Hide status after load
+                setTimeout(() => {
+                    previewStatus.style.display = 'none';
+                }, 2000);
+            }, 200);
         }
 
         // Setup event listeners
         function setupEventListeners() {
-            // Search functionality
+            // Search functionality with debounce
+            let searchTimeout;
             searchInput.addEventListener('input', (e) => {
-                const query = e.target.value.toLowerCase().trim();
-                
-                if (query === '') {
-                    filteredFiles = [...htmlFiles];
-                } else {
-                    filteredFiles = htmlFiles.filter(file => 
-                        file.filename.toLowerCase().includes(query) ||
-                        file.rel_path.toLowerCase().includes(query)
-                    );
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    const query = e.target.value.toLowerCase().trim();
+                    
+                    if (query === '') {
+                        filteredFiles = activeFilter === 'all' ? [...htmlFiles] : 
+                            htmlFiles.filter(f => f.filename.toLowerCase().includes(activeFilter));
+                    } else {
+                        filteredFiles = htmlFiles.filter(file => 
+                            file.filename.toLowerCase().includes(query) ||
+                            file.rel_path.toLowerCase().includes(query)
+                        );
+                    }
+                    
+                    visibleCount = 100; // Reset visible count
+                    renderFileList(filteredFiles);
+                    currentFileIndex = -1;
+                    currentFileEl.textContent = 'Belum ada file dipilih';
+                    refreshBtn.disabled = true;
+                    openNewBtn.disabled = true;
+                    homeBtn.disabled = true;
+                    previewStatus.style.display = 'none';
+                    iframeContainer.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-state-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <p>Pilih file dari sidebar untuk melihat preview</p>
+                            <span>${filteredFiles.length} file ditemukan</span>
+                        </div>
+                    `;
+                }, 150);
+            });
+            
+            // Filter tags
+            filterTags.addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-tag')) {
+                    document.querySelectorAll('.filter-tag').forEach(tag => tag.classList.remove('active'));
+                    e.target.classList.add('active');
+                    activeFilter = e.target.dataset.filter;
+                    
+                    if (activeFilter === 'all') {
+                        filteredFiles = [...htmlFiles];
+                    } else {
+                        filteredFiles = htmlFiles.filter(f => f.filename.toLowerCase().includes(activeFilter));
+                    }
+                    
+                    visibleCount = 100;
+                    searchInput.value = '';
+                    renderFileList(filteredFiles);
                 }
-                
-                renderFileList(filteredFiles);
-                currentFileIndex = -1;
-                currentFileEl.textContent = 'Belum ada file dipilih';
-                refreshBtn.disabled = true;
-                openNewBtn.disabled = true;
-                iframeContainer.innerHTML = `
-                    <div class="empty-state">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                        </svg>
-                        <p>Pilih file dari sidebar untuk melihat preview</p>
-                    </div>
-                `;
             });
 
             // Refresh button
@@ -533,12 +812,48 @@
                     loadPreview(filteredFiles[currentFileIndex]);
                 }
             });
+            
+            // Home button - go to main index
+            homeBtn.addEventListener('click', () => {
+                window.open('index.html', '_blank');
+            });
 
             // Open in new tab button
             openNewBtn.addEventListener('click', () => {
                 if (currentFileIndex >= 0 && currentFileIndex < filteredFiles.length) {
                     const file = filteredFiles[currentFileIndex];
                     window.open(file.rel_path, '_blank');
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey || e.metaKey) {
+                    switch(e.key) {
+                        case 'k':
+                            e.preventDefault();
+                            searchInput.focus();
+                            break;
+                        case 'r':
+                            e.preventDefault();
+                            if (!refreshBtn.disabled) refreshBtn.click();
+                            break;
+                        case 'o':
+                            e.preventDefault();
+                            if (!openNewBtn.disabled) openNewBtn.click();
+                            break;
+                    }
+                }
+                
+                // Arrow navigation
+                if (currentFileIndex >= 0) {
+                    if (e.key === 'ArrowDown' && currentFileIndex < filteredFiles.length - 1) {
+                        e.preventDefault();
+                        selectFile(currentFileIndex + 1);
+                    } else if (e.key === 'ArrowUp' && currentFileIndex > 0) {
+                        e.preventDefault();
+                        selectFile(currentFileIndex - 1);
+                    }
                 }
             });
         }
