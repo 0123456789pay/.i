@@ -1,1 +1,15 @@
-Nothing should be ignored based on the provided file changes. The only added file is `advanced-git-commands.md`, which is a markdown documentation file and should not be ignored.
+```
+# Environment files
+.env
+.env.local
+*.env.*
+
+# Editor/IDE files
+.vscode/
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
+```
