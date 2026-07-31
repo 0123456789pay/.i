@@ -1,0 +1,32 @@
+{
+  "name": "elite-coder-integration",
+  "version": "1.0.0",
+  "description": "Elite Coder Qwen AI Integration for AI Studio",
+  "main": "app.tsx",
+  "scripts": {
+    "start": "ts-node app.tsx",
+    "build": "tsc",
+    "dev": "ts-node-dev app.tsx"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  },
+  "elite": {
+    "integration": {
+      "platform": "aistudio.google.com",
+      "coder": "coder.qwen.ai",
+      "capabilities": [
+        "unlimited_code_writing",
+        "code_review",
+        "code_fixing",
+        "content_creation"
+      ],
+      "menu_position": "sidebar",
+      "embed_mode": "iframe"
+    }
+  }
+}

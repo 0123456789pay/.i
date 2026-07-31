@@ -1,15 +1,26 @@
 ```
-# Environment files
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+*.js
+*.ts
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
 .env
 .env.local
 *.env.*
 
-# Editor/IDE files
+# Editors
 .vscode/
-*.swp
-*.swo
-*.tmp
+.idea/
 
-# Logs
-*.log
+# TypeScript
+*.tsbuildinfo
 ```
