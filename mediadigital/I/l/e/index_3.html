@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALLUNIVERS ICONER - Admin Command Center</title>
+    <title>ALLUNIVERS ICONER - pengelola Command Center</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -161,18 +161,18 @@
 <body>
     <div class="container">
         <header>
-            <h1>🖥️ ALLUNIVERS ICONER - Admin Command Center</h1>
-            <p class="subtitle">Owner/Administrator Command Interface for System Management</p>
+            <h1>🖥️ ALLUNIVERS ICONER - pengelola Command Center</h1>
+            <p class="subtitle">Owner/Administrator Command Interface untuk sistem Management</p>
         </header>
         
         <div class="status-bar">
             <div class="status-item">
                 <div class="status-indicator"></div>
-                <span>System Online</span>
+                <span>sistem Online</span>
             </div>
             <div class="status-item">
-                <span id="adminStatus">Not logged in</span>
-                <span id="adminBadge" class="admin-badge" style="display:none;">ADMIN</span>
+                <span id="adminStatus">bukan logged in</span>
+                <span id="adminBadge" class="admin-badge" style="display:none;">pengelola</span>
             </div>
             <div class="status-item">
                 <span id="currentTime"></span>
@@ -181,24 +181,24 @@
         
         <div class="terminal" id="terminal">
             <div class="output" id="output">
-                <div class="output-line info">🚀 ALLUNIVERS ICONER Admin Command System v1.0</div>
-                <div class="output-line info">Type 'help' to see available commands</div>
-                <div class="output-line warning">⚠️ Default admin users: owner, administrator</div>
+                <div class="output-line info">🚀 ALLUNIVERS ICONER pengelola Command sistem v1.0</div>
+                <div class="output-line info">jenis 'bantuan' to see available commands</div>
+                <div class="output-line warning">⚠️ bawaan pengelola para pengguna: owner, administrator</div>
                 <br>
             </div>
         </div>
         
         <div class="input-area">
-            <div class="prompt">admin@iconer:~$</div>
+            <div class="prompt">pengelola@iconer:~$</div>
             <input type="text" id="commandInput" placeholder="Enter command..." autocomplete="off">
             <button onclick="executeCommand()">Execute</button>
         </div>
         
         <div class="quick-commands">
-            <button class="quick-btn" onclick="quickCommand('help')">📋 Help</button>
-            <button class="quick-btn" onclick="quickCommand('system.status')">🖥️ System Status</button>
-            <button class="quick-btn" onclick="quickCommand('admin.login --username owner')">🔐 Login as Owner</button>
-            <button class="quick-btn" onclick="quickCommand('user.list')">👥 List Users</button>
+            <button class="quick-btn" onclick="quickCommand('help')">📋 bantuan</button>
+            <button class="quick-btn" onclick="quickCommand('system.status')">🖥️ sistem Status</button>
+            <button class="quick-btn" onclick="quickCommand('admin.login --username owner')">🔐 masuk as Owner</button>
+            <button class="quick-btn" onclick="quickCommand('user.list')">👥 senarai para pengguna</button>
             <button class="quick-btn" onclick="quickCommand('icon.backup')">💾 Backup Icons</button>
             <button class="quick-btn" onclick="quickCommand('sale.report --startDate 2024-01-01 --endDate 2024-12-31')">📊 Sales Report</button>
             <button class="quick-btn" onclick="quickCommand('finance.report --period monthly')">💰 Financial Report</button>

@@ -1,7 +1,7 @@
 /**
- * Function Module: Createicon 3851
+ * fungsi Module: Createicon 3851
  * Category: tool
- * Style: gradient
+ * gaya: gradient
  * Shape: plus
  * ID: FUNC-03851
  */
@@ -21,7 +21,7 @@ const createIcon3851 = {
     },
     
     setup() {
-        // Setup configuration for createIcon
+        // Setup pengaturan untuk createIcon
         this.config = {
             enabled: true,
             priority: 3851,
@@ -32,7 +32,7 @@ const createIcon3851 = {
     
     execute(params) {
         console.log('Executing createIcon #3851 with params:', params);
-        // Implementation for createIcon operation
+        // Implementation untuk createIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = createIcon3851;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['createIcon3851'] = createIcon3851;
 }

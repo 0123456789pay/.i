@@ -1,7 +1,7 @@
 /**
- * Function Module: Selecticon 4933
- * Category: text
- * Style: glassmorphic
+ * fungsi Module: Selecticon 4933
+ * Category: teks
+ * gaya: glassmorphic
  * Shape: dot
  * ID: FUNC-04933
  */
@@ -21,7 +21,7 @@ const selectIcon4933 = {
     },
     
     setup() {
-        // Setup configuration for selectIcon
+        // Setup pengaturan untuk selectIcon
         this.config = {
             enabled: true,
             priority: 4933,
@@ -32,7 +32,7 @@ const selectIcon4933 = {
     
     execute(params) {
         console.log('Executing selectIcon #4933 with params:', params);
-        // Implementation for selectIcon operation
+        // Implementation untuk selectIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = selectIcon4933;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['selectIcon4933'] = selectIcon4933;
 }

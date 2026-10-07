@@ -1,61 +1,61 @@
-# IHBSF Data Storage System
+# IHBSF data penyimpanan sistem
 
-## Struktur Folder
+## Struktur direktori
 
 ```
 /workspace/
-├── I/          # Folder I (Index)
+├── I/          # direktori I (indeks)
 │   ├── h/      # Subfolder h
 │   ├── t/      # Subfolder t
 │   ├── m/      # Subfolder m
-│   ├── l/      # File .html disimpan di sini
-│   ├── c/      # File .css disimpan di sini
+│   ├── l/      # berkas .html disimpan di sini
+│   ├── c/      # berkas .css disimpan di sini
 │   ├── s/      # Subfolder s
 │   ├── S/      # Subfolder S
-│   ├── j/      # File .js disimpan di sini
+│   ├── j/      # berkas .js disimpan di sini
 │   └── `s/     # Subfolder `s
-├── H/          # Folder H (Header)
+├── H/          # direktori H (kepala)
 │   └── [struktur sama seperti I]
-├── B/          # Folder B (Body)
+├── B/          # direktori B (Body)
 │   └── [struktur sama seperti I]
-├── S/          # Folder S (Section)
+├── S/          # direktori S (bagian)
 │   └── [struktur sama seperti I]
-├── F/          # Folder F (Footer)
+├── F/          # direktori F (kaki)
 │   └── [struktur sama seperti I]
 └── dataihbsf/  # Penyimpanan data otomatis
-    ├── config.json
+    ├── konfigurasi.json
     └── README.md
 ```
 
 ## Fitur
 
-1. **Organisasi File Otomatis**
-   - File `.html` → folder `l`
-   - File `.css` → folder `c`
-   - File `.js` → folder `j`
+1. **Organisasi berkas Otomatis**
+   - berkas `.html` → direktori `l`
+   - berkas `.css` → direktori `c`
+   - berkas `.js` → direktori `j`
 
-2. **Penyimpanan Data**
-   - Semua menu dan konfigurasi disimpan di folder `dataihbsf`
-   - Auto-save setiap 5 detik
+2. **Penyimpanan data**
+   - Semua menu dan konfigurasi disimpan di direktori `dataihbsf`
+   - otomatis-simpan setiap 5 detik
    - Menggunakan localStorage untuk persistensi browser
 
 3. **Navigasi Terhubung**
-   - Setiap index.html terhubung ke folder lainnya
+   - Setiap indeks.html terhubung ke direktori lainnya
    - Menu navigasi otomatis terkonfigurasi
 
 ## Penggunaan
 
-Buka file `index.html` di salah satu folder (I, H, B, S, F) untuk mengakses sistem.
+Buka berkas `indeks.html` di salah satu direktori (I, H, B, S, F) untuk mengakses sistem.
 
-## API JavaScript
+## API skrip-skrip-javascript
 
-```javascript
+```skrip-skrip-javascript
 // Simpan data
-IHBSF.saveData('key', { data: 'value' });
+IHBSF.saveData('kunci', { data: 'nilai' });
 
-// Load data
-const data = IHBSF.loadData('key');
+// muat data
+const data = IHBSF.loadData('kunci');
 
-// Dapatkan folder saat ini
-const folder = IHBSF.getCurrentFolder();
+// Dapatkan direktori saat ini
+const direktori = IHBSF.getCurrentFolder();
 ```

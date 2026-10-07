@@ -575,7 +575,7 @@ for feat in "${features[@]}"; do
   
   echo "<!DOCTYPE html><html lang=\"id\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0\"><title>${feat} | Pusat.Digital</title><link rel=\"stylesheet\" href=\"../css/style.css\"></head><body class=\"feature-page\"><nav class=\"navbar\"><div class=\"nav-brand\"><a href=\"../../pusat.digital/html/\">PUSAT.DIGITAL</a></div></nav><main><section class=\"hero-section\"><h1>${feat}</h1><p>Sistem ${feat} terintegrasi dalam ekosistem Pusat.Digital</p></section></main><footer><p>&copy; 2024 ${feat}.digital</p></footer><script src=\"../js/app.js\"></script></body></html>" > "${feat}.digital/html/index.html"
   
-  echo ".feature-page{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;color:#fff}.hero-section{text-align:center;padding:80px 20px}.hero-section h1{font-size:3.5rem;background:linear-gradient(45deg,#ff6b6b,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent}" > "${feat}.digital/css/style.css"
+  echo ".feature-page{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-tinggi:100vh;warna:#fff}.hero-bagian{teks-align:center;bantalan:80px 20px}.hero-bagian h1{huruf-ukuran:3.5rem;latar:linear-gradient(45deg,#ff6b6b,#a855f7);-webkit-latar-clip:teks;-webkit-teks-fill-warna:transparent}" > "${feat}.digital/css/gaya.css"
   
   echo "class FeatureModule{constructor(n){this.name=n}async init(){console.log('Init '+this.name)}}document.addEventListener('DOMContentLoaded',()=>{new FeatureModule('${feat}').init()});" > "${feat}.digital/js/app.js"
   

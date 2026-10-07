@@ -1,7 +1,7 @@
 /**
- * Function Module: Zoomicon 3731
+ * fungsi Module: Zoomicon 3731
  * Category: tool
- * Style: gradient
+ * gaya: gradient
  * Shape: plus
  * ID: FUNC-03731
  */
@@ -21,7 +21,7 @@ const zoomIcon3731 = {
     },
     
     setup() {
-        // Setup configuration for zoomIcon
+        // Setup pengaturan untuk zoomIcon
         this.config = {
             enabled: true,
             priority: 3731,
@@ -32,7 +32,7 @@ const zoomIcon3731 = {
     
     execute(params) {
         console.log('Executing zoomIcon #3731 with params:', params);
-        // Implementation for zoomIcon operation
+        // Implementation untuk zoomIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = zoomIcon3731;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['zoomIcon3731'] = zoomIcon3731;
 }

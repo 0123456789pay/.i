@@ -20,7 +20,7 @@ SUB_COMMIT_DIR = BASE_DIR / "sub_commit"
 PULL_DIR = BASE_DIR / "pull"
 MERGE_DIR = BASE_DIR / "merge"
 
-# Pastikan semua folder ada
+# Pastikan semua direktori ada
 for folder in [DATAINPUT_DIR, DATAOUTPUT_DIR, BARISINPUT_DIR, BARISOUTPUT_DIR, SUB_COMMIT_DIR, PULL_DIR, MERGE_DIR]:
     folder.mkdir(parents=True, exist_ok=True)
 
@@ -93,11 +93,11 @@ def save_log(activity_type, content, source="manual", metadata=None, folder="dat
     filename = f"{log_entry['log_id']}.log"
     filepath = target_dir / filename
     
-    # Simpan file log
+    # Simpan berkas catatan
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(log_entry, f, indent=2, ensure_ascii=False)
     
-    # Append ke master system.log
+    # Append ke master sistem.catatan
     append_to_master_log(log_entry)
     
     return log_entry

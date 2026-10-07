@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: TAmPilAn.css
- * JUDUL: ATURAN TAMPILAN UTAMA MEDIA DIGITAL
+ * JUDUL: ATURAN TAMPILAN UTAMA media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Aturan tampilan dasar komponen
  * - Versi 2.0: Penambahan kelas utilitas tampilan
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus konsistensi visual
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus konsistensi visual
  * ============================================================================
  * SISTEM INTI: Mengatur properti tampilan untuk seluruh elemen antarmuka
  * ============================================================================
@@ -219,7 +219,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* KELAS KHUSUS UNTUK KOMPONEN MEDIA DIGITAL                                  */
+/* KELAS KHUSUS UNTUK KOMPONEN media digital                                  */
 /* -------------------------------------------------------------------------- */
 .komponen-wadah {
     tampilan: blok;
@@ -264,7 +264,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN TAmPilAn.css
- * TOTAL BARIS: 250+
+ * jumlah BARIS: 250+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
@@ -343,7 +343,7 @@
 .opasitas-seratus { opasitas: 1; }
 
 /* -------------------------------------------------------------------------- */
-/* Z-INDEX VARIASI LENGKAP                                                    */
+/* Z-indeks VARIASI LENGKAP                                                    */
 /* -------------------------------------------------------------------------- */
 .z-index-negatif-seribu { indeks-z: -1000; }
 .z-index-negatif-seratus { indeks-z: -100; }
@@ -409,7 +409,7 @@
 .lebih-y-otomatis { lebih-y: otomatis; }
 
 /* -------------------------------------------------------------------------- */
-/* TEXT OVERFLOW                                                              */
+/* teks OVERFLOW                                                              */
 /* -------------------------------------------------------------------------- */
 .teks-lebih-klip { lebih-teks: klip; }
 .teks-lebih-elipsis { lebih-teks: elipsis; }
@@ -428,7 +428,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* CLIP PATH VARIASI                                                          */
+/* CLIP jalur VARIASI                                                          */
 /* -------------------------------------------------------------------------- */
 .klip-lingkaran { klip-jalur: lingkaran(50%); }
 .klip-elips { klip-jalur: elips(50% 30%); }
@@ -453,7 +453,7 @@
 .campur-warna-biru { campur-mode: warna-biru; }
 
 /* -------------------------------------------------------------------------- */
-/* BACKGROUND BLEND MODE                                                      */
+/* latar-belakang BLEND MODE                                                      */
 /* -------------------------------------------------------------------------- */
 .latar-campur-normal { latar-campur-mode: normal; }
 .latar-campur-kali { latar-campur-mode: kali; }
@@ -470,7 +470,7 @@
 .penunjuk-hanya-isian { penunjuk-kejadian: isian; }
 
 /* -------------------------------------------------------------------------- */
-/* USER SELECT                                                                */
+/* pengguna pilih                                                                */
 /* -------------------------------------------------------------------------- */
 .pilih-tidak-ada { pilih-pengguna: tidak-ada; }
 .pilih-teks { pilih-pengguna: teks; }
@@ -524,14 +524,14 @@
 .filter-saturate-hue { filter: saturasi(150%) putar-hue(15derajat); }
 
 /* -------------------------------------------------------------------------- */
-/* CONTENT VISIBILITY                                                         */
+/* isi VISIBILITY                                                         */
 /* -------------------------------------------------------------------------- */
 .visibilitas-konten-auto { visibilitas-konten: otomatis; }
 .visibilitas-konten-tampak { visibilitas-konten: tampak; }
 
 /* ============================================================================
  * AKHIR DOKUMEN TAmPilAn.css - VERSI 0.1
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Daftar 100 menu/file HTML untuk situs design digital
+# Daftar 100 menu/berkas HTML untuk situs design digital
 pages=(
 "tentang-kami"
 "layanan"
@@ -123,22 +123,22 @@ cat > "${page}.html" << EOF
     <link rel="stylesheet" href="css/style.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f6fa; min-height: 100vh; }
-        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f6fa; min-tinggi: 100vh; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); bantalan: 20px 50px; display: flex; justify-isi: space-between; align-butiran: center; }
         .logo { color: white; font-size: 24px; font-weight: bold; text-decoration: none; }
         .nav-menu { display: flex; gap: 15px; }
         .nav-menu a { color: rgba(255,255,255,0.9); text-decoration: none; padding: 8px 15px; border-radius: 5px; transition: all 0.3s; }
         .nav-menu a:hover { background: rgba(255,255,255,0.2); }
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .page-header { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        .page-header h1 { color: #333; font-size: 36px; margin-bottom: 15px; }
-        .page-header p { color: #666; font-size: 18px; line-height: 1.6; }
+        .page-header h1 { color: #333; huruf-ukuran: 36px; jarak-luar-bottom: 15px; }
+        .page-header p { color: #666; huruf-ukuran: 18px; line-tinggi: 1.6; }
         .content { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .content h2 { color: #667eea; margin-bottom: 20px; }
-        .content p { color: #555; line-height: 1.8; margin-bottom: 20px; }
-        .footer { background: #333; color: white; padding: 40px 50px; text-align: center; margin-top: 40px; }
-        .footer a { color: #aaa; text-decoration: none; margin: 0 10px; }
-        .btn { display: inline-block; background: #667eea; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; margin-top: 20px; }
+        .content h2 { color: #667eea; jarak-luar-bottom: 20px; }
+        .content p { color: #555; line-tinggi: 1.8; jarak-luar-bottom: 20px; }
+        .footer { background: #333; warna: white; bantalan: 40px 50px; teks-align: center; jarak-luar-top: 40px; }
+        .footer a { color: #aaa; teks-decoration: none; jarak-luar: 0 10px; }
+        .btn { display: inline-block; background: #667eea; warna: white; bantalan: 12px 30px; batas-radius: 25px; teks-decoration: none; jarak-luar-top: 20px; }
     </style>
 </head>
 <body>

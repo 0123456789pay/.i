@@ -1,5 +1,5 @@
 #!/bin/bash
-# Script Inisialisasi Sistem Penyimpanan Kapasitas Tinggi
+# skrip Inisialisasi Sistem Penyimpanan Kapasitas Tinggi
 # Formula: AUTO_INIT_STORAGE_MATRIX_2024
 
 echo "=== MEMULAI SISTEM PENYIMPANAN KAPASITAS TINGGI ==="

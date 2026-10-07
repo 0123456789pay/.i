@@ -1,7 +1,7 @@
 /**
- * Function Module: Compressicon 4748
- * Category: file
- * Style: filled
+ * fungsi Module: Compressicon 4748
+ * Category: berkas
+ * gaya: filled
  * Shape: arrow
  * ID: FUNC-04748
  */
@@ -21,7 +21,7 @@ const compressIcon4748 = {
     },
     
     setup() {
-        // Setup configuration for compressIcon
+        // Setup pengaturan untuk compressIcon
         this.config = {
             enabled: true,
             priority: 4748,
@@ -32,7 +32,7 @@ const compressIcon4748 = {
     
     execute(params) {
         console.log('Executing compressIcon #4748 with params:', params);
-        // Implementation for compressIcon operation
+        // Implementation untuk compressIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = compressIcon4748;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['compressIcon4748'] = compressIcon4748;
 }

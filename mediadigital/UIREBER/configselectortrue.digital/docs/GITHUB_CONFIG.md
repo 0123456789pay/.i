@@ -1,79 +1,79 @@
-# GitHub Repository Configuration for ConfigSelectorTrue.Digital
+# GitHub Repository pengaturan untuk ConfigSelectorTrue.digital
 
 ## .gitignore
 ```
-# OS Files
+# OS berkas-berkas
 .DS_Store
 Thumbs.db
 
-# Editor Files
+# penyunting berkas-berkas
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Log Files
-*.log
-logs/
+# catatan berkas-berkas
+*.catatan
+catatan-catatan/
 
-# Database Files (Production)
+# basis-data berkas-berkas (Production)
 *.db
 *.sqlite
 !db/schema.sql
 
-# Environment Files
+# Environment berkas-berkas
 .env
 .env.local
 .env.production
 
-# Cache
-.cache/
+# tembolok
+.tembolok/
 __pycache__/
 
 # Dependencies
 node_modules/
 vendor/
 
-# Build Output
+# bangun keluaran
 dist/
-build/
+bangun/
 
-# Temporary Files
+# Temporary berkas-berkas
 tmp/
 temp/
 ```
 
-## README.md (Root)
+## README.md (akar)
 ```markdown
-# ConfigSelectorTrue.Digital
+# ConfigSelectorTrue.digital
 
-Sistem Simbol Inti Selector True Secure untuk aktivasi di browser.
+Sistem Simbol Inti Selector benar Secure untuk aktivasi di browser.
 
 ## 🚀 Fitur
 
-- ✅ Binary Configuration System
+- ✅ Binary pengaturan sistem
 - ✅ Regex Pattern Matching
 - ✅ Core Formula Calculator
 - ✅ Browser Activation
-- ✅ Multi-level Security
+- ✅ Multi-level keamanan
 - ✅ PHP Backend API
-- ✅ Database Schema (SQLite/MySQL)
+- ✅ basis-data Schema (SQLite/MySQL)
 
 ## 📁 Struktur Project
 
 ```
 configselectortrue.digital/
-├── index.html          # Main page (media.digital style, no footer)
-├── css/style.css       # Styling
-├── js/main.js          # Browser activation
+├── indeks.html          # utama halaman (media.digital gaya, no kaki)
+├── css/gaya.css       # Styling
+├── js/utama.js          # Browser activation
 ├── php/selector.php    # Backend API
-├── db/schema.sql       # Database schema
-├── config/             # Configuration files
+├── db/schema.sql       # basis-data schema
+├── konfigurasi/             # pengaturan berkas-berkas
 │   ├── binary.conf
 │   ├── regex.patterns
 │   └── core.formula
 ├── docs/               # Documentation
-└── assets/             # Media assets
+└── assets/             # media assets
 ```
 
 ## 🔧 Instalasi
@@ -84,35 +84,35 @@ git clone https://github.com/username/configselectortrue.digital.git
 cd configselectortrue.digital
 ```
 
-### Setup Database
+### Setup basis-data
 ```bash
 sqlite3 selector.db < db/schema.sql
 ```
 
-### Run Server
+### jalankan peladen
 ```bash
-# PHP Built-in Server
+# PHP Built-in peladen
 php -S localhost:8000
 
-# Or use any web server (Apache, Nginx)
+# atau use any web peladen (Apache, Nginx)
 ```
 
 ## 🌐 Penggunaan
 
 1. Buka `http://localhost:8000` di browser
 2. Sistem akan otomatis terinisialisasi
-3. Cek browser console untuk status aktivasi
+3. Cek browser konsol untuk status aktivasi
 
 ## 📡 API Endpoints
 
-- `GET /php/selector.php?action=activate` - Activate system
-- `GET /php/selector.php?action=status` - Get system status
-- `GET /php/selector.php?action=validate&symbol=ALPHA` - Validate symbol
+- `GET /php/selector.php?action=activate` - Activate sistem
+- `GET /php/selector.php?action=status` - Get sistem status
+- `GET /php/selector.php?action=sahkan&symbol=ALPHA` - sahkan symbol
 
 ## 🔒 Keamanan
 
-- Secure mode enabled by default
-- 4-level security system
+- Secure mode aktif by bawaan
+- 4-level keamanan sistem
 - Hash verification (MD5, SHA256)
 - Browser compatibility validation
 
@@ -122,11 +122,11 @@ Proprietary
 
 ## 👥 Contributing
 
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/NewFeature`)
+1. Fork ini repository
+2. buat feature branch (`git checkout -b feature/NewFeature`)
 3. Commit changes (`git commit -m 'Add NewFeature'`)
 4. Push to branch (`git push origin feature/NewFeature`)
-5. Open Pull Request
+5. buka Pull permintaan
 
 ## 📞 Support
 
@@ -135,17 +135,17 @@ Untuk bantuan dan informasi lebih lanjut, silakan buat issue di repository ini.
 
 ## LICENSE
 ```
-Copyright (c) 2024 ConfigSelectorTrue.Digital
+Copyright (c) 2024 ConfigSelectorTrue.digital
 
-All rights reserved.
+semua rights reserved.
 
-This software and associated documentation files are proprietary and confidential.
-Unauthorized copying, distribution, or use of this software is strictly prohibited.
+ini software dan associated documentation berkas-berkas are proprietary dan confidential.
+Unauthorized copying, distribution, atau use of ini software is strictly prohibited.
 ```
 
 ## CONTRIBUTING.md
 ```markdown
-# Contributing to ConfigSelectorTrue.Digital
+# Contributing to ConfigSelectorTrue.digital
 
 Terima kasih atas minat Anda untuk berkontribusi!
 
@@ -168,20 +168,20 @@ Terima kasih atas minat Anda untuk berkontribusi!
    ```bash
    git push origin feature/nama-fitur
    ```
-6. **Buat Pull Request**
+6. **Buat Pull permintaan**
 
 ## Guidelines
 
 - Gunakan kode yang bersih dan terdokumentasi
 - Ikuti standar coding yang ada
-- Test perubahan Anda sebelum submit
-- Update dokumentasi jika diperlukan
+- uji perubahan Anda sebelum submit
+- perbarui dokumentasi jika diperlukan
 
-## Code Style
+## Code gaya
 
 - HTML: Semantic HTML5
 - CSS: BEM methodology
-- JavaScript: ES6+ standards
+- skrip-skrip-javascript: ES6+ standards
 - PHP: PSR-12 coding standards
 
 ## Reporting Issues

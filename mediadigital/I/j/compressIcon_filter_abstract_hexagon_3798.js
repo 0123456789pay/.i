@@ -1,7 +1,7 @@
 /**
- * Function Module: Compressicon 3798
+ * fungsi Module: Compressicon 3798
  * Category: filter
- * Style: abstract
+ * gaya: abstract
  * Shape: hexagon
  * ID: FUNC-03798
  */
@@ -21,7 +21,7 @@ const compressIcon3798 = {
     },
     
     setup() {
-        // Setup configuration for compressIcon
+        // Setup pengaturan untuk compressIcon
         this.config = {
             enabled: true,
             priority: 3798,
@@ -32,7 +32,7 @@ const compressIcon3798 = {
     
     execute(params) {
         console.log('Executing compressIcon #3798 with params:', params);
-        // Implementation for compressIcon operation
+        // Implementation untuk compressIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = compressIcon3798;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['compressIcon3798'] = compressIcon3798;
 }

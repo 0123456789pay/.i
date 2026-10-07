@@ -2,7 +2,7 @@ import os
 import random
 import json
 
-# Data templates dalam Bahasa Indonesia
+# data templates dalam Bahasa Indonesia
 topics = {
     "negara": [
         "Indonesia adalah negara kepulauan terbesar di dunia dengan lebih dari 17.000 pulau.",
@@ -71,7 +71,7 @@ def main():
     print("=" * 60)
     
     categories = list(topics.keys())
-    files_per_category = 100  # 100 file per kategori = 500 file total
+    files_per_category = 100  # 100 berkas per kategori = 500 berkas jumlah
     lines_per_file = 1000000  # Simulasi 1 juta baris (metadata)
     
     total_files = len(categories) * files_per_category
@@ -91,13 +91,13 @@ def main():
         print(f"\n📁 Membuat file untuk kategori: {category.upper()}")
         
         for file_idx in range(files_per_category):
-            # Setiap file berisi 100 baris sample nyata (representasi dari 1 juta baris)
+            # Setiap berkas berisi 100 baris sample nyata (representasi dari 1 juta baris)
             actual_lines = 100
             
             filename = f"/workspace/ragreber.digital/data/{category}_{file_idx:03d}.txt"
             
             with open(filename, 'w', encoding='utf-8') as f:
-                # Tulis header metadata kapasitas
+                # Tulis kepala metadata kapasitas
                 f.write(f"# RAGREBER.DIGITAL - Basis Pengetahuan Masif\n")
                 f.write(f"# Kategori: {category.upper()}\n")
                 f.write(f"# File: {file_idx + 1}/{files_per_category}\n")
@@ -107,7 +107,7 @@ def main():
                 
                 for i in range(actual_lines):
                     template = random.choice(topics[category])
-                    # ID poin dihitung seolah-olah ada 1 juta baris per file
+                    # ID poin dihitung seolah-olah ada 1 juta baris per berkas
                     point_id = (file_idx * lines_per_file) + i + 1
                     line = f"[{category.upper()}] Poin #{point_id:,}: {template}\n"
                     f.write(line)
@@ -153,7 +153,7 @@ def main():
     with open('/workspace/ragreber.digital/data/metadata.json', 'w', encoding='utf-8') as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
     
-    # Buat index sistem untuk pencarian cepat
+    # Buat indeks sistem untuk pencarian cepat
     index_data = {
         "index_version": "1.0",
         "total_files": total_files,

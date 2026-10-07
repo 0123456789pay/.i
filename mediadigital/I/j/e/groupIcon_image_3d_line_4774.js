@@ -1,7 +1,7 @@
 /**
- * Function Module: Groupicon 4774
- * Category: image
- * Style: 3d
+ * fungsi Module: Groupicon 4774
+ * Category: gambar
+ * gaya: 3d
  * Shape: line
  * ID: FUNC-04774
  */
@@ -21,7 +21,7 @@ const groupIcon4774 = {
     },
     
     setup() {
-        // Setup configuration for groupIcon
+        // Setup pengaturan untuk groupIcon
         this.config = {
             enabled: true,
             priority: 4774,
@@ -32,7 +32,7 @@ const groupIcon4774 = {
     
     execute(params) {
         console.log('Executing groupIcon #4774 with params:', params);
-        // Implementation for groupIcon operation
+        // Implementation untuk groupIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = groupIcon4774;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['groupIcon4774'] = groupIcon4774;
 }

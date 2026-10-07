@@ -1,7 +1,7 @@
 /**
- * Function Module: Ungroupicon 4025
+ * fungsi Module: Ungroupicon 4025
  * Category: transform
- * Style: android
+ * gaya: android
  * Shape: polygon
  * ID: FUNC-04025
  */
@@ -21,7 +21,7 @@ const ungroupIcon4025 = {
     },
     
     setup() {
-        // Setup configuration for ungroupIcon
+        // Setup pengaturan untuk ungroupIcon
         this.config = {
             enabled: true,
             priority: 4025,
@@ -32,7 +32,7 @@ const ungroupIcon4025 = {
     
     execute(params) {
         console.log('Executing ungroupIcon #4025 with params:', params);
-        // Implementation for ungroupIcon operation
+        // Implementation untuk ungroupIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = ungroupIcon4025;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['ungroupIcon4025'] = ungroupIcon4025;
 }

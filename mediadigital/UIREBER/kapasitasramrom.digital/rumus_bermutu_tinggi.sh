@@ -21,7 +21,7 @@ calculate_storage_hash() {
     echo "HASH: $hash_id"
 }
 
-# Generate konfigurasi untuk semua node
+# hasilkan konfigurasi untuk semua node
 generate_node_config() {
     for i in $(seq 1 $NODES_TOTAL); do
         local capacity_per_node=$((CAPACITY_BYTES / NODES_TOTAL))
@@ -44,7 +44,7 @@ init_storage_system() {
     echo "Sharding: CONSISTENT_HASH_RING_512"
     echo ""
     
-    # Contoh generate 10 node pertama
+    # Contoh hasilkan 10 node pertama
     for i in $(seq 1 10); do
         calculate_storage_hash $i
         echo "---"

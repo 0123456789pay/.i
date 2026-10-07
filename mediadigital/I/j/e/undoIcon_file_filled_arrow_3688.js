@@ -1,7 +1,7 @@
 /**
- * Function Module: Undoicon 3688
- * Category: file
- * Style: filled
+ * fungsi Module: Undoicon 3688
+ * Category: berkas
+ * gaya: filled
  * Shape: arrow
  * ID: FUNC-03688
  */
@@ -21,7 +21,7 @@ const undoIcon3688 = {
     },
     
     setup() {
-        // Setup configuration for undoIcon
+        // Setup pengaturan untuk undoIcon
         this.config = {
             enabled: true,
             priority: 3688,
@@ -32,7 +32,7 @@ const undoIcon3688 = {
     
     execute(params) {
         console.log('Executing undoIcon #3688 with params:', params);
-        // Implementation for undoIcon operation
+        // Implementation untuk undoIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = undoIcon3688;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['undoIcon3688'] = undoIcon3688;
 }

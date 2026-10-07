@@ -1,7 +1,7 @@
 /**
- * Function Module: Createicon 4601
+ * fungsi Module: Createicon 4601
  * Category: basic
- * Style: flat
+ * gaya: flat
  * Shape: circle
  * ID: FUNC-04601
  */
@@ -21,7 +21,7 @@ const createIcon4601 = {
     },
     
     setup() {
-        // Setup configuration for createIcon
+        // Setup pengaturan untuk createIcon
         this.config = {
             enabled: true,
             priority: 4601,
@@ -32,7 +32,7 @@ const createIcon4601 = {
     
     execute(params) {
         console.log('Executing createIcon #4601 with params:', params);
-        // Implementation for createIcon operation
+        // Implementation untuk createIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = createIcon4601;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['createIcon4601'] = createIcon4601;
 }

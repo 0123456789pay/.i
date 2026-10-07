@@ -1,7 +1,7 @@
 /**
- * Function Module: Mergeicon 4122
+ * fungsi Module: Mergeicon 4122
  * Category: advanced
- * Style: material
+ * gaya: material
  * Shape: square
  * ID: FUNC-04122
  */
@@ -21,7 +21,7 @@ const mergeIcon4122 = {
     },
     
     setup() {
-        // Setup configuration for mergeIcon
+        // Setup pengaturan untuk mergeIcon
         this.config = {
             enabled: true,
             priority: 4122,
@@ -32,7 +32,7 @@ const mergeIcon4122 = {
     
     execute(params) {
         console.log('Executing mergeIcon #4122 with params:', params);
-        // Implementation for mergeIcon operation
+        // Implementation untuk mergeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = mergeIcon4122;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['mergeIcon4122'] = mergeIcon4122;
 }

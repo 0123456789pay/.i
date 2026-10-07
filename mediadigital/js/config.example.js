@@ -1,20 +1,20 @@
 /**
- * Environment Configuration
- * Media Digital Platform - Config File
+ * Environment pengaturan
+ * media digital landasan - konfigurasi berkas
  * 
  * Instructions:
- * 1. Copy this file to config.js
- * 2. Update the values according to your environment
- * 3. Never commit config.js with sensitive data to version control
+ * 1. Copy ini berkas to konfigurasi.js
+ * 2. perbarui ini values according to your environment
+ * 3. Never commit konfigurasi.js dengan sensitive data to versi control
  */
 
 const APP_CONFIG = {
-    // Application Settings
+    // aplikasi pengaturan
     APP_NAME: 'Media Digital Platform',
     APP_VERSION: '2.0.0',
     ENVIRONMENT: 'development', // 'development' | 'production' | 'testing'
     
-    // Security Settings
+    // keamanan pengaturan
     SECURITY: {
         SESSION_TIMEOUT: 30 * 60 * 1000, // 30 minutes in milliseconds
         PASSWORD_MIN_LENGTH: 8,
@@ -25,22 +25,22 @@ const APP_CONFIG = {
         ENABLE_CSRF_PROTECTION: true
     },
     
-    // GitHub API Configuration
+    // GitHub API pengaturan
     GITHUB: {
         USERNAME: 'jenisprotokol',
         API_BASE_URL: 'https://api.github.com',
-        RATE_LIMIT_WARNING: 40, // Warn when remaining requests below this
-        CACHE_DURATION: 5 * 60 * 1000 // 5 minutes cache
+        RATE_LIMIT_WARNING: 40, // Warn when remaining requests below ini
+        CACHE_DURATION: 5 * 60 * 1000 // 5 minutes tembolok
     },
     
-    // Admin Configuration (Change these in production!)
+    // pengelola pengaturan (Change these in production!)
     ADMIN: {
         DEFAULT_EMAIL: 'admin@adminroot.innn',
         DEFAULT_PASSWORD_HASH: '$2a$10$example_hash_change_in_production', // Use hashed passwords
         ROLE: 'admin'
     },
     
-    // Storage Keys
+    // penyimpanan kunci-kunci
     STORAGE_KEYS: {
         CURRENT_USER: 'currentUser',
         IS_LOGGED_IN: 'isLoggedIn',
@@ -60,7 +60,7 @@ const APP_CONFIG = {
         SESSION: '/session'
     },
     
-    // UI Settings
+    // UI pengaturan
     UI: {
         AUTO_REFRESH_INTERVAL: 300000, // 5 minutes
         ANIMATION_DURATION: 600, // ms
@@ -76,7 +76,7 @@ const APP_CONFIG = {
         URL_PATTERN: /^https?:\/\/.+\..+$/
     },
     
-    // Error Messages
+    // galat Messages
     ERROR_MESSAGES: {
         NETWORK_ERROR: 'Gagal terhubung ke server. Periksa koneksi internet Anda.',
         UNAUTHORIZED: 'Anda tidak memiliki akses ke halaman ini.',
@@ -86,7 +86,7 @@ const APP_CONFIG = {
     }
 };
 
-// Freeze configuration to prevent modifications
+// Freeze pengaturan to prevent modifications
 Object.freeze(APP_CONFIG.SECURITY);
 Object.freeze(APP_CONFIG.GITHUB);
 Object.freeze(APP_CONFIG.ADMIN);
@@ -97,7 +97,7 @@ Object.freeze(APP_CONFIG.VALIDATION);
 Object.freeze(APP_CONFIG.ERROR_MESSAGES);
 Object.freeze(APP_CONFIG);
 
-// Export for module systems (if needed)
+// Export untuk module systems (if needed)
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = APP_CONFIG;
 }

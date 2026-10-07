@@ -1,7 +1,7 @@
 /**
- * Function Module: Previewicon 4096
+ * fungsi Module: Previewicon 4096
  * Category: raster
- * Style: minimalist
+ * gaya: minimalist
  * Shape: wave
  * ID: FUNC-04096
  */
@@ -21,7 +21,7 @@ const previewIcon4096 = {
     },
     
     setup() {
-        // Setup configuration for previewIcon
+        // Setup pengaturan untuk previewIcon
         this.config = {
             enabled: true,
             priority: 4096,
@@ -32,7 +32,7 @@ const previewIcon4096 = {
     
     execute(params) {
         console.log('Executing previewIcon #4096 with params:', params);
-        // Implementation for previewIcon operation
+        // Implementation untuk previewIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = previewIcon4096;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['previewIcon4096'] = previewIcon4096;
 }

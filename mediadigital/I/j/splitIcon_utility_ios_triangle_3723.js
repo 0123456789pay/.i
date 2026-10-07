@@ -1,7 +1,7 @@
 /**
- * Function Module: Spliticon 3723
+ * fungsi Module: Spliticon 3723
  * Category: utility
- * Style: ios
+ * gaya: ios
  * Shape: triangle
  * ID: FUNC-03723
  */
@@ -21,7 +21,7 @@ const splitIcon3723 = {
     },
     
     setup() {
-        // Setup configuration for splitIcon
+        // Setup pengaturan untuk splitIcon
         this.config = {
             enabled: true,
             priority: 3723,
@@ -32,7 +32,7 @@ const splitIcon3723 = {
     
     execute(params) {
         console.log('Executing splitIcon #3723 with params:', params);
-        // Implementation for splitIcon operation
+        // Implementation untuk splitIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = splitIcon3723;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['splitIcon3723'] = splitIcon3723;
 }

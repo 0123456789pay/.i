@@ -1,7 +1,7 @@
 /**
- * Function Module: Transformicon 3943
+ * fungsi Module: Transformicon 3943
  * Category: utility
- * Style: ios
+ * gaya: ios
  * Shape: triangle
  * ID: FUNC-03943
  */
@@ -21,7 +21,7 @@ const transformIcon3943 = {
     },
     
     setup() {
-        // Setup configuration for transformIcon
+        // Setup pengaturan untuk transformIcon
         this.config = {
             enabled: true,
             priority: 3943,
@@ -32,7 +32,7 @@ const transformIcon3943 = {
     
     execute(params) {
         console.log('Executing transformIcon #3943 with params:', params);
-        // Implementation for transformIcon operation
+        // Implementation untuk transformIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = transformIcon3943;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['transformIcon3943'] = transformIcon3943;
 }

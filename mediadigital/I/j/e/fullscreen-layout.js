@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Cahaya Iconer Full Screen Layout
- * Layout layar penuh dengan 2500 menu di top bar + 300 menu di sidebar
+ * ALLUNIVERS ICONER - Cahaya Iconer Full Screen tata letak
+ * tata letak layar penuh dengan 2500 menu di top bar + 300 menu di sisi-papan
  * Aksen: Putih + #0066ff
  */
 
@@ -301,7 +301,7 @@ class CahayaIconerLayout {
             topMenuBar.scrollLeft += e.deltaY;
         });
 
-        // Sidebar collapse
+        // sisi-papan collapse
         document.querySelectorAll('.sidebar-collapse').forEach(btn => {
             btn.addEventListener('click', () => {
                 const sidebar = btn.closest('.left-sidebar, .right-sidebar');
@@ -336,7 +336,7 @@ class CahayaIconerLayout {
             zoomLevel.textContent = `${zoom}%`;
         });
 
-        // Menu item clicks
+        // Menu butir clicks
         document.querySelectorAll('.top-menu-item, .sidebar-tool-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 const menuId = item.dataset.menuId;
@@ -350,12 +350,12 @@ class CahayaIconerLayout {
         element.classList.add('active');
         setTimeout(() => element.classList.remove('active'), 300);
         
-        // Show tooltip or execute action
+        // tampilkan tooltip atau execute action
         console.log(`Menu clicked: ${menuName} (${menuId})`);
     }
 }
 
-// CSS Styles for Full Screen Layout
+// CSS gaya-gaya untuk Full Screen tata letak
 const layoutStyles = `
 <style>
 .cahaya-layout {
@@ -462,14 +462,14 @@ const layoutStyles = `
     padding: 0.2rem 0.4rem;
 }
 
-/* Main Workspace */
+/* utama Workspace */
 .main-workspace {
     flex: 1;
     display: flex;
     overflow: hidden;
 }
 
-/* Left Sidebar - 300 menus */
+/* Left sisi-papan - 300 menus */
 .left-sidebar {
     width: 280px;
     background: white;
@@ -886,7 +886,7 @@ const layoutStyles = `
 
 document.head.insertAdjacentHTML('beforeend', layoutStyles);
 
-// Initialize when DOM is loaded
+// mulai when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.cahayaLayout = new CahayaIconerLayout();
 });

@@ -1,7 +1,7 @@
 /**
- * Function Module: Compressicon 3648
- * Category: file
- * Style: filled
+ * fungsi Module: Compressicon 3648
+ * Category: berkas
+ * gaya: filled
  * Shape: arrow
  * ID: FUNC-03648
  */
@@ -21,7 +21,7 @@ const compressIcon3648 = {
     },
     
     setup() {
-        // Setup configuration for compressIcon
+        // Setup pengaturan untuk compressIcon
         this.config = {
             enabled: true,
             priority: 3648,
@@ -32,7 +32,7 @@ const compressIcon3648 = {
     
     execute(params) {
         console.log('Executing compressIcon #3648 with params:', params);
-        // Implementation for compressIcon operation
+        // Implementation untuk compressIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = compressIcon3648;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['compressIcon3648'] = compressIcon3648;
 }

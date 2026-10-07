@@ -1,7 +1,7 @@
 /**
- * Function Module: Glowicon 3514
- * Category: image
- * Style: 3d
+ * fungsi Module: Glowicon 3514
+ * Category: gambar
+ * gaya: 3d
  * Shape: line
  * ID: FUNC-03514
  */
@@ -21,7 +21,7 @@ const glowIcon3514 = {
     },
     
     setup() {
-        // Setup configuration for glowIcon
+        // Setup pengaturan untuk glowIcon
         this.config = {
             enabled: true,
             priority: 3514,
@@ -32,7 +32,7 @@ const glowIcon3514 = {
     
     execute(params) {
         console.log('Executing glowIcon #3514 with params:', params);
-        // Implementation for glowIcon operation
+        // Implementation untuk glowIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = glowIcon3514;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['glowIcon3514'] = glowIcon3514;
 }

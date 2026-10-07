@@ -1,18 +1,18 @@
 /**
- * Environment Configuration - Production Ready
- * Media Digital Platform
+ * Environment pengaturan - Production Ready
+ * media digital landasan
  * 
- * IMPORTANT: Copy this file and customize for your environment
- * Never commit sensitive credentials to version control
+ * IMPORTANT: Copy ini berkas dan customize untuk your environment
+ * Never commit sensitive credentials to versi control
  */
 
 const APP_CONFIG = {
-    // Application Settings
+    // aplikasi pengaturan
     APP_NAME: 'Media Digital Platform',
     APP_VERSION: '2.0.0',
-    ENVIRONMENT: 'production', // Change to 'development' for local testing
+    ENVIRONMENT: 'production', // Change to 'development' untuk local testing
     
-    // Security Settings
+    // keamanan pengaturan
     SECURITY: {
         SESSION_TIMEOUT: 30 * 60 * 1000, // 30 minutes
         PASSWORD_MIN_LENGTH: 8,
@@ -23,7 +23,7 @@ const APP_CONFIG = {
         ENABLE_CSRF_PROTECTION: true
     },
     
-    // GitHub API Configuration
+    // GitHub API pengaturan
     GITHUB: {
         USERNAME: 'jenisprotokol',
         API_BASE_URL: 'https://api.github.com',
@@ -31,13 +31,13 @@ const APP_CONFIG = {
         CACHE_DURATION: 5 * 60 * 1000
     },
     
-    // Admin Configuration - CHANGE THESE IN PRODUCTION!
+    // pengelola pengaturan - CHANGE THESE IN PRODUCTION!
     ADMIN: {
         DEFAULT_EMAIL: 'admin@adminroot.innn',
         ROLE: 'admin'
     },
     
-    // Storage Keys
+    // penyimpanan kunci-kunci
     STORAGE_KEYS: {
         CURRENT_USER: 'currentUser',
         IS_LOGGED_IN: 'isLoggedIn',
@@ -48,7 +48,7 @@ const APP_CONFIG = {
         CSRF_TOKEN: 'csrfToken'
     },
     
-    // UI Settings
+    // UI pengaturan
     UI: {
         AUTO_REFRESH_INTERVAL: 300000, // 5 minutes
         ANIMATION_DURATION: 600,
@@ -64,7 +64,7 @@ const APP_CONFIG = {
         URL_PATTERN: /^https?:\/\/.+\..+$/
     },
     
-    // Error Messages (Bahasa Indonesia)
+    // galat Messages (Bahasa Indonesia)
     ERROR_MESSAGES: {
         NETWORK_ERROR: 'Gagal terhubung ke server. Periksa koneksi internet Anda.',
         UNAUTHORIZED: 'Anda tidak memiliki akses ke halaman ini.',
@@ -74,7 +74,7 @@ const APP_CONFIG = {
     }
 };
 
-// Freeze configuration to prevent modifications
+// Freeze pengaturan to prevent modifications
 Object.freeze(APP_CONFIG.SECURITY);
 Object.freeze(APP_CONFIG.GITHUB);
 Object.freeze(APP_CONFIG.ADMIN);
@@ -84,7 +84,7 @@ Object.freeze(APP_CONFIG.VALIDATION);
 Object.freeze(APP_CONFIG.ERROR_MESSAGES);
 Object.freeze(APP_CONFIG);
 
-// Export for module systems
+// Export untuk module systems
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = APP_CONFIG;
 }

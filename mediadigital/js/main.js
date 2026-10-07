@@ -1,22 +1,22 @@
 /**
- * Main Application Script - Media Digital Platform
- * Fixed & Enhanced Version with Security Features
+ * skrip aplikasi utama - media digital landasan
+ * versi tetap & tangguh dengan fitur keamanan
  */
 
-// --- Authentication & Session Management ---
+// --- autentikasi & pengelolaan sesi ---
 
-// Global error handler for better debugging
+// pengendali galat nasional untuk awetan lebih baik
 window.addEventListener('error', function(e) {
     console.error('Global error:', e.message, 'at', e.filename + ':' + e.lineno);
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize session management
+    // mulai sesi pengelolaan
     if (typeof SessionManager !== 'undefined') {
         SessionManager.setupAutoCheck();
     }
     
-    checkAuthStatus(); // Update header berdasarkan status login
+    checkAuthStatus(); // perbarui kepala berdasarkan status masuk
     
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.toggle('active');
         });
 
-        // Close menu when clicking outside
+        // tutup menu when clicking outside
         document.addEventListener('click', function(e) {
             if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
                 navLinks.classList.remove('active');
@@ -46,14 +46,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu after clicking
+                    // tutup mobile menu after clicking
                     navLinks.classList.remove('active');
                 }
             }
         });
     });
 
-    // Navbar Scroll Effect (throttled for performance)
+    // Navbar Scroll Effect (throttled untuk performance)
     const updateNavbarShadow = throttle(function() {
         const navbar = document.querySelector('.navbar');
         if (navbar) {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', updateNavbarShadow);
 
-    // Contact Form Submission with validation and sanitization
+    // kontak borang Submission dengan validation dan sanitization
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = emailInput.value.trim();
             const message = Sanitizer ? Sanitizer.sanitize(messageInput.value) : messageInput.value.trim();
 
-            // Enhanced validation
+            // tangguh validation
             const validationErrors = [];
             
             if (!name) {
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Success
+            // berhasil
             alert(`Terima kasih, ${name}! Pesan Anda telah kami terima.`);
             contactForm.reset();
         });
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    // Observe stat items
+    // Observe stat butiran
     document.querySelectorAll('.stat-item').forEach(stat => {
         stat.style.opacity = '0';
         stat.style.transform = 'translateY(30px)';
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Fungsi untuk update Header berdasarkan status login
+// Fungsi untuk perbarui kepala berdasarkan status masuk
 function checkAuthStatus() {
     let user;
     try {
@@ -168,11 +168,11 @@ function checkAuthStatus() {
     console.log('checkAuthStatus - Elements:', { loginBtn, registerBtn, userDisplay, logoutBtn });
 
     if (user) {
-        // User sudah login - sembunyikan tombol login/register
+        // pengguna sudah masuk - sembunyikan tombol masuk/daftar
         if (loginBtn) loginBtn.style.display = 'none';
         if (registerBtn) registerBtn.style.display = 'none';
         
-        // Tampilkan identitas user dengan sanitization
+        // Tampilkan identitas pengguna dengan sanitization
         if (userDisplay) {
             userDisplay.style.display = 'inline-flex';
             const displayName = Sanitizer ? Sanitizer.sanitize(user.name || user.email) : (user.name || user.email);
@@ -191,7 +191,7 @@ function checkAuthStatus() {
         }
         console.log('User is logged in, UI updated');
     } else {
-        // User belum login - tampilkan tombol login/register
+        // pengguna belum masuk - tampilkan tombol masuk/daftar
         if (loginBtn) loginBtn.style.display = 'block';
         if (registerBtn) registerBtn.style.display = 'block';
         if (userDisplay) {
@@ -205,7 +205,7 @@ function checkAuthStatus() {
     }
 }
 
-// Login Form Handler (if on login page)
+// masuk borang pengendali (if on masuk halaman)
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', function(e) {
@@ -222,19 +222,19 @@ if (loginForm) {
         const email = emailInput.value.trim().toLowerCase();
         const password = passwordInput.value;
 
-        // Validate input
+        // sahkan masukan
         if (!email || !password) {
             alert('Mohon lengkapi semua field.');
             return;
         }
 
-        // Validate email format
+        // sahkan sur-el format
         if (Validator && !Validator.isValidEmail(email)) {
             alert('Format email tidak valid.');
             return;
         }
 
-        // Check for admin credentials (in production, use server-side authentication)
+        // periksa untuk pengelola credentials (in production, use peladen-side autentikasi)
         if (email === 'admin@adminroot.innn' && password === 'adminroot') {
             const adminUser = {
                 name: 'Super Admin',
@@ -245,7 +245,7 @@ if (loginForm) {
             localStorage.setItem('isLoggedIn', 'true');
             localStorage.setItem('adminUser', 'admin');
             
-            // Start session
+            // mulai sesi
             if (SessionManager) {
                 SessionManager.startSession();
             }
@@ -256,7 +256,7 @@ if (loginForm) {
             return;
         }
         
-        // Regular user login
+        // Regular pengguna masuk
         let users = [];
         try {
             users = JSON.parse(localStorage.getItem('users')) || [];
@@ -268,13 +268,13 @@ if (loginForm) {
         const foundUser = users.find(u => u.email === email && u.password === password);
         
         if (foundUser) {
-            // Remove password from stored user object
+            // singkirkan sandian dari stored pengguna object
             const { password: _, ...safeUser } = foundUser;
             
             localStorage.setItem('currentUser', JSON.stringify(safeUser));
             localStorage.setItem('isLoggedIn', 'true');
             
-            // Start session
+            // mulai sesi
             if (SessionManager) {
                 SessionManager.startSession();
             }
@@ -287,7 +287,7 @@ if (loginForm) {
     });
 }
 
-// Register Form Handler (if on register page)
+// daftar borang pengendali (if on daftar halaman)
 const registerForm = document.getElementById('registerForm');
 if (registerForm) {
     registerForm.addEventListener('submit', function(e) {
@@ -308,20 +308,20 @@ if (registerForm) {
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
 
-        // Validation - Check required fields
+        // Validation - periksa required fields
         const requiredValidation = Validator ? Validator.validateRequired({ name, email, password, confirmPassword }) : { valid: true, missingFields: [] };
         if (!requiredValidation.valid) {
             alert(`Mohon lengkapi field: ${requiredValidation.missingFields.join(', ')}`);
             return;
         }
 
-        // Validate email format
+        // sahkan sur-el format
         if (Validator && !Validator.isValidEmail(email)) {
             alert('Format email tidak valid.');
             return;
         }
 
-        // Validate password strength
+        // sahkan sandian strength
         if (Validator) {
             const passwordValidation = Validator.isValidPassword(password);
             if (!passwordValidation.valid) {
@@ -338,7 +338,7 @@ if (registerForm) {
             return;
         }
 
-        // Check for duplicate email
+        // periksa untuk duplicate sur-el
         let users = [];
         try {
             users = JSON.parse(localStorage.getItem('users')) || [];
@@ -353,7 +353,7 @@ if (registerForm) {
             return;
         }
 
-        // Create new user (without storing plain password in production)
+        // buat baru pengguna (without storing plain sandian in production)
         const newUser = {
             name: name,
             email: email,
@@ -370,13 +370,13 @@ if (registerForm) {
     });
 }
 
-// Logout function
+// Logout fungsi
 function handleLogout() {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('adminUser');
     
-    // End session
+    // End sesi
     if (SessionManager) {
         SessionManager.endSession();
     }

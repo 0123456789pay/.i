@@ -34,7 +34,7 @@ PULL_DIR = BASE_DIR / "pull"
 MERGE_DIR = BASE_DIR / "merge"
 LOGS_ARCHIVE_DIR = BASE_DIR / "logs_archive"
 
-# Ensure all directories exist
+# Ensure semua directories exist
 for dir_path in [DATAINPUT_DIR, DATAOUTPUT_DIR, BARISINPUT_DIR, BARISOUTPUT_DIR, 
                  SUB_COMMIT_DIR, PULL_DIR, MERGE_DIR, LOGS_ARCHIVE_DIR]:
     dir_path.mkdir(parents=True, exist_ok=True)
@@ -145,7 +145,7 @@ def save_log(activity_type: str, content: Any, source: str = "manual",
     
     config = load_config()
     
-    # Get previous hash for hash chain if not provided
+    # Get sebelumnya hash untuk hash chain if bukan provided
     if previous_hash is None:
         previous_hash = get_previous_log_hash()
     
@@ -170,13 +170,13 @@ def save_log(activity_type: str, content: Any, source: str = "manual",
         "audit_trail": True
     }
     
-    # Calculate current hash including all fields
+    # Calculate current hash including semua fields
     log_entry["current_hash"] = calculate_hash(log_entry)
     
-    # Write-ahead log for guaranteed delivery
+    # tulis-ahead catatan untuk guaranteed delivery
     write_ahead_log(log_entry)
     
-    # Determine target directory
+    # tentukan target direktori
     folder_map = {
         "datainput": DATAINPUT_DIR,
         "dataoutput": DATAOUTPUT_DIR,
@@ -189,14 +189,14 @@ def save_log(activity_type: str, content: Any, source: str = "manual",
     }
     target_dir = folder_map.get(folder, DATAINPUT_DIR)
     
-    # Ensure directory exists
+    # Ensure direktori exists
     target_dir.mkdir(parents=True, exist_ok=True)
     
-    # Create filename
+    # buat filename
     filename = f"{log_entry['log_id']}.log"
     filepath = target_dir / filename
     
-    # Save log file with exclusive lock for thread safety
+    # simpan catatan berkas dengan exclusive lock untuk thread safety
     try:
         with open(filepath, 'w', encoding='utf-8') as f:
             fcntl.flock(f.fileno(), fcntl.LOCK_EX)
@@ -205,10 +205,10 @@ def save_log(activity_type: str, content: Any, source: str = "manual",
             os.fsync(f.fileno())
             fcntl.flock(f.fileno(), fcntl.LOCK_UN)
         
-        # Append to master system.log with lock
+        # Append to master sistem.catatan dengan lock
         append_to_master_log(log_entry)
         
-        # Clear WAL entry after successful save
+        # Clear WAL entry after successful simpan
         clear_wal_entry(log_entry["log_id"])
         
         # Print confirmation
@@ -231,7 +231,7 @@ def save_log(activity_type: str, content: Any, source: str = "manual",
         error_msg = f"❌ ERROR saving log: {e}\n{traceback.format_exc()}"
         print(error_msg)
         
-        # Log the error itself
+        # catatan ini galat itself
         error_entry = {
             "log_id": generate_log_id("error_event"),
             "timestamp": get_timestamp(),
@@ -274,7 +274,7 @@ def append_to_master_log(log_entry: Dict[str, Any]):
     except Exception as e:
         print(f"⚠ Error appending to master log: {e}")
 
-# Activity type constants - COMPLETE LIST v3.0
+# Activity jenis constants - COMPLETE senarai v3.0
 class ActivityType:
     CHAT_AI_REQUEST = "chat_ai_request"
     CHAT_AI_RESPONSE = "chat_ai_response"
@@ -309,7 +309,7 @@ class ActivityType:
     WARNING_EVENT = "warning_event"
     SUCCESS_EVENT = "success_event"
 
-# Source constants - COMPLETE LIST v3.0
+# Source constants - COMPLETE senarai v3.0
 class Source:
     QWEN_AI = "qwen_ai"
     CODER_QWEN_AI = "coder_qwen_ai"
@@ -473,7 +473,7 @@ def log_system_event(event_name, details, metadata=None):
         folder="datainput"
     )
 
-# NEW: Additional logging functions for complete activity tracking v3.0
+# baru: Additional logging functions untuk complete activity tracking v3.0
 
 def log_file_modification(file_path, changes, diff=None, metadata=None):
     """Log file modification with diff support"""
@@ -689,11 +689,11 @@ if __name__ == "__main__":
     print(f"Repository: media.digital (GitHub)")
     print()
     
-    # Demo: Log system initialization with v3.0 features
+    # Demo: catatan sistem initialization dengan v3.0 fitur
     print("🔴 Logging system initialization...")
     log_system_start("3.0.0", {"python_version": "3.x", "features": ["hash_chain", "wal", "immutable_logs"]})
     
-    # Log current user request
+    # catatan current pengguna permintaan
     print("\n🔴 Logging current user request...")
     log_user_prompt(
         "lakukan pencatatan dengan baik . dan data bener bener tersimpan disemua waktu aktifitas . lakukan pencatatan dengan bener . gunakan config moderen untuk mengkonfig sistem agar data bener bener masuk dipenyimpanan dan setiap perubahan dicatat dan disimpan dan bisa dilihat ulang di file .log",
@@ -701,7 +701,7 @@ if __name__ == "__main__":
         metadata={"request_type": "system_enhancement", "priority": "high"}
     )
     
-    # Log AI response/action
+    # catatan AI jawaban/action
     print("\n🔴 Logging AI response...")
     log_ai_response(
         "System configured with advanced persistent logging v3.0: Write-ahead logging, hash chain integrity, immutable logs, guaranteed delivery, auto-sync to GitHub repository 'media.digital'. All activities tracked and permanently stored.",
@@ -709,11 +709,11 @@ if __name__ == "__main__":
         metadata={"configured_by": "coder_qwen_ai", "timestamp": get_timestamp(), "version": "3.0.0"}
     )
     
-    # Log config change
+    # catatan konfigurasi change
     print("\n🔴 Logging configuration update...")
     log_config_change("monitoring", "v2.0", "v3.0", {"enhancement": "persistent_logging"})
     
-    # Log success
+    # catatan berhasil
     print("\n🟢 Logging success event...")
     log_success("Advanced persistent logging system successfully configured and operational", 
                 {"system": "logger_v3", "status": "active"})

@@ -2,17 +2,17 @@ import json
 import os
 from pathlib import Path
 
-# Generate function mapping
+# hasilkan fungsi pemetaan
 functions_dir = Path('/workspace/icon-maker-project/functions')
 menus_dir = Path('/workspace/icon-maker-project/menus')
 
-# Scan all functions
+# Scan semua functions
 function_map = []
 func_files = sorted([f for f in functions_dir.glob('*.js')])
 
 for i, func_file in enumerate(func_files[:5000], 1):
     content = func_file.read_text()
-    # Extract info from file
+    # Extract info dari berkas
     func_id = f"FUNC-{i:05d}"
     name = func_file.stem
     parts = name.split('_')
@@ -28,7 +28,7 @@ for i, func_file in enumerate(func_files[:5000], 1):
         "path": f"functions/{func_file.name}"
     })
 
-# Save function mapping
+# simpan fungsi pemetaan
 with open(menus_dir / 'function_mapping.json', 'w') as f:
     json.dump({
         "total": len(function_map),
@@ -37,11 +37,11 @@ with open(menus_dir / 'function_mapping.json', 'w') as f:
 
 print(f"Mapped {len(function_map)} functions")
 
-# Load existing menus and create enhanced mapping
+# muat existing menus dan buat tangguh pemetaan
 with open(menus_dir / 'all_menus.json', 'r') as f:
     menus = json.load(f)
 
-# Create category hierarchy
+# buat category hierarchy
 category_tree = {}
 for menu in menus:
     cat = menu.get('category', 'Uncategorized')
@@ -54,7 +54,7 @@ for menu in menus:
         category_tree[cat][subcat] = []
     
     menu['functionLinks'] = []
-    # Link related functions based on category
+    # tautan related functions based on category
     for func in function_map:
         if func['category'].lower() in cat.lower() or cat.lower() in func['category'].lower():
             menu['functionLinks'].append(func['id'])
@@ -63,7 +63,7 @@ for menu in menus:
     
     category_tree[cat][subcat].append(menu)
 
-# Save enhanced menu mapping
+# simpan tangguh menu pemetaan
 with open(menus_dir / 'menu_mapping.json', 'w') as f:
     json.dump({
         "total": len(menus),

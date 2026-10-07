@@ -6,7 +6,7 @@ import re
 menus_dir = '/workspace/icon-maker-project/menus'
 functions_dir = '/workspace/icon-maker-project/functions'
 
-# Mapping layout names to remove spaces
+# pemetaan tata letak nama to singkirkan spasi
 layout_mapping = {
     'Timeline Layout': 'Timeline',
     'Tree Layout': 'Tree',
@@ -41,11 +41,11 @@ def get_function_filename(layout, category, subcategory, icon_type):
     category_clean = category.replace(' ', '')
     subcategory_clean = subcategory.replace(' ', '')
     
-    # Replace 'Shapes' with 'Wujud'
+    # Replace 'Shapes' dengan 'Wujud'
     category_clean = re.sub(r'Shapes', 'Wujud', category_clean, flags=re.IGNORECASE)
     subcategory_clean = re.sub(r'Shapes', 'Wujud', subcategory_clean, flags=re.IGNORECASE)
     
-    # Determine icon type suffix
+    # tentukan ikon jenis akhiran
     icon_suffix = ''
     if icon_type:
         icon_clean = icon_type.replace(' Icon', '').replace(' ', '')
@@ -53,7 +53,7 @@ def get_function_filename(layout, category, subcategory, icon_type):
     
     return f"{layout_clean}{category_clean}{subcategory_clean}{icon_suffix}.js"
 
-# Build mapping from menu numbers to their data
+# bangun pemetaan dari menu nomor to miliknya data
 menu_data_map = {}
 for filename in os.listdir(menus_dir):
     if filename.endswith('.json') and filename != 'menu_mapping.json':
@@ -62,7 +62,7 @@ for filename in os.listdir(menus_dir):
             with open(filepath, 'r') as f:
                 data = json.load(f)
             
-            # Extract number from original filename pattern or use order
+            # Extract angka dari original filename pattern atau use pesanan
             order = data.get('order', 0)
             menu_data_map[order] = {
                 'layout': data.get('layout', ''),
@@ -73,11 +73,11 @@ for filename in os.listdir(menus_dir):
         except Exception as e:
             pass
 
-# Process function files
+# Process fungsi berkas-berkas
 function_renames = []
 for filename in os.listdir(functions_dir):
     if filename.endswith('.js'):
-        # Parse the function filename to extract number
+        # Parse ini fungsi filename to extract angka
         match = re.search(r'_(\d+)\.js$', filename)
         if match:
             number = int(match.group(1))
@@ -95,13 +95,13 @@ for filename in os.listdir(functions_dir):
                     if new_filename != filename:
                         function_renames.append((filename, new_filename))
 
-# Rename function files
+# Rename fungsi berkas-berkas
 renamed_functions = {}
 for old_name, new_name in function_renames:
     old_path = os.path.join(functions_dir, old_name)
     new_path = os.path.join(functions_dir, new_name)
     
-    # Handle duplicate names by adding counter
+    # Handle duplicate nama by adding counter
     counter = 1
     base_new_name = new_name
     while os.path.exists(new_path):

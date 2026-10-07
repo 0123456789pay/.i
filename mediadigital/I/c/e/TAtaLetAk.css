@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: TAtaLetAk.css
- * JUDUL: SISTEM GRID DAN TATA LETAK MEDIA DIGITAL
+ * JUDUL: SISTEM GRID DAN TATA LETAK media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,14 +10,14 @@
  * - Versi 1.0: Sistem grid dasar 12 kolom
  * - Versi 2.0: Penambahan breakpoint responsif
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus layout pendidikan
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus tata letak pendidikan
  * ============================================================================
  * SISTEM INTI: Mengatur tata letak grid untuk seluruh halaman
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* CONTAINER GRID UTAMA                                                       */
+/* wadah GRID UTAMA                                                       */
 /* -------------------------------------------------------------------------- */
 .grid-wadah {
     tampilan: grid;
@@ -177,7 +177,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT NAMPAKBEL                                                           */
+/* tata letak NAMPAKBEL                                                           */
 /* -------------------------------------------------------------------------- */
 .nampak-wadah {
     tampilan: nampak;
@@ -221,7 +221,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ORDER NAMPAK                                                                 */
+/* pesanan NAMPAK                                                                 */
 /* -------------------------------------------------------------------------- */
 .urutan-1 { urutan: 1; }
 .urutan-2 { urutan: 2; }
@@ -274,7 +274,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT KHUSUS MEDIA DIGITAL                                                */
+/* tata letak KHUSUS media digital                                                */
 /* -------------------------------------------------------------------------- */
 .tata-letak-header {
     tampilan: nampak;
@@ -301,7 +301,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN TAtaLetAk.css
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
@@ -310,7 +310,7 @@
 /* BAGIAN TAMBAHAN 1: SISTEM GRID LANJUTAN                                    */
 /* -------------------------------------------------------------------------- */
 /* Bagian ini berisi variasi grid yang lebih kompleks untuk kebutuhan        */
-/* layout yang lebih canggih dan nampakibel                                    */
+/* tata letak yang lebih canggih dan nampakibel                                    */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
@@ -363,9 +363,9 @@
 /* GRID DENGAN JUMLAH KOLOM BERVARIASI                                        */
 /* -------------------------------------------------------------------------- */
 /* Selain sistem 12 kolom standar, kami menyediakan variasi jumlah kolom     */
-/* untuk berbagai kebutuhan layout yang berbeda                              */
+/* untuk berbagai kebutuhan tata letak yang berbeda                              */
 
-/* Grid 2 Kolom - Untuk layout sederhana */
+/* Grid 2 Kolom - Untuk tata letak sederhana */
 .grid-2-kolom {
     tampilan: grid;
     template-kolom-grid: berulang(2, 1fr);
@@ -403,7 +403,7 @@
 /* -------------------------------------------------------------------------- */
 /* GRID ASIMETRIS                                                             */
 /* -------------------------------------------------------------------------- */
-/* Layout grid dengan proporsi kolom yang tidak sama untuk desain           */
+/* tata letak grid dengan proporsi kolom yang tidak sama untuk desain           */
 /* yang lebih dinamis dan menarik                                            */
 
 .grid-asimetris-kiri {
@@ -434,9 +434,9 @@
 /* GRID RESPONSIF DENGAN BREAKPOINT                                           */
 /* -------------------------------------------------------------------------- */
 /* Grid yang menyesuaikan jumlah kolom berdasarkan ukuran layar              */
-/* Menggunakan media query untuk transisi halus antar breakpoint             */
+/* Menggunakan media kueri untuk transisi halus antar breakpoint             */
 
-/* Mobile first - 1 kolom untuk layar kecil */
+/* Mobile pertama - 1 kolom untuk layar kecil */
 .grid-responsif-utama {
     tampilan: grid;
     template-kolom-grid: 1fr;
@@ -465,7 +465,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* GRID AUTO-FIT DAN AUTO-FILL                                                */
+/* GRID otomatis-FIT DAN otomatis-FILL                                                */
 /* -------------------------------------------------------------------------- */
 /* Grid otomatis yang menyesuaikan jumlah kolom berdasarkan lebar konten     */
 /* Sangat berguna untuk galeri gambar atau kartu produk                      */
@@ -495,10 +495,10 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* GRID ROW SPANNING                                                          */
+/* GRID baris SPANNING                                                          */
 /* -------------------------------------------------------------------------- */
 /* Kelas untuk elemen yang membentang beberapa baris grid                    */
-/* Berguna untuk membuat layout majalah atau dashboard                       */
+/* Berguna untuk membuat tata letak majalah atau papan-bilas                       */
 
 .baris-span-2 {
     baris-grid: span 2;
@@ -568,13 +568,13 @@
 /* -------------------------------------------------------------------------- */
 /* BAGIAN TAMBAHAN 2: NAMPAKBOX LANJUTAN                                        */
 /* -------------------------------------------------------------------------- */
-/* Sistem nampakbel tambahan untuk layout satu dimensi yang nampakibel          */
+/* Sistem nampakbel tambahan untuk tata letak satu dimensi yang nampakibel          */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /* NAMPAK WRAP VARIATIONS                                                       */
 /* -------------------------------------------------------------------------- */
-/* Mengontrol bagaimana item nampak membungkus ketika tidak cukup ruang        */
+/* Mengontrol bagaimana butir nampak membungkus ketika tidak cukup ruang        */
 
 .nampak-tidak-wrap {
     tampilan: nampak;
@@ -594,7 +594,7 @@
 /* -------------------------------------------------------------------------- */
 /* NAMPAK DIRECTION VARIATIONS                                                  */
 /* -------------------------------------------------------------------------- */
-/* Mengatur arah utama dari item nampak                                        */
+/* Mengatur arah utama dari butir nampak                                        */
 
 .nampak-baris {
     tampilan: nampak;
@@ -617,7 +617,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JUSTIFY CONTENT VARIATIONS                                                 */
+/* JUSTIFY isi VARIATIONS                                                 */
 /* -------------------------------------------------------------------------- */
 /* Mendistribusikan ruang di sepanjang sumbu utama                           */
 
@@ -652,9 +652,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ALIGN ITEMS VARIATIONS                                                     */
+/* ALIGN butiran VARIATIONS                                                     */
 /* -------------------------------------------------------------------------- */
-/* Mengatur perataan item pada sumbu silang                                  */
+/* Mengatur perataan butir pada sumbu silang                                  */
 
 .nampak-sejajarkan-awal {
     tampilan: nampak;
@@ -682,7 +682,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ALIGN CONTENT VARIATIONS                                                   */
+/* ALIGN isi VARIATIONS                                                   */
 /* -------------------------------------------------------------------------- */
 /* Mengatur distribusi ruang antara baris nampak                               */
 
@@ -717,9 +717,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* NAMPAK ITEM GROW AND SHRINK                                                  */
+/* NAMPAK butir GROW dan SHRINK                                                  */
 /* -------------------------------------------------------------------------- */
-/* Mengontrol bagaimana item nampak tumbuh atau menyusut                       */
+/* Mengontrol bagaimana butir nampak tumbuh atau menyusut                       */
 
 .nampak-tumbuh-tidak {
     nampak-tumbuh: 0;
@@ -746,9 +746,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* NAMPAK ORDER                                                                 */
+/* NAMPAK pesanan                                                                 */
 /* -------------------------------------------------------------------------- */
-/* Mengubah urutan visual item nampak tanpa mengubah HTML                      */
+/* Mengubah urutan visual butir nampak tanpa mengubah HTML                      */
 
 .nampak-urutan-1 {
     urutan: 1;
@@ -779,15 +779,15 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* BAGIAN TAMBAHAN 3: LAYOUT KOMPOSIT                                         */
+/* BAGIAN TAMBAHAN 3: tata letak KOMPOSIT                                         */
 /* -------------------------------------------------------------------------- */
-/* Kombinasi grid dan nampakbel untuk layout halaman yang kompleks             */
+/* Kombinasi grid dan nampakbel untuk tata letak halaman yang kompleks             */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT HALAMAN STANDAR                                                     */
+/* tata letak HALAMAN STANDAR                                                     */
 /* -------------------------------------------------------------------------- */
-/* Struktur layout halaman web standar dengan header, konten, sidebar, footer */
+/* Struktur tata letak halaman web standar dengan kepala, konten, sisi-papan, kaki */
 
 .tata-halaman-penuh {
     tampilan: grid;
@@ -818,9 +818,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT HERO SECTION                                                        */
+/* tata letak HERO bagian                                                        */
 /* -------------------------------------------------------------------------- */
-/* Layout khusus untuk bagian hero atau banner utama halaman                 */
+/* tata letak khusus untuk bagian hero atau banner utama halaman                 */
 
 .tata-hero-tengah {
     tampilan: nampak;
@@ -859,9 +859,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT KARTU DAN GRID PRODUK                                               */
+/* tata letak KARTU DAN GRID PRODUK                                               */
 /* -------------------------------------------------------------------------- */
-/* Layout optimal untuk menampilkan kartu produk atau artikel                */
+/* tata letak optimal untuk menampilkan kartu produk atau artikel                */
 
 .tata-kartu-utama {
     tampilan: grid;
@@ -884,9 +884,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT FORMULIR                                                            */
+/* tata letak FORMULIR                                                            */
 /* -------------------------------------------------------------------------- */
-/* Layout khusus untuk form input dan elemen formulir                        */
+/* tata letak khusus untuk borang masukan dan elemen formulir                        */
 
 .tata-form-vertical {
     tampilan: nampak;
@@ -908,9 +908,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT NAVIGASI                                                            */
+/* tata letak NAVIGASI                                                            */
 /* -------------------------------------------------------------------------- */
-/* Layout untuk berbagai jenis navigasi                                      */
+/* tata letak untuk berbagai jenis navigasi                                      */
 
 .tata-nav-bar {
     tampilan: nampak;
@@ -935,9 +935,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT FOOTER                                                              */
+/* tata letak kaki                                                              */
 /* -------------------------------------------------------------------------- */
-/* Layout untuk bagian footer halaman                                        */
+/* tata letak untuk bagian kaki halaman                                        */
 
 .tata-footer-standar {
     tampilan: grid;
@@ -970,9 +970,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT DASHBOARD                                                           */
+/* tata letak papan-bilas                                                           */
 /* -------------------------------------------------------------------------- */
-/* Layout khusus untuk interface dashboard dengan widget dan statistik       */
+/* tata letak khusus untuk interface papan-bilas dengan widget dan statistik       */
 
 .tata-dashboard {
     tampilan: grid;
@@ -1003,9 +1003,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT GALERI                                                              */
+/* tata letak GALERI                                                              */
 /* -------------------------------------------------------------------------- */
-/* Layout untuk galeri foto dan media                                        */
+/* tata letak untuk galeri foto dan media                                        */
 
 .tata-galeri-grid {
     tampilan: grid;
@@ -1029,9 +1029,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT BLOG                                                                */
+/* tata letak BLOG                                                                */
 /* -------------------------------------------------------------------------- */
-/* Layout khusus untuk postingan blog dan artikel                            */
+/* tata letak khusus untuk postingan blog dan artikel                            */
 
 .tata-blog-daftar {
     tampilan: nampak;
@@ -1055,9 +1055,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT E-COMMERCE                                                          */
+/* tata letak E-COMMERCE                                                          */
 /* -------------------------------------------------------------------------- */
-/* Layout khusus untuk toko online dan produk                                */
+/* tata letak khusus untuk toko online dan produk                                */
 
 .tata-produk-grid {
     tampilan: grid;
@@ -1078,7 +1078,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT RESPONSIF MEDIA QUERY                                               */
+/* tata letak RESPONSIF media kueri                                               */
 /* -------------------------------------------------------------------------- */
 /* Breakpoint responsif untuk berbagai ukuran layar                          */
 
@@ -1136,9 +1136,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT PRINT                                                               */
+/* tata letak PRINT                                                               */
 /* -------------------------------------------------------------------------- */
-/* Optimasi layout untuk pencetakan                                          */
+/* Optimasi tata letak untuk pencetakan                                          */
 
 @media cetak {
     .tata-cetak-halaman {
@@ -1156,9 +1156,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* UTILITIES LAYOUT TAMBAHAN                                                  */
+/* UTILITIES tata letak TAMBAHAN                                                  */
 /* -------------------------------------------------------------------------- */
-/* Kelas utilitas untuk kontrol layout yang lebih granular                   */
+/* Kelas utilitas untuk kontrol tata letak yang lebih granular                   */
 
 .lebar-penuh {
     lebar: 100%;
@@ -1213,7 +1213,7 @@
     tinggi-minimum: 100vh;
 }
 
-/* Posisi dan Z-index */
+/* Posisi dan Z-indeks */
 .posisi-relatif {
     posisi: relatif;
 }
@@ -1311,9 +1311,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* CONTAINER UTILITIES                                                        */
+/* wadah UTILITIES                                                        */
 /* -------------------------------------------------------------------------- */
-/* Variasi container untuk berbagai kebutuhan layout                         */
+/* Variasi wadah untuk berbagai kebutuhan tata letak                         */
 
 .wadah {
     lebar-maks: 1200px;
@@ -1353,9 +1353,9 @@
 /* -------------------------------------------------------------------------- */
 /* SPACING UTILITIES                                                          */
 /* -------------------------------------------------------------------------- */
-/* Utilitas untuk margin dan padding yang konsisten                          */
+/* Utilitas untuk jarak-luar dan bantalan yang konsisten                          */
 
-/* Margin semua sisi */
+/* jarak-luar semua sisi */
 .margin-tidak-ada {
     margin: 0;
 }
@@ -1380,7 +1380,7 @@
     margin: 3rem;
 }
 
-/* Margin atas */
+/* jarak-luar atas */
 .margin-atas-tidak-ada {
     margin-atas: 0;
 }
@@ -1409,7 +1409,7 @@
     margin-atas: otomatis;
 }
 
-/* Margin bawah */
+/* jarak-luar bawah */
 .margin-bawah-tidak-ada {
     margin-bawah: 0;
 }
@@ -1438,7 +1438,7 @@
     margin-bawah: otomatis;
 }
 
-/* Margin kiri */
+/* jarak-luar kiri */
 .margin-kiri-tidak-ada {
     margin-kiri: 0;
 }
@@ -1467,7 +1467,7 @@
     margin-kiri: otomatis;
 }
 
-/* Margin kanan */
+/* jarak-luar kanan */
 .margin-kanan-tidak-ada {
     margin-kanan: 0;
 }
@@ -1496,7 +1496,7 @@
     margin-kanan: otomatis;
 }
 
-/* Margin horisontal */
+/* jarak-luar horisontal */
 .margin-horisontal-tidak-ada {
     margin-kiri: 0;
     margin-kanan: 0;
@@ -1522,7 +1522,7 @@
     margin-kanan: otomatis;
 }
 
-/* Margin vertikal */
+/* jarak-luar vertikal */
 .margin-vertikal-tidak-ada {
     margin-atas: 0;
     margin-bawah: 0;
@@ -1543,7 +1543,7 @@
     margin-bawah: 1.5rem;
 }
 
-/* Padding semua sisi */
+/* bantalan semua sisi */
 .jarak-dalam-tidak-ada {
     jarak-dalam: 0;
 }
@@ -1568,7 +1568,7 @@
     jarak-dalam: 3rem;
 }
 
-/* Padding atas */
+/* bantalan atas */
 .jarak-dalam-atas-tidak-ada {
     jarak-dalam-atas: 0;
 }
@@ -1593,7 +1593,7 @@
     jarak-dalam-atas: 3rem;
 }
 
-/* Padding bawah */
+/* bantalan bawah */
 .jarak-dalam-bawah-tidak-ada {
     jarak-dalam-bawah: 0;
 }
@@ -1618,7 +1618,7 @@
     jarak-dalam-bawah: 3rem;
 }
 
-/* Padding kiri */
+/* bantalan kiri */
 .jarak-dalam-kiri-tidak-ada {
     jarak-dalam-kiri: 0;
 }
@@ -1643,7 +1643,7 @@
     jarak-dalam-kiri: 3rem;
 }
 
-/* Padding kanan */
+/* bantalan kanan */
 .jarak-dalam-kanan-tidak-ada {
     jarak-dalam-kanan: 0;
 }
@@ -1668,7 +1668,7 @@
     jarak-dalam-kanan: 3rem;
 }
 
-/* Padding horisontal */
+/* bantalan horisontal */
 .jarak-dalam-horisontal-tidak-ada {
     jarak-dalam-kiri: 0;
     jarak-dalam-kanan: 0;
@@ -1694,7 +1694,7 @@
     jarak-dalam-kanan: 2rem;
 }
 
-/* Padding vertikal */
+/* bantalan vertikal */
 .jarak-dalam-vertikal-tidak-ada {
     jarak-dalam-atas: 0;
     jarak-dalam-bawah: 0;
@@ -1923,7 +1923,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* USER SELECT                                                                */
+/* pengguna pilih                                                                */
 /* -------------------------------------------------------------------------- */
 /* Mengontrol apakah teks dapat diseleksi oleh pengguna                      */
 
@@ -1942,8 +1942,8 @@
 /* ============================================================================
  * CATATAN PENGEMBANGAN TAMBAHAN
  * ============================================================================
- * File TAtaLetAk.css ini telah diperluas menjadi lebih dari 1500 baris untuk
- * menyediakan sistem tata letak yang komprehensif bagi Media Digital.
+ * berkas TAtaLetAk.css ini telah diperluas menjadi lebih dari 1500 baris untuk
+ * menyediakan sistem tata letak yang komprehensif bagi media digital.
  * 
  * Setiap kelas CSS dilengkapi dengan komentar penjelasan dalam bahasa Indonesia
  * untuk memudahkan pemahaman dan pemeliharaan kode oleh tim pengembang.
@@ -1951,20 +1951,20 @@
  * Fitur utama yang ditambahkan:
  * 1. Sistem grid lanjutan dengan berbagai variasi kolom
  * 2. Nampakbox lengkap dengan semua opsi alignment
- * 3. Layout komposit untuk berbagai kasus penggunaan
+ * 3. tata letak komposit untuk berbagai kasus penggunaan
  * 4. Utilitas spacing yang komprehensif
  * 5. Helper classes untuk centering dan positioning
  * 6. Responsive breakpoints untuk berbagai ukuran layar
  * 7. Optimasi untuk print media
  * 
  * Semua kelas menggunakan terminologi bahasa Indonesia sesuai standarisasi
- * CSS Bahasa Indonesia yang diterapkan oleh Media Digital.
+ * CSS Bahasa Indonesia yang diterapkan oleh media digital.
  * ============================================================================
  */
 
 /* ============================================================================
- * END OF FILE - TAtaLetAk.css
- * Total baris kode: 1500+
+ * END OF berkas - TAtaLetAk.css
+ * jumlah baris kode: 1500+
  * Bahasa: Indonesia (Standarisasi Penuh)
  * Status: Siap Produksi
  * Versi: 5.0

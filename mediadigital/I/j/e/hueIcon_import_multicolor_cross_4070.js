@@ -1,7 +1,7 @@
 /**
- * Function Module: Hueicon 4070
+ * fungsi Module: Hueicon 4070
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-04070
  */
@@ -21,7 +21,7 @@ const hueIcon4070 = {
     },
     
     setup() {
-        // Setup configuration for hueIcon
+        // Setup pengaturan untuk hueIcon
         this.config = {
             enabled: true,
             priority: 4070,
@@ -32,7 +32,7 @@ const hueIcon4070 = {
     
     execute(params) {
         console.log('Executing hueIcon #4070 with params:', params);
-        // Implementation for hueIcon operation
+        // Implementation untuk hueIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = hueIcon4070;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['hueIcon4070'] = hueIcon4070;
 }

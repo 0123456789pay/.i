@@ -1,7 +1,7 @@
 /**
- * Function Module: Editicon 4253
- * Category: text
- * Style: glassmorphic
+ * fungsi Module: Editicon 4253
+ * Category: teks
+ * gaya: glassmorphic
  * Shape: dot
  * ID: FUNC-04253
  */
@@ -21,7 +21,7 @@ const editIcon4253 = {
     },
     
     setup() {
-        // Setup configuration for editIcon
+        // Setup pengaturan untuk editIcon
         this.config = {
             enabled: true,
             priority: 4253,
@@ -32,7 +32,7 @@ const editIcon4253 = {
     
     execute(params) {
         console.log('Executing editIcon #4253 with params:', params);
-        // Implementation for editIcon operation
+        // Implementation untuk editIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = editIcon4253;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['editIcon4253'] = editIcon4253;
 }

@@ -1,7 +1,7 @@
 /**
- * Function Module: Panicon 4232
+ * fungsi Module: Panicon 4232
  * Category: shape
- * Style: neumorphic
+ * gaya: neumorphic
  * Shape: minus
  * ID: FUNC-04232
  */
@@ -21,7 +21,7 @@ const panIcon4232 = {
     },
     
     setup() {
-        // Setup configuration for panIcon
+        // Setup pengaturan untuk panIcon
         this.config = {
             enabled: true,
             priority: 4232,
@@ -32,7 +32,7 @@ const panIcon4232 = {
     
     execute(params) {
         console.log('Executing panIcon #4232 with params:', params);
-        // Implementation for panIcon operation
+        // Implementation untuk panIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = panIcon4232;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['panIcon4232'] = panIcon4232;
 }

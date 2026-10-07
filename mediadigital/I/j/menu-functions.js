@@ -1,5 +1,5 @@
 /**
- * ALLUNIVERS ICONER - Menu Functionality System
+ * ALLUNIVERS ICONER - Menu Functionality sistem
  * Mengaktifkan semua menu dengan fungsi lengkap
  * Aksen: Putih + #0066ff
  */
@@ -31,14 +31,14 @@ class CahayaIconerMenuFunctions {
                 this.executeTopMenu(menuId, menuName);
             });
 
-            // Context menu for right-click
+            // Context menu untuk right-click
             item.addEventListener('contextmenu', (e) => {
                 e.preventDefault();
                 this.showContextMenu(e, item);
             });
         });
 
-        // Sidebar tool functions
+        // sisi-papan tool functions
         document.querySelectorAll('.sidebar-tool-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -63,7 +63,7 @@ class CahayaIconerMenuFunctions {
     executeTopMenu(menuId, menuName) {
         console.log(`Executing top menu: ${menuName} (${menuId})`);
         
-        // Parse menu category and action
+        // Parse menu category dan action
         const parts = menuName.split(' ');
         const category = parts[0];
         const action = parts.slice(1).join(' ');
@@ -100,13 +100,13 @@ class CahayaIconerMenuFunctions {
 
     handleFileMenu(action) {
         switch(action) {
-            case '1': // New
+            case '1': // baru
                 this.createNewProject();
                 break;
-            case '2': // Open
+            case '2': // buka
                 this.openProject();
                 break;
-            case '3': // Save
+            case '3': // simpan
                 this.saveProject();
                 break;
             default:
@@ -163,7 +163,7 @@ class CahayaIconerMenuFunctions {
     executeSidebarTool(menuId, menuName, element) {
         console.log(`Executing sidebar tool: ${menuName} (${menuId})`);
         
-        // Add to canvas or activate tool
+        // Add to canvas atau activate tool
         if (this.activeTool) {
             this.addToCanvas(menuName, element);
         } else {
@@ -172,12 +172,12 @@ class CahayaIconerMenuFunctions {
     }
 
     activateTool(toolName, buttonElement) {
-        // Deactivate previous tool
+        // Deactivate sebelumnya tool
         document.querySelectorAll('.tool-btn').forEach(btn => {
             btn.classList.remove('active');
         });
 
-        // Activate new tool
+        // Activate baru tool
         buttonElement.classList.add('active');
         this.activeTool = toolName;
 
@@ -208,7 +208,7 @@ class CahayaIconerMenuFunctions {
         const canvasContainer = document.getElementById('mainCanvas');
         if (!canvasContainer) return;
 
-        // Create canvas element
+        // buat canvas element
         const canvas = document.createElement('canvas');
         canvas.id = 'drawingCanvas';
         canvas.width = 800;
@@ -286,12 +286,12 @@ class CahayaIconerMenuFunctions {
     addToCanvas(elementName, sourceElement) {
         if (!this.context) return;
 
-        // Get color from properties panel
+        // Get warna dari properties panel
         const fillColor = document.querySelector('.color-picker input[type="color"]')?.value || '#0066ff';
         
         this.context.fillStyle = fillColor;
         
-        // Draw based on element type
+        // Draw based on element jenis
         const centerX = this.canvas.width / 2;
         const centerY = this.canvas.height / 2;
         const size = 50;
@@ -338,7 +338,7 @@ class CahayaIconerMenuFunctions {
     }
 
     bindPropertyInputs() {
-        // Color picker change
+        // warna picker change
         document.querySelectorAll('.color-picker input[type="color"]').forEach(input => {
             input.addEventListener('input', (e) => {
                 const textInput = e.target.parentElement.querySelector('input[type="text"]');
@@ -367,7 +367,7 @@ class CahayaIconerMenuFunctions {
             });
         });
 
-        // Position and size inputs
+        // Position dan ukuran inputs
         document.querySelectorAll('.prop-row input[type="number"]').forEach(input => {
             input.addEventListener('change', (e) => {
                 this.updateElementProperties();
@@ -392,7 +392,7 @@ class CahayaIconerMenuFunctions {
 
     setupKeyboardShortcuts() {
         document.addEventListener('keydown', (e) => {
-            // Ctrl+S - Save
+            // Ctrl+S - simpan
             if (e.ctrlKey && e.key === 's') {
                 e.preventDefault();
                 this.saveProject();
@@ -410,7 +410,7 @@ class CahayaIconerMenuFunctions {
                 this.redo();
             }
 
-            // Delete - Remove selection
+            // hapus - singkirkan selection
             if (e.key === 'Delete') {
                 this.deleteSelection();
             }
@@ -599,7 +599,7 @@ class CahayaIconerMenuFunctions {
     }
 }
 
-// Initialize when DOM is loaded
+// mulai when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.cahayaMenuFunctions = new CahayaIconerMenuFunctions();
 });

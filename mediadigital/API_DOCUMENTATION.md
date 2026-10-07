@@ -1,120 +1,120 @@
-# Media Digital Platform - API Documentation
+# media digital landasan - API Documentation
 
-## Table of Contents
+## tabel of Contents
 1. [Overview](#overview)
-2. [Authentication API](#authentication-api)
-3. [User Management API](#user-management-api)
+2. [autentikasi API](#autentikasi-api)
+3. [pengguna pengelolaan API](#pengguna-pengelolaan-api)
 4. [Repository API](#repository-api)
-5. [Session Management API](#session-management-api)
-6. [Error Handling](#error-handling)
-7. [Security Features](#security-features)
+5. [sesi pengelolaan API](#sesi-pengelolaan-api)
+6. [galat Handling](#galat-handling)
+7. [keamanan fitur](#keamanan-fitur)
 
 ---
 
 ## Overview
 
-Media Digital Platform adalah aplikasi web manajemen repositori GitHub dengan fitur autentikasi, manajemen sesi, dan keamanan input.
+media digital landasan adalah aplikasi web manajemen repositori GitHub dengan fitur autentikasi, manajemen sesi, dan keamanan masukan.
 
-### Base URL
+### dasar pautan
 ```
 Frontend: /mediadigital/
 API Endpoints: /api/* (untuk backend integration)
 ```
 
-### Data Storage
-- **Client-side**: localStorage untuk session dan user data
-- **Server-side**: GitHub API untuk repository data
+### data penyimpanan
+- **klien-side**: localStorage untuk sesi dan pengguna data
+- **peladen-side**: GitHub API untuk repository data
 
 ---
 
-## Authentication API
+## autentikasi API
 
-### Login Endpoint
+### masuk Endpoint
 
-**Location**: `login.html` → `main.js`
+**Location**: `masuk.html` → `utama.js`
 
-#### Request
-```javascript
-POST /login (handled client-side)
+#### permintaan
+```skrip JavaScript
+POST /masuk (handled klien-side)
 {
-  email: string (required, valid email format),
-  password: string (required, min 8 characters)
+  sur-el: rentetan (required, valid sur-el format),
+  sandian: rentetan (required, min 8 characters)
 }
 ```
 
-#### Response
-**Success (200)**:
-```javascript
+#### jawaban
+**berhasil (200)**:
+```skrip JavaScript
 {
-  success: true,
-  user: {
-    name: string,
-    email: string,
-    role: 'user' | 'admin'
+  berhasil: benar,
+  pengguna: {
+    nama: rentetan,
+    sur-el: rentetan,
+    role: 'pengguna' | 'pengelola'
   },
-  redirect: string (URL)
+  redirect: rentetan (pautan)
 }
 ```
 
-**Error (400/401)**:
-```javascript
+**galat (400/401)**:
+```skrip JavaScript
 {
-  success: false,
-  error: string
+  berhasil: salah,
+  galat: rentetan
 }
 ```
 
-#### Example Usage
-```javascript
-// Admin login
-email: 'admin@adminroot.innn'
-password: 'adminroot'
-→ Redirect: dashboard/index.html
+#### contoh Usage
+```skrip JavaScript
+// pengelola masuk
+sur-el: 'pengelola@adminroot.innn'
+sandian: 'adminroot'
+→ Redirect: papan-bilas/indeks.html
 
-// User login
-email: 'user@example.com'
-password: 'SecurePass123'
-→ Redirect: index.html
+// pengguna masuk
+sur-el: 'pengguna@contoh.com'
+sandian: 'SecurePass123'
+→ Redirect: indeks.html
 ```
 
 ---
 
-### Register Endpoint
+### daftar Endpoint
 
-**Location**: `register.html` → `main.js`
+**Location**: `daftar.html` → `utama.js`
 
-#### Request
-```javascript
-POST /register (handled client-side)
+#### permintaan
+```skrip JavaScript
+POST /daftar (handled klien-side)
 {
-  name: string (required, sanitized),
-  email: string (required, valid format, unique),
-  password: string (required, min 8 chars, must contain letters and numbers),
-  confirmPassword: string (required, must match password)
+  nama: rentetan (required, sanitized),
+  sur-el: rentetan (required, valid format, unique),
+  sandian: rentetan (required, min 8 chars, must contain letters dan nomor),
+  confirmPassword: rentetan (required, must match sandian)
 }
 ```
 
 #### Validation Rules
-- Email harus unik (tidak boleh terdaftar)
-- Password minimal 8 karakter
-- Password harus mengandung huruf dan angka
+- sur-el harus unik (tidak boleh terdaftar)
+- sandian minimal 8 karakter
+- sandian harus mengandung huruf dan angka
 - Semua field wajib diisi
 
-#### Response
-**Success (201)**:
-```javascript
+#### jawaban
+**berhasil (201)**:
+```skrip JavaScript
 {
-  success: true,
-  message: 'Registrasi berhasil! Silakan login.',
-  redirect: 'login.html'
+  berhasil: benar,
+  pesan: 'Registrasi berhasil! Silakan masuk.',
+  redirect: 'masuk.html'
 }
 ```
 
-**Error (400)**:
-```javascript
+**galat (400)**:
+```skrip JavaScript
 {
-  success: false,
-  errors: string[]
+  berhasil: salah,
+  errors: rentetan[]
 }
 ```
 
@@ -122,46 +122,46 @@ POST /register (handled client-side)
 
 ### Logout Endpoint
 
-**Function**: `handleLogout()` / `logout()`
+**fungsi**: `handleLogout()` / `logout()`
 
 #### Behavior
 1. Menghapus `currentUser` dari localStorage
 2. Menghapus `isLoggedIn` flag
 3. Menghapus `adminUser` flag
-4. Mengakhiri session (SessionManager.endSession())
-5. Redirect ke halaman login
+4. Mengakhiri sesi (SessionManager.endSession())
+5. Redirect ke halaman masuk
 
 ---
 
-## User Management API
+## pengguna pengelolaan API
 
-### Get Current User
+### Get Current pengguna
 
-**Function**: `checkAuthStatus()`
+**fungsi**: `checkAuthStatus()`
 
-#### Response
-```javascript
+#### jawaban
+```skrip JavaScript
 {
   isLoggedIn: boolean,
-  user: {
-    name: string,
-    email: string,
-    role: string
+  pengguna: {
+    nama: rentetan,
+    sur-el: rentetan,
+    role: rentetan
   } | null
 }
 ```
 
 ---
 
-### Update User Identity Display
+### perbarui pengguna Identity Display
 
-**Function**: `displayUserIdentity()`
+**fungsi**: `displayUserIdentity()`
 
 #### Location
-Dashboard → `repo-manager.js`
+papan-bilas → `repo-manager.js`
 
-#### Output
-HTML element dengan informasi user yang sudah di-sanitize
+#### keluaran
+HTML element dengan informasi pengguna yang sudah di-sanitize
 
 ---
 
@@ -169,61 +169,61 @@ HTML element dengan informasi user yang sudah di-sanitize
 
 ### Fetch Repositories
 
-**Function**: `fetchRepositories()`
+**fungsi**: `fetchRepositories()`
 
 #### Endpoint
 ```
-GET https://api.github.com/users/jenisprotokol/repos
+GET https://api.github.com/para pengguna/jenisprotokol/repos
 ```
 
 #### Caching
 - TTL: 5 menit
-- Cache key: `repoCache`
-- Auto-refresh: setiap 5 menit
+- tembolok kunci: `repoCache`
+- otomatis-refresh: setiap 5 menit
 
 #### Rate Limiting
-- Warning threshold: < 10 requests remaining
-- Error handling untuk HTTP 403 (rate limit exceeded)
+- peringatan threshold: < 10 requests remaining
+- galat handling untuk HTTP 403 (rate limit exceeded)
 
-#### Response Format
-```javascript
+#### jawaban Format
+```skrip JavaScript
 {
-  name: string,
-  description: string | null,
-  language: string | null,
-  stargazers_count: number,
-  forks_count: number,
-  html_url: string
+  nama: rentetan,
+  description: rentetan | null,
+  language: rentetan | null,
+  stargazers_count: angka,
+  forks_count: angka,
+  html_url: rentetan
 }[]
 ```
 
-#### Error States
+#### galat States
 - **403**: Rate limit exceeded
-- **404**: User/repo not found
-- **Network error**: Connection failed
+- **404**: pengguna/repo bukan found
+- **jaringan galat**: Connection failed
 
 ---
 
 ### Render Repositories
 
-**Function**: `renderRepositories(repos, container)`
+**fungsi**: `renderRepositories(repos, wadah)`
 
-#### Features
+#### fitur
 - Sanitasi semua konten (XSS protection)
-- Safe URL handling dengan `rel="noopener noreferrer"`
+- Safe pautan handling dengan `rel="noopener noreferrer"`
 - Loading states
-- Error messages dengan retry button
+- galat messages dengan retry tombol
 
 ---
 
-## Session Management API
+## sesi pengelolaan API
 
-### Session Configuration
+### sesi pengaturan
 
-**File**: `config.example.js`
+**berkas**: `konfigurasi.contoh.js`
 
-```javascript
-SECURITY: {
+```skrip JavaScript
+keamanan: {
   SESSION_TIMEOUT: 30 * 60 * 1000, // 30 minutes
   MAX_LOGIN_ATTEMPTS: 5,
   LOCKOUT_DURATION: 15 * 60 * 1000
@@ -235,74 +235,74 @@ SECURITY: {
 ### SessionManager Methods
 
 #### startSession()
-```javascript
+```skrip JavaScript
 SessionManager.startSession();
-// Sets timestamp in localStorage
+// Sets cap-waktu in localStorage
 ```
 
 #### getSessionStart()
-```javascript
-const timestamp = SessionManager.getSessionStart();
-// Returns: number | null
+```skrip JavaScript
+const cap-waktu = SessionManager.getSessionStart();
+// Returns: angka | null
 ```
 
 #### isSessionExpired()
-```javascript
+```skrip JavaScript
 const expired = SessionManager.isSessionExpired();
 // Returns: boolean
 ```
 
 #### refreshSession()
-```javascript
+```skrip JavaScript
 SessionManager.refreshSession();
-// Updates session timestamp
+// Updates sesi cap-waktu
 ```
 
 #### endSession()
-```javascript
+```skrip JavaScript
 SessionManager.endSession();
-// Clears session data
+// Clears sesi data
 ```
 
 #### checkSession()
-```javascript
+```skrip JavaScript
 const valid = SessionManager.checkSession();
 // Returns: boolean
-// Auto-logout if expired
+// otomatis-logout if expired
 ```
 
 #### setupAutoCheck()
-```javascript
+```skrip JavaScript
 SessionManager.setupAutoCheck();
-// Checks session every 60 seconds
+// Checks sesi every 60 seconds
 ```
 
 ---
 
-## Security Features
+## keamanan fitur
 
-### Input Sanitization
+### masukan Sanitization
 
 **Module**: `Sanitizer`
 
 #### Methods
 
-**sanitize(input)**
-```javascript
-Sanitizer.sanitize('<script>alert("xss")</script>');
-// Returns: "alert(\"xss\")" (tags removed, entities encoded)
+**sanitize(masukan)**
+```skrip JavaScript
+Sanitizer.sanitize('<skrip>siaga("xss")</skrip>');
+// Returns: "siaga(\"xss\")" (tags removed, entities encoded)
 ```
 
 **sanitizeObject(obj)**
-```javascript
-Sanitizer.sanitizeObject({ name: '<b>John</b>', age: 25 });
-// Returns: { name: '&lt;b&gt;John&lt;/b&gt;', age: 25 }
+```skrip JavaScript
+Sanitizer.sanitizeObject({ nama: '<b>John</b>', age: 25 });
+// Returns: { nama: '&lt;b&gt;John&lt;/b&gt;', age: 25 }
 ```
 
 #### Protection Against
 - XSS (Cross-Site Scripting)
 - HTML injection
-- JavaScript protocol injection
+- skrip JavaScript protocol injection
 
 ---
 
@@ -312,25 +312,25 @@ Sanitizer.sanitizeObject({ name: '<b>John</b>', age: 25 });
 
 #### Methods
 
-**isValidEmail(email)**
-```javascript
-Validator.isValidEmail('test@example.com'); // true
-Validator.isValidEmail('invalid'); // false
+**isValidEmail(sur-el)**
+```skrip JavaScript
+Validator.isValidEmail('uji@contoh.com'); // benar
+Validator.isValidEmail('invalid'); // salah
 ```
 
-**isValidPassword(password)**
-```javascript
+**isValidPassword(sandian)**
+```skrip JavaScript
 Validator.isValidPassword('SecurePass123');
-// Returns: { valid: true, errors: [] }
+// Returns: { valid: benar, errors: [] }
 
 Validator.isValidPassword('weak');
-// Returns: { valid: false, errors: ['Password minimal 8 karakter', ...] }
+// Returns: { valid: salah, errors: ['sandian minimal 8 karakter', ...] }
 ```
 
 **validateRequired(fields)**
-```javascript
-Validator.validateRequired({ name: '', email: 'test@test.com' });
-// Returns: { valid: false, missingFields: ['name'] }
+```skrip JavaScript
+Validator.validateRequired({ nama: '', sur-el: 'uji@uji.com' });
+// Returns: { valid: salah, missingFields: ['nama'] }
 ```
 
 ---
@@ -342,45 +342,45 @@ Validator.validateRequired({ name: '', email: 'test@test.com' });
 #### Methods
 
 **generateToken()**
-```javascript
+```skrip JavaScript
 const token = CSRFManager.generateToken();
-// Returns: 64-character hex string
+// Returns: 64-character hex rentetan
 ```
 
 **getToken()**
-```javascript
+```skrip JavaScript
 const token = CSRFManager.getToken();
-// Returns existing or creates new token
+// Returns existing atau creates baru token
 ```
 
 **validateToken(token)**
-```javascript
+```skrip JavaScript
 CSRFManager.validateToken(token);
 // Returns: boolean
 ```
 
 ---
 
-### Password Hashing
+### sandian Hashing
 
-**Function**: `simpleHash(str)`
+**fungsi**: `simpleHash(str)`
 
-⚠️ **Warning**: Ini hanya untuk demo. Gunakan bcrypt/argon2 di production.
+⚠️ **peringatan**: Ini hanya untuk demo. Gunakan bcrypt/argon2 di production.
 
-```javascript
+```skrip JavaScript
 simpleHash('password123');
-// Returns: hexadecimal hash string
+// Returns: hexadecimal hash rentetan
 ```
 
 ---
 
-## Error Handling
+## galat Handling
 
-### Global Error Handler
+### nasional galat pengendali
 
-```javascript
-window.addEventListener('error', function(e) {
-    console.error('Global error:', e.message, 'at', e.filename + ':' + e.lineno);
+```skrip JavaScript
+jendela.addEventListener('galat', fungsi(e) {
+    konsol.galat('nasional galat:', e.pesan, 'at', e.filename + ':' + e.lineno);
 });
 ```
 
@@ -389,18 +389,18 @@ window.addEventListener('error', function(e) {
 Semua operasi critical menggunakan try-catch:
 - JSON parsing dari localStorage
 - Fetch API calls
-- Session management
+- sesi pengelolaan
 
-### Error Messages
+### galat Messages
 
-Defined in `config.example.js`:
-```javascript
+Defined in `konfigurasi.contoh.js`:
+```skrip JavaScript
 ERROR_MESSAGES: {
-  NETWORK_ERROR: 'Gagal terhubung ke server...',
+  NETWORK_ERROR: 'Gagal terhubung ke peladen...',
   UNAUTHORIZED: 'Anda tidak memiliki akses...',
   SESSION_EXPIRED: 'Sesi Anda telah berakhir...',
-  INVALID_INPUT: 'Input tidak valid...',
-  SERVER_ERROR: 'Terjadi kesalahan pada server...'
+  INVALID_INPUT: 'masukan tidak valid...',
+  SERVER_ERROR: 'Terjadi kesalahan pada peladen...'
 }
 ```
 
@@ -410,98 +410,98 @@ ERROR_MESSAGES: {
 
 ### Throttling
 
-```javascript
+```skrip JavaScript
 // Navbar scroll effect throttled to 100ms
-const updateNavbarShadow = throttle(function() {
+const updateNavbarShadow = throttle(fungsi() {
     // ...
 }, 100);
 ```
 
 ### Debouncing
 
-```javascript
-// For search inputs or resize handlers
-const debouncedSearch = debounce(function(query) {
+```skrip JavaScript
+// untuk cari inputs atau resize handlers
+const debouncedSearch = debounce(fungsi(kueri) {
     // ...
 }, 300);
 ```
 
 ### Caching
 
-- Repository data cached for 5 minutes
+- Repository data cached untuk 5 minutes
 - Reduces GitHub API calls
-- Improves load times
+- Improves muat times
 
 ---
 
 ## Testing
 
-### Running Tests
+### Running ujian
 
 **Browser**:
 ```html
-<script src="js/config.example.js"></script>
-<script src="js/utils.js"></script>
-<script src="js/tests.js"></script>
+<skrip src="js/konfigurasi.contoh.js"></skrip>
+<skrip src="js/utils.js"></skrip>
+<skrip src="js/ujian.js"></skrip>
 ```
 
 **Node.js**:
 ```bash
-node js/tests.js
+node js/ujian.js
 ```
 
-### Test Coverage
+### uji Coverage
 
-- ✅ Sanitizer functions (5 tests)
-- ✅ Validator functions (9 tests)
-- ✅ SessionManager (5 tests)
-- ✅ CSRFManager (5 tests)
-- ✅ Utility functions (3 tests)
+- ✅ Sanitizer functions (5 ujian)
+- ✅ Validator functions (9 ujian)
+- ✅ SessionManager (5 ujian)
+- ✅ CSRFManager (5 ujian)
+- ✅ Utility functions (3 ujian)
 
-**Total**: 27 unit tests
+**jumlah**: 27 unit ujian
 
 ---
 
-## File Structure
+## berkas Structure
 
 ```
 mediadigital/
 ├── js/
-│   ├── config.example.js    # Environment configuration
-│   ├── utils.js             # Security & utility functions
-│   ├── main.js              # Authentication & main logic
+│   ├── konfigurasi.contoh.js    # Environment pengaturan
+│   ├── utils.js             # keamanan & utility functions
+│   ├── utama.js              # autentikasi & utama logic
 │   ├── repo-manager.js      # GitHub API integration
-│   └── tests.js             # Unit tests
-├── login.html               # Login page
-├── register.html            # Registration page
-├── index.html               # Home page
-└── dashboard/
-    └── index.html           # Admin dashboard
+│   └── ujian.js             # Unit ujian
+├── masuk.html               # masuk halaman
+├── daftar.html            # Registration halaman
+├── indeks.html               # rumah halaman
+└── papan-bilas/
+    └── indeks.html           # pengelola papan-bilas
 ```
 
 ---
 
 ## Best Practices
 
-1. **Always sanitize user input** before displaying
-2. **Validate on both client and server** (when backend added)
+1. **Always sanitize pengguna masukan** before displaying
+2. **sahkan on both klien dan peladen** (when backend added)
 3. **Use HTTPS** in production
-4. **Never commit config.js** with sensitive data
-5. **Regular session timeout checks**
+4. **Never commit konfigurasi.js** dengan sensitive data
+5. **Regular sesi timeout checks**
 6. **Implement rate limiting** on backend
-7. **Use prepared statements** for SQL (when added)
+7. **Use prepared statements** untuk SQL (when added)
 8. **Enable CSP headers** in production
 
 ---
 
-## Version History
+## versi History
 
 - **v2.0.0** (Current)
-  - Added input sanitization
-  - Implemented session management
+  - Added masukan sanitization
+  - Implemented sesi pengelolaan
   - Added CSRF protection
-  - Enhanced error handling
-  - Added unit tests
+  - tangguh galat handling
+  - Added unit ujian
   - GitHub API caching
   - Rate limit handling
 

@@ -1,7 +1,7 @@
 /**
- * Function Module: Filtericon 4691
+ * fungsi Module: Filtericon 4691
  * Category: tool
- * Style: gradient
+ * gaya: gradient
  * Shape: plus
  * ID: FUNC-04691
  */
@@ -21,7 +21,7 @@ const filterIcon4691 = {
     },
     
     setup() {
-        // Setup configuration for filterIcon
+        // Setup pengaturan untuk filterIcon
         this.config = {
             enabled: true,
             priority: 4691,
@@ -32,7 +32,7 @@ const filterIcon4691 = {
     
     execute(params) {
         console.log('Executing filterIcon #4691 with params:', params);
-        // Implementation for filterIcon operation
+        // Implementation untuk filterIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = filterIcon4691;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['filterIcon4691'] = filterIcon4691;
 }

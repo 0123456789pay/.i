@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReberPencarian - Indeks File HTML</title>
+    <title>ReberPencarian - Indeks berkas HTML</title>
     <style>
         :root {
             --primary: #4285f4;
@@ -74,14 +74,14 @@
             <span>R</span><span>e</span><span>b</span><span>e</span><span>r</span><span>Pencarian</span>
         </div>
         <div class="stats">
-            <div class="stat-item"><span>📄 Total:</span><span class="stat-value" id="totalCount">0</span></div>
+            <div class="stat-item"><span>📄 jumlah:</span><span class="stat-value" id="totalCount">0</span></div>
             <div class="stat-item"><span>🔎 Hasil:</span><span class="stat-value" id="resultCount">0</span></div>
         </div>
     </header>
 
     <section class="search-section">
         <div class="search-container">
-            <h1 class="search-title">Cari File HTML dalam Sistem</h1>
+            <h1 class="search-title">Cari berkas HTML dalam Sistem</h1>
             <div class="search-box">
                 <span class="search-icon">🔍</span>
                 <input type="text" class="search-input" id="searchInput" placeholder="Ketik nama file atau path..." autofocus>
@@ -89,25 +89,25 @@
             </div>
             <div class="quick-filters">
                 <button class="filter-chip active" onclick="filterBy('all')">Semua</button>
-                <button class="filter-chip" onclick="filterBy('index')">Index</button>
-                <button class="filter-chip" onclick="filterBy('dashboard')">Dashboard</button>
-                <button class="filter-chip" onclick="filterBy('login')">Login</button>
-                <button class="filter-chip" onclick="filterBy('admin')">Admin</button>
-                <button class="filter-chip" onclick="filterBy('filemanajer')">File Manager</button>
+                <button class="filter-chip" onclick="filterBy('index')">indeks</button>
+                <button class="filter-chip" onclick="filterBy('dashboard')">papan-bilas</button>
+                <button class="filter-chip" onclick="filterBy('login')">masuk</button>
+                <button class="filter-chip" onclick="filterBy('admin')">pengelola</button>
+                <button class="filter-chip" onclick="filterBy('filemanajer')">berkas Manager</button>
             </div>
         </div>
     </section>
 
     <section class="results-section">
         <div class="results-header">
-            <div class="results-count">Menampilkan <strong id="displayCount">0</strong> dari <strong id="totalCount2">0</strong> file</div>
+            <div class="results-count">Menampilkan <strong id="displayCount">0</strong> dari <strong id="totalCount2">0</strong> berkas</div>
             <div class="view-toggle">
                 <button class="view-btn active" onclick="setView('grid')">▦</button>
                 <button class="view-btn" onclick="setView('list')">☰</button>
             </div>
         </div>
 
-        <div id="loading" class="loading"><div class="spinner"></div><p>Memuat indeks file...</p></div>
+        <div id="loading" class="loading"><div class="spinner"></div><p>Memuat indeks berkas...</p></div>
         <div id="noResults" class="no-results" style="display:none;"><div style="font-size:4rem;">📭</div><h3>Tidak ada hasil ditemukan</h3></div>
         <div id="resultsGrid" class="results-grid" style="display:none;"></div>
         <div id="resultsList" class="results-list" style="display:none;"></div>
@@ -115,9 +115,9 @@
     </section>
 
     <footer>
-        <p>© 2024 ReberPencarian - Sistem Indeks File HTML</p>
-        <p>Mengindeks <strong id="footerCount">0</strong> file di seluruh sistem</p>
-        <p><a href="/index.html">← Kembali ke File Manager</a></p>
+        <p>© 2024 ReberPencarian - Sistem Indeks berkas HTML</p>
+        <p>Mengindeks <strong id="footerCount">0</strong> berkas di seluruh sistem</p>
+        <p><a href="/index.html">← Kembali ke berkas Manager</a></p>
     </footer>
 
     <script>

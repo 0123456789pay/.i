@@ -1,23 +1,23 @@
-# Selector True Secure System - Documentation
+# Selector benar Secure sistem - Documentation
 
 ## Overview
 
-ConfigSelectorTrue.Digital adalah sistem konfigurasi berbasis web yang mengaktifkan simbol inti selector true secure di browser. Sistem ini menggunakan kombinasi biner, regex patterns, dan formula matematika untuk validasi dan aktivasi.
+ConfigSelectorTrue.digital adalah sistem konfigurasi berbasis web yang mengaktifkan simbol inti selector benar secure di browser. Sistem ini menggunakan kombinasi biner, regex patterns, dan formula matematika untuk validasi dan aktivasi.
 
 ## Struktur Direktori
 
 ```
 configselectortrue.digital/
-├── index.html          # Halaman utama (tanpa footer)
+├── indeks.html          # Halaman utama (tanpa kaki)
 ├── css/
-│   └── style.css       # Styling dengan tampilan media.digital
+│   └── gaya.css       # Styling dengan tampilan media.digital
 ├── js/
-│   └── main.js         # JavaScript untuk aktivasi sistem di browser
+│   └── utama.js         # skrip-skrip-javascript untuk aktivasi sistem di browser
 ├── php/
 │   └── selector.php    # Backend PHP untuk API dan pemrosesan
 ├── db/
-│   └── schema.sql      # Database schema (SQLite/MySQL)
-├── config/
+│   └── schema.sql      # basis-data schema (SQLite/MySQL)
+├── konfigurasi/
 │   ├── binary.conf     # Konfigurasi biner sistem
 │   ├── regex.patterns  # Pola regex untuk validasi
 │   └── core.formula    # Formula matematika inti
@@ -27,42 +27,42 @@ configselectortrue.digital/
 
 ## Fitur Utama
 
-### 1. Binary Configuration
+### 1. Binary pengaturan
 - Menggunakan flag biner untuk kontrol sistem
 - Support hexadecimal notation
 - Konfigurasi keamanan multi-level
 
 ### 2. Regex Patterns
-- Validasi simbol core system
+- Validasi simbol core sistem
 - Pattern matching untuk selector
 - Browser detection patterns
 
 ### 3. Core Formulas
 - Formula aktivasi biner
-- Perhitungan security level
+- Perhitungan keamanan level
 - Browser compatibility scoring
 
 ### 4. Browser Activation
 Sistem dapat diaktifkan langsung di browser melalui:
-```javascript
-window.SelectorTrueSystem.activate()
+```skrip-skrip-javascript
+jendela.SelectorTrueSystem.activate()
 ```
 
 ## Cara Penggunaan
 
 ### Frontend (HTML/CSS/JS)
-1. Buka `index.html` di browser
-2. Sistem akan otomatis initialize
-3. Akses console untuk melihat status aktivasi
+1. Buka `indeks.html` di browser
+2. Sistem akan otomatis mulai
+3. Akses konsol untuk melihat status aktivasi
 
 ### Backend (PHP)
 ```php
 require_once 'php/selector.php';
-$selector = new ConfigSelectorTrue\SelectorCore();
+$selector = baru ConfigSelectorTrue\SelectorCore();
 $status = $selector->activate();
 ```
 
-### Database
+### basis-data
 ```bash
 sqlite3 selector.db < db/schema.sql
 ```
@@ -72,29 +72,29 @@ sqlite3 selector.db < db/schema.sql
 ### GET /php/selector.php?action=activate
 Mengaktifkan sistem selector.
 
-**Response:**
+**jawaban:**
 ```json
 {
-  "status": "active",
-  "secure_mode": true,
+  "status": "aktif",
+  "secure_mode": benar,
   "symbol_core": "SELECTOR_TRUE",
-  "timestamp": "2024-01-01T00:00:00+00:00",
-  "version": "1.0.0"
+  "cap-waktu": "2024-01-01T00:00:00+00:00",
+  "versi": "1.0.0"
 }
 ```
 
 ### GET /php/selector.php?action=status
 Mengecek status sistem.
 
-### GET /php/selector.php?action=validate&symbol=ALPHA
+### GET /php/selector.php?action=sahkan&symbol=ALPHA
 Validasi simbol tertentu.
 
 ## Keamanan
 
-- Secure mode aktif secara default
-- Multi-level security (1-4)
+- Secure mode aktif secara bawaan
+- Multi-level keamanan (1-4)
 - Hash verification (MD5, SHA256)
-- Browser compatibility check
+- Browser compatibility periksa
 
 ## Kompatibilitas Browser
 
@@ -106,26 +106,26 @@ Validasi simbol tertentu.
 
 ## Integrasi GitHub
 
-Untuk deploy ke GitHub:
+Untuk sebarkan ke GitHub:
 
 ```bash
-git init
+git mulaikan
 git add .
-git commit -m "Initial commit: Selector True Secure System"
+git commit -m "Initial commit: Selector benar Secure sistem"
 git remote add origin https://github.com/username/repo.git
-git push -u origin main
+git push -u origin utama
 ```
 
 ## Lisensi
 
-Proprietary - ConfigSelectorTrue.Digital
+Proprietary - ConfigSelectorTrue.digital
 
 ## Versi
 
-- **Version:** 1.0.0
-- **Release Date:** 2024
+- **versi:** 1.0.0
+- **Release tanggal:** 2024
 - **Status:** Stable
 
 ## Kontak & Support
 
-Untuk informasi lebih lanjut, kunjungi repository GitHub atau dokumentasi lengkap di folder `docs/`.
+Untuk informasi lebih lanjut, kunjungi repository GitHub atau dokumentasi lengkap di direktori `docs/`.

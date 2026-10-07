@@ -1,7 +1,7 @@
 /**
- * Function Module: Flipicon 4360
+ * fungsi Module: Flipicon 4360
  * Category: pattern
- * Style: organic
+ * gaya: organic
  * Shape: pentagon
  * ID: FUNC-04360
  */
@@ -21,7 +21,7 @@ const flipIcon4360 = {
     },
     
     setup() {
-        // Setup configuration for flipIcon
+        // Setup pengaturan untuk flipIcon
         this.config = {
             enabled: true,
             priority: 4360,
@@ -32,7 +32,7 @@ const flipIcon4360 = {
     
     execute(params) {
         console.log('Executing flipIcon #4360 with params:', params);
-        // Implementation for flipIcon operation
+        // Implementation untuk flipIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = flipIcon4360;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['flipIcon4360'] = flipIcon4360;
 }

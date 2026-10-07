@@ -1,7 +1,7 @@
 /**
- * Function Module: Exporticon 4156
+ * fungsi Module: Exporticon 4156
  * Category: raster
- * Style: minimalist
+ * gaya: minimalist
  * Shape: wave
  * ID: FUNC-04156
  */
@@ -21,7 +21,7 @@ const exportIcon4156 = {
     },
     
     setup() {
-        // Setup configuration for exportIcon
+        // Setup pengaturan untuk exportIcon
         this.config = {
             enabled: true,
             priority: 4156,
@@ -32,7 +32,7 @@ const exportIcon4156 = {
     
     execute(params) {
         console.log('Executing exportIcon #4156 with params:', params);
-        // Implementation for exportIcon operation
+        // Implementation untuk exportIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = exportIcon4156;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['exportIcon4156'] = exportIcon4156;
 }

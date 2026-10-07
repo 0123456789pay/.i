@@ -1,7 +1,7 @@
 /**
- * Function Module: Spliticon 4173
- * Category: text
- * Style: glassmorphic
+ * fungsi Module: Spliticon 4173
+ * Category: teks
+ * gaya: glassmorphic
  * Shape: dot
  * ID: FUNC-04173
  */
@@ -21,7 +21,7 @@ const splitIcon4173 = {
     },
     
     setup() {
-        // Setup configuration for splitIcon
+        // Setup pengaturan untuk splitIcon
         this.config = {
             enabled: true,
             priority: 4173,
@@ -32,7 +32,7 @@ const splitIcon4173 = {
     
     execute(params) {
         console.log('Executing splitIcon #4173 with params:', params);
-        // Implementation for splitIcon operation
+        // Implementation untuk splitIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = splitIcon4173;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['splitIcon4173'] = splitIcon4173;
 }

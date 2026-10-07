@@ -1,7 +1,7 @@
 #!/bin/bash
 # ============================================================================
-# SCRIPT INISIALISASI SISTEM PENYIMPANAN 1500 YOTTABYTE
-# KapasitasRAMROM Digital - Sistem Penyimpanan Terdistribusi
+# skrip INISIALISASI SISTEM PENYIMPANAN 1500 YOTTABYTE
+# KapasitasRAMROM digital - Sistem Penyimpanan Terdistribusi
 # Formula: TEKS_ANGKA_SIMBOL_KOMPONEN
 # ============================================================================
 
@@ -14,12 +14,12 @@ echo "  Formula: TEKS_ANGKA_SIMBOL_KOMPONEN"
 echo "============================================================"
 echo ""
 
-# Warna output
+# Warna keluaran
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+NC='\033[0m' # No warna
 
 # Direktori sistem
 BASE_DIR="/workspace/kapasitasramrom.digital"
@@ -95,7 +95,7 @@ echo -e "  ${GREEN}✓${NC} Virtual volumes mapped (10 volumes)"
 echo ""
 echo -e "${BLUE}[6/8]${NC} Konfigurasi jaringan logis..."
 cat > "${NODES_DIR}/network_topology.conf" << NETWORK
-# TOPOLOGI JARINGAN LOGIS - 1500 YB SYSTEM
+# TOPOLOGI JARINGAN LOGIS - 1500 YB sistem
 TOTAL_CLUSTERS=1500
 NODES_PER_CLUSTER=1000
 PROTOCOL=QUANTUM-ENTANGLEMENT-PROTO-V9

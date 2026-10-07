@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Header Module
- * Handles header components and navigation
+ * ALLUNIVERS ICONER - kepala Module
+ * Handles kepala components dan navigation
  */
 
 class IconerHeader {
@@ -48,7 +48,7 @@ class IconerHeader {
     }
 }
 
-// Auto-initialize
+// otomatis-mulai
 if (typeof window !== 'undefined') {
     window.IconerHeader = new IconerHeader();
 }

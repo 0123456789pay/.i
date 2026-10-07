@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Fungsi untuk membuat struktur folder lengkap dengan html, css, js, php, db
+# Fungsi untuk membuat struktur direktori lengkap dengan html, css, js, php, db
 create_full_structure() {
     local base_path="$1"
     
-    # Buat folder dasar
+    # Buat direktori dasar
     mkdir -p "$base_path/html"
     mkdir -p "$base_path/css"
     mkdir -p "$base_path/js"
     mkdir -p "$base_path/php"
     mkdir -p "$base_path/db"
     
-    # Buat file index.html
+    # Buat berkas indeks.html
     cat > "$base_path/html/index.html" << 'EOF'
 <!DOCTYPE html>
 <html lang="id">
@@ -31,19 +31,19 @@ create_full_structure() {
 </html>
 EOF
 
-    # Buat file CSS
+    # Buat berkas CSS
     cat > "$base_path/css/style.css" << 'EOF'
 /* Style dasar untuk modul digital */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; }
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; warna: #333; }
 .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
-h1 { color: #667eea; margin-bottom: 1rem; }
+h1 { color: #667eea; jarak-luar-bottom: 1rem; }
 .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin: 1rem 0; }
-.btn { background: #667eea; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer; }
+.btn { background: #667eea; warna: white; bantalan: 0.5rem 1rem; batas: none; batas-radius: 4px; cursor: pointer; }
 .btn:hover { background: #764ba2; }
 EOF
 
-    # Buat file JS
+    # Buat berkas JS
     cat > "$base_path/js/app.js" << 'EOF'
 // Aplikasi JavaScript untuk modul digital
 document.addEventListener('DOMContentLoaded', function() {
@@ -57,7 +57,7 @@ function initModule() {
 initModule();
 EOF
 
-    # Buat file PHP
+    # Buat berkas PHP
     cat > "$base_path/php/config.php" << 'EOF'
 <?php
 // Konfigurasi modul digital
@@ -78,7 +78,7 @@ class DigitalModule {
 ?>
 EOF
 
-    # Buat file SQL
+    # Buat berkas SQL
     cat > "$base_path/db/schema.sql" << 'EOF'
 -- Skema database untuk modul digital
 CREATE TABLE IF NOT EXISTS digital_content (
@@ -102,7 +102,7 @@ EOF
 }
 
 # Daftar 5 Menu Utama dengan sub-menu dalam Bahasa Indonesia
-# Menu 1: Dasbor (Dashboard)
+# Menu 1: Dasbor (papan-bilas)
 declare -a DASHBOARD_SUBMENUS=(
     "ringkasan"
     "statistik_realtime"
@@ -177,7 +177,7 @@ declare -a BANTUAN_SUBMENUS=(
 
 echo "Membuat struktur folder .digital..."
 
-# Buat folder utama untuk setiap menu
+# Buat direktori utama untuk setiap menu
 mkdir -p "/workspace/dasbor.digital"
 mkdir -p "/workspace/pengelolaan_konten.digital"
 mkdir -p "/workspace/analitik_laporan.digital"

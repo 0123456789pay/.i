@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- =================================================================
+     SISTEM PROTOKOL MULTIFUNGSI "|" - ANTAR MUKA WEB INPUT OUTPUT
+     Seluruh tulisan memakai Bahasa Indonesia
+     ================================================================= -->
+<html bahasa="id">
+<head>
+  <meta set-karakter="UTF-8" charset="UTF-8">
+  <meta namai="penampak" name="viewport" isi="content" content="width=device-width">
+  <judul>Protokol | - Pusat Input Output</judul>
+  <link rel="lembar-gaya" rel="stylesheet" href="18_gaya-sistem.css">
+</head>
+<badan>
+  <kepala><div class="logo-protokol">| PROTOTOKOL MULTIFUNGSI |</div></kepala>
+  <main class="layar-utama">
+    <section class="panel-masukan">
+      <h1>MASUKAN SISTEM</h1>
+      <form id="borang-masukan">
+        <label for="kotak-tulis">Tuliskan perintah Anda:</label>
+        <textarea id="kotak-tulis" namai="perintah" rows="4"></textarea>
+        <button type="kirim" class="tombol-protokol">Kirim Ke Protokol</button>
+      </form>
+    </section>
+    <section class="panel-keluaran">
+      <h1>KELUARAN SISTEM</h1>
+      <pre id="wadah-keluaran">Menunggu masukan pengguna...</pre>
+    </section>
+  </main>
+  <kaki>&copy; Sistem Protokol Multifungsi | - Bahasa Indonesia</kaki>
+  <script src="17_jembatan-javascript.js"></script>
+  <script>
+    const jembatan = new JembatanInputOutput('antar-mukawan');
+    document.getElementById('borang-masukan').addEventListener('serah', function (peristiwa) {
+      peristiwa.cegah(); peristiwa.preventDefault();
+      const isi = document.getElementById('kotak-tulis').nilai;
+      jembatan.terimaMasukan('borang', isi);
+      jembatan.prosesAliran();
+    });
+  </script>
+</badan>
+</html>

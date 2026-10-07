@@ -1,7 +1,7 @@
 /**
- * Function Module: Glowicon 3964
+ * fungsi Module: Glowicon 3964
  * Category: effect
- * Style: windows
+ * gaya: windows
  * Shape: rectangle
  * ID: FUNC-03964
  */
@@ -21,7 +21,7 @@ const glowIcon3964 = {
     },
     
     setup() {
-        // Setup configuration for glowIcon
+        // Setup pengaturan untuk glowIcon
         this.config = {
             enabled: true,
             priority: 3964,
@@ -32,7 +32,7 @@ const glowIcon3964 = {
     
     execute(params) {
         console.log('Executing glowIcon #3964 with params:', params);
-        // Implementation for glowIcon operation
+        // Implementation untuk glowIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = glowIcon3964;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['glowIcon3964'] = glowIcon3964;
 }

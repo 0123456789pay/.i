@@ -27,10 +27,10 @@ def generate_css_links(file_path, base_path):
     
     links = []
     
-    # Base CSS files
+    # dasar CSS berkas-berkas
     base_prefix = '../' * depth if depth > 0 else ''
     
-    # Add global CSS
+    # Add nasional CSS
     links.append(f'    <link rel="stylesheet" href="{base_prefix}config.css">')
     links.append(f'    <link rel="stylesheet" href="{base_prefix}All.css">')
     
@@ -38,15 +38,15 @@ def generate_css_links(file_path, base_path):
     component_css = f'{base_prefix}components/Button.css'
     links.append(f'    <link rel="stylesheet" href="{component_css}">')
     
-    # Add specific CSS based on file name
+    # Add specific CSS based on berkas nama
     specific_css = f'{base_prefix}{file_name}.css'
     links.append(f'    <link rel="stylesheet" href="{specific_css}" id="page-specific-css">')
     
-    # Add CSS from css directory if exists
+    # Add CSS dari css direktori if exists
     if os.path.exists(os.path.join(base_path, 'css', f'{file_name}.css')):
         links.append(f'    <link rel="stylesheet" href="{base_prefix}css/{file_name}.css">')
     
-    # Add folder-specific CSS
+    # Add direktori-specific CSS
     if parent_dir and parent_dir != '.':
         folder_css = f'{base_prefix}{parent_dir}/style.css'
         links.append(f'    <link rel="stylesheet" href="{folder_css}" id="folder-style">')
@@ -63,22 +63,22 @@ def generate_js_links(file_path, base_path):
     links = []
     base_prefix = '../' * depth if depth > 0 else ''
     
-    # Base JS files
+    # dasar JS berkas-berkas
     links.append(f'    <script src="{base_prefix}config.js"></script>')
     links.append(f'    <script src="{base_prefix}All.js"></script>')
     
     # Add component JS
     links.append(f'    <script src="{base_prefix}components/Button.js"></script>')
     
-    # Add specific JS based on file name
+    # Add specific JS based on berkas nama
     specific_js = f'{base_prefix}{file_name}.js'
     links.append(f'    <script src="{specific_js}" id="page-specific-js"></script>')
     
-    # Add JS from js directory if exists
+    # Add JS dari js direktori if exists
     if os.path.exists(os.path.join(base_path, 'js', f'{file_name}.js')):
         links.append(f'    <script src="{base_prefix}js/{file_name}.js"></script>')
     
-    # Add AI engine if in ai folder
+    # Add AI engine if in ai direktori
     if 'ai' in parent_dir or 'aistudio' in parent_dir.lower():
         links.append(f'    <script src="{base_prefix}ai/aiengine.js"></script>')
     
@@ -1561,7 +1561,7 @@ def generate_additional_content(lines_needed):
     """Generate additional content to reach 5000 lines"""
     content = []
     
-    # Add extensive comments and documentation
+    # Add extensive comments dan documentation
     content.append("    <!--")
     content.append("    " + "=" * 78)
     content.append("    EXTENDED DOCUMENTATION AND COMMENTS")
@@ -1634,7 +1634,7 @@ def generate_additional_content(lines_needed):
     content.append("    " + "=" * 78)
     content.append("    -->")
     
-    # Add more filler content with detailed explanations
+    # Add more filler isi dengan detailed explanations
     while len(content) < lines_needed:
         content.append(f"    <!-- Line {len(content) + 1}: System operational parameter -->")
         content.append(f"    <!-- Configuration index: {len(content) * 7} -->")
@@ -1662,12 +1662,12 @@ def process_html_file(file_path, base_path):
     parent_dir = os.path.dirname(rel_path) or 'root'
     file_name = os.path.basename(file_path).replace('.html', '')
     
-    # Check if already has settings panel
+    # periksa if already has pengaturan panel
     if 'settings-overlay' in content and 'toggleSettings' in content:
         print(f"  ✓ Already processed: {rel_path}")
         return True
     
-    # Generate all components
+    # hasilkan semua components
     css_links = generate_css_links(file_path, base_path)
     js_links = generate_js_links(file_path, base_path)
     db_config = generate_db_config(file_path, base_path)
@@ -1682,7 +1682,7 @@ def process_html_file(file_path, base_path):
     body_close = content.rfind('</body>')
     
     if head_close == -1:
-        # No head tag, create basic structure
+        # No head tag, buat basic structure
         base_structure = f'''<!DOCTYPE html>
 <html lang="id">
 <head>
@@ -1716,11 +1716,11 @@ def process_html_file(file_path, base_path):
             print(f"  ✗ Error writing {file_path}: {e}")
             return False
     
-    # Insert CSS links before </head>
+    # sisip CSS tautan before </head>
     head_content = content[:head_close]
     head_content += f"\n    {css_links}\n    {css_styles}\n    {db_config}\n    {php_config}\n    {documentation}\n"
     
-    # Insert settings panel and JS before </body>
+    # sisip pengaturan panel dan JS before </body>
     if body_close != -1:
         body_content = content[head_close:body_close]
         footer_content = content[body_close:]
@@ -1731,11 +1731,11 @@ def process_html_file(file_path, base_path):
         new_content = head_content + "\n</head>\n<body>\n" + body_content
         new_content += f"\n    {settings_panel}\n    {js_links}\n    {js_code}\n</body>\n</html>"
     
-    # Check line count and add more if needed
+    # periksa line hitungan dan add more if needed
     lines = new_content.split('\n')
     if len(lines) < 5000:
         additional = generate_additional_content(5000 - len(lines))
-        # Insert before closing body tag
+        # sisip before closing body tag
         insert_pos = new_content.rfind('</body>')
         if insert_pos != -1:
             new_content = new_content[:insert_pos] + "\n" + additional + "\n" + new_content[insert_pos:]
@@ -1759,10 +1759,10 @@ def main():
     print("=" * 80)
     print()
     
-    # Find all HTML files
+    # Find semua HTML berkas-berkas
     html_files = []
     for root, dirs, files in os.walk(base_path):
-        # Skip hidden directories and common non-essential directories
+        # Skip hidden directories dan common non-essential directories
         dirs[:] = [d for d in dirs if not d.startswith('.') and d not in ['node_modules', '__pycache__', 'venv']]
         
         for file in files:
@@ -1785,7 +1785,7 @@ def main():
         else:
             error_count += 1
         
-        # Progress indicator every 100 files
+        # Progress indicator every 100 berkas-berkas
         if i % 100 == 0:
             print(f"\n>>> Progress: {i}/{total_files} files processed <<<\n")
     

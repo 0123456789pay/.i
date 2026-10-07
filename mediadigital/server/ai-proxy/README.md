@@ -1,31 +1,31 @@
-# AI Proxy Server
+# AI Proxy peladen
 
-This is a lightweight Node.js Express proxy for routing AI requests to multiple providers (OpenAI, Anthropic, Azure OpenAI, or a local model endpoint). It demonstrates secure API key usage via environment variables, basic quota handling, and an admin-controlled "unlimited" flag. THIS IS A REFERENCE IMPLEMENTATION — audit and secure before production.
+ini is a lightweight Node.js Express proxy untuk routing AI requests to multiple providers (OpenAI, Anthropic, Azure OpenAI, atau a local model endpoint). It demonstrates secure API kunci usage via environment variables, basic quota handling, dan an pengelola-controlled "tak terbatas" flag. ini IS A REFERENCE IMPLEMENTATION — audit dan secure before production.
 
 Requirements
 - Node.js 18+
 - npm install
 
-Environment variables (example):
+Environment variables (contoh):
 - OPENAI_API_KEY
 - ANTHROPIC_API_KEY
 - AZURE_OPENAI_API_KEY
 - AZURE_OPENAI_ENDPOINT
 - LOCAL_AI_ENDPOINT
-- ADMIN_SECRET - secret to protect admin endpoints
+- ADMIN_SECRET - rahasia to protect pengelola endpoints
 
 Usage
-1. Copy `.env` values into environment (do not commit secrets).
+1. Copy `.env` values into environment (do bukan commit secrets).
 2. npm install
-3. node index.js
+3. node indeks.js
 
 Endpoints
 - POST /api/ai/chat
-  Body: { provider, model, prompt }
-  Headers: x-user-id (optional) or Authorization: Bearer <token>
+  Body: { provider, model, sapa }
+  Headers: x-pengguna-id (optional) atau Authorization: Bearer <token>
 
-- POST /api/admin/unlimited
-  Body: { enable: true }
-  Header: x-admin-secret: <ADMIN_SECRET>
+- POST /api/pengelola/tak terbatas
+  Body: { enable: benar }
+  kepala: x-pengelola-rahasia: <ADMIN_SECRET>
 
-Note: This proxy DOES NOT implement production-level rate limiting or billing — you must add billing controls before enabling high-volume access.
+catatan: ini proxy DOES bukan implement production-level rate limiting atau billing — you must add billing controls before enabling high-volume access.

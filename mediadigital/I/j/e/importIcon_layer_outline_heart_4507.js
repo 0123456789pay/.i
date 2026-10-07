@@ -1,7 +1,7 @@
 /**
- * Function Module: Importicon 4507
+ * fungsi Module: Importicon 4507
  * Category: layer
- * Style: outline
+ * gaya: outline
  * Shape: heart
  * ID: FUNC-04507
  */
@@ -21,7 +21,7 @@ const importIcon4507 = {
     },
     
     setup() {
-        // Setup configuration for importIcon
+        // Setup pengaturan untuk importIcon
         this.config = {
             enabled: true,
             priority: 4507,
@@ -32,7 +32,7 @@ const importIcon4507 = {
     
     execute(params) {
         console.log('Executing importIcon #4507 with params:', params);
-        // Implementation for importIcon operation
+        // Implementation untuk importIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = importIcon4507;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['importIcon4507'] = importIcon4507;
 }

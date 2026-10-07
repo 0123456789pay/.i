@@ -1,4 +1,4 @@
-# ConfigProtokol Digital
+# ConfigProtokol digital
 
 Sistem Manajemen Protokol Keamanan Browser untuk mengaktifkan seluruh jenis protokol secure di browser menggunakan konfigurasi dari direktori GitHub.
 
@@ -6,44 +6,44 @@ Sistem Manajemen Protokol Keamanan Browser untuk mengaktifkan seluruh jenis prot
 
 ```
 configprotokol.digital/
-├── index.html              # Halaman utama (tampilan seperti media.digital tanpa footer)
+├── indeks.html              # Halaman utama (tampilan seperti media.digital tanpa kaki)
 ├── css/
-│   └── style.css          # Stylesheet utama
+│   └── gaya.css          # lembar gaya utama
 ├── js/
-│   └── main.js            # JavaScript untuk interaksi
-├── config/
+│   └── utama.js            # skrip-skrip-javascript untuk interaksi
+├── konfigurasi/
 │   └── master_config.json # Konfigurasi master JSON
 ├── db/
-│   └── config_database.sql # Schema database MySQL
+│   └── config_database.sql # Schema basis-data MySQL
 ├── bin/
-│   ├── secure_protocol.bin # File biner protokol keamanan
-│   └── browser_config.bin  # File biner konfigurasi browser
+│   ├── secure_protocol.bin # berkas biner protokol keamanan
+│   └── browser_config.bin  # berkas biner konfigurasi browser
 ├── regex/
 │   ├── security_patterns.regex    # Pattern regex keamanan
 │   └── protocol_validation.regex  # Pattern validasi protokol
 ├── formulas/
 │   └── activation_formula.cfg     # Formula aktivasi sistem
 └── includes/
-    └── protocol_handler.php       # Handler PHP untuk protokol
+    └── protocol_handler.php       # pengendali PHP untuk protokol
 ```
 
 ## 🔒 Protokol yang Didukung
 
 1. **HTTPS/TLS 1.3** - Enkripsi end-to-end
-2. **HSTS** - HTTP Strict Transport Security
-3. **CSP** - Content Security Policy
+2. **HSTS** - HTTP Strict Transport keamanan
+3. **CSP** - isi keamanan Policy
 4. **HTTP/2 & HTTP/3** - Protokol modern
-5. **WebAuthn** - Autentikasi tanpa password
+5. **WebAuthn** - Autentikasi tanpa sandian
 6. **DoH/DoT** - DNS over HTTPS/TLS
 
 ## 🚀 Cara Penggunaan
 
 ### 1. Akses Halaman Web
-Buka file `index.html` di browser modern untuk melihat antarmuka pengelolaan.
+Buka berkas `indeks.html` di browser modern untuk melihat antarmuka pengelolaan.
 
-### 2. Konfigurasi Database
+### 2. Konfigurasi basis-data
 ```bash
-mysql -u root -p < db/config_database.sql
+mysql -u akar -p < db/config_database.sql
 ```
 
 ### 3. Integrasi PHP
@@ -51,73 +51,73 @@ mysql -u root -p < db/config_database.sql
 <?php
 require_once 'includes/protocol_handler.php';
 
-use ConfigProtokol\Digital\ProtocolHandler;
+use ConfigProtokol\digital\ProtocolHandler;
 
-$handler = new ProtocolHandler();
-$status = $handler->getSystemStatus();
+$pengendali = baru ProtocolHandler();
+$status = $pengendali->getSystemStatus();
 print_r($status);
 ?>
 ```
 
 ### 4. Sinkronisasi GitHub
-Konfigurasi terhubung dengan repository GitHub untuk update otomatis:
-- URL: `https://github.com/configprotokol/digital`
-- Branch: `main`
-- Auto-sync: Setiap 3600 detik (1 jam)
+Konfigurasi terhubung dengan repository GitHub untuk perbarui otomatis:
+- pautan: `https://github.com/configprotokol/digital`
+- Branch: `utama`
+- otomatis-sync: Setiap 3600 detik (1 jam)
 
 ## 📊 Fitur Utama
 
 - ✅ Enkripsi End-to-End
-- ✅ Validasi Real-time
-- ✅ Update Otomatis dari GitHub
+- ✅ Validasi Real-waktu
+- ✅ perbarui Otomatis dari GitHub
 - ✅ Multi-Browser Support (Chrome, Firefox, Safari, Edge)
-- ✅ Security Headers Lengkap
+- ✅ keamanan Headers Lengkap
 - ✅ Regex Pattern Validation
 - ✅ Formula Aktivasi Dinamis
-- ✅ Database Logging & Audit Trail
+- ✅ basis-data Logging & Audit Trail
 
 ## 🔧 Konfigurasi
 
-Edit file `config/master_config.json` untuk menyesuaikan:
+Edit berkas `konfigurasi/master_config.json` untuk menyesuaikan:
 - Versi protokol minimum
 - Cipher suites yang diizinkan
-- Security headers
-- Browser compatibility settings
+- keamanan headers
+- Browser compatibility pengaturan
 - GitHub sync interval
 
 ## 📝 Formula Aktivasi
 
-File `formulas/activation_formula.cfg` berisi formula untuk:
+berkas `formulas/activation_formula.cfg` berisi formula untuk:
 - Aktivasi protokol berbasis skor
-- Perhitungan security score
+- Perhitungan keamanan score
 - Browser compatibility matrix
 - Risk assessment
-- Auto-update decision
+- otomatis-perbarui decision
 
 ## 🔍 Pattern Regex
 
-File regex menyediakan pattern untuk:
-- Validasi URL dan domain
+berkas regex menyediakan pattern untuk:
+- Validasi pautan dan domain
 - Deteksi protokol TLS/SSL
-- Security header validation
+- keamanan kepala validation
 - Certificate transparency
 - Attack detection patterns
 
-## 💾 File Biner
+## 💾 berkas Biner
 
-File `.bin` berisi:
+berkas `.bin` berisi:
 - Signature protokol keamanan
-- Binary configuration untuk browser
+- Binary pengaturan untuk browser
 - Executable flags untuk aktivasi
 
-## 🗄️ Database Schema
+## 🗄️ basis-data Schema
 
 Schema MySQL mencakup tabel:
 - `protocols` - Daftar protokol
-- `security_headers` - Header keamanan
+- `security_headers` - kepala keamanan
 - `browser_configs` - Konfigurasi browser
 - `github_sync` - Status sinkronisasi
-- `activation_logs` - Log aktivasi
+- `activation_logs` - catatan aktivasi
 - `regex_patterns` - Pattern regex
 - `formulas` - Formula sistem
 
@@ -125,21 +125,21 @@ Schema MySQL mencakup tabel:
 
 Untuk sinkronisasi dengan GitHub:
 
-```javascript
-// Di main.js sudah terdapat fungsi sync
+```skrip-skrip-javascript
+// Di utama.js sudah terdapat fungsi sync
 const githubSync = async () => {
-    const response = await fetch('https://api.github.com/repos/configprotokol/digital');
-    const data = await response.json();
-    console.log('Last update:', data.pushed_at);
+    const jawaban = await fetch('https://api.github.com/repos/configprotokol/digital');
+    const data = await jawaban.json();
+    konsol.catatan('terakhir perbarui:', data.pushed_at);
 };
 ```
 
-## 📈 Security Score Calculation
+## 📈 keamanan Score Calculation
 
-Security score dihitung dengan formula:
+keamanan score dihitung dengan formula:
 ```
-Total Score = (Protocol Score × 0.5) + (Header Score × 0.25) + 
-              (Certificate Score × 0.15) + (Configuration Score × 0.10)
+jumlah Score = (Protocol Score × 0.5) + (kepala Score × 0.25) + 
+              (Certificate Score × 0.15) + (pengaturan Score × 0.10)
 ```
 
 Grade:
@@ -159,7 +159,7 @@ Grade:
 
 ## 📄 License
 
-Open Source - MIT License
+buka Source - MIT License
 
 ## 👥 Kontribusi
 
@@ -167,8 +167,8 @@ Open Source - MIT License
 2. Buat branch fitur
 3. Commit perubahan
 4. Push ke branch
-5. Buat Pull Request
+5. Buat Pull permintaan
 
 ---
 
-**ConfigProtokol Digital** - Mengamankan browsing Anda dengan protokol terkini.
+**ConfigProtokol digital** - Mengamankan browsing Anda dengan protokol terkini.

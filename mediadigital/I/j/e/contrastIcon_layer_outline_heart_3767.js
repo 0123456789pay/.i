@@ -1,7 +1,7 @@
 /**
- * Function Module: Contrasticon 3767
+ * fungsi Module: Contrasticon 3767
  * Category: layer
- * Style: outline
+ * gaya: outline
  * Shape: heart
  * ID: FUNC-03767
  */
@@ -21,7 +21,7 @@ const contrastIcon3767 = {
     },
     
     setup() {
-        // Setup configuration for contrastIcon
+        // Setup pengaturan untuk contrastIcon
         this.config = {
             enabled: true,
             priority: 3767,
@@ -32,7 +32,7 @@ const contrastIcon3767 = {
     
     execute(params) {
         console.log('Executing contrastIcon #3767 with params:', params);
-        // Implementation for contrastIcon operation
+        // Implementation untuk contrastIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = contrastIcon3767;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['contrastIcon3767'] = contrastIcon3767;
 }

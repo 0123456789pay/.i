@@ -1,7 +1,7 @@
 /**
- * Function Module: Deleteicon 4152
+ * fungsi Module: Deleteicon 4152
  * Category: shape
- * Style: neumorphic
+ * gaya: neumorphic
  * Shape: minus
  * ID: FUNC-04152
  */
@@ -21,7 +21,7 @@ const deleteIcon4152 = {
     },
     
     setup() {
-        // Setup configuration for deleteIcon
+        // Setup pengaturan untuk deleteIcon
         this.config = {
             enabled: true,
             priority: 4152,
@@ -32,7 +32,7 @@ const deleteIcon4152 = {
     
     execute(params) {
         console.log('Executing deleteIcon #4152 with params:', params);
-        // Implementation for deleteIcon operation
+        // Implementation untuk deleteIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = deleteIcon4152;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['deleteIcon4152'] = deleteIcon4152;
 }

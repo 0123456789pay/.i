@@ -1,6 +1,6 @@
 /**
- * Icon Editor Module
- * Fitur utama untuk mengedit dan membuat icon
+ * ikon penyunting Module
+ * Fitur utama untuk mengedit dan membuat ikon
  */
 
 export class IconEditor {
@@ -284,7 +284,7 @@ export class IconEditor {
     this.history.push(this.canvas.toDataURL());
     this.historyIndex++;
     
-    // Limit history size
+    // Limit history ukuran
     if (this.history.length > 50) {
       this.history.shift();
       this.historyIndex--;

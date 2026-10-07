@@ -4,7 +4,7 @@ import re
 
 WORKSPACE = '/workspace'
 
-# Mapping CDN URLs tambahan ke file lokal
+# pemetaan CDN URLs tambahan ke berkas lokal
 ADDITIONAL_MAPPINGS = {
     'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css': '/assets/css/boxicons.css',
     'https://cdn.tailwindcss.com': '/assets/js/tailwind.js',

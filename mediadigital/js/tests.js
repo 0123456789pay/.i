@@ -1,9 +1,9 @@
 /**
- * Unit Tests for Media Digital Platform
- * Run with: node tests.js (requires Node.js) or include in HTML for browser testing
+ * Unit ujian untuk media digital landasan
+ * jalankan dengan: node ujian.js (requires Node.js) atau include in HTML untuk browser testing
  */
 
-// Mock localStorage for Node.js environment
+// Mock localStorage untuk Node.js environment
 if (typeof window === 'undefined') {
     global.localStorage = {
         store: {},
@@ -14,14 +14,14 @@ if (typeof window === 'undefined') {
     };
 }
 
-// Test results tracking
+// uji results tracking
 const testResults = {
     passed: 0,
     failed: 0,
     tests: []
 };
 
-// Test assertion helper
+// uji assertion helper
 function assert(condition, testName, expected, actual) {
     if (condition) {
         testResults.passed++;
@@ -42,12 +42,12 @@ function assert(condition, testName, expected, actual) {
 }
 
 // ============================================
-// TEST SUITE: Sanitizer
+// uji SUITE: Sanitizer
 // ============================================
 console.log('\n=== Running Sanitizer Tests ===\n');
 
 if (typeof Sanitizer !== 'undefined') {
-    // Test 1: Basic sanitization
+    // uji 1: Basic sanitization
     const input1 = '<script>alert("xss")</script>Hello';
     const result1 = Sanitizer.sanitize(input1);
     assert(
@@ -57,7 +57,7 @@ if (typeof Sanitizer !== 'undefined') {
         result1
     );
 
-    // Test 2: HTML entity encoding
+    // uji 2: HTML entity encoding
     const input2 = '<div onclick="evil()">Click</div>';
     const result2 = Sanitizer.sanitize(input2);
     assert(
@@ -67,7 +67,7 @@ if (typeof Sanitizer !== 'undefined') {
         result2
     );
 
-    // Test 3: JavaScript protocol removal
+    // uji 3: skrip-skrip-javascript protocol removal
     const input3 = 'javascript:alert(1)';
     const result3 = Sanitizer.sanitize(input3);
     assert(
@@ -77,7 +77,7 @@ if (typeof Sanitizer !== 'undefined') {
         result3
     );
 
-    // Test 4: Object sanitization
+    // uji 4: Object sanitization
     const objInput = { name: '<b>John</b>', age: 25 };
     const objResult = Sanitizer.sanitizeObject(objInput);
     assert(
@@ -87,7 +87,7 @@ if (typeof Sanitizer !== 'undefined') {
         JSON.stringify(objResult)
     );
 
-    // Test 5: Null/undefined handling
+    // uji 5: Null/undefined handling
     assert(
         Sanitizer.sanitize(null) === '' && Sanitizer.sanitize(undefined) === '',
         'Sanitizer handles null/undefined',
@@ -99,12 +99,12 @@ if (typeof Sanitizer !== 'undefined') {
 }
 
 // ============================================
-// TEST SUITE: Validator
+// uji SUITE: Validator
 // ============================================
 console.log('\n=== Running Validator Tests ===\n');
 
 if (typeof Validator !== 'undefined') {
-    // Test 6: Valid email
+    // uji 6: Valid sur-el
     assert(
         Validator.isValidEmail('test@example.com') === true,
         'Validator accepts valid email',
@@ -112,7 +112,7 @@ if (typeof Validator !== 'undefined') {
         Validator.isValidEmail('test@example.com')
     );
 
-    // Test 7: Invalid email - no @
+    // uji 7: Invalid sur-el - no @
     assert(
         Validator.isValidEmail('invalid.email') === false,
         'Validator rejects email without @',
@@ -120,7 +120,7 @@ if (typeof Validator !== 'undefined') {
         Validator.isValidEmail('invalid.email')
     );
 
-    // Test 8: Invalid email - no domain
+    // uji 8: Invalid sur-el - no domain
     assert(
         Validator.isValidEmail('test@') === false,
         'Validator rejects email without domain',
@@ -128,7 +128,7 @@ if (typeof Validator !== 'undefined') {
         Validator.isValidEmail('test@')
     );
 
-    // Test 9: Empty email
+    // uji 9: Empty sur-el
     assert(
         Validator.isValidEmail('') === false,
         'Validator rejects empty email',
@@ -136,7 +136,7 @@ if (typeof Validator !== 'undefined') {
         Validator.isValidEmail('')
     );
 
-    // Test 10: Valid password
+    // uji 10: Valid sandian
     const passResult = Validator.isValidPassword('SecurePass123');
     assert(
         passResult.valid === true && passResult.errors.length === 0,
@@ -145,7 +145,7 @@ if (typeof Validator !== 'undefined') {
         JSON.stringify(passResult)
     );
 
-    // Test 11: Weak password - too short
+    // uji 11: Weak sandian - too short
     const weakPass = Validator.isValidPassword('Ab1');
     assert(
         weakPass.valid === false,
@@ -154,7 +154,7 @@ if (typeof Validator !== 'undefined') {
         JSON.stringify(weakPass)
     );
 
-    // Test 12: Password without number
+    // uji 12: sandian without angka
     const noNumPass = Validator.isValidPassword('NoNumbers');
     assert(
         noNumPass.valid === false && noNumPass.errors.some(e => e.includes('angka')),
@@ -163,7 +163,7 @@ if (typeof Validator !== 'undefined') {
         JSON.stringify(noNumPass.errors)
     );
 
-    // Test 13: Required fields validation
+    // uji 13: Required fields validation
     const requiredTest = Validator.validateRequired({ name: 'John', email: '', age: 0 });
     assert(
         requiredTest.valid === false && requiredTest.missingFields.includes('email'),
@@ -172,7 +172,7 @@ if (typeof Validator !== 'undefined') {
         JSON.stringify(requiredTest)
     );
 
-    // Test 14: All required fields present
+    // uji 14: semua required fields present
     const allPresent = Validator.validateRequired({ name: 'John', email: 'j@test.com' });
     assert(
         allPresent.valid === true && allPresent.missingFields.length === 0,
@@ -185,15 +185,15 @@ if (typeof Validator !== 'undefined') {
 }
 
 // ============================================
-// TEST SUITE: SessionManager
+// uji SUITE: SessionManager
 // ============================================
 console.log('\n=== Running SessionManager Tests ===\n');
 
 if (typeof SessionManager !== 'undefined') {
-    // Clear localStorage before tests
+    // Clear localStorage before ujian
     localStorage.clear();
 
-    // Test 15: Start session
+    // uji 15: mulai sesi
     SessionManager.startSession();
     const sessionStart = SessionManager.getSessionStart();
     assert(
@@ -203,7 +203,7 @@ if (typeof SessionManager !== 'undefined') {
         sessionStart
     );
 
-    // Test 16: Session not expired immediately
+    // uji 16: sesi bukan expired immediately
     assert(
         SessionManager.isSessionExpired() === false,
         'New session is not expired',
@@ -211,7 +211,7 @@ if (typeof SessionManager !== 'undefined') {
         SessionManager.isSessionExpired()
     );
 
-    // Test 17: Refresh session
+    // uji 17: Refresh sesi
     const oldTimestamp = SessionManager.getSessionStart();
     SessionManager.refreshSession();
     const newTimestamp = SessionManager.getSessionStart();
@@ -222,7 +222,7 @@ if (typeof SessionManager !== 'undefined') {
         `${oldTimestamp} -> ${newTimestamp}`
     );
 
-    // Test 18: End session
+    // uji 18: End sesi
     SessionManager.endSession();
     assert(
         SessionManager.getSessionStart() === null,
@@ -231,7 +231,7 @@ if (typeof SessionManager !== 'undefined') {
         SessionManager.getSessionStart()
     );
 
-    // Test 19: Expired session detection (mock time)
+    // uji 19: Expired sesi detection (mock waktu)
     localStorage.setItem('sessionStart', (Date.now() - 31 * 60 * 1000).toString()); // 31 minutes ago
     assert(
         SessionManager.isSessionExpired() === true,
@@ -244,14 +244,14 @@ if (typeof SessionManager !== 'undefined') {
 }
 
 // ============================================
-// TEST SUITE: CSRFManager
+// uji SUITE: CSRFManager
 // ============================================
 console.log('\n=== Running CSRFManager Tests ===\n');
 
 if (typeof CSRFManager !== 'undefined') {
     localStorage.clear();
 
-    // Test 20: Generate token
+    // uji 20: hasilkan token
     const token1 = CSRFManager.generateToken();
     assert(
         typeof token1 === 'string' && token1.length > 32,
@@ -260,7 +260,7 @@ if (typeof CSRFManager !== 'undefined') {
         `${token1.length} chars`
     );
 
-    // Test 21: Get token creates if not exists
+    // uji 21: Get token creates if bukan exists
     localStorage.clear();
     const token2 = CSRFManager.getToken();
     assert(
@@ -270,7 +270,7 @@ if (typeof CSRFManager !== 'undefined') {
         token2
     );
 
-    // Test 22: Token persistence
+    // uji 22: Token persistence
     const token3 = CSRFManager.getToken();
     assert(
         token2 === token3,
@@ -279,7 +279,7 @@ if (typeof CSRFManager !== 'undefined') {
         `${token2} === ${token3}`
     );
 
-    // Test 23: Validate token
+    // uji 23: sahkan token
     assert(
         CSRFManager.validateToken(token2) === true,
         'CSRFManager validates correct token',
@@ -287,7 +287,7 @@ if (typeof CSRFManager !== 'undefined') {
         CSRFManager.validateToken(token2)
     );
 
-    // Test 24: Reject invalid token
+    // uji 24: Reject invalid token
     assert(
         CSRFManager.validateToken('invalid-token') === false,
         'CSRFManager rejects invalid token',
@@ -299,11 +299,11 @@ if (typeof CSRFManager !== 'undefined') {
 }
 
 // ============================================
-// TEST SUITE: Utility Functions
+// uji SUITE: Utility Functions
 // ============================================
 console.log('\n=== Running Utility Function Tests ===\n');
 
-// Test 25: simpleHash consistency
+// uji 25: simpleHash consistency
 if (typeof simpleHash !== 'undefined') {
     const hash1 = simpleHash('password123');
     const hash2 = simpleHash('password123');
@@ -314,7 +314,7 @@ if (typeof simpleHash !== 'undefined') {
         hash2
     );
 
-    // Test 26: Different inputs produce different hashes
+    // uji 26: Different inputs produce different hashes
     const hash3 = simpleHash('password456');
     assert(
         hash1 !== hash3,
@@ -326,7 +326,7 @@ if (typeof simpleHash !== 'undefined') {
     console.warn('⚠️ simpleHash function not loaded - skipping tests');
 }
 
-// Test 27: debounce execution
+// uji 27: debounce execution
 if (typeof debounce !== 'undefined') {
     let callCount = 0;
     const debouncedFn = debounce(() => callCount++, 50);
@@ -343,7 +343,7 @@ if (typeof debounce !== 'undefined') {
         callCount
     );
     
-    // Wait for debounce to complete
+    // tunggu untuk debounce to complete
     setTimeout(() => {
         assert(
             callCount === 1,
@@ -358,7 +358,7 @@ if (typeof debounce !== 'undefined') {
     printTestSummary();
 }
 
-// Print test summary
+// Print uji summary
 function printTestSummary() {
     console.log('\n========================================');
     console.log('           TEST SUMMARY');
@@ -382,7 +382,7 @@ function printTestSummary() {
     }
 }
 
-// Export for module systems
+// Export untuk module systems
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { testResults, assert };
 }

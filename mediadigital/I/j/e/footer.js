@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Footer Module
- * Handles footer components and links
+ * ALLUNIVERS ICONER - kaki Module
+ * Handles kaki components dan tautan
  */
 
 class IconerFooter {
@@ -64,7 +64,7 @@ class IconerFooter {
     }
 }
 
-// Auto-initialize
+// otomatis-mulai
 if (typeof window !== 'undefined') {
     window.IconerFooter = new IconerFooter();
 }

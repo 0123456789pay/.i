@@ -1,7 +1,7 @@
 /**
- * Function Module: Debugicon 3550
+ * fungsi Module: Debugicon 3550
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-03550
  */
@@ -21,7 +21,7 @@ const debugIcon3550 = {
     },
     
     setup() {
-        // Setup configuration for debugIcon
+        // Setup pengaturan untuk debugIcon
         this.config = {
             enabled: true,
             priority: 3550,
@@ -32,7 +32,7 @@ const debugIcon3550 = {
     
     execute(params) {
         console.log('Executing debugIcon #3550 with params:', params);
-        // Implementation for debugIcon operation
+        // Implementation untuk debugIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = debugIcon3550;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['debugIcon3550'] = debugIcon3550;
 }

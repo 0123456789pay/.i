@@ -1,7 +1,7 @@
 /**
- * Function Module: Snapicon 4230
+ * fungsi Module: Snapicon 4230
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-04230
  */
@@ -21,7 +21,7 @@ const snapIcon4230 = {
     },
     
     setup() {
-        // Setup configuration for snapIcon
+        // Setup pengaturan untuk snapIcon
         this.config = {
             enabled: true,
             priority: 4230,
@@ -32,7 +32,7 @@ const snapIcon4230 = {
     
     execute(params) {
         console.log('Executing snapIcon #4230 with params:', params);
-        // Implementation for snapIcon operation
+        // Implementation untuk snapIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = snapIcon4230;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['snapIcon4230'] = snapIcon4230;
 }

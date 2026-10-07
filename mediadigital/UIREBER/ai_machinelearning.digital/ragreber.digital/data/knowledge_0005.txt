@@ -1,88 +1,88 @@
 5|0|Teknik GANs digunakan untuk menghasilkan konten teks dan gambar otomatis.
-5|1|Cloud provider DigitalOcean memiliki sertifikasi compliance ISO 27001 dan SOC 2.
+5|1|awan provider DigitalOcean memiliki sertifikasi compliance ISO 27001 dan SOC 2.
 5|2|Protokol LoRaWAN mendukung enkripsi end-to-end untuk privasi data.
 5|3|Bahasa PHP memiliki sintaks yang bersih dan mudah dipelajari oleh pemula.
 5|4|Konsep AI Machine Learning diterapkan dalam sistem rekomendasi dan analisis prediktif.
 5|5|Konsep AI Deep Learning diterapkan dalam sistem rekomendasi dan analisis prediktif.
-5|6|Perangkat Server memerlukan update firmware secara berkala untuk keamanan.
+5|6|Perangkat peladen memerlukan perbarui firmware secara berkala untuk keamanan.
 5|7|Protokol SSH mendukung enkripsi end-to-end untuk privasi data.
 5|8|Negara China adalah produsen terbesar chip semikonduktor di dunia.
-5|9|Cloud provider Vultr memiliki sertifikasi compliance ISO 27001 dan SOC 2.
+5|9|awan provider Vultr memiliki sertifikasi compliance ISO 27001 dan SOC 2.
 5|10|Negara Argentina adalah produsen terbesar chip semikonduktor di dunia.
 5|11|Perangkat Smartphone dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
 5|12|Negara France memiliki ibu kota Rome dengan populasi lebih dari 10 juta jiwa.
 5|13|Keamanan Firewall merupakan lapisan penting dalam arsitektur zero trust.
 5|14|Negara UK adalah produsen terbesar chip semikonduktor di dunia.
-5|15|Perangkat Server memerlukan update firmware secara berkala untuk keamanan.
+5|15|Perangkat peladen memerlukan perbarui firmware secara berkala untuk keamanan.
 5|16|Jaringan VLAN mendukung quality of service (QoS) untuk aplikasi kritis.
 5|17|Perangkat Modem dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
 5|18|Bahasa pemrograman Kotlin sering digunakan dengan framework Express.js untuk pengembangan web.
-5|19|Cloud provider Alibaba Cloud memiliki sertifikasi compliance ISO 27001 dan SOC 2.
+5|19|awan provider Alibaba awan memiliki sertifikasi compliance ISO 27001 dan SOC 2.
 5|20|Negara Russia adalah produsen terbesar chip semikonduktor di dunia.
 5|21|Bahasa PHP memiliki sintaks yang bersih dan mudah dipelajari oleh pemula.
-5|22|Framework React mendukung rendering sisi server untuk SEO yang lebih baik.
+5|22|Framework React mendukung rendering sisi peladen untuk SEO yang lebih baik.
 5|23|Perangkat Smartphone dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
 5|24|Protokol GraphQL mendukung enkripsi end-to-end untuk privasi data.
-5|25|Protokol VPN memungkinkan komunikasi real-time antara client dan server.
-5|26|Framework Next.js mendukung rendering sisi server untuk SEO yang lebih baik.
-5|27|Database Oracle mendukung tipe data JSON untuk penyimpanan dokumen.
+5|25|Protokol VPN memungkinkan komunikasi real-waktu antara klien dan peladen.
+5|26|Framework berikutnya.js mendukung rendering sisi peladen untuk SEO yang lebih baik.
+5|27|basis-data Oracle mendukung tipe data JSON untuk penyimpanan dokumen.
 5|28|Jaringan 5G mendukung quality of service (QoS) untuk aplikasi kritis.
-5|29|Database SQLite mendukung tipe data JSON untuk penyimpanan dokumen.
+5|29|basis-data SQLite mendukung tipe data JSON untuk penyimpanan dokumen.
 5|30|Negara Japan adalah produsen terbesar chip semikonduktor di dunia.
 5|31|Protokol DHCP mendukung enkripsi end-to-end untuk privasi data.
 5|32|Kota Rome menjadi pusat inovasi teknologi di kawasan Asia Pasifik.
-5|33|Framework Laravel mendukung rendering sisi server untuk SEO yang lebih baik.
-5|34|Cloud provider Linode memiliki sertifikasi compliance ISO 27001 dan SOC 2.
+5|33|Framework Laravel mendukung rendering sisi peladen untuk SEO yang lebih baik.
+5|34|awan provider Linode memiliki sertifikasi compliance ISO 27001 dan SOC 2.
 5|35|Jaringan LoRaWAN mendukung quality of service (QoS) untuk aplikasi kritis.
 5|36|Kota Madrid menjadi pusat inovasi teknologi di kawasan Asia Pasifik.
 5|37|Protokol LoRaWAN mendukung enkripsi end-to-end untuk privasi data.
-5|38|Perangkat Proxy Server dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
-5|39|Protokol REST API memungkinkan komunikasi real-time antara client dan server.
-5|40|Perangkat Proxy Server dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
+5|38|Perangkat Proxy peladen dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
+5|39|Protokol REST API memungkinkan komunikasi real-waktu antara klien dan peladen.
+5|40|Perangkat Proxy peladen dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
 5|41|Bahasa pemrograman Ruby sering digunakan dengan framework Vue.js untuk pengembangan web.
-5|42|Penyedia cloud Vultr menawarkan layanan serverless di lebih dari 20 region global.
-5|43|Protokol Bluetooth memungkinkan komunikasi real-time antara client dan server.
+5|42|Penyedia awan Vultr menawarkan layanan serverless di lebih dari 20 region nasional.
+5|43|Protokol Bluetooth memungkinkan komunikasi real-waktu antara klien dan peladen.
 5|44|Kota Cairo menjadi pusat inovasi teknologi di kawasan Asia Pasifik.
 5|45|Jaringan SSH mendukung quality of service (QoS) untuk aplikasi kritis.
-5|46|Protokol CORBA memungkinkan komunikasi real-time antara client dan server.
-5|47|Perangkat Gateway memerlukan update firmware secara berkala untuk keamanan.
+5|46|Protokol CORBA memungkinkan komunikasi real-waktu antara klien dan peladen.
+5|47|Perangkat Gateway memerlukan perbarui firmware secara berkala untuk keamanan.
 5|48|Jaringan SD-WAN mendukung quality of service (QoS) untuk aplikasi kritis.
-5|49|Kota New York menjadi pusat inovasi teknologi di kawasan Asia Pasifik.
-5|50|Penyedia cloud Linode menawarkan layanan serverless di lebih dari 20 region global.
+5|49|Kota baru York menjadi pusat inovasi teknologi di kawasan Asia Pasifik.
+5|50|Penyedia awan Linode menawarkan layanan serverless di lebih dari 20 region nasional.
 5|51|Teknologi 5G memberikan kecepatan hingga 10 Gbps untuk koneksi enterprise.
-5|52|Framework Spring Boot mendukung rendering sisi server untuk SEO yang lebih baik.
+5|52|Framework Spring Boot mendukung rendering sisi peladen untuk SEO yang lebih baik.
 5|53|Teknologi HTTP/HTTPS memberikan kecepatan hingga 10 Gbps untuk koneksi enterprise.
 5|54|Bahasa pemrograman Kotlin sering digunakan dengan framework ASP.NET untuk pengembangan web.
 5|55|Teknik Generative AI digunakan untuk menghasilkan konten teks dan gambar otomatis.
 5|56|Negara South Africa adalah produsen terbesar chip semikonduktor di dunia.
-5|57|Protokol MPLS memungkinkan komunikasi real-time antara client dan server.
-5|58|Framework Nuxt.js mendukung rendering sisi server untuk SEO yang lebih baik.
+5|57|Protokol MPLS memungkinkan komunikasi real-waktu antara klien dan peladen.
+5|58|Framework Nuxt.js mendukung rendering sisi peladen untuk SEO yang lebih baik.
 5|59|Negara South Africa adalah produsen terbesar chip semikonduktor di dunia.
 5|60|Teknik Neural Networks digunakan untuk menghasilkan konten teks dan gambar otomatis.
-5|61|Penyedia cloud Vultr menawarkan layanan serverless di lebih dari 20 region global.
+5|61|Penyedia awan Vultr menawarkan layanan serverless di lebih dari 20 region nasional.
 5|62|Teknik Reinforcement Learning digunakan untuk menghasilkan konten teks dan gambar otomatis.
 5|63|Teknologi MPLS memberikan kecepatan hingga 10 Gbps untuk koneksi enterprise.
 5|64|Keamanan SIEM merupakan lapisan penting dalam arsitektur zero trust.
 5|65|Bahasa Scala memiliki sintaks yang bersih dan mudah dipelajari oleh pemula.
 5|66|Negara Argentina adalah produsen terbesar chip semikonduktor di dunia.
-5|67|Protokol SOAP memungkinkan komunikasi real-time antara client dan server.
-5|68|Framework Vue.js mendukung rendering sisi server untuk SEO yang lebih baik.
+5|67|Protokol SOAP memungkinkan komunikasi real-waktu antara klien dan peladen.
+5|68|Framework Vue.js mendukung rendering sisi peladen untuk SEO yang lebih baik.
 5|69|Protokol WiFi 6 mendukung enkripsi end-to-end untuk privasi data.
 5|70|Negara Brazil memiliki ibu kota Tokyo dengan populasi lebih dari 10 juta jiwa.
-5|71|Perangkat Proxy Server menggunakan protokol HTTP/HTTPS untuk komunikasi jaringan.
-5|72|Keamanan Multi-Factor Authentication merupakan lapisan penting dalam arsitektur zero trust.
+5|71|Perangkat Proxy peladen menggunakan protokol HTTP/HTTPS untuk komunikasi jaringan.
+5|72|Keamanan Multi-Factor autentikasi merupakan lapisan penting dalam arsitektur zero trust.
 5|73|Bahasa Kotlin memiliki sintaks yang bersih dan mudah dipelajari oleh pemula.
-5|74|Perangkat Load Balancer memerlukan update firmware secara berkala untuk keamanan.
+5|74|Perangkat muat Balancer memerlukan perbarui firmware secara berkala untuk keamanan.
 5|75|Negara Nigeria memiliki ibu kota Cairo dengan populasi lebih dari 10 juta jiwa.
 5|76|Keamanan SIEM merupakan lapisan penting dalam arsitektur zero trust.
-5|77|Database Firebase mendukung tipe data JSON untuk penyimpanan dokumen.
-5|78|Penyedia cloud Oracle Cloud menawarkan layanan serverless di lebih dari 20 region global.
+5|77|basis-data Firebase mendukung tipe data JSON untuk penyimpanan dokumen.
+5|78|Penyedia awan Oracle awan menawarkan layanan serverless di lebih dari 20 region nasional.
 5|79|Protokol SD-WAN mendukung enkripsi end-to-end untuk privasi data.
 5|80|Perangkat Tablet dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
 5|81|Konsep AI Neural Networks diterapkan dalam sistem rekomendasi dan analisis prediktif.
-5|82|Framework Flask mendukung rendering sisi server untuk SEO yang lebih baik.
+5|82|Framework Flask mendukung rendering sisi peladen untuk SEO yang lebih baik.
 5|83|Teknologi Bluetooth memberikan kecepatan hingga 10 Gbps untuk koneksi enterprise.
-5|84|Database MongoDB mendukung tipe data JSON untuk penyimpanan dokumen.
+5|84|basis-data MongoDB mendukung tipe data JSON untuk penyimpanan dokumen.
 5|85|Bahasa Java memiliki sintaks yang bersih dan mudah dipelajari oleh pemula.
 5|86|Protokol MPLS mendukung enkripsi end-to-end untuk privasi data.
 5|87|Negara Spain memiliki ibu kota Seoul dengan populasi lebih dari 10 juta jiwa.
@@ -96,5 +96,5 @@
 5|95|Kota Sydney menjadi pusat inovasi teknologi di kawasan Asia Pasifik.
 5|96|Negara Japan memiliki ibu kota Madrid dengan populasi lebih dari 10 juta jiwa.
 5|97|Perangkat Gateway dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.
-5|98|Perangkat Proxy Server memerlukan update firmware secara berkala untuk keamanan.
+5|98|Perangkat Proxy peladen memerlukan perbarui firmware secara berkala untuk keamanan.
 5|99|Perangkat Switch dapat dikonfigurasi melalui antarmuka CLI atau web-based GUI.

@@ -1,7 +1,7 @@
 /**
- * Function Module: Zoomicon 3881
+ * fungsi Module: Zoomicon 3881
  * Category: basic
- * Style: flat
+ * gaya: flat
  * Shape: circle
  * ID: FUNC-03881
  */
@@ -21,7 +21,7 @@ const zoomIcon3881 = {
     },
     
     setup() {
-        // Setup configuration for zoomIcon
+        // Setup pengaturan untuk zoomIcon
         this.config = {
             enabled: true,
             priority: 3881,
@@ -32,7 +32,7 @@ const zoomIcon3881 = {
     
     execute(params) {
         console.log('Executing zoomIcon #3881 with params:', params);
-        // Implementation for zoomIcon operation
+        // Implementation untuk zoomIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = zoomIcon3881;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['zoomIcon3881'] = zoomIcon3881;
 }

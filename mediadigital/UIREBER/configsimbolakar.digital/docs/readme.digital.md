@@ -1,14 +1,14 @@
-# Simbol Akar Digital - Dokumentasi
+# Simbol Akar digital - Dokumentasi
 
 ## 📋 Ringkasan Sistem
 
-Sistem **Simbol Akar Digital** adalah konfigurasi lengkap untuk mengaktifkan simbol akar (√) di browser dengan menggunakan biner, regex, dan rumus matematika.
+Sistem **Simbol Akar digital** adalah konfigurasi lengkap untuk mengaktifkan simbol akar (√) di browser dengan menggunakan biner, regex, dan rumus matematika.
 
 ## 🏗️ Struktur Direktori
 
 ```
 configsimbolakar.digital/
-├── index.digital.html          # Halaman utama (tanpa footer)
+├── indeks.digital.html          # Halaman utama (tanpa kaki)
 ├── core/                       # Inti sistem
 ├── symbols/                    # Registry simbol
 ├── regex/                      # Pola regex
@@ -16,17 +16,17 @@ configsimbolakar.digital/
 ├── secure/                     # Konfigurasi keamanan
 ├── assets/
 │   ├── css/
-│   │   └── style.digital.css   # Styling digital
+│   │   └── gaya.digital.css   # Styling digital
 │   ├── js/
 │   │   └── app.digital.js      # Logika aplikasi
-│   └── images/                 # Aset gambar
+│   └── gambar/                 # Aset gambar
 ├── docs/
-│   ├── config.digital.json     # Konfigurasi JSON
+│   ├── konfigurasi.digital.json     # Konfigurasi JSON
 │   ├── readme.digital.md       # Dokumentasi ini
 │   └── api.digital.txt         # Dokumentasi API
-├── db/                         # Database
-└── config/
-    └── system.digital.php      # Konfigurasi PHP
+├── db/                         # basis-data
+└── konfigurasi/
+    └── sistem.digital.php      # Konfigurasi PHP
 ```
 
 ## 🔧 Fitur Utama
@@ -42,8 +42,8 @@ Activation Code: 10101000 01010101 00101010
 ```
 
 ### 3. Regex Patterns
-- Root Symbol: `/^\u221A|sqrt|akar|root$/i`
-- Decimal Number: `/[0-9]+\.[0-9]+/g`
+- akar Symbol: `/^\u221A|sqrt|akar|akar$/i`
+- Decimal angka: `/[0-9]+\.[0-9]+/g`
 - Math Symbols: `/[√∛∜∑∏∫]/g`
 
 ### 4. Formula Matematika
@@ -56,52 +56,52 @@ Activation Code: 10101000 01010101 00101010
 Sistem menggunakan:
 - Enkripsi AES-256
 - Hash SHA-256
-- Session management
+- sesi pengelolaan
 - Secure headers
 
-## 📄 Ekstensi File
+## 📄 Ekstensi berkas
 
-Semua file menggunakan ekstensi `.digital`:
+Semua berkas menggunakan ekstensi `.digital`:
 - `.digital.html` - HTML
 - `.digital.css` - CSS
-- `.digital.js` - JavaScript
+- `.digital.js` - skrip-skrip-javascript
 - `.digital.php` - PHP
 - `.digital.json` - JSON
 - `.digital.md` - Markdown
-- `.digital.txt` - Text
-- `.digital.db` - Database
+- `.digital.txt` - teks
+- `.digital.db` - basis-data
 
 ## 🚀 Cara Menggunakan
 
-1. Buka `index.digital.html` di browser
+1. Buka `indeks.digital.html` di browser
 2. Sistem akan otomatis mengaktifkan simbol akar
 3. Klik pada simbol untuk menyalin ke clipboard
-4. Akses API melalui parameter `?api=config`
+4. Akses API melalui parameter `?api=konfigurasi`
 
 ## 📡 API Endpoints
 
 ```
-GET /config/system.digital.php?api=config   - Konfigurasi lengkap
-GET /config/system.digital.php?api=symbol   - Simbol akar
-GET /config/system.digital.php?api=binary   - Kode biner
-GET /config/system.digital.php?api=secure   - Status keamanan
+GET /konfigurasi/sistem.digital.php?api=konfigurasi   - Konfigurasi lengkap
+GET /konfigurasi/sistem.digital.php?api=symbol   - Simbol akar
+GET /konfigurasi/sistem.digital.php?api=binary   - Kode biner
+GET /konfigurasi/sistem.digital.php?api=secure   - Status keamanan
 ```
 
 ## 🎨 Tampilan
 
 Tampilan mengikuti gaya **media.digital**:
-- Header sticky dengan navigasi
-- Hero section dengan simbol besar
-- Grid layout untuk konten
+- kepala sticky dengan navigasi
+- Hero bagian dengan simbol besar
+- Grid tata letak untuk konten
 - Animasi smooth
 - Responsive design
-- **Tanpa footer** (sesuai permintaan)
+- **Tanpa kaki** (sesuai permintaan)
 
 ## 🔐 Mode Aman
 
 Sistem dilengkapi dengan mode secure yang:
 - Mengenkripsi data sensitif
-- Memvalidasi session
+- Memvalidasi sesi
 - Menggunakan token unik
 - Logging aktivitas
 

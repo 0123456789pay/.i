@@ -1,17 +1,17 @@
-# Laporan Penggabungan Folder IHBSF
+# Laporan Penggabungan direktori IHBSF
 
-Folder **B, F, H, S** telah digabungkan ke dalam folder **I**.
+direktori **B, F, H, S** telah digabungkan ke dalam direktori **I**.
 
 - Struktur tujuan: `I/l/e/` (HTML), `I/c/` + `I/c/e/` (CSS), `I/j/` + `I/j/e/` (JS)
-- File HTML digabung (baru dipindahkan): **1613**
-- File CSS dipindahkan: **58**
-- File JS dipindahkan: **1242**
-- File duplikat dengan nama sama tetapi isi berbeda diarsipkan ke `I/_arsip/<huruf>/`: **373**
+- berkas HTML digabung (baru dipindahkan): **1613**
+- berkas CSS dipindahkan: **58**
+- berkas JS dipindahkan: **1242**
+- berkas duplikat dengan nama sama tetapi isi berbeda diarsipkan ke `I/_arsip/<huruf>/`: **373**
 
-## Daftar file yang diarsipkan (konflik nama)
+## Daftar berkas yang diarsipkan (konflik nama)
 
 - a-b-testing.html
-- about.html
+- tentang.html
 - aistudio.html
 - analytics.html
 - appbrowser.html
@@ -37,7 +37,7 @@ Folder **B, F, H, S** telah digabungkan ke dalam folder **I**.
 - automation.html
 - backup.html
 - bookmarks.html
-- dashboard.html
+- papan-bilas.html
 - detail.html
 - digital.html
 - digital_1.html
@@ -45,8 +45,8 @@ Folder **B, F, H, S** telah digabungkan ke dalam folder **I**.
 - digital_3.html
 - digital_4.html
 - diy.html
-- dns-management.html
-- download.html
+- dns-pengelolaan.html
+- unduh.html
 - extensions.html
 - favorites.html
 - filemanajer.html
@@ -361,7 +361,7 @@ Folder **B, F, H, S** telah digabungkan ke dalam folder **I**.
 - kesehatan.html
 - kontak.html
 - lifestyle.html
-- login.html
+- masuk.html
 - login_1.html
 - login_2.html
 - notifications.html
@@ -371,21 +371,21 @@ Folder **B, F, H, S** telah digabungkan ke dalam folder **I**.
 - overview_2.html
 - overview_3.html
 - promo.html
-- register.html
+- daftar.html
 - register_1.html
 - register_2.html
 - reports.html
-- settings.html
+- pengaturan.html
 - stories.html
 - support.html
 - teknologi.html
 - templates.html
 - trending.html
-- upload.html
+- unggah.html
 - video.html
 
-## Catatan index
+## Catatan indeks
 
-- `I/index.html` = halaman utama gabungan (lama milik I disimpan sebagai `I/l/e/index_backup.html`).
-- Index lama tiap folder disimpan sebagai: `index_B.html`, `index_F.html`, `index_H.html`, `index_S.html` di `I/l/e/`.
-- Versi `ihbsf.css`, `ihbsf-config.js`, dan `index.js` dari B/F/H/S yang isinya berbeda diarsipkan di `I/_arsip/<huruf>/`.
+- `I/indeks.html` = halaman utama gabungan (lama milik I disimpan sebagai `I/l/e/index_backup.html`).
+- indeks lama tiap direktori disimpan sebagai: `index_B.html`, `index_F.html`, `index_H.html`, `index_S.html` di `I/l/e/`.
+- Versi `ihbsf.css`, `ihbsf-konfigurasi.js`, dan `indeks.js` dari B/F/H/S yang isinya berbeda diarsipkan di `I/_arsip/<huruf>/`.

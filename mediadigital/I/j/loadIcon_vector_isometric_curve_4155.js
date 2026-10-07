@@ -1,7 +1,7 @@
 /**
- * Function Module: Loadicon 4155
+ * fungsi Module: Loadicon 4155
  * Category: vector
- * Style: isometric
+ * gaya: isometric
  * Shape: curve
  * ID: FUNC-04155
  */
@@ -21,7 +21,7 @@ const loadIcon4155 = {
     },
     
     setup() {
-        // Setup configuration for loadIcon
+        // Setup pengaturan untuk loadIcon
         this.config = {
             enabled: true,
             priority: 4155,
@@ -32,7 +32,7 @@ const loadIcon4155 = {
     
     execute(params) {
         console.log('Executing loadIcon #4155 with params:', params);
-        // Implementation for loadIcon operation
+        // Implementation untuk loadIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = loadIcon4155;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['loadIcon4155'] = loadIcon4155;
 }

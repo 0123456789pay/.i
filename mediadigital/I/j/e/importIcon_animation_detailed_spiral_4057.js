@@ -1,7 +1,7 @@
 /**
- * Function Module: Importicon 4057
+ * fungsi Module: Importicon 4057
  * Category: animation
- * Style: detailed
+ * gaya: detailed
  * Shape: spiral
  * ID: FUNC-04057
  */
@@ -21,7 +21,7 @@ const importIcon4057 = {
     },
     
     setup() {
-        // Setup configuration for importIcon
+        // Setup pengaturan untuk importIcon
         this.config = {
             enabled: true,
             priority: 4057,
@@ -32,7 +32,7 @@ const importIcon4057 = {
     
     execute(params) {
         console.log('Executing importIcon #4057 with params:', params);
-        // Implementation for importIcon operation
+        // Implementation untuk importIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = importIcon4057;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['importIcon4057'] = importIcon4057;
 }

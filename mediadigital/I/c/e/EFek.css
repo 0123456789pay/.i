@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: EFek.css
- * JUDUL: ANIMASI HOVER MEWAH MEDIA DIGITAL
+ * JUDUL: ANIMASI HOVER MEWAH media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Efek hover dasar
  * - Versi 2.0: Penambahan efek transisi mewah
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus kemewahan visual
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus kemewahan visual
  * ============================================================================
  * SISTEM INTI: Mengatur efek interaktif untuk pengalaman pengguna
  * ============================================================================
@@ -291,7 +291,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN EFek.css
- * TOTAL BARIS: 300+
+ * jumlah BARIS: 300+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
@@ -440,7 +440,7 @@
     transisi: lebar 0.3detik mudah;
 }
 
-/* Efek border animasi */
+/* Efek batas animasi */
 .efek-border-animasi {
     posisi: relatif;
 }
@@ -460,7 +460,7 @@
     lebar: 100%;
 }
 
-/* Efek text shadow glow */
+/* Efek teks shadow glow */
 .efek-teks-glow:hover {
     bayangan-teks: 0 0 10px #0077cc, 0 0 20px #0077cc, 0 0 30px #0077cc;
 }
@@ -529,7 +529,7 @@
     ubah-bentuk: miring(-5derajat);
 }
 
-/* Efek rotate and scale */
+/* Efek rotate dan scale */
 .efek-putar-skala:hover {
     ubah-bentuk: putar(5derajat) skala(1.05);
 }
@@ -544,7 +544,7 @@
     bayangan-kotak: inset 0 0 20px rgba(0, 119, 204, 0.2);
 }
 
-/* Efek blur background */
+/* Efek blur latar-belakang */
 .efek-blur-latar:hover {
     filter: blur(5px);
 }
@@ -722,7 +722,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN EFek.css - VERSI 0.1
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================

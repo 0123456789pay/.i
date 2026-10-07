@@ -1,5 +1,5 @@
 /**
- * IHBSF System Core - Main Entry Point
+ * IHBSF sistem Core - utama Entry Point
  * Sistem inti untuk package .iconer
  */
 
@@ -18,7 +18,7 @@ class IHBSFSystem {
   async initialize() {
     console.log('[IHBSF] Initializing system...');
     
-    // Initialize core modules
+    // mulai core modules
     await this.initDisplaySystem();
     await this.initDeviceSystem();
     await this.initStorageSystem();
@@ -141,12 +141,12 @@ class IHBSFSystem {
     const { iconerFormat } = this.config;
     console.log(`[IHBSF] Loading .iconer package: ${filePath}`);
     
-    // Validate file extension
+    // sahkan berkas extension
     if (!filePath.endsWith(iconerFormat.extension)) {
       throw new Error(`Invalid file format. Expected ${iconerFormat.extension}`);
     }
     
-    // Load and parse package
+    // muat dan parse package
     const packageData = await this.parseIconerPackage(filePath);
     
     return {
@@ -161,7 +161,7 @@ class IHBSFSystem {
   }
 
   async parseIconerPackage(filePath) {
-    // Implementation for parsing .iconer files
+    // Implementation untuk parsing .iconer berkas-berkas
     console.log('[IHBSF] Parsing .iconer package...');
     
     return {
@@ -189,7 +189,7 @@ class IHBSFSystem {
       components: data.components || []
     };
     
-    // Compress and save
+    // Compress dan simpan
     const compressed = await this.compressPackage(packageData);
     
     return {

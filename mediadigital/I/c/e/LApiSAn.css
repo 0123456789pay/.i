@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: LApiSAn.css
- * JUDUL: TUMPUKAN LAPISAN (Z-INDEX) MEDIA DIGITAL
+ * JUDUL: TUMPUKAN LAPISAN (Z-indeks) media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Lapisan dasar elemen
  * - Versi 2.0: Penambahan tingkat lapisan berbeda
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus hierarki visual
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus hierarki visual
  * ============================================================================
  * SISTEM INTI: Mengatur tumpukan lapisan untuk elemen overlap
  * ============================================================================
@@ -120,7 +120,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAPISAN KHUSUS HEADER                                                      */
+/* LAPISAN KHUSUS kepala                                                      */
 /* -------------------------------------------------------------------------- */
 .lapisan-header {
     z-indeks: 1000;
@@ -131,7 +131,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LAPISAN KHUSUS SIDEBAR                                                     */
+/* LAPISAN KHUSUS sisi-papan                                                     */
 /* -------------------------------------------------------------------------- */
 .lapisan-sidebar {
     z-indeks: 900;
@@ -282,13 +282,13 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN LApiSAn.css
- * TOTAL BARIS: 280+
+ * jumlah BARIS: 280+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
 
 /* ============================================================================
- * BAGIAN TAMBAHAN: VARIASI LAYER DAN Z-INDEX LANJUTAN (Versi 0.1)
+ * BAGIAN TAMBAHAN: VARIASI LAYER DAN Z-indeks LANJUTAN (Versi 0.1)
  * ============================================================================
  * Penambahan variasi layer untuk kontrol tumpukan yang lebih detail
  * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
@@ -346,7 +346,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* OVERFLOW SCROLL CUSTOM                                                     */
+/* OVERFLOW SCROLL suai                                                     */
 /* -------------------------------------------------------------------------- */
 .gulung-custom {
     lebih: gulung;
@@ -369,7 +369,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN LApiSAn.css - VERSI 0.1
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================

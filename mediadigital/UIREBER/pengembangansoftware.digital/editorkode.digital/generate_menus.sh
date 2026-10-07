@@ -116,7 +116,7 @@ for menu in "${menus[@]}"; do
     <title>${title} - Editor Kode</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-tinggi: 100vh; display: flex; }
         .sidebar { width: 250px; background: rgba(0,0,0,0.2); padding: 20px; color: white; }
         .sidebar h2 { margin-bottom: 20px; font-size: 1.3em; }
         .sidebar a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; padding: 10px; margin-bottom: 5px; border-radius: 5px; transition: all 0.3s; }
@@ -124,21 +124,21 @@ for menu in "${menus[@]}"; do
         .sidebar a.active { background: rgba(255,255,255,0.3); }
         .main-content { flex: 1; padding: 40px; }
         .header { background: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .header h1 { font-size: 2em; color: #333; margin-bottom: 10px; }
+        .header h1 { font-size: 2em; color: #333; jarak-luar-bottom: 10px; }
         .header .icon { font-size: 3em; margin-bottom: 15px; }
-        .header .desc { color: #666; font-size: 1.1em; }
+        .header .desc { color: #666; huruf-ukuran: 1.1em; }
         .content-area { background: white; border-radius: 15px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); min-height: 400px; }
-        .editor-placeholder { border: 2px dashed #ccc; border-radius: 10px; padding: 40px; text-align: center; color: #999; margin-bottom: 20px; }
+        .editor-placeholder { border: 2px dashed #ccc; batas-radius: 10px; bantalan: 40px; teks-align: center; warna: #999; jarak-luar-bottom: 20px; }
         .toolbar { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
         .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; transition: all 0.3s; }
-        .btn-primary { background: #667eea; color: white; }
+        .btn-primary { background: #667eea; warna: white; }
         .btn-primary:hover { background: #5568d3; }
-        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-secondary { background: #e0e0e0; warna: #333; }
         .btn-secondary:hover { background: #d0d0d0; }
-        .code-area { width: 100%; height: 300px; border: 1px solid #ddd; border-radius: 5px; padding: 15px; font-family: 'Courier New', monospace; font-size: 14px; resize: vertical; }
-        .status-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #333; color: white; padding: 10px 20px; display: flex; justify-content: space-between; }
+        .code-area { width: 100%; height: 300px; border: 1px solid #ddd; batas-radius: 5px; bantalan: 15px; huruf-family: 'Courier baru', monospace; huruf-ukuran: 14px; resize: vertical; }
+        .status-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #333; warna: white; bantalan: 10px 20px; display: flex; justify-isi: space-between; }
         .breadcrumb { margin-bottom: 20px; color: #666; }
-        .breadcrumb a { color: #667eea; text-decoration: none; }
+        .breadcrumb a { color: #667eea; teks-decoration: none; }
     </style>
 </head>
 <body>

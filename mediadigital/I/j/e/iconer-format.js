@@ -1,6 +1,6 @@
 /**
  * Iconer Package Format Specification
- * Format file .iconer - Package lengkap untuk icon dan aset desain
+ * Format berkas .iconer - Package lengkap untuk ikon dan aset desain
  */
 
 export const ICONER_FORMAT = {
@@ -14,22 +14,22 @@ export const ICONER_FORMAT = {
       manifest: 'manifest.json',      // Metadata utama package
       metadata: 'metadata.json',      // Informasi detail package
       preview: 'preview.png',         // Preview thumbnail
-      index: 'index.json'             // Index struktur package
+      index: 'index.json'             // indeks struktur package
     },
     directories: {
       assets: 'assets/',              // Semua aset gambar
-      vectors: 'assets/vectors/',     // File vektor (SVG, AI, EPS)
-      rasters: 'assets/rasters/',     // File raster (PNG, JPG, WebP)
-      fonts: 'assets/fonts/',         // Font yang digunakan
+      vectors: 'assets/vectors/',     // berkas vektor (SVG, AI, EPS)
+      rasters: 'assets/rasters/',     // berkas raster (PNG, JPG, WebP)
+      fonts: 'assets/fonts/',         // huruf yang digunakan
       config: 'config/',              // Konfigurasi package
-      themes: 'themes/',              // Tema warna dan style
-      layouts: 'layouts/',            // Layout dan komposisi
+      themes: 'themes/',              // Tema warna dan gaya
+      layouts: 'layouts/',            // tata letak dan komposisi
       components: 'components/',      // Komponen reusable
-      animations: 'animations/',      // File animasi
+      animations: 'animations/',      // berkas animasi
       exports: 'exports/',            // Hasil export
       backups: 'backups/',            // Backup otomatis
       plugins: 'plugins/',            // Plugin khusus
-      scripts: 'scripts/'             // Script custom
+      scripts: 'scripts/'             // skrip suai
     }
   },
 
@@ -213,7 +213,7 @@ export const ICONER_FORMAT = {
     }
   },
 
-  // Compression settings
+  // Compression pengaturan
   compression: {
     algorithm: 'gzip',
     alternatives: ['brotli', 'lzma', 'deflate'],
@@ -257,7 +257,7 @@ export const ICONER_FORMAT = {
     }
   },
 
-  // Security
+  // keamanan
   security: {
     encryption: {
       enabled: true,
@@ -274,7 +274,7 @@ export const ICONER_FORMAT = {
     }
   },
 
-  // Version compatibility
+  // versi compatibility
   compatibility: {
     minimumVersion: '0.9.0',
     currentVersion: '1.0.0',
@@ -330,7 +330,7 @@ export const ICONER_FORMAT = {
     'email-template'
   ],
 
-  // Component types
+  // Component jenis-jenis
   componentTypes: [
     'button',
     'input',

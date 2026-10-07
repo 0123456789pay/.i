@@ -1,7 +1,7 @@
 /**
- * Function Module: Rotateicon 3559
+ * fungsi Module: Rotateicon 3559
  * Category: gradient
- * Style: geometric
+ * gaya: geometric
  * Shape: octagon
  * ID: FUNC-03559
  */
@@ -21,7 +21,7 @@ const rotateIcon3559 = {
     },
     
     setup() {
-        // Setup configuration for rotateIcon
+        // Setup pengaturan untuk rotateIcon
         this.config = {
             enabled: true,
             priority: 3559,
@@ -32,7 +32,7 @@ const rotateIcon3559 = {
     
     execute(params) {
         console.log('Executing rotateIcon #3559 with params:', params);
-        // Implementation for rotateIcon operation
+        // Implementation untuk rotateIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = rotateIcon3559;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['rotateIcon3559'] = rotateIcon3559;
 }

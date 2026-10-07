@@ -1,9 +1,9 @@
 /**
- * Utility Functions - Security, Validation, and Helpers
- * Media Digital Platform
+ * Utility Functions - keamanan, Validation, dan Helpers
+ * media digital landasan
  */
 
-// Import config (make sure config.js exists)
+// Import konfigurasi (make sure konfigurasi.js exists)
 const CONFIG = typeof APP_CONFIG !== 'undefined' ? APP_CONFIG : {
     SECURITY: {
         SESSION_TIMEOUT: 30 * 60 * 1000,
@@ -22,23 +22,23 @@ const CONFIG = typeof APP_CONFIG !== 'undefined' ? APP_CONFIG : {
 };
 
 /**
- * Input Sanitization Module
+ * masukan Sanitization Module
  */
 const Sanitizer = {
     /**
-     * Remove potentially dangerous characters from input
-     * @param {string} input - Raw input string
-     * @returns {string} - Sanitized string
+     * singkirkan potentially dangerous characters dari masukan
+     * @param {rentetan} masukan - Raw masukan rentetan
+     * @returns {rentetan} - Sanitized rentetan
      */
     sanitize(input) {
         if (typeof input !== 'string') {
             return '';
         }
         
-        // Remove HTML tags
+        // singkirkan HTML tags
         let sanitized = input.replace(/<[^>]*>/g, '');
         
-        // Remove script tags and javascript: protocols
+        // singkirkan skrip tags dan skrip-skrip-javascript: protocols
         sanitized = sanitized.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
         sanitized = sanitized.replace(/javascript:/gi, '');
         
@@ -56,8 +56,8 @@ const Sanitizer = {
 
     /**
      * Sanitize object properties
-     * @param {Object} obj - Object with string values
-     * @returns {Object} - Object with sanitized values
+     * @param {Object} obj - Object dengan rentetan values
+     * @returns {Object} - Object dengan sanitized values
      */
     sanitizeObject(obj) {
         if (!obj || typeof obj !== 'object') {
@@ -81,9 +81,9 @@ const Sanitizer = {
  */
 const Validator = {
     /**
-     * Validate email format
-     * @param {string} email - Email to validate
-     * @returns {boolean} - True if valid
+     * sahkan sur-el format
+     * @param {rentetan} sur-el - sur-el to sahkan
+     * @returns {boolean} - benar if valid
      */
     isValidEmail(email) {
         if (!email || typeof email !== 'string') {
@@ -93,9 +93,9 @@ const Validator = {
     },
 
     /**
-     * Validate password strength
-     * @param {string} password - Password to validate
-     * @returns {Object} - { valid: boolean, errors: string[] }
+     * sahkan sandian strength
+     * @param {rentetan} sandian - sandian to sahkan
+     * @returns {Object} - { valid: boolean, errors: rentetan[] }
      */
     isValidPassword(password) {
         const errors = [];
@@ -124,9 +124,9 @@ const Validator = {
     },
 
     /**
-     * Check if username is valid
-     * @param {string} username - Username to validate
-     * @returns {boolean} - True if valid
+     * periksa if username is valid
+     * @param {rentetan} username - Username to sahkan
+     * @returns {boolean} - benar if valid
      */
     isValidUsername(username) {
         if (!username || typeof username !== 'string') {
@@ -136,9 +136,9 @@ const Validator = {
     },
 
     /**
-     * Validate required fields
-     * @param {Object} fields - Object with field names and values
-     * @returns {Object} - { valid: boolean, missingFields: string[] }
+     * sahkan required fields
+     * @param {Object} fields - Object dengan field nama dan values
+     * @returns {Object} - { valid: boolean, missingFields: rentetan[] }
      */
     validateRequired(fields) {
         const missingFields = [];
@@ -157,19 +157,19 @@ const Validator = {
 };
 
 /**
- * Session Management Module
+ * sesi pengelolaan Module
  */
 const SessionManager = {
     /**
-     * Start a new session
+     * mulai a baru sesi
      */
     startSession() {
         localStorage.setItem(CONFIG.STORAGE_KEYS.SESSION_START, Date.now().toString());
     },
 
     /**
-     * Get session start time
-     * @returns {number|null} - Timestamp or null
+     * Get sesi mulai waktu
+     * @returns {angka|null} - cap-waktu atau null
      */
     getSessionStart() {
         const start = localStorage.getItem(CONFIG.STORAGE_KEYS.SESSION_START);
@@ -177,8 +177,8 @@ const SessionManager = {
     },
 
     /**
-     * Check if session has expired
-     * @returns {boolean} - True if expired
+     * periksa if sesi has expired
+     * @returns {boolean} - benar if expired
      */
     isSessionExpired() {
         const sessionStart = this.getSessionStart();
@@ -191,22 +191,22 @@ const SessionManager = {
     },
 
     /**
-     * Refresh session timeout
+     * Refresh sesi timeout
      */
     refreshSession() {
         this.startSession();
     },
 
     /**
-     * End current session
+     * End current sesi
      */
     endSession() {
         localStorage.removeItem(CONFIG.STORAGE_KEYS.SESSION_START);
     },
 
     /**
-     * Check session and logout if expired
-     * @returns {boolean} - True if session is valid
+     * periksa sesi dan logout if expired
+     * @returns {boolean} - benar if sesi is valid
      */
     checkSession() {
         if (this.isSessionExpired()) {
@@ -217,16 +217,16 @@ const SessionManager = {
             return false;
         }
         
-        // Refresh session on activity
+        // Refresh sesi on activity
         this.refreshSession();
         return true;
     },
 
     /**
-     * Setup automatic session checking
+     * Setup automatic sesi checking
      */
     setupAutoCheck() {
-        // Check every minute
+        // periksa every minute
         setInterval(() => {
             if (!this.checkSession()) {
                 alert(CONFIG.ERROR_MESSAGES?.SESSION_EXPIRED || 'Sesi Anda telah berakhir. Silakan login kembali.');
@@ -241,8 +241,8 @@ const SessionManager = {
  */
 const CSRFManager = {
     /**
-     * Generate a random CSRF token
-     * @returns {string} - Random token
+     * hasilkan a random CSRF token
+     * @returns {rentetan} - Random token
      */
     generateToken() {
         const array = new Uint8Array(32);
@@ -251,8 +251,8 @@ const CSRFManager = {
     },
 
     /**
-     * Get or create CSRF token
-     * @returns {string} - CSRF token
+     * Get atau buat CSRF token
+     * @returns {rentetan} - CSRF token
      */
     getToken() {
         let token = localStorage.getItem(CONFIG.STORAGE_KEYS.CSRF_TOKEN);
@@ -264,9 +264,9 @@ const CSRFManager = {
     },
 
     /**
-     * Validate CSRF token
-     * @param {string} token - Token to validate
-     * @returns {boolean} - True if valid
+     * sahkan CSRF token
+     * @param {rentetan} token - Token to sahkan
+     * @returns {boolean} - benar if valid
      */
     validateToken(token) {
         const storedToken = this.getToken();
@@ -275,9 +275,9 @@ const CSRFManager = {
 };
 
 /**
- * Simple Hash Function (for demo purposes - use bcrypt in production)
- * @param {string} str - String to hash
- * @returns {string} - Hashed string
+ * Simple Hash fungsi (untuk demo purposes - use bcrypt in production)
+ * @param {rentetan} str - rentetan to hash
+ * @returns {rentetan} - Hashed rentetan
  */
 function simpleHash(str) {
     let hash = 0;
@@ -290,10 +290,10 @@ function simpleHash(str) {
 }
 
 /**
- * Debounce function for performance optimization
- * @param {Function} func - Function to debounce
- * @param {number} wait - Wait time in ms
- * @returns {Function} - Debounced function
+ * Debounce fungsi untuk performance optimization
+ * @param {fungsi} func - fungsi to debounce
+ * @param {angka} tunggu - tunggu waktu in ms
+ * @returns {fungsi} - Debounced fungsi
  */
 function debounce(func, wait) {
     let timeout;
@@ -308,10 +308,10 @@ function debounce(func, wait) {
 }
 
 /**
- * Throttle function for limiting execution rate
- * @param {Function} func - Function to throttle
- * @param {number} limit - Time limit in ms
- * @returns {Function} - Throttled function
+ * Throttle fungsi untuk limiting execution rate
+ * @param {fungsi} func - fungsi to throttle
+ * @param {angka} limit - waktu limit in ms
+ * @returns {fungsi} - Throttled fungsi
  */
 function throttle(func, limit) {
     let inThrottle;

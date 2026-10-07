@@ -14,7 +14,7 @@ def get_submenu_items(folder_name):
     # Hapus ekstensi .digital dan normalisasi nama
     base_name = folder_name.replace('.digital', '').lower()
     
-    # Mapping kategori berdasarkan kata kunci
+    # pemetaan kategori berdasarkan kata kunci
     menu_mapping = {
         'shop': ['Kelola Produk', 'Pesanan Masuk', 'Statistik Penjualan', 'Promosi & Diskon', 'Pengaturan Toko'],
         'news': ['Berita Terbaru', 'Nasional', 'Internasional', 'Olahraga', 'Hiburan'],
@@ -625,7 +625,7 @@ def get_submenu_items(folder_name):
         if keyword in base_name:
             return items
     
-    # Default items jika tidak ada kecocokan
+    # bawaan butiran jika tidak ada kecocokan
     return [
         'Beranda',
         'Fitur Utama',
@@ -639,10 +639,10 @@ def generate_indonesian_navigation(folder_name):
     
     submenu_items = get_submenu_items(folder_name)
     
-    # Buat list item submenu
+    # Buat senarai butir submenu
     submenu_html = ""
-    for i, item in enumerate(submenu_items[:15]):  # Ambil maksimal 15 item
-        # Buat slug dari nama item
+    for i, item in enumerate(submenu_items[:15]):  # Ambil maksimal 15 butir
+        # Buat slug dari nama butir
         slug = item.lower().replace(' ', '-').replace('.', '')
         submenu_html += f'                <li><a href="#{slug}">{item}</a></li>\n'
     
@@ -855,7 +855,7 @@ def generate_indonesian_navigation(folder_name):
 def update_index_files():
     """Update semua file index.html di folder .digital"""
     
-    # Cari semua folder .digital
+    # Cari semua direktori .digital
     digital_folders = []
     for root, dirs, files in os.walk('/workspace'):
         for dir_name in dirs:
@@ -871,11 +871,11 @@ def update_index_files():
         folder_name = os.path.basename(folder_path)
         index_path = os.path.join(folder_path, 'index.html')
         
-        # Generate navigasi baru
+        # hasilkan navigasi baru
         new_nav = generate_indonesian_navigation(folder_name)
         
         if os.path.exists(index_path):
-            # Baca file existing
+            # Baca berkas existing
             with open(index_path, 'r', encoding='utf-8', errors='ignore') as f:
                 content = f.read()
             
@@ -908,7 +908,7 @@ def update_index_files():
                 elif '<body>' in content:
                     content = content.replace('<body>', f'<body>\n{new_nav}', 1)
                 else:
-                    # Tambahkan di awal file
+                    # Tambahkan di awal berkas
                     content = new_nav + '\n' + content
             
             # Tulis kembali
@@ -918,7 +918,7 @@ def update_index_files():
             updated_count += 1
             print(f"✓ Diperbarui: {folder_path}")
         else:
-            # Buat file index.html baru dengan navigasi
+            # Buat berkas indeks.html baru dengan navigasi
             html_content = f'''<!DOCTYPE html>
 <html lang="id">
 <head>

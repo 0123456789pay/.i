@@ -1,7 +1,7 @@
 /**
- * Function Module: Redoicon 3839
+ * fungsi Module: Redoicon 3839
  * Category: gradient
- * Style: geometric
+ * gaya: geometric
  * Shape: octagon
  * ID: FUNC-03839
  */
@@ -21,7 +21,7 @@ const redoIcon3839 = {
     },
     
     setup() {
-        // Setup configuration for redoIcon
+        // Setup pengaturan untuk redoIcon
         this.config = {
             enabled: true,
             priority: 3839,
@@ -32,7 +32,7 @@ const redoIcon3839 = {
     
     execute(params) {
         console.log('Executing redoIcon #3839 with params:', params);
-        // Implementation for redoIcon operation
+        // Implementation untuk redoIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = redoIcon3839;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['redoIcon3839'] = redoIcon3839;
 }

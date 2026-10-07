@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Script untuk mengupdate index.html dengan semua folder .digital
+# skrip untuk mengupdate indeks.html dengan semua direktori .digital
 # Menambahkan 255+ fitur ke halaman utama
 
 DIGITAL_DIRS=$(find /workspace -maxdepth 2 -type d -name "*.digital" | sort)
 
-# Generate daftar fitur dalam format JavaScript array
+# hasilkan daftar fitur dalam format skrip-skrip-javascript array
 FEATURES_JSON="["
 first=true
 
 for dir in $DIGITAL_DIRS; do
     name=$(basename "$dir" .digital)
-    # Capitalize first letter of each word
+    # Capitalize pertama letter of each word
     capName=$(echo "$name" | sed 's/\b\(.\)/\u\1/g' | sed 's/_/ /g')
     
     # Tentukan kategori berdasarkan nama
@@ -43,7 +43,7 @@ done
 
 FEATURES_JSON+="]"
 
-# Buat file index.html baru
+# Buat berkas indeks.html baru
 cat > /workspace/index.html << INDEXEOF
 <!DOCTYPE html>
 <html lang="en">

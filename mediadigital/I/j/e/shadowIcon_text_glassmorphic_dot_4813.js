@@ -1,7 +1,7 @@
 /**
- * Function Module: Shadowicon 4813
- * Category: text
- * Style: glassmorphic
+ * fungsi Module: Shadowicon 4813
+ * Category: teks
+ * gaya: glassmorphic
  * Shape: dot
  * ID: FUNC-04813
  */
@@ -21,7 +21,7 @@ const shadowIcon4813 = {
     },
     
     setup() {
-        // Setup configuration for shadowIcon
+        // Setup pengaturan untuk shadowIcon
         this.config = {
             enabled: true,
             priority: 4813,
@@ -32,7 +32,7 @@ const shadowIcon4813 = {
     
     execute(params) {
         console.log('Executing shadowIcon #4813 with params:', params);
-        // Implementation for shadowIcon operation
+        // Implementation untuk shadowIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = shadowIcon4813;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['shadowIcon4813'] = shadowIcon4813;
 }

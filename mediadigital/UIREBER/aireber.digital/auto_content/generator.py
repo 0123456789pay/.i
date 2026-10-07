@@ -82,13 +82,13 @@ class ContentGenerator:
         
         self.log(f"[{timestamp}] Memulai generasi konten...", log_file)
         
-        # Generate code contents (5 items)
+        # hasilkan code contents (5 butiran)
         code_contents = self.generate_code_contents(5)
         for content in code_contents:
             self.save_content(content, 'code')
             self.auto_post(content, 'code')
         
-        # Generate text contents (5 items)
+        # hasilkan teks contents (5 butiran)
         text_contents = self.generate_text_contents(5)
         for content in text_contents:
             self.save_content(content, 'text')
@@ -118,7 +118,7 @@ class ContentGenerator:
         
         code_snippets = {
             'html_components': '<div class="card white-blue-theme"><h3>{{title}}</h3><p>{{content}}</p></div>',
-            'css_styles': '.white-blue-theme { background: linear-gradient(135deg, #2563eb, #3b82f6); color: #ffffff; }',
+            'css_styles': '.white-blue-theme { background: linear-gradient(135deg, #2563eb, #3b82f6); warna: #ffffff; }',
             'js_functions': 'function autoGenerate() { console.log("Generating content..."); return data; }',
             'php_scripts': '<?php echo "Auto-generated content at " . date("Y-m-d H:i:s"); ?>',
             'ai_prompts': 'Generate a modern white-blue themed dashboard component with responsive layout.'
@@ -157,7 +157,7 @@ class ContentGenerator:
         
         text_bodies = {
             'product_descriptions': 'Produk ini dirancang dengan teknologi terbaru dan material berkualitas tinggi. Cocok untuk kebutuhan sehari-hari dengan desain modern berwarna putih-biru yang elegan.',
-            'social_media_posts': '🔵 Update terbaru dari Aireber.digital! Sistem otomatisasi konten kami kini menghasilkan 5 konten setiap 15 menit. #AI #Automation #Digital',
+            'social_media_posts': '🔵 Update terbaru dari Aireber.digital! Sistem otomatisasi konten kami kini menghasilkan 5 konten setiap 15 menit. #AI #Automation #digital',
             'blog_articles': 'Dalam artikel ini, kita akan membahas cara membuat sistem otomatisasi konten yang efisien. Dengan interval 15 menit, Anda bisa menghasilkan puluhan konten berkualitas setiap hari.',
             'documentation': 'Dokumentasi lengkap untuk sistem auto-content generator Aireber.digital. Termasuk konfigurasi, API endpoints, dan contoh penggunaan.',
             'marketing_copy': 'Tingkatkan produktivitas Anda dengan sistem otomatisasi konten Aireber.digital. Hemat waktu, hasilkan lebih banyak konten berkualitas!'
@@ -231,11 +231,11 @@ class ContentGenerator:
         if code_dir.exists():
             reconstructed['code'] = self.merge_similar_contents(code_dir)
         
-        # Merge similar text contents
+        # Merge similar teks contents
         if text_dir.exists():
             reconstructed['text'] = self.merge_similar_contents(text_dir)
         
-        # Save reconstruction log
+        # simpan reconstruction catatan
         log_path = self.base_path / 'logs' / f"reconstruction_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.json"
         with open(log_path, 'w', encoding='utf-8') as f:
             json.dump(reconstructed, f, indent=2, ensure_ascii=False)

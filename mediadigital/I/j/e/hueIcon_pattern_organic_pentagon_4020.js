@@ -1,7 +1,7 @@
 /**
- * Function Module: Hueicon 4020
+ * fungsi Module: Hueicon 4020
  * Category: pattern
- * Style: organic
+ * gaya: organic
  * Shape: pentagon
  * ID: FUNC-04020
  */
@@ -21,7 +21,7 @@ const hueIcon4020 = {
     },
     
     setup() {
-        // Setup configuration for hueIcon
+        // Setup pengaturan untuk hueIcon
         this.config = {
             enabled: true,
             priority: 4020,
@@ -32,7 +32,7 @@ const hueIcon4020 = {
     
     execute(params) {
         console.log('Executing hueIcon #4020 with params:', params);
-        // Implementation for hueIcon operation
+        // Implementation untuk hueIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = hueIcon4020;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['hueIcon4020'] = hueIcon4020;
 }

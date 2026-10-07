@@ -1,7 +1,7 @@
 #!/bin/bash
 cd /workspace/videolife
 
-# List of all 75 menu files
+# senarai of semua 75 menu berkas-berkas
 files=(
 "index.html" "trending.html" "terbaru.html" "populer.html" "musik.html" "film.html"
 "serial-tv.html" "olahraga.html" "gaming.html" "berita.html" "edukasi.html" "komedi.html"
@@ -18,37 +18,37 @@ files=(
 "memberships.html" "super-chat.html" "premiere.html" "shorts.html" "stories.html" "clips.html"
 )
 
-# CSS common style
+# CSS common gaya
 css='
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: Arial, sans-serif; background: #1a1a2e; color: #fff; }
-.header { background: #16213e; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-.logo { font-size: 28px; font-weight: bold; color: #e94560; text-decoration: none; }
+body { font-family: Arial, sans-serif; background: #1a1a2e; warna: #fff; }
+.header { background: #16213e; bantalan: 20px; display: flex; justify-isi: space-between; align-butiran: center; flex-wrap: wrap; }
+.logo { font-size: 28px; font-weight: bold; color: #e94560; teks-decoration: none; }
 .nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-.nav a { color: #fff; text-decoration: none; padding: 8px 12px; background: #0f3460; border-radius: 5px; font-size: 14px; transition: 0.3s; }
+.nav a { color: #fff; teks-decoration: none; bantalan: 8px 12px; latar-belakang: #0f3460; batas-radius: 5px; huruf-ukuran: 14px; transition: 0.3s; }
 .nav a:hover { background: #e94560; }
 .container { padding: 30px; max-width: 1400px; margin: 0 auto; }
 .page-title { font-size: 32px; margin-bottom: 20px; color: #e94560; }
 .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
-.video-card { background: #16213e; border-radius: 10px; overflow: hidden; transition: transform 0.3s; cursor: pointer; }
+.video-card { background: #16213e; batas-radius: 10px; overflow: hidden; transition: transform 0.3s; cursor: pointer; }
 .video-card:hover { transform: translateY(-5px); }
-.thumbnail { width: 100%; height: 160px; background: linear-gradient(135deg, #0f3460, #e94560); display: flex; align-items: center; justify-content: center; }
+.thumbnail { width: 100%; height: 160px; background: linear-gradient(135deg, #0f3460, #e94560); display: flex; align-butiran: center; justify-isi: center; }
 .play-icon { font-size: 50px; color: #fff; }
 .video-info { padding: 15px; }
 .video-title { font-size: 16px; margin-bottom: 8px; }
 .video-meta { font-size: 12px; color: #aaa; }
-.db-panel { background: #0f3460; padding: 20px; margin-top: 30px; border-radius: 10px; }
-.btn { background: #e94560; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+.db-panel { background: #0f3460; bantalan: 20px; jarak-luar-top: 30px; batas-radius: 10px; }
+.btn { background: #e94560; warna: #fff; batas: none; bantalan: 10px 20px; batas-radius: 5px; cursor: pointer; jarak-luar: 5px; }
 .btn:hover { background: #c73e54; }
-input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; background: #1a1a2e; border: 1px solid #0f3460; color: #fff; border-radius: 5px; }
-.file-manager { background: #16213e; padding: 20px; margin-top: 20px; border-radius: 10px; }
-.file-item { padding: 10px; background: #0f3460; margin: 5px 0; border-radius: 5px; display: flex; justify-content: space-between; }
-.php-section { background: #2d1f3d; padding: 20px; margin-top: 20px; border-radius: 10px; }
+input, textarea, select { width: 100%; padding: 10px; margin: 10px 0; background: #1a1a2e; batas: 1px solid #0f3460; warna: #fff; batas-radius: 5px; }
+.file-manager { background: #16213e; bantalan: 20px; jarak-luar-top: 20px; batas-radius: 10px; }
+.file-item { padding: 10px; background: #0f3460; jarak-luar: 5px 0; batas-radius: 5px; display: flex; justify-isi: space-between; }
+.php-section { background: #2d1f3d; bantalan: 20px; jarak-luar-top: 20px; batas-radius: 10px; }
 '
 
 for file in "${files[@]}"; do
     if [ "$file" != "index.html" ]; then
-        # Extract page name from filename
+        # Extract halaman nama dari filename
         pageName=$(echo "$file" | sed 's/.html$//' | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) substr($i,2)}1')
         
         cat > "$file" << HTMLEOF

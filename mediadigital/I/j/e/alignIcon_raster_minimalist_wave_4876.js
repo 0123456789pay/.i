@@ -1,7 +1,7 @@
 /**
- * Function Module: Alignicon 4876
+ * fungsi Module: Alignicon 4876
  * Category: raster
- * Style: minimalist
+ * gaya: minimalist
  * Shape: wave
  * ID: FUNC-04876
  */
@@ -21,7 +21,7 @@ const alignIcon4876 = {
     },
     
     setup() {
-        // Setup configuration for alignIcon
+        // Setup pengaturan untuk alignIcon
         this.config = {
             enabled: true,
             priority: 4876,
@@ -32,7 +32,7 @@ const alignIcon4876 = {
     
     execute(params) {
         console.log('Executing alignIcon #4876 with params:', params);
-        // Implementation for alignIcon operation
+        // Implementation untuk alignIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = alignIcon4876;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['alignIcon4876'] = alignIcon4876;
 }

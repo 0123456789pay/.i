@@ -1,7 +1,7 @@
 /**
- * Function Module: Saveicon 3754
- * Category: image
- * Style: 3d
+ * fungsi Module: Saveicon 3754
+ * Category: gambar
+ * gaya: 3d
  * Shape: line
  * ID: FUNC-03754
  */
@@ -21,7 +21,7 @@ const saveIcon3754 = {
     },
     
     setup() {
-        // Setup configuration for saveIcon
+        // Setup pengaturan untuk saveIcon
         this.config = {
             enabled: true,
             priority: 3754,
@@ -32,7 +32,7 @@ const saveIcon3754 = {
     
     execute(params) {
         console.log('Executing saveIcon #3754 with params:', params);
-        // Implementation for saveIcon operation
+        // Implementation untuk saveIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = saveIcon3754;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['saveIcon3754'] = saveIcon3754;
 }

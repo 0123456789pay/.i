@@ -1,7 +1,7 @@
 /**
- * Function Module: Sharpenicon 3516
+ * fungsi Module: Sharpenicon 3516
  * Category: raster
- * Style: minimalist
+ * gaya: minimalist
  * Shape: wave
  * ID: FUNC-03516
  */
@@ -21,7 +21,7 @@ const sharpenIcon3516 = {
     },
     
     setup() {
-        // Setup configuration for sharpenIcon
+        // Setup pengaturan untuk sharpenIcon
         this.config = {
             enabled: true,
             priority: 3516,
@@ -32,7 +32,7 @@ const sharpenIcon3516 = {
     
     execute(params) {
         console.log('Executing sharpenIcon #3516 with params:', params);
-        // Implementation for sharpenIcon operation
+        // Implementation untuk sharpenIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = sharpenIcon3516;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['sharpenIcon3516'] = sharpenIcon3516;
 }

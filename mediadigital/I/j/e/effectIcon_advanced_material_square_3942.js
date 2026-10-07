@@ -1,7 +1,7 @@
 /**
- * Function Module: Effecticon 3942
+ * fungsi Module: Effecticon 3942
  * Category: advanced
- * Style: material
+ * gaya: material
  * Shape: square
  * ID: FUNC-03942
  */
@@ -21,7 +21,7 @@ const effectIcon3942 = {
     },
     
     setup() {
-        // Setup configuration for effectIcon
+        // Setup pengaturan untuk effectIcon
         this.config = {
             enabled: true,
             priority: 3942,
@@ -32,7 +32,7 @@ const effectIcon3942 = {
     
     execute(params) {
         console.log('Executing effectIcon #3942 with params:', params);
-        // Implementation for effectIcon operation
+        // Implementation untuk effectIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = effectIcon3942;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['effectIcon3942'] = effectIcon3942;
 }

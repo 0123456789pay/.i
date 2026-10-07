@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Section Satu Module
- * First section component handler
+ * ALLUNIVERS ICONER - bagian Satu Module
+ * pertama bagian component pengendali
  */
 
 class IconerSectionSatu {
@@ -52,7 +52,7 @@ class IconerSectionSatu {
     }
 }
 
-// Auto-initialize
+// otomatis-mulai
 if (typeof window !== 'undefined') {
     window.IconerSectionSatu = new IconerSectionSatu();
 }

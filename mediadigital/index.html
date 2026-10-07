@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Southeast Higerware - Unified Home & Dashboard</title>
+    <title>Southeast Higerware - Rumah &amp; Papan Bilas Terpadu</title>
     <style>
         :root{--white:#fff;--blue:#0066ff;--bg:#f8fbff;--panel:#fff;--muted:#667eea}
         *{box-sizing:border-box}
@@ -39,27 +39,27 @@
     <header>
         <div class="logo"><span style="font-size:1.2rem">🚀</span>SOUTHEAST HIGERWARE</div>
         <div style="display:flex;gap:12px;align-items:center">
-            <div id="storageInfo" style="padding:6px 12px;border-radius:18px;border:1px solid var(--blue);background:linear-gradient(90deg,#fff,#eef6ff);font-weight:700;color:var(--blue)">☁️ Unlimited Cloud Storage Active</div>
-            <button class="btn btn-primary" id="toggleAI">🤖 AI Assistant</button>
+            <div id="storageInfo" style="padding:6px 12px;border-radius:18px;border:1px solid var(--blue);background:linear-gradient(90deg,#fff,#eef6ff);font-weight:700;color:var(--blue)">☁️ Penyimpanan Awan Tak Terbatas Aktif</div>
+            <button class="btn btn-primary" id="toggleAI">🤖 Asisten AI</button>
         </div>
     </header>
 
     <div class="main-container">
         <aside class="sidebar">
-            <div class="nav-section">System</div>
-            <div class="nav-item" onclick="app.navigate('/')">🏠 Root Directory</div>
-            <div class="nav-item" onclick="app.navigate('/documents')">📄 Documents</div>
-            <div class="nav-item" onclick="app.navigate('/images')">🖼 Images</div>
+            <div class="nav-section">sistem</div>
+            <div class="nav-item" onclick="app.navigate('/')">🏠 Direktori Akar</div>
+            <div class="nav-item" onclick="app.navigate('/documents')">📄 Dokumen</div>
+            <div class="nav-item" onclick="app.navigate('/images')">🖼 gambar</div>
             <div class="nav-section">Tools</div>
-            <div class="nav-item" onclick="app.openSettings()">⚙️ Config</div>
+            <div class="nav-item" onclick="app.openSettings()">⚙️ konfigurasi</div>
             <div class="nav-item" onclick="app.openTerminal()">💻 Terminal</div>
             <div style="margin-top:20px;font-size:12px;color:#666">Repository: 0123456789pay/mediadigital</div>
         </aside>
 
         <main class="explorer">
             <div class="toolbar">
-                <button class="btn btn-primary" onclick="app.createFile()">+ New File</button>
-                <button class="btn" onclick="app.uploadFile()">⬆️ Upload</button>
+                <button class="btn btn-primary" onclick="app.createFile()">+ baru berkas</button>
+                <button class="btn" onclick="app.uploadFile()">⬆️ unggah</button>
                 <div style="flex:1"></div>
                 <input id="searchInput" placeholder="Cari file..." style="padding:8px 10px;border-radius:8px;border:1px solid #eef6ff">
             </div>
@@ -71,9 +71,9 @@
 
         <aside class="editor-panel" id="editorPanel">
             <div style="padding:12px;border-bottom:1px solid #eef6ff;display:flex;justify-content:space-between;align-items:center">
-                <strong>Editor</strong>
+                <strong>penyunting</strong>
                 <div>
-                    <button class="btn" onclick="app.saveFile()">💾 Save</button>
+                    <button class="btn" onclick="app.saveFile()">💾 simpan</button>
                     <button class="btn" onclick="app.closeEditor()">✕</button>
                 </div>
             </div>
@@ -83,7 +83,7 @@
         <aside class="ai-sidebar" id="aiSidebar">
             <div style="padding:12px;border-bottom:1px solid #eef6ff;display:flex;align-items:center;justify-content:space-between">
                 <div style="display:flex;flex-direction:column">
-                    <div style="font-weight:800;color:var(--blue);display:flex;align-items:center;gap:8px"><span style="font-size:1.4rem">🤖</span>AI Assistant</div>
+                    <div style="font-weight:800;color:var(--blue);display:flex;align-items:center;gap:8px"><span style="font-size:1.4rem">🤖</span>Asisten AI</div>
                     <div id="aiCreditsDisplay" style="font-size:13px;color:#008000">Credits: UNLIMITED (∞)</div>
                 </div>
                 <div style="display:flex;gap:8px;align-items:center">
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="ai-chat-container" id="aiChatContainer">
-                <div class="ai-message ai-system">Halo! Saya AI Assistant. Gunakan kotak di bawah untuk mengirim perintah. Mode unlimited adalah simulasi client-side.</div>
+                <div class="ai-message ai-system">Halo! Saya Asisten AI. Gunakan kotak di bawah untuk mengirim perintah. Mode unlimited adalah simulasi klien-side.</div>
             </div>
             <div class="ai-input-container">
                 <textarea id="aiInput" rows="3" placeholder="Ketik perintah AI di sini..."></textarea>
@@ -102,8 +102,8 @@
     </div>
 
     <footer class="status-bar">
-        <div id="statusText">Ready - Unified Home & Dashboard</div>
-        <div style="font-size:12px;color:#334">System Version: 10.6.0</div>
+        <div id="statusText">Ready - Unified rumah & papan-bilas</div>
+        <div style="font-size:12px;color:#334">sistem versi: 10.6.0</div>
     </footer>
 
     <script>

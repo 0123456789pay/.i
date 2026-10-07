@@ -1,7 +1,7 @@
 /**
- * Function Module: Rendericon 3795
+ * fungsi Module: Rendericon 3795
  * Category: vector
- * Style: isometric
+ * gaya: isometric
  * Shape: curve
  * ID: FUNC-03795
  */
@@ -21,7 +21,7 @@ const renderIcon3795 = {
     },
     
     setup() {
-        // Setup configuration for renderIcon
+        // Setup pengaturan untuk renderIcon
         this.config = {
             enabled: true,
             priority: 3795,
@@ -32,7 +32,7 @@ const renderIcon3795 = {
     
     execute(params) {
         console.log('Executing renderIcon #3795 with params:', params);
-        // Implementation for renderIcon operation
+        // Implementation untuk renderIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = renderIcon3795;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['renderIcon3795'] = renderIcon3795;
 }

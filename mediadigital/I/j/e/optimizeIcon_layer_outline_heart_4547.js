@@ -1,7 +1,7 @@
 /**
- * Function Module: Optimizeicon 4547
+ * fungsi Module: Optimizeicon 4547
  * Category: layer
- * Style: outline
+ * gaya: outline
  * Shape: heart
  * ID: FUNC-04547
  */
@@ -21,7 +21,7 @@ const optimizeIcon4547 = {
     },
     
     setup() {
-        // Setup configuration for optimizeIcon
+        // Setup pengaturan untuk optimizeIcon
         this.config = {
             enabled: true,
             priority: 4547,
@@ -32,7 +32,7 @@ const optimizeIcon4547 = {
     
     execute(params) {
         console.log('Executing optimizeIcon #4547 with params:', params);
-        // Implementation for optimizeIcon operation
+        // Implementation untuk optimizeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = optimizeIcon4547;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['optimizeIcon4547'] = optimizeIcon4547;
 }

@@ -1,7 +1,7 @@
 /**
- * Function Module: Ungroupicon 4575
+ * fungsi Module: Ungroupicon 4575
  * Category: vector
- * Style: isometric
+ * gaya: isometric
  * Shape: curve
  * ID: FUNC-04575
  */
@@ -21,7 +21,7 @@ const ungroupIcon4575 = {
     },
     
     setup() {
-        // Setup configuration for ungroupIcon
+        // Setup pengaturan untuk ungroupIcon
         this.config = {
             enabled: true,
             priority: 4575,
@@ -32,7 +32,7 @@ const ungroupIcon4575 = {
     
     execute(params) {
         console.log('Executing ungroupIcon #4575 with params:', params);
-        // Implementation for ungroupIcon operation
+        // Implementation untuk ungroupIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = ungroupIcon4575;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['ungroupIcon4575'] = ungroupIcon4575;
 }

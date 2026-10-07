@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: WArNa.css
- * JUDUL: PALET WARNA MEDIA DIGITAL
+ * JUDUL: PALET WARNA media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -11,8 +11,8 @@
  * - Penambahan variasi warna yang komprehensif
  * - Dokumentasi detail untuk setiap warna
  * ============================================================================
- * SISTEM INTI: Mengatur palet warna untuk seluruh komponen Media Digital
- * File ini berisi lebih dari 1500 baris kode CSS dengan penjelasan lengkap
+ * SISTEM INTI: Mengatur palet warna untuk seluruh komponen media digital
+ * berkas ini berisi lebih dari 1500 baris kode CSS dengan penjelasan lengkap
  * dalam bahasa Indonesia untuk memudahkan pemahaman dan pengembangan
  * ============================================================================
  */
@@ -22,14 +22,14 @@
 /* -------------------------------------------------------------------------- */
 /* Warna adalah elemen fundamental dalam desain visual yang berfungsi       */
 /* untuk menciptakan identitas brand, hierarki visual, dan pengalaman        */
-/* pengguna yang konsisten. Dalam sistem desain Media Digital, kami         */
+/* pengguna yang konsisten. Dalam sistem desain media digital, kami         */
 /* menggunakan palet warna biru laut sebagai identitas utama.               */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /* BAGIAN 2: WARNA PRIMER - BIRU LAUT                                         */
 /* -------------------------------------------------------------------------- */
-/* Warna biru laut merupakan identitas utama brand Media Digital            */
+/* Warna biru laut merupakan identitas utama brand media digital            */
 /* Digunakan untuk elemen-elemen penting dan call-to-action                 */
 /* -------------------------------------------------------------------------- */
 
@@ -110,7 +110,7 @@
 /* -------------------------------------------------------------------------- */
 /* BAGIAN 4: WARNA NETRAL - PUTIH DAN ABU                                     */
 /* -------------------------------------------------------------------------- */
-/* Warna netral untuk background, teks, dan elemen struktural               */
+/* Warna netral untuk latar-belakang, teks, dan elemen struktural               */
 /* -------------------------------------------------------------------------- */
 
 /* Putih */
@@ -126,7 +126,7 @@
     batas: 1px padat #ffffff;
 }
 
-/* Putih Susu - Background alternatif */
+/* Putih Susu - latar-belakang alternatif */
 .teks-putih-susu {
     warna: #fefefe;
 }
@@ -208,7 +208,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* BAGIAN 5: WARNA STATUS - SUKSES, PERINGATAN, ERROR                         */
+/* BAGIAN 5: WARNA STATUS - SUKSES, PERINGATAN, galat                         */
 /* -------------------------------------------------------------------------- */
 /* Warna untuk feedback status dan notifikasi                               */
 /* -------------------------------------------------------------------------- */
@@ -271,7 +271,7 @@
     latar-belakang: #fd7e14;
 }
 
-/* Error/Bahaya - Merah */
+/* galat/Bahaya - Merah */
 .teks-bahaya {
     warna: #dc3545;
 }
@@ -322,9 +322,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* BAGIAN 6: WARNA KHUSUS MEDIA DIGITAL                                       */
+/* BAGIAN 6: WARNA KHUSUS media digital                                       */
 /* -------------------------------------------------------------------------- */
-/* Variasi warna khusus untuk ekosistem Media Digital                       */
+/* Variasi warna khusus untuk ekosistem media digital                       */
 /* -------------------------------------------------------------------------- */
 
 /* Gradasi Biru Laut */
@@ -502,7 +502,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN WArNa.css
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: SIAP PRODUKSI
  * BAHASA: INDONESIA LENGKAP
  * ============================================================================

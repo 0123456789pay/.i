@@ -1,7 +1,7 @@
 /**
- * Function Module: Resizeicon 4358
+ * fungsi Module: Resizeicon 4358
  * Category: filter
- * Style: abstract
+ * gaya: abstract
  * Shape: hexagon
  * ID: FUNC-04358
  */
@@ -21,7 +21,7 @@ const resizeIcon4358 = {
     },
     
     setup() {
-        // Setup configuration for resizeIcon
+        // Setup pengaturan untuk resizeIcon
         this.config = {
             enabled: true,
             priority: 4358,
@@ -32,7 +32,7 @@ const resizeIcon4358 = {
     
     execute(params) {
         console.log('Executing resizeIcon #4358 with params:', params);
-        // Implementation for resizeIcon operation
+        // Implementation untuk resizeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = resizeIcon4358;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['resizeIcon4358'] = resizeIcon4358;
 }

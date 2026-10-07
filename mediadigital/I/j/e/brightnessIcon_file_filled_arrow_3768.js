@@ -1,7 +1,7 @@
 /**
- * Function Module: Brightnessicon 3768
- * Category: file
- * Style: filled
+ * fungsi Module: Brightnessicon 3768
+ * Category: berkas
+ * gaya: filled
  * Shape: arrow
  * ID: FUNC-03768
  */
@@ -21,7 +21,7 @@ const brightnessIcon3768 = {
     },
     
     setup() {
-        // Setup configuration for brightnessIcon
+        // Setup pengaturan untuk brightnessIcon
         this.config = {
             enabled: true,
             priority: 3768,
@@ -32,7 +32,7 @@ const brightnessIcon3768 = {
     
     execute(params) {
         console.log('Executing brightnessIcon #3768 with params:', params);
-        // Implementation for brightnessIcon operation
+        // Implementation untuk brightnessIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = brightnessIcon3768;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['brightnessIcon3768'] = brightnessIcon3768;
 }

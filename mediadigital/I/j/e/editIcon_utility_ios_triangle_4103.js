@@ -1,7 +1,7 @@
 /**
- * Function Module: Editicon 4103
+ * fungsi Module: Editicon 4103
  * Category: utility
- * Style: ios
+ * gaya: ios
  * Shape: triangle
  * ID: FUNC-04103
  */
@@ -21,7 +21,7 @@ const editIcon4103 = {
     },
     
     setup() {
-        // Setup configuration for editIcon
+        // Setup pengaturan untuk editIcon
         this.config = {
             enabled: true,
             priority: 4103,
@@ -32,7 +32,7 @@ const editIcon4103 = {
     
     execute(params) {
         console.log('Executing editIcon #4103 with params:', params);
-        // Implementation for editIcon operation
+        // Implementation untuk editIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = editIcon4103;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['editIcon4103'] = editIcon4103;
 }

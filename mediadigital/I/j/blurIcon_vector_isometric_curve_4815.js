@@ -1,7 +1,7 @@
 /**
- * Function Module: Bluricon 4815
+ * fungsi Module: Bluricon 4815
  * Category: vector
- * Style: isometric
+ * gaya: isometric
  * Shape: curve
  * ID: FUNC-04815
  */
@@ -21,7 +21,7 @@ const blurIcon4815 = {
     },
     
     setup() {
-        // Setup configuration for blurIcon
+        // Setup pengaturan untuk blurIcon
         this.config = {
             enabled: true,
             priority: 4815,
@@ -32,7 +32,7 @@ const blurIcon4815 = {
     
     execute(params) {
         console.log('Executing blurIcon #4815 with params:', params);
-        // Implementation for blurIcon operation
+        // Implementation untuk blurIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = blurIcon4815;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['blurIcon4815'] = blurIcon4815;
 }

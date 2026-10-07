@@ -1,7 +1,7 @@
 /**
- * Function Module: Snapicon 3580
+ * fungsi Module: Snapicon 3580
  * Category: pattern
- * Style: organic
+ * gaya: organic
  * Shape: pentagon
  * ID: FUNC-03580
  */
@@ -21,7 +21,7 @@ const snapIcon3580 = {
     },
     
     setup() {
-        // Setup configuration for snapIcon
+        // Setup pengaturan untuk snapIcon
         this.config = {
             enabled: true,
             priority: 3580,
@@ -32,7 +32,7 @@ const snapIcon3580 = {
     
     execute(params) {
         console.log('Executing snapIcon #3580 with params:', params);
-        // Implementation for snapIcon operation
+        // Implementation untuk snapIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = snapIcon3580;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['snapIcon3580'] = snapIcon3580;
 }

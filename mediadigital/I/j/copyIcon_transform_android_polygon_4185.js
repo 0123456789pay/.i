@@ -1,7 +1,7 @@
 /**
- * Function Module: Copyicon 4185
+ * fungsi Module: Copyicon 4185
  * Category: transform
- * Style: android
+ * gaya: android
  * Shape: polygon
  * ID: FUNC-04185
  */
@@ -21,7 +21,7 @@ const copyIcon4185 = {
     },
     
     setup() {
-        // Setup configuration for copyIcon
+        // Setup pengaturan untuk copyIcon
         this.config = {
             enabled: true,
             priority: 4185,
@@ -32,7 +32,7 @@ const copyIcon4185 = {
     
     execute(params) {
         console.log('Executing copyIcon #4185 with params:', params);
-        // Implementation for copyIcon operation
+        // Implementation untuk copyIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = copyIcon4185;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['copyIcon4185'] = copyIcon4185;
 }

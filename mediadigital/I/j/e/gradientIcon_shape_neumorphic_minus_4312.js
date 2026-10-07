@@ -1,7 +1,7 @@
 /**
- * Function Module: Gradienticon 4312
+ * fungsi Module: Gradienticon 4312
  * Category: shape
- * Style: neumorphic
+ * gaya: neumorphic
  * Shape: minus
  * ID: FUNC-04312
  */
@@ -21,7 +21,7 @@ const gradientIcon4312 = {
     },
     
     setup() {
-        // Setup configuration for gradientIcon
+        // Setup pengaturan untuk gradientIcon
         this.config = {
             enabled: true,
             priority: 4312,
@@ -32,7 +32,7 @@ const gradientIcon4312 = {
     
     execute(params) {
         console.log('Executing gradientIcon #4312 with params:', params);
-        // Implementation for gradientIcon operation
+        // Implementation untuk gradientIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = gradientIcon4312;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['gradientIcon4312'] = gradientIcon4312;
 }

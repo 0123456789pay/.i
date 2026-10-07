@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Administrator Command System
- * Owner/Administrator command interface for system management
+ * ALLUNIVERS ICONER - Administrator Command sistem
+ * Owner/Administrator command interface untuk sistem pengelolaan
  */
 
 class AlluniversAdminCommand {
@@ -13,7 +13,7 @@ class AlluniversAdminCommand {
     }
 
     registerDefaultCommands() {
-        // User Management Commands
+        // pengguna pengelolaan Commands
         this.registerCommand('user.list', async (params) => {
             console.log('📋 Listing all users...');
             return await window.AlluniversDataStorage.getAllUsers();
@@ -29,7 +29,7 @@ class AlluniversAdminCommand {
             return await window.AlluniversDataStorage.getUser(params.userId);
         });
 
-        // Icon Design Commands
+        // ikon Design Commands
         this.registerCommand('icon.save', async (params) => {
             console.log('💾 Saving icon design:', params);
             return await window.AlluniversDataStorage.saveIconDesign(params);
@@ -78,7 +78,7 @@ class AlluniversAdminCommand {
             return await window.AlluniversDataStorage.getTrafficAnalytics(params.timeRange);
         });
 
-        // System Commands
+        // sistem Commands
         this.registerCommand('system.status', async (params) => {
             console.log('🖥️ System Status Check');
             return {
@@ -94,7 +94,7 @@ class AlluniversAdminCommand {
             return await window.AlluniversDataStorage.adminCommand('clear_data', { type: params.type });
         });
 
-        // Admin Commands
+        // pengelola Commands
         this.registerCommand('admin.login', async (params) => {
             console.log('🔐 Admin login attempt for:', params.username);
             if (this.adminUsers.includes(params.username)) {
@@ -112,10 +112,10 @@ class AlluniversAdminCommand {
 
         this.registerCommand('admin.history', async (params) => {
             console.log('📜 Showing command history');
-            return this.commandHistory.slice(-10); // Last 10 commands
+            return this.commandHistory.slice(-10); // terakhir 10 commands
         });
 
-        // Help Command
+        // bantuan Command
         this.registerCommand('help', async (params) => {
             return this.getHelpText();
         });
@@ -223,16 +223,16 @@ class AlluniversAdminCommand {
     }
 }
 
-// Auto-initialize
+// otomatis-mulai
 if (typeof window !== 'undefined') {
     window.AlluniversAdminCommand = new AlluniversAdminCommand();
     
-    // Add default admin
+    // Add bawaan pengelola
     window.AlluniversAdminCommand.addAdminUser('owner');
     window.AlluniversAdminCommand.addAdminUser('administrator');
 }
 
-// Export for Node.js
+// Export untuk Node.js
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AlluniversAdminCommand;
 }

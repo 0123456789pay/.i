@@ -18,12 +18,12 @@ def expand_file(filepath):
     
     pos = match.start()
     
-    # Settings panel
+    # pengaturan panel
     settings = f'''
     <!-- SETTINGS PANEL FOR {folder.upper()}/{filename.upper()} -->
     <div id="settings-{mid}" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:99999;align-items:center;justify-content:center;">
         <div style="background:#fff;border-radius:15px;width:90%;max-width:1200px;height:85vh;display:flex;flex-direction:column;overflow:hidden;">
-            <div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:20px;display:flex;justify-content:space-between;align-items:center;">
+            <div style="background:linear-gradient(135deg,#667eea,#764ba2);warna:white;bantalan:20px;display:flex;justify-isi:space-between;align-butiran:center;">
                 <h2 style="margin:0;font-size:22px;"><i class="fas fa-cog"></i> Pengaturan - {folder}/{filename}</h2>
                 <button onclick="document.getElementById('settings-{mid}').style.display='none'" style="background:rgba(255,255,255,0.2);border:none;color:white;font-size:28px;width:40px;height:40px;border-radius:50%;cursor:pointer;">&times;</button>
             </div>
@@ -39,22 +39,22 @@ def expand_file(filepath):
             </div>
             <div id="tabs-{mid}" style="flex:1;overflow-y:auto;padding:25px;">
                 <div id="general-{mid}" class="tab-pane"><h3>Pengaturan Umum</h3>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Nama Modul</label><input type="text" id="name-{mid}" value="{folder}/{filename}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"></div>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Bahasa</label><select id="lang-{mid}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"><option value="id">Bahasa Indonesia</option><option value="en">English</option></select></div>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Tema</label><select id="theme-{mid}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"><option value="light">Light</option><option value="dark">Dark</option></select></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Nama Modul</label><input type="text" id="name-{mid}" value="{folder}/{filename}" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Bahasa</label><select id="lang-{mid}" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"><option nilai="id">Bahasa Indonesia</option><option nilai="en">English</option></pilih></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Tema</label><select id="theme-{mid}" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"><option nilai="light">Light</option><option nilai="dark">Dark</option></pilih></div>
                 </div>
                 <div id="security-{mid}" class="tab-pane" style="display:none;"><h3>Pengaturan Keamanan</h3>
                     <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Enkripsi Data</label><input type="checkbox" id="encrypt-{mid}" checked></div>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Session Timeout</label><input type="number" id="timeout-{mid}" value="30" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Session Timeout</label><input type="number" id="timeout-{mid}" value="30" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"></div>
                 </div>
                 <div id="network-{mid}" class="tab-pane" style="display:none;"><h3>Pengaturan Jaringan</h3>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">API Endpoint</label><input type="url" id="apiurl-{mid}" value="https://api.southeast.id/v1" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">API Endpoint</label><input type="url" id="apiurl-{mid}" value="https://api.southeast.id/v1" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"></div>
                 </div>
                 <div id="storage-{mid}" class="tab-pane" style="display:none;"><h3>Pengaturan Penyimpanan</h3>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Max Storage (MB)</label><input type="number" id="maxstore-{mid}" value="50" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Max Storage (MB)</label><input type="number" id="maxstore-{mid}" value="50" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"></div>
                 </div>
                 <div id="advanced-{mid}" class="tab-pane" style="display:none;"><h3>Pengaturan Lanjutan</h3>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Performance Mode</label><select id="perfmode-{mid}" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"><option value="balanced">Balanced</option><option value="performance">High Performance</option></select></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">Performance Mode</label><select id="perfmode-{mid}" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"><option nilai="balanced">Balanced</option><option nilai="performance">High Performance</option></pilih></div>
                 </div>
                 <div id="logs-{mid}" class="tab-pane" style="display:none;"><h3>Log Sistem</h3>
                     <div id="logviewer-{mid}" style="background:#1e1e1e;color:#d4d4d4;padding:15px;border-radius:6px;height:300px;overflow-y:auto;font-family:monospace;"><div>[{datetime.now().strftime('%H:%M:%S')}] INFO System initialized for {folder}/{filename}</div></div>
@@ -64,16 +64,16 @@ def expand_file(filepath):
                     <button onclick="alert('Restore triggered!')" style="padding:10px 20px;background:#28a745;color:white;border:none;border-radius:6px;cursor:pointer;">Restore Backup</button>
                 </div>
                 <div id="api-{mid}" class="tab-pane" style="display:none;"><h3>API Configuration</h3>
-                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">API Key</label><input type="password" id="apikey-{mid}" value="sk_live_xxxx" style="width:100%;padding:10px;border:1px solid #ddd;border-radius:6px;"></div>
+                    <div style="margin-bottom:20px;padding:15px;background:#f8f9fa;border-radius:8px;"><label style="display:block;font-weight:600;margin-bottom:8px;">API Key</label><input type="password" id="apikey-{mid}" value="sk_live_xxxx" style="width:100%;padding:10px;border:1px solid #ddd;batas-radius:6px;"></div>
                 </div>
             </div>
-            <div style="padding:15px;background:#f8f9fa;border-top:1px solid #e9ecef;display:flex;justify-content:flex-end;gap:10px;">
+            <div style="padding:15px;background:#f8f9fa;border-top:1px solid #e9ecef;display:flex;justify-isi:flex-end;gap:10px;">
                 <button onclick="localStorage.removeItem('settings_{mid}');alert('Settings reset!');" style="padding:10px 20px;background:#6c757d;color:white;border:none;border-radius:6px;cursor:pointer;">Reset</button>
-                <button onclick="var s={{}},q=document.querySelectorAll('#settings-{mid} input,#settings-{mid} select');q.forEach(e=>{{if(e.id)s[e.id]=e.type==='checkbox'?e.checked:e.value}});localStorage.setItem('settings_{mid}',JSON.stringify(s));alert('Settings saved!');" style="padding:10px 20px;background:#28a745;color:white;border:none;border-radius:6px;cursor:pointer;">Save</button>
+                <button onclick="var s={{}},q=document.querySelectorAll('#settings-{mid} input,#pengaturan-{mid} pilih');q.forEach(e=>{{if(e.id)s[e.id]=e.jenis==='checkbox'?e.checked:e.nilai}});localStorage.setItem('settings_{mid}',JSON.stringify(s));siaga('pengaturan saved!');" gaya="bantalan:10px 20px;latar:#28a745;warna:white;batas:none;batas-radius:6px;cursor:pointer;">simpan</tombol>
             </div>
         </div>
     </div>
-    <button onclick="document.getElementById('settings-{mid}').style.display='flex'" style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:linear-gradient(135deg,#667eea,#764ba2);border:none;border-radius:50%;color:white;font-size:24px;cursor:pointer;z-index:9999;box-shadow:0 4px 15px rgba(0,0,0,0.2);"><i class="fas fa-cog"></i></button>
+    <button onclick="document.getElementById('settings-{mid}').style.display='flex'" style="position:fixed;bottom:20px;right:20px;width:60px;height:60px;background:linear-gradient(135deg,#667eea,#764ba2);batas:none;batas-radius:50%;warna:white;huruf-ukuran:24px;cursor:pointer;z-indeks:9999;box-shadow:0 4px 15px rgba(0,0,0,0.2);"><i kelas="fas fa-cog"></i></tombol>
     <style>.tab-btn.active{{background:#667eea!important;color:white!important;}}</style>
     <script>
     (function(){{
@@ -93,7 +93,7 @@ def expand_file(filepath):
     </script>
 '''
     
-    # Generate docs to reach 5000 lines
+    # hasilkan docs to reach 5000 lines
     docs = ""
     current_lines = content.count('\n')
     target = 5100
@@ -131,7 +131,7 @@ def expand_file(filepath):
     
     return new_content.count('\n') + 1
 
-# Main
+# utama
 html_files = []
 for root, dirs, files in os.walk('/workspace'):
     for f in files:

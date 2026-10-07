@@ -1,10 +1,10 @@
-# Aireber.digital - Auto Content System
+# Aireber.digital - otomatis isi sistem
 
 ## 📋 Deskripsi
 Sistem otomatisasi pembuatan konten yang menghasilkan:
 - **5 konten code** (HTML, CSS, JS, PHP) setiap 15 menit
-- **5 konten text** (artikel, deskripsi produk, social media posts) setiap 15 menit
-- **Auto-post** ke 5 section berbeda (dashboard, products, social_media, content, ai_automation)
+- **5 konten teks** (artikel, deskripsi produk, social media posts) setiap 15 menit
+- **otomatis-post** ke 5 bagian berbeda (papan-bilas, products, social_media, isi, ai_automation)
 - **Rekonstruksi konten** setiap 1 jam untuk merge dan organize
 
 ## 🎨 Tema
@@ -15,44 +15,44 @@ Sistem otomatisasi pembuatan konten yang menghasilkan:
 - **Putih**: #ffffff
 - **Light Gray**: #f8fafc
 
-## 📁 Struktur Folder
+## 📁 Struktur direktori
 ```
 auto_content/
-├── config/
+├── konfigurasi/
 │   └── auto_config.php        # Konfigurasi sistem
-├── code/                       # Konten kode yang di-generate
+├── code/                       # Konten kode yang di-hasilkan
 │   ├── html_components/
 │   ├── css_styles/
 │   ├── js_functions/
 │   ├── php_scripts/
 │   └── ai_prompts/
-├── text/                       # Konten teks yang di-generate
+├── teks/                       # Konten teks yang di-hasilkan
 │   ├── product_descriptions/
 │   ├── social_media_posts/
 │   ├── blog_articles/
 │   ├── documentation/
 │   └── marketing_copy/
 ├── posted/                     # Konten yang sudah dipost
-│   ├── dashboard/
+│   ├── papan-bilas/
 │   ├── products/
 │   ├── social_media/
-│   ├── content/
+│   ├── isi/
 │   └── ai_automation/
-├── logs/                       # Log sistem
-│   ├── generation_YYYY-MM-DD.log
-│   ├── scheduler_YYYY-MM-DD.log
+├── catatan-catatan/                       # catatan sistem
+│   ├── generation_YYYY-MM-DD.catatan
+│   ├── scheduler_YYYY-MM-DD.catatan
 │   └── reconstruction_*.json
-├── scheduler/                  # File scheduler
-├── generator.py               # Main generator (Python)
-├── generator.php              # Main generator (PHP)
+├── scheduler/                  # berkas scheduler
+├── generator.py               # utama generator (Python)
+├── generator.php              # utama generator (PHP)
 ├── scheduler.py               # Scheduler (Python)
 ├── scheduler.php              # Scheduler (PHP)
-└── dashboard.html             # Dashboard UI
+└── papan-bilas.html             # papan-bilas UI
 ```
 
 ## 🚀 Cara Penggunaan
 
-### Generate Manual (Sekali Jalan)
+### hasilkan tangan (Sekali Jalan)
 ```bash
 cd /workspace/aireber.digital/auto_content
 python3 generator.py
@@ -64,53 +64,53 @@ cd /workspace/aireber.digital/auto_content
 python3 scheduler.py
 ```
 
-### Jalankan di Background
+### Jalankan di latar-belakang
 ```bash
-nohup python3 scheduler.py > scheduler.log 2>&1 &
+nohup python3 scheduler.py > scheduler.catatan 2>&1 &
 ```
 
 ### Lihat Status Scheduler
 ```bash
-tail -f /workspace/aireber.digital/auto_content/logs/scheduler_$(date +%Y-%m-%d).log
+tail -f /workspace/aireber.digital/auto_content/catatan-catatan/scheduler_$(tanggal +%Y-%m-%d).catatan
 ```
 
 ## 📊 Fitur
 
-### 1. Auto Generation
-- Setiap 15 menit otomatis menghasilkan 10 konten (5 code + 5 text)
+### 1. otomatis Generation
+- Setiap 15 menit otomatis menghasilkan 10 konten (5 code + 5 teks)
 - Konten disimpan dalam format JSON dengan metadata lengkap
 - Tagging otomatis untuk kategorisasi
 
-### 2. Auto Post
-- Konten otomatis diposting ke 5 section:
-  - Dashboard
+### 2. otomatis Post
+- Konten otomatis diposting ke 5 bagian:
+  - papan-bilas
   - Products
-  - Social Media
-  - Content
+  - Social media
+  - isi
   - AI Automation
 
 ### 3. Reconstruction
 - Setiap 1 jam melakukan rekonstruksi konten
 - Merge konten serupa berdasarkan kategori
 - Backup sebelum merge
-- Version control otomatis
+- versi control otomatis
 
 ### 4. Logging
-- Log generasi konten per hari
-- Log scheduler per hari
-- Log rekonstruksi dengan timestamp
+- catatan generasi konten per hari
+- catatan scheduler per hari
+- catatan rekonstruksi dengan cap-waktu
 
 ## 🔧 Konfigurasi
 
-Edit file `config/auto_config.php` atau sesuaikan di `generator.py`:
+Edit berkas `konfigurasi/auto_config.php` atau sesuaikan di `generator.py`:
 
 ```python
-config = {
+konfigurasi = {
     'scheduler': {
         'interval_minutes': 15,      # Interval generasi
         'contents_per_type': 5,      # Jumlah konten per jenis
-        'auto_post': True,           # Auto post enabled
-        'reconstruct_enabled': True  # Rekonstruksi enabled
+        'auto_post': benar,           # otomatis post aktif
+        'reconstruct_enabled': benar  # Rekonstruksi aktif
     },
     'themes': {
         'primary_color': '#2563eb',
@@ -120,59 +120,59 @@ config = {
 }
 ```
 
-## 📱 Dashboard
+## 📱 papan-bilas
 
-Buka file `dashboard.html` di browser untuk melihat:
-- Statistik konten yang di-generate
+Buka berkas `papan-bilas.html` di browser untuk melihat:
+- Statistik konten yang di-hasilkan
 - Daftar konten terbaru
-- Log sistem
-- Kontrol manual generate
+- catatan sistem
+- Kontrol tangan hasilkan
 
 ## 🏷️ Tags
-- auto-generated
+- otomatis-generated
 - aireber
 - white-blue-theme
 - automation
-- content-generator
+- isi-generator
 
-## 📝 Contoh Output
+## 📝 Contoh keluaran
 
-### Code Content
+### Code isi
 ```json
 {
   "id": "code_1721455200_0",
-  "type": "code",
+  "jenis": "code",
   "category": "html_components",
-  "title": "Card Component #4521",
-  "content": "<div class=\"card white-blue-theme\">...</div>",
+  "judul": "Card Component #4521",
+  "isi": "<div kelas=\"card white-blue-theme\">...</div>",
   "theme": {
     "primary_color": "#2563eb",
     "secondary_color": "#3b82f6"
   },
   "created_at": "2025-07-20 06:34:02",
-  "tags": ["html_components", "auto-generated", "aireber"]
+  "tags": ["html_components", "otomatis-generated", "aireber"]
 }
 ```
 
-### Text Content
+### teks isi
 ```json
 {
   "id": "text_1721455200_0",
-  "type": "text",
+  "jenis": "teks",
   "category": "product_descriptions",
-  "title": "Produk Premium - 20/07/2025",
-  "content": "Produk ini dirancang dengan teknologi terbaru...",
+  "judul": "Produk Premium - 20/07/2025",
+  "isi": "Produk ini dirancang dengan teknologi terbaru...",
   "excerpt": "Konten otomatis yang dihasilkan oleh sistem AI Aireber.digital",
   "created_at": "2025-07-20 06:34:02",
-  "tags": ["product_descriptions", "auto-generated", "aireber"]
+  "tags": ["product_descriptions", "otomatis-generated", "aireber"]
 }
 ```
 
 ## ⚙️ Sistem Requirements
 - Python 3.6+
 - PHP 7.4+ (opsional)
-- Web browser untuk dashboard
+- Web browser untuk papan-bilas
 
 ## 📞 Support
-Aireber.digital - Auto Content System
+Aireber.digital - otomatis isi sistem
 Theme: White Blue (#2563eb, #3b82f6, #dbeafe)

@@ -1,7 +1,7 @@
 /**
- * Function Module: Moveicon 3684
+ * fungsi Module: Moveicon 3684
  * Category: effect
- * Style: windows
+ * gaya: windows
  * Shape: rectangle
  * ID: FUNC-03684
  */
@@ -21,7 +21,7 @@ const moveIcon3684 = {
     },
     
     setup() {
-        // Setup configuration for moveIcon
+        // Setup pengaturan untuk moveIcon
         this.config = {
             enabled: true,
             priority: 3684,
@@ -32,7 +32,7 @@ const moveIcon3684 = {
     
     execute(params) {
         console.log('Executing moveIcon #3684 with params:', params);
-        // Implementation for moveIcon operation
+        // Implementation untuk moveIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = moveIcon3684;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['moveIcon3684'] = moveIcon3684;
 }

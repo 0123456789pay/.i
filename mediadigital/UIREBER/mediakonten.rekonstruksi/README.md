@@ -1,28 +1,28 @@
-# Media.Digital - Rekonstruksi Platform Konten Digital
+# media.digital - Rekonstruksi landasan Konten digital
 
 ## Deskripsi
-Platform manajemen konten digital dengan tampilan UI modern berwarna putih dan biru, terinspirasi dari media.digital. Sistem ini mencakup fitur login, register, dashboard, dan berbagai menu fungsional yang direkonstruksi dari file `.digital`.
+landasan manajemen konten digital dengan tampilan UI modern berwarna putih dan biru, terinspirasi dari media.digital. Sistem ini mencakup fitur masuk, daftar, papan-bilas, dan berbagai menu fungsional yang direkonstruksi dari berkas `.digital`.
 
-## Struktur Folder
+## Struktur direktori
 
 ```
 mediakonten.rekonstruksi/
-├── index.html              # Halaman utama (landing page)
+├── indeks.html              # Halaman utama (landing halaman)
 ├── css/
-│   └── main.css           # Stylesheet utama (tema putih-biru)
+│   └── utama.css           # lembar gaya utama (tema putih-biru)
 ├── js/
-│   ├── main.js            # JavaScript utama
-│   └── auth.js            # Authentication (login/register)
+│   ├── utama.js            # skrip-skrip-javascript utama
+│   └── auth.js            # autentikasi (masuk/daftar)
 ├── html/
-│   ├── login.html         # Halaman login
-│   └── register.html      # Halaman register
+│   ├── masuk.html         # Halaman masuk
+│   └── daftar.html      # Halaman daftar
 ├── php/                   # Backend PHP (API & logic)
-├── db/                    # Database schema
+├── db/                    # basis-data schema
 ├── components/            # Komponen UI reusable
-├── config/                # File konfigurasi sistem
-├── system/                # System core files
+├── konfigurasi/                # berkas konfigurasi sistem
+├── sistem/                # sistem core berkas-berkas
 └── assets/
-    └── images/            # Asset gambar
+    └── gambar/            # Asset gambar
 ```
 
 ## Fitur Utama
@@ -31,31 +31,31 @@ mediakonten.rekonstruksi/
 - Tema warna putih bersih dengan aksen biru profesional (#1a73e8)
 - Navigasi dropdown yang responsif
 - Animasi smooth dan transisi halus
-- Design mobile-first yang responsif
+- Design mobile-pertama yang responsif
 
 ### 2. **Sistem Autentikasi**
-- ✅ Form Login dengan validasi email & password
-- ✅ Form Register dengan validasi lengkap
-- ✅ Password strength indicator
-- ✅ Toggle show/hide password
-- ✅ Social login (Google, Facebook)
+- ✅ borang masuk dengan validasi sur-el & sandian
+- ✅ borang daftar dengan validasi lengkap
+- ✅ sandian strength indicator
+- ✅ Toggle tampilkan/sembunyikan sandian
+- ✅ Social masuk (Google, Facebook)
 - ✅ Remember me functionality
-- ✅ Session management (localStorage/sessionStorage)
+- ✅ sesi pengelolaan (localStorage/sessionStorage)
 
 ### 3. **Menu Navigation**
-Berdasarkan rekonstruksi file `.digital`:
+Berdasarkan rekonstruksi berkas `.digital`:
 
-#### Dashboard
+#### papan-bilas
 - 📊 Overview
-- 📁 Kelola Media
-- ⬆️ Upload File
+- 📁 Kelola media
+- ⬆️ unggah berkas
 - 🖼️ Galeri
 - 🏷️ Kategori & Tag
 - 📅 Penjadwalan
 
 #### Konten
 - 📝 Buat Artikel
-- 🎬 Editor Video
+- 🎬 penyunting Video
 - 🎨 Desain Grafis
 - 🎙️ Podcast Audio
 - 🔴 Live Streaming
@@ -82,40 +82,40 @@ Berdasarkan rekonstruksi file `.digital`:
 
 ### 4. **Komponen UI**
 - Cards dengan hover effect
-- Forms dengan validasi real-time
+- Forms dengan validasi real-waktu
 - Tables dengan styling modern
 - Buttons (primary, secondary, ghost)
 - Badges & Alerts
-- Grid system responsif
+- Grid sistem responsif
 
-### 5. **Footer Tanpa Link Duplikat**
-- Footer section dengan 4 kolom unik
-- Tidak ada link yang sama berulang
-- Copyright dan social links
+### 5. **kaki Tanpa tautan Duplikat**
+- kaki bagian dengan 4 kolom unik
+- Tidak ada tautan yang sama berulang
+- Copyright dan social tautan
 
 ## Teknologi
 
 - **HTML5** - Semantic markup
-- **CSS3** - Custom properties, flexbox, grid
-- **JavaScript ES6+** - Modular code, async/await
+- **CSS3** - suai properties, flexbox, grid
+- **skrip-skrip-javascript ES6+** - Modular code, async/await
 - **PHP** (opsional) - Backend API ready
 
 ## Cara Menggunakan
 
-### 1. Clone/Download Project
+### 1. Clone/unduh Project
 ```bash
 cd /workspace/mediakonten.rekonstruksi
 ```
 
 ### 2. Buka di Browser
 ```
-file:///workspace/mediakonten.rekonstruksi/index.html
+berkas:///workspace/mediakonten.rekonstruksi/indeks.html
 ```
 
-### 3. Atau Gunakan Local Server
+### 3. Atau Gunakan Local peladen
 ```bash
 # Dengan Python
-python -m http.server 8000
+python -m http.peladen 8000
 
 # Dengan PHP
 php -S localhost:8000
@@ -125,57 +125,57 @@ Kemudian akses: `http://localhost:8000`
 
 ## Konfigurasi
 
-File konfigurasi dapat ditemukan di folder `/config`:
-- `system.config.php` - Konfigurasi sistem utama
-- `database.config.php` - Koneksi database
-- `theme.config.php` - Pengaturan tema
+berkas konfigurasi dapat ditemukan di direktori `/konfigurasi`:
+- `sistem.konfigurasi.php` - Konfigurasi sistem utama
+- `basis-data.konfigurasi.php` - Koneksi basis-data
+- `theme.konfigurasi.php` - Pengaturan tema
 
 ## Ekstensi .digital
 
-Sistem ini merekonstruksi semua file `.digital` menjadi struktur menu yang fungsional:
+Sistem ini merekonstruksi semua berkas `.digital` menjadi struktur menu yang fungsional:
 
-| File .digital | Menu Hasil Rekonstruksi |
+| berkas .digital | Menu Hasil Rekonstruksi |
 |--------------|------------------------|
-| mediadigital.digital | Dashboard Utama |
-| manajemenfile.digital | Manajemen File |
-| medsos.digital | Media Sosial |
+| mediadigital.digital | papan-bilas Utama |
+| manajemenfile.digital | Manajemen berkas |
+| medsos.digital | media Sosial |
 | domain.digital | Domain Manager |
 | arsipversi.digital/* | Arsip Versi |
 
 ## Customization
 
 ### Mengubah Warna Tema
-Edit file `css/main.css` pada bagian `:root`:
+Edit berkas `css/utama.css` pada bagian `:akar`:
 
 ```css
-:root {
+:akar {
     --primary-blue: #1a73e8;        /* Warna utama */
     --primary-blue-dark: #1557b0;   /* Hover state */
     --primary-blue-light: #4d9fef;  /* Accent */
-    --secondary-blue: #e8f0fe;      /* Background accent */
+    --secondary-blue: #e8f0fe;      /* latar-belakang accent */
 }
 ```
 
 ### Menambah Menu Baru
-Edit file `index.html` pada bagian `<nav class="main-nav">`:
+Edit berkas `indeks.html` pada bagian `<nav kelas="utama-nav">`:
 
 ```html
-<div class="nav-item">
-    <a href="#" class="nav-link">Nama Menu <span class="nav-arrow">▼</span></a>
-    <ul class="dropdown-menu">
-        <li><a href="#" class="dropdown-item">Sub Menu 1</a></li>
-        <li><a href="#" class="dropdown-item">Sub Menu 2</a></li>
+<div kelas="nav-butir">
+    <a href="#" kelas="nav-tautan">Nama Menu <span kelas="nav-arrow">▼</span></a>
+    <ul kelas="dropdown-menu">
+        <li><a href="#" kelas="dropdown-butir">Sub Menu 1</a></li>
+        <li><a href="#" kelas="dropdown-butir">Sub Menu 2</a></li>
     </ul>
 </div>
 ```
 
-## Security Features
+## keamanan fitur
 
-- ✅ Input validation (client-side)
-- ✅ Password strength checking
-- ✅ XSS protection (escaped output)
+- ✅ masukan validation (klien-side)
+- ✅ sandian strength checking
+- ✅ XSS protection (escaped keluaran)
 - ✅ CSRF token ready
-- ✅ Secure session handling
+- ✅ Secure sesi handling
 
 ## Browser Support
 
@@ -187,12 +187,12 @@ Edit file `index.html` pada bagian `<nav class="main-nav">`:
 
 ## License
 
-© 2024 Media.Digital - Platform Manajemen Konten Digital
+© 2024 media.digital - landasan Manajemen Konten digital
 
-## Contact & Support
+## kontak & Support
 
 Untuk bantuan lebih lanjut:
-- 📧 Email: support@media.digital
+- 📧 sur-el: support@media.digital
 - 📚 Dokumentasi: /docs
 - 💬 Komunitas: Forum Diskusi
 

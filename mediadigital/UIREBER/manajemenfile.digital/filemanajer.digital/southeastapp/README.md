@@ -6,27 +6,27 @@ SoutheastApp adalah sistem yang berbeda dari sistem lainnya, dirancang khusus un
 
 1. **Arsitektur Microservices Hybrid** - Menggabungkan kelebihan monolitik dan microservices
 2. **Multi-Region Support** - Dukungan penuh untuk berbagai negara di Asia Tenggara
-3. **Local-first Design** - Prioritas pada kebutuhan lokal dengan skalabilitas global
-4. **Adaptive Component System** - Sistem komponen yang dapat beradaptasi secara dinamis
+3. **Local-pertama Design** - Prioritas pada kebutuhan lokal dengan skalabilitas nasional
+4. **Adaptive Component sistem** - Sistem komponen yang dapat beradaptasi secara dinamis
 
-## Struktur Folder
+## Struktur direktori
 
 - `/components` - Komponen UI yang telah di-rename dengan pola khusus
 - `/api` - API endpoints untuk berbagai layanan
-- `/storage` - Unlimited storage system
-- `/config` - Konfigurasi spesifik regional
+- `/penyimpanan` - tak terbatas penyimpanan sistem
+- `/konfigurasi` - Konfigurasi spesifik regional
 
 ## Cara Penggunaan
 
 ```bash
-# Menjalankan development server
-npm run dev: southeast
+# Menjalankan development peladen
+npm jalankan dev: southeast
 
-# Build untuk production
-npm run build: southeast
+# bangun untuk production
+npm jalankan bangun: southeast
 
-# Deploy ke multiple regions
-npm run deploy: southeast-all
+# sebarkan ke multiple regions
+npm jalankan sebarkan: southeast-semua
 ```
 
 ## License
