@@ -2,8 +2,20 @@
   "version": "1.0.0",
   "system": "IHBSF",
   "folders": {
-    "main": ["I", "H", "B", "S", "F"],
-    "sub": ["h", "t", "m", "l", "c", "s", "S", "j", "`s"]
+    "main": [
+      "I"
+    ],
+    "sub": [
+      "h",
+      "t",
+      "m",
+      "l",
+      "c",
+      "s",
+      "S",
+      "j",
+      "`s"
+    ]
   },
   "fileMapping": {
     ".html": "l",
@@ -22,11 +34,10 @@
   "navigation": {
     "enabled": true,
     "links": [
-      {"folder": "I", "path": "../I/index.html"},
-      {"folder": "H", "path": "../H/index.html"},
-      {"folder": "B", "path": "../B/index.html"},
-      {"folder": "S", "path": "../S/index.html"},
-      {"folder": "F", "path": "../F/index.html"}
+      {
+        "folder": "I",
+        "path": "../I/index.html"
+      }
     ]
   }
 }
