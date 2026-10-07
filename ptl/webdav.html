@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WebDAV — Index of /ptl</title>
+<style>
+  :root {
+    --bg: #0f1420;
+    --panel: #171e2e;
+    --card: #1d2639;
+    --card-hover: #253150;
+    --border: #2c3a57;
+    --text: #e6ecf7;
+    --muted: #8fa0bf;
+    --accent: #4da3ff;
+    --accent-2: #7bd88f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: radial-gradient(1200px 600px at 20% -10%, #1b2a4a 0%, var(--bg) 55%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 24px;
+  }
+  header {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  header .logo {
+    width: 46px; height: 46px; border-radius: 12px;
+    background: linear-gradient(135deg, #2f6fd0, #7c4dff);
+    display: grid; place-items: center; font-size: 22px;
+    box-shadow: 0 6px 18px rgba(47,111,208,.35);
+  }
+  header h1 { font-size: 20px; font-weight: 600; }
+  header .path {
+    font-family: Consolas, monospace; font-size: 13px; color: var(--muted);
+    background: var(--panel); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 8px;
+  }
+  .toolbar {
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+    margin: 16px 0 22px;
+  }
+  .toolbar input[type="search"] {
+    flex: 1; min-width: 200px;
+    background: var(--panel); border: 1px solid var(--border); color: var(--text);
+    padding: 10px 14px; border-radius: 10px; outline: none; font-size: 14px;
+  }
+  .toolbar input[type="search"]:focus { border-color: var(--accent); }
+  .toolbar .count { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  .breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+  /* ===== Grid kartu aplikasi ===== */
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+    display: flex; flex-direction: column; gap: 10px;
+    outline: none;
+  }
+  .card:hover, .card:focus-visible {
+    background: var(--card-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.35);
+    border-color: var(--accent);
+  }
+  .card .icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: grid; place-items: center; font-size: 24px;
+    background: rgba(77,163,255,.12); border: 1px solid rgba(77,163,255,.25);
+  }
+  .card.dir .icon { background: rgba(123,216,143,.12); border-color: rgba(123,216,143,.3); }
+  .card h3 { font-size: 15px; font-weight: 600; word-break: break-word; }
+  .card .desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+  .card .meta {
+    margin-top: auto; display: flex; justify-content: space-between; align-items: center;
+    font-family: Consolas, monospace; font-size: 11.5px; color: var(--muted);
+    border-top: 1px dashed var(--border); padding-top: 8px;
+  }
+  .badge {
+    font-size: 10.5px; padding: 2px 8px; border-radius: 999px;
+    background: rgba(77,163,255,.15); color: var(--accent);
+    border: 1px solid rgba(77,163,255,.3); text-transform: uppercase; letter-spacing: .5px;
+  }
+  .card.dir .badge { background: rgba(123,216,143,.15); color: var(--accent-2); border-color: rgba(123,216,143,.3); }
+  .empty { color: var(--muted); text-align: center; padding: 60px 0; grid-column: 1/-1; }
+
+  /* ===== Modal dialog ===== */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(6,10,18,.7);
+    backdrop-filter: blur(4px);
+    display: none; align-items: center; justify-content: center;
+    padding: 20px; z-index: 100;
+  }
+  .modal-overlay.open { display: flex; animation: fade .18s ease; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 16px; width: min(720px, 100%); max-height: 82vh;
+    display: flex; flex-direction: column; overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,.5);
+    animation: pop .18s ease;
+  }
+  @keyframes pop { from { transform: scale(.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal-head {
+    display: flex; align-items: center; gap: 12px;
+    padding: 16px 20px; border-bottom: 1px solid var(--border);
+  }
+  .modal-head .icon { font-size: 26px; }
+  .modal-head h2 { font-size: 17px; font-weight: 600; flex: 1; word-break: break-word; }
+  .modal-close {
+    background: transparent; border: 1px solid var(--border); color: var(--muted);
+    width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 15px;
+  }
+  .modal-close:hover { color: var(--text); border-color: var(--accent); }
+  .modal-body { padding: 18px 20px; overflow: auto; }
+  .kv { display: grid; grid-template-columns: 140px 1fr; gap: 6px 14px; font-size: 13.5px; margin-bottom: 14px; }
+  .kv dt { color: var(--muted); }
+  .kv dd { font-family: Consolas, monospace; word-break: break-all; }
+  .content-box {
+    background: #0c111c; border: 1px solid var(--border); border-radius: 10px;
+    padding: 14px; font-family: Consolas, monospace; font-size: 12.5px;
+    white-space: pre-wrap; word-break: break-word; color: #c8d6f0;
+    max-height: 300px; overflow: auto;
+  }
+  .listing { list-style: none; }
+  .listing li {
+    display: flex; gap: 10px; align-items: center; padding: 8px 10px;
+    border-radius: 8px; font-family: Consolas, monospace; font-size: 13px;
+  }
+  .listing li:hover { background: var(--card); }
+  .listing .size { margin-left: auto; color: var(--muted); font-size: 12px; }
+  .modal-actions { display: flex; gap: 10px; padding: 14px 20px; border-top: 1px solid var(--border); }
+  .btn {
+    padding: 9px 16px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); cursor: pointer; font-size: 13.5px;
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #081020; font-weight: 600; }
+  footer { margin-top: 28px; text-align: center; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📁</div>
+  <div>
+    <h1>Server WebDAV — Direktori Publik</h1>
+    <div style="font-size:13px;color:var(--muted)">Indeks &amp; pratinjau isi direktori (PROPFIND)</div>
+  </div>
+  <span class="path" style="margin-left:auto">Index of /ptl/</span>
+</header>
+
+<div class="breadcrumb">🏠 <a href="/">root</a> / <strong>ptl</strong></div>
+
+<div class="toolbar">
+  <input type="search" id="search" placeholder="🔍 Cari nama file / folder…" />
+  <span class="count" id="count"></span>
+</div>
+
+<main id="grid" aria-label="Kartu isi direktori"></main>
+
+<!-- ===== MODAL DIALOG ===== -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div class="modal-head">
+      <span class="icon" id="modal-icon">📄</span>
+      <h2 id="modal-title">—</h2>
+      <button class="modal-close" id="modal-close" title="Tutup (Esc)">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-actions">
+      <button class="btn primary" id="modal-download">⬇ Unduh</button>
+      <button class="btn" id="modal-open">↗ Buka Baru</button>
+      <button class="btn" id="modal-cancel">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<footer>WebDAV pseudo-indeks • http://localhost:8080/ptl/ • klik kartu untuk melihat konten</footer>
+
+<script>
+/* ============================================================
+   Tampilan web server ala WebDAV — daftar isi /ptl dalam bentuk
+   kartu aplikasi; klik kartu membuka modal dialog berisi konten.
+   ============================================================ */
+
+// Struktur direktori yang dipublikasikan (mirror dari repo).
+const TREE = {
+  "/": [
+    { name: "ptl",           type: "dir",  desc: "Folder PTL Desktop (aplikasi web)" },
+    { name: "mediadigital",  type: "dir",  desc: "Aset media digital & dashboard" },
+    { name: "elite",         type: "dir",  desc: "Dokumen Elite" },
+    { name: "webdev-config.md", type: "file", size: 1750, mtime: "2026-10-07 14:01", desc: "Konfigurasi server web dev" },
+    { name: "advanced-git-commands.md", type: "file", size: 13181, mtime: "2026-10-07 14:01", desc: "Daftar perintah Git lanjutan" },
+    { name: "README.md",     type: "file", size: 1, mtime: "2026-10-07 14:01", desc: "Beranda repositori" },
+  ],
+  "/ptl": [
+    { name: "index.html", type: "file", size: 2962, mtime: "2026-10-07 14:01", desc: "Halaman utama PTL Desktop",
+      content: "<!DOCTYPE html>\n<html lang=\"id\">\n<head>\n  <title>PTL Desktop — File Manager</title>\n  <link rel=\"stylesheet\" href=\"css/desktop.css\" />\n</head>\n<body>\n  <div id=\"desktop\">…</div>\n  <div id=\"taskbar\">…</div>\n  <script src=\"js/filesystem.js\"><\/script>\n</body>\n</html>" },
+    { name: "webdav.html", type: "file", size: 15800, mtime: "2026-10-07 14:05", desc: "Halaman indeks WebDAV ini",
+      content: "Halaman indeks direktori bergaya WebDAV dengan kartu aplikasi dan modal dialog pratinjau konten." },
+    { name: "css", type: "dir", desc: "Stylesheet tampilan desktop", children: ["desktop.css"] },
+    { name: "js",  type: "dir", desc: "Skrip logika filesystem & desktop", children: ["desktop.js", "filesystem.js", "github-detect.js"] },
+  ],
+  "/ptl/css": [
+    { name: "desktop.css", type: "file", size: 18240, mtime: "2026-10-07 14:01", desc: "Gaya desktop, taskbar, jendela",
+      content: ":root { --bg:#0f1420; }\n#desktop { position:fixed; inset:0; }\n#taskbar { height:48px; … }" },
+  ],
+  "/ptl/js": [
+    { name: "desktop.js", type: "file", size: 24510, mtime: "2026-10-07 14:01", desc: "Manajemen jendela & taskbar",
+      content: "// PTL Desktop — window manager\nconst WM = (() => { … })();" },
+    { name: "filesystem.js", type: "file", size: 21340, mtime: "2026-10-07 14:01", desc: "Sistem berkas virtual (FS)",
+      content: "// PTL Desktop — Virtual File System\nconst FS = (() => {\n  const MODES = { \"drwxr-xr-x\": { dir:true, owner:\"rwx\", group:\"r-x\", other:\"r-x\" } };\n  …\n})();" },
+    { name: "github-detect.js", type: "file", size: 5120, mtime: "2026-10-07 14:01", desc: "Deteksi repo GitHub",
+      content: "// Deteksi konten repository GitHub → window.GITHUB_DETECTED" },
+  ],
+};
+
+const ICONS = {
+  dir: "📁", html: "🌐", css: "🎨", js: "⚙️", md: "📝", json: "🧾",
+  png: "🖼️", jpg: "🖼️", svg: "🖼️", default: "📄",
+};
+const iconFor = (item) => {
+  if (item.type === "dir") return ICONS.dir;
+  const ext = item.name.split(".").pop().toLowerCase();
+  return ICONS[ext] || ICONS.default;
+};
+const fmtSize = (n) => n >= 1024 ? (n / 1024).toFixed(1) + " KB" : n + " B";
+
+let currentPath = "/ptl"; // halaman ini berada di /ptl
+
+const grid = document.getElementById("grid");
+const countEl = document.getElementById("count");
+const searchEl = document.getElementById("search");
+
+function render() {
+  const items = TREE[currentPath] || [];
+  const q = searchEl.value.trim().toLowerCase();
+  const filtered = items.filter(i => i.name.toLowerCase().includes(q) || (i.desc || "").toLowerCase().includes(q));
+
+  grid.innerHTML = "";
+  // tombol navigasi ".." ke root bila sedang di subfolder
+  if (currentPath !== "/") {
+    const up = document.createElement("div");
+    up.className = "card";
+    up.tabIndex = 0;
+    up.innerHTML = `<div class="icon">⬆️</div><h3>.. (naik tingkat)</h3>
+      <div class="desc">Kembali ke ${currentPath.split("/").slice(0, -1).join("/") || "/"}</div>`;
+    up.onclick = () => { currentPath = currentPath.split("/").slice(0, -1).join("/") || "/"; syncUI(); };
+    grid.appendChild(up);
+  }
+
+  if (!filtered.length) {
+    grid.insertAdjacentHTML("beforeend", `<div class="empty">Tidak ada hasil untuk “${q}”.</div>`);
+  }
+  for (const item of filtered) {
+    const card = document.createElement("div");
+    card.className = "card" + (item.type === "dir" ? " dir" : "");
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.innerHTML = `
+      <div class="icon">${iconFor(item)}</div>
+      <h3>${item.name}</h3>
+      <div class="desc">${item.desc || ""}</div>
+      <div class="meta">
+        <span>${item.type === "dir" ? (item.children ? item.children.length + " item" : "—") : fmtSize(item.size || 0)}</span>
+        <span class="badge">${item.type === "dir" ? "DIR" : item.name.split(".").pop().toUpperCase()}</span>
+      </div>`;
+    const open = () => (item.type === "dir" && TREE[currentPath + "/" + item.name])
+      ? navigate(currentPath + "/" + item.name)
+      : showModal(item);
+    card.onclick = open;
+    card.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } };
+    grid.appendChild(card);
+  }
+  countEl.textContent = `${items.length} entri • ${currentPath}`;
+}
+
+function navigate(path) {
+  currentPath = path;
+  searchEl.value = "";
+  syncUI();
+}
+function syncUI() {
+  document.querySelector(".path").textContent = "Index of " + currentPath + "/";
+  document.querySelector(".breadcrumb strong").textContent = currentPath.split("/").filter(Boolean).join(" / ") || "root";
+  render();
+}
+
+/* ---------- Modal dialog ---------- */
+const overlay = document.getElementById("modal-overlay");
+const modalTitle = document.getElementById("modal-title");
+const modalIcon = document.getElementById("modal-icon");
+const modalBody = document.getElementById("modal-body");
+let activeItem = null;
+
+function showModal(item) {
+  activeItem = item;
+  modalIcon.textContent = iconFor(item);
+  modalTitle.textContent = item.name;
+
+  let html = `
+    <dl class="kv">
+      <dt>Nama</dt><dd>${item.name}</dd>
+      <dt>Jenis</dt><dd>${item.type === "dir" ? "koleksi (/collection)" : "sumber daya (/resource)"}</dd>
+      <dt>Path</dt><dd>${currentPath}/${item.name}</dd>
+      <dt>Ukuran</dt><dd>${item.type === "dir" ? "—" : fmtSize(item.size || 0)}</dd>
+      <dt>Modifikasi</dt><dd>${item.mtime || "2026-10-07 14:01"}</dd>
+      <dt>Izin</dt><dd>${item.type === "dir" ? "drwxr-xr-x (0755)" : "-rw-r--r-- (0644)"}</dd>
+      <dt>Deskripsi</dt><dd>${item.desc || "—"}</dd>
+    </dl>`;
+
+  if (item.type === "dir" && item.children) {
+    html += `<h4 style="margin-bottom:8px;font-size:13px;color:var(--muted)">ISI DIREKTORI (Depth: 1)</h4>
+      <ul class="listing">` +
+      item.children.map(c => `<li>📄 ${c}<span class="size">file</span></li>`).join("") +
+      `</ul>`;
+  } else if (item.content) {
+    html += `<h4 style="margin-bottom:8px;font-size:13px;color:var(--muted)">PRATINJAU KONTEN</h4>
+      <div class="content-box">${item.content.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")}</div>`;
+  } else {
+    html += `<div class="content-box">[biner] Pratinjau tidak tersedia untuk tipe ini. Gunakan tombol Unduh.</div>`;
+  }
+
+  modalBody.innerHTML = html;
+  overlay.classList.add("open");
+  document.getElementById("modal-close").focus();
+}
+function hideModal() { overlay.classList.remove("open"); activeItem = null; }
+
+document.getElementById("modal-close").onclick = hideModal;
+document.getElementById("modal-cancel").onclick = hideModal;
+overlay.addEventListener("click", (e) => { if (e.target === overlay) hideModal(); });
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
+
+document.getElementById("modal-download").onclick = () => {
+  if (!activeItem) return;
+  const blob = new Blob([activeItem.content || "isi biner"], { type: "text/plain" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = activeItem.name;
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+document.getElementById("modal-open").onclick = () => {
+  if (!activeItem) return;
+  window.open(currentPath + "/" + activeItem.name, "_blank");
+};
+
+searchEl.addEventListener("input", render);
+syncUI();
+</script>
+</body>
+</html>
