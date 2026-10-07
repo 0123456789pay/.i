@@ -61,6 +61,29 @@ const FS = (() => {
     })[ext] || "text/plain";
   }
   const githubRootChildren = GH ? ghChildren(GH.dirs.concat(GH.files)) : {};
+
+  /* ---------- snapshot SELURUH folder & file repository (root:root) ---------- */
+  const SNAP = (typeof window !== "undefined" && window.GITHUB_SNAPSHOT) || null;
+  function snapToNode(sn) {
+    if (sn.t === "d") return dir(snapChildren(sn.c), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18", size: sn.s });
+    if (sn.t === "l") return link(sn.tg, { date: "Oct  7 11:18" });
+    return file("[isi file — repo terdeteksi dari GitHub]", mimeFor(sn._n || ""),
+      { perm: "-rw-r--r--", links: 1, size: sn.s, date: "Oct  7 11:18" });
+  }
+  function snapChildren(obj) {
+    const out = {};
+    for (const name in obj) {
+      const n = Object.assign({ _n: name }, obj[name]);
+      out[name] = snapToNode(n);
+    }
+    return out;
+  }
+  const snapChildrenRoot = SNAP ? snapChildren(SNAP) : {};
+  function countSnap(node) {
+    if (node.t === "d") return Object.values(node.c).reduce((s, c) => s + countSnap(c), 1);
+    return 1;
+  }
+  const SNAP_COUNT = SNAP ? Object.values(SNAP).reduce((s, c) => s + countSnap(c), 0) : 0;
   const githubSummary = GH
     ? "# Hasil Deteksi Sistem dari GitHub\n\n" +
       "Repo     : " + GH.repo + " (branch " + GH.branch + ")\n" +
@@ -70,10 +93,22 @@ const FS = (() => {
       "## Direktori terdeteksi\n" +
       GH.dirs.map(d => "- " + d.name + "/").join("\n") + "\n\n" +
       "## Berkas terdeteksi\n" +
-      GH.files.map(f => "- " + f.name).join("\n") + "\n"
+      GH.files.map(f => "- " + f.name).join("\n") + "\n" +
+      (SNAP ? "\n## Snapshot seluruh repository (" + SNAP_COUNT + " folder & file)\n" +
+        Object.keys(SNAP).map(k => "- " + k + (SNAP[k].t === "d" ? "/" : "")).join("\n") + "\n" +
+        "\nLokasi mount: /github/workspace/git, /root/github, /home/pengguna/Github, /usr/share/github\n" +
+        "Pemilik: root:root (semua izin root)\n" : "")
     : "# Deteksi GitHub belum tersedia.\n";
 
   const root = dir({
+    /* Mount repositori GitHub "ptl" hasil deteksi — SELURUH folder & file, izin root:root */
+    githubws: dir({
+      workspace: dir({
+        git: dir(Object.assign({
+          "HASIL-DETEKSI-GITHUB.md": file(githubSummary, "text/markdown", { perm: "-rw-r--r--", links: 1, date: "Oct  7 11:18" }),
+        }, snapChildrenRoot), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
+      }, { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
+    }, { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
     bin: dir({
       ls: bin("ls"), cat: bin("cat"), bash: bin("bash"), sh: link("bin/bash"),
       cp: bin("cp"), mv: bin("mv"), rm: bin("rm"), mkdir: bin("mkdir"),
@@ -128,10 +163,10 @@ const FS = (() => {
           "musik-favorit.mp3": file("[audio/mpeg data]", "audio/mpeg", { perm: "-rw-r--r--", links: 1, size: 5200000 }),
           "arsip-cadangan.zip": file("[zip archive]", "application/zip", { perm: "-rw-r--r--", links: 1, size: 98000000 }),
         }),
-        /* Folder hasil deteksi sistem dari GitHub — izin root:root */
+        /* Folder hasil deteksi sistem dari GitHub — SELURUH folder & file repo, izin root:root */
         Github: dir(Object.assign({
           "HASIL-DETEKSI-GITHUB.md": file(githubSummary, "text/markdown", { perm: "-rw-r--r--", links: 1, date: "Oct  7 11:18" }),
-        }, githubRootChildren), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
+        }, snapChildrenRoot, githubRootChildren), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
         Music: dir({
           "playlist.m3u": file("#EXTM3U\nmusik-favorit.mp3", "audio/x-mpegurl", { links: 1 }),
         }),
@@ -147,7 +182,7 @@ const FS = (() => {
         ".bashrc": file("export PS1='\\u@ptl:\\w$ '", "text/plain", { links: 1 }),
       }),
     }, { links: 3 }),
-    lostFound: dir({}, { perm: "drwx------", links: 2, date: "Jan  1  1970" }),
+    lostFound: dir({ ".keep": file("", "text/plain", { perm: "-rw-------", links: 1, size: 0 }) }, { perm: "drwx------", links: 2, date: "Jan  1  1970" }),
     media: dir({}, { date: "Apr  7  2025" }),
     mnt: dir({ "usb-drive": dir({ "data-darurat.txt": file("cadangan penting!", "text/plain", { links: 1 }) }) }, { date: "Oct  7 11:18" }),
     opt: dir({ "aplikasi-tambahan": dir({ "app.bin": file("[binary]", "application/octet-stream", { perm: "-rwxr-xr-x", links: 1, size: 20480 }) }) }),
@@ -164,10 +199,10 @@ const FS = (() => {
     rootHome: dir({
       ".profile": file("# root profile", "text/plain", { perm: "-rw-r--r--", links: 1 }),
       ".ssh": dir({ "authorized_keys": file("ssh-ed25519 AAAA... root@ptl", "text/plain", { perm: "-rw-------", links: 1 }) }, { perm: "drwx------" }),
-      /* salinan hasil deteksi GitHub di direktori root — izin root penuh */
+      /* salinan hasil deteksi GitHub di direktori root — SELURUH repo, izin root penuh */
       github: dir(Object.assign({
         "HASIL-DETEKSI-GITHUB.md": file(githubSummary, "text/markdown", { perm: "-rw-r--r--", links: 1, date: "Oct  7 11:18" }),
-      }, githubRootChildren), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
+      }, snapChildrenRoot, githubRootChildren), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
     }, { perm: "drwx------", links: 2, date: "Oct  7 11:18" }),
     run: dir({
       "ptl.pid": file("4242", "text/plain", { perm: "-rw-r--r--", links: 1 }),
@@ -197,10 +232,10 @@ const FS = (() => {
       share: dir({
         applications: dir({ "ptl-files.desktop": file("[Desktop Entry]", "text/plain", { links: 1 }) }),
         doc: dir({ "manual.txt": file("PTL Desktop manual v1.0", "text/plain", { links: 1 }) }),
-        /* tautan hasil pemindaian GitHub — sumber folder sistem terdeteksi */
+        /* tautan hasil pemindaian GitHub — SELURUH folder & file repo terdeteksi */
         github: dir(Object.assign({
           "HASIL-DETEKSI-GITHUB.md": file(githubSummary, "text/markdown", { perm: "-rw-r--r--", links: 1, date: "Oct  7 11:18" }),
-        }, githubRootChildren), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
+        }, snapChildrenRoot, githubRootChildren), { perm: "drwxr-xr-x", links: 2, date: "Oct  7 11:18" }),
       }),
       src: dir({ "linux-ptl": dir({ "Makefile": file("all:\n\t@echo build", "text/plain", { links: 1 }) }) }),
     }, { links: 10 }),
@@ -220,7 +255,7 @@ const FS = (() => {
   }, { perm: "drwxr-xr-x", links: 11, date: "Apr  7  2025" });
 
   // nama display untuk folder privat (agar tidak bentrok dengan folder /root sistem)
-  const DISPLAY_NAMES = { rootHome: "root", lostFound: "lost+found" };
+  const DISPLAY_NAMES = { rootHome: "root", lostFound: "lost+found", githubws: "github" };
   function displayName(key) { return DISPLAY_NAMES[key] || key; }
   function realKey(name) {
     for (const k in DISPLAY_NAMES) if (DISPLAY_NAMES[k] === name) return k;

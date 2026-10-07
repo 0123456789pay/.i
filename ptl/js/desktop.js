@@ -150,6 +150,7 @@
     { name: "Musik", path: "/home/pengguna/Music", icon: "🎵" },
     { name: "Video", path: "/home/pengguna/Videos", icon: "🎬" },
     { name: "Perangkat USB", path: "/mnt/usb-drive", icon: "💽" },
+    { name: "Repo GitHub (/github/workspace/git)", path: "/github/workspace/git", icon: "🐙" },
   ];
 
   const trashBin = []; // item sampah
@@ -190,6 +191,7 @@
                 <button class="place" data-path="/sys"><span>🧩</span>/sys</button>
                 <button class="place" data-path="/root"><span>👑</span>/root</button>
                 <button class="place" data-path="/usr/share/github"><span>🐙</span>Deteksi GitHub</button>
+                <button class="place" data-path="/github/workspace/git"><span>🗄️</span>/github/workspace/git</button>
                 <button class="place" data-trash><span>🗑️</span>Sampah <em class="trash-count"></em></button>
               </div>
               <div class="fm-content"></div>
@@ -627,10 +629,15 @@
         body.querySelector("#fs-total").textContent = fmtSize(FS.totalSize(FS.root));
         const ghNode = FS.getNode("/home/pengguna/Github");
         if (window.GITHUB_DETECTED && ghNode) {
+          const snapCount = window.GITHUB_SNAPSHOT
+            ? (function c(o){ let n=0; for(const k in o){ n++; if(o[k].t==="d") n+=c(o[k].c); } return n; })(window.GITHUB_SNAPSHOT)
+            : 0;
           body.querySelector("#gh-info").innerHTML =
             `${window.GITHUB_DETECTED.dirs.length} folder + ${window.GITHUB_DETECTED.files.length} berkas terdeteksi dari repo ` +
             `<b>${window.GITHUB_DETECTED.repo}</b> — tersimpan di <b>/home/pengguna/Github</b>, <b>/root/github</b>, ` +
-            `<b>/usr/share/github</b> — izin <b>root:root</b>`;
+            `<b>/usr/share/github</b> — izin <b>root:root</b>` +
+            (snapCount ? `<br><br>Snapshot SELURUH repository: <b>${snapCount}</b> folder &amp; file terpetakan ke ` +
+              `<b>/github/workspace/git</b> — pemilik root:root.` : ``);
         } else {
           body.querySelector("#gh-info").textContent = "Modul deteksi GitHub tidak dimuat.";
         }
