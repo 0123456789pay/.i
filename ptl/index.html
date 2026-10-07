@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PTL Desktop — File Manager</title>
+<link rel="stylesheet" href="css/desktop.css" />
+</head>
+<body>
+
+<!-- ===== DESKTOP ===== -->
+<div id="desktop">
+  <!-- Wallpaper decorations -->
+  <div class="wallpaper-glow"></div>
+
+  <!-- Desktop icons -->
+  <div id="desktop-icons">
+    <div class="desktop-icon" data-open="files" tabindex="0">
+      <div class="icon-img">🗂️</div>
+      <span>File Manajer</span>
+    </div>
+    <div class="desktop-icon" data-open="terminal" tabindex="0">
+      <div class="icon-img">💻</div>
+      <span>Terminal</span>
+    </div>
+    <div class="desktop-icon" data-open="trash" tabindex="0">
+      <div class="icon-img">🗑️</div>
+      <span>Sampah</span>
+    </div>
+    <div class="desktop-icon" data-open="about" tabindex="0">
+      <div class="icon-img">ℹ️</div>
+      <span>Tentang</span>
+    </div>
+  </div>
+
+  <!-- Window layer -->
+  <div id="window-layer"></div>
+</div>
+
+<!-- ===== TASKBAR ===== -->
+<div id="taskbar">
+  <button id="start-btn" title="Mulai">
+    <span class="start-logo">⊞</span> Mulai
+  </button>
+  <div id="taskbar-items"></div>
+  <div id="tray">
+    <span id="tray-storage" title="Penyimpanan sistem">💾 42.7 GB / 128 GB</span>
+    <span id="clock"></span>
+  </div>
+</div>
+
+<!-- ===== START MENU ===== -->
+<div id="start-menu" class="hidden">
+  <div class="start-sidebar">
+    <div class="start-user">
+      <div class="avatar">👤</div>
+      <span>Pengguna PTL</span>
+    </div>
+    <button class="start-side-item" data-open="files">🗂️ File Manajer</button>
+    <button class="start-side-item" data-open="terminal">💻 Terminal</button>
+    <button class="start-side-item" data-open="settings">⚙️ Pengaturan</button>
+    <button class="start-side-item danger" data-action="shutdown">⏻ Matikan</button>
+  </div>
+  <div class="start-main">
+    <input type="text" id="start-search" placeholder="Cari aplikasi & file…" />
+    <div class="start-apps" id="start-apps">
+      <button class="app-tile" data-open="files"><span>🗂️</span>File Manajer</button>
+      <button class="app-tile" data-open="terminal"><span>💻</span>Terminal</button>
+      <button class="app-tile" data-open="about"><span>ℹ️</span>Tentang</button>
+      <button class="app-tile" data-open="settings"><span>⚙️</span>Pengaturan</button>
+      <button class="app-tile" data-open="trash"><span>🗑️</span>Sampah</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SHUTDOWN OVERLAY ===== -->
+<div id="shutdown-overlay" class="hidden">
+  <div class="shutdown-box">
+    <div class="shutdown-spinner"></div>
+    <p>Sistem dimatikan…</p>
+    <button id="power-on-btn">⏻ Nyalakan Kembali</button>
+  </div>
+</div>
+
+<script src="js/filesystem.js"></script>
+<script src="js/desktop.js"></script>
+</body>
+</html>
