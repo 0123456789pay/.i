@@ -13,6 +13,7 @@
   /* ---------- ikon & tampilan ---------- */
   function iconFor(entry) {
     if (entry.type === "dir") return "📁";
+    if (entry.type === "link") return "🔗";
     const ext = entry.name.split(".").pop().toLowerCase();
     const map = {
       txt: "📄", md: "📝", html: "🌐", js: "📜", css: "🎨", json: "📋",
@@ -21,7 +22,7 @@
       mp4: "🎬", webm: "🎬", mkv: "🎬", avi: "🎬",
       zip: "🗜️", tar: "🗜️", gz: "🗜️",
       docx: "📃", xlsx: "📊", pptx: "📽️", pdf: "📕",
-      deb: "📦", sh: "⚙️", log: "🧾",
+      deb: "📦", sh: "⚙️", log: "🧾", ts: "📜", tsx: "⚛️", yml: "📋", io: "🔌",
     };
     return map[ext] || "📄";
   }
@@ -142,6 +143,7 @@
   const PLACES = [
     { name: "Rumah", path: "/home/pengguna", icon: "🏠" },
     { name: "Berkas Sistem (/)", path: "/", icon: "🗄️" },
+    { name: "Deteksi GitHub", path: "/home/pengguna/Github", icon: "🐙" },
     { name: "Dokumen", path: "/home/pengguna/Documents", icon: "📄" },
     { name: "Unduhan", path: "/home/pengguna/Downloads", icon: "⬇️" },
     { name: "Gambar", path: "/home/pengguna/Pictures", icon: "🖼️" },
@@ -160,7 +162,7 @@
       height: 540,
       buildBody(body, win) {
         let cwd = startPath;
-        let viewMode = "grid";
+        let viewMode = "grid";   // "grid" | "list" | "perm" (ls -la, semua root)
         let history = [cwd];
         let hIdx = 0;
 
@@ -174,16 +176,20 @@
               <div class="fm-path" contenteditable spellcheck="false"></div>
               <input class="fm-search" type="text" placeholder="🔍 Cari di folder ini…" />
               <button class="tbtn" data-act="toggle-view" title="Ganti tampilan">🔲</button>
+              <button class="tbtn tperm" data-act="perm-view" title="Tampilan izin ls -la (root)">🛡️ ls -la</button>
               <button class="tbtn" data-act="new-folder" title="Folder baru">➕📁</button>
             </div>
             <div class="fm-main">
               <div class="fm-sidebar">
                 <div class="side-head">Tempat</div>
                 ${PLACES.map(p => `<button class="place" data-path="${p.path}"><span>${p.icon}</span>${p.name}</button>`).join("")}
-                <div class="side-head">Sistem</div>
+                <div class="side-head">Sistem (root)</div>
                 <button class="place" data-path="/etc"><span>⚙️</span>/etc</button>
                 <button class="place" data-path="/var/log"><span>🧾</span>/var/log</button>
                 <button class="place" data-path="/proc"><span>🧠</span>/proc</button>
+                <button class="place" data-path="/sys"><span>🧩</span>/sys</button>
+                <button class="place" data-path="/root"><span>👑</span>/root</button>
+                <button class="place" data-path="/usr/share/github"><span>🐙</span>Deteksi GitHub</button>
                 <button class="place" data-trash><span>🗑️</span>Sampah <em class="trash-count"></em></button>
               </div>
               <div class="fm-content"></div>
@@ -203,54 +209,87 @@
           const inTrash = cwd === "__trash__";
           const entries = inTrash
             ? trashBin.slice()
-            : FS.listDir(cwd);
+            : FS.listDir(cwd, { detail: viewMode === "perm", all: viewMode === "perm" });
 
           content.className = "fm-content " + viewMode;
           content.innerHTML = "";
 
-          if (entries.length === 0) {
-            content.innerHTML = `<div class="empty-folder">📂 Folder kosong</div>`;
-          }
-
-          for (const e of entries) {
-            const item = document.createElement(inTrash ? "div" : "button");
-            item.className = "fm-item" + (e.selected ? " selected" : "");
-            item.dataset.name = e.name;
-            item.innerHTML = `<span class="item-icon">${inTrash ? e.icon : iconFor(e)}</span><span class="item-name">${e.name}</span>`;
-            item.title = e.name;
-            item.ondblclick = () => {
-              if (inTrash) return;
-              if (e.type === "dir") { cwd = FS.join(cwd, e.name); pushHistory(); render(); }
-              else openFile(FS.join(cwd, e.name));
-            };
-            item.onclick = (ev) => {
-              content.querySelectorAll(".fm-item").forEach(i => i.classList.remove("selected"));
-              item.classList.add("selected");
-              updateStatus(e);
-              ev.stopPropagation();
-            };
-            item.oncontextmenu = (ev) => {
-              ev.preventDefault();
-              showCtx(ev, e, inTrash);
-            };
-            content.appendChild(item);
+          if (viewMode === "perm") {
+            // panel izin ala `ls -la /` — pemilik & grup SELALU root
+            const table = document.createElement("div");
+            table.className = "perm-table";
+            table.innerHTML = `<div class="perm-row perm-head">
+                <span>Izin (mode)</span><span>Jml</span><span>Pemilik</span><span>Grup</span>
+                <span>Ukuran</span><span>Tanggal</span><span>Nama</span></div>`;
+            for (const e of entries) {
+              const item = document.createElement("button");
+              item.className = "perm-row fm-item" + (e.target ? " is-link" : "");
+              item.dataset.name = e.name;
+              item.title = `${e.perm} (${e.octal}) ${e.owner}:${e.group}`;
+              item.innerHTML =
+                `<span class="p-perm">${e.perm}</span>` +
+                `<span class="p-links">${String(e.links).padStart(3)}</span>` +
+                `<span class="p-owner">${e.owner}</span>` +
+                `<span class="p-group">${e.group}</span>` +
+                `<span class="p-size">${String(e.size ?? 0).padStart(5)}</span>` +
+                `<span class="p-date">${e.date}</span>` +
+                `<span class="p-name">${iconFor(e)} ${e.name}${e.type === "dir" ? "/" : ""}${e.target ? " → " + e.target : ""}</span>`;
+              bindItem(item, e, inTrash);
+              table.appendChild(item);
+            }
+            content.appendChild(table);
+          } else {
+            if (entries.length === 0) {
+              content.innerHTML = `<div class="empty-folder">📂 Folder kosong</div>`;
+            }
+            for (const e of entries) {
+              const item = document.createElement(inTrash ? "div" : "button");
+              item.className = "fm-item" + (e.selected ? " selected" : "");
+              item.dataset.name = e.name;
+              item.innerHTML = `<span class="item-icon">${inTrash ? e.icon : iconFor(e)}</span><span class="item-name">${e.name}</span>`;
+              item.title = e.name;
+              bindItem(item, e, inTrash);
+              content.appendChild(item);
+            }
           }
           updateStatus(null);
           body.querySelector(".trash-count").textContent = trashBin.length ? `(${trashBin.length})` : "";
         }
 
+        function bindItem(item, e, inTrash) {
+          item.ondblclick = () => {
+            if (inTrash) return;
+            if (e.name === "." ) { render(); return; }
+            if (e.name === "..") { navigate(FS.parentPath(cwd)); return; }
+            if (e.type === "dir" || e.type === "link") { cwd = FS.join(cwd, e.name); pushHistory(); render(); }
+            else openFile(FS.join(cwd, e.name));
+          };
+          item.onclick = (ev) => {
+            content.querySelectorAll(".fm-item").forEach(i => i.classList.remove("selected"));
+            item.classList.add("selected");
+            updateStatus(e);
+            ev.stopPropagation();
+          };
+          item.oncontextmenu = (ev) => {
+            ev.preventDefault();
+            showCtx(ev, e, inTrash);
+          };
+        }
+
         function updateStatus(sel) {
           const inTrash = cwd === "__trash__";
-          if (sel) {
+          if (sel && sel.name !== "." && sel.name !== ".." && viewMode === "perm" && sel.perm) {
+            status.textContent = `${sel.perm} (${sel.octal}) ${sel.owner}:${sel.group} — ${sel.name} — ${sel.date}`;
+          } else if (sel) {
             if (sel.type === "dir") {
               const node = FS.getNode(FS.join(cwd, sel.name));
-              status.textContent = `📁 ${sel.name} — ${node ? FS.dirEntryCount(node) : 0} item — ${fmtSize(node ? FS.totalSize(node) : 0)}`;
+              status.textContent = `📁 ${sel.name} — ${node ? FS.dirEntryCount(node) : 0} item — ${fmtSize(node ? FS.totalSize(node) : 0)} — root:root`;
             } else {
-              status.textContent = `${iconFor(sel)} ${sel.name} — ${fmtSize(sel.size)} — ${sel.mime || "file"}`;
+              status.textContent = `${iconFor(sel)} ${sel.name} — ${fmtSize(sel.size)} — ${sel.mime || "file"} — root:root`;
             }
           } else {
             const n = inTrash ? trashBin.length : FS.listDir(cwd).length;
-            status.textContent = `${n} item — ${cwd}`;
+            status.textContent = `${n} item — ${cwd} — pemilik: root:root (semua izin root)`;
           }
         }
 
@@ -265,8 +304,9 @@
         }
 
         function openFile(path) {
-          const node = FS.getNode(path);
+          let node = FS.getNode(path);
           if (!node) return;
+          if (node.type === "link") { navigate(path); return; } // ikuti symlink
           const isText = node.mime && (node.mime.startsWith("text/") ||
             ["application/x-sh", "application/json", "text/markdown"].includes(node.mime));
           if (isText) {
@@ -290,7 +330,9 @@
             ? [["↩️ Pulihkan", "restore"], ["❌ Hapus permanen", "purge"]]
             : e.type === "dir"
               ? [["📂 Buka", "open"], ["ℹ️ Properti", "props"], ["🗑️ Pindahkan ke Sampah", "trash"]]
-              : [["👁️ Lihat", "open"], ["ℹ️ Properti", "props"], ["🗑️ Pindahkan ke Sampah", "trash"]];
+              : e.type === "link"
+                ? [["🔗 Ikuti Tautan", "open"], ["ℹ️ Properti", "props"]]
+                : [["👁️ Lihat", "open"], ["ℹ️ Properti", "props"], ["🗑️ Pindahkan ke Sampah", "trash"]];
           menu.innerHTML = items.map(([l, a]) => `<button data-a="${a}">${l}</button>`).join("");
           menu.style.left = ev.clientX + "px";
           menu.style.top = ev.clientY + "px";
@@ -336,6 +378,7 @@
           if (nav === "up") { if (cwd !== "__trash__" && cwd !== "/") { cwd = FS.parentPath(cwd); pushHistory(); render(); } }
           if (nav === "refresh") render();
           if (act === "toggle-view") { viewMode = viewMode === "grid" ? "list" : "grid"; render(); }
+          if (act === "perm-view") { viewMode = viewMode === "perm" ? "grid" : "perm"; render(); }
           if (act === "new-folder") {
             if (cwd === "__trash__") return;
             const name = prompt("Nama folder baru:", "Folder Baru");
@@ -421,17 +464,22 @@
     createWindow({
       title: "Properti — " + path.split("/").pop(),
       icon: "ℹ️",
-      width: 420, height: 320,
+      width: 460, height: 360,
       buildBody(body) {
         const isDir = node.type === "dir";
+        const a = FS.attrs(node);
         body.innerHTML = `
           <div class="props">
-            <div class="props-icon">${isDir ? "📁" : iconFor({ type: "file", name: path.split("/").pop() })}</div>
+            <div class="props-icon">${isDir ? "📁" : node.type === "link" ? "🔗" : iconFor({ type: "file", name: path.split("/").pop() })}</div>
             <table>
               <tr><td>Nama</td><td>${path.split("/").pop()}</td></tr>
               <tr><td>Lokasi</td><td>${FS.parentPath(path)}</td></tr>
-              <tr><td>Jenis</td><td>${isDir ? "Folder" : (node.mime || "file")}</td></tr>
+              <tr><td>Jenis</td><td>${isDir ? "Folder" : node.type === "link" ? "Symlink → " + node.target : (node.mime || "file")}</td></tr>
               <tr><td>Ukuran</td><td>${fmtSize(isDir ? FS.totalSize(node) : (node.size ?? node.content.length))}${isDir ? " (" + FS.dirEntryCount(node) + " item)" : ""}</td></tr>
+              <tr><td>Izin</td><td><code>${a.perm}</code> (${a.octal})</td></tr>
+              <tr><td>Pemilik</td><td><b>${a.owner}:${a.group}</b> — izin sistem: root</td></tr>
+              <tr><td>Jml link</td><td>${a.links}</td></tr>
+              <tr><td>Tanggal</td><td>${a.date}</td></tr>
             </table>
           </div>`;
       },
@@ -470,13 +518,23 @@
           const target = args[0] ? FS.join(cwd, args[0]) : null;
           switch (cmd) {
             case "help":
-              out.textContent += "Perintah: ls, cd, pwd, cat, mkdir, touch, rm, tree, clear, whoami, df\n"; break;
+              out.textContent += "Perintah: ls [-la], cd, pwd, cat, mkdir, touch, rm, tree, clear, whoami, df, id\n"; break;
             case "ls": {
-              const p = args[0] ? target : cwd;
-              const items = FS.listDir(p);
-              out.textContent += items.length
-                ? items.map(i => (i.type === "dir" ? "📁 " + i.name + "/" : iconFor(i) + " " + i.name)).join("\n") + "\n"
-                : "(kosong)\n";
+              const p = args[0] && !args[0].startsWith("-") ? target : cwd;
+              const flags = args.filter(a => a.startsWith("-")).join("");
+              if (flags.includes("l")) {
+                // tampilan persis `ls -la` — semua pemilik root:root
+                const items = FS.listDir(p, { detail: true, all: true });
+                out.textContent += "total " + (items.reduce((s, i) => s + (i.size || 4096), 0) >> 3) + "\n" +
+                  items.map(i => `${i.perm} ${String(i.links).padStart(3)} ${i.owner} ${i.group} ` +
+                    `${String(i.size ?? 0).padStart(6)} ${i.date} ${i.name}` +
+                    (i.type === "dir" ? "/" : i.target ? " -> " + i.target : "")).join("\n") + "\n";
+              } else {
+                const items = FS.listDir(p, { all: flags.includes("a") });
+                out.textContent += items.length
+                  ? items.map(i => (i.type === "dir" ? "📁 " + i.name + "/" : i.type === "link" ? "🔗 " + i.name : iconFor(i) + " " + i.name)).join("\n") + "\n"
+                  : "(kosong)\n";
+              }
               break;
             }
             case "cd": {
@@ -515,7 +573,8 @@
               break;
             }
             case "clear": out.textContent = ""; break;
-            case "whoami": out.textContent += "pengguna\n"; break;
+            case "whoami": out.textContent += "root\n"; break;
+            case "id": out.textContent += "uid=0(root) gid=0(root) groups=0(root)\n"; break;
             case "df": out.textContent += "Filesystem   Size  Used Avail Use%\n/dev/sda1     128G  42.7G  85.3G  34%\n"; break;
             default: out.textContent += cmd + ": perintah tidak ditemukan\n";
           }
@@ -546,7 +605,7 @@
     createWindow({
       title: "Pengaturan",
       icon: "⚙️",
-      width: 420, height: 300,
+      width: 460, height: 360,
       buildBody(body) {
         body.innerHTML = `
           <div class="settings">
@@ -561,8 +620,20 @@
             </label>
             <h3>Sistem Berkas</h3>
             <p>Total ukuran sistem: <b id="fs-total"></b></p>
+            <p>Pemilik seluruh sistem: <b>root:root</b> (uid=0)</p>
+            <h3>Deteksi Sistem dari GitHub</h3>
+            <p id="gh-info" class="dim"></p>
           </div>`;
         body.querySelector("#fs-total").textContent = fmtSize(FS.totalSize(FS.root));
+        const ghNode = FS.getNode("/home/pengguna/Github");
+        if (window.GITHUB_DETECTED && ghNode) {
+          body.querySelector("#gh-info").innerHTML =
+            `${window.GITHUB_DETECTED.dirs.length} folder + ${window.GITHUB_DETECTED.files.length} berkas terdeteksi dari repo ` +
+            `<b>${window.GITHUB_DETECTED.repo}</b> — tersimpan di <b>/home/pengguna/Github</b>, <b>/root/github</b>, ` +
+            `<b>/usr/share/github</b> — izin <b>root:root</b>`;
+        } else {
+          body.querySelector("#gh-info").textContent = "Modul deteksi GitHub tidak dimuat.";
+        }
         body.querySelector("#wall-sel").onchange = (e) => {
           document.body.dataset.wall = e.target.value;
         };
