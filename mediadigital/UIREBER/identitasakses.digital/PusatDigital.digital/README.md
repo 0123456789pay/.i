@@ -1,88 +1,88 @@
-# 🏛️ PUSAT.DIGITAL - Sistem Digital Terintegrasi
+# 🏛️ PUSAT.digital - Sistem digital Terintegrasi
 
 ## Deskripsi
-PUSAT.DIGITAL adalah sistem terpusat yang mengintegrasikan berbagai layanan digital termasuk DataCenter, Hosting, Domain, AI Studio, Monitoring, Email System, Network Root, dan Language System.
+PUSAT.digital adalah sistem terpusat yang mengintegrasikan berbagai layanan digital termasuk DataCenter, Hosting, Domain, AI Studio, Monitoring, sur-el sistem, jaringan akar, dan Language sistem.
 
-## Struktur Folder
+## Struktur direktori
 ```
 pusat.digital/
-├── html/          # File HTML tampilan
-├── css/           # Stylesheet design modern elite
-├── js/            # JavaScript aplikasi & fungsi
-├── php/           # Backend configuration & API
-├── db/            # Database schema & migrations
+├── html/          # berkas HTML tampilan
+├── css/           # lembar gaya design modern elite
+├── js/            # skrip-skrip-javascript aplikasi & fungsi
+├── php/           # Backend pengaturan & API
+├── db/            # basis-data schema & migrations
 └── README.md      # Dokumentasi ini
 ```
 
 ## Fitur Utama
 
 ### 1. 📊 DataCenter
-- Manajemen server terpusat
-- Monitoring real-time
-- Load balancing otomatis
+- Manajemen peladen terpusat
+- Monitoring real-waktu
+- muat balancing otomatis
 
-### 2. 📁 File Manager
-- Struktur file dengan ID terstruktur
-- Permissions management
-- Public/Private indexing
+### 2. 📁 berkas Manager
+- Struktur berkas dengan ID terstruktur
+- Permissions pengelolaan
+- umum/pribadi indexing
 
 ### 3. 🌐 Hosting
-- Multi-platform web hosting
-- Auto SSL certificates
+- Multi-landasan web hosting
+- otomatis SSL certificates
 - CDN integration
 
 ### 4. 🔖 Domain
 - Registrar domain otomatis
-- DNS management
+- DNS pengelolaan
 - WHOIS protection
 
 ### 5. 🤖 AI Studio
 - RAG (Retrieval-Augmented Generation)
 - Independent AI agents
-- Custom model training
+- suai model training
 
 ### 6. 📈 Monitoring
-- Real-time performance tracking
-- Error detection & alerts
-- Custom dashboard builder
+- Real-waktu performance tracking
+- galat detection & alerts
+- suai papan-bilas builder
 
-### 7. 📧 Email System
-- Vendor email management
-- SMTP configuration
-- Email campaigns
+### 7. 📧 sur-el sistem
+- Vendor sur-el pengelolaan
+- SMTP pengaturan
+- sur-el campaigns
 
-### 8. 🌍 Network Root
-- Distributed network folders
-- Root system management
-- Routing configuration
+### 8. 🌍 jaringan akar
+- Distributed jaringan folders
+- akar sistem pengelolaan
+- Routing pengaturan
 
-### 9. 🗣️ Language System
+### 9. 🗣️ Language sistem
 - Multi-language support
-- Translation management
-- Locale configuration
+- Translation pengelolaan
+- Locale pengaturan
 
 ## Teknologi
-- **Frontend:** HTML5, CSS3, JavaScript ES6+
+- **Frontend:** HTML5, CSS3, skrip-skrip-javascript ES6+
 - **Backend:** PHP 8+
-- **Database:** MySQL/MariaDB
+- **basis-data:** MySQL/MariaDB
 - **Design:** Modern Elite UI dengan gradient & animations
 
-## Sistem Path
+## Sistem jalur
 Sistem ini bernaung dalam struktur:
-- `/` - Root utama
+- `/` - akar utama
 - `` ` `` - Subsystem marker
 - `.` - Module separator
-- `\` - Path delimiter
+- `\` - jalur delimiter
 - `|` - Pipeline connector
 
 ## Integrasi dengan tunel()
-Semua folder dan sistem terintegrasi dalam `tunel()` sebagai parent system untuk koneksi publik dan indexing search engine.
+Semua direktori dan sistem terintegrasi dalam `tunel()` sebagai parent sistem untuk koneksi publik dan indexing cari engine.
 
 ## Status
-- ✅ 250+ folder fitur siap deploy
-- ✅ Setiap folder dapat dijadikan domain publik
+- ✅ 250+ direktori fitur siap sebarkan
+- ✅ Setiap direktori dapat dijadikan domain publik
 - ✅ Terindeks di sistem pencarian
 - ✅ Responsive semua perangkat
 
 ## Lisensi
-© 2024 PUSAT.DIGITAL - Sistem Digital Terintegrasi
+© 2024 PUSAT.digital - Sistem digital Terintegrasi

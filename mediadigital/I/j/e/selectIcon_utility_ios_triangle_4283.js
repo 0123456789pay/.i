@@ -1,7 +1,7 @@
 /**
- * Function Module: Selecticon 4283
+ * fungsi Module: Selecticon 4283
  * Category: utility
- * Style: ios
+ * gaya: ios
  * Shape: triangle
  * ID: FUNC-04283
  */
@@ -21,7 +21,7 @@ const selectIcon4283 = {
     },
     
     setup() {
-        // Setup configuration for selectIcon
+        // Setup pengaturan untuk selectIcon
         this.config = {
             enabled: true,
             priority: 4283,
@@ -32,7 +32,7 @@ const selectIcon4283 = {
     
     execute(params) {
         console.log('Executing selectIcon #4283 with params:', params);
-        // Implementation for selectIcon operation
+        // Implementation untuk selectIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = selectIcon4283;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['selectIcon4283'] = selectIcon4283;
 }

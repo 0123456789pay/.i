@@ -1,7 +1,7 @@
 import os
 import random
 
-# Create functions directory structure
+# buat functions direktori structure
 functions_dir = "/workspace/icon-maker-project/functions"
 menus_dir = "/workspace/icon-maker-project/menus"
 assets_dir = "/workspace/icon-maker-project/assets"
@@ -10,7 +10,7 @@ os.makedirs(functions_dir, exist_ok=True)
 os.makedirs(menus_dir, exist_ok=True)
 os.makedirs(assets_dir, exist_ok=True)
 
-# Function types for 5000 function files
+# fungsi jenis-jenis untuk 5000 fungsi berkas-berkas
 function_types = [
     "createIcon", "deleteIcon", "editIcon", "saveIcon", "loadIcon",
     "exportIcon", "importIcon", "resizeIcon", "rotateIcon", "flipIcon",
@@ -45,7 +45,7 @@ shapes = [
     "wave", "spiral", "hexagon", "octagon", "pentagon"
 ]
 
-# Generate 5000 function files
+# hasilkan 5000 fungsi berkas-berkas
 print("Generating 5000 function files...")
 for i in range(1, 5001):
     func_type = function_types[(i-1) % len(function_types)]
@@ -89,7 +89,7 @@ const {func_type}{i} = {{
     }},
     
     execute(params) {{
-        console.log('Executing {func_type} #{i} with params:', params);
+        console.log('Executing {func_type} #{i} dengan params:', params);
         // Implementation for {func_type} operation
         return this.process(params);
     }},
@@ -134,7 +134,7 @@ if (typeof window !== 'undefined') {{
 
 print(f"Created 5000 function files in {functions_dir}")
 
-# Menu categories and subcategories for 3500 menus
+# Menu categories dan subcategories untuk 3500 menus
 menu_categories = [
     "Basic Shapes", "Advanced Shapes", "Icons", "Symbols", "Arrows",
     "Flags", "Weather", "Technology", "Business", "Education",
@@ -169,7 +169,7 @@ icon_types = [
     "Vector Icon", "Raster Icon", "Animated Icon", "Static Icon", "Interactive Icon"
 ]
 
-# Generate 3500 menu items
+# hasilkan 3500 menu butiran
 print("Generating 3500 menu items...")
 menus_data = []
 
@@ -179,8 +179,8 @@ for i in range(1, 3501):
     layout = design_layouts[(i-1) % len(design_layouts)]
     icon_type = icon_types[(i-1) % len(icon_types)]
     
-    # Determine if menu has icon or text only
-    has_icon = i % 3 != 0  # 2/3 have icons, 1/3 text only
+    # tentukan if menu has ikon atau teks only
+    has_icon = i % 3 != 0  # 2/3 have icons, 1/3 teks only
     
     menu_item = {
         'id': f'MENU-{str(i).zfill(5)}',
@@ -198,7 +198,7 @@ for i in range(1, 3501):
     
     menus_data.append(menu_item)
     
-    # Create individual menu file
+    # buat individual menu berkas
     filename = f"menu_{str(i).zfill(5)}.json"
     filepath = os.path.join(menus_dir, filename)
     
@@ -247,7 +247,7 @@ for i in range(1, 3501):
 
 print(f"Created 3500 menu files in {menus_dir}")
 
-# Save menus data as JSON array for easy import
+# simpan menus data as JSON array untuk easy import
 import json
 with open(os.path.join(menus_dir, 'all_menus.json'), 'w') as f:
     json.dump(menus_data, f, indent=2)

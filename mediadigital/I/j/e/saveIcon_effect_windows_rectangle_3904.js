@@ -1,7 +1,7 @@
 /**
- * Function Module: Saveicon 3904
+ * fungsi Module: Saveicon 3904
  * Category: effect
- * Style: windows
+ * gaya: windows
  * Shape: rectangle
  * ID: FUNC-03904
  */
@@ -21,7 +21,7 @@ const saveIcon3904 = {
     },
     
     setup() {
-        // Setup configuration for saveIcon
+        // Setup pengaturan untuk saveIcon
         this.config = {
             enabled: true,
             priority: 3904,
@@ -32,7 +32,7 @@ const saveIcon3904 = {
     
     execute(params) {
         console.log('Executing saveIcon #3904 with params:', params);
-        // Implementation for saveIcon operation
+        // Implementation untuk saveIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = saveIcon3904;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['saveIcon3904'] = saveIcon3904;
 }

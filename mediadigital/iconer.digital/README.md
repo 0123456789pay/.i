@@ -1,162 +1,162 @@
-# ALLUNIVERS ICONER - Sistem Data Terpadu
+# ALLUNIVERS ICONER - Sistem data Terpadu
 
-## 📁 Struktur Folder
+## 📁 Struktur direktori
 
 ```
 iconer.digital/
 ├── i.iframe.identifier.iconer/    # Module Identifier untuk iframe
 │   ├── identifier.js
-│   └── index.html
+│   └── indeks.html
 │
-├── h.header.iconer/               # Module Header Component
-│   ├── header.js
-│   └── index.html
+├── h.kepala.iconer/               # Module kepala Component
+│   ├── kepala.js
+│   └── indeks.html
 │
-├── b.body.iconer/                 # Module Body Content Handler
+├── b.body.iconer/                 # Module Body isi pengendali
 │   ├── body.js
-│   └── index.html
+│   └── indeks.html
 │
-├── s.section.satu.iconer/         # Module Section Pertama
-│   ├── section.js
-│   └── index.html
+├── s.bagian.satu.iconer/         # Module bagian Pertama
+│   ├── bagian.js
+│   └── indeks.html
 │
-├── f.footer.iconer/               # Module Footer Component
-│   ├── footer.js
-│   └── index.html
+├── f.kaki.iconer/               # Module kaki Component
+│   ├── kaki.js
+│   └── indeks.html
 │
-├── data.storage/                  # Sistem Penyimpanan Data
-│   ├── dataManager.js             # Manager utama data storage
-│   ├── user_register/             # Data registrasi pengguna
-│   ├── icon_designs_backup/       # Backup desain icon
-│   ├── sales_data/                # Data penjualan
-│   ├── financial_data/            # Data keuangan
-│   └── traffic_data/              # Data traffic
+├── data.penyimpanan/                  # Sistem Penyimpanan data
+│   ├── dataManager.js             # Manager utama data penyimpanan
+│   ├── user_register/             # data registrasi pengguna
+│   ├── icon_designs_backup/       # Backup desain ikon
+│   ├── sales_data/                # data penjualan
+│   ├── financial_data/            # data keuangan
+│   └── traffic_data/              # data traffic
 │
-└── admin.commands/                # Command Center Administrator
-    ├── adminSystem.js             # Sistem command owner/admin
-    └── index.html                 # Interface command center
+└── pengelola.commands/                # Command Center Administrator
+    ├── adminSystem.js             # Sistem command owner/pengelola
+    └── indeks.html                 # Interface command center
 ```
 
-## 🗄️ Jenis Data yang Dikelola
+## 🗄️ Jenis data yang Dikelola
 
-### 1. User Register (`user_register`)
-- Data pendaftaran pengguna baru
-- Informasi profil user
-- Authentication data
-- User preferences
+### 1. pengguna daftar (`user_register`)
+- data pendaftaran pengguna baru
+- Informasi profil pengguna
+- autentikasi data
+- pengguna preferences
 
-### 2. Icon Designs Backup (`icon_designs_backup`)
-- Desain icon yang dibuat user
+### 2. ikon Designs Backup (`icon_designs_backup`)
+- Desain ikon yang dibuat pengguna
 - Backup otomatis desain
-- Version history
+- versi history
 - Export/import designs
 
-### 3. Sales Data (`sales_data`)
-- Transaksi penjualan icon
-- Order history
+### 3. Sales data (`sales_data`)
+- Transaksi penjualan ikon
+- pesanan history
 - Customer purchases
 - Sales analytics
 
-### 4. Financial Data (`financial_data`)
+### 4. Financial data (`financial_data`)
 - Pendapatan dan pengeluaran
 - Laporan keuangan
-- Payment records
+- pembayaran records
 - Financial reports
 
-### 5. Traffic Data (`traffic_data`)
+### 5. Traffic data (`traffic_data`)
 - Kunjungan website
-- Page views
-- User behavior
+- halaman views
+- pengguna behavior
 - Analytics data
 
 ## 🎛️ Administrator Commands
 
-### Login sebagai Admin
+### masuk sebagai pengelola
 ```
-admin.login --username owner
-admin.login --username administrator
-```
-
-### User Management
-```
-user.list                              # Lihat semua user
-user.add --username <name> --email <email>  # Tambah user
-user.get --userId <id>                 # Lihat detail user
+pengelola.masuk --username owner
+pengelola.masuk --username administrator
 ```
 
-### Icon Design Management
+### pengguna pengelolaan
 ```
-icon.save --name <name> --data <data>  # Simpan desain
-icon.backup                            # Backup semua desain
-icon.get --designId <id>               # Ambil desain tertentu
+pengguna.senarai                              # Lihat semua pengguna
+pengguna.add --username <nama> --sur-el <sur-el>  # Tambah pengguna
+pengguna.get --userId <id>                 # Lihat detail pengguna
 ```
 
-### Sales Management
+### ikon Design pengelolaan
+```
+ikon.simpan --nama <nama> --data <data>  # Simpan desain
+ikon.backup                            # Backup semua desain
+ikon.get --designId <id>               # Ambil desain tertentu
+```
+
+### Sales pengelolaan
 ```
 sale.record --amount <amount> --itemId <id>  # Catat penjualan
-sale.report --startDate <date> --endDate <date>  # Laporan penjualan
+sale.report --startDate <tanggal> --endDate <tanggal>  # Laporan penjualan
 ```
 
-### Financial Management
+### Financial pengelolaan
 ```
-finance.record --amount <amount> --type <type>  # Catat transaksi
+finance.record --amount <amount> --jenis <jenis>  # Catat transaksi
 finance.report --period <period>       # Laporan keuangan
 ```
 
 ### Traffic Analytics
 ```
-traffic.record --page <page> --visitor <id>  # Catat kunjungan
+traffic.record --halaman <halaman> --visitor <id>  # Catat kunjungan
 traffic.analytics --timeRange <range>  # Analitik traffic
 ```
 
-### System Commands
+### sistem Commands
 ```
-system.status                          # Cek status sistem
-system.clear --type <type>             # Hapus data tertentu
-help                                   # Lihat bantuan
+sistem.status                          # Cek status sistem
+sistem.clear --jenis <jenis>             # Hapus data tertentu
+bantuan                                   # Lihat bantuan
 ```
 
-### Admin Commands
+### pengelola Commands
 ```
-admin.logout                           # Logout dari admin
-admin.history                          # Riwayat command
+pengelola.logout                           # Logout dari pengelola
+pengelola.history                          # Riwayat command
 ```
 
 ## 🔧 Cara Menggunakan
 
-### 1. Akses Admin Command Center
-Buka file: `iconer.digital/admin.commands/index.html`
+### 1. Akses pengelola Command Center
+Buka berkas: `iconer.digital/pengelola.commands/indeks.html`
 
-### 2. Login sebagai Owner/Administrator
+### 2. masuk sebagai Owner/Administrator
 ```
-admin.login --username owner
+pengelola.masuk --username owner
 ```
 
 ### 3. Jalankan Command
 Ketik command di terminal atau gunakan quick commands yang tersedia.
 
-## 📊 Integrasi dengan index.html
+## 📊 Integrasi dengan indeks.html
 
-Sistem ini dirancang untuk terintegrasi dengan `index.html ALLUNIVERS ICONER` 
-dan dapat menerima input data dari halaman utama melalui:
+Sistem ini dirancang untuk terintegrasi dengan `indeks.html ALLUNIVERS ICONER` 
+dan dapat menerima masukan data dari halaman utama melalui:
 
-- Form registration → `user_register`
-- Icon creator → `icon_designs_backup`
+- borang registration → `user_register`
+- ikon creator → `icon_designs_backup`
 - Marketplace transactions → `sales_data`
-- Payment gateway → `financial_data`
+- pembayaran gateway → `financial_data`
 - Analytics tracker → `traffic_data`
 
 ## 🚀 Fitur Utama
 
 ✅ **Modular Architecture** - Setiap komponen terpisah dan reusable
-✅ **Real-time Data Storage** - Penyimpanan data real-time menggunakan localStorage
-✅ **Admin Command System** - Interface command line untuk administrator
-✅ **Data Backup** - Backup otomatis untuk desain icon
-✅ **Analytics Ready** - Tracking traffic dan user behavior
+✅ **Real-waktu data penyimpanan** - Penyimpanan data real-waktu menggunakan localStorage
+✅ **pengelola Command sistem** - Interface command line untuk administrator
+✅ **data Backup** - Backup otomatis untuk desain ikon
+✅ **Analytics Ready** - Tracking traffic dan pengguna behavior
 ✅ **Financial Tracking** - Pencatatan transaksi keuangan lengkap
-✅ **Multi-user Support** - Manajemen multiple users dan roles
+✅ **Multi-pengguna Support** - Manajemen multiple para pengguna dan roles
 
 ---
 
 **ALLUNIVERS ICONER** © 2024
-Sistem Data Terpadu untuk Platform Icon Maker & Marketplace
+Sistem data Terpadu untuk landasan ikon Maker & Marketplace

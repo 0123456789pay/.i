@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Icon Maker Menu System
- * 3500+ Menu Items dengan Icon dan Teks
+ * ALLUNIVERS ICONER - ikon Maker Menu sistem
+ * 3500+ Menu butiran dengan ikon dan Teks
  * Tema: Putih + #0066ff (Mewah Modern Elite)
  */
 
@@ -16,7 +16,7 @@ class IconMakerMenuSystem {
         console.log(`🎨 Icon Maker Menu System Initialized: ${this.totalMenus} menus loaded`);
     }
 
-    // Generate 50 Kategori Utama
+    // hasilkan 50 Kategori Utama
     generateCategories() {
         return [
             { id: 'file', name: 'File Operations', icon: 'fa-folder', count: 100 },
@@ -73,7 +73,7 @@ class IconMakerMenuSystem {
         ];
     }
 
-    // Generate 3500 Menu Items
+    // hasilkan 3500 Menu butiran
     generateAllMenus() {
         const allMenus = [];
         let menuId = 1;
@@ -95,9 +95,9 @@ class IconMakerMenuSystem {
         return allMenus.slice(0, 3500);
     }
 
-    // Create Individual Menu Item
+    // buat Individual Menu butir
     createMenuItem(category, index, id) {
-        const hasIcon = Math.random() > 0.3; // 70% have icons, 30% text only
+        const hasIcon = Math.random() > 0.3; // 70% have icons, 30% teks only
         const iconList = [
             'fa-circle', 'fa-square', 'fa-triangle', 'fa-star', 'fa-heart',
             'fa-gem', 'fa-cube', 'fa-sphere', 'fa-ring', 'fa-bolt',
@@ -130,7 +130,7 @@ class IconMakerMenuSystem {
         };
     }
 
-    // Generate Sub Menus for each main menu
+    // hasilkan Sub Menus untuk each utama menu
     generateSubMenus(category, parentIndex, parentId) {
         const subMenuCount = Math.floor(Math.random() * 5) + 1; // 1-5 submenus
         const subMenus = [];
@@ -148,7 +148,7 @@ class IconMakerMenuSystem {
         return subMenus;
     }
 
-    // Generate Keyboard Shortcut
+    // hasilkan Keyboard Shortcut
     generateShortcut(id) {
         const modifiers = ['Ctrl', 'Alt', 'Shift', 'Ctrl+Shift', 'Ctrl+Alt', 'Alt+Shift'];
         const keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'.split('');
@@ -162,7 +162,7 @@ class IconMakerMenuSystem {
         return `${modifier}+${key}`;
     }
 
-    // Render Menu Sidebar
+    // Render Menu sisi-papan
     renderSidebar(containerId) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -206,7 +206,7 @@ class IconMakerMenuSystem {
         });
     }
 
-    // Render Menu List
+    // Render Menu senarai
     renderMenuList(containerId, filterCategory = null) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -248,7 +248,7 @@ class IconMakerMenuSystem {
             });
         });
 
-        // Show count if filtered
+        // tampilkan hitungan if filtered
         if (menusToShow.length > 100) {
             container.innerHTML += `
                 <div class="more-menus">
@@ -280,7 +280,7 @@ class IconMakerMenuSystem {
         }
     }
 
-    // Search Functionality
+    // cari Functionality
     attachSearchListener() {
         const searchInput = document.getElementById('menu-search');
         if (!searchInput) return;
@@ -300,16 +300,16 @@ class IconMakerMenuSystem {
         menu.usageCount++;
         menu.lastUsed = new Date();
 
-        // Show menu detail modal
+        // tampilkan menu detail modal
         this.showMenuDetail(menu);
         
-        // Execute actual function based on menu type
+        // Execute actual fungsi based on menu jenis
         this.executeMenuFunction(menu);
 
         console.log(`✅ Executed: ${menu.name} (${menu.id})`);
     }
 
-    // Show Menu Detail Modal
+    // tampilkan Menu Detail Modal
     showMenuDetail(menu) {
         const modal = document.createElement('div');
         modal.className = 'menu-detail-modal';
@@ -398,27 +398,27 @@ class IconMakerMenuSystem {
         });
     }
 
-    // Execute Menu Function (Placeholder for actual implementations)
+    // Execute Menu fungsi (Placeholder untuk actual implementations)
     executeMenuFunction(menu) {
-        // This would connect to actual tool functions
-        // For now, show notification
+        // ini would connect to actual tool functions
+        // untuk now, tampilkan notification
         this.showNotification(`Executed: ${menu.name}`, 'success');
         
-        // Example integrations:
+        // contoh integrations:
         if (menu.categoryId === 'shape') {
-            // Would call shape drawing function
+            // Would call shape drawing fungsi
             console.log('Shape tool activated:', menu.name);
         } else if (menu.categoryId === 'color') {
-            // Would open color picker
+            // Would buka warna picker
             console.log('Color tool activated:', menu.name);
         } else if (menu.categoryId === 'effect') {
             // Would apply effect
             console.log('Effect applied:', menu.name);
         }
-        // ... etc for all categories
+        // ... etc untuk semua categories
     }
 
-    // Show Context Menu
+    // tampilkan Context Menu
     showContextMenu(event, menuId) {
         const contextMenu = document.createElement('div');
         contextMenu.className = 'context-menu';
@@ -470,7 +470,7 @@ class IconMakerMenuSystem {
             });
         });
 
-        // Close on click outside
+        // tutup on click outside
         setTimeout(() => {
             document.addEventListener('click', function close() {
                 contextMenu.remove();
@@ -479,7 +479,7 @@ class IconMakerMenuSystem {
         }, 100);
     }
 
-    // Show Notification
+    // tampilkan Notification
     showNotification(message, type = 'info') {
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
@@ -513,7 +513,7 @@ class IconMakerMenuSystem {
         };
     }
 
-    // Export Menu Configuration
+    // Export Menu pengaturan
     exportConfiguration() {
         const config = {
             version: '1.0.0',
@@ -535,11 +535,11 @@ class IconMakerMenuSystem {
     }
 }
 
-// Initialize when DOM is ready
+// mulai when DOM is ready
 if (typeof window !== 'undefined') {
     window.IconMakerMenuSystem = IconMakerMenuSystem;
     
-    // Auto-initialize if container exists
+    // otomatis-mulai if wadah exists
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('icon-maker-sidebar')) {
             window.iconMakerMenus = new IconMakerMenuSystem();
@@ -548,10 +548,10 @@ if (typeof window !== 'undefined') {
     });
 }
 
-// Export for ES6 modules
+// Export untuk ES6 modules
 export default IconMakerMenuSystem;
 
-// Export for module systems
+// Export untuk module systems
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = IconMakerMenuSystem;
 }

@@ -1,7 +1,7 @@
 /**
- * Function Module: Pasteicon 4086
- * Category: color
- * Style: glyph
+ * fungsi Module: Pasteicon 4086
+ * Category: warna
+ * gaya: glyph
  * Shape: star
  * ID: FUNC-04086
  */
@@ -21,7 +21,7 @@ const pasteIcon4086 = {
     },
     
     setup() {
-        // Setup configuration for pasteIcon
+        // Setup pengaturan untuk pasteIcon
         this.config = {
             enabled: true,
             priority: 4086,
@@ -32,7 +32,7 @@ const pasteIcon4086 = {
     
     execute(params) {
         console.log('Executing pasteIcon #4086 with params:', params);
-        // Implementation for pasteIcon operation
+        // Implementation untuk pasteIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = pasteIcon4086;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['pasteIcon4086'] = pasteIcon4086;
 }

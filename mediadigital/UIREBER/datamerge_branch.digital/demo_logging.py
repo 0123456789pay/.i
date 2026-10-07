@@ -37,14 +37,14 @@ def main():
     print(f"Started at: {get_timestamp()}")
     print()
     
-    # 1. Log aktivitas Chat AI Request
+    # 1. catatan aktivitas Chat AI permintaan
     print("1. Logging Chat AI Request...")
     log_chat_ai_request(
         "Buatkan fungsi Python untuk menghitung fibonacci",
         metadata={"user_id": "user_001", "session": "demo_session"}
     )
     
-    # 2. Log respons Chat AI
+    # 2. catatan respons Chat AI
     print("2. Logging Chat AI Response...")
     fibonacci_code = '''
 def fibonacci(n):
@@ -65,7 +65,7 @@ def fibonacci(n):
         metadata={"model": "qwen-ai", "tokens_used": 150}
     )
     
-    # 3. Log aksi Qwen AI
+    # 3. catatan aksi Qwen AI
     print("3. Logging Qwen AI Action...")
     log_qwen_ai_action(
         "analyze",
@@ -73,7 +73,7 @@ def fibonacci(n):
         metadata={"analysis_type": "code_review", "confidence": 0.95}
     )
     
-    # 4. Log aksi Coder Qwen AI
+    # 4. catatan aksi Coder Qwen AI
     print("4. Logging Coder Qwen AI Action...")
     log_coder_qwen_ai_action(
         "refactor",
@@ -81,7 +81,7 @@ def fibonacci(n):
         metadata={"files_affected": ["utils.py", "helpers.py"], "lines_changed": 45}
     )
     
-    # 5. Log Git Commit
+    # 5. catatan Git Commit
     print("5. Logging Git Commit...")
     log_git_commit(
         "Add new fibonacci function and optimize existing code",
@@ -91,7 +91,7 @@ def fibonacci(n):
         metadata={"author": "developer@example.com", "reviewer": "senior@example.com"}
     )
     
-    # 6. Log Git Pull
+    # 6. catatan Git Pull
     print("6. Logging Git Pull...")
     log_git_pull(
         "main",
@@ -99,7 +99,7 @@ def fibonacci(n):
         metadata={"remote": "origin", "changes": "+150 -30"}
     )
     
-    # 7. Log Git Merge
+    # 7. catatan Git Merge
     print("7. Logging Git Merge...")
     log_git_merge(
         "feature/fibonacci",
@@ -108,7 +108,7 @@ def fibonacci(n):
         metadata={"merge_strategy": "squash", "conflicts_resolved": 0}
     )
     
-    # 8. Log Pull Request
+    # 8. catatan Pull permintaan
     print("8. Logging Pull Request...")
     log_pull_request(
         pr_number=42,
@@ -119,7 +119,7 @@ def fibonacci(n):
         metadata={"assignee": "developer", "labels": ["enhancement", "tested"]}
     )
     
-    # 9. Log Data Input
+    # 9. catatan data masukan
     print("9. Logging Data Input...")
     sample_data = {"name": "John Doe", "email": "john@example.com", "action": "create"}
     log_data_input(
@@ -128,7 +128,7 @@ def fibonacci(n):
         metadata={"source": "web_form", "ip_address": "192.168.1.1"}
     )
     
-    # 10. Log Data Output
+    # 10. catatan data keluaran
     print("10. Logging Data Output...")
     output_data = {"status": "success", "user_id": "usr_12345", "created_at": get_timestamp()}
     log_data_output(
@@ -137,7 +137,7 @@ def fibonacci(n):
         metadata={"endpoint": "/api/users", "method": "POST"}
     )
     
-    # 11. Log User Prompt
+    # 11. catatan pengguna sapa
     print("11. Logging User Prompt...")
     log_user_prompt(
         "Tampilkan dashboard monitoring untuk hari ini",
@@ -145,7 +145,7 @@ def fibonacci(n):
         metadata={"user_role": "admin", "device": "desktop"}
     )
     
-    # 12. Log AI Action
+    # 12. catatan AI Action
     print("12. Logging AI Action...")
     log_ai_action(
         "data_processing",
@@ -153,7 +153,7 @@ def fibonacci(n):
         metadata={"records_processed": 1000, "duration_seconds": 5.2}
     )
     
-    # 13. Log System Event
+    # 13. catatan sistem Event
     print("13. Logging System Event...")
     log_system_event(
         "system_startup",
@@ -161,7 +161,7 @@ def fibonacci(n):
         metadata={"version": "1.0.0", "environment": "production"}
     )
     
-    # 14. Log Code Generation
+    # 14. catatan Code Generation
     print("14. Logging Code Generation...")
     generated_code = '''
 class DataProcessor:
@@ -178,7 +178,7 @@ class DataProcessor:
         metadata={"complexity": "low", "test_coverage": "pending"}
     )
     
-    # 15. Log Code Modification
+    # 15. catatan Code Modification
     print("15. Logging Code Modification...")
     log_code_modification(
         "datamerge_branch.digital/monitor.py",
@@ -186,7 +186,7 @@ class DataProcessor:
         metadata={"change_type": "configuration", "impact": "performance"}
     )
     
-    # 16. Log Merge Conflict Resolution
+    # 16. catatan Merge Conflict Resolution
     print("16. Logging Merge Conflict Resolution...")
     log_merge_conflict(
         files=["config.json", "settings.yaml"],
@@ -194,7 +194,7 @@ class DataProcessor:
         metadata={"resolved_by": "senior_developer", "time_taken_minutes": 15}
     )
     
-    # 17. Log Baris Input (Line Count Tracking)
+    # 17. catatan Baris masukan (Line hitungan Tracking)
     print("17. Logging Baris Input...")
     log_baris_input(
         line_count=250,
@@ -202,7 +202,7 @@ class DataProcessor:
         metadata={"file_name": "users.csv", "format": "CSV"}
     )
     
-    # 18. Log Baris Output (Line Count Tracking)
+    # 18. catatan Baris keluaran (Line hitungan Tracking)
     print("18. Logging Baris Output...")
     log_baris_output(
         line_count=180,

@@ -1,7 +1,7 @@
 /**
- * Function Module: Colorizeicon 4661
+ * fungsi Module: Colorizeicon 4661
  * Category: basic
- * Style: flat
+ * gaya: flat
  * Shape: circle
  * ID: FUNC-04661
  */
@@ -21,7 +21,7 @@ const colorizeIcon4661 = {
     },
     
     setup() {
-        // Setup configuration for colorizeIcon
+        // Setup pengaturan untuk colorizeIcon
         this.config = {
             enabled: true,
             priority: 4661,
@@ -32,7 +32,7 @@ const colorizeIcon4661 = {
     
     execute(params) {
         console.log('Executing colorizeIcon #4661 with params:', params);
-        // Implementation for colorizeIcon operation
+        // Implementation untuk colorizeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = colorizeIcon4661;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['colorizeIcon4661'] = colorizeIcon4661;
 }

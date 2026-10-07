@@ -6,7 +6,7 @@ import re
 menus_dir = '/workspace/icon-maker-project/menus'
 functions_dir = '/workspace/icon-maker-project/functions'
 
-# Mapping layout names to remove spaces
+# pemetaan tata letak nama to singkirkan spasi
 layout_mapping = {
     'Timeline Layout': 'Timeline',
     'Tree Layout': 'Tree',
@@ -45,7 +45,7 @@ def get_menu_filename(layout, category, subcategory):
     category_clean = category.replace(' ', '')
     subcategory_clean = subcategory.replace(' ', '')
     
-    # Replace 'Shapes' with 'Wujud'
+    # Replace 'Shapes' dengan 'Wujud'
     category_clean = re.sub(r'Shapes', 'Wujud', category_clean, flags=re.IGNORECASE)
     subcategory_clean = re.sub(r'Shapes', 'Wujud', subcategory_clean, flags=re.IGNORECASE)
     
@@ -57,11 +57,11 @@ def get_function_filename(layout, category, subcategory, icon_type):
     category_clean = category.replace(' ', '')
     subcategory_clean = subcategory.replace(' ', '')
     
-    # Replace 'Shapes' with 'Wujud'
+    # Replace 'Shapes' dengan 'Wujud'
     category_clean = re.sub(r'Shapes', 'Wujud', category_clean, flags=re.IGNORECASE)
     subcategory_clean = re.sub(r'Shapes', 'Wujud', subcategory_clean, flags=re.IGNORECASE)
     
-    # Determine icon type suffix
+    # tentukan ikon jenis akhiran
     icon_suffix = ''
     if icon_type:
         icon_clean = icon_type.replace(' Icon', '').replace(' ', '')
@@ -69,7 +69,7 @@ def get_function_filename(layout, category, subcategory, icon_type):
     
     return f"{layout_clean}{category_clean}{subcategory_clean}{icon_suffix}.js"
 
-# Process menu files
+# Process menu berkas-berkas
 menu_renames = []
 for filename in os.listdir(menus_dir):
     if filename.startswith('menu_') and filename.endswith('.json') and filename != 'menu_mapping.json':
@@ -89,13 +89,13 @@ for filename in os.listdir(menus_dir):
         except Exception as e:
             print(f"Error processing {filename}: {e}")
 
-# Rename menu files
+# Rename menu berkas-berkas
 renamed_menus = {}
 for old_name, new_name in menu_renames:
     old_path = os.path.join(menus_dir, old_name)
     new_path = os.path.join(menus_dir, new_name)
     
-    # Handle duplicate names by adding counter
+    # Handle duplicate nama by adding counter
     counter = 1
     base_new_name = new_name
     while os.path.exists(new_path):
@@ -108,17 +108,17 @@ for old_name, new_name in menu_renames:
     renamed_menus[old_name] = new_name
     print(f"Renamed menu: {old_name} -> {new_name}")
 
-# Process function files
+# Process fungsi berkas-berkas
 function_renames = []
 for filename in os.listdir(functions_dir):
     if filename.endswith('.js'):
-        # Parse the function filename to extract info
-        # Format: {type}_{style}_{category}_{shape}_{number}.js
+        # Parse ini fungsi filename to extract info
+        # Format: {jenis}_{gaya}_{category}_{shape}_{angka}.js
         match = re.match(r'(\w+)_(\w+)_(.+?)_(\w+)_(\d+)\.js$', filename)
         if match:
             func_type, style, category_part, shape, number = match.groups()
             
-            # Try to find corresponding menu to get layout info
+            # Try to find corresponding menu to get tata letak info
             menu_file = f'menu_{number.zfill(5)}.json'
             menu_path = os.path.join(menus_dir, menu_file)
             
@@ -138,13 +138,13 @@ for filename in os.listdir(functions_dir):
                 except Exception as e:
                     print(f"Error reading menu for {filename}: {e}")
 
-# Rename function files
+# Rename fungsi berkas-berkas
 renamed_functions = {}
 for old_name, new_name in function_renames:
     old_path = os.path.join(functions_dir, old_name)
     new_path = os.path.join(functions_dir, new_name)
     
-    # Handle duplicate names by adding counter
+    # Handle duplicate nama by adding counter
     counter = 1
     base_new_name = new_name
     while os.path.exists(new_path):

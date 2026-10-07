@@ -8,16 +8,16 @@ MENUS["Konten"]="konten|artikel|galeri|media|dokumen|arsip|kategori|tag|komentar
 MENUS["Analitik"]="analitik|metrik|kinerja|tren|prediksi|eksperimen|segmentasi|konversi|retensi"
 MENUS["Bantuan"]="bantuan|faq|panduan|tutorial|kontak|dukungan|feedback|pelaporan|komunitas"
 
-# Fungsi untuk membuat struktur folder bertingkat
+# Fungsi untuk membuat struktur direktori bertingkat
 buat_struktur() {
     local base_dir="$1"
     local menu_name="$2"
     local sub_menu="$3"
     
-    # Buat folder utama .digital
+    # Buat direktori utama .digital
     mkdir -p "${base_dir}"
     
-    # Buat file .digital di root
+    # Buat berkas .digital di akar
     echo "MENU_UTAMA=${menu_name}" > "${base_dir}/config.digital"
     echo "SUB_MENU=${sub_menu}" >> "${base_dir}/config.digital"
     echo "BAHASA=id" >> "${base_dir}/config.digital"
@@ -30,7 +30,7 @@ buat_struktur() {
     mkdir -p "${base_dir}/php"
     mkdir -p "${base_dir}/db"
     
-    # File HTML
+    # berkas HTML
     cat > "${base_dir}/html/index.html" << EOF
 <!DOCTYPE html>
 <html lang="id">
@@ -58,7 +58,7 @@ buat_struktur() {
 </html>
 EOF
     
-    # File CSS
+    # berkas CSS
     cat > "${base_dir}/css/style.css" << EOF
 /* Style untuk ${menu_name} - ${sub_menu} */
 :root {
@@ -124,7 +124,7 @@ h1 {
 }
 EOF
     
-    # File JavaScript
+    # berkas skrip-skrip-javascript
     cat > "${base_dir}/js/app.js" << EOF
 // Aplikasi ${menu_name} - ${sub_menu}
 document.addEventListener('DOMContentLoaded', function() {
@@ -157,7 +157,7 @@ function initDataBinding() {
 }
 EOF
     
-    # File PHP
+    # berkas PHP
     cat > "${base_dir}/php/index.php" << EOF
 <?php
 /**
@@ -186,7 +186,7 @@ echo json_encode(\$response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 ?>
 EOF
     
-    # File Database Schema
+    # berkas basis-data Schema
     cat > "${base_dir}/db/schema.sql" << EOF
 -- Schema database untuk ${menu_name} - ${sub_menu}
 -- Bahasa: Indonesia
@@ -223,30 +223,30 @@ INSERT INTO ${sub_menu}_data (judul, konten, kategori, status) VALUES
 ('Contoh Data 2', 'Konten contoh tambahan', 'khusus', 'aktif');
 EOF
     
-    # File README
+    # berkas README
     cat > "${base_dir}/README.digital" << EOF
 # ${menu_name} - ${sub_menu}
 
-## Deskripsi
+# Deskripsi
 Modul ${sub_menu} merupakan bagian dari menu ${menu_name} dalam sistem Media Digital.
 
-## Struktur Folder
+# Struktur direktori
 - \`html/\` - File antarmuka pengguna
 - \`css/\` - File styling
 - \`js/\` - File JavaScript
 - \`php/\` - File backend
 - \`db/\` - Schema database
 
-## Fitur
+# Fitur
 - Antarmuka Bahasa Indonesia
 - Responsive design
 - API endpoint terintegrasi
 - Database schema lengkap
 
-## Versi
+# Versi
 1.0.0
 
-## Status
+# Status
 Aktif
 EOF
 }
@@ -265,12 +265,12 @@ for menu in "${!MENUS[@]}"; do
     IFS='|' read -ra SUBMENUS <<< "${MENUS[$menu]}"
     
     for submenu in "${SUBMENUS[@]}"; do
-        # Buat beberapa variasi folder .digital untuk setiap sub-menu
+        # Buat beberapa variasi direktori .digital untuk setiap sub-menu
         for i in {1..5}; do
             base_path="./${menu}_${submenu}_v${i}.digital"
             buat_struktur "$base_path" "$menu" "$submenu"
             ((total_dirs++))
-            total_files=$((total_files + 7)) # 7 files per directory
+            total_files=$((total_files + 7)) # 7 berkas-berkas per direktori
         done
     done
 done

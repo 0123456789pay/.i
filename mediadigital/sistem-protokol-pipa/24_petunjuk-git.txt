@@ -1,0 +1,29 @@
+=====================================================================
+SISTEM PROTOKOL MULTIFUNGSI "|" - PETUNJUK PENGGUNAAN GIT
+Seluruh perintah git ditulis dengan komentar Bahasa Indonesia
+=====================================================================
+
+1. Mengambil berkas sistem ke komputer sendiri (masukan):
+   git klon https://contoh.id/mediadigital.git
+
+2. Memeriksa perubahan sebelum disimpan (keluaran):
+   git status            -> lihat berkas yang berubah
+   git diff              -> bandingkan isi perubahan per baris
+
+3. Menyimpan perubahan ke riwayat (tulis keluaran):
+   git add .             -> masukkan semua berkas ke area tunggu
+   git komit -m "pasang protokol pipa penangan input output"
+
+4. Mengirim hasil ke peladen pusat (unggah keluaran):
+   git dorong asal cabang-utama
+
+5. Menerima hasil dari peladen (unduh masukan):
+   git tarik asal cabang-utama
+
+6. Membuat cabang percobaan baru:
+   git cabang uji-protokol
+   git pindah uji-protokol
+
+Catatan: simbol | dipakai sebagai tanda pengenal protokol,
+angka nol sampai sembilan dipakai untuk penomoran berkas sistem,
+huruf A sampai Z dipakai untuk penamaan kelas dan direktori.

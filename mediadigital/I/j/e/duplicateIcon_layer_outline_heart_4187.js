@@ -1,7 +1,7 @@
 /**
- * Function Module: Duplicateicon 4187
+ * fungsi Module: Duplicateicon 4187
  * Category: layer
- * Style: outline
+ * gaya: outline
  * Shape: heart
  * ID: FUNC-04187
  */
@@ -21,7 +21,7 @@ const duplicateIcon4187 = {
     },
     
     setup() {
-        // Setup configuration for duplicateIcon
+        // Setup pengaturan untuk duplicateIcon
         this.config = {
             enabled: true,
             priority: 4187,
@@ -32,7 +32,7 @@ const duplicateIcon4187 = {
     
     execute(params) {
         console.log('Executing duplicateIcon #4187 with params:', params);
-        // Implementation for duplicateIcon operation
+        // Implementation untuk duplicateIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = duplicateIcon4187;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['duplicateIcon4187'] = duplicateIcon4187;
 }

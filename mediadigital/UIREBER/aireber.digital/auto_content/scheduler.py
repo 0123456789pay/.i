@@ -75,7 +75,7 @@ class ContentScheduler:
             except Exception as e:
                 self.log(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] ERROR: {str(e)}")
             
-            # Calculate sleep time
+            # Calculate sleep waktu
             elapsed = time.time() - start_time
             sleep_time = max(0, self.interval_seconds - elapsed)
             
@@ -85,8 +85,8 @@ class ContentScheduler:
                 self.log(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Tidur selama {sleep_time:.0f} detik")
                 self.log(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Generasi berikutnya: {next_run_str}")
                 
-                # Sleep in small increments to check running flag
-                sleep_increment = min(60, sleep_time)  # Check every minute max
+                # Sleep in small increments to periksa running flag
+                sleep_increment = min(60, sleep_time)  # periksa every minute max
                 total_slept = 0
                 while total_slept < sleep_time and self.running:
                     time.sleep(sleep_increment)
@@ -97,14 +97,14 @@ class ContentScheduler:
     
     def log(self, message):
         """Logging ke file dan console"""
-        # Ensure logs directory exists
+        # Ensure catatan-catatan direktori exists
         self.log_file.parent.mkdir(parents=True, exist_ok=True)
         
-        # Write to file
+        # tulis to berkas
         with open(self.log_file, 'a', encoding='utf-8') as f:
             f.write(message + '\n')
         
-        # Print to console
+        # Print to konsol
         print(message)
 
 

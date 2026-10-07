@@ -4,7 +4,7 @@ import re
 
 WORKSPACE = '/workspace'
 
-# Mapping CDN URLs ke file lokal
+# pemetaan CDN URLs ke berkas lokal
 CDN_MAPPINGS = {
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css': '/assets/css/bootstrap.css',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js': '/assets/js/bootstrap.bundle.js',
@@ -81,7 +81,7 @@ def main():
     modified_files = 0
     
     for root, dirs, files in os.walk(WORKSPACE):
-        # Skip node_modules dan folder tersembunyi
+        # Skip node_modules dan direktori tersembunyi
         dirs[:] = [d for d in dirs if not d.startswith('.') and d != 'node_modules']
         
         for file in files:

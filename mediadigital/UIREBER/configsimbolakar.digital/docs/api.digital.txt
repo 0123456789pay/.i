@@ -1,104 +1,104 @@
-# API Documentation - Simbol Akar Digital
+# API Documentation - Simbol Akar digital
 # ==========================================
 
-# BASE URL: /configsimbolakar.digital/
+# dasar pautan: /configsimbolakar.digital/
 
 # ENDPOINTS
 # ---------
 
-# 1. GET Configuration
+# 1. GET pengaturan
 # --------------------
-# URL: config/system.digital.php?api=config
+# pautan: konfigurasi/sistem.digital.php?api=konfigurasi
 # Method: GET
-# Response: JSON
-# Description: Returns complete system configuration
+# jawaban: JSON
+# Description: Returns complete sistem pengaturan
 
-# Example Request:
-# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=config"
+# contoh permintaan:
+# curl -X GET "http://localhost/configsimbolakar.digital/konfigurasi/sistem.digital.php?api=konfigurasi"
 
-# Example Response:
+# contoh jawaban:
 # {
-#   "system": {
-#     "name": "Simbol Akar Digital",
-#     "version": "1.0.0",
+#   "sistem": {
+#     "nama": "Simbol Akar digital",
+#     "versi": "1.0.0",
 #     "root_symbol": "√"
 #   },
 #   "binary_config": "10101000 01010101 00101010",
-#   "secure_mode": true
+#   "secure_mode": benar
 # }
 
-# 2. GET Root Symbol
+# 2. GET akar Symbol
 # ------------------
-# URL: config/system.digital.php?api=symbol
+# pautan: konfigurasi/sistem.digital.php?api=symbol
 # Method: GET
-# Response: JSON
-# Description: Returns the root symbol (√)
+# jawaban: JSON
+# Description: Returns ini akar symbol (√)
 
-# Example Request:
-# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=symbol"
+# contoh permintaan:
+# curl -X GET "http://localhost/configsimbolakar.digital/konfigurasi/sistem.digital.php?api=symbol"
 
-# Example Response:
+# contoh jawaban:
 # {"symbol": "√"}
 
-# 3. GET Binary Configuration
+# 3. GET Binary pengaturan
 # ---------------------------
-# URL: config/system.digital.php?api=binary
+# pautan: konfigurasi/sistem.digital.php?api=binary
 # Method: GET
-# Response: JSON
+# jawaban: JSON
 # Description: Returns binary activation code
 
-# Example Request:
-# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=binary"
+# contoh permintaan:
+# curl -X GET "http://localhost/configsimbolakar.digital/konfigurasi/sistem.digital.php?api=binary"
 
-# Example Response:
+# contoh jawaban:
 # {"binary": "10101000 01010101 00101010"}
 
 # 4. GET Secure Status
 # --------------------
-# URL: config/system.digital.php?api=secure
+# pautan: konfigurasi/sistem.digital.php?api=secure
 # Method: GET
-# Response: JSON
+# jawaban: JSON
 # Description: Returns secure mode status
 
-# Example Request:
-# curl -X GET "http://localhost/configsimbolakar.digital/config/system.digital.php?api=secure"
+# contoh permintaan:
+# curl -X GET "http://localhost/configsimbolakar.digital/konfigurasi/sistem.digital.php?api=secure"
 
-# Example Response:
-# {"secure": true}
+# contoh jawaban:
+# {"secure": benar}
 
-# ERROR RESPONSES
+# galat RESPONSES
 # ---------------
-# 400 Bad Request: Invalid API endpoint
-# 500 Internal Server Error: Server configuration error
+# 400 Bad permintaan: Invalid API endpoint
+# 500 Internal peladen galat: peladen pengaturan galat
 
 # RATE LIMITING
 # -------------
 # Maximum 100 requests per minute per IP
 
-# AUTHENTICATION
+# autentikasi
 # --------------
-# Currently no authentication required for public endpoints
-# Secure endpoints require valid session token
+# Currently no autentikasi required untuk umum endpoints
+# Secure endpoints require valid sesi token
 
-# DATA FORMATS
+# data FORMATS
 # ------------
-# All responses are in JSON format
+# semua responses are in JSON format
 # Character encoding: UTF-8
-# Content-Type: application/json
+# isi-jenis: aplikasi/json
 
 # SUPPORTED SYMBOLS
 # -----------------
-# √ (U+221A) - Square Root
-# ∛ (U+221B) - Cube Root
-# ∜ (U+221C) - Fourth Root
+# √ (U+221A) - Square akar
+# ∛ (U+221B) - Cube akar
+# ∜ (U+221C) - Fourth akar
 # ∑ (U+2211) - Summation
-# ∏ (U+220F) - Product
+# ∏ (U+220F) - produk
 # ∫ (U+222B) - Integral
 
-# VERSION HISTORY
+# versi HISTORY
 # ---------------
 # v1.0.0 - Initial release
-# - Core symbol system
-# - Binary configuration
+# - Core symbol sistem
+# - Binary pengaturan
 # - Regex patterns
 # - Secure mode

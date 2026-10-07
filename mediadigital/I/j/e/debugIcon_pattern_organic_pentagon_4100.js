@@ -1,7 +1,7 @@
 /**
- * Function Module: Debugicon 4100
+ * fungsi Module: Debugicon 4100
  * Category: pattern
- * Style: organic
+ * gaya: organic
  * Shape: pentagon
  * ID: FUNC-04100
  */
@@ -21,7 +21,7 @@ const debugIcon4100 = {
     },
     
     setup() {
-        // Setup configuration for debugIcon
+        // Setup pengaturan untuk debugIcon
         this.config = {
             enabled: true,
             priority: 4100,
@@ -32,7 +32,7 @@ const debugIcon4100 = {
     
     execute(params) {
         console.log('Executing debugIcon #4100 with params:', params);
-        // Implementation for debugIcon operation
+        // Implementation untuk debugIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = debugIcon4100;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['debugIcon4100'] = debugIcon4100;
 }

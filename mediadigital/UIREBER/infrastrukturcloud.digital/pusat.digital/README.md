@@ -1,106 +1,106 @@
-# 🏛️ PUSAT System
+# 🏛️ PUSAT sistem
 
-**Pusat Utama Sistem Terintegrasi** - Central Hub untuk pengelolaan seluruh sistem kode, komponen, dan file.
+**Pusat Utama Sistem Terintegrasi** - Central Hub untuk pengelolaan seluruh sistem kode, komponen, dan berkas.
 
 ## 📋 Fitur Utama
 
 ### 1. 📊 DataCenter
-- Monitoring status server (CPU, Memory, Storage)
-- Koneksi database (MySQL, MongoDB, Redis)
-- Statistik jaringan (Upload, Download, Latency)
-- Ringkasan file sistem
+- Monitoring status peladen (CPU, Memory, penyimpanan)
+- Koneksi basis-data (MySQL, MongoDB, Redis)
+- Statistik jaringan (unggah, unduh, Latency)
+- Ringkasan berkas sistem
 
-### 2. 📁 File Manager
-- Browser file dengan preview
-- Operasi CRUD (Create, Read, Update, Delete)
-- Pencarian file
-- Upload dan download
-- Manajemen folder
+### 2. 📁 berkas Manager
+- Browser berkas dengan preview
+- Operasi CRUD (buat, baca, perbarui, hapus)
+- Pencarian berkas
+- unggah dan unduh
+- Manajemen direktori
 
-### 3. 🗂️ File Navigator
+### 3. 🗂️ berkas Navigator
 - Navigasi hierarki tree view
 - Breadcrumb navigation
-- Struktur folder interaktif
+- Struktur direktori interaktif
 
 ### 4. 🤖 Studio AI
-- Chat assistant terintegrasi
+- Chat asisten terintegrasi
 - Analisis kode otomatis
 - Saran optimisasi
-- Security recommendations
+- keamanan recommendations
 
 ### 5. 🌐 Hosting
 - Manajemen paket hosting
 - Deployment multi-environment (Production, Staging, Development)
-- Quick deploy buttons
+- Quick sebarkan buttons
 - Status monitoring
 
 ### 6. 🔖 Domain
 - Daftar domain terdaftar
-- DNS record management (A, CNAME, MX)
+- DNS record pengelolaan (A, CNAME, MX)
 - Expiration tracking
-- Domain configuration
+- Domain pengaturan
 
 ### 7. ⚙️ Konfigurasi
-- General settings (Site name, Language, Theme)
-- File system preferences
-- AI model configuration
+- General pengaturan (Site nama, Language, Theme)
+- berkas sistem preferences
+- AI model pengaturan
 - Export/Import konfigurasi
 
 ### 8. 📈 Status & Monitoring
-- Kesehatan sistem real-time
+- Kesehatan sistem real-waktu
 - Performance metrics
-- Activity log
+- Activity catatan
 - Resource usage charts
 
-## 📁 Struktur Folder
+## 📁 Struktur direktori
 
 ```
 pusat/
-├── index.html              # Halaman utama dengan semua tab/menu
+├── indeks.html              # Halaman utama dengan semua tab/menu
 ├── css/
 │   └── pusat.css          # Styling lengkap sistem
 ├── js/
-│   └── pusat.js           # JavaScript untuk interaksi dan fitur
-├── config/
-│   └── system.json        # Konfigurasi sistem
-├── datacenter/            # Folder untuk modul datacenter
-├── filemanager/           # Folder untuk modul file manager
-├── filenavigator/         # Folder untuk modul file navigator
-├── studio-ai/             # Folder untuk modul AI studio
-├── hosting/               # Folder untuk modul hosting
-├── domain/                # Folder untuk modul domain
-└── status-monitoring/     # Folder untuk modul monitoring
+│   └── pusat.js           # skrip-skrip-javascript untuk interaksi dan fitur
+├── konfigurasi/
+│   └── sistem.json        # Konfigurasi sistem
+├── datacenter/            # direktori untuk modul datacenter
+├── filemanager/           # direktori untuk modul berkas manager
+├── filenavigator/         # direktori untuk modul berkas navigator
+├── studio-ai/             # direktori untuk modul AI studio
+├── hosting/               # direktori untuk modul hosting
+├── domain/                # direktori untuk modul domain
+└── status-monitoring/     # direktori untuk modul monitoring
 ```
 
 ## 🚀 Cara Menggunakan
 
-1. Buka `index.html` di browser modern
-2. Navigasi menggunakan menu tab di header
+1. Buka `indeks.html` di browser modern
+2. Navigasi menggunakan menu tab di kepala
 3. Setiap tab memiliki fungsi dan fitur tersendiri
-4. Konfigurasi dapat disesuaikan melalui tab Configuration
+4. Konfigurasi dapat disesuaikan melalui tab pengaturan
 
-## 📊 Statistik File
+## 📊 Statistik berkas
 
 Sistem ini mengintegrasikan:
-- **4800+ file** total dalam workspace
-- **2500+ file JavaScript** (.js)
-- **1500+ file CSS** (.css)
-- **100+ file HTML** (.html)
-- **50+ folder** terstruktur
+- **4800+ berkas** jumlah dalam workspace
+- **2500+ berkas skrip-skrip-javascript** (.js)
+- **1500+ berkas CSS** (.css)
+- **100+ berkas HTML** (.html)
+- **50+ direktori** terstruktur
 
 ## 🎨 Desain UI/UX
 
 - **Responsive Design**: Optimal untuk desktop, tablet, dan mobile
-- **Modern Interface**: Gradient colors, smooth animations, card-based layout
+- **Modern Interface**: Gradient colors, smooth animations, card-based tata letak
 - **Dark/Light Theme**: Support untuk berbagai preferensi tampilan
 - **Accessibility**: Easy navigation dan clear visual hierarchy
 
 ## 🔧 Teknologi
 
 - **HTML5**: Semantic markup
-- **CSS3**: Custom properties, Grid, Flexbox, Animations
-- **JavaScript (ES6+)**: Vanilla JS tanpa dependencies
-- **LocalStorage**: Penyimpanan konfigurasi client-side
+- **CSS3**: suai properties, Grid, Flexbox, Animations
+- **skrip-skrip-javascript (ES6+)**: Vanilla JS tanpa dependencies
+- **LocalStorage**: Penyimpanan konfigurasi klien-side
 - **Canvas API**: Rendering charts untuk monitoring
 
 ## 📝 Lisensi

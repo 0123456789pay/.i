@@ -1,7 +1,7 @@
 /**
- * Function Module: Colorizeicon 3911
+ * fungsi Module: Colorizeicon 3911
  * Category: tool
- * Style: gradient
+ * gaya: gradient
  * Shape: plus
  * ID: FUNC-03911
  */
@@ -21,7 +21,7 @@ const colorizeIcon3911 = {
     },
     
     setup() {
-        // Setup configuration for colorizeIcon
+        // Setup pengaturan untuk colorizeIcon
         this.config = {
             enabled: true,
             priority: 3911,
@@ -32,7 +32,7 @@ const colorizeIcon3911 = {
     
     execute(params) {
         console.log('Executing colorizeIcon #3911 with params:', params);
-        // Implementation for colorizeIcon operation
+        // Implementation untuk colorizeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = colorizeIcon3911;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['colorizeIcon3911'] = colorizeIcon3911;
 }

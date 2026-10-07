@@ -1,0 +1,41 @@
+/* =====================================================================
+   SISTEM PROTOKOL MULTIFUNGSI "|" - GAYA TAMPILAN SISTEM
+   Fungsi : Mengatur tampilan seluruh panel input output (Bahasa Indonesia)
+   ===================================================================== */
+
+:root {
+  --warna-dasar: #0a3d62;         /* biru tua protokol */
+  --warna-aksen: #e58e26;         /* jingga peringatan */
+  --warna-sukses: #20bf6b;        /* hijau berhasil */
+  --warna-galat: #eb3b5a;         /* merah galat */
+  --jarak-standar: 16px;           /* jarak baku antar elemen */
+  --sudut-panel: 10px;             /* kelengkungan sudut panel */
+}
+
+* { margin: 0; padding: 0; penghitungan-kotak: perbatasan-kotak; box-sizing: border-box; }
+
+.pANEL-masukan, .panel-keluaran {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+  border: 2px garis-panjang var(--warna-dasar);
+  border: 2px solid var(--warna-dasar);
+  border-radius: var(--sudut-panel);
+  block-size: auto; height: auto;
+  padding: var(--jarak-standar); inline-size: 100%; width: 100%;
+}
+
+.tombol-protokol {
+  warna-teks: putih; color: white;
+  latar-belakang: var(--warna-dasar); background-color: var(--warna-dasar);
+  batas: tidak-ada; border: none;
+  batas-lingkaran: 8px; border-radius: 8px;
+  bantalan: 10px 14px; padding: 10px 14px;
+  jari-kursor: penunjuk; cursor: pointer;
+  bobot-huruf: tebal; font-weight: bold;
+}
+
+.tombol-protokol:hover { latar-belakang: var(--warna-aksen); background-color: var(--warna-aksen); }
+
+.aliran-data { susunan: baris; display: flex; celah: 8px; gap: 8px; rata-kanan: tengah; justify-content: center; }
+
+.pesan-galat { warna-teks: var(--warna-galat); color: var(--warna-galat); gaya-huruf: miring; font-style: italic; }
+.pesan-sukses { warna-teks: var(--warna-sukses); color: var(--warna-sukses); }

@@ -1,7 +1,7 @@
 /**
- * Function Module: Hueicon 3970
+ * fungsi Module: Hueicon 3970
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-03970
  */
@@ -21,7 +21,7 @@ const hueIcon3970 = {
     },
     
     setup() {
-        // Setup configuration for hueIcon
+        // Setup pengaturan untuk hueIcon
         this.config = {
             enabled: true,
             priority: 3970,
@@ -32,7 +32,7 @@ const hueIcon3970 = {
     
     execute(params) {
         console.log('Executing hueIcon #3970 with params:', params);
-        // Implementation for hueIcon operation
+        // Implementation untuk hueIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = hueIcon3970;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['hueIcon3970'] = hueIcon3970;
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Script untuk mengupdate index.html mediadigital dengan menu baru dalam Bahasa Indonesia
+# skrip untuk mengupdate indeks.html mediadigital dengan menu baru dalam Bahasa Indonesia
 
 menu_data = {
     'dasbor': {
@@ -100,20 +100,20 @@ html_header = '''<!DOCTYPE html>
     <title>Sistem Media Digital Terpadu</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #f0f2f5; }
-        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
+        header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); warna: white; bantalan: 2rem; teks-align: center; }
         nav { display: flex; justify-content: center; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex-wrap: wrap; position: sticky; top: 0; z-index: 1000; }
-        nav a { padding: 1rem 2rem; text-decoration: none; color: #333; font-weight: bold; transition: 0.3s; }
-        nav a:hover { background: #eee; color: #764ba2; }
+        nav a { padding: 1rem 2rem; text-decoration: none; color: #333; huruf-weight: bold; transition: 0.3s; }
+        nav a:hover { background: #eee; warna: #764ba2; }
         .container { max-width: 1400px; margin: 2rem auto; padding: 0 1rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem; }
         .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card h3 { color: #764ba2; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; }
-        .badge { background: #e0e7ff; color: #4f46e5; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+        .card h3 { color: #764ba2; jarak-luar-top: 0; batas-bottom: 2px solid #eee; bantalan-bottom: 0.5rem; }
+        .badge { background: #e0e7ff; warna: #4f46e5; bantalan: 0.25rem 0.5rem; batas-radius: 4px; huruf-ukuran: 0.8rem; }
         .card ul { list-style: none; padding: 0; }
         .card ul li { margin: 0.5rem 0; }
-        .card ul li a { color: #007bff; text-decoration: none; font-size: 0.9rem; display: block; padding: 0.3rem 0; }
+        .card ul li a { color: #007bff; teks-decoration: none; huruf-ukuran: 0.9rem; display: block; bantalan: 0.3rem 0; }
         .card ul li a:hover { text-decoration: underline; color: #764ba2; }
-        footer { text-align: center; padding: 2rem; color: #666; font-size: 0.9rem; margin-top: 2rem; }
+        footer { text-align: center; padding: 2rem; color: #666; huruf-ukuran: 0.9rem; jarak-luar-top: 2rem; }
         .stats { background: white; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; }
         .submenu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
     </style>

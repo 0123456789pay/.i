@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: TRansIsi.css
- * JUDUL: TRANSISI HALUS MEDIA DIGITAL
+ * JUDUL: TRANSISI HALUS media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Transisi dasar properti
  * - Versi 2.0: Penambahan durasi berbeda
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus kehalusan
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus kehalusan
  * ============================================================================
  * SISTEM INTI: Mengatur transisi halus antar state elemen
  * ============================================================================
@@ -162,7 +162,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS MARGIN                                                     */
+/* TRANSISI KHUSUS jarak-luar                                                     */
 /* -------------------------------------------------------------------------- */
 .transisi-margin {
     transisi: margin 0.3detik mudah;
@@ -177,7 +177,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS PADDING                                                    */
+/* TRANSISI KHUSUS bantalan                                                    */
 /* -------------------------------------------------------------------------- */
 .transisi-jarak-dalam {
     transisi: jarak-dalam 0.3detik mudah;
@@ -192,7 +192,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS BORDER RADIUS                                              */
+/* TRANSISI KHUSUS batas RADIUS                                              */
 /* -------------------------------------------------------------------------- */
 .transisi-melengkung {
     transisi: jari-jari-batas 0.3detik mudah;
@@ -261,7 +261,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN TRansIsi.css
- * TOTAL BARIS: 280+
+ * jumlah BARIS: 280+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
@@ -321,7 +321,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS UNTUK BUTTON                                               */
+/* TRANSISI KHUSUS UNTUK tombol                                               */
 /* -------------------------------------------------------------------------- */
 .transisi-tombol-dasar {
     transisi: warna-teks 0.2detik mudah, latar-belakang 0.2detik mudah, batas 0.2detik mudah, bayangan-kotak 0.2detik mudah;
@@ -348,7 +348,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS UNTUK LINK                                                 */
+/* TRANSISI KHUSUS UNTUK tautan                                                 */
 /* -------------------------------------------------------------------------- */
 .transisi-link-garis {
     posisi: relatif;
@@ -371,7 +371,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS UNTUK INPUT FORM                                           */
+/* TRANSISI KHUSUS UNTUK masukan borang                                           */
 /* -------------------------------------------------------------------------- */
 .transisi-input-fokus {
     transisi: batas-warna 0.3detik mudah, bayangan-kotak 0.3detik mudah;
@@ -434,7 +434,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* TRANSISI KHUSUS UNTUK IMAGE OVERLAY                                        */
+/* TRANSISI KHUSUS UNTUK gambar OVERLAY                                        */
 /* -------------------------------------------------------------------------- */
 .transisi-overlay-muncul {
     transisi: opasitas 0.3detik mudah;
@@ -503,7 +503,7 @@
     transisi-timing-fungsi: mudah;
 }
 
-/* Custom cubic-bezier */
+/* suai cubic-bezier */
 .transisi-easing-lunak {
     transisi-timing-fungsi: kubik-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -557,7 +557,7 @@
     }
 }
 
-/* Print styles - nonaktifkan transisi */
+/* Print gaya-gaya - nonaktifkan transisi */
 @media cetak {
     * {
         transisi: tidak-ada !penting;
@@ -578,7 +578,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN TRansIsi.css - VERSI 0.1
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================

@@ -1,7 +1,7 @@
 /**
- * Function Module: Layericon 3571
+ * fungsi Module: Layericon 3571
  * Category: tool
- * Style: gradient
+ * gaya: gradient
  * Shape: plus
  * ID: FUNC-03571
  */
@@ -21,7 +21,7 @@ const layerIcon3571 = {
     },
     
     setup() {
-        // Setup configuration for layerIcon
+        // Setup pengaturan untuk layerIcon
         this.config = {
             enabled: true,
             priority: 3571,
@@ -32,7 +32,7 @@ const layerIcon3571 = {
     
     execute(params) {
         console.log('Executing layerIcon #3571 with params:', params);
-        // Implementation for layerIcon operation
+        // Implementation untuk layerIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = layerIcon3571;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['layerIcon3571'] = layerIcon3571;
 }

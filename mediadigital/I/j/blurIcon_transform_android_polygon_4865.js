@@ -1,7 +1,7 @@
 /**
- * Function Module: Bluricon 4865
+ * fungsi Module: Bluricon 4865
  * Category: transform
- * Style: android
+ * gaya: android
  * Shape: polygon
  * ID: FUNC-04865
  */
@@ -21,7 +21,7 @@ const blurIcon4865 = {
     },
     
     setup() {
-        // Setup configuration for blurIcon
+        // Setup pengaturan untuk blurIcon
         this.config = {
             enabled: true,
             priority: 4865,
@@ -32,7 +32,7 @@ const blurIcon4865 = {
     
     execute(params) {
         console.log('Executing blurIcon #4865 with params:', params);
-        // Implementation for blurIcon operation
+        // Implementation untuk blurIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = blurIcon4865;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['blurIcon4865'] = blurIcon4865;
 }

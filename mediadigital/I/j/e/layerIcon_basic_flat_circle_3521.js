@@ -1,7 +1,7 @@
 /**
- * Function Module: Layericon 3521
+ * fungsi Module: Layericon 3521
  * Category: basic
- * Style: flat
+ * gaya: flat
  * Shape: circle
  * ID: FUNC-03521
  */
@@ -21,7 +21,7 @@ const layerIcon3521 = {
     },
     
     setup() {
-        // Setup configuration for layerIcon
+        // Setup pengaturan untuk layerIcon
         this.config = {
             enabled: true,
             priority: 3521,
@@ -32,7 +32,7 @@ const layerIcon3521 = {
     
     execute(params) {
         console.log('Executing layerIcon #3521 with params:', params);
-        // Implementation for layerIcon operation
+        // Implementation untuk layerIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = layerIcon3521;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['layerIcon3521'] = layerIcon3521;
 }

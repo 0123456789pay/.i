@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: Nampakbel.css
- * JUDUL: LAYOUT NAMPAKBEL MEDIA DIGITAL
+ * JUDUL: tata letak NAMPAKBEL media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,14 +10,14 @@
  * - Versi 1.0: Properti nampakbel dasar
  * - Versi 2.0: Penambahan utilitas alignment
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus nampakibilitas
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus nampakibilitas
  * ============================================================================
- * SISTEM INTI: Mengatur layout nampakibel untuk komponen dinamis
+ * SISTEM INTI: Mengatur tata letak nampakibel untuk komponen dinamis
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* CONTAINER NAMPAK                                                             */
+/* wadah NAMPAK                                                             */
 /* -------------------------------------------------------------------------- */
 .nampak {
     tampilan: nampak;
@@ -62,7 +62,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JUSTIFY CONTENT                                                            */
+/* JUSTIFY isi                                                            */
 /* -------------------------------------------------------------------------- */
 .nampak-awal {
     benarkan-konten: awal;
@@ -89,7 +89,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ALIGN ITEMS                                                                */
+/* ALIGN butiran                                                                */
 /* -------------------------------------------------------------------------- */
 .nampak-sejajar-awal {
     sejajarkan-item: awal;
@@ -226,7 +226,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ORDER                                                                      */
+/* pesanan                                                                      */
 /* -------------------------------------------------------------------------- */
 .urutan-0 { urutan: 0; }
 .urutan-1 { urutan: 1; }
@@ -242,7 +242,7 @@
 .urutan-terakhir { urutan: 999; }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT KHUSUS KOMPONEN                                                     */
+/* tata letak KHUSUS KOMPONEN                                                     */
 /* -------------------------------------------------------------------------- */
 .nampak-pusat-sempurna {
     tampilan: nampak;
@@ -301,7 +301,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN Nampakbel.css
- * TOTAL BARIS: 280+
+ * jumlah BARIS: 280+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
@@ -309,13 +309,13 @@
 /* ============================================================================
  * BAGIAN TAMBAHAN: VARIASI NAMPAKBOX LANJUTAN (Versi 0.1)
  * ============================================================================
- * Penambahan variasi nampakbel untuk layout yang lebih kompleks
+ * Penambahan variasi nampakbel untuk tata letak yang lebih kompleks
  * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* NAMPAK CONTAINER VARIASI UKURAN                                              */
+/* NAMPAK wadah VARIASI UKURAN                                              */
 /* -------------------------------------------------------------------------- */
 .nampak-lebar-penuh {
     tampilan: nampak;
@@ -380,7 +380,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JUSTIFY CONTENT VARIASI LENGKAP                                            */
+/* JUSTIFY isi VARIASI LENGKAP                                            */
 /* -------------------------------------------------------------------------- */
 .nampak-benarkan-awal {
     benarkan-konten: awal;
@@ -407,7 +407,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ALIGN ITEMS VARIASI LENGKAP                                                */
+/* ALIGN butiran VARIASI LENGKAP                                                */
 /* -------------------------------------------------------------------------- */
 .nampak-sejajar-item-awal {
     sejajarkan-item: awal;
@@ -453,7 +453,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ALIGN CONTENT VARIASI                                                      */
+/* ALIGN isi VARIASI                                                      */
 /* -------------------------------------------------------------------------- */
 .nampak-sejajar-konten-awal {
     sejajarkan-konten: awal;
@@ -530,7 +530,7 @@
 .nampak-tidak-ada { nampak: tidak-ada; }
 
 /* -------------------------------------------------------------------------- */
-/* ORDER VARIASI LENGKAP                                                      */
+/* pesanan VARIASI LENGKAP                                                      */
 /* -------------------------------------------------------------------------- */
 .urutan-nol { urutan: 0; }
 .urutan-satu { urutan: 1; }
@@ -573,7 +573,7 @@
 .nampak-jarak-vertikal-besar { jarak-baris: 2rem; }
 
 /* -------------------------------------------------------------------------- */
-/* LAYOUT KHUSUS DENGAN NAMPAK                                                  */
+/* tata letak KHUSUS DENGAN NAMPAK                                                  */
 /* -------------------------------------------------------------------------- */
 .nampak-pusat-sempurna {
     tampilan: nampak;
@@ -603,7 +603,7 @@
     sejajarkan-item: tengah;
 }
 
-/* Layout sticky footer dengan nampak */
+/* tata letak sticky kaki dengan nampak */
 .nampak-sticky-footer {
     tampilan: nampak;
     arah-nampak: kolom;
@@ -614,7 +614,7 @@
     nampak-tumbuh: 1;
 }
 
-/* Layout sidebar dengan nampak */
+/* tata letak sisi-papan dengan nampak */
 .nampak-sidebar-kiri {
     tampilan: nampak;
     arah-nampak: baris;
@@ -624,7 +624,7 @@
     nampak-tumbuh: 1;
 }
 
-/* Layout card grid dengan nampak */
+/* tata letak card grid dengan nampak */
 .nampak-card-grid {
     tampilan: nampak;
     nampak-wrap: bungkus;
@@ -701,7 +701,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN Nampakbel.css - VERSI 0.1
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================

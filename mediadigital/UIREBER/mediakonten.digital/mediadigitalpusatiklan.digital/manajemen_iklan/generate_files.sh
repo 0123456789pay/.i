@@ -96,16 +96,16 @@ for i in "${!menus[@]}"; do
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #f5f5f5; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .header { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 20px; margin-bottom: 20px; border-radius: 5px; }
-        .nav { background: #34495e; padding: 10px; border-radius: 5px; margin-bottom: 20px; }
+        .header { background: linear-gradient(135deg, #2c3e50, #3498db); warna: white; bantalan: 20px; jarak-luar-bottom: 20px; batas-radius: 5px; }
+        .nav { background: #34495e; bantalan: 10px; batas-radius: 5px; jarak-luar-bottom: 20px; }
         .nav a { color: white; text-decoration: none; padding: 10px 15px; display: inline-block; transition: background 0.3s; }
-        .nav a:hover { background: #1abc9c; border-radius: 3px; }
+        .nav a:hover { background: #1abc9c; batas-radius: 3px; }
         .content { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #2c3e50; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ddd; batas-radius: 4px; huruf-ukuran: 14px; }
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #3498db; }
-        .btn { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+        .btn { background: #3498db; warna: white; bantalan: 10px 20px; batas: none; batas-radius: 4px; cursor: pointer; transition: latar-belakang 0.3s; }
         .btn:hover { background: #2980b9; }
         .btn-success { background: #27ae60; }
         .btn-success:hover { background: #229954; }
@@ -113,16 +113,16 @@ for i in "${!menus[@]}"; do
         .btn-danger:hover { background: #c0392b; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #2c3e50; color: white; }
+        th { background: #2c3e50; warna: white; }
         tr:hover { background: #f5f5f5; }
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 20px; }
-        .stat-card { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 5px; text-align: center; }
+        .stat-card { background: linear-gradient(135deg, #667eea, #764ba2); warna: white; bantalan: 20px; batas-radius: 5px; teks-align: center; }
         .stat-card h3 { font-size: 2em; margin-bottom: 5px; }
         .stat-card p { opacity: 0.9; }
         .alert { padding: 15px; border-radius: 4px; margin-bottom: 15px; }
-        .alert-info { background: #d1ecf1; border: 1px solid #bee5eb; color: #0c5460; }
-        .alert-success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
-        .alert-warning { background: #fff3cd; border: 1px solid #ffeaa7; color: #856404; }
+        .alert-info { background: #d1ecf1; batas: 1px solid #bee5eb; warna: #0c5460; }
+        .alert-success { background: #d4edda; batas: 1px solid #c3e6cb; warna: #155724; }
+        .alert-warning { background: #fff3cd; batas: 1px solid #ffeaa7; warna: #856404; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }
         .modal-content { background: white; margin: 10% auto; padding: 20px; border-radius: 5px; max-width: 500px; }
         .close { float: right; font-size: 24px; cursor: pointer; }

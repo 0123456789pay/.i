@@ -1,7 +1,7 @@
 /**
- * Function Module: Brightnessicon 4018
+ * fungsi Module: Brightnessicon 4018
  * Category: filter
- * Style: abstract
+ * gaya: abstract
  * Shape: hexagon
  * ID: FUNC-04018
  */
@@ -21,7 +21,7 @@ const brightnessIcon4018 = {
     },
     
     setup() {
-        // Setup configuration for brightnessIcon
+        // Setup pengaturan untuk brightnessIcon
         this.config = {
             enabled: true,
             priority: 4018,
@@ -32,7 +32,7 @@ const brightnessIcon4018 = {
     
     execute(params) {
         console.log('Executing brightnessIcon #4018 with params:', params);
-        // Implementation for brightnessIcon operation
+        // Implementation untuk brightnessIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = brightnessIcon4018;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['brightnessIcon4018'] = brightnessIcon4018;
 }

@@ -1,7 +1,7 @@
 /**
- * Function Module: Flipicon 3810
+ * fungsi Module: Flipicon 3810
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-03810
  */
@@ -21,7 +21,7 @@ const flipIcon3810 = {
     },
     
     setup() {
-        // Setup configuration for flipIcon
+        // Setup pengaturan untuk flipIcon
         this.config = {
             enabled: true,
             priority: 3810,
@@ -32,7 +32,7 @@ const flipIcon3810 = {
     
     execute(params) {
         console.log('Executing flipIcon #3810 with params:', params);
-        // Implementation for flipIcon operation
+        // Implementation untuk flipIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = flipIcon3810;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['flipIcon3810'] = flipIcon3810;
 }

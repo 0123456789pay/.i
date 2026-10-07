@@ -1,7 +1,7 @@
 /**
- * Function Module: Deleteicon 4402
+ * fungsi Module: Deleteicon 4402
  * Category: advanced
- * Style: material
+ * gaya: material
  * Shape: square
  * ID: FUNC-04402
  */
@@ -21,7 +21,7 @@ const deleteIcon4402 = {
     },
     
     setup() {
-        // Setup configuration for deleteIcon
+        // Setup pengaturan untuk deleteIcon
         this.config = {
             enabled: true,
             priority: 4402,
@@ -32,7 +32,7 @@ const deleteIcon4402 = {
     
     execute(params) {
         console.log('Executing deleteIcon #4402 with params:', params);
-        // Implementation for deleteIcon operation
+        // Implementation untuk deleteIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = deleteIcon4402;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['deleteIcon4402'] = deleteIcon4402;
 }

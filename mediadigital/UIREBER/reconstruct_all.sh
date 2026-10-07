@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script untuk merekonstruksi seluruh sistem folder .digital
+# skrip untuk merekonstruksi seluruh sistem direktori .digital
 # Menambahkan filemanajer.html, navigasi unik, dan fitur khusus
 
 DIGITAL_DIRS=$(find /workspace -maxdepth 2 -type d -name "*.digital" | sort)
@@ -29,8 +29,8 @@ create_filemanajer() {
         }
         body { background: var(--bg-light); font-family: 'Segoe UI', sans-serif; }
         .navbar { background: linear-gradient(135deg, var(--primary-blue), var(--light-blue)); }
-        .sidebar { background: var(--bg-white); border-right: 1px solid #e0e7ff; min-height: calc(100vh - 56px); }
-        .file-item { background: var(--bg-white); border: 1px solid #e0e7ff; border-radius: 8px; padding: 15px; margin-bottom: 10px; transition: all 0.3s; }
+        .sidebar { background: var(--bg-white); border-right: 1px solid #e0e7ff; min-tinggi: calc(100vh - 56px); }
+        .file-item { background: var(--bg-white); border: 1px solid #e0e7ff; batas-radius: 8px; bantalan: 15px; jarak-luar-bottom: 10px; transition: semua 0.3s; }
         .file-item:hover { box-shadow: 0 4px 12px rgba(0,102,204,0.15); transform: translateY(-2px); }
         .file-icon { font-size: 2rem; color: var(--primary-blue); }
         .btn-primary { background: var(--primary-blue); border: none; }
@@ -38,7 +38,7 @@ create_filemanajer() {
         .folder-tree { list-style: none; padding-left: 0; }
         .folder-tree li { padding: 8px 12px; cursor: pointer; border-radius: 6px; }
         .folder-tree li:hover { background: var(--bg-light); }
-        .folder-tree li.active { background: #e6f2ff; color: var(--primary-blue); font-weight: 600; }
+        .folder-tree li.active { background: #e6f2ff; warna: var(--primary-blue); huruf-weight: 600; }
     </style>
 </head>
 <body>
@@ -132,13 +132,13 @@ create_filemanajer() {
 FILEMANAGER_EOF
 }
 
-# Fungsi untuk membuat index.html dengan navigasi unik
+# Fungsi untuk membuat indeks.html dengan navigasi unik
 create_index_html() {
     local dir=$1
     local name=$(basename "$dir" .digital)
     local capName=$(echo "$name" | sed 's/\b\(.\)/\u\1/g' | sed 's/_/ /g')
     
-    # Tentukan menu berdasarkan nama folder
+    # Tentukan menu berdasarkan nama direktori
     local menu1="Features"
     local menu2="Services"
     local menu3="Resources"
@@ -146,7 +146,7 @@ create_index_html() {
     local submenu2="Analytics|Reports|Integration|Support"
     local submenu3="Tutorials|Guides|Templates|Community"
     
-    # Custom menu untuk fitur khusus
+    # suai menu untuk fitur khusus
     if [[ "$name" == "datacenter" ]]; then
         menu1="Infrastructure"; menu2="Security"; menu3="Monitoring"
         submenu1="Servers|Network|Storage|Backup"
@@ -195,7 +195,7 @@ create_index_html() {
                 <span style="font-size: 1.8rem; margin-right: 0.5rem;">⚡</span>
                 <div>
                     <div style="font-size: 1.1rem; color: #0066cc;">${capName}</div>
-                    <div style="font-size: 0.7rem; color: #666; font-weight: normal;">MEDIA.DIGITAL</div>
+                    <div style="font-size: 0.7rem; color: #666; huruf-weight: normal;">media.digital</div>
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -412,10 +412,10 @@ for dir in $DIGITAL_DIRS; do
     name=$(basename "$dir")
     echo "[$count/$total] Processing: $name"
     
-    # Create filemanajer.html
+    # buat filemanajer.html
     create_filemanajer "$dir"
     
-    # Create index.html with unique navigation
+    # buat indeks.html dengan unique navigation
     create_index_html "$dir"
     
 done

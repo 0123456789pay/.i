@@ -1,7 +1,7 @@
 /**
- * Function Module: Animateicon 3544
+ * fungsi Module: Animateicon 3544
  * Category: effect
- * Style: windows
+ * gaya: windows
  * Shape: rectangle
  * ID: FUNC-03544
  */
@@ -21,7 +21,7 @@ const animateIcon3544 = {
     },
     
     setup() {
-        // Setup configuration for animateIcon
+        // Setup pengaturan untuk animateIcon
         this.config = {
             enabled: true,
             priority: 3544,
@@ -32,7 +32,7 @@ const animateIcon3544 = {
     
     execute(params) {
         console.log('Executing animateIcon #3544 with params:', params);
-        // Implementation for animateIcon operation
+        // Implementation untuk animateIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = animateIcon3544;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['animateIcon3544'] = animateIcon3544;
 }

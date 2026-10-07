@@ -1,7 +1,7 @@
 /**
- * Function Module: Effecticon 3892
+ * fungsi Module: Effecticon 3892
  * Category: shape
- * Style: neumorphic
+ * gaya: neumorphic
  * Shape: minus
  * ID: FUNC-03892
  */
@@ -21,7 +21,7 @@ const effectIcon3892 = {
     },
     
     setup() {
-        // Setup configuration for effectIcon
+        // Setup pengaturan untuk effectIcon
         this.config = {
             enabled: true,
             priority: 3892,
@@ -32,7 +32,7 @@ const effectIcon3892 = {
     
     execute(params) {
         console.log('Executing effectIcon #3892 with params:', params);
-        // Implementation for effectIcon operation
+        // Implementation untuk effectIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = effectIcon3892;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['effectIcon3892'] = effectIcon3892;
 }

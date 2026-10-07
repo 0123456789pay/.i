@@ -1,8 +1,8 @@
 /**
- * Function Module: Filter Layout Travel Elegant
+ * fungsi Module: Filter tata letak Travel Elegant
  * Category: travel
- * Style: elegant
- * Shape: filter layout
+ * gaya: elegant
+ * Shape: filter tata letak
  * ID: FUNC-03500
  */
 
@@ -21,7 +21,7 @@ const filterLayoutTravelElegant = {
     },
 
     setup() {
-        // Setup configuration for filterLayout
+        // Setup pengaturan untuk filterLayout
         this.config = {
             enabled: true,
             priority: 3500,
@@ -32,7 +32,7 @@ const filterLayoutTravelElegant = {
 
     execute(params) {
         console.log('Executing filterLayout #3500 with params:', params);
-        // Implementation for filterLayout operation
+        // Implementation untuk filterLayout operation
         return this.process(params);
     },
 
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = filterLayoutTravelElegant;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['filterLayoutTravelElegant'] = filterLayoutTravelElegant;
 }

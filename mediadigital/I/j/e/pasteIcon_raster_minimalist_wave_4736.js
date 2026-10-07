@@ -1,7 +1,7 @@
 /**
- * Function Module: Pasteicon 4736
+ * fungsi Module: Pasteicon 4736
  * Category: raster
- * Style: minimalist
+ * gaya: minimalist
  * Shape: wave
  * ID: FUNC-04736
  */
@@ -21,7 +21,7 @@ const pasteIcon4736 = {
     },
     
     setup() {
-        // Setup configuration for pasteIcon
+        // Setup pengaturan untuk pasteIcon
         this.config = {
             enabled: true,
             priority: 4736,
@@ -32,7 +32,7 @@ const pasteIcon4736 = {
     
     execute(params) {
         console.log('Executing pasteIcon #4736 with params:', params);
-        // Implementation for pasteIcon operation
+        // Implementation untuk pasteIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = pasteIcon4736;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['pasteIcon4736'] = pasteIcon4736;
 }

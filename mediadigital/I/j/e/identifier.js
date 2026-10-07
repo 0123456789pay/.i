@@ -1,6 +1,6 @@
 /**
  * ALLUNIVERS ICONER - Identifier Module
- * Handles unique identification for iframe components
+ * Handles unique identification untuk iframe components
  */
 
 class IconerIdentifier {
@@ -37,7 +37,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = IconerIdentifier;
 }
 
-// Auto-initialize di browser
+// otomatis-mulai di browser
 if (typeof window !== 'undefined') {
     window.IconerIdentifier = new IconerIdentifier();
 }

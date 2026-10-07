@@ -1,8 +1,8 @@
 /**
- * FungSi.js - Kumpulan Fungsi Umum untuk Pengembangan Aplikasi JavaScript
+ * FungSi.js - Kumpulan Fungsi Umum untuk Pengembangan Aplikasi skrip-skrip-javascript
  * 
  * Berkas ini berisi berbagai fungsi utilitas yang sering digunakan dalam pengembangan
- * aplikasi JavaScript modern. Fungsi-fungsi ini mencakup manipulasi string, array,
+ * aplikasi skrip-skrip-javascript modern. Fungsi-fungsi ini mencakup manipulasi rentetan, array,
  * object, validasi data, format tanggal/waktu, operasi matematika, dan berbagai
  * utilitas lainnya yang dapat digunakan di berbagai proyek.
  * 
@@ -12,7 +12,7 @@
  */
 
 // ============================================================================
-// KONSTANTA DAN KONFIGURASI GLOBAL
+// KONSTANTA DAN KONFIGURASI nasional
 // ============================================================================
 
 /**
@@ -59,12 +59,12 @@ const KONSTANTA = {
 };
 
 // ============================================================================
-// FUNGSI VALIDASI DATA
+// FUNGSI VALIDASI data
 // ============================================================================
 
 /**
- * Validasi apakah sebuah string adalah surel yang valid
- * @param {string} email - Surel yang akan divalidasi
+ * Validasi apakah sebuah rentetan adalah surel yang valid
+ * @param {rentetan} sur-el - Surel yang akan divalidasi
  * @returns {boolean} Benar jika surel valid, salah sebaliknya
  */
 function isValidEmail(email) {
@@ -75,8 +75,8 @@ function isValidEmail(email) {
 }
 
 /**
- * Validasi apakah sebuah string adalah nomor telepon yang valid
- * @param {string} phone - Nomor telepon yang akan divalidasi
+ * Validasi apakah sebuah rentetan adalah nomor telepon yang valid
+ * @param {rentetan} telepon - Nomor telepon yang akan divalidasi
  * @returns {boolean} Benar jika nomor telepon valid, salah sebaliknya
  */
 function isValidPhone(phone) {
@@ -87,9 +87,9 @@ function isValidPhone(phone) {
 }
 
 /**
- * Validasi apakah sebuah string adalah URL yang valid
- * @param {string} url - URL yang akan divalidasi
- * @returns {boolean} Benar jika URL valid, salah sebaliknya
+ * Validasi apakah sebuah rentetan adalah pautan yang valid
+ * @param {rentetan} pautan - pautan yang akan divalidasi
+ * @returns {boolean} Benar jika pautan valid, salah sebaliknya
  */
 function isValidURL(url) {
     if (!url || typeof url !== 'string') {
@@ -99,8 +99,8 @@ function isValidURL(url) {
 }
 
 /**
- * Validasi apakah sebuah string adalah alamat IP yang valid
- * @param {string} ip - Alamat IP yang akan divalidasi
+ * Validasi apakah sebuah rentetan adalah alamat IP yang valid
+ * @param {rentetan} ip - Alamat IP yang akan divalidasi
  * @returns {boolean} Benar jika IP valid, salah sebaliknya
  */
 function isValidIP(ip) {
@@ -111,8 +111,8 @@ function isValidIP(ip) {
 }
 
 /**
- * Validasi apakah sebuah string mengandung karakter khusus
- * @param {string} str - String yang akan diperiksa
+ * Validasi apakah sebuah rentetan mengandung karakter khusus
+ * @param {rentetan} str - rentetan yang akan diperiksa
  * @returns {boolean} Benar jika mengandung karakter khusus, salah sebaliknya
  */
 function hasSpecialChars(str) {
@@ -123,8 +123,8 @@ function hasSpecialChars(str) {
 }
 
 /**
- * Validasi apakah sebuah string hanya mengandung alfanumerik
- * @param {string} str - String yang akan diperiksa
+ * Validasi apakah sebuah rentetan hanya mengandung alfanumerik
+ * @param {rentetan} str - rentetan yang akan diperiksa
  * @returns {boolean} Benar jika hanya alfanumerik, salah sebaliknya
  */
 function isAlphaNumeric(str) {
@@ -136,9 +136,9 @@ function isAlphaNumeric(str) {
 
 /**
  * Validasi apakah nilai berada dalam rentang tertentu
- * @param {number} value - Nilai yang akan divalidasi
- * @param {number} min - Nilai minimum
- * @param {number} max - Nilai maksimum
+ * @param {angka} nilai - Nilai yang akan divalidasi
+ * @param {angka} min - Nilai minimum
+ * @param {angka} max - Nilai maksimum
  * @returns {boolean} Benar jika nilai dalam rentang, salah sebaliknya
  */
 function isInRange(value, min, max) {
@@ -162,13 +162,13 @@ function hasRequiredProps(obj, requiredProps) {
 }
 
 // ============================================================================
-// FUNGSI MANIPULASI STRING
+// FUNGSI MANIPULASI rentetan
 // ============================================================================
 
 /**
- * Mengkapitalisasi huruf pertama setiap kata dalam string
- * @param {string} str - String yang akan dikapitalisasi
- * @returns {string} String dengan huruf pertama setiap kata dikapitalisasi
+ * Mengkapitalisasi huruf pertama setiap kata dalam rentetan
+ * @param {rentetan} str - rentetan yang akan dikapitalisasi
+ * @returns {rentetan} rentetan dengan huruf pertama setiap kata dikapitalisasi
  */
 function capitalizeWords(str) {
     if (!str || typeof str !== 'string') {
@@ -180,9 +180,9 @@ function capitalizeWords(str) {
 }
 
 /**
- * Mengubah string menjadi camelCase
- * @param {string} str - String yang akan diubah
- * @returns {string} String dalam format camelCase
+ * Mengubah rentetan menjadi camelCase
+ * @param {rentetan} str - rentetan yang akan diubah
+ * @returns {rentetan} rentetan dalam format camelCase
  */
 function toCamelCase(str) {
     if (!str || typeof str !== 'string') {
@@ -194,9 +194,9 @@ function toCamelCase(str) {
 }
 
 /**
- * Mengubah string menjadi snake_case
- * @param {string} str - String yang akan diubah
- * @returns {string} String dalam format snake_case
+ * Mengubah rentetan menjadi snake_case
+ * @param {rentetan} str - rentetan yang akan diubah
+ * @returns {rentetan} rentetan dalam format snake_case
  */
 function toSnakeCase(str) {
     if (!str || typeof str !== 'string') {
@@ -208,9 +208,9 @@ function toSnakeCase(str) {
 }
 
 /**
- * Mengubah string menjadi kebab-case
- * @param {string} str - String yang akan diubah
- * @returns {string} String dalam format kebab-case
+ * Mengubah rentetan menjadi kebab-case
+ * @param {rentetan} str - rentetan yang akan diubah
+ * @returns {rentetan} rentetan dalam format kebab-case
  */
 function toKebabCase(str) {
     if (!str || typeof str !== 'string') {
@@ -222,11 +222,11 @@ function toKebabCase(str) {
 }
 
 /**
- * Memotong string hingga panjang tertentu dan menambahkan elipsis
- * @param {string} str - String yang akan dipotong
- * @param {number} maxLength - Panjang maksimal string
- * @param {string} suffix - Akhiran yang ditambahkan (baku: '...')
- * @returns {string} String yang telah dipotong
+ * Memotong rentetan hingga panjang tertentu dan menambahkan elipsis
+ * @param {rentetan} str - rentetan yang akan dipotong
+ * @param {angka} maxLength - Panjang maksimal rentetan
+ * @param {rentetan} akhiran - Akhiran yang ditambahkan (baku: '...')
+ * @returns {rentetan} rentetan yang telah dipotong
  */
 function truncateString(str, maxLength, suffix = '...') {
     if (!str || typeof str !== 'string') {
@@ -239,9 +239,9 @@ function truncateString(str, maxLength, suffix = '...') {
 }
 
 /**
- * Menghapus semua spasi berlebih dari string
- * @param {string} str - String yang akan dibersihkan
- * @returns {string} String tanpa spasi berlebih
+ * Menghapus semua spasi berlebih dari rentetan
+ * @param {rentetan} str - rentetan yang akan dibersihkan
+ * @returns {rentetan} rentetan tanpa spasi berlebih
  */
 function removeExtraSpaces(str) {
     if (!str || typeof str !== 'string') {
@@ -251,11 +251,11 @@ function removeExtraSpaces(str) {
 }
 
 /**
- * Menghitung jumlah kemunculan substring dalam string
- * @param {string} str - String utama
- * @param {string} substring - Substring yang dicari
- * @param {boolean} caseSensitive - Apakah pencarian peka huruf besar/kecil (baku: true)
- * @returns {number} Jumlah kemunculan substring
+ * Menghitung jumlah kemunculan substring dalam rentetan
+ * @param {rentetan} str - rentetan utama
+ * @param {rentetan} substring - Substring yang dicari
+ * @param {boolean} caseSensitive - Apakah pencarian peka huruf besar/kecil (baku: benar)
+ * @returns {angka} Jumlah kemunculan substring
  */
 function countSubstring(str, substring, caseSensitive = true) {
     if (!str || !substring || typeof str !== 'string' || typeof substring !== 'string') {
@@ -273,9 +273,9 @@ function countSubstring(str, substring, caseSensitive = true) {
 }
 
 /**
- * Membalikkan urutan karakter dalam string
- * @param {string} str - String yang akan dibalikkan
- * @returns {string} String terbalik
+ * Membalikkan urutan karakter dalam rentetan
+ * @param {rentetan} str - rentetan yang akan dibalikkan
+ * @returns {rentetan} rentetan terbalik
  */
 function reverseString(str) {
     if (!str || typeof str !== 'string') {
@@ -285,9 +285,9 @@ function reverseString(str) {
 }
 
 /**
- * Membuat slug dari string (untuk URL ramah)
- * @param {string} str - String yang akan dijadikan slug
- * @returns {string} Slug yang URL ramah
+ * Membuat slug dari rentetan (untuk pautan ramah)
+ * @param {rentetan} str - rentetan yang akan dijadikan slug
+ * @returns {rentetan} Slug yang pautan ramah
  */
 function createSlug(str) {
     if (!str || typeof str !== 'string') {
@@ -336,7 +336,7 @@ function shuffleArray(arr) {
 /**
  * Membagi array menjadi bagian-bagian dengan ukuran tertentu
  * @param {array} arr - Array yang akan dibagi
- * @param {number} size - Ukuran setiap bagian
+ * @param {angka} ukuran - Ukuran setiap bagian
  * @returns {array} Array dari array (array terbagi)
  */
 function chunkArray(arr, size) {
@@ -363,7 +363,7 @@ function mergeUniqueArrays(...arrays) {
 /**
  * Mencari elemen dalam array berdasarkan kondisi
  * @param {array} arr - Array yang akan dicari
- * @param {function} predicate - Fungsi kondisi untuk pencarian
+ * @param {fungsi} predicate - Fungsi kondisi untuk pencarian
  * @returns {any} Elemen pertama yang memenuhi kondisi atau tidak terdefinisi
  */
 function findByCondition(arr, predicate) {
@@ -376,7 +376,7 @@ function findByCondition(arr, predicate) {
 /**
  * Mengelompokkan elemen array berdasarkan kunci tertentu
  * @param {array} arr - Array yang akan dikelompokkan
- * @param {string|function} key - Kunci atau fungsi untuk pengelompokan
+ * @param {rentetan|fungsi} kunci - Kunci atau fungsi untuk pengelompokan
  * @returns {object} Object dengan pasangan kunci-nilai hasil pengelompokan
  */
 function groupBy(arr, key) {
@@ -396,8 +396,8 @@ function groupBy(arr, key) {
 /**
  * Mengurutkan array of objects berdasarkan properti tertentu
  * @param {array} arr - Array yang akan diurutkan
- * @param {string} prop - Properti untuk pengurutan
- * @param {string} order - Urutan: 'naik' (menaik) atau 'turun' (menurun) (baku: 'naik')
+ * @param {rentetan} prop - Properti untuk pengurutan
+ * @param {rentetan} pesanan - Urutan: 'naik' (menaik) atau 'turun' (menurun) (baku: 'naik')
  * @returns {array} Array yang telah diurutkan
  */
 function sortByProperty(arr, prop, order = 'naik') {
@@ -414,7 +414,7 @@ function sortByProperty(arr, prop, order = 'naik') {
 }
 
 /**
- * Menghapus elemen falsy dari array (null, undefined, false, 0, '', NaN)
+ * Menghapus elemen falsy dari array (null, undefined, salah, 0, '', NaN)
  * @param {array} arr - Array yang akan dibersihkan
  * @returns {array} Array tanpa elemen falsy
  */
@@ -427,9 +427,9 @@ function compactArray(arr) {
 
 /**
  * Membuat array dengan rentang angka tertentu
- * @param {number} start - Angka awal
- * @param {number} end - Angka akhir
- * @param {number} step - Langkah penambahan (baku: 1)
+ * @param {angka} mulai - Angka awal
+ * @param {angka} end - Angka akhir
+ * @param {angka} step - Langkah penambahan (baku: 1)
  * @returns {array} Array dengan rentang angka
  */
 function rangeArray(start, end, step = 1) {
@@ -454,9 +454,9 @@ function rangeArray(start, end, step = 1) {
 // ============================================================================
 
 /**
- * Mendapatkan daftar keys dari object
- * @param {object} obj - Object yang akan diambil keys-nya
- * @returns {array} Array berisi keys dari object
+ * Mendapatkan daftar kunci-kunci dari object
+ * @param {object} obj - Object yang akan diambil kunci-kunci-nya
+ * @returns {array} Array berisi kunci-kunci dari object
  */
 function getObjectKeys(obj) {
     if (!obj || typeof obj !== 'object') {
@@ -480,7 +480,7 @@ function getObjectValues(obj) {
 /**
  * Mendapatkan jumlah properti dalam object
  * @param {object} obj - Object yang akan dihitung
- * @returns {number} Jumlah properti
+ * @returns {angka} Jumlah properti
  */
 function getObjectSize(obj) {
     if (!obj || typeof obj !== 'object') {
@@ -492,7 +492,7 @@ function getObjectSize(obj) {
 /**
  * Menghapus properti tertentu dari object (tidak berubah/immutable)
  * @param {object} obj - Object asal
- * @param  {...string} props - Properti yang akan dihapus
+ * @param  {...rentetan} props - Properti yang akan dihapus
  * @returns {object} Object baru tanpa properti yang dihapus
  */
 function omitProperties(obj, ...props) {
@@ -507,7 +507,7 @@ function omitProperties(obj, ...props) {
 /**
  * Mengambil hanya properti tertentu dari object (tidak berubah/immutable)
  * @param {object} obj - Object asal
- * @param  {...string} props - Properti yang akan diambil
+ * @param  {...rentetan} props - Properti yang akan diambil
  * @returns {object} Object baru hanya dengan properti yang ditentukan
  */
 function pickProperties(obj, ...props) {
@@ -570,7 +570,7 @@ function deepMerge(...objects) {
 /**
  * Meratakan object bersarang menjadi object satu tingkat
  * @param {object} obj - Object yang akan diratakan
- * @param {string} prefix - Awalan untuk keys (untuk penggunaan internal)
+ * @param {rentetan} prefix - Awalan untuk kunci-kunci (untuk penggunaan internal)
  * @returns {object} Object yang telah diratakan
  */
 function flattenObject(obj, prefix = '') {
@@ -590,9 +590,9 @@ function flattenObject(obj, prefix = '') {
 }
 
 /**
- * Menukar keys dan values dalam object
+ * Menukar kunci-kunci dan values dalam object
  * @param {object} obj - Object yang akan ditukar
- * @returns {object} Object dengan keys dan values tertukar
+ * @returns {object} Object dengan kunci-kunci dan values tertukar
  */
 function invertObject(obj) {
     if (!obj || typeof obj !== 'object') {
@@ -611,9 +611,9 @@ function invertObject(obj) {
 
 /**
  * Format tanggal ke format tertentu
- * @param {Date|string|number} date - Tanggal yang akan diformat
- * @param {string} format - Format keluaran (baku: 'YYYY-MM-DD')
- * @returns {string} Tanggal terformat
+ * @param {tanggal|rentetan|angka} tanggal - Tanggal yang akan diformat
+ * @param {rentetan} format - Format keluaran (baku: 'YYYY-MM-DD')
+ * @returns {rentetan} Tanggal terformat
  */
 function formatDate(date, format = 'YYYY-MM-DD') {
     if (!date) {
@@ -647,10 +647,10 @@ function formatDate(date, format = 'YYYY-MM-DD') {
 
 /**
  * Menghitung selisih waktu antara dua tanggal
- * @param {Date|string|number} date1 - Tanggal pertama
- * @param {Date|string|number} date2 - Tanggal kedua
- * @param {string} unit - Satuan waktu: 'ms', 's', 'm', 'h', 'd', 'w', 'y' (baku: 'd')
- * @returns {number} Selisih waktu dalam unit yang ditentukan
+ * @param {tanggal|rentetan|angka} date1 - Tanggal pertama
+ * @param {tanggal|rentetan|angka} date2 - Tanggal kedua
+ * @param {rentetan} unit - Satuan waktu: 'ms', 's', 'm', 'h', 'd', 'w', 'y' (baku: 'd')
+ * @returns {angka} Selisih waktu dalam unit yang ditentukan
  */
 function dateDiff(date1, date2, unit = 'd') {
     const d1 = new Date(date1);
@@ -675,10 +675,10 @@ function dateDiff(date1, date2, unit = 'd') {
 
 /**
  * Menambahkan waktu tertentu ke tanggal
- * @param {Date|string|number} date - Tanggal dasar
- * @param {number} amount - Jumlah waktu yang ditambahkan
- * @param {string} unit - Unit waktu: 'ms', 's', 'm', 'h', 'd', 'w', 'y'
- * @returns {Date} Tanggal baru
+ * @param {tanggal|rentetan|angka} tanggal - Tanggal dasar
+ * @param {angka} amount - Jumlah waktu yang ditambahkan
+ * @param {rentetan} unit - Unit waktu: 'ms', 's', 'm', 'h', 'd', 'w', 'y'
+ * @returns {tanggal} Tanggal baru
  */
 function addToDate(date, amount, unit) {
     const d = new Date(date);
@@ -701,7 +701,7 @@ function addToDate(date, amount, unit) {
 
 /**
  * Mengecek apakah tahun adalah kabisat
- * @param {number} year - Tahun yang dicek
+ * @param {angka} year - Tahun yang dicek
  * @returns {boolean} Benar jika kabisat, salah sebaliknya
  */
 function isLeapYear(year) {
@@ -710,9 +710,9 @@ function isLeapYear(year) {
 
 /**
  * Mendapatkan jumlah hari dalam bulan tertentu
- * @param {number} year - Tahun
- * @param {number} month - Bulan (1-12)
- * @returns {number} Jumlah hari dalam bulan
+ * @param {angka} year - Tahun
+ * @param {angka} month - Bulan (1-12)
+ * @returns {angka} Jumlah hari dalam bulan
  */
 function getDaysInMonth(year, month) {
     return new Date(year, month, 0).getDate();
@@ -720,9 +720,9 @@ function getDaysInMonth(year, month) {
 
 /**
  * Format waktu relatif (contoh: "2 jam yang lalu")
- * @param {Date|string|number} date - Tanggal yang akan diformat
- * @param {string} bahasa - Bahasa untuk format (baku: 'indonesia')
- * @returns {string} Waktu relatif
+ * @param {tanggal|rentetan|angka} tanggal - Tanggal yang akan diformat
+ * @param {rentetan} bahasa - Bahasa untuk format (baku: 'indonesia')
+ * @returns {rentetan} Waktu relatif
  */
 function timeAgo(date, bahasa = 'indonesia') {
     const d = new Date(date);
@@ -797,9 +797,9 @@ function timeAgo(date, bahasa = 'indonesia') {
 
 /**
  * Menghasilkan angka acak dalam range tertentu
- * @param {number} min - Nilai minimum (inclusive)
- * @param {number} max - Nilai maksimum (inclusive)
- * @returns {number} Angka acak
+ * @param {angka} min - Nilai minimum (inclusive)
+ * @param {angka} max - Nilai maksimum (inclusive)
+ * @returns {angka} Angka acak
  */
 function randomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -807,10 +807,10 @@ function randomInt(min, max) {
 
 /**
  * Menghasilkan angka desimal acak dalam range tertentu
- * @param {number} min - Nilai minimum
- * @param {number} max - Nilai maksimum
- * @param {number} decimals - Jumlah desimal
- * @returns {number} Angka desimal acak
+ * @param {angka} min - Nilai minimum
+ * @param {angka} max - Nilai maksimum
+ * @param {angka} decimals - Jumlah desimal
+ * @returns {angka} Angka desimal acak
  */
 function randomFloat(min, max, decimals = 2) {
     const str = (Math.random() * (max - min) + min).toFixed(decimals);
@@ -819,8 +819,8 @@ function randomFloat(min, max, decimals = 2) {
 
 /**
  * Menghitung rata-rata dari array angka
- * @param {array} numbers - Array angka
- * @returns {number} Rata-rata
+ * @param {array} nomor - Array angka
+ * @returns {angka} Rata-rata
  */
 function average(numbers) {
     if (!Array.isArray(numbers) || numbers.length === 0) {
@@ -832,8 +832,8 @@ function average(numbers) {
 
 /**
  * Menghitung median dari array angka
- * @param {array} numbers - Array angka
- * @returns {number} Median
+ * @param {array} nomor - Array angka
+ * @returns {angka} Median
  */
 function median(numbers) {
     if (!Array.isArray(numbers) || numbers.length === 0) {
@@ -848,7 +848,7 @@ function median(numbers) {
 
 /**
  * Menghitung modus dari array angka
- * @param {array} numbers - Array angka
+ * @param {array} nomor - Array angka
  * @returns {array} Array modus (bisa lebih dari satu)
  */
 function mode(numbers) {
@@ -877,8 +877,8 @@ function mode(numbers) {
 
 /**
  * Menghitung standar deviasi dari array angka
- * @param {array} numbers - Array angka
- * @returns {number} Standar deviasi
+ * @param {array} nomor - Array angka
+ * @returns {angka} Standar deviasi
  */
 function standardDeviation(numbers) {
     if (!Array.isArray(numbers) || numbers.length < 2) {
@@ -892,10 +892,10 @@ function standardDeviation(numbers) {
 
 /**
  * Memformat angka dengan pemisah ribuan
- * @param {number} number - Angka yang akan diformat
- * @param {string} bahasaFormat - Format bahasa untuk angka (baku: 'id-ID')
+ * @param {angka} angka - Angka yang akan diformat
+ * @param {rentetan} bahasaFormat - Format bahasa untuk angka (baku: 'id-ID')
  * @param {object} options - Opsi format tambahan
- * @returns {string} Angka terformat
+ * @returns {rentetan} Angka terformat
  */
 function formatNumber(number, bahasaFormat = 'id-ID', options = {}) {
     if (typeof number !== 'number') {
@@ -906,10 +906,10 @@ function formatNumber(number, bahasaFormat = 'id-ID', options = {}) {
 
 /**
  * Memformat angka sebagai mata uang
- * @param {number} amount - Jumlah uang
- * @param {string} currency - Kode mata uang (baku: 'IDR' - Rupiah)
- * @param {string} bahasaFormat - Format bahasa untuk angka (baku: 'id-ID')
- * @returns {string} Jumlah uang terformat
+ * @param {angka} amount - Jumlah uang
+ * @param {rentetan} currency - Kode mata uang (baku: 'IDR' - Rupiah)
+ * @param {rentetan} bahasaFormat - Format bahasa untuk angka (baku: 'id-ID')
+ * @returns {rentetan} Jumlah uang terformat
  */
 function formatCurrency(amount, currency = 'IDR', bahasaFormat = 'id-ID') {
     if (typeof amount !== 'number') {
@@ -923,9 +923,9 @@ function formatCurrency(amount, currency = 'IDR', bahasaFormat = 'id-ID') {
 
 /**
  * Membulatkan angka ke desimal tertentu
- * @param {number} number - Angka yang akan dibulatkan
- * @param {number} decimals - Jumlah desimal
- * @returns {number} Angka terbulatkan
+ * @param {angka} angka - Angka yang akan dibulatkan
+ * @param {angka} decimals - Jumlah desimal
+ * @returns {angka} Angka terbulatkan
  */
 function roundToDecimals(number, decimals = 2) {
     if (typeof number !== 'number') {
@@ -937,10 +937,10 @@ function roundToDecimals(number, decimals = 2) {
 
 /**
  * Menghitung persentase
- * @param {number} part - Bagian
- * @param {number} total - Total
- * @param {number} decimals - Jumlah desimal (baku: 2)
- * @returns {number} Persentase
+ * @param {angka} part - Bagian
+ * @param {angka} jumlah - jumlah
+ * @param {angka} decimals - Jumlah desimal (baku: 2)
+ * @returns {angka} Persentase
  */
 function calculatePercentage(part, total, decimals = 2) {
     if (typeof part !== 'number' || typeof total !== 'number' || total === 0) {
@@ -954,10 +954,10 @@ function calculatePercentage(part, total, decimals = 2) {
 // ============================================================================
 
 /**
- * Debounce function untuk membatasi eksekusi fungsi
- * @param {function} func - Fungsi yang akan di-debounce
- * @param {number} wait - Waktu tunggu dalam milidetik
- * @returns {function} Fungsi yang telah di-debounce
+ * Debounce fungsi untuk membatasi eksekusi fungsi
+ * @param {fungsi} func - Fungsi yang akan di-debounce
+ * @param {angka} tunggu - Waktu tunggu dalam milidetik
+ * @returns {fungsi} Fungsi yang telah di-debounce
  */
 function debounce(func, wait) {
     let timeout;
@@ -972,10 +972,10 @@ function debounce(func, wait) {
 }
 
 /**
- * Throttle function untuk membatasi frekuensi eksekusi fungsi
- * @param {function} func - Fungsi yang akan di-throttle
- * @param {number} limit - Batas waktu dalam milidetik
- * @returns {function} Fungsi yang telah di-throttle
+ * Throttle fungsi untuk membatasi frekuensi eksekusi fungsi
+ * @param {fungsi} func - Fungsi yang akan di-throttle
+ * @param {angka} limit - Batas waktu dalam milidetik
+ * @returns {fungsi} Fungsi yang telah di-throttle
  */
 function throttle(func, limit) {
     let inThrottle;
@@ -989,8 +989,8 @@ function throttle(func, limit) {
 }
 
 /**
- * Sleep function untuk delay eksekusi
- * @param {number} ms - Durasi sleep dalam milidetik
+ * Sleep fungsi untuk delay eksekusi
+ * @param {angka} ms - Durasi sleep dalam milidetik
  * @returns {Promise} Promise yang resolve setelah delay
  */
 function sleep(ms) {
@@ -998,10 +998,10 @@ function sleep(ms) {
 }
 
 /**
- * Retry function dengan exponential backoff
- * @param {function} fn - Fungsi yang akan dicoba
- * @param {number} retries - Jumlah percobaan maksimal
- * @param {number} delay - Delay awal dalam milidetik
+ * Retry fungsi dengan exponential backoff
+ * @param {fungsi} fn - Fungsi yang akan dicoba
+ * @param {angka} retries - Jumlah percobaan maksimal
+ * @param {angka} delay - Delay awal dalam milidetik
  * @returns {Promise} Promise hasil eksekusi fungsi
  */
 async function retryWithBackoff(fn, retries = 3, delay = 1000) {
@@ -1017,8 +1017,8 @@ async function retryWithBackoff(fn, retries = 3, delay = 1000) {
 }
 
 /**
- * Generate UUID v4
- * @returns {string} UUID v4
+ * hasilkan UUID v4
+ * @returns {rentetan} UUID v4
  */
 function generateUUID() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
@@ -1029,17 +1029,17 @@ function generateUUID() {
 }
 
 /**
- * Generate ID unik berbasis timestamp
- * @returns {string} ID unik
+ * hasilkan ID unik berbasis cap-waktu
+ * @returns {rentetan} ID unik
  */
 function generateUniqueId() {
     return Date.now().toString(36) + Math.random().toString(36).substr(2);
 }
 
 /**
- * Memoize function untuk caching hasil fungsi
- * @param {function} fn - Fungsi yang akan di-memoize
- * @returns {function} Fungsi yang telah di-memoize
+ * Memoize fungsi untuk caching hasil fungsi
+ * @param {fungsi} fn - Fungsi yang akan di-memoize
+ * @returns {fungsi} Fungsi yang telah di-memoize
  */
 function memoize(fn) {
     const cache = new Map();
@@ -1055,9 +1055,9 @@ function memoize(fn) {
 }
 
 /**
- * Komposisi fungsi (function composition)
- * @param  {...function} functions - Fungsi-fungsi yang akan dikomposisikan
- * @returns {function} Fungsi hasil komposisi
+ * Komposisi fungsi (fungsi composition)
+ * @param  {...fungsi} functions - Fungsi-fungsi yang akan dikomposisikan
+ * @returns {fungsi} Fungsi hasil komposisi
  */
 function compose(...functions) {
     return function(arg) {
@@ -1067,8 +1067,8 @@ function compose(...functions) {
 
 /**
  * Pipe fungsi (left-to-right composition)
- * @param  {...function} functions - Fungsi-fungsi yang akan di-pipe
- * @returns {function} Fungsi hasil pipe
+ * @param  {...fungsi} functions - Fungsi-fungsi yang akan di-pipe
+ * @returns {fungsi} Fungsi hasil pipe
  */
 function pipe(...functions) {
     return function(arg) {
@@ -1077,9 +1077,9 @@ function pipe(...functions) {
 }
 
 /**
- * Currying function
- * @param {function} fn - Fungsi yang akan di-curry
- * @returns {function} Fungsi yang telah di-curry
+ * Currying fungsi
+ * @param {fungsi} fn - Fungsi yang akan di-curry
+ * @returns {fungsi} Fungsi yang telah di-curry
  */
 function curry(fn) {
     return function curried(...args) {
@@ -1093,10 +1093,10 @@ function curry(fn) {
 }
 
 /**
- * Partial application function
- * @param {function} fn - Fungsi asal
+ * Partial aplikasi fungsi
+ * @param {fungsi} fn - Fungsi asal
  * @param  {...any} partialArgs - Argumen partial
- * @returns {function} Fungsi dengan argumen partial
+ * @returns {fungsi} Fungsi dengan argumen partial
  */
 function partial(fn, ...partialArgs) {
     return function(...args) {
@@ -1170,9 +1170,9 @@ function createEventEmitter() {
 
 /**
  * Logger sederhana dengan level
- * @param {string} level - Level log: 'debug', 'info', 'warn', 'error'
- * @param {string} message - Pesan log
- * @param {any} data - Data tambahan
+ * @param {rentetan} level - Level catatan: 'debug', 'info', 'warn', 'galat'
+ * @param {rentetan} pesan - Pesan catatan
+ * @param {any} data - data tambahan
  */
 function logger(level, message, data = null) {
     const timestamp = formatDate(new Date(), 'YYYY-MM-DD HH:mm:ss');
@@ -1198,9 +1198,9 @@ function logger(level, message, data = null) {
 }
 
 /**
- * Timing function untuk mengukur performa
- * @param {string} label - Label untuk timing
- * @param {function} fn - Fungsi yang akan diukur
+ * Timing fungsi untuk mengukur performa
+ * @param {rentetan} label - Label untuk timing
+ * @param {fungsi} fn - Fungsi yang akan diukur
  * @returns {Promise<any>} Hasil fungsi dan waktu eksekusi
  */
 async function measureTime(label, fn) {
@@ -1218,8 +1218,8 @@ async function measureTime(label, fn) {
 
 /**
  * Menyimpan data ke localStorage
- * @param {string} key - Key penyimpanan
- * @param {any} value - Value yang akan disimpan
+ * @param {rentetan} kunci - kunci penyimpanan
+ * @param {any} nilai - nilai yang akan disimpan
  * @returns {boolean} Benar jika berhasil, salah sebaliknya
  */
 function saveToLocalStorage(key, value) {
@@ -1236,9 +1236,9 @@ function saveToLocalStorage(key, value) {
 
 /**
  * Membaca data dari localStorage
- * @param {string} key - Key penyimpanan
- * @param {any} nilaiBaku - Nilai baku jika key tidak ditemukan
- * @returns {any} Value dari localStorage atau nilai baku
+ * @param {rentetan} kunci - kunci penyimpanan
+ * @param {any} nilaiBaku - Nilai baku jika kunci tidak ditemukan
+ * @returns {any} nilai dari localStorage atau nilai baku
  */
 function getFromLocalStorage(key, nilaiBaku = null) {
     try {
@@ -1254,7 +1254,7 @@ function getFromLocalStorage(key, nilaiBaku = null) {
 
 /**
  * Menghapus data dari localStorage
- * @param {string} key - Key yang akan dihapus
+ * @param {rentetan} kunci - kunci yang akan dihapus
  * @returns {boolean} Benar jika berhasil, salah sebaliknya
  */
 function removeFromLocalStorage(key) {
@@ -1270,10 +1270,10 @@ function removeFromLocalStorage(key) {
 }
 
 /**
- * Mendapatkan parameter dari URL query string
- * @param {string} param - Nama parameter
- * @param {string} url - URL sumber (baku: current URL)
- * @returns {string|null} Value parameter atau null
+ * Mendapatkan parameter dari pautan kueri rentetan
+ * @param {rentetan} param - Nama parameter
+ * @param {rentetan} pautan - pautan sumber (baku: current pautan)
+ * @returns {rentetan|null} nilai parameter atau null
  */
 function getUrlParam(param, url = window.location.href) {
     try {
@@ -1285,8 +1285,8 @@ function getUrlParam(param, url = window.location.href) {
 }
 
 /**
- * Mendapatkan semua parameter dari URL query string
- * @param {string} url - URL sumber (baku: current URL)
+ * Mendapatkan semua parameter dari pautan kueri rentetan
+ * @param {rentetan} pautan - pautan sumber (baku: current pautan)
  * @returns {object} Object berisi semua parameter
  */
 function getAllUrlParams(url = window.location.href) {
@@ -1299,8 +1299,8 @@ function getAllUrlParams(url = window.location.href) {
 }
 
 /**
- * Copy text ke clipboard
- * @param {string} text - Text yang akan di-copy
+ * Copy teks ke clipboard
+ * @param {rentetan} teks - teks yang akan di-copy
  * @returns {Promise<boolean>} Benar jika berhasil, salah sebaliknya
  */
 async function copyToClipboard(text) {
@@ -1317,7 +1317,7 @@ async function copyToClipboard(text) {
 
 /**
  * Mendeteksi tipe device (mobile, tablet, desktop)
- * @returns {string} Tipe device
+ * @returns {rentetan} Tipe device
  */
 function detectDeviceType() {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -1339,7 +1339,7 @@ function detectDeviceType() {
 
 /**
  * Mendeteksi browser yang digunakan
- * @returns {string} Nama browser
+ * @returns {rentetan} Nama browser
  */
 function detectBrowser() {
     const userAgent = navigator.userAgent;
@@ -1365,7 +1365,7 @@ function detectBrowser() {
 
 /**
  * Fullscreen toggle
- * @param {HTMLElement} element - Elemen yang akan layar penuh (baku: document.documentElement)
+ * @param {HTMLElement} element - Elemen yang akan layar penuh (baku: dokumen.documentElement)
  * @returns {Promise<void>}
  */
 async function toggleFullscreen(element = document.documentElement) {
@@ -1393,7 +1393,7 @@ async function toggleFullscreen(element = document.documentElement) {
 }
 
 /**
- * Mendapatkan informasi geolocation user
+ * Mendapatkan informasi geolocation pengguna
  * @returns {Promise<object>} Object berisi latitude, longitude, dan accuracy
  */
 function getGeolocation() {
@@ -1419,7 +1419,7 @@ function getGeolocation() {
 }
 
 /**
- * Network status checker
+ * jaringan status checker
  * @returns {object} Object berisi status online/offline
  */
 function checkNetworkStatus() {
@@ -1432,7 +1432,7 @@ function checkNetworkStatus() {
 }
 
 /**
- * Page visibility checker
+ * halaman visibility checker
  * @returns {boolean} Benar jika halaman visible, salah jika tersembunyi
  */
 function isPageVisible() {
@@ -1441,7 +1441,7 @@ function isPageVisible() {
 
 /**
  * Add event listener untuk visibility change
- * @param {function} callback - Callback function
+ * @param {fungsi} callback - Callback fungsi
  */
 function onVisibilityChange(callback) {
     document.addEventListener('visibilitychange', callback);
@@ -1452,10 +1452,10 @@ function onVisibilityChange(callback) {
 // ============================================================================
 
 /**
- * Read file asynchronously (Node.js only)
- * @param {string} filePath - Path file
- * @param {string} encoding - Pengodean (baku: 'utf-8')
- * @returns {Promise<string>} Content file
+ * baca berkas asynchronously (Node.js only)
+ * @param {rentetan} filePath - jalur berkas
+ * @param {rentetan} encoding - Pengodean (baku: 'utf-8')
+ * @returns {Promise<rentetan>} isi berkas
  */
 async function readFileAsync(filePath, encoding = 'utf-8') {
     if (typeof require === 'undefined') {
@@ -1466,10 +1466,10 @@ async function readFileAsync(filePath, encoding = 'utf-8') {
 }
 
 /**
- * Write file asynchronously (Node.js only)
- * @param {string} filePath - Path file
- * @param {string} content - Content yang akan ditulis
- * @param {string} encoding - Pengodean (baku: 'utf-8')
+ * tulis berkas asynchronously (Node.js only)
+ * @param {rentetan} filePath - jalur berkas
+ * @param {rentetan} isi - isi yang akan ditulis
+ * @param {rentetan} encoding - Pengodean (baku: 'utf-8')
  * @returns {Promise<void>}
  */
 async function writeFileAsync(filePath, content, encoding = 'utf-8') {
@@ -1481,9 +1481,9 @@ async function writeFileAsync(filePath, content, encoding = 'utf-8') {
 }
 
 /**
- * Check if file exists (Node.js only)
- * @param {string} filePath - Path file
- * @returns {Promise<boolean>} Benar jika file exists
+ * periksa if berkas exists (Node.js only)
+ * @param {rentetan} filePath - jalur berkas
+ * @returns {Promise<boolean>} Benar jika berkas exists
  */
 async function fileExistsAsync(filePath) {
     if (typeof require === 'undefined') {
@@ -1500,9 +1500,9 @@ async function fileExistsAsync(filePath) {
 
 /**
  * Get environment variable (Node.js only)
- * @param {string} key - Environment variable name
- * @param {string} nilaiBaku - Nilai baku jika tidak ditemukan
- * @returns {string} Environment variable value
+ * @param {rentetan} kunci - Environment variable nama
+ * @param {rentetan} nilaiBaku - Nilai baku jika tidak ditemukan
+ * @returns {rentetan} Environment variable nilai
  */
 function getEnvVar(key, nilaiBaku = '') {
     if (typeof process !== 'undefined' && process.env) {
@@ -1554,7 +1554,7 @@ if (typeof module !== 'undefined' && module.exports) {
         isInRange,
         hasRequiredProps,
         
-        // String Manipulation
+        // rentetan Manipulation
         capitalizeWords,
         toCamelCase,
         toSnakeCase,
@@ -1587,7 +1587,7 @@ if (typeof module !== 'undefined' && module.exports) {
         flattenObject,
         invertObject,
         
-        // Date and Time
+        // tanggal dan waktu
         formatDate,
         dateDiff,
         addToDate,
@@ -1595,7 +1595,7 @@ if (typeof module !== 'undefined' && module.exports) {
         getDaysInMonth,
         timeAgo,
         
-        // Math and Numeric
+        // Math dan Numeric
         randomInt,
         randomFloat,
         average,

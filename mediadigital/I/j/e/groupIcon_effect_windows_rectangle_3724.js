@@ -1,7 +1,7 @@
 /**
- * Function Module: Groupicon 3724
+ * fungsi Module: Groupicon 3724
  * Category: effect
- * Style: windows
+ * gaya: windows
  * Shape: rectangle
  * ID: FUNC-03724
  */
@@ -21,7 +21,7 @@ const groupIcon3724 = {
     },
     
     setup() {
-        // Setup configuration for groupIcon
+        // Setup pengaturan untuk groupIcon
         this.config = {
             enabled: true,
             priority: 3724,
@@ -32,7 +32,7 @@ const groupIcon3724 = {
     
     execute(params) {
         console.log('Executing groupIcon #3724 with params:', params);
-        // Implementation for groupIcon operation
+        // Implementation untuk groupIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = groupIcon3724;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['groupIcon3724'] = groupIcon3724;
 }

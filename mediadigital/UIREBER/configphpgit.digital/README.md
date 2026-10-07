@@ -1,40 +1,40 @@
-# ConfigPHP Git Digital
+# ConfigPHP Git digital
 
-Sistem tampilan PHP secure dengan konfigurasi biner, regex validation, dan integrasi GitHub CDN. Tampilan modern tanpa footer, inspired by media.digital.
+Sistem tampilan PHP secure dengan konfigurasi biner, regex validation, dan integrasi GitHub CDN. Tampilan modern tanpa kaki, inspired by media.digital.
 
-## 🚀 Features
+## 🚀 fitur
 
 - **Secure Mode**: Aktivasi sistem keamanan dengan regex validation
-- **GitHub CDN Integration**: Load asset dari GitHub dengan validasi URL
-- **Media Digital UI**: Tampilan dark theme modern tanpa footer
-- **Database Secure**: Koneksi database dengan binary-safe validation
-- **Mix Configuration**: HTML, CSS, JS, PHP, DB dalam satu sistem
-- **CSP Headers**: Content Security Policy untuk proteksi browser
+- **GitHub CDN Integration**: muat asset dari GitHub dengan validasi pautan
+- **media digital UI**: Tampilan dark theme modern tanpa kaki
+- **basis-data Secure**: Koneksi basis-data dengan binary-safe validation
+- **Mix pengaturan**: HTML, CSS, JS, PHP, DB dalam satu sistem
+- **CSP Headers**: isi keamanan Policy untuk proteksi browser
 
-## 📁 Struktur Folder
+## 📁 Struktur direktori
 
 ```
 configphpgit.digital/
-├── index.php                 # Main entry point
+├── indeks.php                 # utama entry point
 ├── assets/
 │   ├── css/
-│   │   └── style.css        # Styling media.digital
+│   │   └── gaya.css        # Styling media.digital
 │   └── js/
-│       └── main.js          # JavaScript activation
-├── config/
-│   ├── main.config.php      # Config utama (biner, regex, formula)
-│   ├── database.config.php  # Database configuration
-│   └── security.config.php  # Security headers & CSP
+│       └── utama.js          # skrip-skrip-javascript activation
+├── konfigurasi/
+│   ├── utama.konfigurasi.php      # konfigurasi utama (biner, regex, formula)
+│   ├── basis-data.konfigurasi.php  # basis-data pengaturan
+│   └── keamanan.konfigurasi.php  # keamanan headers & CSP
 └── includes/                # Helper functions
 ```
 
 ## 🔧 Konfigurasi
 
 ### Regex Patterns
-- `github_url`: Validasi URL GitHub
+- `github_url`: Validasi pautan GitHub
 - `secure_token`: Token keamanan 64 karakter hex
-- `file_extension`: Filter ekstensi file aman
-- `db_connection`: Validasi koneksi database
+- `file_extension`: Filter ekstensi berkas aman
+- `db_connection`: Validasi koneksi basis-data
 
 ### Formula Aktivasi
 ```php
@@ -46,17 +46,17 @@ $system_formula = [
 ];
 ```
 
-## 🛡️ Security Headers
+## 🛡️ keamanan Headers
 
 - X-Frame-Options: DENY
-- X-Content-Type-Options: nosniff
+- X-isi-jenis-Options: nosniff
 - X-XSS-Protection: 1; mode=block
-- Content-Security-Policy: Custom policy dengan GitHub CDN allowance
-- Strict-Transport-Security: max-age=31536000
+- isi-keamanan-Policy: suai policy dengan GitHub CDN allowance
+- Strict-Transport-keamanan: max-age=31536000
 
 ## 💻 Usage
 
-Jalankan dengan PHP built-in server:
+Jalankan dengan PHP built-in peladen:
 
 ```bash
 cd configphpgit.digital
@@ -67,11 +67,11 @@ Akses di browser: `http://localhost:8000`
 
 ## 🎨 Tampilan
 
-- Dark theme gradient background
+- Dark theme gradient latar-belakang
 - Card grid dengan hover effects
 - Smooth scroll animations
 - Responsive design
-- **Tidak ada footer** (sesuai request)
+- **Tidak ada kaki** (sesuai permintaan)
 
 ## 📄 License
 

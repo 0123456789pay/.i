@@ -1,7 +1,7 @@
 /**
- * Function Module: Undoicon 4938
+ * fungsi Module: Undoicon 4938
  * Category: filter
- * Style: abstract
+ * gaya: abstract
  * Shape: hexagon
  * ID: FUNC-04938
  */
@@ -21,7 +21,7 @@ const undoIcon4938 = {
     },
     
     setup() {
-        // Setup configuration for undoIcon
+        // Setup pengaturan untuk undoIcon
         this.config = {
             enabled: true,
             priority: 4938,
@@ -32,7 +32,7 @@ const undoIcon4938 = {
     
     execute(params) {
         console.log('Executing undoIcon #4938 with params:', params);
-        // Implementation for undoIcon operation
+        // Implementation untuk undoIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = undoIcon4938;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['undoIcon4938'] = undoIcon4938;
 }

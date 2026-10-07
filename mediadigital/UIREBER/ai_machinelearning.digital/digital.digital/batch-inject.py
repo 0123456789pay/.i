@@ -21,7 +21,7 @@ OUTPUT_LOG = '/workspace/digital/batch-process.log'
 CSS_LINK = '    <link rel="stylesheet" href="../digital/digital-system.css">'
 JS_SCRIPT = '    <script src="../digital/digital-system.js"></script>'
 
-# Pola untuk mendeteksi apakah file sudah memiliki referensi digital system
+# Pola untuk mendeteksi apakah berkas sudah memiliki referensi digital sistem
 CSS_PATTERN = r'digital-system\.css'
 JS_PATTERN = r'digital-system\.js'
 
@@ -37,14 +37,14 @@ def inject_digital_system(html_file):
         with open(html_file, 'r', encoding='utf-8', errors='ignore') as f:
             content = f.read()
         
-        # Cek apakah sudah ada referensi digital system
+        # Cek apakah sudah ada referensi digital sistem
         has_css = re.search(CSS_PATTERN, content, re.IGNORECASE)
         has_js = re.search(JS_PATTERN, content, re.IGNORECASE)
         
         if has_css and has_js:
             return False, "Sudah memiliki Digital System"
         
-        # Hitung path relatif ke folder digital
+        # Hitung jalur relatif ke direktori digital
         digital_dir = '/workspace/digital'
         rel_path = get_relative_path(html_file, digital_dir)
         css_link = f'    <link rel="stylesheet" href="{rel_path}/digital-system.css">'
@@ -52,7 +52,7 @@ def inject_digital_system(html_file):
         
         modified = False
         
-        # Hapus referensi digital-system yang salah jika ada
+        # Hapus referensi digital-sistem yang salah jika ada
         content = re.sub(r'\s*<link[^>]*digital-system\.css[^>]*>\s*', '', content, flags=re.IGNORECASE)
         content = re.sub(r'\s*<script[^>]*digital-system\.js[^>]*></script>\s*', '', content, flags=re.IGNORECASE)
         
@@ -98,9 +98,9 @@ def process_batch():
     """Proses batch semua file HTML"""
     html_files = []
     
-    # Cari semua file HTML
+    # Cari semua berkas HTML
     for root, dirs, files in os.walk(WORKSPACE):
-        # Skip folder digital itu sendiri
+        # Skip direktori digital itu sendiri
         if 'digital' in root.split(os.sep):
             continue
         
@@ -137,13 +137,13 @@ def process_batch():
             errors += 1
             result = "✗"
         
-        # Tampilkan progress setiap 100 file
+        # Tampilkan progress setiap 100 berkas
         if i % 100 == 0 or i == total:
             print(f"[{i}/{total}] {result} {os.path.basename(html_file)} - {message}")
         
         log_lines.append(f"{result} {html_file} - {message}")
     
-    # Tulis log
+    # Tulis catatan
     with open(OUTPUT_LOG, 'w', encoding='utf-8') as f:
         f.write('\n'.join(log_lines))
     

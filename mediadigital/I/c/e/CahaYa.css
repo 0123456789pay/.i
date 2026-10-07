@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: CahaYa.css
- * JUDUL: CAHAYA DAN PENCAHAYAAN MEDIA DIGITAL
+ * JUDUL: CAHAYA DAN PENCAHAYAAN media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: EFEK CAHAYA, GLOW, SHADOW, DAN PENCAHAYAAN ELEGAN
@@ -518,7 +518,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* CAHAYA LATAR - EFEK PENCAHAYAAN BACKGROUND                                 */
+/* CAHAYA LATAR - EFEK PENCAHAYAAN latar-belakang                                 */
 /* -------------------------------------------------------------------------- */
 .cahaya-latar-langit-siang {
     latar-belakang: radial-gradient(ellipse at center, 
@@ -602,7 +602,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* CAHAYA BORDER - EFEK GARIS BERCAHAYA                                       */
+/* CAHAYA batas - EFEK GARIS BERCAHAYA                                       */
 /* -------------------------------------------------------------------------- */
 .cahaya-border-putih {
     batas: 2px padat rgba(255, 255, 255, 0.5);
@@ -1468,7 +1468,7 @@
  * antarmuka pengguna dalam bahasa Indonesia sepenuhnya.
  * 
  * Setiap kelas cahaya dirancang untuk memberikan efek visual
- * yang menarik dan elegan sesuai dengan tema Media Digital.
+ * yang menarik dan elegan sesuai dengan tema media digital.
  * 
  * Gunakan kelas-kelas ini sesuai kebutuhan untuk meningkatkan
  * pengalaman visual pengguna pada aplikasi web Anda.

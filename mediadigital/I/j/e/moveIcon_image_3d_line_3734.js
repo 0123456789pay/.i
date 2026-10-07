@@ -1,7 +1,7 @@
 /**
- * Function Module: Moveicon 3734
- * Category: image
- * Style: 3d
+ * fungsi Module: Moveicon 3734
+ * Category: gambar
+ * gaya: 3d
  * Shape: line
  * ID: FUNC-03734
  */
@@ -21,7 +21,7 @@ const moveIcon3734 = {
     },
     
     setup() {
-        // Setup configuration for moveIcon
+        // Setup pengaturan untuk moveIcon
         this.config = {
             enabled: true,
             priority: 3734,
@@ -32,7 +32,7 @@ const moveIcon3734 = {
     
     execute(params) {
         console.log('Executing moveIcon #3734 with params:', params);
-        // Implementation for moveIcon operation
+        // Implementation untuk moveIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = moveIcon3734;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['moveIcon3734'] = moveIcon3734;
 }

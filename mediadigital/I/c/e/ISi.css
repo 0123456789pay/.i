@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: ISi.css
- * JUDUL: JARAK DALAM (PADDING) MEDIA DIGITAL
+ * JUDUL: JARAK DALAM (bantalan) media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Jarak dalam dasar komponen
  * - Versi 2.0: Variasi ukuran jarak berbeda
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus kenyamanan visual
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus kenyamanan visual
  * ============================================================================
  * SISTEM INTI: Mengatur jarak dalam untuk kenyamanan elemen
  * ============================================================================
@@ -240,7 +240,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM KHUSUS INPUT                                                   */
+/* JARAK DALAM KHUSUS masukan                                                   */
 /* -------------------------------------------------------------------------- */
 .input-jarak-dalam {
     jarak-dalam: 0.75rem 1rem;
@@ -255,7 +255,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM KHUSUS HEADER                                                  */
+/* JARAK DALAM KHUSUS kepala                                                  */
 /* -------------------------------------------------------------------------- */
 .header-jarak-dalam {
     jarak-dalam-atas: 2rem;
@@ -270,7 +270,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM KHUSUS FOOTER                                                  */
+/* JARAK DALAM KHUSUS kaki                                                  */
 /* -------------------------------------------------------------------------- */
 .footer-jarak-dalam {
     jarak-dalam-atas: 3rem;
@@ -303,7 +303,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN ISi.css
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
@@ -312,7 +312,7 @@
 /* BAGIAN TAMBAHAN 1: JARAK DALAM KOMPREHENSIF                                */
 /* -------------------------------------------------------------------------- */
 /* Bagian ini menyediakan variasi jarak dalam yang lebih lengkap untuk       */
-/* berbagai kebutuhan desain antarmuka Media Digital                         */
+/* berbagai kebutuhan desain antarmuka media digital                         */
 /* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
@@ -459,9 +459,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM FORM                                                           */
+/* JARAK DALAM borang                                                           */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam khusus untuk elemen form                                      */
+/* Jarak dalam khusus untuk elemen borang                                      */
 
 .jarak-dalam-form-group {
     jarak-dalam-bawah: 1.5rem;
@@ -515,7 +515,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM HERO SECTION                                                   */
+/* JARAK DALAM HERO bagian                                                   */
 /* -------------------------------------------------------------------------- */
 /* Jarak dalam untuk bagian hero atau banner utama                           */
 
@@ -548,9 +548,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM SECTION                                                        */
+/* JARAK DALAM bagian                                                        */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk section konten umum                                     */
+/* Jarak dalam untuk bagian konten umum                                     */
 
 .jarak-dalam-section-kecil {
     jarak-dalam-atas: 3rem;
@@ -573,9 +573,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM CONTAINER                                                      */
+/* JARAK DALAM wadah                                                      */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk berbagai jenis container                                */
+/* Jarak dalam untuk berbagai jenis wadah                                */
 
 .jarak-dalam-container-sempit {
     jarak-dalam-kiri: 1rem;
@@ -623,9 +623,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM LIST                                                           */
+/* JARAK DALAM senarai                                                           */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk elemen list                                             */
+/* Jarak dalam untuk elemen senarai                                             */
 
 .jarak-dalam-list-item {
     jarak-dalam-atas: 0.5rem;
@@ -648,7 +648,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM MEDIA                                                          */
+/* JARAK DALAM media                                                          */
 /* -------------------------------------------------------------------------- */
 /* Jarak dalam untuk elemen media seperti gambar dan video                   */
 
@@ -705,9 +705,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM ALERT                                                          */
+/* JARAK DALAM siaga                                                          */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk komponen alert/peringatan                               */
+/* Jarak dalam untuk komponen siaga/peringatan                               */
 
 .jarak-dalam-alert {
     jarak-dalam: 1.25rem;
@@ -869,9 +869,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM SEARCH BOX                                                     */
+/* JARAK DALAM cari BOX                                                     */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk search box                                              */
+/* Jarak dalam untuk cari box                                              */
 
 .jarak-dalam-search-box {
     jarak-dalam: 0.5rem;
@@ -1044,7 +1044,7 @@
 /* -------------------------------------------------------------------------- */
 /* JARAK DALAM MAP                                                            */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk map container                                           */
+/* Jarak dalam untuk map wadah                                           */
 
 .jarak-dalam-map-container {
     jarak-dalam: 0;
@@ -1081,9 +1081,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM COMMENT                                                        */
+/* JARAK DALAM komentar                                                        */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk comment section                                         */
+/* Jarak dalam untuk komentar bagian                                         */
 
 .jarak-dalam-comment {
     jarak-dalam-bawah: 1.5rem;
@@ -1098,9 +1098,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM USER PROFILE                                                   */
+/* JARAK DALAM pengguna PROFILE                                                   */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk user profile                                            */
+/* Jarak dalam untuk pengguna profile                                            */
 
 .jarak-dalam-profile-header {
     jarak-dalam-atas: 2rem;
@@ -1112,9 +1112,9 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* JARAK DALAM SETTINGS                                                       */
+/* JARAK DALAM pengaturan                                                       */
 /* -------------------------------------------------------------------------- */
-/* Jarak dalam untuk settings page                                           */
+/* Jarak dalam untuk pengaturan halaman                                           */
 
 .jarak-dalam-settings-section {
     jarak-dalam-bawah: 2rem;
@@ -1125,7 +1125,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIVE PADDING - MOBILE                                                */
+/* RESPONSIVE bantalan - MOBILE                                                */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 768px) {
     .jarak-dalam-mobile-kecil {
@@ -1152,7 +1152,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIVE PADDING - TABLET                                                */
+/* RESPONSIVE bantalan - TABLET                                                */
 /* -------------------------------------------------------------------------- */
 @media (lebar-min: 769px) and (lebar-maks: 1024px) {
     .jarak-dalam-tablet-sedang {
@@ -1166,7 +1166,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIVE PADDING - DESKTOP                                               */
+/* RESPONSIVE bantalan - DESKTOP                                               */
 /* -------------------------------------------------------------------------- */
 @media (lebar-min: 1025px) {
     .jarak-dalam-desktop-besar {
@@ -1182,8 +1182,8 @@
 /* ============================================================================
  * CATATAN PENGEMBANGAN TAMBAHAN
  * ============================================================================
- * File ISi.css ini telah diperluas menjadi lebih dari 1500 baris untuk
- * menyediakan sistem jarak dalam (padding) yang komprehensif bagi Media Digital.
+ * berkas ISi.css ini telah diperluas menjadi lebih dari 1500 baris untuk
+ * menyediakan sistem jarak dalam (bantalan) yang komprehensif bagi media digital.
  * 
  * Setiap kelas CSS dilengkapi dengan komentar penjelasan dalam bahasa Indonesia
  * untuk memudahkan pemahaman dan pemeliharaan kode oleh tim pengembang.
@@ -1191,19 +1191,19 @@
  * Fitur utama yang ditambahkan:
  * 1. Jarak dalam dengan berbagai satuan (px, em, rem, %)
  * 2. Jarak dalam spesifik untuk setiap komponen UI
- * 3. Jarak dalam untuk navigasi dan form
- * 4. Jarak dalam untuk section dan container
+ * 3. Jarak dalam untuk navigasi dan borang
+ * 4. Jarak dalam untuk bagian dan wadah
  * 5. Jarak dalam untuk media dan konten khusus
- * 6. Responsive padding untuk berbagai ukuran layar
+ * 6. Responsive bantalan untuk berbagai ukuran layar
  * 
  * Semua kelas menggunakan terminologi bahasa Indonesia sesuai standarisasi
- * CSS Bahasa Indonesia yang diterapkan oleh Media Digital.
+ * CSS Bahasa Indonesia yang diterapkan oleh media digital.
  * ============================================================================
  */
 
 /* ============================================================================
- * END OF FILE - ISi.css
- * Total baris kode: 1500+
+ * END OF berkas - ISi.css
+ * jumlah baris kode: 1500+
  * Bahasa: Indonesia (Standarisasi Penuh)
  * Status: Siap Produksi
  * Versi: 5.0

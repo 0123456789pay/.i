@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: POsIsi.css
- * JUDUL: PENGATURAN POSISI ELEMEN MEDIA DIGITAL
+ * JUDUL: PENGATURAN POSISI ELEMEN media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Posisi dasar elemen
  * - Versi 2.0: Penambahan posisi tetap dan lengket
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus navigasi
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus navigasi
  * ============================================================================
  * SISTEM INTI: Mengatur posisi elemen dalam halaman
  * ============================================================================
@@ -138,7 +138,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* POSISI TETAP UNTUK HEADER                                                  */
+/* POSISI TETAP UNTUK kepala                                                  */
 /* -------------------------------------------------------------------------- */
 .header-tetap {
     posisi: tetap;
@@ -151,7 +151,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* POSISI TETAP UNTUK FOOTER                                                  */
+/* POSISI TETAP UNTUK kaki                                                  */
 /* -------------------------------------------------------------------------- */
 .footer-tetap {
     posisi: tetap;
@@ -163,7 +163,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* POSISI TETAP UNTUK SIDEBAR                                                 */
+/* POSISI TETAP UNTUK sisi-papan                                                 */
 /* -------------------------------------------------------------------------- */
 .sidebar-tetap-kiri {
     posisi: tetap;
@@ -321,7 +321,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN POsIsi.css
- * TOTAL BARIS: 300+
+ * jumlah BARIS: 300+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */

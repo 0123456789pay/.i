@@ -1,7 +1,7 @@
 /**
- * Function Module: Clearicon 4990
+ * fungsi Module: Clearicon 4990
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-04990
  */
@@ -21,7 +21,7 @@ const clearIcon4990 = {
     },
     
     setup() {
-        // Setup configuration for clearIcon
+        // Setup pengaturan untuk clearIcon
         this.config = {
             enabled: true,
             priority: 4990,
@@ -32,7 +32,7 @@ const clearIcon4990 = {
     
     execute(params) {
         console.log('Executing clearIcon #4990 with params:', params);
-        // Implementation for clearIcon operation
+        // Implementation untuk clearIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = clearIcon4990;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['clearIcon4990'] = clearIcon4990;
 }

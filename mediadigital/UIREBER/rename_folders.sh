@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Mapping nama lama ke nama baru (SEO-friendly, unik, familiar)
+# pemetaan nama lama ke nama baru (SEO-friendly, unik, familiar)
 declare -A rename_map=(
     # AI & Machine Learning
     ["aichatreber.digital"]="nexchat-ai"
@@ -17,7 +17,7 @@ declare -A rename_map=(
     ["agentRag.digital"]="ragagent"
     ["aiProject.digital"]="aipioneer"
     
-    # Data & Analytics
+    # data & Analytics
     ["datacenter.digital"]="datacore-hub"
     ["dataLake.digital"]="oceanstore"
     ["dataPipe.digital"]="streamline"
@@ -38,7 +38,7 @@ declare -A rename_map=(
     ["dimRed.digital"]="dimension-reduce"
     ["changepoint.digital"]="changepoint-detector"
     
-    # Security
+    # keamanan
     ["authServ.digital"]="secureid-gate"
     ["apiGateway.digital"]="apishield"
     ["csrfTok.digital"]="tokenvault"
@@ -55,7 +55,7 @@ declare -A rename_map=(
     ["complian.digital"]="comply-check"
     ["encryptVault.digital"]="vaultencrypt"
     
-    # Media, Video & News
+    # media, Video & News
     ["videolife.digital"]="vidastream"
     ["situsnews.digital"]="newsflash24"
     ["situsmanajemeniklan.digital"]="admaster-pro"
@@ -64,7 +64,7 @@ declare -A rename_map=(
     ["courseWare.digital"]="edupath"
     ["expeBlog.digital"]="storyteller"
     
-    # Infrastructure & Cloud
+    # Infrastructure & awan
     ["cloudCompute.digital"]="skycompute"
     ["dockKube.digital"]="kubedock"
     ["hostingServer.digital"]="hostnest"
@@ -96,7 +96,7 @@ declare -A rename_map=(
     ["insurance.digital"]="insureplus"
     ["insurT.digital"]="insuretech-go"
     
-    # Productivity & File Management
+    # Productivity & berkas pengelolaan
     ["dashBoard.digital"]="dashview"
     ["collabTool.digital"]="teamsync"
     ["projectMng.digital"]="taskorbit"

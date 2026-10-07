@@ -1,7 +1,7 @@
 /**
- * Function Module: Ungroupicon 3725
+ * fungsi Module: Ungroupicon 3725
  * Category: transform
- * Style: android
+ * gaya: android
  * Shape: polygon
  * ID: FUNC-03725
  */
@@ -21,7 +21,7 @@ const ungroupIcon3725 = {
     },
     
     setup() {
-        // Setup configuration for ungroupIcon
+        // Setup pengaturan untuk ungroupIcon
         this.config = {
             enabled: true,
             priority: 3725,
@@ -32,7 +32,7 @@ const ungroupIcon3725 = {
     
     execute(params) {
         console.log('Executing ungroupIcon #3725 with params:', params);
-        // Implementation for ungroupIcon operation
+        // Implementation untuk ungroupIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = ungroupIcon3725;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['ungroupIcon3725'] = ungroupIcon3725;
 }

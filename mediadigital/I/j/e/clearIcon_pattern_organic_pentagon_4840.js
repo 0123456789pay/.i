@@ -1,7 +1,7 @@
 /**
- * Function Module: Clearicon 4840
+ * fungsi Module: Clearicon 4840
  * Category: pattern
- * Style: organic
+ * gaya: organic
  * Shape: pentagon
  * ID: FUNC-04840
  */
@@ -21,7 +21,7 @@ const clearIcon4840 = {
     },
     
     setup() {
-        // Setup configuration for clearIcon
+        // Setup pengaturan untuk clearIcon
         this.config = {
             enabled: true,
             priority: 4840,
@@ -32,7 +32,7 @@ const clearIcon4840 = {
     
     execute(params) {
         console.log('Executing clearIcon #4840 with params:', params);
-        // Implementation for clearIcon operation
+        // Implementation untuk clearIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = clearIcon4840;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['clearIcon4840'] = clearIcon4840;
 }

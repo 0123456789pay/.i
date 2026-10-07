@@ -1,5 +1,5 @@
 /**
- * IHBSF - Iconer Hierarchical Base System Framework
+ * IHBSF - Iconer Hierarchical dasar sistem Framework
  * Sistem rekonstruksi untuk ALLUNIVERS ICONER
  * Mengintegrasikan semua menu, tampilan, dan konfigurasi
  */
@@ -13,7 +13,7 @@ export class IHBSF {
     this.theme = 'luxury-modern-elite';
     this.initialized = false;
     
-    // Three unified display types
+    // Three unified display jenis-jenis
     this.displayTypes = {
       luxury: {
         gradients: ['linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)'],
@@ -165,7 +165,7 @@ export class IHBSF {
       </div>
     `;
     
-    // Simulate loading content from folder
+    // Simulate loading isi dari direktori
     await new Promise(resolve => setTimeout(resolve, 500));
     
     panel.innerHTML = `

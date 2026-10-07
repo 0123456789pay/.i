@@ -1,7 +1,7 @@
 /**
- * Function Module: Previewicon 4846
- * Category: color
- * Style: glyph
+ * fungsi Module: Previewicon 4846
+ * Category: warna
+ * gaya: glyph
  * Shape: star
  * ID: FUNC-04846
  */
@@ -21,7 +21,7 @@ const previewIcon4846 = {
     },
     
     setup() {
-        // Setup configuration for previewIcon
+        // Setup pengaturan untuk previewIcon
         this.config = {
             enabled: true,
             priority: 4846,
@@ -32,7 +32,7 @@ const previewIcon4846 = {
     
     execute(params) {
         console.log('Executing previewIcon #4846 with params:', params);
-        // Implementation for previewIcon operation
+        // Implementation untuk previewIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = previewIcon4846;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['previewIcon4846'] = previewIcon4846;
 }

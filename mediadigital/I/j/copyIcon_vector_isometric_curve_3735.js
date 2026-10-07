@@ -1,7 +1,7 @@
 /**
- * Function Module: Copyicon 3735
+ * fungsi Module: Copyicon 3735
  * Category: vector
- * Style: isometric
+ * gaya: isometric
  * Shape: curve
  * ID: FUNC-03735
  */
@@ -21,7 +21,7 @@ const copyIcon3735 = {
     },
     
     setup() {
-        // Setup configuration for copyIcon
+        // Setup pengaturan untuk copyIcon
         this.config = {
             enabled: true,
             priority: 3735,
@@ -32,7 +32,7 @@ const copyIcon3735 = {
     
     execute(params) {
         console.log('Executing copyIcon #3735 with params:', params);
-        // Implementation for copyIcon operation
+        // Implementation untuk copyIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = copyIcon3735;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['copyIcon3735'] = copyIcon3735;
 }

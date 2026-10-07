@@ -1,43 +1,43 @@
-// IHBSF Index Controller - Auto-load files and manage menus
+// IHBSF indeks Controller - otomatis-muat berkas-berkas dan manage menus
 document.addEventListener('DOMContentLoaded', function() {
     console.log('IHBSF Index loaded');
     
-    // Load file lists dynamically
+    // muat berkas lists dynamically
     loadFileLists();
     
-    // Setup auto-save for menu interactions
+    // Setup otomatis-simpan untuk menu interactions
     setupAutoSave();
     
-    // Update navigation
+    // perbarui navigation
     updateNavigation();
 });
 
-// Load all files from current folder structure
+// muat semua berkas-berkas dari current direktori structure
 function loadFileLists() {
     const currentFolder = IHBSF_CONFIG.getCurrentFolder();
     
-    // HTML Files
+    // HTML berkas-berkas
     const htmlList = document.getElementById('html-list');
     if (htmlList) {
         loadFilesFromFolder(currentFolder, 'l', htmlList);
     }
     
-    // CSS Files
+    // CSS berkas-berkas
     const cssList = document.getElementById('css-list');
     if (cssList) {
         loadFilesFromFolder(currentFolder, 'c', cssList);
     }
     
-    // JS Files
+    // JS berkas-berkas
     const jsList = document.getElementById('js-list');
     if (jsList) {
         loadFilesFromFolder(currentFolder, 'j', jsList);
     }
 }
 
-// Load files from specific subfolder
+// muat berkas-berkas dari specific subfolder
 function loadFilesFromFolder(mainFolder, subFolder, listElement) {
-    // Simulate file listing (in real implementation, this would fetch from server)
+    // Simulate berkas listing (in real implementation, ini would fetch dari peladen)
     const sampleFiles = [
         { name: 'index.html', type: 'html' },
         { name: 'app.html', type: 'html' },
@@ -59,7 +59,7 @@ function loadFilesFromFolder(mainFolder, subFolder, listElement) {
         listElement.appendChild(li);
     });
     
-    // Add note about total files
+    // Add catatan tentang jumlah berkas-berkas
     const infoLi = document.createElement('li');
     infoLi.style.color = '#666';
     infoLi.style.fontStyle = 'italic';
@@ -67,7 +67,7 @@ function loadFilesFromFolder(mainFolder, subFolder, listElement) {
     listElement.appendChild(infoLi);
 }
 
-// Setup auto-save functionality
+// Setup otomatis-simpan functionality
 function setupAutoSave() {
     if (IHBSF_CONFIG.autoSave.enabled) {
         setInterval(function() {
@@ -81,7 +81,7 @@ function setupAutoSave() {
     }
 }
 
-// Update navigation based on current folder
+// perbarui navigation based on current direktori
 function updateNavigation() {
     const menuItems = IHBSF_CONFIG.getMenuItems();
     const nav = document.querySelector('nav');
@@ -105,7 +105,7 @@ function updateNavigation() {
     }
 }
 
-// Export functions for external use
+// Export functions untuk external use
 window.IHBSF = {
     config: IHBSF_CONFIG,
     saveData: IHBSF_CONFIG.saveData.bind(IHBSF_CONFIG),

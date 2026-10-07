@@ -1,8 +1,8 @@
 /**
- * Function Module: Redoicon 3989
+ * fungsi Module: Redoicon 3989
  * Category: export
- * Style: duotone
- * Shape: check
+ * gaya: duotone
+ * Shape: periksa
  * ID: FUNC-03989
  */
 
@@ -21,7 +21,7 @@ const redoIcon3989 = {
     },
     
     setup() {
-        // Setup configuration for redoIcon
+        // Setup pengaturan untuk redoIcon
         this.config = {
             enabled: true,
             priority: 3989,
@@ -32,7 +32,7 @@ const redoIcon3989 = {
     
     execute(params) {
         console.log('Executing redoIcon #3989 with params:', params);
-        // Implementation for redoIcon operation
+        // Implementation untuk redoIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = redoIcon3989;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['redoIcon3989'] = redoIcon3989;
 }

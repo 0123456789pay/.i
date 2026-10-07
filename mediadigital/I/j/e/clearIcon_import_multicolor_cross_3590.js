@@ -1,7 +1,7 @@
 /**
- * Function Module: Clearicon 3590
+ * fungsi Module: Clearicon 3590
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-03590
  */
@@ -21,7 +21,7 @@ const clearIcon3590 = {
     },
     
     setup() {
-        // Setup configuration for clearIcon
+        // Setup pengaturan untuk clearIcon
         this.config = {
             enabled: true,
             priority: 3590,
@@ -32,7 +32,7 @@ const clearIcon3590 = {
     
     execute(params) {
         console.log('Executing clearIcon #3590 with params:', params);
-        // Implementation for clearIcon operation
+        // Implementation untuk clearIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = clearIcon3590;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['clearIcon3590'] = clearIcon3590;
 }

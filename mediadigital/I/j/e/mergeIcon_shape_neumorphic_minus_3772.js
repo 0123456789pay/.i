@@ -1,7 +1,7 @@
 /**
- * Function Module: Mergeicon 3772
+ * fungsi Module: Mergeicon 3772
  * Category: shape
- * Style: neumorphic
+ * gaya: neumorphic
  * Shape: minus
  * ID: FUNC-03772
  */
@@ -21,7 +21,7 @@ const mergeIcon3772 = {
     },
     
     setup() {
-        // Setup configuration for mergeIcon
+        // Setup pengaturan untuk mergeIcon
         this.config = {
             enabled: true,
             priority: 3772,
@@ -32,7 +32,7 @@ const mergeIcon3772 = {
     
     execute(params) {
         console.log('Executing mergeIcon #3772 with params:', params);
-        // Implementation for mergeIcon operation
+        // Implementation untuk mergeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = mergeIcon3772;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['mergeIcon3772'] = mergeIcon3772;
 }

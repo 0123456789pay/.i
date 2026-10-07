@@ -1,7 +1,7 @@
 /**
- * Function Module: Alignicon 4226
- * Category: color
- * Style: glyph
+ * fungsi Module: Alignicon 4226
+ * Category: warna
+ * gaya: glyph
  * Shape: star
  * ID: FUNC-04226
  */
@@ -21,7 +21,7 @@ const alignIcon4226 = {
     },
     
     setup() {
-        // Setup configuration for alignIcon
+        // Setup pengaturan untuk alignIcon
         this.config = {
             enabled: true,
             priority: 4226,
@@ -32,7 +32,7 @@ const alignIcon4226 = {
     
     execute(params) {
         console.log('Executing alignIcon #4226 with params:', params);
-        // Implementation for alignIcon operation
+        // Implementation untuk alignIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = alignIcon4226;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['alignIcon4226'] = alignIcon4226;
 }

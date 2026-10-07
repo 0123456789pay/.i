@@ -2,7 +2,7 @@ import os
 import random
 import json
 
-# Data pools for generating realistic knowledge points
+# data pools untuk generating realistic knowledge points
 countries = ["Indonesia", "USA", "China", "Japan", "Germany", "UK", "France", "India", "Brazil", "Australia", "Canada", "Russia", "South Korea", "Italy", "Spain", "Mexico", "Argentina", "Egypt", "Nigeria", "South Africa"]
 cities = ["Jakarta", "Tokyo", "Beijing", "Berlin", "London", "Paris", "New York", "Mumbai", "Sydney", "Toronto", "Moscow", "Seoul", "Rome", "Madrid", "Cairo", "Lagos"]
 devices = ["Router", "Switch", "Firewall", "Server", "Laptop", "Smartphone", "Tablet", "IoT Sensor", "Gateway", "Modem", "Access Point", "Load Balancer", "Proxy Server", "Database Server", "Web Server"]
@@ -65,7 +65,7 @@ def create_simulated_index(num_files=500, lines_per_file=1000000):
     print(f"Membuat index simulasi RAG untuk {num_files} file x {lines_per_file:,} baris...")
     print(f"Total kapasitas: {num_files * lines_per_file:,} poin pengetahuan")
     
-    # Buat sample file kecil untuk demonstrasi (10 file x 100 baris)
+    # Buat sample berkas kecil untuk demonstrasi (10 berkas x 100 baris)
     sample_files = []
     for file_idx in range(10):
         filename = f"knowledge_{file_idx:04d}.txt"
@@ -126,7 +126,7 @@ def create_simulated_index(num_files=500, lines_per_file=1000000):
     with open(os.path.join(data_dir, "metadata.json"), 'w', encoding='utf-8') as f:
         json.dump(metadata, f, indent=2, ensure_ascii=False)
     
-    # Buat file index utama
+    # Buat berkas indeks utama
     index_data = {
         "rag_system": "RAGREBER.DIGITAL",
         "status": "active",

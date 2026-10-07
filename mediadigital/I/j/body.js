@@ -1,6 +1,6 @@
 /**
  * ALLUNIVERS ICONER - Body Module
- * Main content area handler
+ * utama isi area pengendali
  */
 
 class IconerBody {
@@ -51,7 +51,7 @@ class IconerBody {
     }
 }
 
-// Auto-initialize
+// otomatis-mulai
 if (typeof window !== 'undefined') {
     window.IconerBody = new IconerBody();
 }

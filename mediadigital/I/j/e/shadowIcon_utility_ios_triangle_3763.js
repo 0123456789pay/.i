@@ -1,7 +1,7 @@
 /**
- * Function Module: Shadowicon 3763
+ * fungsi Module: Shadowicon 3763
  * Category: utility
- * Style: ios
+ * gaya: ios
  * Shape: triangle
  * ID: FUNC-03763
  */
@@ -21,7 +21,7 @@ const shadowIcon3763 = {
     },
     
     setup() {
-        // Setup configuration for shadowIcon
+        // Setup pengaturan untuk shadowIcon
         this.config = {
             enabled: true,
             priority: 3763,
@@ -32,7 +32,7 @@ const shadowIcon3763 = {
     
     execute(params) {
         console.log('Executing shadowIcon #3763 with params:', params);
-        // Implementation for shadowIcon operation
+        // Implementation untuk shadowIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = shadowIcon3763;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['shadowIcon3763'] = shadowIcon3763;
 }

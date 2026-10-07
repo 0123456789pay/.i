@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Script to generate 100 HTML menu files for AI Chat Reber
+# skrip to hasilkan 100 HTML menu berkas-berkas untuk AI Chat Reber
 
 menu_items = [
     "obrolan-baru", "riwayat-chat", "pesan-tersimpan", "pengaturan", "profil",

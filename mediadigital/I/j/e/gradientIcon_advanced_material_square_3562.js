@@ -1,7 +1,7 @@
 /**
- * Function Module: Gradienticon 3562
+ * fungsi Module: Gradienticon 3562
  * Category: advanced
- * Style: material
+ * gaya: material
  * Shape: square
  * ID: FUNC-03562
  */
@@ -21,7 +21,7 @@ const gradientIcon3562 = {
     },
     
     setup() {
-        // Setup configuration for gradientIcon
+        // Setup pengaturan untuk gradientIcon
         this.config = {
             enabled: true,
             priority: 3562,
@@ -32,7 +32,7 @@ const gradientIcon3562 = {
     
     execute(params) {
         console.log('Executing gradientIcon #3562 with params:', params);
-        // Implementation for gradientIcon operation
+        // Implementation untuk gradientIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = gradientIcon3562;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['gradientIcon3562'] = gradientIcon3562;
 }

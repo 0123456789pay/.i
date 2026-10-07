@@ -1,8 +1,8 @@
 /**
- * Function Module: Rotateicon 4809
+ * fungsi Module: Rotateicon 4809
  * Category: export
- * Style: duotone
- * Shape: check
+ * gaya: duotone
+ * Shape: periksa
  * ID: FUNC-04809
  */
 
@@ -21,7 +21,7 @@ const rotateIcon4809 = {
     },
     
     setup() {
-        // Setup configuration for rotateIcon
+        // Setup pengaturan untuk rotateIcon
         this.config = {
             enabled: true,
             priority: 4809,
@@ -32,7 +32,7 @@ const rotateIcon4809 = {
     
     execute(params) {
         console.log('Executing rotateIcon #4809 with params:', params);
-        // Implementation for rotateIcon operation
+        // Implementation untuk rotateIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = rotateIcon4809;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['rotateIcon4809'] = rotateIcon4809;
 }

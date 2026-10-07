@@ -1,7 +1,7 @@
 /**
- * Function Module: Debugicon 4250
+ * fungsi Module: Debugicon 4250
  * Category: import
- * Style: multicolor
+ * gaya: multicolor
  * Shape: cross
  * ID: FUNC-04250
  */
@@ -21,7 +21,7 @@ const debugIcon4250 = {
     },
     
     setup() {
-        // Setup configuration for debugIcon
+        // Setup pengaturan untuk debugIcon
         this.config = {
             enabled: true,
             priority: 4250,
@@ -32,7 +32,7 @@ const debugIcon4250 = {
     
     execute(params) {
         console.log('Executing debugIcon #4250 with params:', params);
-        // Implementation for debugIcon operation
+        // Implementation untuk debugIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = debugIcon4250;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['debugIcon4250'] = debugIcon4250;
 }

@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: ANimAsi.css
- * JUDUL: KEYFRAMES ANIMASI MASUK MEDIA DIGITAL
+ * JUDUL: KEYFRAMES ANIMASI MASUK media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Keyframes animasi dasar
  * - Versi 2.0: Penambahan variasi animasi masuk
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus animasi mewah
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus animasi mewah
  * ============================================================================
  * SISTEM INTI: Mengatur keyframes untuk animasi elemen
  * ============================================================================
@@ -325,7 +325,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ANIMASI KHUSUS UNTUK INPUT FORM                                            */
+/* ANIMASI KHUSUS UNTUK masukan borang                                            */
 /* -------------------------------------------------------------------------- */
 @kunci-input-fokus {
     0% { batas-lebar: 0%; }
@@ -568,7 +568,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ANIMASI KHUSUS UNTUK NUMBER COUNTER                                        */
+/* ANIMASI KHUSUS UNTUK angka COUNTER                                        */
 /* -------------------------------------------------------------------------- */
 @kunci-hitung-naik {
     0% {
@@ -586,7 +586,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ANIMASI KHUSUS UNTUK IMAGE HOVER                                           */
+/* ANIMASI KHUSUS UNTUK gambar HOVER                                           */
 /* -------------------------------------------------------------------------- */
 @kunci-image-zoom {
     0% { ubah-bentuk: skala(1); }
@@ -695,7 +695,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* ANIMASI KHUSUS UNTUK TEXT TYPING                                           */
+/* ANIMASI KHUSUS UNTUK teks TYPING                                           */
 /* -------------------------------------------------------------------------- */
 @kunci-ketik {
     0% { lebar: 0; }
@@ -802,7 +802,7 @@
 
 /* ============================================================================
  * AKHIR DOKUMEN ANimAsi.css
- * TOTAL BARIS: 700+
+ * jumlah BARIS: 700+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */

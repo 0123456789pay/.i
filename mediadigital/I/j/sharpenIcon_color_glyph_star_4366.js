@@ -1,7 +1,7 @@
 /**
- * Function Module: Sharpenicon 4366
- * Category: color
- * Style: glyph
+ * fungsi Module: Sharpenicon 4366
+ * Category: warna
+ * gaya: glyph
  * Shape: star
  * ID: FUNC-04366
  */
@@ -21,7 +21,7 @@ const sharpenIcon4366 = {
     },
     
     setup() {
-        // Setup configuration for sharpenIcon
+        // Setup pengaturan untuk sharpenIcon
         this.config = {
             enabled: true,
             priority: 4366,
@@ -32,7 +32,7 @@ const sharpenIcon4366 = {
     
     execute(params) {
         console.log('Executing sharpenIcon #4366 with params:', params);
-        // Implementation for sharpenIcon operation
+        // Implementation untuk sharpenIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = sharpenIcon4366;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['sharpenIcon4366'] = sharpenIcon4366;
 }

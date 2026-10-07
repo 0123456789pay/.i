@@ -1,4 +1,4 @@
-/* Reset dan Base Styles */
+/* Reset dan dasar gaya */
 * {
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@ body {
     padding: 0 20px;
 }
 
-/* Navbar Styles */
+/* Navbar gaya-gaya */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -105,7 +105,7 @@ body {
     transition: var(--transition);
 }
 
-/* Hero Section */
+/* Hero bagian */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -171,7 +171,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Features Section */
+/* fitur bagian */
 .features {
     padding: 5rem 0;
     background: var(--bg-light);
@@ -218,7 +218,7 @@ body {
     color: var(--text-light);
 }
 
-/* About Section */
+/* tentang bagian */
 .about {
     padding: 5rem 0;
 }
@@ -260,7 +260,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Contact Section */
+/* kontak bagian */
 .contact {
     padding: 5rem 0;
     background: var(--bg-light);
@@ -295,7 +295,7 @@ body {
     resize: vertical;
 }
 
-/* Footer */
+/* kaki */
 footer {
     background: var(--text-dark);
     color: var(--white);
@@ -339,7 +339,7 @@ footer {
     color: #9ca3af;
 }
 
-/* Login & Register Pages */
+/* masuk & daftar halaman */
 .auth-container {
     min-height: 100vh;
     display: flex;
@@ -476,7 +476,7 @@ footer {
     }
 }
 
-/* User Display Styles */
+/* pengguna Display gaya-gaya */
 .user-display {
     display: inline-flex;
     align-items: center;
@@ -490,7 +490,7 @@ footer {
 }
 
 .nav-links .user-display {
-    display: none; /* Hidden by default, shown via JS */
+    display: none; /* Hidden by bawaan, shown via JS */
 }
 
 .user-greeting {

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Media Digital</title>
+    <title>papan-bilas - Media Digital</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
         * {
@@ -404,8 +404,8 @@
             <div class="section-title">Navigasi Utama</div>
             <ul>
                 <li><a onclick="showSection('overview')">📊 Overview</a></li>
-                <li><a onclick="showSection('files')">📁 Manajemen File</a></li>
-                <li><a onclick="showSection('preview')">👁️ Preview File</a></li>
+                <li><a onclick="showSection('files')">📁 Manajemen berkas</a></li>
+                <li><a onclick="showSection('preview')">👁️ Preview berkas</a></li>
                 <li><a onclick="showSection('external')">🔗 Tautan Eksternal</a></li>
             </ul>
             
@@ -419,12 +419,12 @@
 
         <main class="main-content">
             <header>
-                <h1>Dashboard Admin</h1>
-                <p>Selamat datang, <span id="adminName">Admin</span></p>
+                <h1>papan-bilas pengelola</h1>
+                <p>Selamat datang, <span id="adminName">pengelola</span></p>
                 <div id="user-identity-display" style="margin-top: 10px;"></div>
             </header>
 
-            <!-- Overview Section -->
+            <!-- Overview bagian -->
             <section id="overview-section" class="section">
                 <h2>📊 Ringkasan Sistem</h2>
                 <div class="stats-grid" id="stats-grid">
@@ -442,34 +442,34 @@
                 </div>
             </section>
 
-            <!-- File Management Section -->
+            <!-- berkas pengelolaan bagian -->
             <section id="files-section" class="section hidden">
-                <h2>📁 Manajemen File & Folder - /mediadigital/</h2>
+                <h2>📁 Manajemen berkas & direktori - /mediadigital/</h2>
                 <p style="color: #7f8c8d; margin-bottom: 20px;">
-                    Klik pada folder untuk melihat isinya. Gunakan tombol "View" untuk melihat detail file atau "Preview" untuk melihat tampilan kode.
+                    Klik pada direktori untuk melihat isinya. Gunakan tombol "View" untuk melihat detail berkas atau "Preview" untuk melihat tampilan kode.
                 </p>
                 <div class="file-tree-container">
                     <div id="file-tree-content" class="file-tree">
                         <div class="loading">
                             <div class="spinner"></div>
-                            Memuat struktur file...
+                            Memuat struktur berkas...
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Preview Section -->
+            <!-- Preview bagian -->
             <section id="preview-section" class="section hidden">
-                <h2>👁️ Preview File</h2>
+                <h2>👁️ Preview berkas</h2>
                 <p style="color: #7f8c8d; margin-bottom: 20px;">
-                    Pilih file dari manajemen file untuk melihat preview di sini.
+                    Pilih berkas dari manajemen berkas untuk melihat preview di sini.
                 </p>
                 <div id="preview-content">
-                    <div class="loading">Belum ada file yang dipilih untuk preview</div>
+                    <div class="loading">Belum ada berkas yang dipilih untuk preview</div>
                 </div>
             </section>
 
-            <!-- External Links Section -->
+            <!-- External tautan bagian -->
             <section id="external-section" class="section hidden">
                 <h2>🔗 Tautan Eksternal</h2>
                 <p style="color: #7f8c8d; margin-bottom: 20px;">
@@ -489,11 +489,11 @@
     <div id="preview-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="modal-title">Preview File</h3>
+                <h3 id="modal-title">Preview berkas</h3>
                 <button class="btn-close" onclick="closeModal()">&times;</button>
             </div>
             <div class="modal-body" id="modal-body">
-                <!-- Content will be loaded here -->
+                <!-- isi will be loaded here -->
             </div>
         </div>
     </div>

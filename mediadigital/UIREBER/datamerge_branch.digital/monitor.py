@@ -26,11 +26,11 @@ class DataMergeMonitor:
         self.config_file = self.base_path / 'config.json'
         self.master_log = self.base_path / 'system.log'
         
-        # Initialize folders
+        # mulai folders
         for folder in self.folders.values():
             folder.mkdir(parents=True, exist_ok=True)
         
-        # Load or create config
+        # muat atau buat konfigurasi
         self.config = self.load_config()
         
     def load_config(self):
@@ -62,7 +62,7 @@ class DataMergeMonitor:
         timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
         iso_timestamp = datetime.now().isoformat()
         
-        # Create log entry
+        # buat catatan entry
         log_entry = {
             'timestamp': iso_timestamp,
             'category': category,
@@ -70,20 +70,20 @@ class DataMergeMonitor:
             'data': data
         }
         
-        # Write to category-specific log file
+        # tulis to category-specific catatan berkas
         log_filename = f"{timestamp}_{category}.log"
         log_path = self.folders[category] / log_filename
         
         with open(log_path, 'w') as f:
             json.dump(log_entry, f, indent=2)
         
-        # Append to master log
+        # Append to master catatan
         with open(self.master_log, 'a') as f:
             f.write(f"[{iso_timestamp}] [{category.upper()}] {message}\n")
             if data:
                 f.write(f"  Data: {json.dumps(data)}\n")
         
-        # Update config last_updated
+        # perbarui konfigurasi last_updated
         self.config['last_updated'] = iso_timestamp
         self.save_config(self.config)
         
@@ -127,11 +127,11 @@ class DataMergeMonitor:
             'line_count': len(str(data).split('\n')) if isinstance(data, str) else 1
         }
         
-        # Save to datainput
+        # simpan to datainput
         with open(self.folders['datainput'] / filename, 'w') as f:
             json.dump(log_entry, f, indent=2)
         
-        # Track line count
+        # Track line hitungan
         baris_file = f"baris_{timestamp}.log"
         with open(self.folders['barisinput'] / baris_file, 'w') as f:
             json.dump({
@@ -160,11 +160,11 @@ class DataMergeMonitor:
             'line_count': len(str(data).split('\n')) if isinstance(data, str) else 1
         }
         
-        # Save to dataoutput
+        # simpan to dataoutput
         with open(self.folders['dataoutput'] / filename, 'w') as f:
             json.dump(log_entry, f, indent=2)
         
-        # Track line count
+        # Track line hitungan
         baris_file = f"baris_{timestamp}.log"
         with open(self.folders['barisoutput'] / baris_file, 'w') as f:
             json.dump({
@@ -217,7 +217,7 @@ class DataMergeMonitor:
             count = len(list(folder.glob('*.log')))
             stats[category] = count
         
-        # Count total lines
+        # hitungan jumlah lines
         total_lines_input = 0
         total_lines_output = 0
         
@@ -247,7 +247,7 @@ class DataMergeMonitor:
         dest = Path(destination_path)
         dest.mkdir(parents=True, exist_ok=True)
         
-        # Copy all log files
+        # Copy semua catatan berkas-berkas
         for category, folder in self.folders.items():
             dest_category = dest / category
             dest_category.mkdir(parents=True, exist_ok=True)
@@ -258,11 +258,11 @@ class DataMergeMonitor:
                 with open(dest_category / log_file.name, 'w') as dst:
                     dst.write(content)
         
-        # Export config
+        # Export konfigurasi
         with open(dest / 'config.json', 'w') as f:
             json.dump(self.config, f, indent=2)
         
-        # Export master log
+        # Export master catatan
         if self.master_log.exists():
             with open(self.master_log, 'r') as src:
                 with open(dest / 'system.log', 'w') as dst:
@@ -271,11 +271,11 @@ class DataMergeMonitor:
         self.log_change('merge', f'Data exported for migration to {destination_path}')
         return dest
 
-# Initialize monitor
+# mulai monitor
 if __name__ == '__main__':
     monitor = DataMergeMonitor()
     
-    # Log initialization
+    # catatan initialization
     monitor.log_change('sub_commit', 'Monitoring system initialized', 
                       {'version': '1.0.0', 'folders': list(monitor.folders.keys())})
     
@@ -285,7 +285,7 @@ if __name__ == '__main__':
     print(f"Config: {monitor.config_file}")
     print(f"Master Log: {monitor.master_log}")
     
-    # Show statistics
+    # tampilkan statistics
     stats = monitor.get_statistics()
     print("\nCurrent Statistics:")
     for key, value in stats.items():

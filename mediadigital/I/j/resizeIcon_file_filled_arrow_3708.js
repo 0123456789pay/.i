@@ -1,7 +1,7 @@
 /**
- * Function Module: Resizeicon 3708
- * Category: file
- * Style: filled
+ * fungsi Module: Resizeicon 3708
+ * Category: berkas
+ * gaya: filled
  * Shape: arrow
  * ID: FUNC-03708
  */
@@ -21,7 +21,7 @@ const resizeIcon3708 = {
     },
     
     setup() {
-        // Setup configuration for resizeIcon
+        // Setup pengaturan untuk resizeIcon
         this.config = {
             enabled: true,
             priority: 3708,
@@ -32,7 +32,7 @@ const resizeIcon3708 = {
     
     execute(params) {
         console.log('Executing resizeIcon #3708 with params:', params);
-        // Implementation for resizeIcon operation
+        // Implementation untuk resizeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = resizeIcon3708;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['resizeIcon3708'] = resizeIcon3708;
 }

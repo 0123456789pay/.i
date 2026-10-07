@@ -1,5 +1,5 @@
 /**
- * Menu System - Ribuan Menu dan Fungsi
+ * Menu sistem - Ribuan Menu dan Fungsi
  * Sistem menu lengkap untuk semua fitur Iconer
  */
 
@@ -18,7 +18,7 @@ export class MenuSystem {
   }
 
   initializeMenus() {
-    // Main Menu Categories
+    // utama Menu Categories
     this.createMainMenu();
     this.createEditMenu();
     this.createViewMenu();

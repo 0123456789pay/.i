@@ -1,31 +1,31 @@
-// IHBSF Configuration - Data Storage System
+// IHBSF pengaturan - data penyimpanan sistem
 const IHBSF_CONFIG = {
     version: '1.0.0',
     storagePath: '/workspace/dataihbsf',
     mainFolders: ['I'],
     subFolders: ['h', 't', 'm', 'l', 'c', 's', 'S', 'j', '`s'],
     
-    // Auto-save configuration
+    // otomatis-simpan pengaturan
     autoSave: {
         enabled: true,
         interval: 5000, // 5 seconds
         path: '/workspace/dataihbsf'
     },
     
-    // File type mappings
+    // berkas jenis mappings
     fileTypes: {
         html: 'l',
         css: 'c',
         js: 'j'
     },
     
-    // Initialize storage
+    // mulai penyimpanan
     initStorage: function() {
         console.log('IHBSF Storage initialized at:', this.storagePath);
         return true;
     },
     
-    // Save data to storage
+    // simpan data to penyimpanan
     saveData: function(key, data) {
         const timestamp = new Date().toISOString();
         const storageData = {
@@ -35,13 +35,13 @@ const IHBSF_CONFIG = {
             folder: this.getCurrentFolder()
         };
         
-        // Store in localStorage for browser persistence
+        // Store in localStorage untuk browser persistence
         localStorage.setItem('ihbsf_' + key, JSON.stringify(storageData));
         console.log('Data saved:', key);
         return storageData;
     },
     
-    // Load data from storage
+    // muat data dari penyimpanan
     loadData: function(key) {
         const stored = localStorage.getItem('ihbsf_' + key);
         if (stored) {
@@ -50,14 +50,14 @@ const IHBSF_CONFIG = {
         return null;
     },
     
-    // Get current folder context
+    // Get current direktori context
     getCurrentFolder: function() {
         const path = window.location.pathname;
         const match = path.match(/\/([IHBFS])\//);
         return match ? match[1] : 'I';
     },
     
-    // Get all menu items
+    // Get semua menu butiran
     getMenuItems: function() {
         return this.mainFolders.map(folder => ({
             name: folder,
@@ -67,5 +67,5 @@ const IHBSF_CONFIG = {
     }
 };
 
-// Auto-initialize
+// otomatis-mulai
 IHBSF_CONFIG.initStorage();

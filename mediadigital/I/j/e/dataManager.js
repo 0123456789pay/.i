@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Data Storage System
- * Centralized data management for all system data types
+ * ALLUNIVERS ICONER - data penyimpanan sistem
+ * Centralized data pengelolaan untuk semua sistem data jenis-jenis
  */
 
 class AlluniversDataStorage {
@@ -22,7 +22,7 @@ class AlluniversDataStorage {
         console.log('✅ Data Storage System Ready');
     }
 
-    // User Register Data
+    // pengguna daftar data
     async saveUser(userData) {
         const timestamp = Date.now();
         const userId = `user_${timestamp}`;
@@ -44,7 +44,7 @@ class AlluniversDataStorage {
         return this._retrieveAllData(this.dataTypes.USER_REGISTER);
     }
 
-    // Icon Designs Data
+    // ikon Designs data
     async saveIconDesign(designData) {
         const timestamp = Date.now();
         const designId = `design_${timestamp}`;
@@ -66,7 +66,7 @@ class AlluniversDataStorage {
         return this._retrieveAllData(this.dataTypes.ICON_DESIGNS);
     }
 
-    // Sales Data
+    // Sales data
     async recordSale(saleData) {
         const timestamp = Date.now();
         const saleId = `sale_${timestamp}`;
@@ -83,7 +83,7 @@ class AlluniversDataStorage {
         return this._retrieveAllData(this.dataTypes.SALES);
     }
 
-    // Financial Data
+    // Financial data
     async recordTransaction(transactionData) {
         const timestamp = Date.now();
         const transactionId = `txn_${timestamp}`;
@@ -100,7 +100,7 @@ class AlluniversDataStorage {
         return this._retrieveAllData(this.dataTypes.FINANCIAL);
     }
 
-    // Traffic Data
+    // Traffic data
     async recordVisit(visitData) {
         const timestamp = Date.now();
         const visitId = `visit_${timestamp}`;
@@ -115,7 +115,7 @@ class AlluniversDataStorage {
         return this._retrieveAllData(this.dataTypes.TRAFFIC);
     }
 
-    // Internal storage methods (simulated for browser environment)
+    // Internal penyimpanan methods (simulated untuk browser environment)
     _storeData(type, id, data) {
         const storageKey = `allunivers_${type}_${id}`;
         try {
@@ -155,7 +155,7 @@ class AlluniversDataStorage {
         return results;
     }
 
-    // Admin commands
+    // pengelola commands
     async adminCommand(command, params) {
         console.log('[ADMIN COMMAND] Executing:', command, params);
         
@@ -193,13 +193,13 @@ class AlluniversDataStorage {
     }
 }
 
-// Auto-initialize
+// otomatis-mulai
 if (typeof window !== 'undefined') {
     window.AlluniversDataStorage = new AlluniversDataStorage();
     window.AlluniversDataStorage.initialize();
 }
 
-// Export for Node.js
+// Export untuk Node.js
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = AlluniversDataStorage;
 }

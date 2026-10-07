@@ -1,7 +1,7 @@
 /**
- * Function Module: Panicon 4182
+ * fungsi Module: Panicon 4182
  * Category: advanced
- * Style: material
+ * gaya: material
  * Shape: square
  * ID: FUNC-04182
  */
@@ -21,7 +21,7 @@ const panIcon4182 = {
     },
     
     setup() {
-        // Setup configuration for panIcon
+        // Setup pengaturan untuk panIcon
         this.config = {
             enabled: true,
             priority: 4182,
@@ -32,7 +32,7 @@ const panIcon4182 = {
     
     execute(params) {
         console.log('Executing panIcon #4182 with params:', params);
-        // Implementation for panIcon operation
+        // Implementation untuk panIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = panIcon4182;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['panIcon4182'] = panIcon4182;
 }

@@ -1,154 +1,154 @@
-# JavaScript Modules - Media Digital Platform
+# skrip-skrip-javascript Modules - media digital landasan
 
-## File Structure
+## berkas Structure
 
 ```
 js/
-├── config.js           # Environment configuration (create from config.example.js)
-├── config.example.js   # Configuration template
-├── utils.js            # Security & utility functions
-├── main.js             # Authentication & main application logic
+├── konfigurasi.js           # Environment pengaturan (buat dari konfigurasi.contoh.js)
+├── konfigurasi.contoh.js   # pengaturan template
+├── utils.js            # keamanan & utility functions
+├── utama.js             # autentikasi & utama aplikasi logic
 ├── repo-manager.js     # GitHub API integration
-└── tests.js            # Unit tests
+└── ujian.js            # Unit ujian
 ```
 
-## Loading Order
+## Loading pesanan
 
-Include scripts in this order in your HTML files:
+Include scripts in ini pesanan in your HTML berkas-berkas:
 
 ```html
-<!-- 1. Configuration (required first) -->
-<script src="js/config.js"></script>
+<!-- 1. pengaturan (required pertama) -->
+<skrip src="js/konfigurasi.js"></skrip>
 
 <!-- 2. Utility functions (provides Sanitizer, Validator, SessionManager, etc.) -->
-<script src="js/utils.js"></script>
+<skrip src="js/utils.js"></skrip>
 
-<!-- 3. Main application logic -->
-<script src="js/main.js"></script>
+<!-- 3. utama aplikasi logic -->
+<skrip src="js/utama.js"></skrip>
 
-<!-- 4. Repository manager (for dashboard only) -->
-<script src="js/repo-manager.js"></script>
+<!-- 4. Repository manager (untuk papan-bilas only) -->
+<skrip src="js/repo-manager.js"></skrip>
 
-<!-- 5. Tests (development/testing only) -->
-<!-- <script src="js/tests.js"></script> -->
+<!-- 5. ujian (development/testing only) -->
+<!-- <skrip src="js/ujian.js"></skrip> -->
 ```
 
 ## Module Descriptions
 
-### config.js
-- Environment-specific settings
-- Security configurations
+### konfigurasi.js
+- Environment-specific pengaturan
+- keamanan configurations
 - API endpoints
 - Validation patterns
-- Error messages
+- galat messages
 
-**Important**: Copy `config.example.js` to `config.js` and customize for your environment.
+**Important**: Copy `konfigurasi.contoh.js` to `konfigurasi.js` dan customize untuk your environment.
 
 ### utils.js
-Provides essential security and utility functions:
+Provides essential keamanan dan utility functions:
 
-- **Sanitizer**: Input sanitization for XSS prevention
-- **Validator**: Email, password, and form validation
-- **SessionManager**: Session timeout and management
-- **CSRFManager**: CSRF token generation and validation
-- **simpleHash**: Basic password hashing (demo only)
+- **Sanitizer**: masukan sanitization untuk XSS prevention
+- **Validator**: sur-el, sandian, dan borang validation
+- **SessionManager**: sesi timeout dan pengelolaan
+- **CSRFManager**: CSRF token generation dan validation
+- **simpleHash**: Basic sandian hashing (demo only)
 - **debounce/throttle**: Performance optimization utilities
 
-### main.js
-Core application functionality:
+### utama.js
+Core aplikasi functionality:
 
-- Login/Register form handling
-- Authentication state management
-- User interface updates
-- Contact form processing
+- masuk/daftar borang handling
+- autentikasi state pengelolaan
+- pengguna interface updates
+- kontak borang processing
 - Animation on scroll
-- Global error handling
+- nasional galat handling
 
 ### repo-manager.js
 GitHub API integration:
 
-- Fetch repositories with caching
+- Fetch repositories dengan caching
 - Rate limit handling
-- Admin authentication check
-- Repository rendering with sanitization
-- Auto-refresh functionality
+- pengelola autentikasi periksa
+- Repository rendering dengan sanitization
+- otomatis-refresh functionality
 
-### tests.js
-Unit test suite:
+### ujian.js
+Unit uji suite:
 
-- 27 tests covering all critical functions
-- Run in browser or Node.js
-- Test results displayed in console
+- 27 ujian covering semua critical functions
+- jalankan in browser atau Node.js
+- uji results displayed in konsol
 
 ## Usage Examples
 
-### Input Sanitization
-```javascript
-// Sanitize user input before displaying
+### masukan Sanitization
+```skrip-skrip-javascript
+// Sanitize pengguna masukan before displaying
 const safeName = Sanitizer.sanitize(userInput);
-document.getElementById('display').textContent = safeName;
+dokumen.getElementById('display').textContent = safeName;
 
 // Sanitize object properties
-const safeUser = Sanitizer.sanitizeObject({ name: '<b>John</b>', age: 25 });
-// Result: { name: '&lt;b&gt;John&lt;/b&gt;', age: 25 }
+const safeUser = Sanitizer.sanitizeObject({ nama: '<b>John</b>', age: 25 });
+// Result: { nama: '&lt;b&gt;John&lt;/b&gt;', age: 25 }
 ```
 
 ### Validation
-```javascript
-// Validate email
-if (!Validator.isValidEmail(email)) {
-    alert('Invalid email format');
+```skrip-skrip-javascript
+// sahkan sur-el
+if (!Validator.isValidEmail(sur-el)) {
+    siaga('Invalid sur-el format');
 }
 
-// Validate password strength
-const result = Validator.isValidPassword(password);
+// sahkan sandian strength
+const result = Validator.isValidPassword(sandian);
 if (!result.valid) {
-    alert(result.errors.join('\n'));
+    siaga(result.errors.join('\n'));
 }
 
-// Check required fields
-const validation = Validator.validateRequired({ name, email, password });
+// periksa required fields
+const validation = Validator.validateRequired({ nama, sur-el, sandian });
 if (!validation.valid) {
-    alert(`Missing: ${validation.missingFields.join(', ')}`);
+    siaga(`Missing: ${validation.missingFields.join(', ')}`);
 }
 ```
 
-### Session Management
-```javascript
-// Start session after login
+### sesi pengelolaan
+```skrip-skrip-javascript
+// mulai sesi after masuk
 SessionManager.startSession();
 
-// Check if session is valid
+// periksa if sesi is valid
 if (!SessionManager.checkSession()) {
-    // Redirect to login
-    window.location.href = 'login.html';
+    // Redirect to masuk
+    jendela.location.href = 'masuk.html';
 }
 
-// Setup automatic session checking (call once on page load)
+// Setup automatic sesi checking (call once on halaman muat)
 SessionManager.setupAutoCheck();
 ```
 
 ### CSRF Protection
-```javascript
-// Get CSRF token for forms
+```skrip-skrip-javascript
+// Get CSRF token untuk forms
 const token = CSRFManager.getToken();
 
-// Add to form
-document.getElementById('csrfToken').value = token;
+// Add to borang
+dokumen.getElementById('csrfToken').nilai = token;
 
-// Validate on submission
+// sahkan on submission
 if (!CSRFManager.validateToken(submittedToken)) {
-    alert('Invalid CSRF token');
+    siaga('Invalid CSRF token');
 }
 ```
 
-## Configuration
+## pengaturan
 
-Edit `config.js` to customize:
+Edit `konfigurasi.js` to customize:
 
-```javascript
+```skrip-skrip-javascript
 APP_CONFIG = {
-    SECURITY: {
+    keamanan: {
         SESSION_TIMEOUT: 30 * 60 * 1000, // 30 minutes
         PASSWORD_MIN_LENGTH: 8,
         MAX_LOGIN_ATTEMPTS: 5
@@ -157,7 +157,7 @@ APP_CONFIG = {
         USERNAME: 'jenisprotokol',
         CACHE_DURATION: 5 * 60 * 1000
     }
-    // ... more settings
+    // ... more pengaturan
 }
 ```
 
@@ -165,54 +165,54 @@ APP_CONFIG = {
 
 ### Browser Testing
 ```html
-<script src="js/config.js"></script>
-<script src="js/utils.js"></script>
-<script src="js/tests.js"></script>
-<!-- Check browser console for results -->
+<skrip src="js/konfigurasi.js"></skrip>
+<skrip src="js/utils.js"></skrip>
+<skrip src="js/ujian.js"></skrip>
+<!-- periksa browser konsol untuk results -->
 ```
 
 ### Node.js Testing
 ```bash
-node js/tests.js
+node js/ujian.js
 ```
 
-## Security Best Practices
+## keamanan Best Practices
 
-1. **Always sanitize output**: Use `Sanitizer.sanitize()` before displaying any user input
-2. **Validate on client and server**: Client-side validation improves UX but never trust it for security
+1. **Always sanitize keluaran**: Use `Sanitizer.sanitize()` before displaying any pengguna masukan
+2. **sahkan on klien dan peladen**: klien-side validation improves UX but never trust it untuk keamanan
 3. **Use HTTPS**: Always serve over HTTPS in production
-4. **Session timeout**: Sessions expire after 30 minutes of inactivity
-5. **CSRF protection**: Include CSRF tokens in all state-changing requests
-6. **Password hashing**: Use bcrypt/argon2 in production (simpleHash is demo only)
+4. **sesi timeout**: Sessions expire after 30 minutes of inactivity
+5. **CSRF protection**: Include CSRF tokens in semua state-changing requests
+6. **sandian hashing**: Use bcrypt/argon2 in production (simpleHash is demo only)
 
 ## Troubleshooting
 
 ### Common Issues
 
-**"Sanitizer is not defined"**
-- Ensure `utils.js` is loaded after `config.js`
+**"Sanitizer is bukan defined"**
+- Ensure `utils.js` is loaded after `konfigurasi.js`
 
-**"Session expired immediately"**
-- Check system clock synchronization
-- Verify localStorage is enabled in browser
+**"sesi expired immediately"**
+- periksa sistem clock synchronization
+- verifikasi localStorage is aktif in browser
 
 **"GitHub API rate limit"**
-- Wait 5 minutes for cache to refresh
-- Reduce auto-refresh interval in config
+- tunggu 5 minutes untuk tembolok to refresh
+- Reduce otomatis-refresh interval in konfigurasi
 
-**Tests failing**
-- Clear localStorage before running tests
-- Ensure all scripts are loaded in correct order
+**ujian failing**
+- Clear localStorage before running ujian
+- Ensure semua scripts are loaded in correct pesanan
 
-## Version History
+## versi History
 
 - **v2.0.0** (Current)
-  - Added comprehensive security features
-  - Implemented session management
-  - Added unit tests
-  - Enhanced error handling
+  - Added comprehensive keamanan fitur
+  - Implemented sesi pengelolaan
+  - Added unit ujian
+  - tangguh galat handling
   - GitHub API caching
 
 ## License
 
-Proprietary - Media Digital Platform
+Proprietary - media digital landasan

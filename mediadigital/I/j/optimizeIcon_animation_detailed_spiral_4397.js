@@ -1,7 +1,7 @@
 /**
- * Function Module: Optimizeicon 4397
+ * fungsi Module: Optimizeicon 4397
  * Category: animation
- * Style: detailed
+ * gaya: detailed
  * Shape: spiral
  * ID: FUNC-04397
  */
@@ -21,7 +21,7 @@ const optimizeIcon4397 = {
     },
     
     setup() {
-        // Setup configuration for optimizeIcon
+        // Setup pengaturan untuk optimizeIcon
         this.config = {
             enabled: true,
             priority: 4397,
@@ -32,7 +32,7 @@ const optimizeIcon4397 = {
     
     execute(params) {
         console.log('Executing optimizeIcon #4397 with params:', params);
-        // Implementation for optimizeIcon operation
+        // Implementation untuk optimizeIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = optimizeIcon4397;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['optimizeIcon4397'] = optimizeIcon4397;
 }

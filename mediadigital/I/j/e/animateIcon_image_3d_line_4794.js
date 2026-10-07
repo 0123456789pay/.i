@@ -1,7 +1,7 @@
 /**
- * Function Module: Animateicon 4794
- * Category: image
- * Style: 3d
+ * fungsi Module: Animateicon 4794
+ * Category: gambar
+ * gaya: 3d
  * Shape: line
  * ID: FUNC-04794
  */
@@ -21,7 +21,7 @@ const animateIcon4794 = {
     },
     
     setup() {
-        // Setup configuration for animateIcon
+        // Setup pengaturan untuk animateIcon
         this.config = {
             enabled: true,
             priority: 4794,
@@ -32,7 +32,7 @@ const animateIcon4794 = {
     
     execute(params) {
         console.log('Executing animateIcon #4794 with params:', params);
-        // Implementation for animateIcon operation
+        // Implementation untuk animateIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = animateIcon4794;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['animateIcon4794'] = animateIcon4794;
 }

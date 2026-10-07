@@ -1,9 +1,9 @@
 /**
- * ALLUNIVERS ICONER - Icon Maker Menu System Styles
+ * ALLUNIVERS ICONER - ikon Maker Menu sistem gaya-gaya
  * Tema: Putih + #0066ff (Mewah Modern Elite)
  */
 
-/* Sidebar Container */
+/* sisi-papan wadah */
 .icon-maker-sidebar {
     width: 320px;
     height: 100%;
@@ -15,7 +15,7 @@
     box-shadow: 4px 0 20px rgba(0, 102, 255, 0.15);
 }
 
-/* Sidebar Header */
+/* sisi-papan kepala */
 .sidebar-header {
     padding: 20px;
     background: linear-gradient(135deg, #0066ff 0%, #0052cc 100%);
@@ -38,7 +38,7 @@
     font-size: 22px;
 }
 
-/* Search Input */
+/* cari masukan */
 .search-input {
     width: 100%;
     padding: 12px 15px;
@@ -63,7 +63,7 @@
     color: #999;
 }
 
-/* Categories Section */
+/* Categories bagian */
 .sidebar-categories {
     max-height: 200px;
     overflow-y: auto;
@@ -84,7 +84,7 @@
     border-radius: 4px;
 }
 
-/* Category Header */
+/* Category kepala */
 .category-header {
     padding: 12px 20px;
     display: flex;
@@ -146,7 +146,7 @@
     transform: rotate(180deg);
 }
 
-/* Menus List */
+/* Menus senarai */
 .sidebar-menus {
     flex: 1;
     overflow-y: auto;
@@ -167,7 +167,7 @@
     border-radius: 4px;
 }
 
-/* Menu Item */
+/* Menu butir */
 .menu-item {
     padding: 10px 20px;
     display: flex;
@@ -251,7 +251,7 @@
     border-top: 1px dashed #ccd5ff;
 }
 
-/* Modal Styles */
+/* Modal gaya-gaya */
 .menu-detail-modal {
     position: fixed;
     top: 0;

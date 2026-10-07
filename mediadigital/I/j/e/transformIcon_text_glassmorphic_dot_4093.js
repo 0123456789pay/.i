@@ -1,7 +1,7 @@
 /**
- * Function Module: Transformicon 4093
- * Category: text
- * Style: glassmorphic
+ * fungsi Module: Transformicon 4093
+ * Category: teks
+ * gaya: glassmorphic
  * Shape: dot
  * ID: FUNC-04093
  */
@@ -21,7 +21,7 @@ const transformIcon4093 = {
     },
     
     setup() {
-        // Setup configuration for transformIcon
+        // Setup pengaturan untuk transformIcon
         this.config = {
             enabled: true,
             priority: 4093,
@@ -32,7 +32,7 @@ const transformIcon4093 = {
     
     execute(params) {
         console.log('Executing transformIcon #4093 with params:', params);
-        // Implementation for transformIcon operation
+        // Implementation untuk transformIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = transformIcon4093;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['transformIcon4093'] = transformIcon4093;
 }

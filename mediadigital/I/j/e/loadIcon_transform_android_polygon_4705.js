@@ -1,7 +1,7 @@
 /**
- * Function Module: Loadicon 4705
+ * fungsi Module: Loadicon 4705
  * Category: transform
- * Style: android
+ * gaya: android
  * Shape: polygon
  * ID: FUNC-04705
  */
@@ -21,7 +21,7 @@ const loadIcon4705 = {
     },
     
     setup() {
-        // Setup configuration for loadIcon
+        // Setup pengaturan untuk loadIcon
         this.config = {
             enabled: true,
             priority: 4705,
@@ -32,7 +32,7 @@ const loadIcon4705 = {
     
     execute(params) {
         console.log('Executing loadIcon #4705 with params:', params);
-        // Implementation for loadIcon operation
+        // Implementation untuk loadIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = loadIcon4705;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['loadIcon4705'] = loadIcon4705;
 }

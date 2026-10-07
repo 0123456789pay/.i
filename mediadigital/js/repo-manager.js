@@ -1,19 +1,19 @@
 /**
  * Repository Manager - Mengambil data dari GitHub API
- * Fixed & Enhanced Version with Error Handling and Rate Limiting
+ * tetap & tangguh versi dengan galat Handling dan Rate Limiting
  */
 
 const GITHUB_USER = 'jenisprotokol';
-const GITHUB_API_URL = `https://api.github.com/users/${GITHUB_USER}/repos`;
+const GITHUB_API_URL = `https://api.github.com/para pengguna/${GITHUB_USER}/repos`;
 
-// Cache for repositories
+// tembolok untuk repositories
 let repoCache = {
     data: null,
     timestamp: 0,
-    ttl: 5 * 60 * 1000 // 5 minutes cache
+    ttl: 5 * 60 * 1000 // 5 minutes tembolok
 };
 
-// Fungsi untuk menampilkan section tertentu
+// Fungsi untuk menampilkan bagian tertentu
 function showSection(sectionName) {
     const reposSection = document.getElementById('repos-section');
     const filesSection = document.getElementById('files-section');
@@ -33,7 +33,7 @@ function logout() {
     localStorage.removeItem('adminUser');
     localStorage.removeItem('currentUser');
     
-    // End session if SessionManager is available
+    // End sesi if SessionManager is available
     if (typeof SessionManager !== 'undefined') {
         SessionManager.endSession();
     }
@@ -42,7 +42,7 @@ function logout() {
     window.location.href = '../login.html';
 }
 
-// Cek autentikasi admin dengan session validation
+// Cek autentikasi pengelola dengan sesi validation
 function checkAdminAuth() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     const adminUser = localStorage.getItem('adminUser');
@@ -56,20 +56,20 @@ function checkAdminAuth() {
         currentUser = null;
     }
     
-    // Check session expiration
+    // periksa sesi expiration
     if (typeof SessionManager !== 'undefined' && !SessionManager.checkSession()) {
         alert('Sesi Anda telah berakhir. Silakan login kembali.');
         window.location.href = '../login.html';
         return false;
     }
     
-    // Cek jika user adalah admin
+    // Cek jika pengguna adalah pengelola
     if (isLoggedIn !== 'true' || adminUser !== 'admin') {
         window.location.href = '../login.html';
         return false;
     }
     
-    // Tampilkan nama admin dengan sanitization
+    // Tampilkan nama pengelola dengan sanitization
     const adminNameEl = document.getElementById('adminName');
     if (adminNameEl) {
         if (currentUser && currentUser.name) {
@@ -79,13 +79,13 @@ function checkAdminAuth() {
         }
     }
     
-    // Tampilkan identitas user di dashboard
+    // Tampilkan identitas pengguna di papan-bilas
     displayUserIdentity();
     
     return true;
 }
 
-// Fungsi untuk menampilkan identitas user di dashboard
+// Fungsi untuk menampilkan identitas pengguna di papan-bilas
 function displayUserIdentity() {
     let user;
     try {
@@ -118,20 +118,20 @@ async function fetchRepositories() {
         return;
     }
     
-    // Check cache first
+    // periksa tembolok pertama
     const now = Date.now();
     if (repoCache.data && (now - repoCache.timestamp) < repoCache.ttl) {
         renderRepositories(repoCache.data, repoListContainer);
         return;
     }
     
-    // Show loading state
+    // tampilkan loading state
     repoListContainer.innerHTML = '<div class="loading">Memuat repositori...</div>';
     
     try {
         const response = await fetch(GITHUB_API_URL);
         
-        // Check for rate limiting
+        // periksa untuk rate limiting
         const remainingRequests = response.headers.get('X-RateLimit-Remaining');
         if (remainingRequests && parseInt(remainingRequests) < 10) {
             console.warn(`GitHub API rate limit warning: ${remainingRequests} requests remaining`);
@@ -149,7 +149,7 @@ async function fetchRepositories() {
         
         const repos = await response.json();
         
-        // Update cache
+        // perbarui tembolok
         repoCache.data = repos;
         repoCache.timestamp = now;
         
@@ -182,7 +182,7 @@ function renderRepositories(repos, container) {
         const repoCard = document.createElement('div');
         repoCard.className = 'repo-card';
         
-        // Sanitize content if Sanitizer is available
+        // Sanitize isi if Sanitizer is available
         const safeName = Sanitizer ? Sanitizer.sanitize(repo.name) : repo.name;
         const safeDescription = Sanitizer ? Sanitizer.sanitize(repo.description || 'Tidak ada deskripsi') : (repo.description || 'Tidak ada deskripsi');
         const safeLanguage = Sanitizer ? Sanitizer.sanitize(repo.language || 'N/A') : (repo.language || 'N/A');
@@ -207,7 +207,7 @@ function renderRepositories(repos, container) {
     });
 }
 
-// Inisialisasi dashboard
+// Inisialisasi papan-bilas
 document.addEventListener('DOMContentLoaded', function() {
     // Cek autentikasi
     if (!checkAdminAuth()) {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Muat repositori
     fetchRepositories();
     
-    // Auto-refresh setiap 5 menit
+    // otomatis-refresh setiap 5 menit
     setInterval(fetchRepositories, 300000);
     
     console.log('Dashboard initialized successfully');

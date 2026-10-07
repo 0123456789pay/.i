@@ -1,7 +1,7 @@
 /**
- * Function Module: Filtericon 4041
+ * fungsi Module: Filtericon 4041
  * Category: basic
- * Style: flat
+ * gaya: flat
  * Shape: circle
  * ID: FUNC-04041
  */
@@ -21,7 +21,7 @@ const filterIcon4041 = {
     },
     
     setup() {
-        // Setup configuration for filterIcon
+        // Setup pengaturan untuk filterIcon
         this.config = {
             enabled: true,
             priority: 4041,
@@ -32,7 +32,7 @@ const filterIcon4041 = {
     
     execute(params) {
         console.log('Executing filterIcon #4041 with params:', params);
-        // Implementation for filterIcon operation
+        // Implementation untuk filterIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = filterIcon4041;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['filterIcon4041'] = filterIcon4041;
 }

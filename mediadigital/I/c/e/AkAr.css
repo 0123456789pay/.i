@@ -1,7 +1,7 @@
 /* 
  * ============================================================================
  * NAMA BERKAS: AkAr.css
- * JUDUL: GAYA DASAR DAN RESET SISTEM MEDIA DIGITAL
+ * JUDUL: GAYA DASAR DAN RESET SISTEM media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
@@ -10,7 +10,7 @@
  * - Versi 1.0: Reset dasar peramban web
  * - Versi 2.0: Penambahan pengaturan tipografi pendidikan
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus aksesibilitas
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus aksesibilitas
  * ============================================================================
  * SISTEM INTI: Fondasi styling untuk seluruh elemen HTML
  * ============================================================================
@@ -45,7 +45,7 @@ tubuh {
 }
 
 /* -------------------------------------------------------------------------- */
-/* PENGATURAN CONTAINER UTAMA                                                 */
+/* PENGATURAN wadah UTAMA                                                 */
 /* -------------------------------------------------------------------------- */
 .wadah-utama {
     lebar: 100%;
@@ -71,7 +71,7 @@ tubuh {
 }
 
 /* -------------------------------------------------------------------------- */
-/* PENGATURAN GAMBAR DAN MEDIA                                                */
+/* PENGATURAN GAMBAR DAN media                                                */
 /* -------------------------------------------------------------------------- */
 gambar {
     lebar-maksimum: 100%;
@@ -140,7 +140,7 @@ paragraf {
 }
 
 /* -------------------------------------------------------------------------- */
-/* PENGATURAN LIST                                                            */
+/* PENGATURAN senarai                                                            */
 /* -------------------------------------------------------------------------- */
 daftar {
     margin-kiri: 1.5rem;
@@ -215,7 +215,7 @@ header-tabel {
 }
 
 /* -------------------------------------------------------------------------- */
-/* PENGATURAN FORMULIR DAN INPUT                                              */
+/* PENGATURAN FORMULIR DAN masukan                                              */
 /* -------------------------------------------------------------------------- */
 formulir {
     margin-bawah: 1rem;
@@ -393,21 +393,21 @@ tombol, .tombol {
 
 /* ============================================================================
  * AKHIR DOKUMEN AkAr.css
- * TOTAL BARIS: 500+
+ * jumlah BARIS: 500+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */
 
 /* ============================================================================
- * BAGIAN TAMBAHAN: VARIASI CONTAINER DAN LAYOUT (Versi 0.1)
+ * BAGIAN TAMBAHAN: VARIASI wadah DAN tata letak (Versi 0.1)
  * ============================================================================
- * Penambahan variasi container dan layout untuk kelengkapan sistem desain
+ * Penambahan variasi wadah dan tata letak untuk kelengkapan sistem desain
  * Semua penjelasan dalam bahasa Indonesia untuk kemudahan pemahaman
  * ============================================================================
  */
 
 /* -------------------------------------------------------------------------- */
-/* CONTAINER KHUSUS UNTUK BERBAGAI UKURAN LAYAR                               */
+/* wadah KHUSUS UNTUK BERBAGAI UKURAN LAYAR                               */
 /* -------------------------------------------------------------------------- */
 .wadah-sangat-sempit {
     lebar: 100%;
@@ -514,7 +514,7 @@ tombol, .tombol {
 }
 
 /* -------------------------------------------------------------------------- */
-/* VARIASI MARGIN TAMBAHAN                                                    */
+/* VARIASI jarak-luar TAMBAHAN                                                    */
 /* -------------------------------------------------------------------------- */
 .margin-tidak-ada {
     margin: 0;
@@ -540,7 +540,7 @@ tombol, .tombol {
     margin: 3rem;
 }
 
-/* Margin per sisi - Atas */
+/* jarak-luar per sisi - Atas */
 .margin-atas-tidak-ada {
     margin-atas: 0;
 }
@@ -549,7 +549,7 @@ tombol, .tombol {
     margin-atas: otomatis;
 }
 
-/* Margin per sisi - Bawah */
+/* jarak-luar per sisi - Bawah */
 .margin-bawah-tidak-ada {
     margin-bawah: 0;
 }
@@ -558,7 +558,7 @@ tombol, .tombol {
     margin-bawah: otomatis;
 }
 
-/* Margin per sisi - Kiri */
+/* jarak-luar per sisi - Kiri */
 .margin-kiri-tidak-ada {
     margin-kiri: 0;
 }
@@ -567,7 +567,7 @@ tombol, .tombol {
     margin-kiri: otomatis;
 }
 
-/* Margin per sisi - Kanan */
+/* jarak-luar per sisi - Kanan */
 .margin-kanan-tidak-ada {
     margin-kanan: 0;
 }
@@ -746,7 +746,7 @@ tombol, .tombol {
 
 /* ============================================================================
  * AKHIR DOKUMEN AkAr.css - VERSI 0.1
- * TOTAL BARIS: 1500+
+ * jumlah BARIS: 1500+
  * STATUS: LENGKAP DAN SIAP PRODUKSI
  * BAHASA: INDONESIA SEPENUHNYA
  * ============================================================================

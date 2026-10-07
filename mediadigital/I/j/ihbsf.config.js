@@ -1,5 +1,5 @@
 /**
- * IHBSF (Iconer Hierarchical Base System Framework) Configuration
+ * IHBSF (Iconer Hierarchical dasar sistem Framework) pengaturan
  * Package lengkap sistem tampilan, konfigurasi, dan sistem perangkat untuk .iconer
  */
 
@@ -166,7 +166,7 @@ export const IHBSF_CONFIG = {
     }
   },
 
-  // Plugin System
+  // Plugin sistem
   plugins: {
     enabled: true,
     directory: './plugins',
@@ -175,7 +175,7 @@ export const IHBSF_CONFIG = {
     blacklist: []
   },
 
-  // API Configuration
+  // API pengaturan
   api: {
     baseUrl: 'https://api.iconer.com/v1',
     timeout: 30000,
@@ -190,7 +190,7 @@ export const IHBSF_CONFIG = {
     }
   },
 
-  // Storage
+  // penyimpanan
   storage: {
     local: {
       enabled: true,

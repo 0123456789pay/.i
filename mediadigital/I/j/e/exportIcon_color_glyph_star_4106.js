@@ -1,7 +1,7 @@
 /**
- * Function Module: Exporticon 4106
- * Category: color
- * Style: glyph
+ * fungsi Module: Exporticon 4106
+ * Category: warna
+ * gaya: glyph
  * Shape: star
  * ID: FUNC-04106
  */
@@ -21,7 +21,7 @@ const exportIcon4106 = {
     },
     
     setup() {
-        // Setup configuration for exportIcon
+        // Setup pengaturan untuk exportIcon
         this.config = {
             enabled: true,
             priority: 4106,
@@ -32,7 +32,7 @@ const exportIcon4106 = {
     
     execute(params) {
         console.log('Executing exportIcon #4106 with params:', params);
-        // Implementation for exportIcon operation
+        // Implementation untuk exportIcon operation
         return this.process(params);
     },
     
@@ -65,7 +65,7 @@ if (typeof module !== 'undefined' && module.exports) {
     module.exports = exportIcon4106;
 }
 
-// Auto-initialize if in browser
+// otomatis-mulai if in browser
 if (typeof window !== 'undefined') {
     window['exportIcon4106'] = exportIcon4106;
 }

@@ -8,7 +8,7 @@ import os
 import re
 from pathlib import Path
 
-# Mapping kata kunci ke kategori dan sub-menu spesifik
+# pemetaan kata kunci ke kategori dan sub-menu spesifik
 KEYWORD_MAPPINGS = {
     # E-commerce & Shopping
     'shop': {
@@ -32,7 +32,7 @@ KEYWORD_MAPPINGS = {
         ]
     },
     
-    # Media & Content
+    # media & isi
     'media': {
         'category': 'Media & Broadcasting',
         'menus': [
@@ -86,7 +86,7 @@ KEYWORD_MAPPINGS = {
         ]
     },
     
-    # Security
+    # keamanan
     'security': {
         'category': 'Cybersecurity',
         'menus': [
@@ -130,7 +130,7 @@ KEYWORD_MAPPINGS = {
         ]
     },
     
-    # Cloud & Infrastructure
+    # awan & Infrastructure
     'cloud': {
         'category': 'Cloud Computing',
         'menus': [
@@ -152,7 +152,7 @@ KEYWORD_MAPPINGS = {
         ]
     },
     
-    # Data & Analytics
+    # data & Analytics
     'data': {
         'category': 'Data Management',
         'menus': [
@@ -317,7 +317,7 @@ KEYWORD_MAPPINGS = {
         ]
     },
     
-    # Default fallback for unrecognized folders
+    # bawaan fallback untuk unrecognized folders
     'default': {
         'category': 'General Services',
         'menus': [
@@ -345,7 +345,7 @@ def generate_submenu_html(menu_name, submenu_items):
     html += f'    <a href="#" class="nav-link">{menu_name} <span class="arrow">▼</span></a>\n'
     html += f'    <ul class="dropdown-menu">\n'
     
-    for item in submenu_items[:15]:  # Limit to 15 items per menu
+    for item in submenu_items[:15]:  # Limit to 15 butiran per menu
         if isinstance(item, str):
             slug = item.lower().replace(' ', '-').replace('&', 'and')
             html += f'        <li><a href="#{slug}">{item}</a></li>\n'
@@ -373,7 +373,7 @@ def generate_index_html(folder_name, folder_path):
     category = data['category']
     menus = data['menus']
     
-    # Generate navigation menus
+    # hasilkan navigation menus
     nav_html = '<!-- START: Dynamic Navigation Component for media.digital -->\n'
     nav_html += '<nav class="digital-nav">\n'
     nav_html += '    <div class="nav-container">\n'
@@ -394,7 +394,7 @@ def generate_index_html(folder_name, folder_path):
     nav_html += '</nav>\n'
     nav_html += '<!-- END: Global Navigation Component -->\n'
     
-    # Generate main content
+    # hasilkan utama isi
     content_html = f'''
     <main class="main-content">
         <section class="hero-section">
@@ -506,7 +506,7 @@ def generate_index_html(folder_name, folder_path):
     </footer>
 '''
     
-    # Complete HTML document
+    # Complete HTML dokumen
     full_html = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -966,17 +966,17 @@ def main():
         index_file = folder / 'index.html'
         
         try:
-            # Generate new index.html
+            # hasilkan baru indeks.html
             html_content = generate_index_html(folder_name, folder)
             
             if index_file.exists():
-                # Update existing file
+                # perbarui existing berkas
                 with open(index_file, 'w', encoding='utf-8') as f:
                     f.write(html_content)
                 updated_count += 1
                 print(f"✓ Updated: {folder_name}")
             else:
-                # Create new file
+                # buat baru berkas
                 with open(index_file, 'w', encoding='utf-8') as f:
                     f.write(html_content)
                 created_count += 1

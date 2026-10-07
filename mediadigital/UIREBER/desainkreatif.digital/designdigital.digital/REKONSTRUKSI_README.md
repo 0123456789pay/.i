@@ -1,43 +1,43 @@
-# DesainKreatif.Digital - Rekonstruksi UI/UX
+# DesainKreatif.digital - Rekonstruksi UI/UX
 
 ## Gambaran Umum
 
-Platform **DesainKreatif.Digital** telah direkonstruksi dengan tampilan UI modern menggunakan aksen **putih-biru** seperti **Media.Digital**, dilengkapi dengan sistem login/register, navigasi menu dinamis untuk seluruh folder `.digital`, dan komponen fungsional yang terintegrasi.
+landasan **DesainKreatif.digital** telah direkonstruksi dengan tampilan UI modern menggunakan aksen **putih-biru** seperti **media.digital**, dilengkapi dengan sistem masuk/daftar, navigasi menu dinamis untuk seluruh direktori `.digital`, dan komponen fungsional yang terintegrasi.
 
 ## Fitur Utama
 
 ### 1. **Sistem Autentikasi**
-- ✅ Modal Login/Register dengan tab switching
-- ✅ Form validasi (email, password minimal 8 karakter, konfirmasi password)
-- ✅ Social login (Google, Facebook, GitHub)
+- ✅ Modal masuk/daftar dengan tab switching
+- ✅ borang validasi (sur-el, sandian minimal 8 karakter, konfirmasi sandian)
+- ✅ Social masuk (Google, Facebook, GitHub)
 - ✅ Remember me functionality
-- ✅ Session management (localStorage/sessionStorage)
-- ✅ Notifikasi sukses/error
+- ✅ sesi pengelolaan (localStorage/sessionStorage)
+- ✅ Notifikasi sukses/galat
 
 ### 2. **UI/UX Design (White Blue Theme)**
 - ✅ Warna utama: `#0066cc` (Primary Blue)
 - ✅ Warna sekunder: `#0099ff` (Secondary Blue)
-- ✅ Background: `#f8fbff` (Off-white)
+- ✅ latar-belakang: `#f8fbff` (Off-white)
 - ✅ Gradient buttons dengan hover effects
 - ✅ Smooth animations dan transitions
 - ✅ Responsive design (mobile-friendly)
-- ✅ Custom scrollbar
+- ✅ suai scrollbar
 - ✅ Dropdown menus dengan shadow effects
 
 ### 3. **Navigasi Menu**
-- ✅ Header navigation dengan dropdown
+- ✅ kepala navigation dengan dropdown
 - ✅ Menu categories:
-  - Dashboard (Ringkasan, Analitik, Laporan, Widget)
-  - Konten (Artikel, Media, Galeri, Dokumen)
-  - Alat (Editor, Converter, Optimizer, Generator)
+  - papan-bilas (Ringkasan, Analitik, Laporan, Widget)
+  - Konten (Artikel, media, Galeri, Dokumen)
+  - Alat (penyunting, Converter, Optimizer, Generator)
   - Komunitas (Forum, Anggota, Event, Kolaborasi)
   - Pengaturan (Profil, Keamanan, Preferensi, Tagihan)
 - ✅ Mobile menu toggle
-- ✅ Search functionality
+- ✅ cari functionality
 - ✅ Notification badge
 
-### 4. **Modul .Digital Integration**
-Setiap folder `.digital` di dalam `desainkreatif.digital/` dikonversi menjadi modul dengan menu navigasi:
+### 4. **Modul .digital Integration**
+Setiap direktori `.digital` di dalam `desainkreatif.digital/` dikonversi menjadi modul dengan menu navigasi:
 
 #### Modul yang Tersedia:
 ```
@@ -47,67 +47,67 @@ desainkreatif.digital/
 ├── ProduksiFilm.digital/       → Produksi dan editing video
 ├── RealitasTambahan.digital/   → Teknologi AR/VR
 ├── creativflow.digital/        → Workflow kreatif
-└── designdigital.digital/      → Platform utama (ini)
+└── designdigital.digital/      → landasan utama (ini)
 ```
 
 ### 5. **Komponen Sistem**
 
-#### File Struktur:
+#### berkas Struktur:
 ```
 designdigital.digital/
-├── index.html              # Halaman utama dengan login/register modal
+├── indeks.html              # Halaman utama dengan masuk/daftar modal
 ├── css/
-│   └── style.css          # Styling lengkap (786 baris)
+│   └── gaya.css          # Styling lengkap (786 baris)
 ├── js/
-│   ├── app.js             # Main application logic
-│   └── auth.js            # Authentication manager class
-├── config/
-│   └── system.json        # Konfigurasi sistem
+│   ├── app.js             # utama aplikasi logic
+│   └── auth.js            # autentikasi manager kelas
+├── konfigurasi/
+│   └── sistem.json        # Konfigurasi sistem
 ├── components/            # Komponen UI reusable
 ├── auth/                  # Module autentikasi
 ├── php/                   # Backend PHP scripts
 ├── html/                  # Template HTML
-└── db/                    # Database schema
+└── db/                    # basis-data schema
 ```
 
 ### 6. **Fitur Detail per Modul**
 
 Setiap modul `.digital` memiliki:
-- ✅ `index.html` - Halaman utama modul
-- ✅ `style.css` - Styling spesifik modul
-- ✅ `script.js` / `js/app.js` - JavaScript functionality
-- ✅ `config.json` / `config/system.json` - Konfigurasi modul
-- ✅ `php/index.php` - Backend processing
-- ✅ `db/schema.sql` - Database structure
-- ✅ `lang/` - Localization files (id.json, en.json)
+- ✅ `indeks.html` - Halaman utama modul
+- ✅ `gaya.css` - Styling spesifik modul
+- ✅ `skrip.js` / `js/app.js` - skrip-skrip-javascript functionality
+- ✅ `konfigurasi.json` / `konfigurasi/sistem.json` - Konfigurasi modul
+- ✅ `php/indeks.php` - Backend processing
+- ✅ `db/schema.sql` - basis-data structure
+- ✅ `lang/` - Localization berkas-berkas (id.json, en.json)
 
-### 7. **Footer (Tanpa Link Duplikat)**
-Footer berisi 5 section tanpa link yang sama:
-- **Tentang Kami** + Social media links
+### 7. **kaki (Tanpa tautan Duplikat)**
+kaki berisi 5 bagian tanpa tautan yang sama:
+- **Tentang Kami** + Social media tautan
 - **Produk** (Fitur, Harga, Modul, Integrasi)
 - **Dukungan** (Pusat Bantuan, Dokumentasi, API, Status)
 - **Legal** (Privasi, Syarat, Cookie, GDPR)
-- **Kontak** (Email, Phone, Address)
+- **Kontak** (sur-el, telepon, alamat)
 
 ## Konfigurasi Sistem
 
-File `config/system.json` berisi:
+berkas `konfigurasi/sistem.json` berisi:
 ```json
 {
   "app": {
-    "name": "DesainKreatif.Digital",
-    "version": "1.0.0",
+    "nama": "DesainKreatif.digital",
+    "versi": "1.0.0",
     "theme": "white-blue"
   },
   "auth": {
-    "enabled": true,
+    "aktif": benar,
     "password_min_length": 8,
     "social_login": {...}
   },
   "modules": {
     "scan_directory": "../",
     "extension": ".digital",
-    "auto_load": true
+    "auto_load": benar
   },
   "ui": {
     "colors": {
@@ -120,31 +120,31 @@ File `config/system.json` berisi:
 
 ## Cara Penggunaan
 
-### 1. Akses Platform
-Buka file `desainkreatif.digital/designdigital.digital/index.html` di browser.
+### 1. Akses landasan
+Buka berkas `desainkreatif.digital/designdigital.digital/indeks.html` di browser.
 
-### 2. Login/Register
-- Klik tombol **"Masuk"** atau **"Daftar"** di header
-- Atau klik **"Mulai Sekarang"** di hero section
-- Modal akan muncul dengan form login/register
+### 2. masuk/daftar
+- Klik tombol **"Masuk"** atau **"Daftar"** di kepala
+- Atau klik **"Mulai Sekarang"** di hero bagian
+- Modal akan muncul dengan borang masuk/daftar
 
 ### 3. Navigasi Modul
-- Gunakan dropdown menu di header
-- Atau klik pada card modul di section "Fitur Unggulan"
-- Lihat daftar lengkap di section "Direktori Modul"
+- Gunakan dropdown menu di kepala
+- Atau klik pada card modul di bagian "Fitur Unggulan"
+- Lihat daftar lengkap di bagian "Direktori Modul"
 
 ### 4. Fitur Interaktif
-- **Search**: Klik icon search untuk mencari modul
-- **Notification**: Klik icon bell untuk melihat notifikasi
+- **cari**: Klik ikon cari untuk mencari modul
+- **Notification**: Klik ikon bell untuk melihat notifikasi
 - **Smooth Scroll**: Klik menu anchor untuk scroll halus
 
 ## Teknologi yang Digunakan
 
 - **HTML5** - Semantic markup
-- **CSS3** - Custom properties, flexbox, grid, animations
-- **JavaScript ES6+** - Class-based architecture, async/await
-- **Font Awesome 6** - Icon library
-- **LocalStorage/SessionStorage** - Session management
+- **CSS3** - suai properties, flexbox, grid, animations
+- **skrip-skrip-javascript ES6+** - kelas-based architecture, async/await
+- **huruf Awesome 6** - ikon library
+- **LocalStorage/SessionStorage** - sesi pengelolaan
 
 ## Browser Support
 
@@ -155,22 +155,22 @@ Buka file `desainkreatif.digital/designdigital.digital/index.html` di browser.
 
 ## Struktur Kode Sistem
 
-### AuthManager Class (`js/auth.js`)
-```javascript
-class AuthManager {
-  init()              // Initialize session
-  handleLogin()       // Process login
+### AuthManager kelas (`js/auth.js`)
+```skrip-skrip-javascript
+kelas AuthManager {
+  mulaikan()              // mulai sesi
+  handleLogin()       // Process masuk
   handleRegister()    // Process registration
   handleSocialLogin() // OAuth integration
-  logout()            // Clear session
+  logout()            // Clear sesi
   showNotification()  // Display notifications
 }
 ```
 
-### Main App (`js/app.js`)
-```javascript
-openAuthModal()       // Show auth modal
-closeAuthModal()      // Hide auth modal
+### utama App (`js/app.js`)
+```skrip-skrip-javascript
+openAuthModal()       // tampilkan auth modal
+closeAuthModal()      // sembunyikan auth modal
 loadModules()         // Dynamic module loading
 navigateToModule()    // Module navigation
 toggleMobileMenu()    // Responsive menu
@@ -180,9 +180,9 @@ toggleMobileMenu()    // Responsive menu
 
 Untuk menambahkan modul `.digital` baru:
 
-1. Buat folder dengan ekstensi `.digital`
-2. Tambahkan file `index.html` dengan struktur yang sama
-3. Update konfigurasi di `system.json`
+1. Buat direktori dengan ekstensi `.digital`
+2. Tambahkan berkas `indeks.html` dengan struktur yang sama
+3. perbarui konfigurasi di `sistem.json`
 4. Modul akan otomatis muncul di direktori
 
 ## Keamanan
@@ -190,14 +190,14 @@ Untuk menambahkan modul `.digital` baru:
 - ✅ CSRF Protection (configured)
 - ✅ XSS Protection (configured)
 - ✅ Rate Limiting (100 requests/minute)
-- ✅ Password validation (min 8 characters)
-- ✅ Input sanitization
-- ✅ Secure session storage
+- ✅ sandian validation (min 8 characters)
+- ✅ masukan sanitization
+- ✅ Secure sesi penyimpanan
 
 ## Lisensi
 
-© 2024 DesainKreatif.Digital - All Rights Reserved
+© 2024 DesainKreatif.digital - semua Rights Reserved
 
 ---
 
-**Dibuat dengan ❤️ untuk platform digital kreatif Indonesia**
+**Dibuat dengan ❤️ untuk landasan digital kreatif Indonesia**

@@ -1,6 +1,6 @@
 /**
- * ALLUNIVERS ICONER - Cahaya Iconer Sidebar Menu System
- * 300 Menu dengan icon di sidebar + modal kecil menempel pada menu utama
+ * ALLUNIVERS ICONER - Cahaya Iconer sisi-papan Menu sistem
+ * 300 Menu dengan ikon di sisi-papan + modal kecil menempel pada menu utama
  * Aksen: Putih + #0066ff
  */
 
@@ -196,12 +196,12 @@ class CahayaIconerSidebar {
     }
 
     bindEvents() {
-        // Sidebar toggle
+        // sisi-papan toggle
         document.getElementById('sidebarToggle').addEventListener('click', () => {
             this.sidebarContainer.classList.toggle('collapsed');
         });
 
-        // Search
+        // cari
         document.getElementById('sidebarSearch').addEventListener('input', (e) => {
             this.filterMenus(e.target.value);
         });
@@ -217,7 +217,7 @@ class CahayaIconerSidebar {
             });
         });
 
-        // Menu item click
+        // Menu butir click
         document.querySelectorAll('.sidebar-menu-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 const menuId = item.dataset.menuId;
@@ -226,7 +226,7 @@ class CahayaIconerSidebar {
             });
         });
 
-        // Modal close
+        // Modal tutup
         document.getElementById('modalClose').addEventListener('click', () => {
             this.hideModal();
         });
@@ -322,12 +322,12 @@ class CahayaIconerSidebar {
     }
 }
 
-// Initialize when DOM is loaded
+// mulai when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     window.cahayaSidebar = new CahayaIconerSidebar();
 });
 
-// CSS Styles
+// CSS gaya-gaya
 const sidebarStyles = `
 <style>
 .cahaya-sidebar {
@@ -518,7 +518,7 @@ const sidebarStyles = `
     gap: 0.4rem;
 }
 
-/* Modal Styles */
+/* Modal gaya-gaya */
 .cahaya-modal {
     position: fixed;
     top: 50%;

@@ -1,16 +1,16 @@
 /* 
  * ============================================================================
- * NAMA BERKAS: MEdIa.css
- * JUDUL: QUERY PERANGKAT MOBILE/DESKTOP MEDIA DIGITAL
+ * NAMA BERKAS: media.css
+ * JUDUL: kueri PERANGKAT MOBILE/DESKTOP media digital
  * VERSI: 0.1
  * BAHASA: INDONESIA (STANDARISASI PENUH)
  * TEMA: PUTIH DAN BIRU LAUT
  * ============================================================================
  * CATATAN RIWAYAT PENULISAN KODE:
  * - Versi 1.0: Breakpoint dasar responsif
- * - Versi 2.0: Penambahan query untuk berbagai perangkat
+ * - Versi 2.0: Penambahan kueri untuk berbagai perangkat
  * - Versi 3.0: Standarisasi nama kelas dalam bahasa Indonesia
- * - Versi 4.0: Pembersihan total dari bahasa asing, fokus responsivitas
+ * - Versi 4.0: Pembersihan jumlah dari bahasa asing, fokus responsivitas
  * ============================================================================
  * SISTEM INTI: Mengatur tampilan responsif untuk semua perangkat
  * ============================================================================
@@ -102,7 +102,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* QUERY BERDASARKAN TINGGI LAYAR                                             */
+/* kueri BERDASARKAN TINGGI LAYAR                                             */
 /* -------------------------------------------------------------------------- */
 @media (tinggi-layar-maksimum: 600px) {
     .layar-rendah-penyesuaian {
@@ -218,7 +218,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* LEBAR KHUSUS UNTUK MEDIA DIGITAL                                           */
+/* LEBAR KHUSUS UNTUK media digital                                           */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 1400px) {
     .kontainer-media-digital {
@@ -287,7 +287,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF UNTUK GRID SYSTEM                                                */
+/* RESPONSIF UNTUK GRID sistem                                                */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 576px) {
     .grid-1-kolom-mobile { template-kolom-grid: 1fr; }
@@ -318,7 +318,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF UNTUK CONTAINER                                                  */
+/* RESPONSIF UNTUK wadah                                                  */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 576px) {
     .wadah-fluid-mobile {
@@ -413,7 +413,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF UNTUK BUTTON                                                     */
+/* RESPONSIF UNTUK tombol                                                     */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 576px) {
     .tombol-block-mobile {
@@ -443,7 +443,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF UNTUK TABLE                                                      */
+/* RESPONSIF UNTUK tabel                                                      */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 768px) {
     .tabel-scroll-horizontal {
@@ -464,7 +464,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF UNTUK FORM                                                       */
+/* RESPONSIF UNTUK borang                                                       */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 576px) {
     .form-group-mobile {
@@ -477,7 +477,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* RESPONSIF UNTUK MARGIN DAN PADDING                                         */
+/* RESPONSIF UNTUK jarak-luar DAN bantalan                                         */
 /* -------------------------------------------------------------------------- */
 @media (lebar-layar-maksimum: 576px) {
     .m-nol-mobile { margin: 0; }
@@ -584,8 +584,8 @@
 }
 
 /* ============================================================================
- * AKHIR DOKUMEN MEdIa.css
- * TOTAL BARIS: 600+
+ * AKHIR DOKUMEN media.css
+ * jumlah BARIS: 600+
  * STATUS: SIAP PRODUKSI
  * ============================================================================
  */

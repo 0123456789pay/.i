@@ -1,0 +1,29 @@
+{
+  "sistem": "protokol multifungsi | penangan seluruh input output",
+  "versi": "1.0.0",
+  "bahasa_utama": "bahasa indonesia",
+  "aktif": true,
+  "kanal_masukan": [
+    "papan tik",
+    "berkas",
+    "jaringan",
+    "sensor"
+  ],
+  "kanal_keluaran": [
+    "layar",
+    "berkas",
+    "jaringan",
+    "pencetak"
+  ],
+  "kapasitas_penyangga": 1024,
+  "batas_laju_paket_per_detik": 100,
+  "jadwal": {
+    "auto_simpan_detik": 5,
+    "pendataan_detik": 60
+  },
+  "penyandian": {
+    "huruf_alfa": true,
+    "angka_desimal": true,
+    "simbol_baku": true
+  }
+}

@@ -1,77 +1,77 @@
-# ControlProxy - Advanced Proxy System
+# ControlProxy - Advanced Proxy sistem
 
-ControlProxy adalah sistem proxy canggih yang menggabungkan berbagai fungsionalitas dalam satu platform terpadu.
+ControlProxy adalah sistem proxy canggih yang menggabungkan berbagai fungsionalitas dalam satu landasan terpadu.
 
 ## 🚀 Fitur Utama
 
-### 1. **Browser Search Proxy** (`/search`)
-- Proxy pencarian untuk multiple search engines (Google, Bing, DuckDuckGo)
+### 1. **Browser cari Proxy** (`/cari`)
+- Proxy pencarian untuk multiple cari engines (Google, Bing, DuckDuckGo)
 - Rate limiting dan caching
 - Support multi-engine
 
 ### 2. **API Gateway** (`/api`)
 - Gateway terpusat untuk semua API endpoints
-- Authentication & Authorization
-- Request routing ke backend services
+- autentikasi & Authorization
+- permintaan routing ke backend services
 
 ### 3. **AI MCP** (`/mcp`)
 - Model Context Protocol endpoint
 - Integrasi dengan AI models
 - Configurable tokens dan temperature
 
-### 4. **AI System** (`/ai`)
+### 4. **AI sistem** (`/ai`)
 - Multi-model AI routing (GPT-4, Claude-3, Llama-3)
 - Fallback mechanism
 - Model comparison endpoint
 
-### 5. **Routing System** (`/route`)
-- Load balancing dengan multiple algorithms:
+### 5. **Routing sistem** (`/route`)
+- muat balancing dengan multiple algorithms:
   - Least Connections
   - Round Robin
-  - Fastest Response
+  - Fastest jawaban
 - Health checking otomatis
-- Dynamic backend management
+- Dynamic backend pengelolaan
 
 ### 6. **Hosting & Domain** (`/host`)
-- Static file hosting
+- Static berkas hosting
 - Multi-domain support
-- SSL auto-renewal integration
+- SSL otomatis-renewal integration
 
-### 7. **Dashboard** (`/dashboard`)
-- Real-time system monitoring
-- Service management (start/stop/restart)
-- Configuration management
-- Log viewer
+### 7. **papan-bilas** (`/papan-bilas`)
+- Real-waktu sistem monitoring
+- Service pengelolaan (mulai/henti/restart)
+- pengaturan pengelolaan
+- catatan penanggap
 - Statistics & analytics
 
-## 📁 Struktur Folder
+## 📁 Struktur direktori
 
 ```
 controlproxy/
-├── config/
-│   └── settings.json          # Konfigurasi utama
+├── konfigurasi/
+│   └── pengaturan.json          # Konfigurasi utama
 ├── controllers/
-│   └── proxyController.js     # Main controller
+│   └── proxyController.js     # utama controller
 ├── routes/
-│   ├── browserSearch.js       # Browser search routes
+│   ├── browserSearch.js       # Browser cari routes
 │   ├── apiGateway.js          # API gateway routes
 │   ├── aiMcp.js              # AI MCP routes
-│   ├── aiSystem.js           # AI system routes
-│   ├── routing.js            # Routing system routes
+│   ├── aiSystem.js           # AI sistem routes
+│   ├── routing.js            # Routing sistem routes
 │   ├── hosting.js            # Hosting & domain routes
-│   └── dashboard.js          # Dashboard routes
+│   └── papan-bilas.js          # papan-bilas routes
 ├── services/
-│   ├── healthCheck.js        # Health check service
-│   └── logRotator.js         # Log rotation service
+│   ├── healthCheck.js        # Health periksa service
+│   └── logRotator.js         # catatan rotation service
 ├── views/
-│   └── dashboard.html        # Dashboard UI
-├── public/
+│   └── papan-bilas.html        # papan-bilas UI
+├── umum/
 │   ├── css/
-│   │   └── dashboard.css     # Dashboard styles
+│   │   └── papan-bilas.css     # papan-bilas gaya-gaya
 │   └── js/
-│       └── dashboard.js      # Dashboard JavaScript
-├── logs/                      # Log files directory
-├── index.js                   # Entry point
+│       └── papan-bilas.js      # papan-bilas skrip-skrip-javascript
+├── catatan-catatan/                      # catatan berkas-berkas direktori
+├── indeks.js                   # Entry point
 └── package.json              # Dependencies
 ```
 
@@ -86,97 +86,97 @@ npm install
 
 ### Development Mode
 ```bash
-npm run dev
+npm jalankan dev
 ```
 
 ### Production Mode
 ```bash
-npm start
+npm mulai
 ```
 
 ## ⚙️ Konfigurasi
 
-Edit file `config/settings.json` untuk menyesuaikan:
+Edit berkas `konfigurasi/pengaturan.json` untuk menyesuaikan:
 
-- **Proxy Settings**: Port, host, timeout, SSL
-- **Browser Search**: Search engines, rate limits
-- **API Gateway**: Version, authentication
+- **Proxy pengaturan**: Port, host, timeout, SSL
+- **Browser cari**: cari engines, rate limits
+- **API Gateway**: versi, autentikasi
 - **AI MCP**: Model endpoint, tokens, temperature
-- **AI System**: Models, fallback settings
-- **Routing**: Algorithm, health check interval
-- **Hosting**: Root directory, managed domains
-- **Logging**: Level, rotation settings
-- **Dashboard**: Port, authentication
+- **AI sistem**: Models, fallback pengaturan
+- **Routing**: Algorithm, health periksa interval
+- **Hosting**: akar direktori, managed domains
+- **Logging**: Level, rotation pengaturan
+- **papan-bilas**: Port, autentikasi
 
-## 📊 Dashboard Features
+## 📊 papan-bilas fitur
 
-Dashboard tersedia di `http://localhost:3000/dashboard` dengan fitur:
+papan-bilas tersedia di `http://localhost:3000/papan-bilas` dengan fitur:
 
-1. **Overview**: System status, uptime, connections, requests
-2. **Services**: Control services (start/stop/restart)
-3. **Statistics**: Response times, request volume
-4. **Configuration**: Edit system configuration
-5. **Logs**: View system logs in real-time
-6. **Settings**: Dashboard preferences
+1. **Overview**: sistem status, uptime, connections, requests
+2. **Services**: Control services (mulai/henti/restart)
+3. **Statistics**: jawaban times, permintaan volume
+4. **pengaturan**: Edit sistem pengaturan
+5. **catatan-catatan**: View sistem catatan-catatan in real-waktu
+6. **pengaturan**: papan-bilas preferences
 
 ## 🔐 Keamanan
 
-- Authentication untuk API endpoints
+- autentikasi untuk API endpoints
 - SSL/TLS support
 - Rate limiting
-- Request validation
+- permintaan validation
 - Secure headers (Helmet)
 
 ## 📝 Logging
 
 Sistem logging otomatis dengan:
-- Log rotation berdasarkan ukuran file
-- Multiple log levels (error, warn, info, debug)
+- catatan rotation berdasarkan ukuran berkas
+- Multiple catatan levels (galat, warn, info, debug)
 - JSON format untuk easy parsing
-- Console output
+- konsol keluaran
 
 ## 🛠️ API Endpoints
 
-### Search
-- `GET /search?q=query&engine=google`
-- `GET /search/engines`
+### cari
+- `GET /cari?q=kueri&engine=google`
+- `GET /cari/engines`
 
 ### API Gateway
-- `ALL /api/*`
+- `semua /api/*`
 - `GET /api/status`
 
 ### AI MCP
 - `POST /mcp`
-- `GET /mcp/config`
+- `GET /mcp/konfigurasi`
 - `GET /mcp/health`
 
-### AI System
+### AI sistem
 - `POST /ai/chat`
 - `GET /ai/models`
 - `POST /ai/compare`
 
 ### Routing
-- `ALL /route/*`
+- `semua /route/*`
 - `GET /route/status`
 - `POST /route/backend`
-- `DELETE /route/backend/:name`
+- `hapus /route/backend/:nama`
 
 ### Hosting
 - `GET /host/*`
-- `GET /host/config`
+- `GET /host/konfigurasi`
 - `GET /host/domains`
 - `POST /host/domain`
-- `DELETE /host/domain/:domain`
+- `hapus /host/domain/:domain`
 
-### Dashboard
-- `GET /dashboard`
-- `GET /dashboard/api/overview`
-- `GET /dashboard/api/stats`
-- `GET /dashboard/api/config`
-- `PUT /dashboard/api/config`
-- `POST /dashboard/api/service/:service/:action`
-- `GET /dashboard/api/logs`
-- `GET /dashboard/api/health`
+### papan-bilas
+- `GET /papan-bilas`
+- `GET /papan-bilas/api/overview`
+- `GET /papan-bilas/api/stats`
+- `GET /papan-bilas/api/konfigurasi`
+- `PUT /papan-bilas/api/konfigurasi`
+- `POST /papan-bilas/api/service/:service/:action`
+- `GET /papan-bilas/api/catatan-catatan`
+- `GET /papan-bilas/api/health`
 
 ## 📄 License
 
@@ -184,10 +184,10 @@ MIT License
 
 ## 👥 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are selamat-datang! Please feel free to submit a Pull permintaan.
 
 ---
 
-**Version**: 1.0.0  
+**versi**: 1.0.0  
 **Author**: ControlProxy Team  
 **Created**: 2024
